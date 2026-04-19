@@ -1,0 +1,5 @@
+> sendto 338781882 test
+
+📤 Sending "test" to user 338781882...
+Send error: Could not find the input entity for {"userId":"338781882","className":"PeerUser"}.
+         Please read https://docs.telethon.dev/en/stable/concepts/entities.html to find out more details.

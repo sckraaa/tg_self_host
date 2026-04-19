@@ -1,0 +1,97 @@
+services:
+
+  # ── MTProto backend ───────────────────────────────────────────────────────
+  backend:
+    build:
+      context: ./self_hosted_version
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      PORT: "8080"
+      TCP_PORT: "8443"
+      HOST: "0.0.0.0"
+      # External address returned in help.getConfig dc_options (IP or hostname)
+      DC_HOST: "${DC_HOST:-${DOMAIN}}"
+      # Absolute path inside the container — lives on the db_data volume
+      DB_PATH: /app/db/telegram.db
+      # Uploaded files (photos, documents) — separate volume for easy migration
+      FILES_DIR: /app/uploads
+      COTURN_HOST: "${DOMAIN}"
+      COTURN_PORT: "${COTURN_PORT:-3478}"
+      COTURN_USER: "${COTURN_USER:-pluma}"
+      COTURN_PASS: "${COTURN_PASS}"
+    volumes:
+      - db_data:/app/db          # SQLite database — back up before migration
+      - uploads_data:/app/uploads  # User-uploaded media files
+    ports:
+      - "8443:8443"              # TCP MTProto for native clients (iOS, Android)
+    networks:
+      - internal
+    healthcheck:
+      test:
+        - "CMD"
+        - "node"
+        - "-e"
+        - "require('http').get('http://localhost:8080/health', r => process.exit(r.statusCode===200?0:1)).on('error',()=>process.exit(1))"
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+
+  # ── Web client (nginx + built SPA) ────────────────────────────────────────
+  frontend:
+    build:
+      context: ./web_client
+      dockerfile: Dockerfile
+      args:
+        TELEGRAM_API_ID: "${TELEGRAM_API_ID}"
+        TELEGRAM_API_HASH: "${TELEGRAM_API_HASH}"
+        TELEGRAM_CUSTOM_SERVER: "${DOMAIN}"
+        TELEGRAM_CUSTOM_PORT: "443"
+        TELEGRAM_CUSTOM_PROTOCOL: "wss"
+        APP_NAME: "${APP_NAME:-pluma}"
+        APP_TITLE: "${APP_NAME:-pluma}"
+        APP_TME_LINK_PREFIX: "https://${DOMAIN}/"
+        APP_HOSTNAME: "${DOMAIN}"
+        APP_FEEDBACK_URL: ""
+        APP_FAQ_URL: ""
+        APP_PRIVACY_URL: ""
+        APP_MINI_APP_TOS_URL: ""
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # TLS certificates (managed by setup.sh / renew-certs.sh on the host)
+      - ./certs:/etc/nginx/certs:ro
+      # ACME challenge directory shared with certbot renewal script
+      - ./certbot_www:/var/www/certbot:ro
+      - frontend_logs:/var/log/nginx
+    depends_on:
+      backend:
+        condition: service_healthy
+    networks:
+      - internal
+      - external
+
+  # ── coturn STUN/TURN server ───────────────────────────────────────────────
+  coturn:
+    image: coturn/coturn:latest
+    restart: unless-stopped
+    network_mode: host          # needs host networking for ICE to work correctly
+    volumes:
+      - ./coturn/turnserver.conf:/etc/coturn/turnserver.conf:ro
+      - coturn_logs:/var/log/coturn
+    command: ["-c", "/etc/coturn/turnserver.conf"]
+
+# ── Named volumes (each can be backed up / migrated independently) ─────────
+volumes:
+  db_data:       # SQLite DB file — primary data store
+  uploads_data:  # User-uploaded files (photos, documents, voice)
+  frontend_logs:
+  coturn_logs:
+
+networks:
+  internal:
+  external:

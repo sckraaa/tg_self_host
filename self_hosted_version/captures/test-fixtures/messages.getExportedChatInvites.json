@@ -1,0 +1,408 @@
+{
+  "method": "messages.getExportedChatInvites",
+  "capturedAt": "2026-04-10T16:16:23.982Z",
+  "request": {
+    "__className": "messages.GetExportedChatInvites",
+    "__constructorId": 2729812982,
+    "className": "messages.GetExportedChatInvites",
+    "originalArgs": {
+      "peer": {
+        "__className": "InputPeerChannel",
+        "__constructorId": 666680316,
+        "className": "InputPeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "3959286856"
+          },
+          "accessHash": {
+            "value": "-6399249537774943740"
+          }
+        },
+        "channelId": {
+          "value": "3959286856"
+        },
+        "accessHash": {
+          "value": "-6399249537774943740"
+        }
+      },
+      "adminId": {
+        "__className": "InputUserSelf",
+        "__constructorId": 4156666175,
+        "className": "InputUserSelf",
+        "originalArgs": {}
+      },
+      "limit": 10
+    },
+    "peer": {
+      "__className": "InputPeerChannel",
+      "__constructorId": 666680316,
+      "className": "InputPeerChannel",
+      "originalArgs": {
+        "channelId": {
+          "value": "3959286856"
+        },
+        "accessHash": {
+          "value": "-6399249537774943740"
+        }
+      },
+      "channelId": {
+        "value": "3959286856"
+      },
+      "accessHash": {
+        "value": "-6399249537774943740"
+      }
+    },
+    "adminId": {
+      "__className": "InputUserSelf",
+      "__constructorId": 4156666175,
+      "className": "InputUserSelf",
+      "originalArgs": {}
+    },
+    "limit": 10
+  },
+  "response": {
+    "__className": "messages.ExportedChatInvites",
+    "__constructorId": 3183881676,
+    "className": "messages.ExportedChatInvites",
+    "originalArgs": {
+      "count": 1,
+      "invites": [
+        {
+          "__className": "ChatInviteExported",
+          "__constructorId": 2720841110,
+          "className": "ChatInviteExported",
+          "originalArgs": {
+            "flags": 32,
+            "revoked": false,
+            "permanent": true,
+            "requestNeeded": false,
+            "link": "https://t.me/+gNhlHI_jISUyMzYx",
+            "adminId": {
+              "value": "6340886702"
+            },
+            "date": 1775837782,
+            "startDate": null,
+            "expireDate": null,
+            "usageLimit": null,
+            "usage": null,
+            "requested": null,
+            "subscriptionExpired": null,
+            "title": null,
+            "subscriptionPricing": null
+          },
+          "flags": 32,
+          "revoked": false,
+          "permanent": true,
+          "requestNeeded": false,
+          "link": "https://t.me/+gNhlHI_jISUyMzYx",
+          "adminId": {
+            "value": "6340886702"
+          },
+          "date": 1775837782,
+          "startDate": null,
+          "expireDate": null,
+          "usageLimit": null,
+          "usage": null,
+          "requested": null,
+          "subscriptionExpired": null,
+          "title": null,
+          "subscriptionPricing": null
+        }
+      ],
+      "users": [
+        {
+          "__className": "User",
+          "__constructorId": 1262928766,
+          "className": "User",
+          "originalArgs": {
+            "flags": 33555547,
+            "self": true,
+            "contact": false,
+            "mutualContact": false,
+            "deleted": false,
+            "bot": false,
+            "botChatHistory": false,
+            "botNochats": false,
+            "verified": false,
+            "restricted": false,
+            "min": false,
+            "botInlineGeo": false,
+            "support": false,
+            "scam": false,
+            "applyMinPhoto": true,
+            "fake": false,
+            "botAttachMenu": false,
+            "premium": false,
+            "attachMenuEnabled": false,
+            "flags2": 16,
+            "botCanEdit": false,
+            "closeFriend": false,
+            "storiesHidden": false,
+            "storiesUnavailable": true,
+            "contactRequirePremium": false,
+            "botBusiness": false,
+            "botHasMainApp": false,
+            "id": {
+              "value": "6340886702"
+            },
+            "accessHash": {
+              "value": "-2827396686645499657"
+            },
+            "firstName": "🤷",
+            "lastName": null,
+            "username": "user28738229",
+            "phone": "17799037329",
+            "photo": null,
+            "status": {
+              "__className": "UserStatusOnline",
+              "__constructorId": 3988339017,
+              "className": "UserStatusOnline",
+              "originalArgs": {
+                "expires": 1775838054
+              },
+              "expires": 1775838054
+            },
+            "botInfoVersion": null,
+            "restrictionReason": null,
+            "botInlinePlaceholder": null,
+            "langCode": null,
+            "emojiStatus": null,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "botActiveUsers": null,
+            "botVerificationIcon": null
+          },
+          "flags": 33555547,
+          "self": true,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "6340886702"
+          },
+          "accessHash": {
+            "value": "-2827396686645499657"
+          },
+          "firstName": "🤷",
+          "lastName": null,
+          "username": "user28738229",
+          "phone": "17799037329",
+          "photo": null,
+          "status": {
+            "__className": "UserStatusOnline",
+            "__constructorId": 3988339017,
+            "className": "UserStatusOnline",
+            "originalArgs": {
+              "expires": 1775838054
+            },
+            "expires": 1775838054
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        }
+      ]
+    },
+    "count": 1,
+    "invites": [
+      {
+        "__className": "ChatInviteExported",
+        "__constructorId": 2720841110,
+        "className": "ChatInviteExported",
+        "originalArgs": {
+          "flags": 32,
+          "revoked": false,
+          "permanent": true,
+          "requestNeeded": false,
+          "link": "https://t.me/+gNhlHI_jISUyMzYx",
+          "adminId": {
+            "value": "6340886702"
+          },
+          "date": 1775837782,
+          "startDate": null,
+          "expireDate": null,
+          "usageLimit": null,
+          "usage": null,
+          "requested": null,
+          "subscriptionExpired": null,
+          "title": null,
+          "subscriptionPricing": null
+        },
+        "flags": 32,
+        "revoked": false,
+        "permanent": true,
+        "requestNeeded": false,
+        "link": "https://t.me/+gNhlHI_jISUyMzYx",
+        "adminId": {
+          "value": "6340886702"
+        },
+        "date": 1775837782,
+        "startDate": null,
+        "expireDate": null,
+        "usageLimit": null,
+        "usage": null,
+        "requested": null,
+        "subscriptionExpired": null,
+        "title": null,
+        "subscriptionPricing": null
+      }
+    ],
+    "users": [
+      {
+        "__className": "User",
+        "__constructorId": 1262928766,
+        "className": "User",
+        "originalArgs": {
+          "flags": 33555547,
+          "self": true,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "6340886702"
+          },
+          "accessHash": {
+            "value": "-2827396686645499657"
+          },
+          "firstName": "🤷",
+          "lastName": null,
+          "username": "user28738229",
+          "phone": "17799037329",
+          "photo": null,
+          "status": {
+            "__className": "UserStatusOnline",
+            "__constructorId": 3988339017,
+            "className": "UserStatusOnline",
+            "originalArgs": {
+              "expires": 1775838054
+            },
+            "expires": 1775838054
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 33555547,
+        "self": true,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "6340886702"
+        },
+        "accessHash": {
+          "value": "-2827396686645499657"
+        },
+        "firstName": "🤷",
+        "lastName": null,
+        "username": "user28738229",
+        "phone": "17799037329",
+        "photo": null,
+        "status": {
+          "__className": "UserStatusOnline",
+          "__constructorId": 3988339017,
+          "className": "UserStatusOnline",
+          "originalArgs": {
+            "expires": 1775838054
+          },
+          "expires": 1775838054
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      }
+    ]
+  }
+}

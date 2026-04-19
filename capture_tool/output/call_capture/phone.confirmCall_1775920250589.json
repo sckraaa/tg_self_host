@@ -1,0 +1,1541 @@
+{
+  "_class": "phone.PhoneCall",
+  "_cid": "0xec82e140",
+  "className": "phone.PhoneCall",
+  "originalArgs": {
+    "phoneCall": {
+      "_class": "PhoneCall",
+      "_cid": "0x3ba5940c",
+      "className": "PhoneCall",
+      "originalArgs": {
+        "flags": 0,
+        "p2pAllowed": false,
+        "video": false,
+        "id": {
+          "value": "BigInt(1455057103897009316)"
+        },
+        "accessHash": {
+          "value": "BigInt(885897142498115767)"
+        },
+        "date": 1775920239,
+        "adminId": {
+          "value": "BigInt(338781882)"
+        },
+        "participantId": {
+          "value": "BigInt(6340886702)"
+        },
+        "gAOrB": "Buffer(256)[32f9d6b5acfa9dc01fbda01c762d730c1f0f040e293e2eb5672fbf5a1cee444fc7f55df99e31c81d65b86573659c28acb6816eb1cb91038f5ceb901a8cba4f9436146a3421d7bc4e2f6c06bc1c67934f3ab1b18d991dd8a6ad8df8baaa22df4adc7245f224e0c50b5b3173ad88d785cda696533e5408985c600248edd592c14e]",
+        "keyFingerprint": {
+          "value": "BigInt(-5328125903553406128)"
+        },
+        "protocol": {
+          "_class": "PhoneCallProtocol",
+          "_cid": "0xfc878fc8",
+          "className": "PhoneCallProtocol",
+          "originalArgs": {
+            "flags": 3,
+            "udpP2p": true,
+            "udpReflector": true,
+            "minLayer": 65,
+            "maxLayer": 92,
+            "libraryVersions": [
+              "5.0.0"
+            ]
+          },
+          "flags": 3,
+          "udpP2p": true,
+          "udpReflector": true,
+          "minLayer": 65,
+          "maxLayer": 92,
+          "libraryVersions": [
+            "5.0.0"
+          ]
+        },
+        "connections": [
+          {
+            "_class": "PhoneConnectionWebrtc",
+            "_cid": "0x635fe375",
+            "className": "PhoneConnectionWebrtc",
+            "originalArgs": {
+              "flags": 3,
+              "turn": true,
+              "stun": true,
+              "id": {
+                "value": "BigInt(6014488021322)"
+              },
+              "ip": "91.108.9.74",
+              "ipv6": "2001:67c:4e8:f102:4:0:285:10",
+              "port": 1400,
+              "username": "1775941850:ba9dd4a31246c920b8",
+              "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+            },
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488021322)"
+            },
+            "ip": "91.108.9.74",
+            "ipv6": "2001:67c:4e8:f102:4:0:285:10",
+            "port": 1400,
+            "username": "1775941850:ba9dd4a31246c920b8",
+            "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+          },
+          {
+            "_class": "PhoneConnectionWebrtc",
+            "_cid": "0x635fe375",
+            "className": "PhoneConnectionWebrtc",
+            "originalArgs": {
+              "flags": 3,
+              "turn": true,
+              "stun": true,
+              "id": {
+                "value": "BigInt(6014488022307)"
+              },
+              "ip": "91.108.13.35",
+              "ipv6": "2001:b28:f23d:f101:2:0:116:913",
+              "port": 1400,
+              "username": "1775941850:ba9dd4a31246c920b8",
+              "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+            },
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488022307)"
+            },
+            "ip": "91.108.13.35",
+            "ipv6": "2001:b28:f23d:f101:2:0:116:913",
+            "port": 1400,
+            "username": "1775941850:ba9dd4a31246c920b8",
+            "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+          },
+          {
+            "_class": "PhoneConnectionWebrtc",
+            "_cid": "0x635fe375",
+            "className": "PhoneConnectionWebrtc",
+            "originalArgs": {
+              "flags": 3,
+              "turn": true,
+              "stun": true,
+              "id": {
+                "value": "BigInt(6014488023299)"
+              },
+              "ip": "91.108.17.3",
+              "ipv6": "2001:b28:f23f:f105::861:803",
+              "port": 1400,
+              "username": "1775941850:ba9dd4a31246c920b8",
+              "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+            },
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488023299)"
+            },
+            "ip": "91.108.17.3",
+            "ipv6": "2001:b28:f23f:f105::861:803",
+            "port": 1400,
+            "username": "1775941850:ba9dd4a31246c920b8",
+            "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+          },
+          {
+            "_class": "PhoneConnection",
+            "_cid": "0x9cc123c7",
+            "className": "PhoneConnection",
+            "originalArgs": {
+              "flags": 0,
+              "tcp": false,
+              "id": {
+                "value": "BigInt(2561334315347)"
+              },
+              "ip": "91.108.9.83",
+              "ipv6": "2001:67c:4e8:f102:5:0:285:103",
+              "port": 596,
+              "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+            },
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2561334315347)"
+            },
+            "ip": "91.108.9.83",
+            "ipv6": "2001:67c:4e8:f102:5:0:285:103",
+            "port": 596,
+            "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+          },
+          {
+            "_class": "PhoneConnection",
+            "_cid": "0x9cc123c7",
+            "className": "PhoneConnection",
+            "originalArgs": {
+              "flags": 0,
+              "tcp": false,
+              "id": {
+                "value": "BigInt(2565629283619)"
+              },
+              "ip": "91.108.13.35",
+              "ipv6": "2001:b28:f23d:f101:2:0:116:913",
+              "port": 597,
+              "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+            },
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2565629283619)"
+            },
+            "ip": "91.108.13.35",
+            "ipv6": "2001:b28:f23d:f101:2:0:116:913",
+            "port": 597,
+            "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+          },
+          {
+            "_class": "PhoneConnection",
+            "_cid": "0x9cc123c7",
+            "className": "PhoneConnection",
+            "originalArgs": {
+              "flags": 0,
+              "tcp": false,
+              "id": {
+                "value": "BigInt(2565629284629)"
+              },
+              "ip": "91.108.17.21",
+              "ipv6": "2001:b28:f23f:f105:1:0:861:905",
+              "port": 597,
+              "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+            },
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2565629284629)"
+            },
+            "ip": "91.108.17.21",
+            "ipv6": "2001:b28:f23f:f105:1:0:861:905",
+            "port": 597,
+            "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+          }
+        ],
+        "startDate": 1775920250,
+        "customParameters": null,
+        "conferenceCall": null
+      },
+      "flags": 0,
+      "p2pAllowed": false,
+      "video": false,
+      "id": {
+        "value": "BigInt(1455057103897009316)"
+      },
+      "accessHash": {
+        "value": "BigInt(885897142498115767)"
+      },
+      "date": 1775920239,
+      "adminId": {
+        "value": "BigInt(338781882)"
+      },
+      "participantId": {
+        "value": "BigInt(6340886702)"
+      },
+      "gAOrB": "Buffer(256)[32f9d6b5acfa9dc01fbda01c762d730c1f0f040e293e2eb5672fbf5a1cee444fc7f55df99e31c81d65b86573659c28acb6816eb1cb91038f5ceb901a8cba4f9436146a3421d7bc4e2f6c06bc1c67934f3ab1b18d991dd8a6ad8df8baaa22df4adc7245f224e0c50b5b3173ad88d785cda696533e5408985c600248edd592c14e]",
+      "keyFingerprint": {
+        "value": "BigInt(-5328125903553406128)"
+      },
+      "protocol": {
+        "_class": "PhoneCallProtocol",
+        "_cid": "0xfc878fc8",
+        "className": "PhoneCallProtocol",
+        "originalArgs": {
+          "flags": 3,
+          "udpP2p": true,
+          "udpReflector": true,
+          "minLayer": 65,
+          "maxLayer": 92,
+          "libraryVersions": [
+            "5.0.0"
+          ]
+        },
+        "flags": 3,
+        "udpP2p": true,
+        "udpReflector": true,
+        "minLayer": 65,
+        "maxLayer": 92,
+        "libraryVersions": [
+          "5.0.0"
+        ]
+      },
+      "connections": [
+        {
+          "_class": "PhoneConnectionWebrtc",
+          "_cid": "0x635fe375",
+          "className": "PhoneConnectionWebrtc",
+          "originalArgs": {
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488021322)"
+            },
+            "ip": "91.108.9.74",
+            "ipv6": "2001:67c:4e8:f102:4:0:285:10",
+            "port": 1400,
+            "username": "1775941850:ba9dd4a31246c920b8",
+            "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+          },
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488021322)"
+          },
+          "ip": "91.108.9.74",
+          "ipv6": "2001:67c:4e8:f102:4:0:285:10",
+          "port": 1400,
+          "username": "1775941850:ba9dd4a31246c920b8",
+          "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+        },
+        {
+          "_class": "PhoneConnectionWebrtc",
+          "_cid": "0x635fe375",
+          "className": "PhoneConnectionWebrtc",
+          "originalArgs": {
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488022307)"
+            },
+            "ip": "91.108.13.35",
+            "ipv6": "2001:b28:f23d:f101:2:0:116:913",
+            "port": 1400,
+            "username": "1775941850:ba9dd4a31246c920b8",
+            "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+          },
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488022307)"
+          },
+          "ip": "91.108.13.35",
+          "ipv6": "2001:b28:f23d:f101:2:0:116:913",
+          "port": 1400,
+          "username": "1775941850:ba9dd4a31246c920b8",
+          "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+        },
+        {
+          "_class": "PhoneConnectionWebrtc",
+          "_cid": "0x635fe375",
+          "className": "PhoneConnectionWebrtc",
+          "originalArgs": {
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488023299)"
+            },
+            "ip": "91.108.17.3",
+            "ipv6": "2001:b28:f23f:f105::861:803",
+            "port": 1400,
+            "username": "1775941850:ba9dd4a31246c920b8",
+            "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+          },
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488023299)"
+          },
+          "ip": "91.108.17.3",
+          "ipv6": "2001:b28:f23f:f105::861:803",
+          "port": 1400,
+          "username": "1775941850:ba9dd4a31246c920b8",
+          "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+        },
+        {
+          "_class": "PhoneConnection",
+          "_cid": "0x9cc123c7",
+          "className": "PhoneConnection",
+          "originalArgs": {
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2561334315347)"
+            },
+            "ip": "91.108.9.83",
+            "ipv6": "2001:67c:4e8:f102:5:0:285:103",
+            "port": 596,
+            "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+          },
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2561334315347)"
+          },
+          "ip": "91.108.9.83",
+          "ipv6": "2001:67c:4e8:f102:5:0:285:103",
+          "port": 596,
+          "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+        },
+        {
+          "_class": "PhoneConnection",
+          "_cid": "0x9cc123c7",
+          "className": "PhoneConnection",
+          "originalArgs": {
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2565629283619)"
+            },
+            "ip": "91.108.13.35",
+            "ipv6": "2001:b28:f23d:f101:2:0:116:913",
+            "port": 597,
+            "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+          },
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2565629283619)"
+          },
+          "ip": "91.108.13.35",
+          "ipv6": "2001:b28:f23d:f101:2:0:116:913",
+          "port": 597,
+          "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+        },
+        {
+          "_class": "PhoneConnection",
+          "_cid": "0x9cc123c7",
+          "className": "PhoneConnection",
+          "originalArgs": {
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2565629284629)"
+            },
+            "ip": "91.108.17.21",
+            "ipv6": "2001:b28:f23f:f105:1:0:861:905",
+            "port": 597,
+            "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+          },
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2565629284629)"
+          },
+          "ip": "91.108.17.21",
+          "ipv6": "2001:b28:f23f:f105:1:0:861:905",
+          "port": 597,
+          "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+        }
+      ],
+      "startDate": 1775920250,
+      "customParameters": null,
+      "conferenceCall": null
+    },
+    "users": [
+      {
+        "_class": "User",
+        "_cid": "0x4b46c37e",
+        "className": "User",
+        "originalArgs": {
+          "flags": 7291,
+          "self": true,
+          "contact": true,
+          "mutualContact": true,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": false,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "BigInt(338781882)"
+          },
+          "accessHash": {
+            "value": "BigInt(8149856360308091398)"
+          },
+          "firstName": "ㅤ",
+          "lastName": null,
+          "username": "sckr_a",
+          "phone": "77760337766",
+          "photo": {
+            "_class": "UserProfilePhoto",
+            "_cid": "0x82d1f706",
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 3,
+              "hasVideo": true,
+              "personal": false,
+              "photoId": {
+                "value": "BigInt(1455057104123570112)"
+              },
+              "strippedThumb": "Buffer(18)[010808af15c062be7025875c0eb451453b81]",
+              "dcId": 2
+            },
+            "flags": 3,
+            "hasVideo": true,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(1455057104123570112)"
+            },
+            "strippedThumb": "Buffer(18)[010808af15c062be7025875c0eb451453b81]",
+            "dcId": 2
+          },
+          "status": {
+            "_class": "UserStatusOnline",
+            "_cid": "0xedb93949",
+            "className": "UserStatusOnline",
+            "originalArgs": {
+              "expires": 1775920382
+            },
+            "expires": 1775920382
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 7291,
+        "self": true,
+        "contact": true,
+        "mutualContact": true,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": false,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(338781882)"
+        },
+        "accessHash": {
+          "value": "BigInt(8149856360308091398)"
+        },
+        "firstName": "ㅤ",
+        "lastName": null,
+        "username": "sckr_a",
+        "phone": "77760337766",
+        "photo": {
+          "_class": "UserProfilePhoto",
+          "_cid": "0x82d1f706",
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 3,
+            "hasVideo": true,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(1455057104123570112)"
+            },
+            "strippedThumb": "Buffer(18)[010808af15c062be7025875c0eb451453b81]",
+            "dcId": 2
+          },
+          "flags": 3,
+          "hasVideo": true,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(1455057104123570112)"
+          },
+          "strippedThumb": "Buffer(18)[010808af15c062be7025875c0eb451453b81]",
+          "dcId": 2
+        },
+        "status": {
+          "_class": "UserStatusOnline",
+          "_cid": "0xedb93949",
+          "className": "UserStatusOnline",
+          "originalArgs": {
+            "expires": 1775920382
+          },
+          "expires": 1775920382
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      {
+        "_class": "User",
+        "_cid": "0x4b46c37e",
+        "className": "User",
+        "originalArgs": {
+          "flags": 33554531,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "BigInt(6340886702)"
+          },
+          "accessHash": {
+            "value": "BigInt(5979600566354258293)"
+          },
+          "firstName": "🤷",
+          "lastName": null,
+          "username": null,
+          "phone": null,
+          "photo": {
+            "_class": "UserProfilePhoto",
+            "_cid": "0x82d1f706",
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "BigInt(5103009275159710925)"
+              },
+              "strippedThumb": "Buffer(16)[010808cbdd084fb8c5b1d49a28a2803f]",
+              "dcId": 1
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(5103009275159710925)"
+            },
+            "strippedThumb": "Buffer(16)[010808cbdd084fb8c5b1d49a28a2803f]",
+            "dcId": 1
+          },
+          "status": {
+            "_class": "UserStatusRecently",
+            "_cid": "0x7b197dc8",
+            "className": "UserStatusRecently",
+            "originalArgs": {
+              "flags": 0,
+              "byMe": false
+            },
+            "flags": 0,
+            "byMe": false
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 33554531,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(6340886702)"
+        },
+        "accessHash": {
+          "value": "BigInt(5979600566354258293)"
+        },
+        "firstName": "🤷",
+        "lastName": null,
+        "username": null,
+        "phone": null,
+        "photo": {
+          "_class": "UserProfilePhoto",
+          "_cid": "0x82d1f706",
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(5103009275159710925)"
+            },
+            "strippedThumb": "Buffer(16)[010808cbdd084fb8c5b1d49a28a2803f]",
+            "dcId": 1
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(5103009275159710925)"
+          },
+          "strippedThumb": "Buffer(16)[010808cbdd084fb8c5b1d49a28a2803f]",
+          "dcId": 1
+        },
+        "status": {
+          "_class": "UserStatusRecently",
+          "_cid": "0x7b197dc8",
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 0,
+            "byMe": false
+          },
+          "flags": 0,
+          "byMe": false
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      }
+    ]
+  },
+  "phoneCall": {
+    "_class": "PhoneCall",
+    "_cid": "0x3ba5940c",
+    "className": "PhoneCall",
+    "originalArgs": {
+      "flags": 0,
+      "p2pAllowed": false,
+      "video": false,
+      "id": {
+        "value": "BigInt(1455057103897009316)"
+      },
+      "accessHash": {
+        "value": "BigInt(885897142498115767)"
+      },
+      "date": 1775920239,
+      "adminId": {
+        "value": "BigInt(338781882)"
+      },
+      "participantId": {
+        "value": "BigInt(6340886702)"
+      },
+      "gAOrB": "Buffer(256)[32f9d6b5acfa9dc01fbda01c762d730c1f0f040e293e2eb5672fbf5a1cee444fc7f55df99e31c81d65b86573659c28acb6816eb1cb91038f5ceb901a8cba4f9436146a3421d7bc4e2f6c06bc1c67934f3ab1b18d991dd8a6ad8df8baaa22df4adc7245f224e0c50b5b3173ad88d785cda696533e5408985c600248edd592c14e]",
+      "keyFingerprint": {
+        "value": "BigInt(-5328125903553406128)"
+      },
+      "protocol": {
+        "_class": "PhoneCallProtocol",
+        "_cid": "0xfc878fc8",
+        "className": "PhoneCallProtocol",
+        "originalArgs": {
+          "flags": 3,
+          "udpP2p": true,
+          "udpReflector": true,
+          "minLayer": 65,
+          "maxLayer": 92,
+          "libraryVersions": [
+            "5.0.0"
+          ]
+        },
+        "flags": 3,
+        "udpP2p": true,
+        "udpReflector": true,
+        "minLayer": 65,
+        "maxLayer": 92,
+        "libraryVersions": [
+          "5.0.0"
+        ]
+      },
+      "connections": [
+        {
+          "_class": "PhoneConnectionWebrtc",
+          "_cid": "0x635fe375",
+          "className": "PhoneConnectionWebrtc",
+          "originalArgs": {
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488021322)"
+            },
+            "ip": "91.108.9.74",
+            "ipv6": "2001:67c:4e8:f102:4:0:285:10",
+            "port": 1400,
+            "username": "1775941850:ba9dd4a31246c920b8",
+            "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+          },
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488021322)"
+          },
+          "ip": "91.108.9.74",
+          "ipv6": "2001:67c:4e8:f102:4:0:285:10",
+          "port": 1400,
+          "username": "1775941850:ba9dd4a31246c920b8",
+          "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+        },
+        {
+          "_class": "PhoneConnectionWebrtc",
+          "_cid": "0x635fe375",
+          "className": "PhoneConnectionWebrtc",
+          "originalArgs": {
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488022307)"
+            },
+            "ip": "91.108.13.35",
+            "ipv6": "2001:b28:f23d:f101:2:0:116:913",
+            "port": 1400,
+            "username": "1775941850:ba9dd4a31246c920b8",
+            "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+          },
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488022307)"
+          },
+          "ip": "91.108.13.35",
+          "ipv6": "2001:b28:f23d:f101:2:0:116:913",
+          "port": 1400,
+          "username": "1775941850:ba9dd4a31246c920b8",
+          "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+        },
+        {
+          "_class": "PhoneConnectionWebrtc",
+          "_cid": "0x635fe375",
+          "className": "PhoneConnectionWebrtc",
+          "originalArgs": {
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488023299)"
+            },
+            "ip": "91.108.17.3",
+            "ipv6": "2001:b28:f23f:f105::861:803",
+            "port": 1400,
+            "username": "1775941850:ba9dd4a31246c920b8",
+            "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+          },
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488023299)"
+          },
+          "ip": "91.108.17.3",
+          "ipv6": "2001:b28:f23f:f105::861:803",
+          "port": 1400,
+          "username": "1775941850:ba9dd4a31246c920b8",
+          "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+        },
+        {
+          "_class": "PhoneConnection",
+          "_cid": "0x9cc123c7",
+          "className": "PhoneConnection",
+          "originalArgs": {
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2561334315347)"
+            },
+            "ip": "91.108.9.83",
+            "ipv6": "2001:67c:4e8:f102:5:0:285:103",
+            "port": 596,
+            "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+          },
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2561334315347)"
+          },
+          "ip": "91.108.9.83",
+          "ipv6": "2001:67c:4e8:f102:5:0:285:103",
+          "port": 596,
+          "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+        },
+        {
+          "_class": "PhoneConnection",
+          "_cid": "0x9cc123c7",
+          "className": "PhoneConnection",
+          "originalArgs": {
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2565629283619)"
+            },
+            "ip": "91.108.13.35",
+            "ipv6": "2001:b28:f23d:f101:2:0:116:913",
+            "port": 597,
+            "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+          },
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2565629283619)"
+          },
+          "ip": "91.108.13.35",
+          "ipv6": "2001:b28:f23d:f101:2:0:116:913",
+          "port": 597,
+          "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+        },
+        {
+          "_class": "PhoneConnection",
+          "_cid": "0x9cc123c7",
+          "className": "PhoneConnection",
+          "originalArgs": {
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2565629284629)"
+            },
+            "ip": "91.108.17.21",
+            "ipv6": "2001:b28:f23f:f105:1:0:861:905",
+            "port": 597,
+            "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+          },
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2565629284629)"
+          },
+          "ip": "91.108.17.21",
+          "ipv6": "2001:b28:f23f:f105:1:0:861:905",
+          "port": 597,
+          "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+        }
+      ],
+      "startDate": 1775920250,
+      "customParameters": null,
+      "conferenceCall": null
+    },
+    "flags": 0,
+    "p2pAllowed": false,
+    "video": false,
+    "id": {
+      "value": "BigInt(1455057103897009316)"
+    },
+    "accessHash": {
+      "value": "BigInt(885897142498115767)"
+    },
+    "date": 1775920239,
+    "adminId": {
+      "value": "BigInt(338781882)"
+    },
+    "participantId": {
+      "value": "BigInt(6340886702)"
+    },
+    "gAOrB": "Buffer(256)[32f9d6b5acfa9dc01fbda01c762d730c1f0f040e293e2eb5672fbf5a1cee444fc7f55df99e31c81d65b86573659c28acb6816eb1cb91038f5ceb901a8cba4f9436146a3421d7bc4e2f6c06bc1c67934f3ab1b18d991dd8a6ad8df8baaa22df4adc7245f224e0c50b5b3173ad88d785cda696533e5408985c600248edd592c14e]",
+    "keyFingerprint": {
+      "value": "BigInt(-5328125903553406128)"
+    },
+    "protocol": {
+      "_class": "PhoneCallProtocol",
+      "_cid": "0xfc878fc8",
+      "className": "PhoneCallProtocol",
+      "originalArgs": {
+        "flags": 3,
+        "udpP2p": true,
+        "udpReflector": true,
+        "minLayer": 65,
+        "maxLayer": 92,
+        "libraryVersions": [
+          "5.0.0"
+        ]
+      },
+      "flags": 3,
+      "udpP2p": true,
+      "udpReflector": true,
+      "minLayer": 65,
+      "maxLayer": 92,
+      "libraryVersions": [
+        "5.0.0"
+      ]
+    },
+    "connections": [
+      {
+        "_class": "PhoneConnectionWebrtc",
+        "_cid": "0x635fe375",
+        "className": "PhoneConnectionWebrtc",
+        "originalArgs": {
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488021322)"
+          },
+          "ip": "91.108.9.74",
+          "ipv6": "2001:67c:4e8:f102:4:0:285:10",
+          "port": 1400,
+          "username": "1775941850:ba9dd4a31246c920b8",
+          "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+        },
+        "flags": 3,
+        "turn": true,
+        "stun": true,
+        "id": {
+          "value": "BigInt(6014488021322)"
+        },
+        "ip": "91.108.9.74",
+        "ipv6": "2001:67c:4e8:f102:4:0:285:10",
+        "port": 1400,
+        "username": "1775941850:ba9dd4a31246c920b8",
+        "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+      },
+      {
+        "_class": "PhoneConnectionWebrtc",
+        "_cid": "0x635fe375",
+        "className": "PhoneConnectionWebrtc",
+        "originalArgs": {
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488022307)"
+          },
+          "ip": "91.108.13.35",
+          "ipv6": "2001:b28:f23d:f101:2:0:116:913",
+          "port": 1400,
+          "username": "1775941850:ba9dd4a31246c920b8",
+          "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+        },
+        "flags": 3,
+        "turn": true,
+        "stun": true,
+        "id": {
+          "value": "BigInt(6014488022307)"
+        },
+        "ip": "91.108.13.35",
+        "ipv6": "2001:b28:f23d:f101:2:0:116:913",
+        "port": 1400,
+        "username": "1775941850:ba9dd4a31246c920b8",
+        "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+      },
+      {
+        "_class": "PhoneConnectionWebrtc",
+        "_cid": "0x635fe375",
+        "className": "PhoneConnectionWebrtc",
+        "originalArgs": {
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488023299)"
+          },
+          "ip": "91.108.17.3",
+          "ipv6": "2001:b28:f23f:f105::861:803",
+          "port": 1400,
+          "username": "1775941850:ba9dd4a31246c920b8",
+          "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+        },
+        "flags": 3,
+        "turn": true,
+        "stun": true,
+        "id": {
+          "value": "BigInt(6014488023299)"
+        },
+        "ip": "91.108.17.3",
+        "ipv6": "2001:b28:f23f:f105::861:803",
+        "port": 1400,
+        "username": "1775941850:ba9dd4a31246c920b8",
+        "password": "RMOKxjBe2MhoPHqoJVmiRrEyTRM="
+      },
+      {
+        "_class": "PhoneConnection",
+        "_cid": "0x9cc123c7",
+        "className": "PhoneConnection",
+        "originalArgs": {
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2561334315347)"
+          },
+          "ip": "91.108.9.83",
+          "ipv6": "2001:67c:4e8:f102:5:0:285:103",
+          "port": 596,
+          "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+        },
+        "flags": 0,
+        "tcp": false,
+        "id": {
+          "value": "BigInt(2561334315347)"
+        },
+        "ip": "91.108.9.83",
+        "ipv6": "2001:67c:4e8:f102:5:0:285:103",
+        "port": 596,
+        "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+      },
+      {
+        "_class": "PhoneConnection",
+        "_cid": "0x9cc123c7",
+        "className": "PhoneConnection",
+        "originalArgs": {
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2565629283619)"
+          },
+          "ip": "91.108.13.35",
+          "ipv6": "2001:b28:f23d:f101:2:0:116:913",
+          "port": 597,
+          "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+        },
+        "flags": 0,
+        "tcp": false,
+        "id": {
+          "value": "BigInt(2565629283619)"
+        },
+        "ip": "91.108.13.35",
+        "ipv6": "2001:b28:f23d:f101:2:0:116:913",
+        "port": 597,
+        "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+      },
+      {
+        "_class": "PhoneConnection",
+        "_cid": "0x9cc123c7",
+        "className": "PhoneConnection",
+        "originalArgs": {
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2565629284629)"
+          },
+          "ip": "91.108.17.21",
+          "ipv6": "2001:b28:f23f:f105:1:0:861:905",
+          "port": 597,
+          "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+        },
+        "flags": 0,
+        "tcp": false,
+        "id": {
+          "value": "BigInt(2565629284629)"
+        },
+        "ip": "91.108.17.21",
+        "ipv6": "2001:b28:f23f:f105:1:0:861:905",
+        "port": 597,
+        "peerTag": "Buffer(16)[c03ece1a6eb7ec8bb17758b2fce85d70]"
+      }
+    ],
+    "startDate": 1775920250,
+    "customParameters": null,
+    "conferenceCall": null
+  },
+  "users": [
+    {
+      "_class": "User",
+      "_cid": "0x4b46c37e",
+      "className": "User",
+      "originalArgs": {
+        "flags": 7291,
+        "self": true,
+        "contact": true,
+        "mutualContact": true,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": false,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(338781882)"
+        },
+        "accessHash": {
+          "value": "BigInt(8149856360308091398)"
+        },
+        "firstName": "ㅤ",
+        "lastName": null,
+        "username": "sckr_a",
+        "phone": "77760337766",
+        "photo": {
+          "_class": "UserProfilePhoto",
+          "_cid": "0x82d1f706",
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 3,
+            "hasVideo": true,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(1455057104123570112)"
+            },
+            "strippedThumb": "Buffer(18)[010808af15c062be7025875c0eb451453b81]",
+            "dcId": 2
+          },
+          "flags": 3,
+          "hasVideo": true,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(1455057104123570112)"
+          },
+          "strippedThumb": "Buffer(18)[010808af15c062be7025875c0eb451453b81]",
+          "dcId": 2
+        },
+        "status": {
+          "_class": "UserStatusOnline",
+          "_cid": "0xedb93949",
+          "className": "UserStatusOnline",
+          "originalArgs": {
+            "expires": 1775920382
+          },
+          "expires": 1775920382
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      "flags": 7291,
+      "self": true,
+      "contact": true,
+      "mutualContact": true,
+      "deleted": false,
+      "bot": false,
+      "botChatHistory": false,
+      "botNochats": false,
+      "verified": false,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": false,
+      "scam": false,
+      "applyMinPhoto": false,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 16,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": false,
+      "botBusiness": false,
+      "botHasMainApp": false,
+      "id": {
+        "value": "BigInt(338781882)"
+      },
+      "accessHash": {
+        "value": "BigInt(8149856360308091398)"
+      },
+      "firstName": "ㅤ",
+      "lastName": null,
+      "username": "sckr_a",
+      "phone": "77760337766",
+      "photo": {
+        "_class": "UserProfilePhoto",
+        "_cid": "0x82d1f706",
+        "className": "UserProfilePhoto",
+        "originalArgs": {
+          "flags": 3,
+          "hasVideo": true,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(1455057104123570112)"
+          },
+          "strippedThumb": "Buffer(18)[010808af15c062be7025875c0eb451453b81]",
+          "dcId": 2
+        },
+        "flags": 3,
+        "hasVideo": true,
+        "personal": false,
+        "photoId": {
+          "value": "BigInt(1455057104123570112)"
+        },
+        "strippedThumb": "Buffer(18)[010808af15c062be7025875c0eb451453b81]",
+        "dcId": 2
+      },
+      "status": {
+        "_class": "UserStatusOnline",
+        "_cid": "0xedb93949",
+        "className": "UserStatusOnline",
+        "originalArgs": {
+          "expires": 1775920382
+        },
+        "expires": 1775920382
+      },
+      "botInfoVersion": null,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": null,
+      "botVerificationIcon": null
+    },
+    {
+      "_class": "User",
+      "_cid": "0x4b46c37e",
+      "className": "User",
+      "originalArgs": {
+        "flags": 33554531,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(6340886702)"
+        },
+        "accessHash": {
+          "value": "BigInt(5979600566354258293)"
+        },
+        "firstName": "🤷",
+        "lastName": null,
+        "username": null,
+        "phone": null,
+        "photo": {
+          "_class": "UserProfilePhoto",
+          "_cid": "0x82d1f706",
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(5103009275159710925)"
+            },
+            "strippedThumb": "Buffer(16)[010808cbdd084fb8c5b1d49a28a2803f]",
+            "dcId": 1
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(5103009275159710925)"
+          },
+          "strippedThumb": "Buffer(16)[010808cbdd084fb8c5b1d49a28a2803f]",
+          "dcId": 1
+        },
+        "status": {
+          "_class": "UserStatusRecently",
+          "_cid": "0x7b197dc8",
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 0,
+            "byMe": false
+          },
+          "flags": 0,
+          "byMe": false
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      "flags": 33554531,
+      "self": false,
+      "contact": false,
+      "mutualContact": false,
+      "deleted": false,
+      "bot": false,
+      "botChatHistory": false,
+      "botNochats": false,
+      "verified": false,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": false,
+      "scam": false,
+      "applyMinPhoto": true,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 16,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": false,
+      "botBusiness": false,
+      "botHasMainApp": false,
+      "id": {
+        "value": "BigInt(6340886702)"
+      },
+      "accessHash": {
+        "value": "BigInt(5979600566354258293)"
+      },
+      "firstName": "🤷",
+      "lastName": null,
+      "username": null,
+      "phone": null,
+      "photo": {
+        "_class": "UserProfilePhoto",
+        "_cid": "0x82d1f706",
+        "className": "UserProfilePhoto",
+        "originalArgs": {
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(5103009275159710925)"
+          },
+          "strippedThumb": "Buffer(16)[010808cbdd084fb8c5b1d49a28a2803f]",
+          "dcId": 1
+        },
+        "flags": 2,
+        "hasVideo": false,
+        "personal": false,
+        "photoId": {
+          "value": "BigInt(5103009275159710925)"
+        },
+        "strippedThumb": "Buffer(16)[010808cbdd084fb8c5b1d49a28a2803f]",
+        "dcId": 1
+      },
+      "status": {
+        "_class": "UserStatusRecently",
+        "_cid": "0x7b197dc8",
+        "className": "UserStatusRecently",
+        "originalArgs": {
+          "flags": 0,
+          "byMe": false
+        },
+        "flags": 0,
+        "byMe": false
+      },
+      "botInfoVersion": null,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": null,
+      "botVerificationIcon": null
+    }
+  ]
+}

@@ -1,0 +1,4174 @@
+{
+  "method": "contacts.search__test",
+  "capturedAt": "2026-04-10T16:15:52.069Z",
+  "request": {
+    "__className": "contacts.Search",
+    "__constructorId": 301470424,
+    "className": "contacts.Search",
+    "originalArgs": {
+      "q": "telegram",
+      "limit": 10
+    },
+    "q": "telegram",
+    "limit": 10
+  },
+  "response": {
+    "__className": "contacts.Found",
+    "__constructorId": 3004386717,
+    "className": "contacts.Found",
+    "originalArgs": {
+      "myResults": [
+        {
+          "__className": "PeerUser",
+          "__constructorId": 1498486562,
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "777000"
+            }
+          },
+          "userId": {
+            "value": "777000"
+          }
+        }
+      ],
+      "results": [
+        {
+          "__className": "PeerChannel",
+          "__constructorId": 2728736542,
+          "className": "PeerChannel",
+          "originalArgs": {
+            "channelId": {
+              "value": "1224624669"
+            }
+          },
+          "channelId": {
+            "value": "1224624669"
+          }
+        },
+        {
+          "__className": "PeerChannel",
+          "__constructorId": 2728736542,
+          "className": "PeerChannel",
+          "originalArgs": {
+            "channelId": {
+              "value": "1813980508"
+            }
+          },
+          "channelId": {
+            "value": "1813980508"
+          }
+        },
+        {
+          "__className": "PeerChannel",
+          "__constructorId": 2728736542,
+          "className": "PeerChannel",
+          "originalArgs": {
+            "channelId": {
+              "value": "1005640892"
+            }
+          },
+          "channelId": {
+            "value": "1005640892"
+          }
+        },
+        {
+          "__className": "PeerUser",
+          "__constructorId": 1498486562,
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "8734146177"
+            }
+          },
+          "userId": {
+            "value": "8734146177"
+          }
+        },
+        {
+          "__className": "PeerUser",
+          "__constructorId": 1498486562,
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "433791261"
+            }
+          },
+          "userId": {
+            "value": "433791261"
+          }
+        },
+        {
+          "__className": "PeerChannel",
+          "__constructorId": 2728736542,
+          "className": "PeerChannel",
+          "originalArgs": {
+            "channelId": {
+              "value": "1428699099"
+            }
+          },
+          "channelId": {
+            "value": "1428699099"
+          }
+        },
+        {
+          "__className": "PeerChannel",
+          "__constructorId": 2728736542,
+          "className": "PeerChannel",
+          "originalArgs": {
+            "channelId": {
+              "value": "1202734206"
+            }
+          },
+          "channelId": {
+            "value": "1202734206"
+          }
+        },
+        {
+          "__className": "PeerChannel",
+          "__constructorId": 2728736542,
+          "className": "PeerChannel",
+          "originalArgs": {
+            "channelId": {
+              "value": "1458480018"
+            }
+          },
+          "channelId": {
+            "value": "1458480018"
+          }
+        },
+        {
+          "__className": "PeerChannel",
+          "__constructorId": 2728736542,
+          "className": "PeerChannel",
+          "originalArgs": {
+            "channelId": {
+              "value": "1070784234"
+            }
+          },
+          "channelId": {
+            "value": "1070784234"
+          }
+        },
+        {
+          "__className": "PeerChannel",
+          "__constructorId": 2728736542,
+          "className": "PeerChannel",
+          "originalArgs": {
+            "channelId": {
+              "value": "1283510503"
+            }
+          },
+          "channelId": {
+            "value": "1283510503"
+          }
+        }
+      ],
+      "chats": [
+        {
+          "__className": "Channel",
+          "__constructorId": 3758725303,
+          "className": "Channel",
+          "originalArgs": {
+            "flags": 139492,
+            "creator": false,
+            "left": true,
+            "broadcast": true,
+            "verified": true,
+            "megagroup": false,
+            "restricted": false,
+            "signatures": false,
+            "min": false,
+            "scam": false,
+            "hasLink": false,
+            "hasGeo": false,
+            "slowmodeEnabled": false,
+            "callActive": false,
+            "callNotEmpty": false,
+            "fake": false,
+            "gigagroup": false,
+            "noforwards": false,
+            "joinToSend": false,
+            "joinRequest": false,
+            "forum": false,
+            "flags2": 1420,
+            "storiesHidden": false,
+            "storiesHiddenMin": true,
+            "storiesUnavailable": true,
+            "signatureProfiles": false,
+            "id": {
+              "value": "1224624669"
+            },
+            "accessHash": {
+              "value": "4136617933767651417"
+            },
+            "title": "Telegram Tips",
+            "username": "TelegramTips",
+            "photo": {
+              "__className": "ChatPhoto",
+              "__constructorId": 476978193,
+              "className": "ChatPhoto",
+              "originalArgs": {
+                "flags": 3,
+                "hasVideo": true,
+                "photoId": {
+                  "value": "5931623588857755202"
+                },
+                "strippedThumb": {
+                  "__type": "Buffer",
+                  "hex": "010808cc020fb331cb79d9181da8a28a00"
+                },
+                "dcId": 4
+              },
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "5931623588857755202"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808cc020fb331cb79d9181da8a28a00"
+              },
+              "dcId": 4
+            },
+            "date": 1610379360,
+            "restrictionReason": null,
+            "adminRights": null,
+            "bannedRights": null,
+            "defaultBannedRights": null,
+            "participantsCount": 12300815,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": {
+              "__className": "PeerColor",
+              "__constructorId": 3041614543,
+              "className": "PeerColor",
+              "originalArgs": {
+                "flags": 3,
+                "color": 10,
+                "backgroundEmojiId": {
+                  "value": "5364338672948754505"
+                }
+              },
+              "flags": 3,
+              "color": 10,
+              "backgroundEmojiId": {
+                "value": "5364338672948754505"
+              }
+            },
+            "profileColor": {
+              "__className": "PeerColor",
+              "__constructorId": 3041614543,
+              "className": "PeerColor",
+              "originalArgs": {
+                "flags": 3,
+                "color": 15,
+                "backgroundEmojiId": {
+                  "value": "5364338672948754505"
+                }
+              },
+              "flags": 3,
+              "color": 15,
+              "backgroundEmojiId": {
+                "value": "5364338672948754505"
+              }
+            },
+            "emojiStatus": null,
+            "level": 100,
+            "subscriptionUntilDate": null,
+            "botVerificationIcon": null
+          },
+          "flags": 139492,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": true,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 1420,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "1224624669"
+          },
+          "accessHash": {
+            "value": "4136617933767651417"
+          },
+          "title": "Telegram Tips",
+          "username": "TelegramTips",
+          "photo": {
+            "__className": "ChatPhoto",
+            "__constructorId": 476978193,
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "5931623588857755202"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808cc020fb331cb79d9181da8a28a00"
+              },
+              "dcId": 4
+            },
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "5931623588857755202"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808cc020fb331cb79d9181da8a28a00"
+            },
+            "dcId": 4
+          },
+          "date": 1610379360,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 12300815,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": {
+            "__className": "PeerColor",
+            "__constructorId": 3041614543,
+            "className": "PeerColor",
+            "originalArgs": {
+              "flags": 3,
+              "color": 10,
+              "backgroundEmojiId": {
+                "value": "5364338672948754505"
+              }
+            },
+            "flags": 3,
+            "color": 10,
+            "backgroundEmojiId": {
+              "value": "5364338672948754505"
+            }
+          },
+          "profileColor": {
+            "__className": "PeerColor",
+            "__constructorId": 3041614543,
+            "className": "PeerColor",
+            "originalArgs": {
+              "flags": 3,
+              "color": 15,
+              "backgroundEmojiId": {
+                "value": "5364338672948754505"
+              }
+            },
+            "flags": 3,
+            "color": 15,
+            "backgroundEmojiId": {
+              "value": "5364338672948754505"
+            }
+          },
+          "emojiStatus": null,
+          "level": 100,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        {
+          "__className": "Channel",
+          "__constructorId": 3758725303,
+          "className": "Channel",
+          "originalArgs": {
+            "flags": 139492,
+            "creator": false,
+            "left": true,
+            "broadcast": true,
+            "verified": true,
+            "megagroup": false,
+            "restricted": false,
+            "signatures": false,
+            "min": false,
+            "scam": false,
+            "hasLink": false,
+            "hasGeo": false,
+            "slowmodeEnabled": false,
+            "callActive": false,
+            "callNotEmpty": false,
+            "fake": false,
+            "gigagroup": false,
+            "noforwards": false,
+            "joinToSend": false,
+            "joinRequest": false,
+            "forum": false,
+            "flags2": 1420,
+            "storiesHidden": false,
+            "storiesHiddenMin": true,
+            "storiesUnavailable": true,
+            "signatureProfiles": false,
+            "id": {
+              "value": "1813980508"
+            },
+            "accessHash": {
+              "value": "-1118831974512271571"
+            },
+            "title": "Telegram Premium",
+            "username": "PremiumSpanish",
+            "photo": {
+              "__className": "ChatPhoto",
+              "__constructorId": 476978193,
+              "className": "ChatPhoto",
+              "originalArgs": {
+                "flags": 3,
+                "hasVideo": true,
+                "photoId": {
+                  "value": "5014843616727772661"
+                },
+                "strippedThumb": {
+                  "__type": "Buffer",
+                  "hex": "0108087911ac3dfcccd14515d6a29eac71a9248f"
+                },
+                "dcId": 1
+              },
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "5014843616727772661"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "0108087911ac3dfcccd14515d6a29eac71a9248f"
+              },
+              "dcId": 1
+            },
+            "date": 1672612967,
+            "restrictionReason": null,
+            "adminRights": null,
+            "bannedRights": null,
+            "defaultBannedRights": null,
+            "participantsCount": 103078,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": {
+              "__className": "PeerColor",
+              "__constructorId": 3041614543,
+              "className": "PeerColor",
+              "originalArgs": {
+                "flags": 3,
+                "color": 9,
+                "backgroundEmojiId": {
+                  "value": "5258165702707125574"
+                }
+              },
+              "flags": 3,
+              "color": 9,
+              "backgroundEmojiId": {
+                "value": "5258165702707125574"
+              }
+            },
+            "profileColor": {
+              "__className": "PeerColor",
+              "__constructorId": 3041614543,
+              "className": "PeerColor",
+              "originalArgs": {
+                "flags": 3,
+                "color": 10,
+                "backgroundEmojiId": {
+                  "value": "5258165702707125574"
+                }
+              },
+              "flags": 3,
+              "color": 10,
+              "backgroundEmojiId": {
+                "value": "5258165702707125574"
+              }
+            },
+            "emojiStatus": null,
+            "level": 100,
+            "subscriptionUntilDate": null,
+            "botVerificationIcon": null
+          },
+          "flags": 139492,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": true,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 1420,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "1813980508"
+          },
+          "accessHash": {
+            "value": "-1118831974512271571"
+          },
+          "title": "Telegram Premium",
+          "username": "PremiumSpanish",
+          "photo": {
+            "__className": "ChatPhoto",
+            "__constructorId": 476978193,
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "5014843616727772661"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "0108087911ac3dfcccd14515d6a29eac71a9248f"
+              },
+              "dcId": 1
+            },
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "5014843616727772661"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "0108087911ac3dfcccd14515d6a29eac71a9248f"
+            },
+            "dcId": 1
+          },
+          "date": 1672612967,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 103078,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": {
+            "__className": "PeerColor",
+            "__constructorId": 3041614543,
+            "className": "PeerColor",
+            "originalArgs": {
+              "flags": 3,
+              "color": 9,
+              "backgroundEmojiId": {
+                "value": "5258165702707125574"
+              }
+            },
+            "flags": 3,
+            "color": 9,
+            "backgroundEmojiId": {
+              "value": "5258165702707125574"
+            }
+          },
+          "profileColor": {
+            "__className": "PeerColor",
+            "__constructorId": 3041614543,
+            "className": "PeerColor",
+            "originalArgs": {
+              "flags": 3,
+              "color": 10,
+              "backgroundEmojiId": {
+                "value": "5258165702707125574"
+              }
+            },
+            "flags": 3,
+            "color": 10,
+            "backgroundEmojiId": {
+              "value": "5258165702707125574"
+            }
+          },
+          "emojiStatus": null,
+          "level": 100,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        {
+          "__className": "Channel",
+          "__constructorId": 3758725303,
+          "className": "Channel",
+          "originalArgs": {
+            "flags": 139492,
+            "creator": false,
+            "left": true,
+            "broadcast": true,
+            "verified": true,
+            "megagroup": false,
+            "restricted": false,
+            "signatures": false,
+            "min": false,
+            "scam": false,
+            "hasLink": false,
+            "hasGeo": false,
+            "slowmodeEnabled": false,
+            "callActive": false,
+            "callNotEmpty": false,
+            "fake": false,
+            "gigagroup": false,
+            "noforwards": false,
+            "joinToSend": false,
+            "joinRequest": false,
+            "forum": false,
+            "flags2": 1036,
+            "storiesHidden": false,
+            "storiesHiddenMin": true,
+            "storiesUnavailable": true,
+            "signatureProfiles": false,
+            "id": {
+              "value": "1005640892"
+            },
+            "accessHash": {
+              "value": "4387569591081019657"
+            },
+            "title": "Telegram News",
+            "username": "telegram",
+            "photo": {
+              "__className": "ChatPhoto",
+              "__constructorId": 476978193,
+              "className": "ChatPhoto",
+              "originalArgs": {
+                "flags": 3,
+                "hasVideo": true,
+                "photoId": {
+                  "value": "4967709344246376726"
+                },
+                "strippedThumb": {
+                  "__type": "Buffer",
+                  "hex": "0108087fc9e59e4efa28a2ba4e1b9f"
+                },
+                "dcId": 1
+              },
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "4967709344246376726"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "0108087fc9e59e4efa28a2ba4e1b9f"
+              },
+              "dcId": 1
+            },
+            "date": 1442801664,
+            "restrictionReason": null,
+            "adminRights": null,
+            "bannedRights": null,
+            "defaultBannedRights": null,
+            "participantsCount": 10909336,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "emojiStatus": null,
+            "level": 100,
+            "subscriptionUntilDate": null,
+            "botVerificationIcon": null
+          },
+          "flags": 139492,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": true,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 1036,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "1005640892"
+          },
+          "accessHash": {
+            "value": "4387569591081019657"
+          },
+          "title": "Telegram News",
+          "username": "telegram",
+          "photo": {
+            "__className": "ChatPhoto",
+            "__constructorId": 476978193,
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "4967709344246376726"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "0108087fc9e59e4efa28a2ba4e1b9f"
+              },
+              "dcId": 1
+            },
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "4967709344246376726"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "0108087fc9e59e4efa28a2ba4e1b9f"
+            },
+            "dcId": 1
+          },
+          "date": 1442801664,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 10909336,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": 100,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        {
+          "__className": "Channel",
+          "__constructorId": 3758725303,
+          "className": "Channel",
+          "originalArgs": {
+            "flags": 1187940,
+            "creator": false,
+            "left": true,
+            "broadcast": true,
+            "verified": false,
+            "megagroup": false,
+            "restricted": false,
+            "signatures": false,
+            "min": false,
+            "scam": false,
+            "hasLink": true,
+            "hasGeo": false,
+            "slowmodeEnabled": false,
+            "callActive": false,
+            "callNotEmpty": false,
+            "fake": false,
+            "gigagroup": false,
+            "noforwards": false,
+            "joinToSend": false,
+            "joinRequest": false,
+            "forum": false,
+            "flags2": 12,
+            "storiesHidden": false,
+            "storiesHiddenMin": true,
+            "storiesUnavailable": true,
+            "signatureProfiles": false,
+            "id": {
+              "value": "1428699099"
+            },
+            "accessHash": {
+              "value": "-8725173455012564700"
+            },
+            "title": "ПУТИН в Telegram",
+            "username": "Putin_Tg_Russia_News_Iran",
+            "photo": {
+              "__className": "ChatPhoto",
+              "__constructorId": 476978193,
+              "className": "ChatPhoto",
+              "originalArgs": {
+                "flags": 2,
+                "hasVideo": false,
+                "photoId": {
+                  "value": "5431689674776240453"
+                },
+                "strippedThumb": {
+                  "__type": "Buffer",
+                  "hex": "010808a395f233b86fce71de8a28ad9325a3"
+                },
+                "dcId": 2
+              },
+              "flags": 2,
+              "hasVideo": false,
+              "photoId": {
+                "value": "5431689674776240453"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808a395f233b86fce71de8a28ad9325a3"
+              },
+              "dcId": 2
+            },
+            "date": 1622902467,
+            "restrictionReason": null,
+            "adminRights": null,
+            "bannedRights": null,
+            "defaultBannedRights": null,
+            "participantsCount": 677310,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "emojiStatus": null,
+            "level": null,
+            "subscriptionUntilDate": null,
+            "botVerificationIcon": null
+          },
+          "flags": 1187940,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": false,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": true,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 12,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "1428699099"
+          },
+          "accessHash": {
+            "value": "-8725173455012564700"
+          },
+          "title": "ПУТИН в Telegram",
+          "username": "Putin_Tg_Russia_News_Iran",
+          "photo": {
+            "__className": "ChatPhoto",
+            "__constructorId": 476978193,
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "photoId": {
+                "value": "5431689674776240453"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808a395f233b86fce71de8a28ad9325a3"
+              },
+              "dcId": 2
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "5431689674776240453"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808a395f233b86fce71de8a28ad9325a3"
+            },
+            "dcId": 2
+          },
+          "date": 1622902467,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 677310,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": null,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        {
+          "__className": "Channel",
+          "__constructorId": 3758725303,
+          "className": "Channel",
+          "originalArgs": {
+            "flags": 139492,
+            "creator": false,
+            "left": true,
+            "broadcast": true,
+            "verified": true,
+            "megagroup": false,
+            "restricted": false,
+            "signatures": false,
+            "min": false,
+            "scam": false,
+            "hasLink": false,
+            "hasGeo": false,
+            "slowmodeEnabled": false,
+            "callActive": false,
+            "callNotEmpty": false,
+            "fake": false,
+            "gigagroup": false,
+            "noforwards": false,
+            "joinToSend": false,
+            "joinRequest": false,
+            "forum": false,
+            "flags2": 1292,
+            "storiesHidden": false,
+            "storiesHiddenMin": true,
+            "storiesUnavailable": true,
+            "signatureProfiles": false,
+            "id": {
+              "value": "1202734206"
+            },
+            "accessHash": {
+              "value": "-8994922582752502303"
+            },
+            "title": "Tips de Telegram",
+            "username": "TelegramTipsES",
+            "photo": {
+              "__className": "ChatPhoto",
+              "__constructorId": 476978193,
+              "className": "ChatPhoto",
+              "originalArgs": {
+                "flags": 3,
+                "hasVideo": true,
+                "photoId": {
+                  "value": "5069118646000921142"
+                },
+                "strippedThumb": {
+                  "__type": "Buffer",
+                  "hex": "010808cc020fb33125bcec8c0ed45145007f"
+                },
+                "dcId": 1
+              },
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "5069118646000921142"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808cc020fb33125bcec8c0ed45145007f"
+              },
+              "dcId": 1
+            },
+            "date": 1610665878,
+            "restrictionReason": null,
+            "adminRights": null,
+            "bannedRights": null,
+            "defaultBannedRights": null,
+            "participantsCount": 1728883,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": {
+              "__className": "PeerColor",
+              "__constructorId": 3041614543,
+              "className": "PeerColor",
+              "originalArgs": {
+                "flags": 3,
+                "color": 15,
+                "backgroundEmojiId": {
+                  "value": "5364338672948754505"
+                }
+              },
+              "flags": 3,
+              "color": 15,
+              "backgroundEmojiId": {
+                "value": "5364338672948754505"
+              }
+            },
+            "emojiStatus": null,
+            "level": 100,
+            "subscriptionUntilDate": null,
+            "botVerificationIcon": null
+          },
+          "flags": 139492,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": true,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 1292,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "1202734206"
+          },
+          "accessHash": {
+            "value": "-8994922582752502303"
+          },
+          "title": "Tips de Telegram",
+          "username": "TelegramTipsES",
+          "photo": {
+            "__className": "ChatPhoto",
+            "__constructorId": 476978193,
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "5069118646000921142"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808cc020fb33125bcec8c0ed45145007f"
+              },
+              "dcId": 1
+            },
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "5069118646000921142"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808cc020fb33125bcec8c0ed45145007f"
+            },
+            "dcId": 1
+          },
+          "date": 1610665878,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 1728883,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": {
+            "__className": "PeerColor",
+            "__constructorId": 3041614543,
+            "className": "PeerColor",
+            "originalArgs": {
+              "flags": 3,
+              "color": 15,
+              "backgroundEmojiId": {
+                "value": "5364338672948754505"
+              }
+            },
+            "flags": 3,
+            "color": 15,
+            "backgroundEmojiId": {
+              "value": "5364338672948754505"
+            }
+          },
+          "emojiStatus": null,
+          "level": 100,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        {
+          "__className": "Channel",
+          "__constructorId": 3758725303,
+          "className": "Channel",
+          "originalArgs": {
+            "flags": 139364,
+            "creator": false,
+            "left": true,
+            "broadcast": true,
+            "verified": false,
+            "megagroup": false,
+            "restricted": false,
+            "signatures": false,
+            "min": false,
+            "scam": false,
+            "hasLink": false,
+            "hasGeo": false,
+            "slowmodeEnabled": false,
+            "callActive": false,
+            "callNotEmpty": false,
+            "fake": false,
+            "gigagroup": false,
+            "noforwards": false,
+            "joinToSend": false,
+            "joinRequest": false,
+            "forum": false,
+            "flags2": 12,
+            "storiesHidden": false,
+            "storiesHiddenMin": true,
+            "storiesUnavailable": true,
+            "signatureProfiles": false,
+            "id": {
+              "value": "1458480018"
+            },
+            "accessHash": {
+              "value": "2775478100323497411"
+            },
+            "title": "/CIG/ Telegram | Counter Intelligence Global",
+            "username": "CIG_telegram",
+            "photo": {
+              "__className": "ChatPhoto",
+              "__constructorId": 476978193,
+              "className": "ChatPhoto",
+              "originalArgs": {
+                "flags": 2,
+                "hasVideo": false,
+                "photoId": {
+                  "value": "4965298622052806171"
+                },
+                "strippedThumb": {
+                  "__type": "Buffer",
+                  "hex": "01080878ba8c750df95145157ca8ceec"
+                },
+                "dcId": 1
+              },
+              "flags": 2,
+              "hasVideo": false,
+              "photoId": {
+                "value": "4965298622052806171"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "01080878ba8c750df95145157ca8ceec"
+              },
+              "dcId": 1
+            },
+            "date": 1570132692,
+            "restrictionReason": null,
+            "adminRights": null,
+            "bannedRights": null,
+            "defaultBannedRights": null,
+            "participantsCount": 119329,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "emojiStatus": null,
+            "level": null,
+            "subscriptionUntilDate": null,
+            "botVerificationIcon": null
+          },
+          "flags": 139364,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": false,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 12,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "1458480018"
+          },
+          "accessHash": {
+            "value": "2775478100323497411"
+          },
+          "title": "/CIG/ Telegram | Counter Intelligence Global",
+          "username": "CIG_telegram",
+          "photo": {
+            "__className": "ChatPhoto",
+            "__constructorId": 476978193,
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "photoId": {
+                "value": "4965298622052806171"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "01080878ba8c750df95145157ca8ceec"
+              },
+              "dcId": 1
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "4965298622052806171"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "01080878ba8c750df95145157ca8ceec"
+            },
+            "dcId": 1
+          },
+          "date": 1570132692,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 119329,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": null,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        {
+          "__className": "Channel",
+          "__constructorId": 3758725303,
+          "className": "Channel",
+          "originalArgs": {
+            "flags": 139492,
+            "creator": false,
+            "left": true,
+            "broadcast": true,
+            "verified": true,
+            "megagroup": false,
+            "restricted": false,
+            "signatures": false,
+            "min": false,
+            "scam": false,
+            "hasLink": false,
+            "hasGeo": false,
+            "slowmodeEnabled": false,
+            "callActive": false,
+            "callNotEmpty": false,
+            "fake": false,
+            "gigagroup": false,
+            "noforwards": false,
+            "joinToSend": false,
+            "joinRequest": false,
+            "forum": false,
+            "flags2": 12,
+            "storiesHidden": false,
+            "storiesHiddenMin": true,
+            "storiesUnavailable": true,
+            "signatureProfiles": false,
+            "id": {
+              "value": "1070784234"
+            },
+            "accessHash": {
+              "value": "5321346187481439928"
+            },
+            "title": "Noticias de Telegram",
+            "username": "TelegramES",
+            "photo": {
+              "__className": "ChatPhoto",
+              "__constructorId": 476978193,
+              "className": "ChatPhoto",
+              "originalArgs": {
+                "flags": 3,
+                "hasVideo": true,
+                "photoId": {
+                  "value": "4967761021292882132"
+                },
+                "strippedThumb": {
+                  "__type": "Buffer",
+                  "hex": "0108087e13cbea77d14515d270dc"
+                },
+                "dcId": 1
+              },
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "4967761021292882132"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "0108087e13cbea77d14515d270dc"
+              },
+              "dcId": 1
+            },
+            "date": 1481723438,
+            "restrictionReason": null,
+            "adminRights": null,
+            "bannedRights": null,
+            "defaultBannedRights": null,
+            "participantsCount": 152139,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "emojiStatus": null,
+            "level": null,
+            "subscriptionUntilDate": null,
+            "botVerificationIcon": null
+          },
+          "flags": 139492,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": true,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 12,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "1070784234"
+          },
+          "accessHash": {
+            "value": "5321346187481439928"
+          },
+          "title": "Noticias de Telegram",
+          "username": "TelegramES",
+          "photo": {
+            "__className": "ChatPhoto",
+            "__constructorId": 476978193,
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "4967761021292882132"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "0108087e13cbea77d14515d270dc"
+              },
+              "dcId": 1
+            },
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "4967761021292882132"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "0108087e13cbea77d14515d270dc"
+            },
+            "dcId": 1
+          },
+          "date": 1481723438,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 152139,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": null,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        {
+          "__className": "Channel",
+          "__constructorId": 3758725303,
+          "className": "Channel",
+          "originalArgs": {
+            "flags": 139492,
+            "creator": false,
+            "left": true,
+            "broadcast": true,
+            "verified": true,
+            "megagroup": false,
+            "restricted": false,
+            "signatures": false,
+            "min": false,
+            "scam": false,
+            "hasLink": false,
+            "hasGeo": false,
+            "slowmodeEnabled": false,
+            "callActive": false,
+            "callNotEmpty": false,
+            "fake": false,
+            "gigagroup": false,
+            "noforwards": false,
+            "joinToSend": false,
+            "joinRequest": false,
+            "forum": false,
+            "flags2": 12,
+            "storiesHidden": false,
+            "storiesHiddenMin": true,
+            "storiesUnavailable": true,
+            "signatureProfiles": false,
+            "id": {
+              "value": "1283510503"
+            },
+            "accessHash": {
+              "value": "2580098288316104393"
+            },
+            "title": "Telegram Brasil",
+            "username": "TelegramBR",
+            "photo": {
+              "__className": "ChatPhoto",
+              "__constructorId": 476978193,
+              "className": "ChatPhoto",
+              "originalArgs": {
+                "flags": 3,
+                "hasVideo": true,
+                "photoId": {
+                  "value": "5256122973767708135"
+                },
+                "strippedThumb": {
+                  "__type": "Buffer",
+                  "hex": "01080893e4f2cf5df45145749c973f"
+                },
+                "dcId": 2
+              },
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "5256122973767708135"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "01080893e4f2cf5df45145749c973f"
+              },
+              "dcId": 2
+            },
+            "date": 1547429045,
+            "restrictionReason": null,
+            "adminRights": null,
+            "bannedRights": null,
+            "defaultBannedRights": null,
+            "participantsCount": 123800,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "emojiStatus": null,
+            "level": null,
+            "subscriptionUntilDate": null,
+            "botVerificationIcon": null
+          },
+          "flags": 139492,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": true,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 12,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "1283510503"
+          },
+          "accessHash": {
+            "value": "2580098288316104393"
+          },
+          "title": "Telegram Brasil",
+          "username": "TelegramBR",
+          "photo": {
+            "__className": "ChatPhoto",
+            "__constructorId": 476978193,
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "5256122973767708135"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "01080893e4f2cf5df45145749c973f"
+              },
+              "dcId": 2
+            },
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "5256122973767708135"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "01080893e4f2cf5df45145749c973f"
+            },
+            "dcId": 2
+          },
+          "date": 1547429045,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 123800,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": null,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        }
+      ],
+      "users": [
+        {
+          "__className": "User",
+          "__constructorId": 1262928766,
+          "className": "User",
+          "originalArgs": {
+            "flags": 42074227,
+            "self": false,
+            "contact": false,
+            "mutualContact": false,
+            "deleted": false,
+            "bot": false,
+            "botChatHistory": false,
+            "botNochats": false,
+            "verified": true,
+            "restricted": false,
+            "min": false,
+            "botInlineGeo": false,
+            "support": true,
+            "scam": false,
+            "applyMinPhoto": true,
+            "fake": false,
+            "botAttachMenu": false,
+            "premium": false,
+            "attachMenuEnabled": false,
+            "flags2": 16,
+            "botCanEdit": false,
+            "closeFriend": false,
+            "storiesHidden": false,
+            "storiesUnavailable": true,
+            "contactRequirePremium": false,
+            "botBusiness": false,
+            "botHasMainApp": false,
+            "id": {
+              "value": "777000"
+            },
+            "accessHash": {
+              "value": "2974067603837347815"
+            },
+            "firstName": "Telegram",
+            "lastName": null,
+            "username": null,
+            "phone": "42777",
+            "photo": {
+              "__className": "UserProfilePhoto",
+              "__constructorId": 2194798342,
+              "className": "UserProfilePhoto",
+              "originalArgs": {
+                "flags": 2,
+                "hasVideo": false,
+                "personal": false,
+                "photoId": {
+                  "value": "3337190045231036"
+                },
+                "strippedThumb": {
+                  "__type": "Buffer",
+                  "hex": "01080893e4f2cf5dff00a514515d5638cf"
+                },
+                "dcId": 1
+              },
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "3337190045231036"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "01080893e4f2cf5dff00a514515d5638cf"
+              },
+              "dcId": 1
+            },
+            "status": {
+              "__className": "UserStatusRecently",
+              "__constructorId": 2065268168,
+              "className": "UserStatusRecently",
+              "originalArgs": {
+                "flags": 1,
+                "byMe": true
+              },
+              "flags": 1,
+              "byMe": true
+            },
+            "botInfoVersion": null,
+            "restrictionReason": null,
+            "botInlinePlaceholder": null,
+            "langCode": null,
+            "emojiStatus": null,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "botActiveUsers": null,
+            "botVerificationIcon": null
+          },
+          "flags": 42074227,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": true,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": true,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "777000"
+          },
+          "accessHash": {
+            "value": "2974067603837347815"
+          },
+          "firstName": "Telegram",
+          "lastName": null,
+          "username": null,
+          "phone": "42777",
+          "photo": {
+            "__className": "UserProfilePhoto",
+            "__constructorId": 2194798342,
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "3337190045231036"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "01080893e4f2cf5dff00a514515d5638cf"
+              },
+              "dcId": 1
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "3337190045231036"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "01080893e4f2cf5dff00a514515d5638cf"
+            },
+            "dcId": 1
+          },
+          "status": {
+            "__className": "UserStatusRecently",
+            "__constructorId": 2065268168,
+            "className": "UserStatusRecently",
+            "originalArgs": {
+              "flags": 1,
+              "byMe": true
+            },
+            "flags": 1,
+            "byMe": true
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        {
+          "__className": "User",
+          "__constructorId": 1262928766,
+          "className": "User",
+          "originalArgs": {
+            "flags": 33570859,
+            "self": false,
+            "contact": false,
+            "mutualContact": false,
+            "deleted": false,
+            "bot": true,
+            "botChatHistory": false,
+            "botNochats": false,
+            "verified": false,
+            "restricted": false,
+            "min": false,
+            "botInlineGeo": false,
+            "support": false,
+            "scam": false,
+            "applyMinPhoto": true,
+            "fake": false,
+            "botAttachMenu": false,
+            "premium": false,
+            "attachMenuEnabled": false,
+            "flags2": 4112,
+            "botCanEdit": false,
+            "closeFriend": false,
+            "storiesHidden": false,
+            "storiesUnavailable": true,
+            "contactRequirePremium": false,
+            "botBusiness": false,
+            "botHasMainApp": false,
+            "id": {
+              "value": "8734146177"
+            },
+            "accessHash": {
+              "value": "2557173120239446484"
+            },
+            "firstName": "Реклама в TG Ads Продвижение Telegram",
+            "lastName": null,
+            "username": "Cnthxjcgxjgdbot",
+            "phone": null,
+            "photo": {
+              "__className": "UserProfilePhoto",
+              "__constructorId": 2194798342,
+              "className": "UserProfilePhoto",
+              "originalArgs": {
+                "flags": 2,
+                "hasVideo": false,
+                "personal": false,
+                "photoId": {
+                  "value": "5384251825420180089"
+                },
+                "strippedThumb": {
+                  "__type": "Buffer",
+                  "hex": "0108089d2e227919d589552109ed9345145303"
+                },
+                "dcId": 2
+              },
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "5384251825420180089"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "0108089d2e227919d589552109ed9345145303"
+              },
+              "dcId": 2
+            },
+            "status": null,
+            "botInfoVersion": 5,
+            "restrictionReason": null,
+            "botInlinePlaceholder": null,
+            "langCode": null,
+            "emojiStatus": null,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "botActiveUsers": 77257,
+            "botVerificationIcon": null
+          },
+          "flags": 33570859,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": true,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 4112,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "8734146177"
+          },
+          "accessHash": {
+            "value": "2557173120239446484"
+          },
+          "firstName": "Реклама в TG Ads Продвижение Telegram",
+          "lastName": null,
+          "username": "Cnthxjcgxjgdbot",
+          "phone": null,
+          "photo": {
+            "__className": "UserProfilePhoto",
+            "__constructorId": 2194798342,
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "5384251825420180089"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "0108089d2e227919d589552109ed9345145303"
+              },
+              "dcId": 2
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "5384251825420180089"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "0108089d2e227919d589552109ed9345145303"
+            },
+            "dcId": 2
+          },
+          "status": null,
+          "botInfoVersion": 5,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": 77257,
+          "botVerificationIcon": null
+        },
+        {
+          "__className": "User",
+          "__constructorId": 1262928766,
+          "className": "User",
+          "originalArgs": {
+            "flags": 34127915,
+            "self": false,
+            "contact": false,
+            "mutualContact": false,
+            "deleted": false,
+            "bot": true,
+            "botChatHistory": true,
+            "botNochats": false,
+            "verified": false,
+            "restricted": false,
+            "min": false,
+            "botInlineGeo": false,
+            "support": false,
+            "scam": false,
+            "applyMinPhoto": true,
+            "fake": false,
+            "botAttachMenu": false,
+            "premium": false,
+            "attachMenuEnabled": false,
+            "flags2": 4112,
+            "botCanEdit": false,
+            "closeFriend": false,
+            "storiesHidden": false,
+            "storiesUnavailable": true,
+            "contactRequirePremium": false,
+            "botBusiness": false,
+            "botHasMainApp": false,
+            "id": {
+              "value": "433791261"
+            },
+            "accessHash": {
+              "value": "1140760900082910431"
+            },
+            "firstName": "Telegram Analytics Bot",
+            "lastName": null,
+            "username": "tg_analytics_bot",
+            "phone": null,
+            "photo": {
+              "__className": "UserProfilePhoto",
+              "__constructorId": 2194798342,
+              "className": "UserProfilePhoto",
+              "originalArgs": {
+                "flags": 2,
+                "hasVideo": false,
+                "personal": false,
+                "photoId": {
+                  "value": "1863119279741839276"
+                },
+                "strippedThumb": {
+                  "__type": "Buffer",
+                  "hex": "010808a7fbbf2bfdba28a2a847"
+                },
+                "dcId": 2
+              },
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "1863119279741839276"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808a7fbbf2bfdba28a2a847"
+              },
+              "dcId": 2
+            },
+            "status": null,
+            "botInfoVersion": 15,
+            "restrictionReason": null,
+            "botInlinePlaceholder": "Search...",
+            "langCode": null,
+            "emojiStatus": null,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "botActiveUsers": 339250,
+            "botVerificationIcon": null
+          },
+          "flags": 34127915,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": true,
+          "botChatHistory": true,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 4112,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "433791261"
+          },
+          "accessHash": {
+            "value": "1140760900082910431"
+          },
+          "firstName": "Telegram Analytics Bot",
+          "lastName": null,
+          "username": "tg_analytics_bot",
+          "phone": null,
+          "photo": {
+            "__className": "UserProfilePhoto",
+            "__constructorId": 2194798342,
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "1863119279741839276"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808a7fbbf2bfdba28a2a847"
+              },
+              "dcId": 2
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "1863119279741839276"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808a7fbbf2bfdba28a2a847"
+            },
+            "dcId": 2
+          },
+          "status": null,
+          "botInfoVersion": 15,
+          "restrictionReason": null,
+          "botInlinePlaceholder": "Search...",
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": 339250,
+          "botVerificationIcon": null
+        }
+      ]
+    },
+    "myResults": [
+      {
+        "__className": "PeerUser",
+        "__constructorId": 1498486562,
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "777000"
+          }
+        },
+        "userId": {
+          "value": "777000"
+        }
+      }
+    ],
+    "results": [
+      {
+        "__className": "PeerChannel",
+        "__constructorId": 2728736542,
+        "className": "PeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "1224624669"
+          }
+        },
+        "channelId": {
+          "value": "1224624669"
+        }
+      },
+      {
+        "__className": "PeerChannel",
+        "__constructorId": 2728736542,
+        "className": "PeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "1813980508"
+          }
+        },
+        "channelId": {
+          "value": "1813980508"
+        }
+      },
+      {
+        "__className": "PeerChannel",
+        "__constructorId": 2728736542,
+        "className": "PeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "1005640892"
+          }
+        },
+        "channelId": {
+          "value": "1005640892"
+        }
+      },
+      {
+        "__className": "PeerUser",
+        "__constructorId": 1498486562,
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "8734146177"
+          }
+        },
+        "userId": {
+          "value": "8734146177"
+        }
+      },
+      {
+        "__className": "PeerUser",
+        "__constructorId": 1498486562,
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "433791261"
+          }
+        },
+        "userId": {
+          "value": "433791261"
+        }
+      },
+      {
+        "__className": "PeerChannel",
+        "__constructorId": 2728736542,
+        "className": "PeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "1428699099"
+          }
+        },
+        "channelId": {
+          "value": "1428699099"
+        }
+      },
+      {
+        "__className": "PeerChannel",
+        "__constructorId": 2728736542,
+        "className": "PeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "1202734206"
+          }
+        },
+        "channelId": {
+          "value": "1202734206"
+        }
+      },
+      {
+        "__className": "PeerChannel",
+        "__constructorId": 2728736542,
+        "className": "PeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "1458480018"
+          }
+        },
+        "channelId": {
+          "value": "1458480018"
+        }
+      },
+      {
+        "__className": "PeerChannel",
+        "__constructorId": 2728736542,
+        "className": "PeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "1070784234"
+          }
+        },
+        "channelId": {
+          "value": "1070784234"
+        }
+      },
+      {
+        "__className": "PeerChannel",
+        "__constructorId": 2728736542,
+        "className": "PeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "1283510503"
+          }
+        },
+        "channelId": {
+          "value": "1283510503"
+        }
+      }
+    ],
+    "chats": [
+      {
+        "__className": "Channel",
+        "__constructorId": 3758725303,
+        "className": "Channel",
+        "originalArgs": {
+          "flags": 139492,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": true,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 1420,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "1224624669"
+          },
+          "accessHash": {
+            "value": "4136617933767651417"
+          },
+          "title": "Telegram Tips",
+          "username": "TelegramTips",
+          "photo": {
+            "__className": "ChatPhoto",
+            "__constructorId": 476978193,
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "5931623588857755202"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808cc020fb331cb79d9181da8a28a00"
+              },
+              "dcId": 4
+            },
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "5931623588857755202"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808cc020fb331cb79d9181da8a28a00"
+            },
+            "dcId": 4
+          },
+          "date": 1610379360,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 12300815,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": {
+            "__className": "PeerColor",
+            "__constructorId": 3041614543,
+            "className": "PeerColor",
+            "originalArgs": {
+              "flags": 3,
+              "color": 10,
+              "backgroundEmojiId": {
+                "value": "5364338672948754505"
+              }
+            },
+            "flags": 3,
+            "color": 10,
+            "backgroundEmojiId": {
+              "value": "5364338672948754505"
+            }
+          },
+          "profileColor": {
+            "__className": "PeerColor",
+            "__constructorId": 3041614543,
+            "className": "PeerColor",
+            "originalArgs": {
+              "flags": 3,
+              "color": 15,
+              "backgroundEmojiId": {
+                "value": "5364338672948754505"
+              }
+            },
+            "flags": 3,
+            "color": 15,
+            "backgroundEmojiId": {
+              "value": "5364338672948754505"
+            }
+          },
+          "emojiStatus": null,
+          "level": 100,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        "flags": 139492,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": true,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": false,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 1420,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "1224624669"
+        },
+        "accessHash": {
+          "value": "4136617933767651417"
+        },
+        "title": "Telegram Tips",
+        "username": "TelegramTips",
+        "photo": {
+          "__className": "ChatPhoto",
+          "__constructorId": 476978193,
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "5931623588857755202"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808cc020fb331cb79d9181da8a28a00"
+            },
+            "dcId": 4
+          },
+          "flags": 3,
+          "hasVideo": true,
+          "photoId": {
+            "value": "5931623588857755202"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "010808cc020fb331cb79d9181da8a28a00"
+          },
+          "dcId": 4
+        },
+        "date": 1610379360,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 12300815,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": {
+          "__className": "PeerColor",
+          "__constructorId": 3041614543,
+          "className": "PeerColor",
+          "originalArgs": {
+            "flags": 3,
+            "color": 10,
+            "backgroundEmojiId": {
+              "value": "5364338672948754505"
+            }
+          },
+          "flags": 3,
+          "color": 10,
+          "backgroundEmojiId": {
+            "value": "5364338672948754505"
+          }
+        },
+        "profileColor": {
+          "__className": "PeerColor",
+          "__constructorId": 3041614543,
+          "className": "PeerColor",
+          "originalArgs": {
+            "flags": 3,
+            "color": 15,
+            "backgroundEmojiId": {
+              "value": "5364338672948754505"
+            }
+          },
+          "flags": 3,
+          "color": 15,
+          "backgroundEmojiId": {
+            "value": "5364338672948754505"
+          }
+        },
+        "emojiStatus": null,
+        "level": 100,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      {
+        "__className": "Channel",
+        "__constructorId": 3758725303,
+        "className": "Channel",
+        "originalArgs": {
+          "flags": 139492,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": true,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 1420,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "1813980508"
+          },
+          "accessHash": {
+            "value": "-1118831974512271571"
+          },
+          "title": "Telegram Premium",
+          "username": "PremiumSpanish",
+          "photo": {
+            "__className": "ChatPhoto",
+            "__constructorId": 476978193,
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "5014843616727772661"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "0108087911ac3dfcccd14515d6a29eac71a9248f"
+              },
+              "dcId": 1
+            },
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "5014843616727772661"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "0108087911ac3dfcccd14515d6a29eac71a9248f"
+            },
+            "dcId": 1
+          },
+          "date": 1672612967,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 103078,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": {
+            "__className": "PeerColor",
+            "__constructorId": 3041614543,
+            "className": "PeerColor",
+            "originalArgs": {
+              "flags": 3,
+              "color": 9,
+              "backgroundEmojiId": {
+                "value": "5258165702707125574"
+              }
+            },
+            "flags": 3,
+            "color": 9,
+            "backgroundEmojiId": {
+              "value": "5258165702707125574"
+            }
+          },
+          "profileColor": {
+            "__className": "PeerColor",
+            "__constructorId": 3041614543,
+            "className": "PeerColor",
+            "originalArgs": {
+              "flags": 3,
+              "color": 10,
+              "backgroundEmojiId": {
+                "value": "5258165702707125574"
+              }
+            },
+            "flags": 3,
+            "color": 10,
+            "backgroundEmojiId": {
+              "value": "5258165702707125574"
+            }
+          },
+          "emojiStatus": null,
+          "level": 100,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        "flags": 139492,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": true,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": false,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 1420,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "1813980508"
+        },
+        "accessHash": {
+          "value": "-1118831974512271571"
+        },
+        "title": "Telegram Premium",
+        "username": "PremiumSpanish",
+        "photo": {
+          "__className": "ChatPhoto",
+          "__constructorId": 476978193,
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "5014843616727772661"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "0108087911ac3dfcccd14515d6a29eac71a9248f"
+            },
+            "dcId": 1
+          },
+          "flags": 3,
+          "hasVideo": true,
+          "photoId": {
+            "value": "5014843616727772661"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "0108087911ac3dfcccd14515d6a29eac71a9248f"
+          },
+          "dcId": 1
+        },
+        "date": 1672612967,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 103078,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": {
+          "__className": "PeerColor",
+          "__constructorId": 3041614543,
+          "className": "PeerColor",
+          "originalArgs": {
+            "flags": 3,
+            "color": 9,
+            "backgroundEmojiId": {
+              "value": "5258165702707125574"
+            }
+          },
+          "flags": 3,
+          "color": 9,
+          "backgroundEmojiId": {
+            "value": "5258165702707125574"
+          }
+        },
+        "profileColor": {
+          "__className": "PeerColor",
+          "__constructorId": 3041614543,
+          "className": "PeerColor",
+          "originalArgs": {
+            "flags": 3,
+            "color": 10,
+            "backgroundEmojiId": {
+              "value": "5258165702707125574"
+            }
+          },
+          "flags": 3,
+          "color": 10,
+          "backgroundEmojiId": {
+            "value": "5258165702707125574"
+          }
+        },
+        "emojiStatus": null,
+        "level": 100,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      {
+        "__className": "Channel",
+        "__constructorId": 3758725303,
+        "className": "Channel",
+        "originalArgs": {
+          "flags": 139492,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": true,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 1036,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "1005640892"
+          },
+          "accessHash": {
+            "value": "4387569591081019657"
+          },
+          "title": "Telegram News",
+          "username": "telegram",
+          "photo": {
+            "__className": "ChatPhoto",
+            "__constructorId": 476978193,
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "4967709344246376726"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "0108087fc9e59e4efa28a2ba4e1b9f"
+              },
+              "dcId": 1
+            },
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "4967709344246376726"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "0108087fc9e59e4efa28a2ba4e1b9f"
+            },
+            "dcId": 1
+          },
+          "date": 1442801664,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 10909336,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": 100,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        "flags": 139492,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": true,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": false,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 1036,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "1005640892"
+        },
+        "accessHash": {
+          "value": "4387569591081019657"
+        },
+        "title": "Telegram News",
+        "username": "telegram",
+        "photo": {
+          "__className": "ChatPhoto",
+          "__constructorId": 476978193,
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "4967709344246376726"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "0108087fc9e59e4efa28a2ba4e1b9f"
+            },
+            "dcId": 1
+          },
+          "flags": 3,
+          "hasVideo": true,
+          "photoId": {
+            "value": "4967709344246376726"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "0108087fc9e59e4efa28a2ba4e1b9f"
+          },
+          "dcId": 1
+        },
+        "date": 1442801664,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 10909336,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": 100,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      {
+        "__className": "Channel",
+        "__constructorId": 3758725303,
+        "className": "Channel",
+        "originalArgs": {
+          "flags": 1187940,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": false,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": true,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 12,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "1428699099"
+          },
+          "accessHash": {
+            "value": "-8725173455012564700"
+          },
+          "title": "ПУТИН в Telegram",
+          "username": "Putin_Tg_Russia_News_Iran",
+          "photo": {
+            "__className": "ChatPhoto",
+            "__constructorId": 476978193,
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "photoId": {
+                "value": "5431689674776240453"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808a395f233b86fce71de8a28ad9325a3"
+              },
+              "dcId": 2
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "5431689674776240453"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808a395f233b86fce71de8a28ad9325a3"
+            },
+            "dcId": 2
+          },
+          "date": 1622902467,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 677310,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": null,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        "flags": 1187940,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": false,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": true,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 12,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "1428699099"
+        },
+        "accessHash": {
+          "value": "-8725173455012564700"
+        },
+        "title": "ПУТИН в Telegram",
+        "username": "Putin_Tg_Russia_News_Iran",
+        "photo": {
+          "__className": "ChatPhoto",
+          "__constructorId": 476978193,
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "5431689674776240453"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808a395f233b86fce71de8a28ad9325a3"
+            },
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "5431689674776240453"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "010808a395f233b86fce71de8a28ad9325a3"
+          },
+          "dcId": 2
+        },
+        "date": 1622902467,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 677310,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": null,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      {
+        "__className": "Channel",
+        "__constructorId": 3758725303,
+        "className": "Channel",
+        "originalArgs": {
+          "flags": 139492,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": true,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 1292,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "1202734206"
+          },
+          "accessHash": {
+            "value": "-8994922582752502303"
+          },
+          "title": "Tips de Telegram",
+          "username": "TelegramTipsES",
+          "photo": {
+            "__className": "ChatPhoto",
+            "__constructorId": 476978193,
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "5069118646000921142"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808cc020fb33125bcec8c0ed45145007f"
+              },
+              "dcId": 1
+            },
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "5069118646000921142"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808cc020fb33125bcec8c0ed45145007f"
+            },
+            "dcId": 1
+          },
+          "date": 1610665878,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 1728883,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": {
+            "__className": "PeerColor",
+            "__constructorId": 3041614543,
+            "className": "PeerColor",
+            "originalArgs": {
+              "flags": 3,
+              "color": 15,
+              "backgroundEmojiId": {
+                "value": "5364338672948754505"
+              }
+            },
+            "flags": 3,
+            "color": 15,
+            "backgroundEmojiId": {
+              "value": "5364338672948754505"
+            }
+          },
+          "emojiStatus": null,
+          "level": 100,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        "flags": 139492,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": true,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": false,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 1292,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "1202734206"
+        },
+        "accessHash": {
+          "value": "-8994922582752502303"
+        },
+        "title": "Tips de Telegram",
+        "username": "TelegramTipsES",
+        "photo": {
+          "__className": "ChatPhoto",
+          "__constructorId": 476978193,
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "5069118646000921142"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808cc020fb33125bcec8c0ed45145007f"
+            },
+            "dcId": 1
+          },
+          "flags": 3,
+          "hasVideo": true,
+          "photoId": {
+            "value": "5069118646000921142"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "010808cc020fb33125bcec8c0ed45145007f"
+          },
+          "dcId": 1
+        },
+        "date": 1610665878,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 1728883,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": {
+          "__className": "PeerColor",
+          "__constructorId": 3041614543,
+          "className": "PeerColor",
+          "originalArgs": {
+            "flags": 3,
+            "color": 15,
+            "backgroundEmojiId": {
+              "value": "5364338672948754505"
+            }
+          },
+          "flags": 3,
+          "color": 15,
+          "backgroundEmojiId": {
+            "value": "5364338672948754505"
+          }
+        },
+        "emojiStatus": null,
+        "level": 100,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      {
+        "__className": "Channel",
+        "__constructorId": 3758725303,
+        "className": "Channel",
+        "originalArgs": {
+          "flags": 139364,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": false,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 12,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "1458480018"
+          },
+          "accessHash": {
+            "value": "2775478100323497411"
+          },
+          "title": "/CIG/ Telegram | Counter Intelligence Global",
+          "username": "CIG_telegram",
+          "photo": {
+            "__className": "ChatPhoto",
+            "__constructorId": 476978193,
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "photoId": {
+                "value": "4965298622052806171"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "01080878ba8c750df95145157ca8ceec"
+              },
+              "dcId": 1
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "4965298622052806171"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "01080878ba8c750df95145157ca8ceec"
+            },
+            "dcId": 1
+          },
+          "date": 1570132692,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 119329,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": null,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        "flags": 139364,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": false,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": false,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 12,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "1458480018"
+        },
+        "accessHash": {
+          "value": "2775478100323497411"
+        },
+        "title": "/CIG/ Telegram | Counter Intelligence Global",
+        "username": "CIG_telegram",
+        "photo": {
+          "__className": "ChatPhoto",
+          "__constructorId": 476978193,
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "4965298622052806171"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "01080878ba8c750df95145157ca8ceec"
+            },
+            "dcId": 1
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "4965298622052806171"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "01080878ba8c750df95145157ca8ceec"
+          },
+          "dcId": 1
+        },
+        "date": 1570132692,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 119329,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": null,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      {
+        "__className": "Channel",
+        "__constructorId": 3758725303,
+        "className": "Channel",
+        "originalArgs": {
+          "flags": 139492,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": true,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 12,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "1070784234"
+          },
+          "accessHash": {
+            "value": "5321346187481439928"
+          },
+          "title": "Noticias de Telegram",
+          "username": "TelegramES",
+          "photo": {
+            "__className": "ChatPhoto",
+            "__constructorId": 476978193,
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "4967761021292882132"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "0108087e13cbea77d14515d270dc"
+              },
+              "dcId": 1
+            },
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "4967761021292882132"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "0108087e13cbea77d14515d270dc"
+            },
+            "dcId": 1
+          },
+          "date": 1481723438,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 152139,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": null,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        "flags": 139492,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": true,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": false,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 12,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "1070784234"
+        },
+        "accessHash": {
+          "value": "5321346187481439928"
+        },
+        "title": "Noticias de Telegram",
+        "username": "TelegramES",
+        "photo": {
+          "__className": "ChatPhoto",
+          "__constructorId": 476978193,
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "4967761021292882132"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "0108087e13cbea77d14515d270dc"
+            },
+            "dcId": 1
+          },
+          "flags": 3,
+          "hasVideo": true,
+          "photoId": {
+            "value": "4967761021292882132"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "0108087e13cbea77d14515d270dc"
+          },
+          "dcId": 1
+        },
+        "date": 1481723438,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 152139,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": null,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      {
+        "__className": "Channel",
+        "__constructorId": 3758725303,
+        "className": "Channel",
+        "originalArgs": {
+          "flags": 139492,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": true,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 12,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "1283510503"
+          },
+          "accessHash": {
+            "value": "2580098288316104393"
+          },
+          "title": "Telegram Brasil",
+          "username": "TelegramBR",
+          "photo": {
+            "__className": "ChatPhoto",
+            "__constructorId": 476978193,
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 3,
+              "hasVideo": true,
+              "photoId": {
+                "value": "5256122973767708135"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "01080893e4f2cf5df45145749c973f"
+              },
+              "dcId": 2
+            },
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "5256122973767708135"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "01080893e4f2cf5df45145749c973f"
+            },
+            "dcId": 2
+          },
+          "date": 1547429045,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 123800,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": null,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        "flags": 139492,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": true,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": false,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 12,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "1283510503"
+        },
+        "accessHash": {
+          "value": "2580098288316104393"
+        },
+        "title": "Telegram Brasil",
+        "username": "TelegramBR",
+        "photo": {
+          "__className": "ChatPhoto",
+          "__constructorId": 476978193,
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 3,
+            "hasVideo": true,
+            "photoId": {
+              "value": "5256122973767708135"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "01080893e4f2cf5df45145749c973f"
+            },
+            "dcId": 2
+          },
+          "flags": 3,
+          "hasVideo": true,
+          "photoId": {
+            "value": "5256122973767708135"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "01080893e4f2cf5df45145749c973f"
+          },
+          "dcId": 2
+        },
+        "date": 1547429045,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 123800,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": null,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      }
+    ],
+    "users": [
+      {
+        "__className": "User",
+        "__constructorId": 1262928766,
+        "className": "User",
+        "originalArgs": {
+          "flags": 42074227,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": true,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": true,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "777000"
+          },
+          "accessHash": {
+            "value": "2974067603837347815"
+          },
+          "firstName": "Telegram",
+          "lastName": null,
+          "username": null,
+          "phone": "42777",
+          "photo": {
+            "__className": "UserProfilePhoto",
+            "__constructorId": 2194798342,
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "3337190045231036"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "01080893e4f2cf5dff00a514515d5638cf"
+              },
+              "dcId": 1
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "3337190045231036"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "01080893e4f2cf5dff00a514515d5638cf"
+            },
+            "dcId": 1
+          },
+          "status": {
+            "__className": "UserStatusRecently",
+            "__constructorId": 2065268168,
+            "className": "UserStatusRecently",
+            "originalArgs": {
+              "flags": 1,
+              "byMe": true
+            },
+            "flags": 1,
+            "byMe": true
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 42074227,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": true,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": true,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "777000"
+        },
+        "accessHash": {
+          "value": "2974067603837347815"
+        },
+        "firstName": "Telegram",
+        "lastName": null,
+        "username": null,
+        "phone": "42777",
+        "photo": {
+          "__className": "UserProfilePhoto",
+          "__constructorId": 2194798342,
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "3337190045231036"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "01080893e4f2cf5dff00a514515d5638cf"
+            },
+            "dcId": 1
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "3337190045231036"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "01080893e4f2cf5dff00a514515d5638cf"
+          },
+          "dcId": 1
+        },
+        "status": {
+          "__className": "UserStatusRecently",
+          "__constructorId": 2065268168,
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 1,
+            "byMe": true
+          },
+          "flags": 1,
+          "byMe": true
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      {
+        "__className": "User",
+        "__constructorId": 1262928766,
+        "className": "User",
+        "originalArgs": {
+          "flags": 33570859,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": true,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 4112,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "8734146177"
+          },
+          "accessHash": {
+            "value": "2557173120239446484"
+          },
+          "firstName": "Реклама в TG Ads Продвижение Telegram",
+          "lastName": null,
+          "username": "Cnthxjcgxjgdbot",
+          "phone": null,
+          "photo": {
+            "__className": "UserProfilePhoto",
+            "__constructorId": 2194798342,
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "5384251825420180089"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "0108089d2e227919d589552109ed9345145303"
+              },
+              "dcId": 2
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "5384251825420180089"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "0108089d2e227919d589552109ed9345145303"
+            },
+            "dcId": 2
+          },
+          "status": null,
+          "botInfoVersion": 5,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": 77257,
+          "botVerificationIcon": null
+        },
+        "flags": 33570859,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": true,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 4112,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "8734146177"
+        },
+        "accessHash": {
+          "value": "2557173120239446484"
+        },
+        "firstName": "Реклама в TG Ads Продвижение Telegram",
+        "lastName": null,
+        "username": "Cnthxjcgxjgdbot",
+        "phone": null,
+        "photo": {
+          "__className": "UserProfilePhoto",
+          "__constructorId": 2194798342,
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "5384251825420180089"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "0108089d2e227919d589552109ed9345145303"
+            },
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "5384251825420180089"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "0108089d2e227919d589552109ed9345145303"
+          },
+          "dcId": 2
+        },
+        "status": null,
+        "botInfoVersion": 5,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": 77257,
+        "botVerificationIcon": null
+      },
+      {
+        "__className": "User",
+        "__constructorId": 1262928766,
+        "className": "User",
+        "originalArgs": {
+          "flags": 34127915,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": true,
+          "botChatHistory": true,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 4112,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "433791261"
+          },
+          "accessHash": {
+            "value": "1140760900082910431"
+          },
+          "firstName": "Telegram Analytics Bot",
+          "lastName": null,
+          "username": "tg_analytics_bot",
+          "phone": null,
+          "photo": {
+            "__className": "UserProfilePhoto",
+            "__constructorId": 2194798342,
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "1863119279741839276"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808a7fbbf2bfdba28a2a847"
+              },
+              "dcId": 2
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "1863119279741839276"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808a7fbbf2bfdba28a2a847"
+            },
+            "dcId": 2
+          },
+          "status": null,
+          "botInfoVersion": 15,
+          "restrictionReason": null,
+          "botInlinePlaceholder": "Search...",
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": 339250,
+          "botVerificationIcon": null
+        },
+        "flags": 34127915,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": true,
+        "botChatHistory": true,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 4112,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "433791261"
+        },
+        "accessHash": {
+          "value": "1140760900082910431"
+        },
+        "firstName": "Telegram Analytics Bot",
+        "lastName": null,
+        "username": "tg_analytics_bot",
+        "phone": null,
+        "photo": {
+          "__className": "UserProfilePhoto",
+          "__constructorId": 2194798342,
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "1863119279741839276"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808a7fbbf2bfdba28a2a847"
+            },
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "1863119279741839276"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "010808a7fbbf2bfdba28a2a847"
+          },
+          "dcId": 2
+        },
+        "status": null,
+        "botInfoVersion": 15,
+        "restrictionReason": null,
+        "botInlinePlaceholder": "Search...",
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": 339250,
+        "botVerificationIcon": null
+      }
+    ]
+  }
+}

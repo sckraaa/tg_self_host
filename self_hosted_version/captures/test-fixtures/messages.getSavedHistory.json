@@ -1,0 +1,4385 @@
+{
+  "method": "messages.getSavedHistory",
+  "capturedAt": "2026-04-10T16:16:19.218Z",
+  "request": {
+    "__className": "messages.GetSavedHistory",
+    "__constructorId": 1033519437,
+    "className": "messages.GetSavedHistory",
+    "originalArgs": {
+      "peer": {
+        "__className": "InputPeerSelf",
+        "__constructorId": 2107670217,
+        "className": "InputPeerSelf",
+        "originalArgs": {}
+      },
+      "offsetId": 0,
+      "offsetDate": 0,
+      "addOffset": 0,
+      "limit": 20,
+      "maxId": 0,
+      "minId": 0,
+      "hash": "0"
+    },
+    "peer": {
+      "__className": "InputPeerSelf",
+      "__constructorId": 2107670217,
+      "className": "InputPeerSelf",
+      "originalArgs": {}
+    },
+    "offsetId": 0,
+    "offsetDate": 0,
+    "addOffset": 0,
+    "limit": 20,
+    "maxId": 0,
+    "minId": 0,
+    "hash": "0"
+  },
+  "response": {
+    "__className": "messages.Messages",
+    "__constructorId": 2356252295,
+    "className": "messages.Messages",
+    "originalArgs": {
+      "messages": [
+        {
+          "__className": "Message",
+          "__constructorId": 2533211113,
+          "className": "Message",
+          "originalArgs": {
+            "flags": 268435456,
+            "out": false,
+            "mentioned": false,
+            "mediaUnread": false,
+            "silent": false,
+            "post": false,
+            "fromScheduled": false,
+            "legacy": false,
+            "editHide": false,
+            "pinned": false,
+            "noforwards": false,
+            "invertMedia": false,
+            "flags2": 0,
+            "offline": false,
+            "videoProcessingPending": false,
+            "id": 1402,
+            "fromId": null,
+            "fromBoostsApplied": null,
+            "peerId": {
+              "__className": "PeerUser",
+              "__constructorId": 1498486562,
+              "className": "PeerUser",
+              "originalArgs": {
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "savedPeerId": {
+              "__className": "PeerUser",
+              "__constructorId": 1498486562,
+              "className": "PeerUser",
+              "originalArgs": {
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "fwdFrom": null,
+            "viaBotId": null,
+            "viaBusinessBotId": null,
+            "replyTo": null,
+            "date": 1775675367,
+            "message": "test_getmsgs",
+            "media": null,
+            "replyMarkup": null,
+            "entities": null,
+            "views": null,
+            "forwards": null,
+            "replies": null,
+            "editDate": null,
+            "postAuthor": null,
+            "groupedId": null,
+            "reactions": null,
+            "restrictionReason": null,
+            "ttlPeriod": null,
+            "quickReplyShortcutId": null,
+            "effect": null,
+            "factcheck": null,
+            "reportDeliveryUntilDate": null
+          },
+          "out": false,
+          "mentioned": false,
+          "mediaUnread": false,
+          "silent": false,
+          "post": false,
+          "fromScheduled": false,
+          "legacy": false,
+          "editHide": false,
+          "ttlPeriod": null,
+          "id": 1402,
+          "fromId": null,
+          "peerId": {
+            "__className": "PeerUser",
+            "__constructorId": 1498486562,
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "fwdFrom": null,
+          "viaBotId": null,
+          "replyTo": null,
+          "date": 1775675367,
+          "message": "test_getmsgs",
+          "media": null,
+          "replyMarkup": null,
+          "entities": null,
+          "views": null,
+          "forwards": null,
+          "replies": null,
+          "editDate": null,
+          "pinned": false,
+          "postAuthor": null,
+          "groupedId": null,
+          "restrictionReason": null,
+          "noforwards": false,
+          "reactions": null,
+          "flags": 268435456,
+          "invertMedia": false,
+          "flags2": 0,
+          "offline": false,
+          "videoProcessingPending": false,
+          "fromBoostsApplied": null,
+          "savedPeerId": {
+            "__className": "PeerUser",
+            "__constructorId": 1498486562,
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "viaBusinessBotId": null,
+          "quickReplyShortcutId": null,
+          "effect": null,
+          "factcheck": null,
+          "reportDeliveryUntilDate": null
+        },
+        {
+          "__className": "Message",
+          "__constructorId": 2533211113,
+          "className": "Message",
+          "originalArgs": {
+            "flags": 268435456,
+            "out": false,
+            "mentioned": false,
+            "mediaUnread": false,
+            "silent": false,
+            "post": false,
+            "fromScheduled": false,
+            "legacy": false,
+            "editHide": false,
+            "pinned": false,
+            "noforwards": false,
+            "invertMedia": false,
+            "flags2": 0,
+            "offline": false,
+            "videoProcessingPending": false,
+            "id": 1401,
+            "fromId": null,
+            "fromBoostsApplied": null,
+            "peerId": {
+              "__className": "PeerUser",
+              "__constructorId": 1498486562,
+              "className": "PeerUser",
+              "originalArgs": {
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "savedPeerId": {
+              "__className": "PeerUser",
+              "__constructorId": 1498486562,
+              "className": "PeerUser",
+              "originalArgs": {
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "fwdFrom": null,
+            "viaBotId": null,
+            "viaBusinessBotId": null,
+            "replyTo": null,
+            "date": 1775672417,
+            "message": "test123",
+            "media": null,
+            "replyMarkup": null,
+            "entities": null,
+            "views": null,
+            "forwards": null,
+            "replies": null,
+            "editDate": null,
+            "postAuthor": null,
+            "groupedId": null,
+            "reactions": null,
+            "restrictionReason": null,
+            "ttlPeriod": null,
+            "quickReplyShortcutId": null,
+            "effect": null,
+            "factcheck": null,
+            "reportDeliveryUntilDate": null
+          },
+          "out": false,
+          "mentioned": false,
+          "mediaUnread": false,
+          "silent": false,
+          "post": false,
+          "fromScheduled": false,
+          "legacy": false,
+          "editHide": false,
+          "ttlPeriod": null,
+          "id": 1401,
+          "fromId": null,
+          "peerId": {
+            "__className": "PeerUser",
+            "__constructorId": 1498486562,
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "fwdFrom": null,
+          "viaBotId": null,
+          "replyTo": null,
+          "date": 1775672417,
+          "message": "test123",
+          "media": null,
+          "replyMarkup": null,
+          "entities": null,
+          "views": null,
+          "forwards": null,
+          "replies": null,
+          "editDate": null,
+          "pinned": false,
+          "postAuthor": null,
+          "groupedId": null,
+          "restrictionReason": null,
+          "noforwards": false,
+          "reactions": null,
+          "flags": 268435456,
+          "invertMedia": false,
+          "flags2": 0,
+          "offline": false,
+          "videoProcessingPending": false,
+          "fromBoostsApplied": null,
+          "savedPeerId": {
+            "__className": "PeerUser",
+            "__constructorId": 1498486562,
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "viaBusinessBotId": null,
+          "quickReplyShortcutId": null,
+          "effect": null,
+          "factcheck": null,
+          "reportDeliveryUntilDate": null
+        },
+        {
+          "__className": "Message",
+          "__constructorId": 2533211113,
+          "className": "Message",
+          "originalArgs": {
+            "flags": 268436096,
+            "out": false,
+            "mentioned": false,
+            "mediaUnread": false,
+            "silent": false,
+            "post": false,
+            "fromScheduled": false,
+            "legacy": false,
+            "editHide": false,
+            "pinned": false,
+            "noforwards": false,
+            "invertMedia": false,
+            "flags2": 0,
+            "offline": false,
+            "videoProcessingPending": false,
+            "id": 1222,
+            "fromId": null,
+            "fromBoostsApplied": null,
+            "peerId": {
+              "__className": "PeerUser",
+              "__constructorId": 1498486562,
+              "className": "PeerUser",
+              "originalArgs": {
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "savedPeerId": {
+              "__className": "PeerUser",
+              "__constructorId": 1498486562,
+              "className": "PeerUser",
+              "originalArgs": {
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "fwdFrom": null,
+            "viaBotId": null,
+            "viaBusinessBotId": null,
+            "replyTo": null,
+            "date": 1754712276,
+            "message": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+            "media": {
+              "__className": "MessageMediaWebPage",
+              "__constructorId": 3723562043,
+              "className": "MessageMediaWebPage",
+              "originalArgs": {
+                "flags": 16,
+                "forceLargeMedia": false,
+                "forceSmallMedia": false,
+                "manual": false,
+                "safe": true,
+                "webpage": {
+                  "__className": "WebPage",
+                  "__constructorId": 3902555570,
+                  "className": "WebPage",
+                  "originalArgs": {
+                    "flags": 31,
+                    "hasLargeMedia": false,
+                    "id": {
+                      "value": "5319932247921539684"
+                    },
+                    "url": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                    "displayUrl": "t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                    "hash": 0,
+                    "type": "telegram_botapp",
+                    "siteName": "Telegram",
+                    "title": "Gifts Battle",
+                    "description": "Open exclusive NFT cases and upgrade to premium NFTs!\n\nSupport: @GiftsBattlesupport_bot\nChannel: @GiftsBattles",
+                    "photo": {
+                      "__className": "Photo",
+                      "__constructorId": 4212750949,
+                      "className": "Photo",
+                      "originalArgs": {
+                        "flags": 0,
+                        "hasStickers": false,
+                        "id": {
+                          "value": "5195385547722453638"
+                        },
+                        "accessHash": {
+                          "value": "-7583831312501859362"
+                        },
+                        "fileReference": {
+                          "__type": "Buffer",
+                          "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                        },
+                        "date": 1745027271,
+                        "sizes": [
+                          {
+                            "__className": "PhotoSize",
+                            "__constructorId": 1976012384,
+                            "className": "[max depth]",
+                            "originalArgs": "[max depth]",
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          {
+                            "__className": "PhotoSize",
+                            "__constructorId": 1976012384,
+                            "className": "[max depth]",
+                            "originalArgs": "[max depth]",
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          {
+                            "__className": "PhotoSize",
+                            "__constructorId": 1976012384,
+                            "className": "[max depth]",
+                            "originalArgs": "[max depth]",
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          {
+                            "__className": "PhotoStrippedSize",
+                            "__constructorId": 3769678894,
+                            "className": "[max depth]",
+                            "originalArgs": "[max depth]",
+                            "type": "[max depth]",
+                            "bytes": "[max depth]"
+                          }
+                        ],
+                        "videoSizes": null,
+                        "dcId": 2
+                      },
+                      "flags": 0,
+                      "hasStickers": false,
+                      "id": {
+                        "value": "5195385547722453638"
+                      },
+                      "accessHash": {
+                        "value": "-7583831312501859362"
+                      },
+                      "fileReference": {
+                        "__type": "Buffer",
+                        "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                      },
+                      "date": 1745027271,
+                      "sizes": [
+                        {
+                          "__className": "PhotoSize",
+                          "__constructorId": 1976012384,
+                          "className": "PhotoSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          "type": "a",
+                          "w": 160,
+                          "h": 160,
+                          "size": 5164
+                        },
+                        {
+                          "__className": "PhotoSize",
+                          "__constructorId": 1976012384,
+                          "className": "PhotoSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          "type": "b",
+                          "w": 320,
+                          "h": 320,
+                          "size": 11560
+                        },
+                        {
+                          "__className": "PhotoSize",
+                          "__constructorId": 1976012384,
+                          "className": "PhotoSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          "type": "c",
+                          "w": 640,
+                          "h": 640,
+                          "size": 27124
+                        },
+                        {
+                          "__className": "PhotoStrippedSize",
+                          "__constructorId": 3769678894,
+                          "className": "PhotoStrippedSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "bytes": "[max depth]"
+                          },
+                          "type": "i",
+                          "bytes": {
+                            "__type": "Buffer",
+                            "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                          }
+                        }
+                      ],
+                      "videoSizes": null,
+                      "dcId": 2
+                    },
+                    "embedUrl": null,
+                    "embedType": null,
+                    "embedWidth": null,
+                    "embedHeight": null,
+                    "duration": null,
+                    "author": null,
+                    "document": null,
+                    "cachedPage": null,
+                    "attributes": null
+                  },
+                  "flags": 31,
+                  "hasLargeMedia": false,
+                  "id": {
+                    "value": "5319932247921539684"
+                  },
+                  "url": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                  "displayUrl": "t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                  "hash": 0,
+                  "type": "telegram_botapp",
+                  "siteName": "Telegram",
+                  "title": "Gifts Battle",
+                  "description": "Open exclusive NFT cases and upgrade to premium NFTs!\n\nSupport: @GiftsBattlesupport_bot\nChannel: @GiftsBattles",
+                  "photo": {
+                    "__className": "Photo",
+                    "__constructorId": 4212750949,
+                    "className": "Photo",
+                    "originalArgs": {
+                      "flags": 0,
+                      "hasStickers": false,
+                      "id": {
+                        "value": "5195385547722453638"
+                      },
+                      "accessHash": {
+                        "value": "-7583831312501859362"
+                      },
+                      "fileReference": {
+                        "__type": "Buffer",
+                        "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                      },
+                      "date": 1745027271,
+                      "sizes": [
+                        {
+                          "__className": "PhotoSize",
+                          "__constructorId": 1976012384,
+                          "className": "PhotoSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          "type": "a",
+                          "w": 160,
+                          "h": 160,
+                          "size": 5164
+                        },
+                        {
+                          "__className": "PhotoSize",
+                          "__constructorId": 1976012384,
+                          "className": "PhotoSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          "type": "b",
+                          "w": 320,
+                          "h": 320,
+                          "size": 11560
+                        },
+                        {
+                          "__className": "PhotoSize",
+                          "__constructorId": 1976012384,
+                          "className": "PhotoSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          "type": "c",
+                          "w": 640,
+                          "h": 640,
+                          "size": 27124
+                        },
+                        {
+                          "__className": "PhotoStrippedSize",
+                          "__constructorId": 3769678894,
+                          "className": "PhotoStrippedSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "bytes": "[max depth]"
+                          },
+                          "type": "i",
+                          "bytes": {
+                            "__type": "Buffer",
+                            "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                          }
+                        }
+                      ],
+                      "videoSizes": null,
+                      "dcId": 2
+                    },
+                    "flags": 0,
+                    "hasStickers": false,
+                    "id": {
+                      "value": "5195385547722453638"
+                    },
+                    "accessHash": {
+                      "value": "-7583831312501859362"
+                    },
+                    "fileReference": {
+                      "__type": "Buffer",
+                      "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                    },
+                    "date": 1745027271,
+                    "sizes": [
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "a",
+                          "w": 160,
+                          "h": 160,
+                          "size": 5164
+                        },
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "b",
+                          "w": 320,
+                          "h": 320,
+                          "size": 11560
+                        },
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "c",
+                          "w": 640,
+                          "h": 640,
+                          "size": 27124
+                        },
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      {
+                        "__className": "PhotoStrippedSize",
+                        "__constructorId": 3769678894,
+                        "className": "PhotoStrippedSize",
+                        "originalArgs": {
+                          "type": "i",
+                          "bytes": {
+                            "__type": "Buffer",
+                            "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                          }
+                        },
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      }
+                    ],
+                    "videoSizes": null,
+                    "dcId": 2
+                  },
+                  "embedUrl": null,
+                  "embedType": null,
+                  "embedWidth": null,
+                  "embedHeight": null,
+                  "duration": null,
+                  "author": null,
+                  "document": null,
+                  "cachedPage": null,
+                  "attributes": null
+                }
+              },
+              "flags": 16,
+              "forceLargeMedia": false,
+              "forceSmallMedia": false,
+              "manual": false,
+              "safe": true,
+              "webpage": {
+                "__className": "WebPage",
+                "__constructorId": 3902555570,
+                "className": "WebPage",
+                "originalArgs": {
+                  "flags": 31,
+                  "hasLargeMedia": false,
+                  "id": {
+                    "value": "5319932247921539684"
+                  },
+                  "url": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                  "displayUrl": "t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                  "hash": 0,
+                  "type": "telegram_botapp",
+                  "siteName": "Telegram",
+                  "title": "Gifts Battle",
+                  "description": "Open exclusive NFT cases and upgrade to premium NFTs!\n\nSupport: @GiftsBattlesupport_bot\nChannel: @GiftsBattles",
+                  "photo": {
+                    "__className": "Photo",
+                    "__constructorId": 4212750949,
+                    "className": "Photo",
+                    "originalArgs": {
+                      "flags": 0,
+                      "hasStickers": false,
+                      "id": {
+                        "value": "5195385547722453638"
+                      },
+                      "accessHash": {
+                        "value": "-7583831312501859362"
+                      },
+                      "fileReference": {
+                        "__type": "Buffer",
+                        "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                      },
+                      "date": 1745027271,
+                      "sizes": [
+                        {
+                          "__className": "PhotoSize",
+                          "__constructorId": 1976012384,
+                          "className": "PhotoSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          "type": "a",
+                          "w": 160,
+                          "h": 160,
+                          "size": 5164
+                        },
+                        {
+                          "__className": "PhotoSize",
+                          "__constructorId": 1976012384,
+                          "className": "PhotoSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          "type": "b",
+                          "w": 320,
+                          "h": 320,
+                          "size": 11560
+                        },
+                        {
+                          "__className": "PhotoSize",
+                          "__constructorId": 1976012384,
+                          "className": "PhotoSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          "type": "c",
+                          "w": 640,
+                          "h": 640,
+                          "size": 27124
+                        },
+                        {
+                          "__className": "PhotoStrippedSize",
+                          "__constructorId": 3769678894,
+                          "className": "PhotoStrippedSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "bytes": "[max depth]"
+                          },
+                          "type": "i",
+                          "bytes": {
+                            "__type": "Buffer",
+                            "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                          }
+                        }
+                      ],
+                      "videoSizes": null,
+                      "dcId": 2
+                    },
+                    "flags": 0,
+                    "hasStickers": false,
+                    "id": {
+                      "value": "5195385547722453638"
+                    },
+                    "accessHash": {
+                      "value": "-7583831312501859362"
+                    },
+                    "fileReference": {
+                      "__type": "Buffer",
+                      "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                    },
+                    "date": 1745027271,
+                    "sizes": [
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "a",
+                          "w": 160,
+                          "h": 160,
+                          "size": 5164
+                        },
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "b",
+                          "w": 320,
+                          "h": 320,
+                          "size": 11560
+                        },
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "c",
+                          "w": 640,
+                          "h": 640,
+                          "size": 27124
+                        },
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      {
+                        "__className": "PhotoStrippedSize",
+                        "__constructorId": 3769678894,
+                        "className": "PhotoStrippedSize",
+                        "originalArgs": {
+                          "type": "i",
+                          "bytes": {
+                            "__type": "Buffer",
+                            "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                          }
+                        },
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      }
+                    ],
+                    "videoSizes": null,
+                    "dcId": 2
+                  },
+                  "embedUrl": null,
+                  "embedType": null,
+                  "embedWidth": null,
+                  "embedHeight": null,
+                  "duration": null,
+                  "author": null,
+                  "document": null,
+                  "cachedPage": null,
+                  "attributes": null
+                },
+                "flags": 31,
+                "hasLargeMedia": false,
+                "id": {
+                  "value": "5319932247921539684"
+                },
+                "url": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                "displayUrl": "t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                "hash": 0,
+                "type": "telegram_botapp",
+                "siteName": "Telegram",
+                "title": "Gifts Battle",
+                "description": "Open exclusive NFT cases and upgrade to premium NFTs!\n\nSupport: @GiftsBattlesupport_bot\nChannel: @GiftsBattles",
+                "photo": {
+                  "__className": "Photo",
+                  "__constructorId": 4212750949,
+                  "className": "Photo",
+                  "originalArgs": {
+                    "flags": 0,
+                    "hasStickers": false,
+                    "id": {
+                      "value": "5195385547722453638"
+                    },
+                    "accessHash": {
+                      "value": "-7583831312501859362"
+                    },
+                    "fileReference": {
+                      "__type": "Buffer",
+                      "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                    },
+                    "date": 1745027271,
+                    "sizes": [
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "a",
+                          "w": 160,
+                          "h": 160,
+                          "size": 5164
+                        },
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "b",
+                          "w": 320,
+                          "h": 320,
+                          "size": 11560
+                        },
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "c",
+                          "w": 640,
+                          "h": 640,
+                          "size": 27124
+                        },
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      {
+                        "__className": "PhotoStrippedSize",
+                        "__constructorId": 3769678894,
+                        "className": "PhotoStrippedSize",
+                        "originalArgs": {
+                          "type": "i",
+                          "bytes": {
+                            "__type": "Buffer",
+                            "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                          }
+                        },
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      }
+                    ],
+                    "videoSizes": null,
+                    "dcId": 2
+                  },
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "5195385547722453638"
+                  },
+                  "accessHash": {
+                    "value": "-7583831312501859362"
+                  },
+                  "fileReference": {
+                    "__type": "Buffer",
+                    "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                  },
+                  "date": 1745027271,
+                  "sizes": [
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      "type": "a",
+                      "w": 160,
+                      "h": 160,
+                      "size": 5164
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      "type": "b",
+                      "w": 320,
+                      "h": 320,
+                      "size": 11560
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      "type": "c",
+                      "w": 640,
+                      "h": 640,
+                      "size": 27124
+                    },
+                    {
+                      "__className": "PhotoStrippedSize",
+                      "__constructorId": 3769678894,
+                      "className": "PhotoStrippedSize",
+                      "originalArgs": {
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      },
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                      }
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "embedUrl": null,
+                "embedType": null,
+                "embedWidth": null,
+                "embedHeight": null,
+                "duration": null,
+                "author": null,
+                "document": null,
+                "cachedPage": null,
+                "attributes": null
+              }
+            },
+            "replyMarkup": null,
+            "entities": [
+              {
+                "__className": "MessageEntityUrl",
+                "__constructorId": 1859134776,
+                "className": "MessageEntityUrl",
+                "originalArgs": {
+                  "offset": 0,
+                  "length": 51
+                },
+                "offset": 0,
+                "length": 51
+              }
+            ],
+            "views": null,
+            "forwards": null,
+            "replies": null,
+            "editDate": null,
+            "postAuthor": null,
+            "groupedId": null,
+            "reactions": null,
+            "restrictionReason": null,
+            "ttlPeriod": null,
+            "quickReplyShortcutId": null,
+            "effect": null,
+            "factcheck": null,
+            "reportDeliveryUntilDate": null
+          },
+          "out": false,
+          "mentioned": false,
+          "mediaUnread": false,
+          "silent": false,
+          "post": false,
+          "fromScheduled": false,
+          "legacy": false,
+          "editHide": false,
+          "ttlPeriod": null,
+          "id": 1222,
+          "fromId": null,
+          "peerId": {
+            "__className": "PeerUser",
+            "__constructorId": 1498486562,
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "fwdFrom": null,
+          "viaBotId": null,
+          "replyTo": null,
+          "date": 1754712276,
+          "message": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+          "media": {
+            "__className": "MessageMediaWebPage",
+            "__constructorId": 3723562043,
+            "className": "MessageMediaWebPage",
+            "originalArgs": {
+              "flags": 16,
+              "forceLargeMedia": false,
+              "forceSmallMedia": false,
+              "manual": false,
+              "safe": true,
+              "webpage": {
+                "__className": "WebPage",
+                "__constructorId": 3902555570,
+                "className": "WebPage",
+                "originalArgs": {
+                  "flags": 31,
+                  "hasLargeMedia": false,
+                  "id": {
+                    "value": "5319932247921539684"
+                  },
+                  "url": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                  "displayUrl": "t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                  "hash": 0,
+                  "type": "telegram_botapp",
+                  "siteName": "Telegram",
+                  "title": "Gifts Battle",
+                  "description": "Open exclusive NFT cases and upgrade to premium NFTs!\n\nSupport: @GiftsBattlesupport_bot\nChannel: @GiftsBattles",
+                  "photo": {
+                    "__className": "Photo",
+                    "__constructorId": 4212750949,
+                    "className": "Photo",
+                    "originalArgs": {
+                      "flags": 0,
+                      "hasStickers": false,
+                      "id": {
+                        "value": "5195385547722453638"
+                      },
+                      "accessHash": {
+                        "value": "-7583831312501859362"
+                      },
+                      "fileReference": {
+                        "__type": "Buffer",
+                        "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                      },
+                      "date": 1745027271,
+                      "sizes": [
+                        {
+                          "__className": "PhotoSize",
+                          "__constructorId": 1976012384,
+                          "className": "PhotoSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          "type": "a",
+                          "w": 160,
+                          "h": 160,
+                          "size": 5164
+                        },
+                        {
+                          "__className": "PhotoSize",
+                          "__constructorId": 1976012384,
+                          "className": "PhotoSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          "type": "b",
+                          "w": 320,
+                          "h": 320,
+                          "size": 11560
+                        },
+                        {
+                          "__className": "PhotoSize",
+                          "__constructorId": 1976012384,
+                          "className": "PhotoSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          "type": "c",
+                          "w": 640,
+                          "h": 640,
+                          "size": 27124
+                        },
+                        {
+                          "__className": "PhotoStrippedSize",
+                          "__constructorId": 3769678894,
+                          "className": "PhotoStrippedSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "bytes": "[max depth]"
+                          },
+                          "type": "i",
+                          "bytes": {
+                            "__type": "Buffer",
+                            "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                          }
+                        }
+                      ],
+                      "videoSizes": null,
+                      "dcId": 2
+                    },
+                    "flags": 0,
+                    "hasStickers": false,
+                    "id": {
+                      "value": "5195385547722453638"
+                    },
+                    "accessHash": {
+                      "value": "-7583831312501859362"
+                    },
+                    "fileReference": {
+                      "__type": "Buffer",
+                      "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                    },
+                    "date": 1745027271,
+                    "sizes": [
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "a",
+                          "w": 160,
+                          "h": 160,
+                          "size": 5164
+                        },
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "b",
+                          "w": 320,
+                          "h": 320,
+                          "size": 11560
+                        },
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "c",
+                          "w": 640,
+                          "h": 640,
+                          "size": 27124
+                        },
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      {
+                        "__className": "PhotoStrippedSize",
+                        "__constructorId": 3769678894,
+                        "className": "PhotoStrippedSize",
+                        "originalArgs": {
+                          "type": "i",
+                          "bytes": {
+                            "__type": "Buffer",
+                            "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                          }
+                        },
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      }
+                    ],
+                    "videoSizes": null,
+                    "dcId": 2
+                  },
+                  "embedUrl": null,
+                  "embedType": null,
+                  "embedWidth": null,
+                  "embedHeight": null,
+                  "duration": null,
+                  "author": null,
+                  "document": null,
+                  "cachedPage": null,
+                  "attributes": null
+                },
+                "flags": 31,
+                "hasLargeMedia": false,
+                "id": {
+                  "value": "5319932247921539684"
+                },
+                "url": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                "displayUrl": "t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                "hash": 0,
+                "type": "telegram_botapp",
+                "siteName": "Telegram",
+                "title": "Gifts Battle",
+                "description": "Open exclusive NFT cases and upgrade to premium NFTs!\n\nSupport: @GiftsBattlesupport_bot\nChannel: @GiftsBattles",
+                "photo": {
+                  "__className": "Photo",
+                  "__constructorId": 4212750949,
+                  "className": "Photo",
+                  "originalArgs": {
+                    "flags": 0,
+                    "hasStickers": false,
+                    "id": {
+                      "value": "5195385547722453638"
+                    },
+                    "accessHash": {
+                      "value": "-7583831312501859362"
+                    },
+                    "fileReference": {
+                      "__type": "Buffer",
+                      "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                    },
+                    "date": 1745027271,
+                    "sizes": [
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "a",
+                          "w": 160,
+                          "h": 160,
+                          "size": 5164
+                        },
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "b",
+                          "w": 320,
+                          "h": 320,
+                          "size": 11560
+                        },
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "c",
+                          "w": 640,
+                          "h": 640,
+                          "size": 27124
+                        },
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      {
+                        "__className": "PhotoStrippedSize",
+                        "__constructorId": 3769678894,
+                        "className": "PhotoStrippedSize",
+                        "originalArgs": {
+                          "type": "i",
+                          "bytes": {
+                            "__type": "Buffer",
+                            "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                          }
+                        },
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      }
+                    ],
+                    "videoSizes": null,
+                    "dcId": 2
+                  },
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "5195385547722453638"
+                  },
+                  "accessHash": {
+                    "value": "-7583831312501859362"
+                  },
+                  "fileReference": {
+                    "__type": "Buffer",
+                    "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                  },
+                  "date": 1745027271,
+                  "sizes": [
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      "type": "a",
+                      "w": 160,
+                      "h": 160,
+                      "size": 5164
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      "type": "b",
+                      "w": 320,
+                      "h": 320,
+                      "size": 11560
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      "type": "c",
+                      "w": 640,
+                      "h": 640,
+                      "size": 27124
+                    },
+                    {
+                      "__className": "PhotoStrippedSize",
+                      "__constructorId": 3769678894,
+                      "className": "PhotoStrippedSize",
+                      "originalArgs": {
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      },
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                      }
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "embedUrl": null,
+                "embedType": null,
+                "embedWidth": null,
+                "embedHeight": null,
+                "duration": null,
+                "author": null,
+                "document": null,
+                "cachedPage": null,
+                "attributes": null
+              }
+            },
+            "flags": 16,
+            "forceLargeMedia": false,
+            "forceSmallMedia": false,
+            "manual": false,
+            "safe": true,
+            "webpage": {
+              "__className": "WebPage",
+              "__constructorId": 3902555570,
+              "className": "WebPage",
+              "originalArgs": {
+                "flags": 31,
+                "hasLargeMedia": false,
+                "id": {
+                  "value": "5319932247921539684"
+                },
+                "url": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                "displayUrl": "t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                "hash": 0,
+                "type": "telegram_botapp",
+                "siteName": "Telegram",
+                "title": "Gifts Battle",
+                "description": "Open exclusive NFT cases and upgrade to premium NFTs!\n\nSupport: @GiftsBattlesupport_bot\nChannel: @GiftsBattles",
+                "photo": {
+                  "__className": "Photo",
+                  "__constructorId": 4212750949,
+                  "className": "Photo",
+                  "originalArgs": {
+                    "flags": 0,
+                    "hasStickers": false,
+                    "id": {
+                      "value": "5195385547722453638"
+                    },
+                    "accessHash": {
+                      "value": "-7583831312501859362"
+                    },
+                    "fileReference": {
+                      "__type": "Buffer",
+                      "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                    },
+                    "date": 1745027271,
+                    "sizes": [
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "a",
+                          "w": 160,
+                          "h": 160,
+                          "size": 5164
+                        },
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "b",
+                          "w": 320,
+                          "h": 320,
+                          "size": 11560
+                        },
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "c",
+                          "w": 640,
+                          "h": 640,
+                          "size": 27124
+                        },
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      {
+                        "__className": "PhotoStrippedSize",
+                        "__constructorId": 3769678894,
+                        "className": "PhotoStrippedSize",
+                        "originalArgs": {
+                          "type": "i",
+                          "bytes": {
+                            "__type": "Buffer",
+                            "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                          }
+                        },
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      }
+                    ],
+                    "videoSizes": null,
+                    "dcId": 2
+                  },
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "5195385547722453638"
+                  },
+                  "accessHash": {
+                    "value": "-7583831312501859362"
+                  },
+                  "fileReference": {
+                    "__type": "Buffer",
+                    "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                  },
+                  "date": 1745027271,
+                  "sizes": [
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      "type": "a",
+                      "w": 160,
+                      "h": 160,
+                      "size": 5164
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      "type": "b",
+                      "w": 320,
+                      "h": 320,
+                      "size": 11560
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      "type": "c",
+                      "w": 640,
+                      "h": 640,
+                      "size": 27124
+                    },
+                    {
+                      "__className": "PhotoStrippedSize",
+                      "__constructorId": 3769678894,
+                      "className": "PhotoStrippedSize",
+                      "originalArgs": {
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      },
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                      }
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "embedUrl": null,
+                "embedType": null,
+                "embedWidth": null,
+                "embedHeight": null,
+                "duration": null,
+                "author": null,
+                "document": null,
+                "cachedPage": null,
+                "attributes": null
+              },
+              "flags": 31,
+              "hasLargeMedia": false,
+              "id": {
+                "value": "5319932247921539684"
+              },
+              "url": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+              "displayUrl": "t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+              "hash": 0,
+              "type": "telegram_botapp",
+              "siteName": "Telegram",
+              "title": "Gifts Battle",
+              "description": "Open exclusive NFT cases and upgrade to premium NFTs!\n\nSupport: @GiftsBattlesupport_bot\nChannel: @GiftsBattles",
+              "photo": {
+                "__className": "Photo",
+                "__constructorId": 4212750949,
+                "className": "Photo",
+                "originalArgs": {
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "5195385547722453638"
+                  },
+                  "accessHash": {
+                    "value": "-7583831312501859362"
+                  },
+                  "fileReference": {
+                    "__type": "Buffer",
+                    "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                  },
+                  "date": 1745027271,
+                  "sizes": [
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      "type": "a",
+                      "w": 160,
+                      "h": 160,
+                      "size": 5164
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      "type": "b",
+                      "w": 320,
+                      "h": 320,
+                      "size": 11560
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      "type": "c",
+                      "w": 640,
+                      "h": 640,
+                      "size": 27124
+                    },
+                    {
+                      "__className": "PhotoStrippedSize",
+                      "__constructorId": 3769678894,
+                      "className": "PhotoStrippedSize",
+                      "originalArgs": {
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      },
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                      }
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "5195385547722453638"
+                },
+                "accessHash": {
+                  "value": "-7583831312501859362"
+                },
+                "fileReference": {
+                  "__type": "Buffer",
+                  "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                },
+                "date": 1745027271,
+                "sizes": [
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "a",
+                      "w": 160,
+                      "h": 160,
+                      "size": 5164
+                    },
+                    "type": "a",
+                    "w": 160,
+                    "h": 160,
+                    "size": 5164
+                  },
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "b",
+                      "w": 320,
+                      "h": 320,
+                      "size": 11560
+                    },
+                    "type": "b",
+                    "w": 320,
+                    "h": 320,
+                    "size": 11560
+                  },
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "c",
+                      "w": 640,
+                      "h": 640,
+                      "size": 27124
+                    },
+                    "type": "c",
+                    "w": 640,
+                    "h": 640,
+                    "size": 27124
+                  },
+                  {
+                    "__className": "PhotoStrippedSize",
+                    "__constructorId": 3769678894,
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                      }
+                    },
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                    }
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 2
+              },
+              "embedUrl": null,
+              "embedType": null,
+              "embedWidth": null,
+              "embedHeight": null,
+              "duration": null,
+              "author": null,
+              "document": null,
+              "cachedPage": null,
+              "attributes": null
+            }
+          },
+          "replyMarkup": null,
+          "entities": [
+            {
+              "__className": "MessageEntityUrl",
+              "__constructorId": 1859134776,
+              "className": "MessageEntityUrl",
+              "originalArgs": {
+                "offset": 0,
+                "length": 51
+              },
+              "offset": 0,
+              "length": 51
+            }
+          ],
+          "views": null,
+          "forwards": null,
+          "replies": null,
+          "editDate": null,
+          "pinned": false,
+          "postAuthor": null,
+          "groupedId": null,
+          "restrictionReason": null,
+          "noforwards": false,
+          "reactions": null,
+          "flags": 268436096,
+          "invertMedia": false,
+          "flags2": 0,
+          "offline": false,
+          "videoProcessingPending": false,
+          "fromBoostsApplied": null,
+          "savedPeerId": {
+            "__className": "PeerUser",
+            "__constructorId": 1498486562,
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "viaBusinessBotId": null,
+          "quickReplyShortcutId": null,
+          "effect": null,
+          "factcheck": null,
+          "reportDeliveryUntilDate": null
+        },
+        {
+          "__className": "MessageService",
+          "__constructorId": 3553789248,
+          "className": "MessageService",
+          "originalArgs": {
+            "flags": 2,
+            "out": true,
+            "mentioned": false,
+            "mediaUnread": false,
+            "reactionsArePossible": false,
+            "silent": false,
+            "post": false,
+            "legacy": false,
+            "id": 1220,
+            "fromId": null,
+            "peerId": {
+              "__className": "PeerUser",
+              "__constructorId": 1498486562,
+              "className": "PeerUser",
+              "originalArgs": {
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "replyTo": null,
+            "date": 1746382325,
+            "action": {
+              "__className": "MessageActionHistoryClear",
+              "__constructorId": 2679813636,
+              "className": "MessageActionHistoryClear",
+              "originalArgs": {}
+            },
+            "reactions": null,
+            "ttlPeriod": null
+          },
+          "out": true,
+          "mentioned": false,
+          "mediaUnread": false,
+          "silent": false,
+          "post": false,
+          "legacy": false,
+          "ttlPeriod": null,
+          "id": 1220,
+          "fromId": null,
+          "peerId": {
+            "__className": "PeerUser",
+            "__constructorId": 1498486562,
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "replyTo": null,
+          "date": 1746382325,
+          "action": {
+            "__className": "MessageActionHistoryClear",
+            "__constructorId": 2679813636,
+            "className": "MessageActionHistoryClear",
+            "originalArgs": {}
+          },
+          "reactions": null,
+          "flags": 2,
+          "reactionsArePossible": false
+        }
+      ],
+      "chats": [],
+      "users": [
+        {
+          "__className": "User",
+          "__constructorId": 1262928766,
+          "className": "User",
+          "originalArgs": {
+            "flags": 33555547,
+            "self": true,
+            "contact": false,
+            "mutualContact": false,
+            "deleted": false,
+            "bot": false,
+            "botChatHistory": false,
+            "botNochats": false,
+            "verified": false,
+            "restricted": false,
+            "min": false,
+            "botInlineGeo": false,
+            "support": false,
+            "scam": false,
+            "applyMinPhoto": true,
+            "fake": false,
+            "botAttachMenu": false,
+            "premium": false,
+            "attachMenuEnabled": false,
+            "flags2": 16,
+            "botCanEdit": false,
+            "closeFriend": false,
+            "storiesHidden": false,
+            "storiesUnavailable": true,
+            "contactRequirePremium": false,
+            "botBusiness": false,
+            "botHasMainApp": false,
+            "id": {
+              "value": "6340886702"
+            },
+            "accessHash": {
+              "value": "-2827396686645499657"
+            },
+            "firstName": "🤷",
+            "lastName": null,
+            "username": "user28738229",
+            "phone": "17799037329",
+            "photo": null,
+            "status": {
+              "__className": "UserStatusOnline",
+              "__constructorId": 3988339017,
+              "className": "UserStatusOnline",
+              "originalArgs": {
+                "expires": 1775838054
+              },
+              "expires": 1775838054
+            },
+            "botInfoVersion": null,
+            "restrictionReason": null,
+            "botInlinePlaceholder": null,
+            "langCode": null,
+            "emojiStatus": null,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "botActiveUsers": null,
+            "botVerificationIcon": null
+          },
+          "flags": 33555547,
+          "self": true,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "6340886702"
+          },
+          "accessHash": {
+            "value": "-2827396686645499657"
+          },
+          "firstName": "🤷",
+          "lastName": null,
+          "username": "user28738229",
+          "phone": "17799037329",
+          "photo": null,
+          "status": {
+            "__className": "UserStatusOnline",
+            "__constructorId": 3988339017,
+            "className": "UserStatusOnline",
+            "originalArgs": {
+              "expires": 1775838054
+            },
+            "expires": 1775838054
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        }
+      ]
+    },
+    "messages": [
+      {
+        "__className": "Message",
+        "__constructorId": 2533211113,
+        "className": "Message",
+        "originalArgs": {
+          "flags": 268435456,
+          "out": false,
+          "mentioned": false,
+          "mediaUnread": false,
+          "silent": false,
+          "post": false,
+          "fromScheduled": false,
+          "legacy": false,
+          "editHide": false,
+          "pinned": false,
+          "noforwards": false,
+          "invertMedia": false,
+          "flags2": 0,
+          "offline": false,
+          "videoProcessingPending": false,
+          "id": 1402,
+          "fromId": null,
+          "fromBoostsApplied": null,
+          "peerId": {
+            "__className": "PeerUser",
+            "__constructorId": 1498486562,
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "savedPeerId": {
+            "__className": "PeerUser",
+            "__constructorId": 1498486562,
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "fwdFrom": null,
+          "viaBotId": null,
+          "viaBusinessBotId": null,
+          "replyTo": null,
+          "date": 1775675367,
+          "message": "test_getmsgs",
+          "media": null,
+          "replyMarkup": null,
+          "entities": null,
+          "views": null,
+          "forwards": null,
+          "replies": null,
+          "editDate": null,
+          "postAuthor": null,
+          "groupedId": null,
+          "reactions": null,
+          "restrictionReason": null,
+          "ttlPeriod": null,
+          "quickReplyShortcutId": null,
+          "effect": null,
+          "factcheck": null,
+          "reportDeliveryUntilDate": null
+        },
+        "out": false,
+        "mentioned": false,
+        "mediaUnread": false,
+        "silent": false,
+        "post": false,
+        "fromScheduled": false,
+        "legacy": false,
+        "editHide": false,
+        "ttlPeriod": null,
+        "id": 1402,
+        "fromId": null,
+        "peerId": {
+          "__className": "PeerUser",
+          "__constructorId": 1498486562,
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "userId": {
+            "value": "6340886702"
+          }
+        },
+        "fwdFrom": null,
+        "viaBotId": null,
+        "replyTo": null,
+        "date": 1775675367,
+        "message": "test_getmsgs",
+        "media": null,
+        "replyMarkup": null,
+        "entities": null,
+        "views": null,
+        "forwards": null,
+        "replies": null,
+        "editDate": null,
+        "pinned": false,
+        "postAuthor": null,
+        "groupedId": null,
+        "restrictionReason": null,
+        "noforwards": false,
+        "reactions": null,
+        "flags": 268435456,
+        "invertMedia": false,
+        "flags2": 0,
+        "offline": false,
+        "videoProcessingPending": false,
+        "fromBoostsApplied": null,
+        "savedPeerId": {
+          "__className": "PeerUser",
+          "__constructorId": 1498486562,
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "userId": {
+            "value": "6340886702"
+          }
+        },
+        "viaBusinessBotId": null,
+        "quickReplyShortcutId": null,
+        "effect": null,
+        "factcheck": null,
+        "reportDeliveryUntilDate": null
+      },
+      {
+        "__className": "Message",
+        "__constructorId": 2533211113,
+        "className": "Message",
+        "originalArgs": {
+          "flags": 268435456,
+          "out": false,
+          "mentioned": false,
+          "mediaUnread": false,
+          "silent": false,
+          "post": false,
+          "fromScheduled": false,
+          "legacy": false,
+          "editHide": false,
+          "pinned": false,
+          "noforwards": false,
+          "invertMedia": false,
+          "flags2": 0,
+          "offline": false,
+          "videoProcessingPending": false,
+          "id": 1401,
+          "fromId": null,
+          "fromBoostsApplied": null,
+          "peerId": {
+            "__className": "PeerUser",
+            "__constructorId": 1498486562,
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "savedPeerId": {
+            "__className": "PeerUser",
+            "__constructorId": 1498486562,
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "fwdFrom": null,
+          "viaBotId": null,
+          "viaBusinessBotId": null,
+          "replyTo": null,
+          "date": 1775672417,
+          "message": "test123",
+          "media": null,
+          "replyMarkup": null,
+          "entities": null,
+          "views": null,
+          "forwards": null,
+          "replies": null,
+          "editDate": null,
+          "postAuthor": null,
+          "groupedId": null,
+          "reactions": null,
+          "restrictionReason": null,
+          "ttlPeriod": null,
+          "quickReplyShortcutId": null,
+          "effect": null,
+          "factcheck": null,
+          "reportDeliveryUntilDate": null
+        },
+        "out": false,
+        "mentioned": false,
+        "mediaUnread": false,
+        "silent": false,
+        "post": false,
+        "fromScheduled": false,
+        "legacy": false,
+        "editHide": false,
+        "ttlPeriod": null,
+        "id": 1401,
+        "fromId": null,
+        "peerId": {
+          "__className": "PeerUser",
+          "__constructorId": 1498486562,
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "userId": {
+            "value": "6340886702"
+          }
+        },
+        "fwdFrom": null,
+        "viaBotId": null,
+        "replyTo": null,
+        "date": 1775672417,
+        "message": "test123",
+        "media": null,
+        "replyMarkup": null,
+        "entities": null,
+        "views": null,
+        "forwards": null,
+        "replies": null,
+        "editDate": null,
+        "pinned": false,
+        "postAuthor": null,
+        "groupedId": null,
+        "restrictionReason": null,
+        "noforwards": false,
+        "reactions": null,
+        "flags": 268435456,
+        "invertMedia": false,
+        "flags2": 0,
+        "offline": false,
+        "videoProcessingPending": false,
+        "fromBoostsApplied": null,
+        "savedPeerId": {
+          "__className": "PeerUser",
+          "__constructorId": 1498486562,
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "userId": {
+            "value": "6340886702"
+          }
+        },
+        "viaBusinessBotId": null,
+        "quickReplyShortcutId": null,
+        "effect": null,
+        "factcheck": null,
+        "reportDeliveryUntilDate": null
+      },
+      {
+        "__className": "Message",
+        "__constructorId": 2533211113,
+        "className": "Message",
+        "originalArgs": {
+          "flags": 268436096,
+          "out": false,
+          "mentioned": false,
+          "mediaUnread": false,
+          "silent": false,
+          "post": false,
+          "fromScheduled": false,
+          "legacy": false,
+          "editHide": false,
+          "pinned": false,
+          "noforwards": false,
+          "invertMedia": false,
+          "flags2": 0,
+          "offline": false,
+          "videoProcessingPending": false,
+          "id": 1222,
+          "fromId": null,
+          "fromBoostsApplied": null,
+          "peerId": {
+            "__className": "PeerUser",
+            "__constructorId": 1498486562,
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "savedPeerId": {
+            "__className": "PeerUser",
+            "__constructorId": 1498486562,
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "fwdFrom": null,
+          "viaBotId": null,
+          "viaBusinessBotId": null,
+          "replyTo": null,
+          "date": 1754712276,
+          "message": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+          "media": {
+            "__className": "MessageMediaWebPage",
+            "__constructorId": 3723562043,
+            "className": "MessageMediaWebPage",
+            "originalArgs": {
+              "flags": 16,
+              "forceLargeMedia": false,
+              "forceSmallMedia": false,
+              "manual": false,
+              "safe": true,
+              "webpage": {
+                "__className": "WebPage",
+                "__constructorId": 3902555570,
+                "className": "WebPage",
+                "originalArgs": {
+                  "flags": 31,
+                  "hasLargeMedia": false,
+                  "id": {
+                    "value": "5319932247921539684"
+                  },
+                  "url": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                  "displayUrl": "t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                  "hash": 0,
+                  "type": "telegram_botapp",
+                  "siteName": "Telegram",
+                  "title": "Gifts Battle",
+                  "description": "Open exclusive NFT cases and upgrade to premium NFTs!\n\nSupport: @GiftsBattlesupport_bot\nChannel: @GiftsBattles",
+                  "photo": {
+                    "__className": "Photo",
+                    "__constructorId": 4212750949,
+                    "className": "Photo",
+                    "originalArgs": {
+                      "flags": 0,
+                      "hasStickers": false,
+                      "id": {
+                        "value": "5195385547722453638"
+                      },
+                      "accessHash": {
+                        "value": "-7583831312501859362"
+                      },
+                      "fileReference": {
+                        "__type": "Buffer",
+                        "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                      },
+                      "date": 1745027271,
+                      "sizes": [
+                        {
+                          "__className": "PhotoSize",
+                          "__constructorId": 1976012384,
+                          "className": "PhotoSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          "type": "a",
+                          "w": 160,
+                          "h": 160,
+                          "size": 5164
+                        },
+                        {
+                          "__className": "PhotoSize",
+                          "__constructorId": 1976012384,
+                          "className": "PhotoSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          "type": "b",
+                          "w": 320,
+                          "h": 320,
+                          "size": 11560
+                        },
+                        {
+                          "__className": "PhotoSize",
+                          "__constructorId": 1976012384,
+                          "className": "PhotoSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "w": "[max depth]",
+                            "h": "[max depth]",
+                            "size": "[max depth]"
+                          },
+                          "type": "c",
+                          "w": 640,
+                          "h": 640,
+                          "size": 27124
+                        },
+                        {
+                          "__className": "PhotoStrippedSize",
+                          "__constructorId": 3769678894,
+                          "className": "PhotoStrippedSize",
+                          "originalArgs": {
+                            "type": "[max depth]",
+                            "bytes": "[max depth]"
+                          },
+                          "type": "i",
+                          "bytes": {
+                            "__type": "Buffer",
+                            "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                          }
+                        }
+                      ],
+                      "videoSizes": null,
+                      "dcId": 2
+                    },
+                    "flags": 0,
+                    "hasStickers": false,
+                    "id": {
+                      "value": "5195385547722453638"
+                    },
+                    "accessHash": {
+                      "value": "-7583831312501859362"
+                    },
+                    "fileReference": {
+                      "__type": "Buffer",
+                      "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                    },
+                    "date": 1745027271,
+                    "sizes": [
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "a",
+                          "w": 160,
+                          "h": 160,
+                          "size": 5164
+                        },
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "b",
+                          "w": 320,
+                          "h": 320,
+                          "size": 11560
+                        },
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "c",
+                          "w": 640,
+                          "h": 640,
+                          "size": 27124
+                        },
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      {
+                        "__className": "PhotoStrippedSize",
+                        "__constructorId": 3769678894,
+                        "className": "PhotoStrippedSize",
+                        "originalArgs": {
+                          "type": "i",
+                          "bytes": {
+                            "__type": "Buffer",
+                            "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                          }
+                        },
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      }
+                    ],
+                    "videoSizes": null,
+                    "dcId": 2
+                  },
+                  "embedUrl": null,
+                  "embedType": null,
+                  "embedWidth": null,
+                  "embedHeight": null,
+                  "duration": null,
+                  "author": null,
+                  "document": null,
+                  "cachedPage": null,
+                  "attributes": null
+                },
+                "flags": 31,
+                "hasLargeMedia": false,
+                "id": {
+                  "value": "5319932247921539684"
+                },
+                "url": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                "displayUrl": "t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                "hash": 0,
+                "type": "telegram_botapp",
+                "siteName": "Telegram",
+                "title": "Gifts Battle",
+                "description": "Open exclusive NFT cases and upgrade to premium NFTs!\n\nSupport: @GiftsBattlesupport_bot\nChannel: @GiftsBattles",
+                "photo": {
+                  "__className": "Photo",
+                  "__constructorId": 4212750949,
+                  "className": "Photo",
+                  "originalArgs": {
+                    "flags": 0,
+                    "hasStickers": false,
+                    "id": {
+                      "value": "5195385547722453638"
+                    },
+                    "accessHash": {
+                      "value": "-7583831312501859362"
+                    },
+                    "fileReference": {
+                      "__type": "Buffer",
+                      "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                    },
+                    "date": 1745027271,
+                    "sizes": [
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "a",
+                          "w": 160,
+                          "h": 160,
+                          "size": 5164
+                        },
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "b",
+                          "w": 320,
+                          "h": 320,
+                          "size": 11560
+                        },
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "c",
+                          "w": 640,
+                          "h": 640,
+                          "size": 27124
+                        },
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      {
+                        "__className": "PhotoStrippedSize",
+                        "__constructorId": 3769678894,
+                        "className": "PhotoStrippedSize",
+                        "originalArgs": {
+                          "type": "i",
+                          "bytes": {
+                            "__type": "Buffer",
+                            "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                          }
+                        },
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      }
+                    ],
+                    "videoSizes": null,
+                    "dcId": 2
+                  },
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "5195385547722453638"
+                  },
+                  "accessHash": {
+                    "value": "-7583831312501859362"
+                  },
+                  "fileReference": {
+                    "__type": "Buffer",
+                    "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                  },
+                  "date": 1745027271,
+                  "sizes": [
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      "type": "a",
+                      "w": 160,
+                      "h": 160,
+                      "size": 5164
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      "type": "b",
+                      "w": 320,
+                      "h": 320,
+                      "size": 11560
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      "type": "c",
+                      "w": 640,
+                      "h": 640,
+                      "size": 27124
+                    },
+                    {
+                      "__className": "PhotoStrippedSize",
+                      "__constructorId": 3769678894,
+                      "className": "PhotoStrippedSize",
+                      "originalArgs": {
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      },
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                      }
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "embedUrl": null,
+                "embedType": null,
+                "embedWidth": null,
+                "embedHeight": null,
+                "duration": null,
+                "author": null,
+                "document": null,
+                "cachedPage": null,
+                "attributes": null
+              }
+            },
+            "flags": 16,
+            "forceLargeMedia": false,
+            "forceSmallMedia": false,
+            "manual": false,
+            "safe": true,
+            "webpage": {
+              "__className": "WebPage",
+              "__constructorId": 3902555570,
+              "className": "WebPage",
+              "originalArgs": {
+                "flags": 31,
+                "hasLargeMedia": false,
+                "id": {
+                  "value": "5319932247921539684"
+                },
+                "url": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                "displayUrl": "t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                "hash": 0,
+                "type": "telegram_botapp",
+                "siteName": "Telegram",
+                "title": "Gifts Battle",
+                "description": "Open exclusive NFT cases and upgrade to premium NFTs!\n\nSupport: @GiftsBattlesupport_bot\nChannel: @GiftsBattles",
+                "photo": {
+                  "__className": "Photo",
+                  "__constructorId": 4212750949,
+                  "className": "Photo",
+                  "originalArgs": {
+                    "flags": 0,
+                    "hasStickers": false,
+                    "id": {
+                      "value": "5195385547722453638"
+                    },
+                    "accessHash": {
+                      "value": "-7583831312501859362"
+                    },
+                    "fileReference": {
+                      "__type": "Buffer",
+                      "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                    },
+                    "date": 1745027271,
+                    "sizes": [
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "a",
+                          "w": 160,
+                          "h": 160,
+                          "size": 5164
+                        },
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "b",
+                          "w": 320,
+                          "h": 320,
+                          "size": 11560
+                        },
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "c",
+                          "w": 640,
+                          "h": 640,
+                          "size": 27124
+                        },
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      {
+                        "__className": "PhotoStrippedSize",
+                        "__constructorId": 3769678894,
+                        "className": "PhotoStrippedSize",
+                        "originalArgs": {
+                          "type": "i",
+                          "bytes": {
+                            "__type": "Buffer",
+                            "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                          }
+                        },
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      }
+                    ],
+                    "videoSizes": null,
+                    "dcId": 2
+                  },
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "5195385547722453638"
+                  },
+                  "accessHash": {
+                    "value": "-7583831312501859362"
+                  },
+                  "fileReference": {
+                    "__type": "Buffer",
+                    "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                  },
+                  "date": 1745027271,
+                  "sizes": [
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      "type": "a",
+                      "w": 160,
+                      "h": 160,
+                      "size": 5164
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      "type": "b",
+                      "w": 320,
+                      "h": 320,
+                      "size": 11560
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      "type": "c",
+                      "w": 640,
+                      "h": 640,
+                      "size": 27124
+                    },
+                    {
+                      "__className": "PhotoStrippedSize",
+                      "__constructorId": 3769678894,
+                      "className": "PhotoStrippedSize",
+                      "originalArgs": {
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      },
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                      }
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "embedUrl": null,
+                "embedType": null,
+                "embedWidth": null,
+                "embedHeight": null,
+                "duration": null,
+                "author": null,
+                "document": null,
+                "cachedPage": null,
+                "attributes": null
+              },
+              "flags": 31,
+              "hasLargeMedia": false,
+              "id": {
+                "value": "5319932247921539684"
+              },
+              "url": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+              "displayUrl": "t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+              "hash": 0,
+              "type": "telegram_botapp",
+              "siteName": "Telegram",
+              "title": "Gifts Battle",
+              "description": "Open exclusive NFT cases and upgrade to premium NFTs!\n\nSupport: @GiftsBattlesupport_bot\nChannel: @GiftsBattles",
+              "photo": {
+                "__className": "Photo",
+                "__constructorId": 4212750949,
+                "className": "Photo",
+                "originalArgs": {
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "5195385547722453638"
+                  },
+                  "accessHash": {
+                    "value": "-7583831312501859362"
+                  },
+                  "fileReference": {
+                    "__type": "Buffer",
+                    "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                  },
+                  "date": 1745027271,
+                  "sizes": [
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      "type": "a",
+                      "w": 160,
+                      "h": 160,
+                      "size": 5164
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      "type": "b",
+                      "w": 320,
+                      "h": 320,
+                      "size": 11560
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      "type": "c",
+                      "w": 640,
+                      "h": 640,
+                      "size": 27124
+                    },
+                    {
+                      "__className": "PhotoStrippedSize",
+                      "__constructorId": 3769678894,
+                      "className": "PhotoStrippedSize",
+                      "originalArgs": {
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      },
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                      }
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "5195385547722453638"
+                },
+                "accessHash": {
+                  "value": "-7583831312501859362"
+                },
+                "fileReference": {
+                  "__type": "Buffer",
+                  "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                },
+                "date": 1745027271,
+                "sizes": [
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "a",
+                      "w": 160,
+                      "h": 160,
+                      "size": 5164
+                    },
+                    "type": "a",
+                    "w": 160,
+                    "h": 160,
+                    "size": 5164
+                  },
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "b",
+                      "w": 320,
+                      "h": 320,
+                      "size": 11560
+                    },
+                    "type": "b",
+                    "w": 320,
+                    "h": 320,
+                    "size": 11560
+                  },
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "c",
+                      "w": 640,
+                      "h": 640,
+                      "size": 27124
+                    },
+                    "type": "c",
+                    "w": 640,
+                    "h": 640,
+                    "size": 27124
+                  },
+                  {
+                    "__className": "PhotoStrippedSize",
+                    "__constructorId": 3769678894,
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                      }
+                    },
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                    }
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 2
+              },
+              "embedUrl": null,
+              "embedType": null,
+              "embedWidth": null,
+              "embedHeight": null,
+              "duration": null,
+              "author": null,
+              "document": null,
+              "cachedPage": null,
+              "attributes": null
+            }
+          },
+          "replyMarkup": null,
+          "entities": [
+            {
+              "__className": "MessageEntityUrl",
+              "__constructorId": 1859134776,
+              "className": "MessageEntityUrl",
+              "originalArgs": {
+                "offset": 0,
+                "length": 51
+              },
+              "offset": 0,
+              "length": 51
+            }
+          ],
+          "views": null,
+          "forwards": null,
+          "replies": null,
+          "editDate": null,
+          "postAuthor": null,
+          "groupedId": null,
+          "reactions": null,
+          "restrictionReason": null,
+          "ttlPeriod": null,
+          "quickReplyShortcutId": null,
+          "effect": null,
+          "factcheck": null,
+          "reportDeliveryUntilDate": null
+        },
+        "out": false,
+        "mentioned": false,
+        "mediaUnread": false,
+        "silent": false,
+        "post": false,
+        "fromScheduled": false,
+        "legacy": false,
+        "editHide": false,
+        "ttlPeriod": null,
+        "id": 1222,
+        "fromId": null,
+        "peerId": {
+          "__className": "PeerUser",
+          "__constructorId": 1498486562,
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "userId": {
+            "value": "6340886702"
+          }
+        },
+        "fwdFrom": null,
+        "viaBotId": null,
+        "replyTo": null,
+        "date": 1754712276,
+        "message": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+        "media": {
+          "__className": "MessageMediaWebPage",
+          "__constructorId": 3723562043,
+          "className": "MessageMediaWebPage",
+          "originalArgs": {
+            "flags": 16,
+            "forceLargeMedia": false,
+            "forceSmallMedia": false,
+            "manual": false,
+            "safe": true,
+            "webpage": {
+              "__className": "WebPage",
+              "__constructorId": 3902555570,
+              "className": "WebPage",
+              "originalArgs": {
+                "flags": 31,
+                "hasLargeMedia": false,
+                "id": {
+                  "value": "5319932247921539684"
+                },
+                "url": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                "displayUrl": "t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+                "hash": 0,
+                "type": "telegram_botapp",
+                "siteName": "Telegram",
+                "title": "Gifts Battle",
+                "description": "Open exclusive NFT cases and upgrade to premium NFTs!\n\nSupport: @GiftsBattlesupport_bot\nChannel: @GiftsBattles",
+                "photo": {
+                  "__className": "Photo",
+                  "__constructorId": 4212750949,
+                  "className": "Photo",
+                  "originalArgs": {
+                    "flags": 0,
+                    "hasStickers": false,
+                    "id": {
+                      "value": "5195385547722453638"
+                    },
+                    "accessHash": {
+                      "value": "-7583831312501859362"
+                    },
+                    "fileReference": {
+                      "__type": "Buffer",
+                      "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                    },
+                    "date": 1745027271,
+                    "sizes": [
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "a",
+                          "w": 160,
+                          "h": 160,
+                          "size": 5164
+                        },
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "b",
+                          "w": 320,
+                          "h": 320,
+                          "size": 11560
+                        },
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      {
+                        "__className": "PhotoSize",
+                        "__constructorId": 1976012384,
+                        "className": "PhotoSize",
+                        "originalArgs": {
+                          "type": "c",
+                          "w": 640,
+                          "h": 640,
+                          "size": 27124
+                        },
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      {
+                        "__className": "PhotoStrippedSize",
+                        "__constructorId": 3769678894,
+                        "className": "PhotoStrippedSize",
+                        "originalArgs": {
+                          "type": "i",
+                          "bytes": {
+                            "__type": "Buffer",
+                            "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                          }
+                        },
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      }
+                    ],
+                    "videoSizes": null,
+                    "dcId": 2
+                  },
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "5195385547722453638"
+                  },
+                  "accessHash": {
+                    "value": "-7583831312501859362"
+                  },
+                  "fileReference": {
+                    "__type": "Buffer",
+                    "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                  },
+                  "date": 1745027271,
+                  "sizes": [
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      "type": "a",
+                      "w": 160,
+                      "h": 160,
+                      "size": 5164
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      "type": "b",
+                      "w": 320,
+                      "h": 320,
+                      "size": 11560
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      "type": "c",
+                      "w": 640,
+                      "h": 640,
+                      "size": 27124
+                    },
+                    {
+                      "__className": "PhotoStrippedSize",
+                      "__constructorId": 3769678894,
+                      "className": "PhotoStrippedSize",
+                      "originalArgs": {
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      },
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                      }
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "embedUrl": null,
+                "embedType": null,
+                "embedWidth": null,
+                "embedHeight": null,
+                "duration": null,
+                "author": null,
+                "document": null,
+                "cachedPage": null,
+                "attributes": null
+              },
+              "flags": 31,
+              "hasLargeMedia": false,
+              "id": {
+                "value": "5319932247921539684"
+              },
+              "url": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+              "displayUrl": "t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+              "hash": 0,
+              "type": "telegram_botapp",
+              "siteName": "Telegram",
+              "title": "Gifts Battle",
+              "description": "Open exclusive NFT cases and upgrade to premium NFTs!\n\nSupport: @GiftsBattlesupport_bot\nChannel: @GiftsBattles",
+              "photo": {
+                "__className": "Photo",
+                "__constructorId": 4212750949,
+                "className": "Photo",
+                "originalArgs": {
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "5195385547722453638"
+                  },
+                  "accessHash": {
+                    "value": "-7583831312501859362"
+                  },
+                  "fileReference": {
+                    "__type": "Buffer",
+                    "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                  },
+                  "date": 1745027271,
+                  "sizes": [
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      "type": "a",
+                      "w": 160,
+                      "h": 160,
+                      "size": 5164
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      "type": "b",
+                      "w": 320,
+                      "h": 320,
+                      "size": 11560
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      "type": "c",
+                      "w": 640,
+                      "h": 640,
+                      "size": 27124
+                    },
+                    {
+                      "__className": "PhotoStrippedSize",
+                      "__constructorId": 3769678894,
+                      "className": "PhotoStrippedSize",
+                      "originalArgs": {
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      },
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                      }
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "5195385547722453638"
+                },
+                "accessHash": {
+                  "value": "-7583831312501859362"
+                },
+                "fileReference": {
+                  "__type": "Buffer",
+                  "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                },
+                "date": 1745027271,
+                "sizes": [
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "a",
+                      "w": 160,
+                      "h": 160,
+                      "size": 5164
+                    },
+                    "type": "a",
+                    "w": 160,
+                    "h": 160,
+                    "size": 5164
+                  },
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "b",
+                      "w": 320,
+                      "h": 320,
+                      "size": 11560
+                    },
+                    "type": "b",
+                    "w": 320,
+                    "h": 320,
+                    "size": 11560
+                  },
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "c",
+                      "w": 640,
+                      "h": 640,
+                      "size": 27124
+                    },
+                    "type": "c",
+                    "w": 640,
+                    "h": 640,
+                    "size": 27124
+                  },
+                  {
+                    "__className": "PhotoStrippedSize",
+                    "__constructorId": 3769678894,
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                      }
+                    },
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                    }
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 2
+              },
+              "embedUrl": null,
+              "embedType": null,
+              "embedWidth": null,
+              "embedHeight": null,
+              "duration": null,
+              "author": null,
+              "document": null,
+              "cachedPage": null,
+              "attributes": null
+            }
+          },
+          "flags": 16,
+          "forceLargeMedia": false,
+          "forceSmallMedia": false,
+          "manual": false,
+          "safe": true,
+          "webpage": {
+            "__className": "WebPage",
+            "__constructorId": 3902555570,
+            "className": "WebPage",
+            "originalArgs": {
+              "flags": 31,
+              "hasLargeMedia": false,
+              "id": {
+                "value": "5319932247921539684"
+              },
+              "url": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+              "displayUrl": "t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+              "hash": 0,
+              "type": "telegram_botapp",
+              "siteName": "Telegram",
+              "title": "Gifts Battle",
+              "description": "Open exclusive NFT cases and upgrade to premium NFTs!\n\nSupport: @GiftsBattlesupport_bot\nChannel: @GiftsBattles",
+              "photo": {
+                "__className": "Photo",
+                "__constructorId": 4212750949,
+                "className": "Photo",
+                "originalArgs": {
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "5195385547722453638"
+                  },
+                  "accessHash": {
+                    "value": "-7583831312501859362"
+                  },
+                  "fileReference": {
+                    "__type": "Buffer",
+                    "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                  },
+                  "date": 1745027271,
+                  "sizes": [
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "a",
+                        "w": 160,
+                        "h": 160,
+                        "size": 5164
+                      },
+                      "type": "a",
+                      "w": 160,
+                      "h": 160,
+                      "size": 5164
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "b",
+                        "w": 320,
+                        "h": 320,
+                        "size": 11560
+                      },
+                      "type": "b",
+                      "w": 320,
+                      "h": 320,
+                      "size": 11560
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "c",
+                        "w": 640,
+                        "h": 640,
+                        "size": 27124
+                      },
+                      "type": "c",
+                      "w": 640,
+                      "h": 640,
+                      "size": 27124
+                    },
+                    {
+                      "__className": "PhotoStrippedSize",
+                      "__constructorId": 3769678894,
+                      "className": "PhotoStrippedSize",
+                      "originalArgs": {
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                        }
+                      },
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                      }
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "5195385547722453638"
+                },
+                "accessHash": {
+                  "value": "-7583831312501859362"
+                },
+                "fileReference": {
+                  "__type": "Buffer",
+                  "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                },
+                "date": 1745027271,
+                "sizes": [
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "a",
+                      "w": 160,
+                      "h": 160,
+                      "size": 5164
+                    },
+                    "type": "a",
+                    "w": 160,
+                    "h": 160,
+                    "size": 5164
+                  },
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "b",
+                      "w": 320,
+                      "h": 320,
+                      "size": 11560
+                    },
+                    "type": "b",
+                    "w": 320,
+                    "h": 320,
+                    "size": 11560
+                  },
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "c",
+                      "w": 640,
+                      "h": 640,
+                      "size": 27124
+                    },
+                    "type": "c",
+                    "w": 640,
+                    "h": 640,
+                    "size": 27124
+                  },
+                  {
+                    "__className": "PhotoStrippedSize",
+                    "__constructorId": 3769678894,
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                      }
+                    },
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                    }
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 2
+              },
+              "embedUrl": null,
+              "embedType": null,
+              "embedWidth": null,
+              "embedHeight": null,
+              "duration": null,
+              "author": null,
+              "document": null,
+              "cachedPage": null,
+              "attributes": null
+            },
+            "flags": 31,
+            "hasLargeMedia": false,
+            "id": {
+              "value": "5319932247921539684"
+            },
+            "url": "https://t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+            "displayUrl": "t.me/GiftsBattle_bot?startapp=ref_Cs1TBOYS4",
+            "hash": 0,
+            "type": "telegram_botapp",
+            "siteName": "Telegram",
+            "title": "Gifts Battle",
+            "description": "Open exclusive NFT cases and upgrade to premium NFTs!\n\nSupport: @GiftsBattlesupport_bot\nChannel: @GiftsBattles",
+            "photo": {
+              "__className": "Photo",
+              "__constructorId": 4212750949,
+              "className": "Photo",
+              "originalArgs": {
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "5195385547722453638"
+                },
+                "accessHash": {
+                  "value": "-7583831312501859362"
+                },
+                "fileReference": {
+                  "__type": "Buffer",
+                  "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+                },
+                "date": 1745027271,
+                "sizes": [
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "a",
+                      "w": 160,
+                      "h": 160,
+                      "size": 5164
+                    },
+                    "type": "a",
+                    "w": 160,
+                    "h": 160,
+                    "size": 5164
+                  },
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "b",
+                      "w": 320,
+                      "h": 320,
+                      "size": 11560
+                    },
+                    "type": "b",
+                    "w": 320,
+                    "h": 320,
+                    "size": 11560
+                  },
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "c",
+                      "w": 640,
+                      "h": 640,
+                      "size": 27124
+                    },
+                    "type": "c",
+                    "w": 640,
+                    "h": 640,
+                    "size": 27124
+                  },
+                  {
+                    "__className": "PhotoStrippedSize",
+                    "__constructorId": 3769678894,
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                      }
+                    },
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                    }
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 2
+              },
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "5195385547722453638"
+              },
+              "accessHash": {
+                "value": "-7583831312501859362"
+              },
+              "fileReference": {
+                "__type": "Buffer",
+                "hex": "0069d922531bce70ba5bcc34f54626f48af7e89eea"
+              },
+              "date": 1745027271,
+              "sizes": [
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "a",
+                    "w": 160,
+                    "h": 160,
+                    "size": 5164
+                  },
+                  "type": "a",
+                  "w": 160,
+                  "h": 160,
+                  "size": 5164
+                },
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "b",
+                    "w": 320,
+                    "h": 320,
+                    "size": 11560
+                  },
+                  "type": "b",
+                  "w": 320,
+                  "h": 320,
+                  "size": 11560
+                },
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "c",
+                    "w": 640,
+                    "h": 640,
+                    "size": 27124
+                  },
+                  "type": "c",
+                  "w": 640,
+                  "h": 640,
+                  "size": 27124
+                },
+                {
+                  "__className": "PhotoStrippedSize",
+                  "__constructorId": 3769678894,
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                    }
+                  },
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828cda281c9c0e4d5e5d2df6af9b3471b37453d6b4b81468ab06ca45bb5b77c2b3743d41a9ffb2c9628b711171fc3de95c0a1452bab46ec8c30ca704514c096c31f6e87774dd535eaa36a720b87289d8819e31c55104839070455f5d558a8f3608e565e8c47352058d816fadcfda1e5dbfdfea33d29c1ad06aadc48272d804fddce2a936a0ccc5ca2963cf4c01527f6a10c5c5b45bffbd8e6a55c0ad78ae977209482fbb248ef45452c8d2c8d239cb31c9a2a8065145148028a28a0028a28a00f"
+                  }
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 2
+            },
+            "embedUrl": null,
+            "embedType": null,
+            "embedWidth": null,
+            "embedHeight": null,
+            "duration": null,
+            "author": null,
+            "document": null,
+            "cachedPage": null,
+            "attributes": null
+          }
+        },
+        "replyMarkup": null,
+        "entities": [
+          {
+            "__className": "MessageEntityUrl",
+            "__constructorId": 1859134776,
+            "className": "MessageEntityUrl",
+            "originalArgs": {
+              "offset": 0,
+              "length": 51
+            },
+            "offset": 0,
+            "length": 51
+          }
+        ],
+        "views": null,
+        "forwards": null,
+        "replies": null,
+        "editDate": null,
+        "pinned": false,
+        "postAuthor": null,
+        "groupedId": null,
+        "restrictionReason": null,
+        "noforwards": false,
+        "reactions": null,
+        "flags": 268436096,
+        "invertMedia": false,
+        "flags2": 0,
+        "offline": false,
+        "videoProcessingPending": false,
+        "fromBoostsApplied": null,
+        "savedPeerId": {
+          "__className": "PeerUser",
+          "__constructorId": 1498486562,
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "userId": {
+            "value": "6340886702"
+          }
+        },
+        "viaBusinessBotId": null,
+        "quickReplyShortcutId": null,
+        "effect": null,
+        "factcheck": null,
+        "reportDeliveryUntilDate": null
+      },
+      {
+        "__className": "MessageService",
+        "__constructorId": 3553789248,
+        "className": "MessageService",
+        "originalArgs": {
+          "flags": 2,
+          "out": true,
+          "mentioned": false,
+          "mediaUnread": false,
+          "reactionsArePossible": false,
+          "silent": false,
+          "post": false,
+          "legacy": false,
+          "id": 1220,
+          "fromId": null,
+          "peerId": {
+            "__className": "PeerUser",
+            "__constructorId": 1498486562,
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "replyTo": null,
+          "date": 1746382325,
+          "action": {
+            "__className": "MessageActionHistoryClear",
+            "__constructorId": 2679813636,
+            "className": "MessageActionHistoryClear",
+            "originalArgs": {}
+          },
+          "reactions": null,
+          "ttlPeriod": null
+        },
+        "out": true,
+        "mentioned": false,
+        "mediaUnread": false,
+        "silent": false,
+        "post": false,
+        "legacy": false,
+        "ttlPeriod": null,
+        "id": 1220,
+        "fromId": null,
+        "peerId": {
+          "__className": "PeerUser",
+          "__constructorId": 1498486562,
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "userId": {
+            "value": "6340886702"
+          }
+        },
+        "replyTo": null,
+        "date": 1746382325,
+        "action": {
+          "__className": "MessageActionHistoryClear",
+          "__constructorId": 2679813636,
+          "className": "MessageActionHistoryClear",
+          "originalArgs": {}
+        },
+        "reactions": null,
+        "flags": 2,
+        "reactionsArePossible": false
+      }
+    ],
+    "chats": [],
+    "users": [
+      {
+        "__className": "User",
+        "__constructorId": 1262928766,
+        "className": "User",
+        "originalArgs": {
+          "flags": 33555547,
+          "self": true,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "6340886702"
+          },
+          "accessHash": {
+            "value": "-2827396686645499657"
+          },
+          "firstName": "🤷",
+          "lastName": null,
+          "username": "user28738229",
+          "phone": "17799037329",
+          "photo": null,
+          "status": {
+            "__className": "UserStatusOnline",
+            "__constructorId": 3988339017,
+            "className": "UserStatusOnline",
+            "originalArgs": {
+              "expires": 1775838054
+            },
+            "expires": 1775838054
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 33555547,
+        "self": true,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "6340886702"
+        },
+        "accessHash": {
+          "value": "-2827396686645499657"
+        },
+        "firstName": "🤷",
+        "lastName": null,
+        "username": "user28738229",
+        "phone": "17799037329",
+        "photo": null,
+        "status": {
+          "__className": "UserStatusOnline",
+          "__constructorId": 3988339017,
+          "className": "UserStatusOnline",
+          "originalArgs": {
+            "expires": 1775838054
+          },
+          "expires": 1775838054
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      }
+    ]
+  }
+}

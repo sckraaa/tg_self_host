@@ -1,0 +1,446 @@
+{
+  "method": "messages.getDefaultTagReactions",
+  "capturedAt": "2026-04-10T16:16:14.731Z",
+  "request": {
+    "__className": "messages.GetDefaultTagReactions",
+    "__constructorId": 3187225640,
+    "className": "messages.GetDefaultTagReactions",
+    "originalArgs": {
+      "hash": "0"
+    },
+    "hash": "0"
+  },
+  "response": {
+    "__className": "messages.Reactions",
+    "__constructorId": 3942512406,
+    "className": "messages.Reactions",
+    "originalArgs": {
+      "hash": {
+        "value": "-2068317817079727459"
+      },
+      "reactions": [
+        {
+          "__className": "ReactionCustomEmoji",
+          "__constructorId": 2302016627,
+          "className": "ReactionCustomEmoji",
+          "originalArgs": {
+            "documentId": {
+              "value": "5435957248314579621"
+            }
+          },
+          "documentId": {
+            "value": "5435957248314579621"
+          }
+        },
+        {
+          "__className": "ReactionCustomEmoji",
+          "__constructorId": 2302016627,
+          "className": "ReactionCustomEmoji",
+          "originalArgs": {
+            "documentId": {
+              "value": "5470060791883374114"
+            }
+          },
+          "documentId": {
+            "value": "5470060791883374114"
+          }
+        },
+        {
+          "__className": "ReactionCustomEmoji",
+          "__constructorId": 2302016627,
+          "className": "ReactionCustomEmoji",
+          "originalArgs": {
+            "documentId": {
+              "value": "5472146462362048818"
+            }
+          },
+          "documentId": {
+            "value": "5472146462362048818"
+          }
+        },
+        {
+          "__className": "ReactionCustomEmoji",
+          "__constructorId": 2302016627,
+          "className": "ReactionCustomEmoji",
+          "originalArgs": {
+            "documentId": {
+              "value": "5431897022456145283"
+            }
+          },
+          "documentId": {
+            "value": "5431897022456145283"
+          }
+        },
+        {
+          "__className": "ReactionCustomEmoji",
+          "__constructorId": 2302016627,
+          "className": "ReactionCustomEmoji",
+          "originalArgs": {
+            "documentId": {
+              "value": "5420315771991497307"
+            }
+          },
+          "documentId": {
+            "value": "5420315771991497307"
+          }
+        },
+        {
+          "__className": "ReactionCustomEmoji",
+          "__constructorId": 2302016627,
+          "className": "ReactionCustomEmoji",
+          "originalArgs": {
+            "documentId": {
+              "value": "5431449001532594346"
+            }
+          },
+          "documentId": {
+            "value": "5431449001532594346"
+          }
+        },
+        {
+          "__className": "ReactionCustomEmoji",
+          "__constructorId": 2302016627,
+          "className": "ReactionCustomEmoji",
+          "originalArgs": {
+            "documentId": {
+              "value": "5433982607035474385"
+            }
+          },
+          "documentId": {
+            "value": "5433982607035474385"
+          }
+        },
+        {
+          "__className": "ReactionCustomEmoji",
+          "__constructorId": 2302016627,
+          "className": "ReactionCustomEmoji",
+          "originalArgs": {
+            "documentId": {
+              "value": "5467666648263564704"
+            }
+          },
+          "documentId": {
+            "value": "5467666648263564704"
+          }
+        },
+        {
+          "__className": "ReactionCustomEmoji",
+          "__constructorId": 2302016627,
+          "className": "ReactionCustomEmoji",
+          "originalArgs": {
+            "documentId": {
+              "value": "5373052667671093676"
+            }
+          },
+          "documentId": {
+            "value": "5373052667671093676"
+          }
+        },
+        {
+          "__className": "ReactionCustomEmoji",
+          "__constructorId": 2302016627,
+          "className": "ReactionCustomEmoji",
+          "originalArgs": {
+            "documentId": {
+              "value": "5361600266225326825"
+            }
+          },
+          "documentId": {
+            "value": "5361600266225326825"
+          }
+        },
+        {
+          "__className": "ReactionCustomEmoji",
+          "__constructorId": 2302016627,
+          "className": "ReactionCustomEmoji",
+          "originalArgs": {
+            "documentId": {
+              "value": "5373330964372004748"
+            }
+          },
+          "documentId": {
+            "value": "5373330964372004748"
+          }
+        },
+        {
+          "__className": "ReactionCustomEmoji",
+          "__constructorId": 2302016627,
+          "className": "ReactionCustomEmoji",
+          "originalArgs": {
+            "documentId": {
+              "value": "5371074117971745503"
+            }
+          },
+          "documentId": {
+            "value": "5371074117971745503"
+          }
+        },
+        {
+          "__className": "ReactionCustomEmoji",
+          "__constructorId": 2302016627,
+          "className": "ReactionCustomEmoji",
+          "originalArgs": {
+            "documentId": {
+              "value": "5359785904535774578"
+            }
+          },
+          "documentId": {
+            "value": "5359785904535774578"
+          }
+        },
+        {
+          "__className": "ReactionCustomEmoji",
+          "__constructorId": 2302016627,
+          "className": "ReactionCustomEmoji",
+          "originalArgs": {
+            "documentId": {
+              "value": "5373098009640836781"
+            }
+          },
+          "documentId": {
+            "value": "5373098009640836781"
+          }
+        },
+        {
+          "__className": "ReactionCustomEmoji",
+          "__constructorId": 2302016627,
+          "className": "ReactionCustomEmoji",
+          "originalArgs": {
+            "documentId": {
+              "value": "5431721976769027887"
+            }
+          },
+          "documentId": {
+            "value": "5431721976769027887"
+          }
+        },
+        {
+          "__className": "ReactionCustomEmoji",
+          "__constructorId": 2302016627,
+          "className": "ReactionCustomEmoji",
+          "originalArgs": {
+            "documentId": {
+              "value": "5427009714745517609"
+            }
+          },
+          "documentId": {
+            "value": "5427009714745517609"
+          }
+        }
+      ]
+    },
+    "hash": {
+      "value": "-2068317817079727459"
+    },
+    "reactions": [
+      {
+        "__className": "ReactionCustomEmoji",
+        "__constructorId": 2302016627,
+        "className": "ReactionCustomEmoji",
+        "originalArgs": {
+          "documentId": {
+            "value": "5435957248314579621"
+          }
+        },
+        "documentId": {
+          "value": "5435957248314579621"
+        }
+      },
+      {
+        "__className": "ReactionCustomEmoji",
+        "__constructorId": 2302016627,
+        "className": "ReactionCustomEmoji",
+        "originalArgs": {
+          "documentId": {
+            "value": "5470060791883374114"
+          }
+        },
+        "documentId": {
+          "value": "5470060791883374114"
+        }
+      },
+      {
+        "__className": "ReactionCustomEmoji",
+        "__constructorId": 2302016627,
+        "className": "ReactionCustomEmoji",
+        "originalArgs": {
+          "documentId": {
+            "value": "5472146462362048818"
+          }
+        },
+        "documentId": {
+          "value": "5472146462362048818"
+        }
+      },
+      {
+        "__className": "ReactionCustomEmoji",
+        "__constructorId": 2302016627,
+        "className": "ReactionCustomEmoji",
+        "originalArgs": {
+          "documentId": {
+            "value": "5431897022456145283"
+          }
+        },
+        "documentId": {
+          "value": "5431897022456145283"
+        }
+      },
+      {
+        "__className": "ReactionCustomEmoji",
+        "__constructorId": 2302016627,
+        "className": "ReactionCustomEmoji",
+        "originalArgs": {
+          "documentId": {
+            "value": "5420315771991497307"
+          }
+        },
+        "documentId": {
+          "value": "5420315771991497307"
+        }
+      },
+      {
+        "__className": "ReactionCustomEmoji",
+        "__constructorId": 2302016627,
+        "className": "ReactionCustomEmoji",
+        "originalArgs": {
+          "documentId": {
+            "value": "5431449001532594346"
+          }
+        },
+        "documentId": {
+          "value": "5431449001532594346"
+        }
+      },
+      {
+        "__className": "ReactionCustomEmoji",
+        "__constructorId": 2302016627,
+        "className": "ReactionCustomEmoji",
+        "originalArgs": {
+          "documentId": {
+            "value": "5433982607035474385"
+          }
+        },
+        "documentId": {
+          "value": "5433982607035474385"
+        }
+      },
+      {
+        "__className": "ReactionCustomEmoji",
+        "__constructorId": 2302016627,
+        "className": "ReactionCustomEmoji",
+        "originalArgs": {
+          "documentId": {
+            "value": "5467666648263564704"
+          }
+        },
+        "documentId": {
+          "value": "5467666648263564704"
+        }
+      },
+      {
+        "__className": "ReactionCustomEmoji",
+        "__constructorId": 2302016627,
+        "className": "ReactionCustomEmoji",
+        "originalArgs": {
+          "documentId": {
+            "value": "5373052667671093676"
+          }
+        },
+        "documentId": {
+          "value": "5373052667671093676"
+        }
+      },
+      {
+        "__className": "ReactionCustomEmoji",
+        "__constructorId": 2302016627,
+        "className": "ReactionCustomEmoji",
+        "originalArgs": {
+          "documentId": {
+            "value": "5361600266225326825"
+          }
+        },
+        "documentId": {
+          "value": "5361600266225326825"
+        }
+      },
+      {
+        "__className": "ReactionCustomEmoji",
+        "__constructorId": 2302016627,
+        "className": "ReactionCustomEmoji",
+        "originalArgs": {
+          "documentId": {
+            "value": "5373330964372004748"
+          }
+        },
+        "documentId": {
+          "value": "5373330964372004748"
+        }
+      },
+      {
+        "__className": "ReactionCustomEmoji",
+        "__constructorId": 2302016627,
+        "className": "ReactionCustomEmoji",
+        "originalArgs": {
+          "documentId": {
+            "value": "5371074117971745503"
+          }
+        },
+        "documentId": {
+          "value": "5371074117971745503"
+        }
+      },
+      {
+        "__className": "ReactionCustomEmoji",
+        "__constructorId": 2302016627,
+        "className": "ReactionCustomEmoji",
+        "originalArgs": {
+          "documentId": {
+            "value": "5359785904535774578"
+          }
+        },
+        "documentId": {
+          "value": "5359785904535774578"
+        }
+      },
+      {
+        "__className": "ReactionCustomEmoji",
+        "__constructorId": 2302016627,
+        "className": "ReactionCustomEmoji",
+        "originalArgs": {
+          "documentId": {
+            "value": "5373098009640836781"
+          }
+        },
+        "documentId": {
+          "value": "5373098009640836781"
+        }
+      },
+      {
+        "__className": "ReactionCustomEmoji",
+        "__constructorId": 2302016627,
+        "className": "ReactionCustomEmoji",
+        "originalArgs": {
+          "documentId": {
+            "value": "5431721976769027887"
+          }
+        },
+        "documentId": {
+          "value": "5431721976769027887"
+        }
+      },
+      {
+        "__className": "ReactionCustomEmoji",
+        "__constructorId": 2302016627,
+        "className": "ReactionCustomEmoji",
+        "originalArgs": {
+          "documentId": {
+            "value": "5427009714745517609"
+          }
+        },
+        "documentId": {
+          "value": "5427009714745517609"
+        }
+      }
+    ]
+  }
+}

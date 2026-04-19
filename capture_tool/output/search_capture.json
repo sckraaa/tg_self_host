@@ -1,0 +1,2534 @@
+[33m[2026-04-10T13:23:02.697] [INFO] - [Running gramJS version 2.26.21][0m
+[33m[2026-04-10T13:23:02.699] [INFO] - [Connecting to 149.154.175.59:80/TCPFull...][0m
+[33m[2026-04-10T13:23:02.837] [INFO] - [Connection to 149.154.175.59:80/TCPFull complete!][0m
+[33m[2026-04-10T13:23:02.837] [INFO] - [Using LAYER 198 for initial connect][0m
+👤 🤷 (ID: 6340886702)
+
+📂 Loading dialogs...
+   Cached 4 dialogs
+
+
+════════════════════════════════════════════════════════════════════════════════
+🔍 messages.Search(peer=InputPeerSelf, q="hello", limit=5)
+════════════════════════════════════════════════════════════════════════════════
+{
+  "_class": "messages.Messages",
+  "_cid": "0x8c718e87",
+  "className": "messages.Messages",
+  "originalArgs": {
+    "messages": [],
+    "chats": [],
+    "users": []
+  },
+  "messages": [],
+  "chats": [],
+  "users": []
+}
+
+════════════════════════════════════════════════════════════════════════════════
+🔍 messages.Search(peer=user:338781882 "ㅤ", q="hello", limit=5)
+════════════════════════════════════════════════════════════════════════════════
+{
+  "_class": "messages.Messages",
+  "_cid": "0x8c718e87",
+  "className": "messages.Messages",
+  "originalArgs": {
+    "messages": [],
+    "chats": [],
+    "users": []
+  },
+  "messages": [],
+  "chats": [],
+  "users": []
+}
+
+════════════════════════════════════════════════════════════════════════════════
+🔍 messages.Search(peer=user:338781882, filter=PhotoVideo, q="", limit=5)
+════════════════════════════════════════════════════════════════════════════════
+{
+  "_class": "messages.Messages",
+  "_cid": "0x8c718e87",
+  "className": "messages.Messages",
+  "originalArgs": {
+    "messages": [
+      {
+        "_class": "Message",
+        "_cid": "0x96fdbbe9",
+        "className": "Message",
+        "originalArgs": {
+          "flags": 770,
+          "out": true,
+          "mentioned": false,
+          "mediaUnread": false,
+          "silent": false,
+          "post": false,
+          "fromScheduled": false,
+          "legacy": false,
+          "editHide": false,
+          "pinned": false,
+          "noforwards": false,
+          "invertMedia": false,
+          "flags2": 0,
+          "offline": false,
+          "videoProcessingPending": false,
+          "id": 1430,
+          "fromId": {
+            "_class": "PeerUser",
+            "_cid": "0x59511722",
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "BigInt(6340886702)"
+              }
+            },
+            "userId": {
+              "value": "BigInt(6340886702)"
+            }
+          },
+          "fromBoostsApplied": null,
+          "peerId": {
+            "_class": "PeerUser",
+            "_cid": "0x59511722",
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "BigInt(338781882)"
+              }
+            },
+            "userId": {
+              "value": "BigInt(338781882)"
+            }
+          },
+          "savedPeerId": null,
+          "fwdFrom": null,
+          "viaBotId": null,
+          "viaBusinessBotId": null,
+          "replyTo": null,
+          "date": 1775767801,
+          "message": "test caption",
+          "media": {
+            "_class": "MessageMediaPhoto",
+            "_cid": "0x695150d7",
+            "className": "MessageMediaPhoto",
+            "originalArgs": {
+              "flags": 1,
+              "spoiler": false,
+              "photo": {
+                "_class": "Photo",
+                "_cid": "0xfb197a65",
+                "className": "Photo",
+                "originalArgs": {
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "BigInt(5098421206410529761)"
+                  },
+                  "accessHash": {
+                    "value": "BigInt(590562429549259142)"
+                  },
+                  "fileReference": "Buffer(25)[030000059669d8dd974888ced77c72a5792ef8d56d6ac32845...]",
+                  "date": 1775767801,
+                  "sizes": [
+                    {
+                      "_class": "PhotoStrippedSize",
+                      "_cid": "0xe0b0bc2e",
+                      "className": "PhotoStrippedSize",
+                      "originalArgs": {
+                        "type": "i",
+                        "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                      },
+                      "type": "i",
+                      "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                    },
+                    {
+                      "_class": "PhotoSize",
+                      "_cid": "0x75c78e60",
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "m",
+                        "w": 155,
+                        "h": 320,
+                        "size": 12821
+                      },
+                      "type": "m",
+                      "w": 155,
+                      "h": 320,
+                      "size": 12821
+                    },
+                    {
+                      "_class": "PhotoSize",
+                      "_cid": "0x75c78e60",
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "x",
+                        "w": 387,
+                        "h": 800,
+                        "size": 49863
+                      },
+                      "type": "x",
+                      "w": 387,
+                      "h": 800,
+                      "size": 49863
+                    },
+                    {
+                      "_class": "PhotoSize",
+                      "_cid": "0x75c78e60",
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "y",
+                        "w": 620,
+                        "h": 1280,
+                        "size": 101872
+                      },
+                      "type": "y",
+                      "w": 620,
+                      "h": 1280,
+                      "size": 101872
+                    },
+                    {
+                      "_class": "PhotoSizeProgressive",
+                      "_cid": "0xfa3efb95",
+                      "className": "PhotoSizeProgressive",
+                      "originalArgs": {
+                        "type": "w",
+                        "w": 1200,
+                        "h": 2478,
+                        "sizes": [
+                          "[max depth]",
+                          "[max depth]",
+                          "[max depth]",
+                          "[max depth]",
+                          "[max depth]"
+                        ]
+                      },
+                      "type": "w",
+                      "w": 1200,
+                      "h": 2478,
+                      "sizes": [
+                        29077,
+                        63327,
+                        113854,
+                        159115,
+                        255994
+                      ]
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 1
+                },
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "BigInt(5098421206410529761)"
+                },
+                "accessHash": {
+                  "value": "BigInt(590562429549259142)"
+                },
+                "fileReference": "Buffer(25)[030000059669d8dd974888ced77c72a5792ef8d56d6ac32845...]",
+                "date": 1775767801,
+                "sizes": [
+                  {
+                    "_class": "PhotoStrippedSize",
+                    "_cid": "0xe0b0bc2e",
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "i",
+                      "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                    },
+                    "type": "i",
+                    "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "m",
+                      "w": 155,
+                      "h": 320,
+                      "size": 12821
+                    },
+                    "type": "m",
+                    "w": 155,
+                    "h": 320,
+                    "size": 12821
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "x",
+                      "w": 387,
+                      "h": 800,
+                      "size": 49863
+                    },
+                    "type": "x",
+                    "w": 387,
+                    "h": 800,
+                    "size": 49863
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "y",
+                      "w": 620,
+                      "h": 1280,
+                      "size": 101872
+                    },
+                    "type": "y",
+                    "w": 620,
+                    "h": 1280,
+                    "size": 101872
+                  },
+                  {
+                    "_class": "PhotoSizeProgressive",
+                    "_cid": "0xfa3efb95",
+                    "className": "PhotoSizeProgressive",
+                    "originalArgs": {
+                      "type": "w",
+                      "w": 1200,
+                      "h": 2478,
+                      "sizes": [
+                        29077,
+                        63327,
+                        113854,
+                        159115,
+                        255994
+                      ]
+                    },
+                    "type": "w",
+                    "w": 1200,
+                    "h": 2478,
+                    "sizes": [
+                      29077,
+                      63327,
+                      113854,
+                      159115,
+                      255994
+                    ]
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 1
+              },
+              "ttlSeconds": null
+            },
+            "flags": 1,
+            "spoiler": false,
+            "photo": {
+              "_class": "Photo",
+              "_cid": "0xfb197a65",
+              "className": "Photo",
+              "originalArgs": {
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "BigInt(5098421206410529761)"
+                },
+                "accessHash": {
+                  "value": "BigInt(590562429549259142)"
+                },
+                "fileReference": "Buffer(25)[030000059669d8dd974888ced77c72a5792ef8d56d6ac32845...]",
+                "date": 1775767801,
+                "sizes": [
+                  {
+                    "_class": "PhotoStrippedSize",
+                    "_cid": "0xe0b0bc2e",
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "i",
+                      "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                    },
+                    "type": "i",
+                    "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "m",
+                      "w": 155,
+                      "h": 320,
+                      "size": 12821
+                    },
+                    "type": "m",
+                    "w": 155,
+                    "h": 320,
+                    "size": 12821
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "x",
+                      "w": 387,
+                      "h": 800,
+                      "size": 49863
+                    },
+                    "type": "x",
+                    "w": 387,
+                    "h": 800,
+                    "size": 49863
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "y",
+                      "w": 620,
+                      "h": 1280,
+                      "size": 101872
+                    },
+                    "type": "y",
+                    "w": 620,
+                    "h": 1280,
+                    "size": 101872
+                  },
+                  {
+                    "_class": "PhotoSizeProgressive",
+                    "_cid": "0xfa3efb95",
+                    "className": "PhotoSizeProgressive",
+                    "originalArgs": {
+                      "type": "w",
+                      "w": 1200,
+                      "h": 2478,
+                      "sizes": [
+                        29077,
+                        63327,
+                        113854,
+                        159115,
+                        255994
+                      ]
+                    },
+                    "type": "w",
+                    "w": 1200,
+                    "h": 2478,
+                    "sizes": [
+                      29077,
+                      63327,
+                      113854,
+                      159115,
+                      255994
+                    ]
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 1
+              },
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "BigInt(5098421206410529761)"
+              },
+              "accessHash": {
+                "value": "BigInt(590562429549259142)"
+              },
+              "fileReference": "Buffer(25)[030000059669d8dd974888ced77c72a5792ef8d56d6ac32845...]",
+              "date": 1775767801,
+              "sizes": [
+                {
+                  "_class": "PhotoStrippedSize",
+                  "_cid": "0xe0b0bc2e",
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                  },
+                  "type": "i",
+                  "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "m",
+                    "w": 155,
+                    "h": 320,
+                    "size": 12821
+                  },
+                  "type": "m",
+                  "w": 155,
+                  "h": 320,
+                  "size": 12821
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "x",
+                    "w": 387,
+                    "h": 800,
+                    "size": 49863
+                  },
+                  "type": "x",
+                  "w": 387,
+                  "h": 800,
+                  "size": 49863
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "y",
+                    "w": 620,
+                    "h": 1280,
+                    "size": 101872
+                  },
+                  "type": "y",
+                  "w": 620,
+                  "h": 1280,
+                  "size": 101872
+                },
+                {
+                  "_class": "PhotoSizeProgressive",
+                  "_cid": "0xfa3efb95",
+                  "className": "PhotoSizeProgressive",
+                  "originalArgs": {
+                    "type": "w",
+                    "w": 1200,
+                    "h": 2478,
+                    "sizes": [
+                      29077,
+                      63327,
+                      113854,
+                      159115,
+                      255994
+                    ]
+                  },
+                  "type": "w",
+                  "w": 1200,
+                  "h": 2478,
+                  "sizes": [
+                    29077,
+                    63327,
+                    113854,
+                    159115,
+                    255994
+                  ]
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 1
+            },
+            "ttlSeconds": null
+          },
+          "replyMarkup": null,
+          "entities": null,
+          "views": null,
+          "forwards": null,
+          "replies": null,
+          "editDate": null,
+          "postAuthor": null,
+          "groupedId": null,
+          "reactions": null,
+          "restrictionReason": null,
+          "ttlPeriod": null,
+          "quickReplyShortcutId": null,
+          "effect": null,
+          "factcheck": null,
+          "reportDeliveryUntilDate": null
+        },
+        "out": true,
+        "mentioned": false,
+        "mediaUnread": false,
+        "silent": false,
+        "post": false,
+        "fromScheduled": false,
+        "legacy": false,
+        "editHide": false,
+        "ttlPeriod": null,
+        "id": 1430,
+        "fromId": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(6340886702)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(6340886702)"
+          }
+        },
+        "peerId": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(338781882)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(338781882)"
+          }
+        },
+        "fwdFrom": null,
+        "viaBotId": null,
+        "replyTo": null,
+        "date": 1775767801,
+        "message": "test caption",
+        "media": {
+          "_class": "MessageMediaPhoto",
+          "_cid": "0x695150d7",
+          "className": "MessageMediaPhoto",
+          "originalArgs": {
+            "flags": 1,
+            "spoiler": false,
+            "photo": {
+              "_class": "Photo",
+              "_cid": "0xfb197a65",
+              "className": "Photo",
+              "originalArgs": {
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "BigInt(5098421206410529761)"
+                },
+                "accessHash": {
+                  "value": "BigInt(590562429549259142)"
+                },
+                "fileReference": "Buffer(25)[030000059669d8dd974888ced77c72a5792ef8d56d6ac32845...]",
+                "date": 1775767801,
+                "sizes": [
+                  {
+                    "_class": "PhotoStrippedSize",
+                    "_cid": "0xe0b0bc2e",
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "i",
+                      "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                    },
+                    "type": "i",
+                    "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "m",
+                      "w": 155,
+                      "h": 320,
+                      "size": 12821
+                    },
+                    "type": "m",
+                    "w": 155,
+                    "h": 320,
+                    "size": 12821
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "x",
+                      "w": 387,
+                      "h": 800,
+                      "size": 49863
+                    },
+                    "type": "x",
+                    "w": 387,
+                    "h": 800,
+                    "size": 49863
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "y",
+                      "w": 620,
+                      "h": 1280,
+                      "size": 101872
+                    },
+                    "type": "y",
+                    "w": 620,
+                    "h": 1280,
+                    "size": 101872
+                  },
+                  {
+                    "_class": "PhotoSizeProgressive",
+                    "_cid": "0xfa3efb95",
+                    "className": "PhotoSizeProgressive",
+                    "originalArgs": {
+                      "type": "w",
+                      "w": 1200,
+                      "h": 2478,
+                      "sizes": [
+                        29077,
+                        63327,
+                        113854,
+                        159115,
+                        255994
+                      ]
+                    },
+                    "type": "w",
+                    "w": 1200,
+                    "h": 2478,
+                    "sizes": [
+                      29077,
+                      63327,
+                      113854,
+                      159115,
+                      255994
+                    ]
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 1
+              },
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "BigInt(5098421206410529761)"
+              },
+              "accessHash": {
+                "value": "BigInt(590562429549259142)"
+              },
+              "fileReference": "Buffer(25)[030000059669d8dd974888ced77c72a5792ef8d56d6ac32845...]",
+              "date": 1775767801,
+              "sizes": [
+                {
+                  "_class": "PhotoStrippedSize",
+                  "_cid": "0xe0b0bc2e",
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                  },
+                  "type": "i",
+                  "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "m",
+                    "w": 155,
+                    "h": 320,
+                    "size": 12821
+                  },
+                  "type": "m",
+                  "w": 155,
+                  "h": 320,
+                  "size": 12821
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "x",
+                    "w": 387,
+                    "h": 800,
+                    "size": 49863
+                  },
+                  "type": "x",
+                  "w": 387,
+                  "h": 800,
+                  "size": 49863
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "y",
+                    "w": 620,
+                    "h": 1280,
+                    "size": 101872
+                  },
+                  "type": "y",
+                  "w": 620,
+                  "h": 1280,
+                  "size": 101872
+                },
+                {
+                  "_class": "PhotoSizeProgressive",
+                  "_cid": "0xfa3efb95",
+                  "className": "PhotoSizeProgressive",
+                  "originalArgs": {
+                    "type": "w",
+                    "w": 1200,
+                    "h": 2478,
+                    "sizes": [
+                      29077,
+                      63327,
+                      113854,
+                      159115,
+                      255994
+                    ]
+                  },
+                  "type": "w",
+                  "w": 1200,
+                  "h": 2478,
+                  "sizes": [
+                    29077,
+                    63327,
+                    113854,
+                    159115,
+                    255994
+                  ]
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 1
+            },
+            "ttlSeconds": null
+          },
+          "flags": 1,
+          "spoiler": false,
+          "photo": {
+            "_class": "Photo",
+            "_cid": "0xfb197a65",
+            "className": "Photo",
+            "originalArgs": {
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "BigInt(5098421206410529761)"
+              },
+              "accessHash": {
+                "value": "BigInt(590562429549259142)"
+              },
+              "fileReference": "Buffer(25)[030000059669d8dd974888ced77c72a5792ef8d56d6ac32845...]",
+              "date": 1775767801,
+              "sizes": [
+                {
+                  "_class": "PhotoStrippedSize",
+                  "_cid": "0xe0b0bc2e",
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                  },
+                  "type": "i",
+                  "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "m",
+                    "w": 155,
+                    "h": 320,
+                    "size": 12821
+                  },
+                  "type": "m",
+                  "w": 155,
+                  "h": 320,
+                  "size": 12821
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "x",
+                    "w": 387,
+                    "h": 800,
+                    "size": 49863
+                  },
+                  "type": "x",
+                  "w": 387,
+                  "h": 800,
+                  "size": 49863
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "y",
+                    "w": 620,
+                    "h": 1280,
+                    "size": 101872
+                  },
+                  "type": "y",
+                  "w": 620,
+                  "h": 1280,
+                  "size": 101872
+                },
+                {
+                  "_class": "PhotoSizeProgressive",
+                  "_cid": "0xfa3efb95",
+                  "className": "PhotoSizeProgressive",
+                  "originalArgs": {
+                    "type": "w",
+                    "w": 1200,
+                    "h": 2478,
+                    "sizes": [
+                      29077,
+                      63327,
+                      113854,
+                      159115,
+                      255994
+                    ]
+                  },
+                  "type": "w",
+                  "w": 1200,
+                  "h": 2478,
+                  "sizes": [
+                    29077,
+                    63327,
+                    113854,
+                    159115,
+                    255994
+                  ]
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 1
+            },
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "BigInt(5098421206410529761)"
+            },
+            "accessHash": {
+              "value": "BigInt(590562429549259142)"
+            },
+            "fileReference": "Buffer(25)[030000059669d8dd974888ced77c72a5792ef8d56d6ac32845...]",
+            "date": 1775767801,
+            "sizes": [
+              {
+                "_class": "PhotoStrippedSize",
+                "_cid": "0xe0b0bc2e",
+                "className": "PhotoStrippedSize",
+                "originalArgs": {
+                  "type": "i",
+                  "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                },
+                "type": "i",
+                "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+              },
+              {
+                "_class": "PhotoSize",
+                "_cid": "0x75c78e60",
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "m",
+                  "w": 155,
+                  "h": 320,
+                  "size": 12821
+                },
+                "type": "m",
+                "w": 155,
+                "h": 320,
+                "size": 12821
+              },
+              {
+                "_class": "PhotoSize",
+                "_cid": "0x75c78e60",
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "x",
+                  "w": 387,
+                  "h": 800,
+                  "size": 49863
+                },
+                "type": "x",
+                "w": 387,
+                "h": 800,
+                "size": 49863
+              },
+              {
+                "_class": "PhotoSize",
+                "_cid": "0x75c78e60",
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "y",
+                  "w": 620,
+                  "h": 1280,
+                  "size": 101872
+                },
+                "type": "y",
+                "w": 620,
+                "h": 1280,
+                "size": 101872
+              },
+              {
+                "_class": "PhotoSizeProgressive",
+                "_cid": "0xfa3efb95",
+                "className": "PhotoSizeProgressive",
+                "originalArgs": {
+                  "type": "w",
+                  "w": 1200,
+                  "h": 2478,
+                  "sizes": [
+                    29077,
+                    63327,
+                    113854,
+                    159115,
+                    255994
+                  ]
+                },
+                "type": "w",
+                "w": 1200,
+                "h": 2478,
+                "sizes": [
+                  29077,
+                  63327,
+                  113854,
+                  159115,
+                  255994
+                ]
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 1
+          },
+          "ttlSeconds": null
+        },
+        "replyMarkup": null,
+        "entities": null,
+        "views": null,
+        "forwards": null,
+        "replies": null,
+        "editDate": null,
+        "pinned": false,
+        "postAuthor": null,
+        "groupedId": null,
+        "restrictionReason": null,
+        "noforwards": false,
+        "reactions": null,
+        "flags": 770,
+        "invertMedia": false,
+        "flags2": 0,
+        "offline": false,
+        "videoProcessingPending": false,
+        "fromBoostsApplied": null,
+        "savedPeerId": null,
+        "viaBusinessBotId": null,
+        "quickReplyShortcutId": null,
+        "effect": null,
+        "factcheck": null,
+        "reportDeliveryUntilDate": null
+      }
+    ],
+    "chats": [],
+    "users": [
+      {
+        "_class": "User",
+        "_cid": "0x4b46c37e",
+        "className": "User",
+        "originalArgs": {
+          "flags": 33555547,
+          "self": true,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "BigInt(6340886702)"
+          },
+          "accessHash": {
+            "value": "BigInt(-2827396686645499657)"
+          },
+          "firstName": "🤷",
+          "lastName": null,
+          "username": "user28738229",
+          "phone": "17799037329",
+          "photo": null,
+          "status": {
+            "_class": "UserStatusOffline",
+            "_cid": "0x008c703f",
+            "className": "UserStatusOffline",
+            "originalArgs": {
+              "wasOnline": 1775768101
+            },
+            "wasOnline": 1775768101
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 33555547,
+        "self": true,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(6340886702)"
+        },
+        "accessHash": {
+          "value": "BigInt(-2827396686645499657)"
+        },
+        "firstName": "🤷",
+        "lastName": null,
+        "username": "user28738229",
+        "phone": "17799037329",
+        "photo": null,
+        "status": {
+          "_class": "UserStatusOffline",
+          "_cid": "0x008c703f",
+          "className": "UserStatusOffline",
+          "originalArgs": {
+            "wasOnline": 1775768101
+          },
+          "wasOnline": 1775768101
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      {
+        "_class": "User",
+        "_cid": "0x4b46c37e",
+        "className": "User",
+        "originalArgs": {
+          "flags": 33554507,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "BigInt(338781882)"
+          },
+          "accessHash": {
+            "value": "BigInt(5980716527335755090)"
+          },
+          "firstName": "ㅤ",
+          "lastName": null,
+          "username": "sckr_a",
+          "phone": null,
+          "photo": null,
+          "status": {
+            "_class": "UserStatusRecently",
+            "_cid": "0x7b197dc8",
+            "className": "UserStatusRecently",
+            "originalArgs": {
+              "flags": 0,
+              "byMe": false
+            },
+            "flags": 0,
+            "byMe": false
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 33554507,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(338781882)"
+        },
+        "accessHash": {
+          "value": "BigInt(5980716527335755090)"
+        },
+        "firstName": "ㅤ",
+        "lastName": null,
+        "username": "sckr_a",
+        "phone": null,
+        "photo": null,
+        "status": {
+          "_class": "UserStatusRecently",
+          "_cid": "0x7b197dc8",
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 0,
+            "byMe": false
+          },
+          "flags": 0,
+          "byMe": false
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      }
+    ]
+  },
+  "messages": [
+    {
+      "_class": "Message",
+      "_cid": "0x96fdbbe9",
+      "className": "Message",
+      "originalArgs": {
+        "flags": 770,
+        "out": true,
+        "mentioned": false,
+        "mediaUnread": false,
+        "silent": false,
+        "post": false,
+        "fromScheduled": false,
+        "legacy": false,
+        "editHide": false,
+        "pinned": false,
+        "noforwards": false,
+        "invertMedia": false,
+        "flags2": 0,
+        "offline": false,
+        "videoProcessingPending": false,
+        "id": 1430,
+        "fromId": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(6340886702)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(6340886702)"
+          }
+        },
+        "fromBoostsApplied": null,
+        "peerId": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(338781882)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(338781882)"
+          }
+        },
+        "savedPeerId": null,
+        "fwdFrom": null,
+        "viaBotId": null,
+        "viaBusinessBotId": null,
+        "replyTo": null,
+        "date": 1775767801,
+        "message": "test caption",
+        "media": {
+          "_class": "MessageMediaPhoto",
+          "_cid": "0x695150d7",
+          "className": "MessageMediaPhoto",
+          "originalArgs": {
+            "flags": 1,
+            "spoiler": false,
+            "photo": {
+              "_class": "Photo",
+              "_cid": "0xfb197a65",
+              "className": "Photo",
+              "originalArgs": {
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "BigInt(5098421206410529761)"
+                },
+                "accessHash": {
+                  "value": "BigInt(590562429549259142)"
+                },
+                "fileReference": "Buffer(25)[030000059669d8dd974888ced77c72a5792ef8d56d6ac32845...]",
+                "date": 1775767801,
+                "sizes": [
+                  {
+                    "_class": "PhotoStrippedSize",
+                    "_cid": "0xe0b0bc2e",
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "i",
+                      "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                    },
+                    "type": "i",
+                    "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "m",
+                      "w": 155,
+                      "h": 320,
+                      "size": 12821
+                    },
+                    "type": "m",
+                    "w": 155,
+                    "h": 320,
+                    "size": 12821
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "x",
+                      "w": 387,
+                      "h": 800,
+                      "size": 49863
+                    },
+                    "type": "x",
+                    "w": 387,
+                    "h": 800,
+                    "size": 49863
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "y",
+                      "w": 620,
+                      "h": 1280,
+                      "size": 101872
+                    },
+                    "type": "y",
+                    "w": 620,
+                    "h": 1280,
+                    "size": 101872
+                  },
+                  {
+                    "_class": "PhotoSizeProgressive",
+                    "_cid": "0xfa3efb95",
+                    "className": "PhotoSizeProgressive",
+                    "originalArgs": {
+                      "type": "w",
+                      "w": 1200,
+                      "h": 2478,
+                      "sizes": [
+                        29077,
+                        63327,
+                        113854,
+                        159115,
+                        255994
+                      ]
+                    },
+                    "type": "w",
+                    "w": 1200,
+                    "h": 2478,
+                    "sizes": [
+                      29077,
+                      63327,
+                      113854,
+                      159115,
+                      255994
+                    ]
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 1
+              },
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "BigInt(5098421206410529761)"
+              },
+              "accessHash": {
+                "value": "BigInt(590562429549259142)"
+              },
+              "fileReference": "Buffer(25)[030000059669d8dd974888ced77c72a5792ef8d56d6ac32845...]",
+              "date": 1775767801,
+              "sizes": [
+                {
+                  "_class": "PhotoStrippedSize",
+                  "_cid": "0xe0b0bc2e",
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                  },
+                  "type": "i",
+                  "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "m",
+                    "w": 155,
+                    "h": 320,
+                    "size": 12821
+                  },
+                  "type": "m",
+                  "w": 155,
+                  "h": 320,
+                  "size": 12821
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "x",
+                    "w": 387,
+                    "h": 800,
+                    "size": 49863
+                  },
+                  "type": "x",
+                  "w": 387,
+                  "h": 800,
+                  "size": 49863
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "y",
+                    "w": 620,
+                    "h": 1280,
+                    "size": 101872
+                  },
+                  "type": "y",
+                  "w": 620,
+                  "h": 1280,
+                  "size": 101872
+                },
+                {
+                  "_class": "PhotoSizeProgressive",
+                  "_cid": "0xfa3efb95",
+                  "className": "PhotoSizeProgressive",
+                  "originalArgs": {
+                    "type": "w",
+                    "w": 1200,
+                    "h": 2478,
+                    "sizes": [
+                      29077,
+                      63327,
+                      113854,
+                      159115,
+                      255994
+                    ]
+                  },
+                  "type": "w",
+                  "w": 1200,
+                  "h": 2478,
+                  "sizes": [
+                    29077,
+                    63327,
+                    113854,
+                    159115,
+                    255994
+                  ]
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 1
+            },
+            "ttlSeconds": null
+          },
+          "flags": 1,
+          "spoiler": false,
+          "photo": {
+            "_class": "Photo",
+            "_cid": "0xfb197a65",
+            "className": "Photo",
+            "originalArgs": {
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "BigInt(5098421206410529761)"
+              },
+              "accessHash": {
+                "value": "BigInt(590562429549259142)"
+              },
+              "fileReference": "Buffer(25)[030000059669d8dd974888ced77c72a5792ef8d56d6ac32845...]",
+              "date": 1775767801,
+              "sizes": [
+                {
+                  "_class": "PhotoStrippedSize",
+                  "_cid": "0xe0b0bc2e",
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                  },
+                  "type": "i",
+                  "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "m",
+                    "w": 155,
+                    "h": 320,
+                    "size": 12821
+                  },
+                  "type": "m",
+                  "w": 155,
+                  "h": 320,
+                  "size": 12821
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "x",
+                    "w": 387,
+                    "h": 800,
+                    "size": 49863
+                  },
+                  "type": "x",
+                  "w": 387,
+                  "h": 800,
+                  "size": 49863
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "y",
+                    "w": 620,
+                    "h": 1280,
+                    "size": 101872
+                  },
+                  "type": "y",
+                  "w": 620,
+                  "h": 1280,
+                  "size": 101872
+                },
+                {
+                  "_class": "PhotoSizeProgressive",
+                  "_cid": "0xfa3efb95",
+                  "className": "PhotoSizeProgressive",
+                  "originalArgs": {
+                    "type": "w",
+                    "w": 1200,
+                    "h": 2478,
+                    "sizes": [
+                      29077,
+                      63327,
+                      113854,
+                      159115,
+                      255994
+                    ]
+                  },
+                  "type": "w",
+                  "w": 1200,
+                  "h": 2478,
+                  "sizes": [
+                    29077,
+                    63327,
+                    113854,
+                    159115,
+                    255994
+                  ]
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 1
+            },
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "BigInt(5098421206410529761)"
+            },
+            "accessHash": {
+              "value": "BigInt(590562429549259142)"
+            },
+            "fileReference": "Buffer(25)[030000059669d8dd974888ced77c72a5792ef8d56d6ac32845...]",
+            "date": 1775767801,
+            "sizes": [
+              {
+                "_class": "PhotoStrippedSize",
+                "_cid": "0xe0b0bc2e",
+                "className": "PhotoStrippedSize",
+                "originalArgs": {
+                  "type": "i",
+                  "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                },
+                "type": "i",
+                "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+              },
+              {
+                "_class": "PhotoSize",
+                "_cid": "0x75c78e60",
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "m",
+                  "w": 155,
+                  "h": 320,
+                  "size": 12821
+                },
+                "type": "m",
+                "w": 155,
+                "h": 320,
+                "size": 12821
+              },
+              {
+                "_class": "PhotoSize",
+                "_cid": "0x75c78e60",
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "x",
+                  "w": 387,
+                  "h": 800,
+                  "size": 49863
+                },
+                "type": "x",
+                "w": 387,
+                "h": 800,
+                "size": 49863
+              },
+              {
+                "_class": "PhotoSize",
+                "_cid": "0x75c78e60",
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "y",
+                  "w": 620,
+                  "h": 1280,
+                  "size": 101872
+                },
+                "type": "y",
+                "w": 620,
+                "h": 1280,
+                "size": 101872
+              },
+              {
+                "_class": "PhotoSizeProgressive",
+                "_cid": "0xfa3efb95",
+                "className": "PhotoSizeProgressive",
+                "originalArgs": {
+                  "type": "w",
+                  "w": 1200,
+                  "h": 2478,
+                  "sizes": [
+                    29077,
+                    63327,
+                    113854,
+                    159115,
+                    255994
+                  ]
+                },
+                "type": "w",
+                "w": 1200,
+                "h": 2478,
+                "sizes": [
+                  29077,
+                  63327,
+                  113854,
+                  159115,
+                  255994
+                ]
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 1
+          },
+          "ttlSeconds": null
+        },
+        "replyMarkup": null,
+        "entities": null,
+        "views": null,
+        "forwards": null,
+        "replies": null,
+        "editDate": null,
+        "postAuthor": null,
+        "groupedId": null,
+        "reactions": null,
+        "restrictionReason": null,
+        "ttlPeriod": null,
+        "quickReplyShortcutId": null,
+        "effect": null,
+        "factcheck": null,
+        "reportDeliveryUntilDate": null
+      },
+      "out": true,
+      "mentioned": false,
+      "mediaUnread": false,
+      "silent": false,
+      "post": false,
+      "fromScheduled": false,
+      "legacy": false,
+      "editHide": false,
+      "ttlPeriod": null,
+      "id": 1430,
+      "fromId": {
+        "_class": "PeerUser",
+        "_cid": "0x59511722",
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "BigInt(6340886702)"
+          }
+        },
+        "userId": {
+          "value": "BigInt(6340886702)"
+        }
+      },
+      "peerId": {
+        "_class": "PeerUser",
+        "_cid": "0x59511722",
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "BigInt(338781882)"
+          }
+        },
+        "userId": {
+          "value": "BigInt(338781882)"
+        }
+      },
+      "fwdFrom": null,
+      "viaBotId": null,
+      "replyTo": null,
+      "date": 1775767801,
+      "message": "test caption",
+      "media": {
+        "_class": "MessageMediaPhoto",
+        "_cid": "0x695150d7",
+        "className": "MessageMediaPhoto",
+        "originalArgs": {
+          "flags": 1,
+          "spoiler": false,
+          "photo": {
+            "_class": "Photo",
+            "_cid": "0xfb197a65",
+            "className": "Photo",
+            "originalArgs": {
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "BigInt(5098421206410529761)"
+              },
+              "accessHash": {
+                "value": "BigInt(590562429549259142)"
+              },
+              "fileReference": "Buffer(25)[030000059669d8dd974888ced77c72a5792ef8d56d6ac32845...]",
+              "date": 1775767801,
+              "sizes": [
+                {
+                  "_class": "PhotoStrippedSize",
+                  "_cid": "0xe0b0bc2e",
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                  },
+                  "type": "i",
+                  "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "m",
+                    "w": 155,
+                    "h": 320,
+                    "size": 12821
+                  },
+                  "type": "m",
+                  "w": 155,
+                  "h": 320,
+                  "size": 12821
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "x",
+                    "w": 387,
+                    "h": 800,
+                    "size": 49863
+                  },
+                  "type": "x",
+                  "w": 387,
+                  "h": 800,
+                  "size": 49863
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "y",
+                    "w": 620,
+                    "h": 1280,
+                    "size": 101872
+                  },
+                  "type": "y",
+                  "w": 620,
+                  "h": 1280,
+                  "size": 101872
+                },
+                {
+                  "_class": "PhotoSizeProgressive",
+                  "_cid": "0xfa3efb95",
+                  "className": "PhotoSizeProgressive",
+                  "originalArgs": {
+                    "type": "w",
+                    "w": 1200,
+                    "h": 2478,
+                    "sizes": [
+                      29077,
+                      63327,
+                      113854,
+                      159115,
+                      255994
+                    ]
+                  },
+                  "type": "w",
+                  "w": 1200,
+                  "h": 2478,
+                  "sizes": [
+                    29077,
+                    63327,
+                    113854,
+                    159115,
+                    255994
+                  ]
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 1
+            },
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "BigInt(5098421206410529761)"
+            },
+            "accessHash": {
+              "value": "BigInt(590562429549259142)"
+            },
+            "fileReference": "Buffer(25)[030000059669d8dd974888ced77c72a5792ef8d56d6ac32845...]",
+            "date": 1775767801,
+            "sizes": [
+              {
+                "_class": "PhotoStrippedSize",
+                "_cid": "0xe0b0bc2e",
+                "className": "PhotoStrippedSize",
+                "originalArgs": {
+                  "type": "i",
+                  "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                },
+                "type": "i",
+                "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+              },
+              {
+                "_class": "PhotoSize",
+                "_cid": "0x75c78e60",
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "m",
+                  "w": 155,
+                  "h": 320,
+                  "size": 12821
+                },
+                "type": "m",
+                "w": 155,
+                "h": 320,
+                "size": 12821
+              },
+              {
+                "_class": "PhotoSize",
+                "_cid": "0x75c78e60",
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "x",
+                  "w": 387,
+                  "h": 800,
+                  "size": 49863
+                },
+                "type": "x",
+                "w": 387,
+                "h": 800,
+                "size": 49863
+              },
+              {
+                "_class": "PhotoSize",
+                "_cid": "0x75c78e60",
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "y",
+                  "w": 620,
+                  "h": 1280,
+                  "size": 101872
+                },
+                "type": "y",
+                "w": 620,
+                "h": 1280,
+                "size": 101872
+              },
+              {
+                "_class": "PhotoSizeProgressive",
+                "_cid": "0xfa3efb95",
+                "className": "PhotoSizeProgressive",
+                "originalArgs": {
+                  "type": "w",
+                  "w": 1200,
+                  "h": 2478,
+                  "sizes": [
+                    29077,
+                    63327,
+                    113854,
+                    159115,
+                    255994
+                  ]
+                },
+                "type": "w",
+                "w": 1200,
+                "h": 2478,
+                "sizes": [
+                  29077,
+                  63327,
+                  113854,
+                  159115,
+                  255994
+                ]
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 1
+          },
+          "ttlSeconds": null
+        },
+        "flags": 1,
+        "spoiler": false,
+        "photo": {
+          "_class": "Photo",
+          "_cid": "0xfb197a65",
+          "className": "Photo",
+          "originalArgs": {
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "BigInt(5098421206410529761)"
+            },
+            "accessHash": {
+              "value": "BigInt(590562429549259142)"
+            },
+            "fileReference": "Buffer(25)[030000059669d8dd974888ced77c72a5792ef8d56d6ac32845...]",
+            "date": 1775767801,
+            "sizes": [
+              {
+                "_class": "PhotoStrippedSize",
+                "_cid": "0xe0b0bc2e",
+                "className": "PhotoStrippedSize",
+                "originalArgs": {
+                  "type": "i",
+                  "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+                },
+                "type": "i",
+                "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+              },
+              {
+                "_class": "PhotoSize",
+                "_cid": "0x75c78e60",
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "m",
+                  "w": 155,
+                  "h": 320,
+                  "size": 12821
+                },
+                "type": "m",
+                "w": 155,
+                "h": 320,
+                "size": 12821
+              },
+              {
+                "_class": "PhotoSize",
+                "_cid": "0x75c78e60",
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "x",
+                  "w": 387,
+                  "h": 800,
+                  "size": 49863
+                },
+                "type": "x",
+                "w": 387,
+                "h": 800,
+                "size": 49863
+              },
+              {
+                "_class": "PhotoSize",
+                "_cid": "0x75c78e60",
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "y",
+                  "w": 620,
+                  "h": 1280,
+                  "size": 101872
+                },
+                "type": "y",
+                "w": 620,
+                "h": 1280,
+                "size": 101872
+              },
+              {
+                "_class": "PhotoSizeProgressive",
+                "_cid": "0xfa3efb95",
+                "className": "PhotoSizeProgressive",
+                "originalArgs": {
+                  "type": "w",
+                  "w": 1200,
+                  "h": 2478,
+                  "sizes": [
+                    29077,
+                    63327,
+                    113854,
+                    159115,
+                    255994
+                  ]
+                },
+                "type": "w",
+                "w": 1200,
+                "h": 2478,
+                "sizes": [
+                  29077,
+                  63327,
+                  113854,
+                  159115,
+                  255994
+                ]
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 1
+          },
+          "flags": 0,
+          "hasStickers": false,
+          "id": {
+            "value": "BigInt(5098421206410529761)"
+          },
+          "accessHash": {
+            "value": "BigInt(590562429549259142)"
+          },
+          "fileReference": "Buffer(25)[030000059669d8dd974888ced77c72a5792ef8d56d6ac32845...]",
+          "date": 1775767801,
+          "sizes": [
+            {
+              "_class": "PhotoStrippedSize",
+              "_cid": "0xe0b0bc2e",
+              "className": "PhotoStrippedSize",
+              "originalArgs": {
+                "type": "i",
+                "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+              },
+              "type": "i",
+              "bytes": "Buffer(91)[012814d8efd68c8ce33cd37191cf7eb4b81e9ed400eeb4533ee8c0e00a29d800...]"
+            },
+            {
+              "_class": "PhotoSize",
+              "_cid": "0x75c78e60",
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "m",
+                "w": 155,
+                "h": 320,
+                "size": 12821
+              },
+              "type": "m",
+              "w": 155,
+              "h": 320,
+              "size": 12821
+            },
+            {
+              "_class": "PhotoSize",
+              "_cid": "0x75c78e60",
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "x",
+                "w": 387,
+                "h": 800,
+                "size": 49863
+              },
+              "type": "x",
+              "w": 387,
+              "h": 800,
+              "size": 49863
+            },
+            {
+              "_class": "PhotoSize",
+              "_cid": "0x75c78e60",
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "y",
+                "w": 620,
+                "h": 1280,
+                "size": 101872
+              },
+              "type": "y",
+              "w": 620,
+              "h": 1280,
+              "size": 101872
+            },
+            {
+              "_class": "PhotoSizeProgressive",
+              "_cid": "0xfa3efb95",
+              "className": "PhotoSizeProgressive",
+              "originalArgs": {
+                "type": "w",
+                "w": 1200,
+                "h": 2478,
+                "sizes": [
+                  29077,
+                  63327,
+                  113854,
+                  159115,
+                  255994
+                ]
+              },
+              "type": "w",
+              "w": 1200,
+              "h": 2478,
+              "sizes": [
+                29077,
+                63327,
+                113854,
+                159115,
+                255994
+              ]
+            }
+          ],
+          "videoSizes": null,
+          "dcId": 1
+        },
+        "ttlSeconds": null
+      },
+      "replyMarkup": null,
+      "entities": null,
+      "views": null,
+      "forwards": null,
+      "replies": null,
+      "editDate": null,
+      "pinned": false,
+      "postAuthor": null,
+      "groupedId": null,
+      "restrictionReason": null,
+      "noforwards": false,
+      "reactions": null,
+      "flags": 770,
+      "invertMedia": false,
+      "flags2": 0,
+      "offline": false,
+      "videoProcessingPending": false,
+      "fromBoostsApplied": null,
+      "savedPeerId": null,
+      "viaBusinessBotId": null,
+      "quickReplyShortcutId": null,
+      "effect": null,
+      "factcheck": null,
+      "reportDeliveryUntilDate": null
+    }
+  ],
+  "chats": [],
+  "users": [
+    {
+      "_class": "User",
+      "_cid": "0x4b46c37e",
+      "className": "User",
+      "originalArgs": {
+        "flags": 33555547,
+        "self": true,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(6340886702)"
+        },
+        "accessHash": {
+          "value": "BigInt(-2827396686645499657)"
+        },
+        "firstName": "🤷",
+        "lastName": null,
+        "username": "user28738229",
+        "phone": "17799037329",
+        "photo": null,
+        "status": {
+          "_class": "UserStatusOffline",
+          "_cid": "0x008c703f",
+          "className": "UserStatusOffline",
+          "originalArgs": {
+            "wasOnline": 1775768101
+          },
+          "wasOnline": 1775768101
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      "flags": 33555547,
+      "self": true,
+      "contact": false,
+      "mutualContact": false,
+      "deleted": false,
+      "bot": false,
+      "botChatHistory": false,
+      "botNochats": false,
+      "verified": false,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": false,
+      "scam": false,
+      "applyMinPhoto": true,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 16,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": false,
+      "botBusiness": false,
+      "botHasMainApp": false,
+      "id": {
+        "value": "BigInt(6340886702)"
+      },
+      "accessHash": {
+        "value": "BigInt(-2827396686645499657)"
+      },
+      "firstName": "🤷",
+      "lastName": null,
+      "username": "user28738229",
+      "phone": "17799037329",
+      "photo": null,
+      "status": {
+        "_class": "UserStatusOffline",
+        "_cid": "0x008c703f",
+        "className": "UserStatusOffline",
+        "originalArgs": {
+          "wasOnline": 1775768101
+        },
+        "wasOnline": 1775768101
+      },
+      "botInfoVersion": null,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": null,
+      "botVerificationIcon": null
+    },
+    {
+      "_class": "User",
+      "_cid": "0x4b46c37e",
+      "className": "User",
+      "originalArgs": {
+        "flags": 33554507,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(338781882)"
+        },
+        "accessHash": {
+          "value": "BigInt(5980716527335755090)"
+        },
+        "firstName": "ㅤ",
+        "lastName": null,
+        "username": "sckr_a",
+        "phone": null,
+        "photo": null,
+        "status": {
+          "_class": "UserStatusRecently",
+          "_cid": "0x7b197dc8",
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 0,
+            "byMe": false
+          },
+          "flags": 0,
+          "byMe": false
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      "flags": 33554507,
+      "self": false,
+      "contact": false,
+      "mutualContact": false,
+      "deleted": false,
+      "bot": false,
+      "botChatHistory": false,
+      "botNochats": false,
+      "verified": false,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": false,
+      "scam": false,
+      "applyMinPhoto": true,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 16,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": false,
+      "botBusiness": false,
+      "botHasMainApp": false,
+      "id": {
+        "value": "BigInt(338781882)"
+      },
+      "accessHash": {
+        "value": "BigInt(5980716527335755090)"
+      },
+      "firstName": "ㅤ",
+      "lastName": null,
+      "username": "sckr_a",
+      "phone": null,
+      "photo": null,
+      "status": {
+        "_class": "UserStatusRecently",
+        "_cid": "0x7b197dc8",
+        "className": "UserStatusRecently",
+        "originalArgs": {
+          "flags": 0,
+          "byMe": false
+        },
+        "flags": 0,
+        "byMe": false
+      },
+      "botInfoVersion": null,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": null,
+      "botVerificationIcon": null
+    }
+  ]
+}
+
+════════════════════════════════════════════════════════════════════════════════
+🔍 messages.SearchGlobal(q="hello", limit=5)
+════════════════════════════════════════════════════════════════════════════════
+{
+  "_class": "messages.Messages",
+  "_cid": "0x8c718e87",
+  "className": "messages.Messages",
+  "originalArgs": {
+    "messages": [],
+    "chats": [],
+    "users": []
+  },
+  "messages": [],
+  "chats": [],
+  "users": []
+}
+
+════════════════════════════════════════════════════════════════════════════════
+🔍 messages.Search(peer=InputPeerSelf, filter=PhotoVideo, q="", limit=1) — count only
+════════════════════════════════════════════════════════════════════════════════
+{
+  "_class": "messages.Messages",
+  "_cid": "0x8c718e87",
+  "className": "messages.Messages",
+  "originalArgs": {
+    "messages": [],
+    "chats": [],
+    "users": []
+  },
+  "messages": [],
+  "chats": [],
+  "users": []
+}
+[35m[2026-04-10T13:23:04.108] [WARN] - [Disconnecting...][0m
+[33m[2026-04-10T13:23:04.108] [INFO] - [Disconnecting from 149.154.175.59:80/TCPFull...][0m

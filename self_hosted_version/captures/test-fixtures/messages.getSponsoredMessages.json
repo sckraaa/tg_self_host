@@ -1,0 +1,55 @@
+{
+  "method": "messages.getSponsoredMessages",
+  "capturedAt": "2026-04-10T16:16:19.362Z",
+  "request": {
+    "__className": "messages.GetSponsoredMessages",
+    "__constructorId": 2614293561,
+    "className": "messages.GetSponsoredMessages",
+    "originalArgs": {
+      "peer": {
+        "__className": "InputPeerChannel",
+        "__constructorId": 666680316,
+        "className": "InputPeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "3958464679"
+          },
+          "accessHash": {
+            "value": "-3249255148906748471"
+          }
+        },
+        "channelId": {
+          "value": "3958464679"
+        },
+        "accessHash": {
+          "value": "-3249255148906748471"
+        }
+      }
+    },
+    "peer": {
+      "__className": "InputPeerChannel",
+      "__constructorId": 666680316,
+      "className": "InputPeerChannel",
+      "originalArgs": {
+        "channelId": {
+          "value": "3958464679"
+        },
+        "accessHash": {
+          "value": "-3249255148906748471"
+        }
+      },
+      "channelId": {
+        "value": "3958464679"
+      },
+      "accessHash": {
+        "value": "-3249255148906748471"
+      }
+    }
+  },
+  "response": {
+    "__className": "messages.SponsoredMessagesEmpty",
+    "__constructorId": 406407439,
+    "className": "messages.SponsoredMessagesEmpty",
+    "originalArgs": {}
+  }
+}

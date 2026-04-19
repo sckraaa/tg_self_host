@@ -1,0 +1,200 @@
+{
+  "method": "messages.getAllStickers",
+  "capturedAt": "2026-04-10T16:16:12.424Z",
+  "request": {
+    "__className": "messages.GetAllStickers",
+    "__constructorId": 3097534888,
+    "className": "messages.GetAllStickers",
+    "originalArgs": {
+      "hash": "0"
+    },
+    "hash": "0"
+  },
+  "response": {
+    "__className": "messages.AllStickers",
+    "__constructorId": 3451637435,
+    "className": "messages.AllStickers",
+    "originalArgs": {
+      "hash": {
+        "value": "-161641930"
+      },
+      "sets": [
+        {
+          "__className": "StickerSet",
+          "__constructorId": 768691932,
+          "className": "StickerSet",
+          "originalArgs": {
+            "flags": 17,
+            "archived": false,
+            "official": false,
+            "masks": false,
+            "emojis": false,
+            "textColor": false,
+            "channelEmojiStatus": false,
+            "creator": false,
+            "installedDate": 0,
+            "id": {
+              "value": "1391391008142393345"
+            },
+            "accessHash": {
+              "value": "-2523499827280995204"
+            },
+            "title": "Hot Cherry",
+            "shortName": "HotCherry",
+            "thumbs": [
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "a",
+                  "w": 100,
+                  "h": 100,
+                  "size": 5632
+                },
+                "type": "a",
+                "w": 100,
+                "h": 100,
+                "size": 5632
+              }
+            ],
+            "thumbDcId": 2,
+            "thumbVersion": -654056117,
+            "thumbDocumentId": null,
+            "count": 34,
+            "hash": -161641930
+          },
+          "flags": 17,
+          "archived": false,
+          "official": false,
+          "masks": false,
+          "emojis": false,
+          "textColor": false,
+          "channelEmojiStatus": false,
+          "creator": false,
+          "installedDate": 0,
+          "id": {
+            "value": "1391391008142393345"
+          },
+          "accessHash": {
+            "value": "-2523499827280995204"
+          },
+          "title": "Hot Cherry",
+          "shortName": "HotCherry",
+          "thumbs": [
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "a",
+                "w": 100,
+                "h": 100,
+                "size": 5632
+              },
+              "type": "a",
+              "w": 100,
+              "h": 100,
+              "size": 5632
+            }
+          ],
+          "thumbDcId": 2,
+          "thumbVersion": -654056117,
+          "thumbDocumentId": null,
+          "count": 34,
+          "hash": -161641930
+        }
+      ]
+    },
+    "hash": {
+      "value": "-161641930"
+    },
+    "sets": [
+      {
+        "__className": "StickerSet",
+        "__constructorId": 768691932,
+        "className": "StickerSet",
+        "originalArgs": {
+          "flags": 17,
+          "archived": false,
+          "official": false,
+          "masks": false,
+          "emojis": false,
+          "textColor": false,
+          "channelEmojiStatus": false,
+          "creator": false,
+          "installedDate": 0,
+          "id": {
+            "value": "1391391008142393345"
+          },
+          "accessHash": {
+            "value": "-2523499827280995204"
+          },
+          "title": "Hot Cherry",
+          "shortName": "HotCherry",
+          "thumbs": [
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "a",
+                "w": 100,
+                "h": 100,
+                "size": 5632
+              },
+              "type": "a",
+              "w": 100,
+              "h": 100,
+              "size": 5632
+            }
+          ],
+          "thumbDcId": 2,
+          "thumbVersion": -654056117,
+          "thumbDocumentId": null,
+          "count": 34,
+          "hash": -161641930
+        },
+        "flags": 17,
+        "archived": false,
+        "official": false,
+        "masks": false,
+        "emojis": false,
+        "textColor": false,
+        "channelEmojiStatus": false,
+        "creator": false,
+        "installedDate": 0,
+        "id": {
+          "value": "1391391008142393345"
+        },
+        "accessHash": {
+          "value": "-2523499827280995204"
+        },
+        "title": "Hot Cherry",
+        "shortName": "HotCherry",
+        "thumbs": [
+          {
+            "__className": "PhotoSize",
+            "__constructorId": 1976012384,
+            "className": "PhotoSize",
+            "originalArgs": {
+              "type": "a",
+              "w": 100,
+              "h": 100,
+              "size": 5632
+            },
+            "type": "a",
+            "w": 100,
+            "h": 100,
+            "size": 5632
+          }
+        ],
+        "thumbDcId": 2,
+        "thumbVersion": -654056117,
+        "thumbDocumentId": null,
+        "count": 34,
+        "hash": -161641930
+      }
+    ]
+  }
+}

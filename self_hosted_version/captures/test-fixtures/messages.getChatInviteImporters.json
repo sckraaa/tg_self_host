@@ -1,0 +1,80 @@
+{
+  "method": "messages.getChatInviteImporters",
+  "capturedAt": "2026-04-10T16:16:24.260Z",
+  "request": {
+    "__className": "messages.GetChatInviteImporters",
+    "__constructorId": 3741637966,
+    "className": "messages.GetChatInviteImporters",
+    "originalArgs": {
+      "peer": {
+        "__className": "InputPeerChannel",
+        "__constructorId": 666680316,
+        "className": "InputPeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "3959286856"
+          },
+          "accessHash": {
+            "value": "-6399249537774943740"
+          }
+        },
+        "channelId": {
+          "value": "3959286856"
+        },
+        "accessHash": {
+          "value": "-6399249537774943740"
+        }
+      },
+      "link": "https://t.me/+gNhlHI_jISUyMzYx",
+      "offsetDate": 0,
+      "offsetUser": {
+        "__className": "InputUserEmpty",
+        "__constructorId": 3112732367,
+        "className": "InputUserEmpty",
+        "originalArgs": {}
+      },
+      "limit": 10
+    },
+    "peer": {
+      "__className": "InputPeerChannel",
+      "__constructorId": 666680316,
+      "className": "InputPeerChannel",
+      "originalArgs": {
+        "channelId": {
+          "value": "3959286856"
+        },
+        "accessHash": {
+          "value": "-6399249537774943740"
+        }
+      },
+      "channelId": {
+        "value": "3959286856"
+      },
+      "accessHash": {
+        "value": "-6399249537774943740"
+      }
+    },
+    "link": "https://t.me/+gNhlHI_jISUyMzYx",
+    "offsetDate": 0,
+    "offsetUser": {
+      "__className": "InputUserEmpty",
+      "__constructorId": 3112732367,
+      "className": "InputUserEmpty",
+      "originalArgs": {}
+    },
+    "limit": 10
+  },
+  "response": {
+    "__className": "messages.ChatInviteImporters",
+    "__constructorId": 2176233482,
+    "className": "messages.ChatInviteImporters",
+    "originalArgs": {
+      "count": 0,
+      "importers": [],
+      "users": []
+    },
+    "count": 0,
+    "importers": [],
+    "users": []
+  }
+}

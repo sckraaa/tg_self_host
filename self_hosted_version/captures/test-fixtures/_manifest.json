@@ -1,0 +1,23 @@
+{
+  "capturedAt": "2026-04-10T16:16:30.553Z",
+  "fixtureCount": 125,
+  "errors": [
+    {
+      "method": "messages.sendMedia__photo",
+      "error": "400: IMAGE_PROCESS_FAILED (caused by messages.SendMedia)"
+    },
+    {
+      "method": "channels.editPhoto",
+      "error": "400: PHOTO_CROP_SIZE_SMALL (caused by channels.EditPhoto)"
+    },
+    {
+      "method": "messages.editChatPhoto",
+      "error": "400: PHOTO_CROP_SIZE_SMALL (caused by messages.EditChatPhoto)"
+    },
+    {
+      "method": "contacts.resolvePhone",
+      "error": "400: PHONE_NOT_OCCUPIED (caused by contacts.ResolvePhone)"
+    }
+  ],
+  "outputDir": "/Users/sckr.a/telegram_reverse/self_hosted_version/captures/test-fixtures"
+}

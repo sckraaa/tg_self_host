@@ -1,0 +1,3262 @@
+{
+  "method": "messages.sendReaction",
+  "capturedAt": "2026-04-10T16:16:23.091Z",
+  "request": {
+    "__className": "messages.SendReaction",
+    "__constructorId": 3540875476,
+    "className": "messages.SendReaction",
+    "originalArgs": {
+      "peer": {
+        "__className": "InputPeerChannel",
+        "__constructorId": 666680316,
+        "className": "InputPeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "3959286856"
+          },
+          "accessHash": {
+            "value": "-6399249537774943740"
+          }
+        },
+        "channelId": {
+          "value": "3959286856"
+        },
+        "accessHash": {
+          "value": "-6399249537774943740"
+        }
+      },
+      "msgId": 2,
+      "reaction": [
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "👍"
+          },
+          "emoticon": "👍"
+        }
+      ]
+    },
+    "peer": {
+      "__className": "InputPeerChannel",
+      "__constructorId": 666680316,
+      "className": "InputPeerChannel",
+      "originalArgs": {
+        "channelId": {
+          "value": "3959286856"
+        },
+        "accessHash": {
+          "value": "-6399249537774943740"
+        }
+      },
+      "channelId": {
+        "value": "3959286856"
+      },
+      "accessHash": {
+        "value": "-6399249537774943740"
+      }
+    },
+    "msgId": 2,
+    "reaction": [
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "👍"
+        },
+        "emoticon": "👍"
+      }
+    ]
+  },
+  "response": {
+    "__className": "Updates",
+    "__constructorId": 1957577280,
+    "className": "Updates",
+    "originalArgs": {
+      "updates": [
+        {
+          "__className": "UpdateEditChannelMessage",
+          "__constructorId": 457133559,
+          "className": "UpdateEditChannelMessage",
+          "originalArgs": {
+            "message": {
+              "__className": "Message",
+              "__constructorId": 2533211113,
+              "className": "Message",
+              "originalArgs": {
+                "flags": 11567362,
+                "out": true,
+                "mentioned": false,
+                "mediaUnread": false,
+                "silent": false,
+                "post": false,
+                "fromScheduled": false,
+                "legacy": false,
+                "editHide": true,
+                "pinned": false,
+                "noforwards": false,
+                "invertMedia": false,
+                "flags2": 0,
+                "offline": false,
+                "videoProcessingPending": false,
+                "id": 2,
+                "fromId": {
+                  "__className": "PeerUser",
+                  "__constructorId": 1498486562,
+                  "className": "PeerUser",
+                  "originalArgs": {
+                    "userId": {
+                      "value": "6340886702"
+                    }
+                  },
+                  "userId": {
+                    "value": "6340886702"
+                  }
+                },
+                "fromBoostsApplied": null,
+                "peerId": {
+                  "__className": "PeerChannel",
+                  "__constructorId": 2728736542,
+                  "className": "PeerChannel",
+                  "originalArgs": {
+                    "channelId": {
+                      "value": "3959286856"
+                    }
+                  },
+                  "channelId": {
+                    "value": "3959286856"
+                  }
+                },
+                "savedPeerId": null,
+                "fwdFrom": null,
+                "viaBotId": null,
+                "viaBusinessBotId": null,
+                "replyTo": null,
+                "date": 1775837781,
+                "message": "[fixture-sg2] 2026-04-10T16:16:21.832Z",
+                "media": null,
+                "replyMarkup": null,
+                "entities": null,
+                "views": null,
+                "forwards": null,
+                "replies": {
+                  "__className": "MessageReplies",
+                  "__constructorId": 2211844034,
+                  "className": "MessageReplies",
+                  "originalArgs": {
+                    "flags": 0,
+                    "comments": false,
+                    "replies": 0,
+                    "repliesPts": 3,
+                    "recentRepliers": null,
+                    "channelId": null,
+                    "maxId": null,
+                    "readMaxId": null
+                  },
+                  "flags": 0,
+                  "comments": false,
+                  "replies": 0,
+                  "repliesPts": 3,
+                  "recentRepliers": null,
+                  "channelId": null,
+                  "maxId": null,
+                  "readMaxId": null
+                },
+                "editDate": 1775837783,
+                "postAuthor": null,
+                "groupedId": null,
+                "reactions": {
+                  "__className": "MessageReactions",
+                  "__constructorId": 171155211,
+                  "className": "MessageReactions",
+                  "originalArgs": {
+                    "flags": 4,
+                    "min": false,
+                    "canSeeList": true,
+                    "reactionsAsTags": false,
+                    "results": [
+                      {
+                        "__className": "ReactionCount",
+                        "__constructorId": 2748435328,
+                        "className": "ReactionCount",
+                        "originalArgs": {
+                          "flags": 1,
+                          "chosenOrder": 0,
+                          "reaction": {
+                            "__className": "ReactionEmoji",
+                            "__constructorId": 455247544,
+                            "className": "[max depth]",
+                            "originalArgs": "[max depth]",
+                            "emoticon": "[max depth]"
+                          },
+                          "count": 1
+                        },
+                        "flags": 1,
+                        "chosenOrder": 0,
+                        "reaction": {
+                          "__className": "ReactionEmoji",
+                          "__constructorId": 455247544,
+                          "className": "ReactionEmoji",
+                          "originalArgs": {
+                            "emoticon": "[max depth]"
+                          },
+                          "emoticon": "👍"
+                        },
+                        "count": 1
+                      }
+                    ],
+                    "recentReactions": null,
+                    "topReactors": null
+                  },
+                  "flags": 4,
+                  "min": false,
+                  "canSeeList": true,
+                  "reactionsAsTags": false,
+                  "results": [
+                    {
+                      "__className": "ReactionCount",
+                      "__constructorId": 2748435328,
+                      "className": "ReactionCount",
+                      "originalArgs": {
+                        "flags": 1,
+                        "chosenOrder": 0,
+                        "reaction": {
+                          "__className": "ReactionEmoji",
+                          "__constructorId": 455247544,
+                          "className": "ReactionEmoji",
+                          "originalArgs": {
+                            "emoticon": "[max depth]"
+                          },
+                          "emoticon": "👍"
+                        },
+                        "count": 1
+                      },
+                      "flags": 1,
+                      "chosenOrder": 0,
+                      "reaction": {
+                        "__className": "ReactionEmoji",
+                        "__constructorId": 455247544,
+                        "className": "ReactionEmoji",
+                        "originalArgs": {
+                          "emoticon": "👍"
+                        },
+                        "emoticon": "👍"
+                      },
+                      "count": 1
+                    }
+                  ],
+                  "recentReactions": null,
+                  "topReactors": null
+                },
+                "restrictionReason": null,
+                "ttlPeriod": null,
+                "quickReplyShortcutId": null,
+                "effect": null,
+                "factcheck": null,
+                "reportDeliveryUntilDate": null
+              },
+              "out": true,
+              "mentioned": false,
+              "mediaUnread": false,
+              "silent": false,
+              "post": false,
+              "fromScheduled": false,
+              "legacy": false,
+              "editHide": true,
+              "ttlPeriod": null,
+              "id": 2,
+              "fromId": {
+                "__className": "PeerUser",
+                "__constructorId": 1498486562,
+                "className": "PeerUser",
+                "originalArgs": {
+                  "userId": {
+                    "value": "6340886702"
+                  }
+                },
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "peerId": {
+                "__className": "PeerChannel",
+                "__constructorId": 2728736542,
+                "className": "PeerChannel",
+                "originalArgs": {
+                  "channelId": {
+                    "value": "3959286856"
+                  }
+                },
+                "channelId": {
+                  "value": "3959286856"
+                }
+              },
+              "fwdFrom": null,
+              "viaBotId": null,
+              "replyTo": null,
+              "date": 1775837781,
+              "message": "[fixture-sg2] 2026-04-10T16:16:21.832Z",
+              "media": null,
+              "replyMarkup": null,
+              "entities": null,
+              "views": null,
+              "forwards": null,
+              "replies": {
+                "__className": "MessageReplies",
+                "__constructorId": 2211844034,
+                "className": "MessageReplies",
+                "originalArgs": {
+                  "flags": 0,
+                  "comments": false,
+                  "replies": 0,
+                  "repliesPts": 3,
+                  "recentRepliers": null,
+                  "channelId": null,
+                  "maxId": null,
+                  "readMaxId": null
+                },
+                "flags": 0,
+                "comments": false,
+                "replies": 0,
+                "repliesPts": 3,
+                "recentRepliers": null,
+                "channelId": null,
+                "maxId": null,
+                "readMaxId": null
+              },
+              "editDate": 1775837783,
+              "pinned": false,
+              "postAuthor": null,
+              "groupedId": null,
+              "restrictionReason": null,
+              "noforwards": false,
+              "reactions": {
+                "__className": "MessageReactions",
+                "__constructorId": 171155211,
+                "className": "MessageReactions",
+                "originalArgs": {
+                  "flags": 4,
+                  "min": false,
+                  "canSeeList": true,
+                  "reactionsAsTags": false,
+                  "results": [
+                    {
+                      "__className": "ReactionCount",
+                      "__constructorId": 2748435328,
+                      "className": "ReactionCount",
+                      "originalArgs": {
+                        "flags": 1,
+                        "chosenOrder": 0,
+                        "reaction": {
+                          "__className": "ReactionEmoji",
+                          "__constructorId": 455247544,
+                          "className": "ReactionEmoji",
+                          "originalArgs": {
+                            "emoticon": "[max depth]"
+                          },
+                          "emoticon": "👍"
+                        },
+                        "count": 1
+                      },
+                      "flags": 1,
+                      "chosenOrder": 0,
+                      "reaction": {
+                        "__className": "ReactionEmoji",
+                        "__constructorId": 455247544,
+                        "className": "ReactionEmoji",
+                        "originalArgs": {
+                          "emoticon": "👍"
+                        },
+                        "emoticon": "👍"
+                      },
+                      "count": 1
+                    }
+                  ],
+                  "recentReactions": null,
+                  "topReactors": null
+                },
+                "flags": 4,
+                "min": false,
+                "canSeeList": true,
+                "reactionsAsTags": false,
+                "results": [
+                  {
+                    "__className": "ReactionCount",
+                    "__constructorId": 2748435328,
+                    "className": "ReactionCount",
+                    "originalArgs": {
+                      "flags": 1,
+                      "chosenOrder": 0,
+                      "reaction": {
+                        "__className": "ReactionEmoji",
+                        "__constructorId": 455247544,
+                        "className": "ReactionEmoji",
+                        "originalArgs": {
+                          "emoticon": "👍"
+                        },
+                        "emoticon": "👍"
+                      },
+                      "count": 1
+                    },
+                    "flags": 1,
+                    "chosenOrder": 0,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    },
+                    "count": 1
+                  }
+                ],
+                "recentReactions": null,
+                "topReactors": null
+              },
+              "flags": 11567362,
+              "invertMedia": false,
+              "flags2": 0,
+              "offline": false,
+              "videoProcessingPending": false,
+              "fromBoostsApplied": null,
+              "savedPeerId": null,
+              "viaBusinessBotId": null,
+              "quickReplyShortcutId": null,
+              "effect": null,
+              "factcheck": null,
+              "reportDeliveryUntilDate": null
+            },
+            "pts": 4,
+            "ptsCount": 1
+          },
+          "message": {
+            "__className": "Message",
+            "__constructorId": 2533211113,
+            "className": "Message",
+            "originalArgs": {
+              "flags": 11567362,
+              "out": true,
+              "mentioned": false,
+              "mediaUnread": false,
+              "silent": false,
+              "post": false,
+              "fromScheduled": false,
+              "legacy": false,
+              "editHide": true,
+              "pinned": false,
+              "noforwards": false,
+              "invertMedia": false,
+              "flags2": 0,
+              "offline": false,
+              "videoProcessingPending": false,
+              "id": 2,
+              "fromId": {
+                "__className": "PeerUser",
+                "__constructorId": 1498486562,
+                "className": "PeerUser",
+                "originalArgs": {
+                  "userId": {
+                    "value": "6340886702"
+                  }
+                },
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "fromBoostsApplied": null,
+              "peerId": {
+                "__className": "PeerChannel",
+                "__constructorId": 2728736542,
+                "className": "PeerChannel",
+                "originalArgs": {
+                  "channelId": {
+                    "value": "3959286856"
+                  }
+                },
+                "channelId": {
+                  "value": "3959286856"
+                }
+              },
+              "savedPeerId": null,
+              "fwdFrom": null,
+              "viaBotId": null,
+              "viaBusinessBotId": null,
+              "replyTo": null,
+              "date": 1775837781,
+              "message": "[fixture-sg2] 2026-04-10T16:16:21.832Z",
+              "media": null,
+              "replyMarkup": null,
+              "entities": null,
+              "views": null,
+              "forwards": null,
+              "replies": {
+                "__className": "MessageReplies",
+                "__constructorId": 2211844034,
+                "className": "MessageReplies",
+                "originalArgs": {
+                  "flags": 0,
+                  "comments": false,
+                  "replies": 0,
+                  "repliesPts": 3,
+                  "recentRepliers": null,
+                  "channelId": null,
+                  "maxId": null,
+                  "readMaxId": null
+                },
+                "flags": 0,
+                "comments": false,
+                "replies": 0,
+                "repliesPts": 3,
+                "recentRepliers": null,
+                "channelId": null,
+                "maxId": null,
+                "readMaxId": null
+              },
+              "editDate": 1775837783,
+              "postAuthor": null,
+              "groupedId": null,
+              "reactions": {
+                "__className": "MessageReactions",
+                "__constructorId": 171155211,
+                "className": "MessageReactions",
+                "originalArgs": {
+                  "flags": 4,
+                  "min": false,
+                  "canSeeList": true,
+                  "reactionsAsTags": false,
+                  "results": [
+                    {
+                      "__className": "ReactionCount",
+                      "__constructorId": 2748435328,
+                      "className": "ReactionCount",
+                      "originalArgs": {
+                        "flags": 1,
+                        "chosenOrder": 0,
+                        "reaction": {
+                          "__className": "ReactionEmoji",
+                          "__constructorId": 455247544,
+                          "className": "ReactionEmoji",
+                          "originalArgs": {
+                            "emoticon": "[max depth]"
+                          },
+                          "emoticon": "👍"
+                        },
+                        "count": 1
+                      },
+                      "flags": 1,
+                      "chosenOrder": 0,
+                      "reaction": {
+                        "__className": "ReactionEmoji",
+                        "__constructorId": 455247544,
+                        "className": "ReactionEmoji",
+                        "originalArgs": {
+                          "emoticon": "👍"
+                        },
+                        "emoticon": "👍"
+                      },
+                      "count": 1
+                    }
+                  ],
+                  "recentReactions": null,
+                  "topReactors": null
+                },
+                "flags": 4,
+                "min": false,
+                "canSeeList": true,
+                "reactionsAsTags": false,
+                "results": [
+                  {
+                    "__className": "ReactionCount",
+                    "__constructorId": 2748435328,
+                    "className": "ReactionCount",
+                    "originalArgs": {
+                      "flags": 1,
+                      "chosenOrder": 0,
+                      "reaction": {
+                        "__className": "ReactionEmoji",
+                        "__constructorId": 455247544,
+                        "className": "ReactionEmoji",
+                        "originalArgs": {
+                          "emoticon": "👍"
+                        },
+                        "emoticon": "👍"
+                      },
+                      "count": 1
+                    },
+                    "flags": 1,
+                    "chosenOrder": 0,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    },
+                    "count": 1
+                  }
+                ],
+                "recentReactions": null,
+                "topReactors": null
+              },
+              "restrictionReason": null,
+              "ttlPeriod": null,
+              "quickReplyShortcutId": null,
+              "effect": null,
+              "factcheck": null,
+              "reportDeliveryUntilDate": null
+            },
+            "out": true,
+            "mentioned": false,
+            "mediaUnread": false,
+            "silent": false,
+            "post": false,
+            "fromScheduled": false,
+            "legacy": false,
+            "editHide": true,
+            "ttlPeriod": null,
+            "id": 2,
+            "fromId": {
+              "__className": "PeerUser",
+              "__constructorId": 1498486562,
+              "className": "PeerUser",
+              "originalArgs": {
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "peerId": {
+              "__className": "PeerChannel",
+              "__constructorId": 2728736542,
+              "className": "PeerChannel",
+              "originalArgs": {
+                "channelId": {
+                  "value": "3959286856"
+                }
+              },
+              "channelId": {
+                "value": "3959286856"
+              }
+            },
+            "fwdFrom": null,
+            "viaBotId": null,
+            "replyTo": null,
+            "date": 1775837781,
+            "message": "[fixture-sg2] 2026-04-10T16:16:21.832Z",
+            "media": null,
+            "replyMarkup": null,
+            "entities": null,
+            "views": null,
+            "forwards": null,
+            "replies": {
+              "__className": "MessageReplies",
+              "__constructorId": 2211844034,
+              "className": "MessageReplies",
+              "originalArgs": {
+                "flags": 0,
+                "comments": false,
+                "replies": 0,
+                "repliesPts": 3,
+                "recentRepliers": null,
+                "channelId": null,
+                "maxId": null,
+                "readMaxId": null
+              },
+              "flags": 0,
+              "comments": false,
+              "replies": 0,
+              "repliesPts": 3,
+              "recentRepliers": null,
+              "channelId": null,
+              "maxId": null,
+              "readMaxId": null
+            },
+            "editDate": 1775837783,
+            "pinned": false,
+            "postAuthor": null,
+            "groupedId": null,
+            "restrictionReason": null,
+            "noforwards": false,
+            "reactions": {
+              "__className": "MessageReactions",
+              "__constructorId": 171155211,
+              "className": "MessageReactions",
+              "originalArgs": {
+                "flags": 4,
+                "min": false,
+                "canSeeList": true,
+                "reactionsAsTags": false,
+                "results": [
+                  {
+                    "__className": "ReactionCount",
+                    "__constructorId": 2748435328,
+                    "className": "ReactionCount",
+                    "originalArgs": {
+                      "flags": 1,
+                      "chosenOrder": 0,
+                      "reaction": {
+                        "__className": "ReactionEmoji",
+                        "__constructorId": 455247544,
+                        "className": "ReactionEmoji",
+                        "originalArgs": {
+                          "emoticon": "👍"
+                        },
+                        "emoticon": "👍"
+                      },
+                      "count": 1
+                    },
+                    "flags": 1,
+                    "chosenOrder": 0,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    },
+                    "count": 1
+                  }
+                ],
+                "recentReactions": null,
+                "topReactors": null
+              },
+              "flags": 4,
+              "min": false,
+              "canSeeList": true,
+              "reactionsAsTags": false,
+              "results": [
+                {
+                  "__className": "ReactionCount",
+                  "__constructorId": 2748435328,
+                  "className": "ReactionCount",
+                  "originalArgs": {
+                    "flags": 1,
+                    "chosenOrder": 0,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    },
+                    "count": 1
+                  },
+                  "flags": 1,
+                  "chosenOrder": 0,
+                  "reaction": {
+                    "__className": "ReactionEmoji",
+                    "__constructorId": 455247544,
+                    "className": "ReactionEmoji",
+                    "originalArgs": {
+                      "emoticon": "👍"
+                    },
+                    "emoticon": "👍"
+                  },
+                  "count": 1
+                }
+              ],
+              "recentReactions": null,
+              "topReactors": null
+            },
+            "flags": 11567362,
+            "invertMedia": false,
+            "flags2": 0,
+            "offline": false,
+            "videoProcessingPending": false,
+            "fromBoostsApplied": null,
+            "savedPeerId": null,
+            "viaBusinessBotId": null,
+            "quickReplyShortcutId": null,
+            "effect": null,
+            "factcheck": null,
+            "reportDeliveryUntilDate": null
+          },
+          "pts": 4,
+          "ptsCount": 1
+        },
+        {
+          "__className": "UpdateMessageReactions",
+          "__constructorId": 1578843320,
+          "className": "UpdateMessageReactions",
+          "originalArgs": {
+            "flags": 0,
+            "peer": {
+              "__className": "PeerChannel",
+              "__constructorId": 2728736542,
+              "className": "PeerChannel",
+              "originalArgs": {
+                "channelId": {
+                  "value": "3959286856"
+                }
+              },
+              "channelId": {
+                "value": "3959286856"
+              }
+            },
+            "msgId": 2,
+            "topMsgId": null,
+            "reactions": {
+              "__className": "MessageReactions",
+              "__constructorId": 171155211,
+              "className": "MessageReactions",
+              "originalArgs": {
+                "flags": 6,
+                "min": false,
+                "canSeeList": true,
+                "reactionsAsTags": false,
+                "results": [
+                  {
+                    "__className": "ReactionCount",
+                    "__constructorId": 2748435328,
+                    "className": "ReactionCount",
+                    "originalArgs": {
+                      "flags": 1,
+                      "chosenOrder": 0,
+                      "reaction": {
+                        "__className": "ReactionEmoji",
+                        "__constructorId": 455247544,
+                        "className": "ReactionEmoji",
+                        "originalArgs": {
+                          "emoticon": "👍"
+                        },
+                        "emoticon": "👍"
+                      },
+                      "count": 1
+                    },
+                    "flags": 1,
+                    "chosenOrder": 0,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    },
+                    "count": 1
+                  }
+                ],
+                "recentReactions": [
+                  {
+                    "__className": "MessagePeerReaction",
+                    "__constructorId": 2356786748,
+                    "className": "MessagePeerReaction",
+                    "originalArgs": {
+                      "flags": 0,
+                      "big": false,
+                      "unread": false,
+                      "my": false,
+                      "peerId": {
+                        "__className": "PeerUser",
+                        "__constructorId": 1498486562,
+                        "className": "PeerUser",
+                        "originalArgs": {
+                          "userId": {
+                            "value": "[max depth]"
+                          }
+                        },
+                        "userId": {
+                          "value": "6340886702"
+                        }
+                      },
+                      "date": 1775837783,
+                      "reaction": {
+                        "__className": "ReactionEmoji",
+                        "__constructorId": 455247544,
+                        "className": "ReactionEmoji",
+                        "originalArgs": {
+                          "emoticon": "👍"
+                        },
+                        "emoticon": "👍"
+                      }
+                    },
+                    "flags": 0,
+                    "big": false,
+                    "unread": false,
+                    "my": false,
+                    "peerId": {
+                      "__className": "PeerUser",
+                      "__constructorId": 1498486562,
+                      "className": "PeerUser",
+                      "originalArgs": {
+                        "userId": {
+                          "value": "6340886702"
+                        }
+                      },
+                      "userId": {
+                        "value": "6340886702"
+                      }
+                    },
+                    "date": 1775837783,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    }
+                  }
+                ],
+                "topReactors": null
+              },
+              "flags": 6,
+              "min": false,
+              "canSeeList": true,
+              "reactionsAsTags": false,
+              "results": [
+                {
+                  "__className": "ReactionCount",
+                  "__constructorId": 2748435328,
+                  "className": "ReactionCount",
+                  "originalArgs": {
+                    "flags": 1,
+                    "chosenOrder": 0,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    },
+                    "count": 1
+                  },
+                  "flags": 1,
+                  "chosenOrder": 0,
+                  "reaction": {
+                    "__className": "ReactionEmoji",
+                    "__constructorId": 455247544,
+                    "className": "ReactionEmoji",
+                    "originalArgs": {
+                      "emoticon": "👍"
+                    },
+                    "emoticon": "👍"
+                  },
+                  "count": 1
+                }
+              ],
+              "recentReactions": [
+                {
+                  "__className": "MessagePeerReaction",
+                  "__constructorId": 2356786748,
+                  "className": "MessagePeerReaction",
+                  "originalArgs": {
+                    "flags": 0,
+                    "big": false,
+                    "unread": false,
+                    "my": false,
+                    "peerId": {
+                      "__className": "PeerUser",
+                      "__constructorId": 1498486562,
+                      "className": "PeerUser",
+                      "originalArgs": {
+                        "userId": {
+                          "value": "6340886702"
+                        }
+                      },
+                      "userId": {
+                        "value": "6340886702"
+                      }
+                    },
+                    "date": 1775837783,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    }
+                  },
+                  "flags": 0,
+                  "big": false,
+                  "unread": false,
+                  "my": false,
+                  "peerId": {
+                    "__className": "PeerUser",
+                    "__constructorId": 1498486562,
+                    "className": "PeerUser",
+                    "originalArgs": {
+                      "userId": {
+                        "value": "6340886702"
+                      }
+                    },
+                    "userId": {
+                      "value": "6340886702"
+                    }
+                  },
+                  "date": 1775837783,
+                  "reaction": {
+                    "__className": "ReactionEmoji",
+                    "__constructorId": 455247544,
+                    "className": "ReactionEmoji",
+                    "originalArgs": {
+                      "emoticon": "👍"
+                    },
+                    "emoticon": "👍"
+                  }
+                }
+              ],
+              "topReactors": null
+            }
+          },
+          "flags": 0,
+          "peer": {
+            "__className": "PeerChannel",
+            "__constructorId": 2728736542,
+            "className": "PeerChannel",
+            "originalArgs": {
+              "channelId": {
+                "value": "3959286856"
+              }
+            },
+            "channelId": {
+              "value": "3959286856"
+            }
+          },
+          "msgId": 2,
+          "topMsgId": null,
+          "reactions": {
+            "__className": "MessageReactions",
+            "__constructorId": 171155211,
+            "className": "MessageReactions",
+            "originalArgs": {
+              "flags": 6,
+              "min": false,
+              "canSeeList": true,
+              "reactionsAsTags": false,
+              "results": [
+                {
+                  "__className": "ReactionCount",
+                  "__constructorId": 2748435328,
+                  "className": "ReactionCount",
+                  "originalArgs": {
+                    "flags": 1,
+                    "chosenOrder": 0,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    },
+                    "count": 1
+                  },
+                  "flags": 1,
+                  "chosenOrder": 0,
+                  "reaction": {
+                    "__className": "ReactionEmoji",
+                    "__constructorId": 455247544,
+                    "className": "ReactionEmoji",
+                    "originalArgs": {
+                      "emoticon": "👍"
+                    },
+                    "emoticon": "👍"
+                  },
+                  "count": 1
+                }
+              ],
+              "recentReactions": [
+                {
+                  "__className": "MessagePeerReaction",
+                  "__constructorId": 2356786748,
+                  "className": "MessagePeerReaction",
+                  "originalArgs": {
+                    "flags": 0,
+                    "big": false,
+                    "unread": false,
+                    "my": false,
+                    "peerId": {
+                      "__className": "PeerUser",
+                      "__constructorId": 1498486562,
+                      "className": "PeerUser",
+                      "originalArgs": {
+                        "userId": {
+                          "value": "6340886702"
+                        }
+                      },
+                      "userId": {
+                        "value": "6340886702"
+                      }
+                    },
+                    "date": 1775837783,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    }
+                  },
+                  "flags": 0,
+                  "big": false,
+                  "unread": false,
+                  "my": false,
+                  "peerId": {
+                    "__className": "PeerUser",
+                    "__constructorId": 1498486562,
+                    "className": "PeerUser",
+                    "originalArgs": {
+                      "userId": {
+                        "value": "6340886702"
+                      }
+                    },
+                    "userId": {
+                      "value": "6340886702"
+                    }
+                  },
+                  "date": 1775837783,
+                  "reaction": {
+                    "__className": "ReactionEmoji",
+                    "__constructorId": 455247544,
+                    "className": "ReactionEmoji",
+                    "originalArgs": {
+                      "emoticon": "👍"
+                    },
+                    "emoticon": "👍"
+                  }
+                }
+              ],
+              "topReactors": null
+            },
+            "flags": 6,
+            "min": false,
+            "canSeeList": true,
+            "reactionsAsTags": false,
+            "results": [
+              {
+                "__className": "ReactionCount",
+                "__constructorId": 2748435328,
+                "className": "ReactionCount",
+                "originalArgs": {
+                  "flags": 1,
+                  "chosenOrder": 0,
+                  "reaction": {
+                    "__className": "ReactionEmoji",
+                    "__constructorId": 455247544,
+                    "className": "ReactionEmoji",
+                    "originalArgs": {
+                      "emoticon": "👍"
+                    },
+                    "emoticon": "👍"
+                  },
+                  "count": 1
+                },
+                "flags": 1,
+                "chosenOrder": 0,
+                "reaction": {
+                  "__className": "ReactionEmoji",
+                  "__constructorId": 455247544,
+                  "className": "ReactionEmoji",
+                  "originalArgs": {
+                    "emoticon": "👍"
+                  },
+                  "emoticon": "👍"
+                },
+                "count": 1
+              }
+            ],
+            "recentReactions": [
+              {
+                "__className": "MessagePeerReaction",
+                "__constructorId": 2356786748,
+                "className": "MessagePeerReaction",
+                "originalArgs": {
+                  "flags": 0,
+                  "big": false,
+                  "unread": false,
+                  "my": false,
+                  "peerId": {
+                    "__className": "PeerUser",
+                    "__constructorId": 1498486562,
+                    "className": "PeerUser",
+                    "originalArgs": {
+                      "userId": {
+                        "value": "6340886702"
+                      }
+                    },
+                    "userId": {
+                      "value": "6340886702"
+                    }
+                  },
+                  "date": 1775837783,
+                  "reaction": {
+                    "__className": "ReactionEmoji",
+                    "__constructorId": 455247544,
+                    "className": "ReactionEmoji",
+                    "originalArgs": {
+                      "emoticon": "👍"
+                    },
+                    "emoticon": "👍"
+                  }
+                },
+                "flags": 0,
+                "big": false,
+                "unread": false,
+                "my": false,
+                "peerId": {
+                  "__className": "PeerUser",
+                  "__constructorId": 1498486562,
+                  "className": "PeerUser",
+                  "originalArgs": {
+                    "userId": {
+                      "value": "6340886702"
+                    }
+                  },
+                  "userId": {
+                    "value": "6340886702"
+                  }
+                },
+                "date": 1775837783,
+                "reaction": {
+                  "__className": "ReactionEmoji",
+                  "__constructorId": 455247544,
+                  "className": "ReactionEmoji",
+                  "originalArgs": {
+                    "emoticon": "👍"
+                  },
+                  "emoticon": "👍"
+                }
+              }
+            ],
+            "topReactors": null
+          }
+        }
+      ],
+      "users": [
+        {
+          "__className": "User",
+          "__constructorId": 1262928766,
+          "className": "User",
+          "originalArgs": {
+            "flags": 33555547,
+            "self": true,
+            "contact": false,
+            "mutualContact": false,
+            "deleted": false,
+            "bot": false,
+            "botChatHistory": false,
+            "botNochats": false,
+            "verified": false,
+            "restricted": false,
+            "min": false,
+            "botInlineGeo": false,
+            "support": false,
+            "scam": false,
+            "applyMinPhoto": true,
+            "fake": false,
+            "botAttachMenu": false,
+            "premium": false,
+            "attachMenuEnabled": false,
+            "flags2": 16,
+            "botCanEdit": false,
+            "closeFriend": false,
+            "storiesHidden": false,
+            "storiesUnavailable": true,
+            "contactRequirePremium": false,
+            "botBusiness": false,
+            "botHasMainApp": false,
+            "id": {
+              "value": "6340886702"
+            },
+            "accessHash": {
+              "value": "-2827396686645499657"
+            },
+            "firstName": "🤷",
+            "lastName": null,
+            "username": "user28738229",
+            "phone": "17799037329",
+            "photo": null,
+            "status": {
+              "__className": "UserStatusOnline",
+              "__constructorId": 3988339017,
+              "className": "UserStatusOnline",
+              "originalArgs": {
+                "expires": 1775838054
+              },
+              "expires": 1775838054
+            },
+            "botInfoVersion": null,
+            "restrictionReason": null,
+            "botInlinePlaceholder": null,
+            "langCode": null,
+            "emojiStatus": null,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "botActiveUsers": null,
+            "botVerificationIcon": null
+          },
+          "flags": 33555547,
+          "self": true,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "6340886702"
+          },
+          "accessHash": {
+            "value": "-2827396686645499657"
+          },
+          "firstName": "🤷",
+          "lastName": null,
+          "username": "user28738229",
+          "phone": "17799037329",
+          "photo": null,
+          "status": {
+            "__className": "UserStatusOnline",
+            "__constructorId": 3988339017,
+            "className": "UserStatusOnline",
+            "originalArgs": {
+              "expires": 1775838054
+            },
+            "expires": 1775838054
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        }
+      ],
+      "chats": [
+        {
+          "__className": "Channel",
+          "__constructorId": 3758725303,
+          "className": "Channel",
+          "originalArgs": {
+            "flags": 286977,
+            "creator": true,
+            "left": false,
+            "broadcast": false,
+            "verified": false,
+            "megagroup": true,
+            "restricted": false,
+            "signatures": false,
+            "min": false,
+            "scam": false,
+            "hasLink": false,
+            "hasGeo": false,
+            "slowmodeEnabled": false,
+            "callActive": false,
+            "callNotEmpty": false,
+            "fake": false,
+            "gigagroup": false,
+            "noforwards": false,
+            "joinToSend": false,
+            "joinRequest": false,
+            "forum": false,
+            "flags2": 12,
+            "storiesHidden": false,
+            "storiesHiddenMin": true,
+            "storiesUnavailable": true,
+            "signatureProfiles": false,
+            "id": {
+              "value": "3959286856"
+            },
+            "accessHash": {
+              "value": "-6399249537774943740"
+            },
+            "title": "_fix_sg2_1775837781512",
+            "username": null,
+            "photo": {
+              "__className": "ChatPhotoEmpty",
+              "__constructorId": 935395612,
+              "className": "ChatPhotoEmpty",
+              "originalArgs": {}
+            },
+            "date": 1775837781,
+            "restrictionReason": null,
+            "adminRights": {
+              "__className": "ChatAdminRights",
+              "__constructorId": 1605510357,
+              "className": "ChatAdminRights",
+              "originalArgs": {
+                "flags": 129727,
+                "changeInfo": true,
+                "postMessages": true,
+                "editMessages": true,
+                "deleteMessages": true,
+                "banUsers": true,
+                "inviteUsers": true,
+                "pinMessages": true,
+                "addAdmins": true,
+                "anonymous": false,
+                "manageCall": true,
+                "other": true,
+                "manageTopics": true,
+                "postStories": true,
+                "editStories": true,
+                "deleteStories": true
+              },
+              "flags": 129727,
+              "changeInfo": true,
+              "postMessages": true,
+              "editMessages": true,
+              "deleteMessages": true,
+              "banUsers": true,
+              "inviteUsers": true,
+              "pinMessages": true,
+              "addAdmins": true,
+              "anonymous": false,
+              "manageCall": true,
+              "other": true,
+              "manageTopics": true,
+              "postStories": true,
+              "editStories": true,
+              "deleteStories": true
+            },
+            "bannedRights": null,
+            "defaultBannedRights": {
+              "__className": "ChatBannedRights",
+              "__constructorId": 2668758040,
+              "className": "ChatBannedRights",
+              "originalArgs": {
+                "flags": 164864,
+                "viewMessages": false,
+                "sendMessages": false,
+                "sendMedia": false,
+                "sendStickers": false,
+                "sendGifs": false,
+                "sendGames": false,
+                "sendInline": false,
+                "embedLinks": false,
+                "sendPolls": false,
+                "changeInfo": true,
+                "inviteUsers": true,
+                "pinMessages": true,
+                "manageTopics": false,
+                "sendPhotos": false,
+                "sendVideos": false,
+                "sendRoundvideos": false,
+                "sendAudios": false,
+                "sendVoices": false,
+                "sendDocs": false,
+                "sendPlain": false,
+                "untilDate": 2147483647
+              },
+              "flags": 164864,
+              "viewMessages": false,
+              "sendMessages": false,
+              "sendMedia": false,
+              "sendStickers": false,
+              "sendGifs": false,
+              "sendGames": false,
+              "sendInline": false,
+              "embedLinks": false,
+              "sendPolls": false,
+              "changeInfo": true,
+              "inviteUsers": true,
+              "pinMessages": true,
+              "manageTopics": false,
+              "sendPhotos": false,
+              "sendVideos": false,
+              "sendRoundvideos": false,
+              "sendAudios": false,
+              "sendVoices": false,
+              "sendDocs": false,
+              "sendPlain": false,
+              "untilDate": 2147483647
+            },
+            "participantsCount": null,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "emojiStatus": null,
+            "level": null,
+            "subscriptionUntilDate": null,
+            "botVerificationIcon": null
+          },
+          "flags": 286977,
+          "creator": true,
+          "left": false,
+          "broadcast": false,
+          "verified": false,
+          "megagroup": true,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 12,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "3959286856"
+          },
+          "accessHash": {
+            "value": "-6399249537774943740"
+          },
+          "title": "_fix_sg2_1775837781512",
+          "username": null,
+          "photo": {
+            "__className": "ChatPhotoEmpty",
+            "__constructorId": 935395612,
+            "className": "ChatPhotoEmpty",
+            "originalArgs": {}
+          },
+          "date": 1775837781,
+          "restrictionReason": null,
+          "adminRights": {
+            "__className": "ChatAdminRights",
+            "__constructorId": 1605510357,
+            "className": "ChatAdminRights",
+            "originalArgs": {
+              "flags": 129727,
+              "changeInfo": true,
+              "postMessages": true,
+              "editMessages": true,
+              "deleteMessages": true,
+              "banUsers": true,
+              "inviteUsers": true,
+              "pinMessages": true,
+              "addAdmins": true,
+              "anonymous": false,
+              "manageCall": true,
+              "other": true,
+              "manageTopics": true,
+              "postStories": true,
+              "editStories": true,
+              "deleteStories": true
+            },
+            "flags": 129727,
+            "changeInfo": true,
+            "postMessages": true,
+            "editMessages": true,
+            "deleteMessages": true,
+            "banUsers": true,
+            "inviteUsers": true,
+            "pinMessages": true,
+            "addAdmins": true,
+            "anonymous": false,
+            "manageCall": true,
+            "other": true,
+            "manageTopics": true,
+            "postStories": true,
+            "editStories": true,
+            "deleteStories": true
+          },
+          "bannedRights": null,
+          "defaultBannedRights": {
+            "__className": "ChatBannedRights",
+            "__constructorId": 2668758040,
+            "className": "ChatBannedRights",
+            "originalArgs": {
+              "flags": 164864,
+              "viewMessages": false,
+              "sendMessages": false,
+              "sendMedia": false,
+              "sendStickers": false,
+              "sendGifs": false,
+              "sendGames": false,
+              "sendInline": false,
+              "embedLinks": false,
+              "sendPolls": false,
+              "changeInfo": true,
+              "inviteUsers": true,
+              "pinMessages": true,
+              "manageTopics": false,
+              "sendPhotos": false,
+              "sendVideos": false,
+              "sendRoundvideos": false,
+              "sendAudios": false,
+              "sendVoices": false,
+              "sendDocs": false,
+              "sendPlain": false,
+              "untilDate": 2147483647
+            },
+            "flags": 164864,
+            "viewMessages": false,
+            "sendMessages": false,
+            "sendMedia": false,
+            "sendStickers": false,
+            "sendGifs": false,
+            "sendGames": false,
+            "sendInline": false,
+            "embedLinks": false,
+            "sendPolls": false,
+            "changeInfo": true,
+            "inviteUsers": true,
+            "pinMessages": true,
+            "manageTopics": false,
+            "sendPhotos": false,
+            "sendVideos": false,
+            "sendRoundvideos": false,
+            "sendAudios": false,
+            "sendVoices": false,
+            "sendDocs": false,
+            "sendPlain": false,
+            "untilDate": 2147483647
+          },
+          "participantsCount": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": null,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        }
+      ],
+      "date": 1775837782,
+      "seq": 0
+    },
+    "updates": [
+      {
+        "__className": "UpdateEditChannelMessage",
+        "__constructorId": 457133559,
+        "className": "UpdateEditChannelMessage",
+        "originalArgs": {
+          "message": {
+            "__className": "Message",
+            "__constructorId": 2533211113,
+            "className": "Message",
+            "originalArgs": {
+              "flags": 11567362,
+              "out": true,
+              "mentioned": false,
+              "mediaUnread": false,
+              "silent": false,
+              "post": false,
+              "fromScheduled": false,
+              "legacy": false,
+              "editHide": true,
+              "pinned": false,
+              "noforwards": false,
+              "invertMedia": false,
+              "flags2": 0,
+              "offline": false,
+              "videoProcessingPending": false,
+              "id": 2,
+              "fromId": {
+                "__className": "PeerUser",
+                "__constructorId": 1498486562,
+                "className": "PeerUser",
+                "originalArgs": {
+                  "userId": {
+                    "value": "6340886702"
+                  }
+                },
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "fromBoostsApplied": null,
+              "peerId": {
+                "__className": "PeerChannel",
+                "__constructorId": 2728736542,
+                "className": "PeerChannel",
+                "originalArgs": {
+                  "channelId": {
+                    "value": "3959286856"
+                  }
+                },
+                "channelId": {
+                  "value": "3959286856"
+                }
+              },
+              "savedPeerId": null,
+              "fwdFrom": null,
+              "viaBotId": null,
+              "viaBusinessBotId": null,
+              "replyTo": null,
+              "date": 1775837781,
+              "message": "[fixture-sg2] 2026-04-10T16:16:21.832Z",
+              "media": null,
+              "replyMarkup": null,
+              "entities": null,
+              "views": null,
+              "forwards": null,
+              "replies": {
+                "__className": "MessageReplies",
+                "__constructorId": 2211844034,
+                "className": "MessageReplies",
+                "originalArgs": {
+                  "flags": 0,
+                  "comments": false,
+                  "replies": 0,
+                  "repliesPts": 3,
+                  "recentRepliers": null,
+                  "channelId": null,
+                  "maxId": null,
+                  "readMaxId": null
+                },
+                "flags": 0,
+                "comments": false,
+                "replies": 0,
+                "repliesPts": 3,
+                "recentRepliers": null,
+                "channelId": null,
+                "maxId": null,
+                "readMaxId": null
+              },
+              "editDate": 1775837783,
+              "postAuthor": null,
+              "groupedId": null,
+              "reactions": {
+                "__className": "MessageReactions",
+                "__constructorId": 171155211,
+                "className": "MessageReactions",
+                "originalArgs": {
+                  "flags": 4,
+                  "min": false,
+                  "canSeeList": true,
+                  "reactionsAsTags": false,
+                  "results": [
+                    {
+                      "__className": "ReactionCount",
+                      "__constructorId": 2748435328,
+                      "className": "ReactionCount",
+                      "originalArgs": {
+                        "flags": 1,
+                        "chosenOrder": 0,
+                        "reaction": {
+                          "__className": "ReactionEmoji",
+                          "__constructorId": 455247544,
+                          "className": "ReactionEmoji",
+                          "originalArgs": {
+                            "emoticon": "[max depth]"
+                          },
+                          "emoticon": "👍"
+                        },
+                        "count": 1
+                      },
+                      "flags": 1,
+                      "chosenOrder": 0,
+                      "reaction": {
+                        "__className": "ReactionEmoji",
+                        "__constructorId": 455247544,
+                        "className": "ReactionEmoji",
+                        "originalArgs": {
+                          "emoticon": "👍"
+                        },
+                        "emoticon": "👍"
+                      },
+                      "count": 1
+                    }
+                  ],
+                  "recentReactions": null,
+                  "topReactors": null
+                },
+                "flags": 4,
+                "min": false,
+                "canSeeList": true,
+                "reactionsAsTags": false,
+                "results": [
+                  {
+                    "__className": "ReactionCount",
+                    "__constructorId": 2748435328,
+                    "className": "ReactionCount",
+                    "originalArgs": {
+                      "flags": 1,
+                      "chosenOrder": 0,
+                      "reaction": {
+                        "__className": "ReactionEmoji",
+                        "__constructorId": 455247544,
+                        "className": "ReactionEmoji",
+                        "originalArgs": {
+                          "emoticon": "👍"
+                        },
+                        "emoticon": "👍"
+                      },
+                      "count": 1
+                    },
+                    "flags": 1,
+                    "chosenOrder": 0,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    },
+                    "count": 1
+                  }
+                ],
+                "recentReactions": null,
+                "topReactors": null
+              },
+              "restrictionReason": null,
+              "ttlPeriod": null,
+              "quickReplyShortcutId": null,
+              "effect": null,
+              "factcheck": null,
+              "reportDeliveryUntilDate": null
+            },
+            "out": true,
+            "mentioned": false,
+            "mediaUnread": false,
+            "silent": false,
+            "post": false,
+            "fromScheduled": false,
+            "legacy": false,
+            "editHide": true,
+            "ttlPeriod": null,
+            "id": 2,
+            "fromId": {
+              "__className": "PeerUser",
+              "__constructorId": 1498486562,
+              "className": "PeerUser",
+              "originalArgs": {
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "peerId": {
+              "__className": "PeerChannel",
+              "__constructorId": 2728736542,
+              "className": "PeerChannel",
+              "originalArgs": {
+                "channelId": {
+                  "value": "3959286856"
+                }
+              },
+              "channelId": {
+                "value": "3959286856"
+              }
+            },
+            "fwdFrom": null,
+            "viaBotId": null,
+            "replyTo": null,
+            "date": 1775837781,
+            "message": "[fixture-sg2] 2026-04-10T16:16:21.832Z",
+            "media": null,
+            "replyMarkup": null,
+            "entities": null,
+            "views": null,
+            "forwards": null,
+            "replies": {
+              "__className": "MessageReplies",
+              "__constructorId": 2211844034,
+              "className": "MessageReplies",
+              "originalArgs": {
+                "flags": 0,
+                "comments": false,
+                "replies": 0,
+                "repliesPts": 3,
+                "recentRepliers": null,
+                "channelId": null,
+                "maxId": null,
+                "readMaxId": null
+              },
+              "flags": 0,
+              "comments": false,
+              "replies": 0,
+              "repliesPts": 3,
+              "recentRepliers": null,
+              "channelId": null,
+              "maxId": null,
+              "readMaxId": null
+            },
+            "editDate": 1775837783,
+            "pinned": false,
+            "postAuthor": null,
+            "groupedId": null,
+            "restrictionReason": null,
+            "noforwards": false,
+            "reactions": {
+              "__className": "MessageReactions",
+              "__constructorId": 171155211,
+              "className": "MessageReactions",
+              "originalArgs": {
+                "flags": 4,
+                "min": false,
+                "canSeeList": true,
+                "reactionsAsTags": false,
+                "results": [
+                  {
+                    "__className": "ReactionCount",
+                    "__constructorId": 2748435328,
+                    "className": "ReactionCount",
+                    "originalArgs": {
+                      "flags": 1,
+                      "chosenOrder": 0,
+                      "reaction": {
+                        "__className": "ReactionEmoji",
+                        "__constructorId": 455247544,
+                        "className": "ReactionEmoji",
+                        "originalArgs": {
+                          "emoticon": "👍"
+                        },
+                        "emoticon": "👍"
+                      },
+                      "count": 1
+                    },
+                    "flags": 1,
+                    "chosenOrder": 0,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    },
+                    "count": 1
+                  }
+                ],
+                "recentReactions": null,
+                "topReactors": null
+              },
+              "flags": 4,
+              "min": false,
+              "canSeeList": true,
+              "reactionsAsTags": false,
+              "results": [
+                {
+                  "__className": "ReactionCount",
+                  "__constructorId": 2748435328,
+                  "className": "ReactionCount",
+                  "originalArgs": {
+                    "flags": 1,
+                    "chosenOrder": 0,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    },
+                    "count": 1
+                  },
+                  "flags": 1,
+                  "chosenOrder": 0,
+                  "reaction": {
+                    "__className": "ReactionEmoji",
+                    "__constructorId": 455247544,
+                    "className": "ReactionEmoji",
+                    "originalArgs": {
+                      "emoticon": "👍"
+                    },
+                    "emoticon": "👍"
+                  },
+                  "count": 1
+                }
+              ],
+              "recentReactions": null,
+              "topReactors": null
+            },
+            "flags": 11567362,
+            "invertMedia": false,
+            "flags2": 0,
+            "offline": false,
+            "videoProcessingPending": false,
+            "fromBoostsApplied": null,
+            "savedPeerId": null,
+            "viaBusinessBotId": null,
+            "quickReplyShortcutId": null,
+            "effect": null,
+            "factcheck": null,
+            "reportDeliveryUntilDate": null
+          },
+          "pts": 4,
+          "ptsCount": 1
+        },
+        "message": {
+          "__className": "Message",
+          "__constructorId": 2533211113,
+          "className": "Message",
+          "originalArgs": {
+            "flags": 11567362,
+            "out": true,
+            "mentioned": false,
+            "mediaUnread": false,
+            "silent": false,
+            "post": false,
+            "fromScheduled": false,
+            "legacy": false,
+            "editHide": true,
+            "pinned": false,
+            "noforwards": false,
+            "invertMedia": false,
+            "flags2": 0,
+            "offline": false,
+            "videoProcessingPending": false,
+            "id": 2,
+            "fromId": {
+              "__className": "PeerUser",
+              "__constructorId": 1498486562,
+              "className": "PeerUser",
+              "originalArgs": {
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "fromBoostsApplied": null,
+            "peerId": {
+              "__className": "PeerChannel",
+              "__constructorId": 2728736542,
+              "className": "PeerChannel",
+              "originalArgs": {
+                "channelId": {
+                  "value": "3959286856"
+                }
+              },
+              "channelId": {
+                "value": "3959286856"
+              }
+            },
+            "savedPeerId": null,
+            "fwdFrom": null,
+            "viaBotId": null,
+            "viaBusinessBotId": null,
+            "replyTo": null,
+            "date": 1775837781,
+            "message": "[fixture-sg2] 2026-04-10T16:16:21.832Z",
+            "media": null,
+            "replyMarkup": null,
+            "entities": null,
+            "views": null,
+            "forwards": null,
+            "replies": {
+              "__className": "MessageReplies",
+              "__constructorId": 2211844034,
+              "className": "MessageReplies",
+              "originalArgs": {
+                "flags": 0,
+                "comments": false,
+                "replies": 0,
+                "repliesPts": 3,
+                "recentRepliers": null,
+                "channelId": null,
+                "maxId": null,
+                "readMaxId": null
+              },
+              "flags": 0,
+              "comments": false,
+              "replies": 0,
+              "repliesPts": 3,
+              "recentRepliers": null,
+              "channelId": null,
+              "maxId": null,
+              "readMaxId": null
+            },
+            "editDate": 1775837783,
+            "postAuthor": null,
+            "groupedId": null,
+            "reactions": {
+              "__className": "MessageReactions",
+              "__constructorId": 171155211,
+              "className": "MessageReactions",
+              "originalArgs": {
+                "flags": 4,
+                "min": false,
+                "canSeeList": true,
+                "reactionsAsTags": false,
+                "results": [
+                  {
+                    "__className": "ReactionCount",
+                    "__constructorId": 2748435328,
+                    "className": "ReactionCount",
+                    "originalArgs": {
+                      "flags": 1,
+                      "chosenOrder": 0,
+                      "reaction": {
+                        "__className": "ReactionEmoji",
+                        "__constructorId": 455247544,
+                        "className": "ReactionEmoji",
+                        "originalArgs": {
+                          "emoticon": "👍"
+                        },
+                        "emoticon": "👍"
+                      },
+                      "count": 1
+                    },
+                    "flags": 1,
+                    "chosenOrder": 0,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    },
+                    "count": 1
+                  }
+                ],
+                "recentReactions": null,
+                "topReactors": null
+              },
+              "flags": 4,
+              "min": false,
+              "canSeeList": true,
+              "reactionsAsTags": false,
+              "results": [
+                {
+                  "__className": "ReactionCount",
+                  "__constructorId": 2748435328,
+                  "className": "ReactionCount",
+                  "originalArgs": {
+                    "flags": 1,
+                    "chosenOrder": 0,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    },
+                    "count": 1
+                  },
+                  "flags": 1,
+                  "chosenOrder": 0,
+                  "reaction": {
+                    "__className": "ReactionEmoji",
+                    "__constructorId": 455247544,
+                    "className": "ReactionEmoji",
+                    "originalArgs": {
+                      "emoticon": "👍"
+                    },
+                    "emoticon": "👍"
+                  },
+                  "count": 1
+                }
+              ],
+              "recentReactions": null,
+              "topReactors": null
+            },
+            "restrictionReason": null,
+            "ttlPeriod": null,
+            "quickReplyShortcutId": null,
+            "effect": null,
+            "factcheck": null,
+            "reportDeliveryUntilDate": null
+          },
+          "out": true,
+          "mentioned": false,
+          "mediaUnread": false,
+          "silent": false,
+          "post": false,
+          "fromScheduled": false,
+          "legacy": false,
+          "editHide": true,
+          "ttlPeriod": null,
+          "id": 2,
+          "fromId": {
+            "__className": "PeerUser",
+            "__constructorId": 1498486562,
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "peerId": {
+            "__className": "PeerChannel",
+            "__constructorId": 2728736542,
+            "className": "PeerChannel",
+            "originalArgs": {
+              "channelId": {
+                "value": "3959286856"
+              }
+            },
+            "channelId": {
+              "value": "3959286856"
+            }
+          },
+          "fwdFrom": null,
+          "viaBotId": null,
+          "replyTo": null,
+          "date": 1775837781,
+          "message": "[fixture-sg2] 2026-04-10T16:16:21.832Z",
+          "media": null,
+          "replyMarkup": null,
+          "entities": null,
+          "views": null,
+          "forwards": null,
+          "replies": {
+            "__className": "MessageReplies",
+            "__constructorId": 2211844034,
+            "className": "MessageReplies",
+            "originalArgs": {
+              "flags": 0,
+              "comments": false,
+              "replies": 0,
+              "repliesPts": 3,
+              "recentRepliers": null,
+              "channelId": null,
+              "maxId": null,
+              "readMaxId": null
+            },
+            "flags": 0,
+            "comments": false,
+            "replies": 0,
+            "repliesPts": 3,
+            "recentRepliers": null,
+            "channelId": null,
+            "maxId": null,
+            "readMaxId": null
+          },
+          "editDate": 1775837783,
+          "pinned": false,
+          "postAuthor": null,
+          "groupedId": null,
+          "restrictionReason": null,
+          "noforwards": false,
+          "reactions": {
+            "__className": "MessageReactions",
+            "__constructorId": 171155211,
+            "className": "MessageReactions",
+            "originalArgs": {
+              "flags": 4,
+              "min": false,
+              "canSeeList": true,
+              "reactionsAsTags": false,
+              "results": [
+                {
+                  "__className": "ReactionCount",
+                  "__constructorId": 2748435328,
+                  "className": "ReactionCount",
+                  "originalArgs": {
+                    "flags": 1,
+                    "chosenOrder": 0,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    },
+                    "count": 1
+                  },
+                  "flags": 1,
+                  "chosenOrder": 0,
+                  "reaction": {
+                    "__className": "ReactionEmoji",
+                    "__constructorId": 455247544,
+                    "className": "ReactionEmoji",
+                    "originalArgs": {
+                      "emoticon": "👍"
+                    },
+                    "emoticon": "👍"
+                  },
+                  "count": 1
+                }
+              ],
+              "recentReactions": null,
+              "topReactors": null
+            },
+            "flags": 4,
+            "min": false,
+            "canSeeList": true,
+            "reactionsAsTags": false,
+            "results": [
+              {
+                "__className": "ReactionCount",
+                "__constructorId": 2748435328,
+                "className": "ReactionCount",
+                "originalArgs": {
+                  "flags": 1,
+                  "chosenOrder": 0,
+                  "reaction": {
+                    "__className": "ReactionEmoji",
+                    "__constructorId": 455247544,
+                    "className": "ReactionEmoji",
+                    "originalArgs": {
+                      "emoticon": "👍"
+                    },
+                    "emoticon": "👍"
+                  },
+                  "count": 1
+                },
+                "flags": 1,
+                "chosenOrder": 0,
+                "reaction": {
+                  "__className": "ReactionEmoji",
+                  "__constructorId": 455247544,
+                  "className": "ReactionEmoji",
+                  "originalArgs": {
+                    "emoticon": "👍"
+                  },
+                  "emoticon": "👍"
+                },
+                "count": 1
+              }
+            ],
+            "recentReactions": null,
+            "topReactors": null
+          },
+          "flags": 11567362,
+          "invertMedia": false,
+          "flags2": 0,
+          "offline": false,
+          "videoProcessingPending": false,
+          "fromBoostsApplied": null,
+          "savedPeerId": null,
+          "viaBusinessBotId": null,
+          "quickReplyShortcutId": null,
+          "effect": null,
+          "factcheck": null,
+          "reportDeliveryUntilDate": null
+        },
+        "pts": 4,
+        "ptsCount": 1
+      },
+      {
+        "__className": "UpdateMessageReactions",
+        "__constructorId": 1578843320,
+        "className": "UpdateMessageReactions",
+        "originalArgs": {
+          "flags": 0,
+          "peer": {
+            "__className": "PeerChannel",
+            "__constructorId": 2728736542,
+            "className": "PeerChannel",
+            "originalArgs": {
+              "channelId": {
+                "value": "3959286856"
+              }
+            },
+            "channelId": {
+              "value": "3959286856"
+            }
+          },
+          "msgId": 2,
+          "topMsgId": null,
+          "reactions": {
+            "__className": "MessageReactions",
+            "__constructorId": 171155211,
+            "className": "MessageReactions",
+            "originalArgs": {
+              "flags": 6,
+              "min": false,
+              "canSeeList": true,
+              "reactionsAsTags": false,
+              "results": [
+                {
+                  "__className": "ReactionCount",
+                  "__constructorId": 2748435328,
+                  "className": "ReactionCount",
+                  "originalArgs": {
+                    "flags": 1,
+                    "chosenOrder": 0,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    },
+                    "count": 1
+                  },
+                  "flags": 1,
+                  "chosenOrder": 0,
+                  "reaction": {
+                    "__className": "ReactionEmoji",
+                    "__constructorId": 455247544,
+                    "className": "ReactionEmoji",
+                    "originalArgs": {
+                      "emoticon": "👍"
+                    },
+                    "emoticon": "👍"
+                  },
+                  "count": 1
+                }
+              ],
+              "recentReactions": [
+                {
+                  "__className": "MessagePeerReaction",
+                  "__constructorId": 2356786748,
+                  "className": "MessagePeerReaction",
+                  "originalArgs": {
+                    "flags": 0,
+                    "big": false,
+                    "unread": false,
+                    "my": false,
+                    "peerId": {
+                      "__className": "PeerUser",
+                      "__constructorId": 1498486562,
+                      "className": "PeerUser",
+                      "originalArgs": {
+                        "userId": {
+                          "value": "6340886702"
+                        }
+                      },
+                      "userId": {
+                        "value": "6340886702"
+                      }
+                    },
+                    "date": 1775837783,
+                    "reaction": {
+                      "__className": "ReactionEmoji",
+                      "__constructorId": 455247544,
+                      "className": "ReactionEmoji",
+                      "originalArgs": {
+                        "emoticon": "👍"
+                      },
+                      "emoticon": "👍"
+                    }
+                  },
+                  "flags": 0,
+                  "big": false,
+                  "unread": false,
+                  "my": false,
+                  "peerId": {
+                    "__className": "PeerUser",
+                    "__constructorId": 1498486562,
+                    "className": "PeerUser",
+                    "originalArgs": {
+                      "userId": {
+                        "value": "6340886702"
+                      }
+                    },
+                    "userId": {
+                      "value": "6340886702"
+                    }
+                  },
+                  "date": 1775837783,
+                  "reaction": {
+                    "__className": "ReactionEmoji",
+                    "__constructorId": 455247544,
+                    "className": "ReactionEmoji",
+                    "originalArgs": {
+                      "emoticon": "👍"
+                    },
+                    "emoticon": "👍"
+                  }
+                }
+              ],
+              "topReactors": null
+            },
+            "flags": 6,
+            "min": false,
+            "canSeeList": true,
+            "reactionsAsTags": false,
+            "results": [
+              {
+                "__className": "ReactionCount",
+                "__constructorId": 2748435328,
+                "className": "ReactionCount",
+                "originalArgs": {
+                  "flags": 1,
+                  "chosenOrder": 0,
+                  "reaction": {
+                    "__className": "ReactionEmoji",
+                    "__constructorId": 455247544,
+                    "className": "ReactionEmoji",
+                    "originalArgs": {
+                      "emoticon": "👍"
+                    },
+                    "emoticon": "👍"
+                  },
+                  "count": 1
+                },
+                "flags": 1,
+                "chosenOrder": 0,
+                "reaction": {
+                  "__className": "ReactionEmoji",
+                  "__constructorId": 455247544,
+                  "className": "ReactionEmoji",
+                  "originalArgs": {
+                    "emoticon": "👍"
+                  },
+                  "emoticon": "👍"
+                },
+                "count": 1
+              }
+            ],
+            "recentReactions": [
+              {
+                "__className": "MessagePeerReaction",
+                "__constructorId": 2356786748,
+                "className": "MessagePeerReaction",
+                "originalArgs": {
+                  "flags": 0,
+                  "big": false,
+                  "unread": false,
+                  "my": false,
+                  "peerId": {
+                    "__className": "PeerUser",
+                    "__constructorId": 1498486562,
+                    "className": "PeerUser",
+                    "originalArgs": {
+                      "userId": {
+                        "value": "6340886702"
+                      }
+                    },
+                    "userId": {
+                      "value": "6340886702"
+                    }
+                  },
+                  "date": 1775837783,
+                  "reaction": {
+                    "__className": "ReactionEmoji",
+                    "__constructorId": 455247544,
+                    "className": "ReactionEmoji",
+                    "originalArgs": {
+                      "emoticon": "👍"
+                    },
+                    "emoticon": "👍"
+                  }
+                },
+                "flags": 0,
+                "big": false,
+                "unread": false,
+                "my": false,
+                "peerId": {
+                  "__className": "PeerUser",
+                  "__constructorId": 1498486562,
+                  "className": "PeerUser",
+                  "originalArgs": {
+                    "userId": {
+                      "value": "6340886702"
+                    }
+                  },
+                  "userId": {
+                    "value": "6340886702"
+                  }
+                },
+                "date": 1775837783,
+                "reaction": {
+                  "__className": "ReactionEmoji",
+                  "__constructorId": 455247544,
+                  "className": "ReactionEmoji",
+                  "originalArgs": {
+                    "emoticon": "👍"
+                  },
+                  "emoticon": "👍"
+                }
+              }
+            ],
+            "topReactors": null
+          }
+        },
+        "flags": 0,
+        "peer": {
+          "__className": "PeerChannel",
+          "__constructorId": 2728736542,
+          "className": "PeerChannel",
+          "originalArgs": {
+            "channelId": {
+              "value": "3959286856"
+            }
+          },
+          "channelId": {
+            "value": "3959286856"
+          }
+        },
+        "msgId": 2,
+        "topMsgId": null,
+        "reactions": {
+          "__className": "MessageReactions",
+          "__constructorId": 171155211,
+          "className": "MessageReactions",
+          "originalArgs": {
+            "flags": 6,
+            "min": false,
+            "canSeeList": true,
+            "reactionsAsTags": false,
+            "results": [
+              {
+                "__className": "ReactionCount",
+                "__constructorId": 2748435328,
+                "className": "ReactionCount",
+                "originalArgs": {
+                  "flags": 1,
+                  "chosenOrder": 0,
+                  "reaction": {
+                    "__className": "ReactionEmoji",
+                    "__constructorId": 455247544,
+                    "className": "ReactionEmoji",
+                    "originalArgs": {
+                      "emoticon": "👍"
+                    },
+                    "emoticon": "👍"
+                  },
+                  "count": 1
+                },
+                "flags": 1,
+                "chosenOrder": 0,
+                "reaction": {
+                  "__className": "ReactionEmoji",
+                  "__constructorId": 455247544,
+                  "className": "ReactionEmoji",
+                  "originalArgs": {
+                    "emoticon": "👍"
+                  },
+                  "emoticon": "👍"
+                },
+                "count": 1
+              }
+            ],
+            "recentReactions": [
+              {
+                "__className": "MessagePeerReaction",
+                "__constructorId": 2356786748,
+                "className": "MessagePeerReaction",
+                "originalArgs": {
+                  "flags": 0,
+                  "big": false,
+                  "unread": false,
+                  "my": false,
+                  "peerId": {
+                    "__className": "PeerUser",
+                    "__constructorId": 1498486562,
+                    "className": "PeerUser",
+                    "originalArgs": {
+                      "userId": {
+                        "value": "6340886702"
+                      }
+                    },
+                    "userId": {
+                      "value": "6340886702"
+                    }
+                  },
+                  "date": 1775837783,
+                  "reaction": {
+                    "__className": "ReactionEmoji",
+                    "__constructorId": 455247544,
+                    "className": "ReactionEmoji",
+                    "originalArgs": {
+                      "emoticon": "👍"
+                    },
+                    "emoticon": "👍"
+                  }
+                },
+                "flags": 0,
+                "big": false,
+                "unread": false,
+                "my": false,
+                "peerId": {
+                  "__className": "PeerUser",
+                  "__constructorId": 1498486562,
+                  "className": "PeerUser",
+                  "originalArgs": {
+                    "userId": {
+                      "value": "6340886702"
+                    }
+                  },
+                  "userId": {
+                    "value": "6340886702"
+                  }
+                },
+                "date": 1775837783,
+                "reaction": {
+                  "__className": "ReactionEmoji",
+                  "__constructorId": 455247544,
+                  "className": "ReactionEmoji",
+                  "originalArgs": {
+                    "emoticon": "👍"
+                  },
+                  "emoticon": "👍"
+                }
+              }
+            ],
+            "topReactors": null
+          },
+          "flags": 6,
+          "min": false,
+          "canSeeList": true,
+          "reactionsAsTags": false,
+          "results": [
+            {
+              "__className": "ReactionCount",
+              "__constructorId": 2748435328,
+              "className": "ReactionCount",
+              "originalArgs": {
+                "flags": 1,
+                "chosenOrder": 0,
+                "reaction": {
+                  "__className": "ReactionEmoji",
+                  "__constructorId": 455247544,
+                  "className": "ReactionEmoji",
+                  "originalArgs": {
+                    "emoticon": "👍"
+                  },
+                  "emoticon": "👍"
+                },
+                "count": 1
+              },
+              "flags": 1,
+              "chosenOrder": 0,
+              "reaction": {
+                "__className": "ReactionEmoji",
+                "__constructorId": 455247544,
+                "className": "ReactionEmoji",
+                "originalArgs": {
+                  "emoticon": "👍"
+                },
+                "emoticon": "👍"
+              },
+              "count": 1
+            }
+          ],
+          "recentReactions": [
+            {
+              "__className": "MessagePeerReaction",
+              "__constructorId": 2356786748,
+              "className": "MessagePeerReaction",
+              "originalArgs": {
+                "flags": 0,
+                "big": false,
+                "unread": false,
+                "my": false,
+                "peerId": {
+                  "__className": "PeerUser",
+                  "__constructorId": 1498486562,
+                  "className": "PeerUser",
+                  "originalArgs": {
+                    "userId": {
+                      "value": "6340886702"
+                    }
+                  },
+                  "userId": {
+                    "value": "6340886702"
+                  }
+                },
+                "date": 1775837783,
+                "reaction": {
+                  "__className": "ReactionEmoji",
+                  "__constructorId": 455247544,
+                  "className": "ReactionEmoji",
+                  "originalArgs": {
+                    "emoticon": "👍"
+                  },
+                  "emoticon": "👍"
+                }
+              },
+              "flags": 0,
+              "big": false,
+              "unread": false,
+              "my": false,
+              "peerId": {
+                "__className": "PeerUser",
+                "__constructorId": 1498486562,
+                "className": "PeerUser",
+                "originalArgs": {
+                  "userId": {
+                    "value": "6340886702"
+                  }
+                },
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "date": 1775837783,
+              "reaction": {
+                "__className": "ReactionEmoji",
+                "__constructorId": 455247544,
+                "className": "ReactionEmoji",
+                "originalArgs": {
+                  "emoticon": "👍"
+                },
+                "emoticon": "👍"
+              }
+            }
+          ],
+          "topReactors": null
+        }
+      }
+    ],
+    "users": [
+      {
+        "__className": "User",
+        "__constructorId": 1262928766,
+        "className": "User",
+        "originalArgs": {
+          "flags": 33555547,
+          "self": true,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "6340886702"
+          },
+          "accessHash": {
+            "value": "-2827396686645499657"
+          },
+          "firstName": "🤷",
+          "lastName": null,
+          "username": "user28738229",
+          "phone": "17799037329",
+          "photo": null,
+          "status": {
+            "__className": "UserStatusOnline",
+            "__constructorId": 3988339017,
+            "className": "UserStatusOnline",
+            "originalArgs": {
+              "expires": 1775838054
+            },
+            "expires": 1775838054
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 33555547,
+        "self": true,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "6340886702"
+        },
+        "accessHash": {
+          "value": "-2827396686645499657"
+        },
+        "firstName": "🤷",
+        "lastName": null,
+        "username": "user28738229",
+        "phone": "17799037329",
+        "photo": null,
+        "status": {
+          "__className": "UserStatusOnline",
+          "__constructorId": 3988339017,
+          "className": "UserStatusOnline",
+          "originalArgs": {
+            "expires": 1775838054
+          },
+          "expires": 1775838054
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      }
+    ],
+    "chats": [
+      {
+        "__className": "Channel",
+        "__constructorId": 3758725303,
+        "className": "Channel",
+        "originalArgs": {
+          "flags": 286977,
+          "creator": true,
+          "left": false,
+          "broadcast": false,
+          "verified": false,
+          "megagroup": true,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 12,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "3959286856"
+          },
+          "accessHash": {
+            "value": "-6399249537774943740"
+          },
+          "title": "_fix_sg2_1775837781512",
+          "username": null,
+          "photo": {
+            "__className": "ChatPhotoEmpty",
+            "__constructorId": 935395612,
+            "className": "ChatPhotoEmpty",
+            "originalArgs": {}
+          },
+          "date": 1775837781,
+          "restrictionReason": null,
+          "adminRights": {
+            "__className": "ChatAdminRights",
+            "__constructorId": 1605510357,
+            "className": "ChatAdminRights",
+            "originalArgs": {
+              "flags": 129727,
+              "changeInfo": true,
+              "postMessages": true,
+              "editMessages": true,
+              "deleteMessages": true,
+              "banUsers": true,
+              "inviteUsers": true,
+              "pinMessages": true,
+              "addAdmins": true,
+              "anonymous": false,
+              "manageCall": true,
+              "other": true,
+              "manageTopics": true,
+              "postStories": true,
+              "editStories": true,
+              "deleteStories": true
+            },
+            "flags": 129727,
+            "changeInfo": true,
+            "postMessages": true,
+            "editMessages": true,
+            "deleteMessages": true,
+            "banUsers": true,
+            "inviteUsers": true,
+            "pinMessages": true,
+            "addAdmins": true,
+            "anonymous": false,
+            "manageCall": true,
+            "other": true,
+            "manageTopics": true,
+            "postStories": true,
+            "editStories": true,
+            "deleteStories": true
+          },
+          "bannedRights": null,
+          "defaultBannedRights": {
+            "__className": "ChatBannedRights",
+            "__constructorId": 2668758040,
+            "className": "ChatBannedRights",
+            "originalArgs": {
+              "flags": 164864,
+              "viewMessages": false,
+              "sendMessages": false,
+              "sendMedia": false,
+              "sendStickers": false,
+              "sendGifs": false,
+              "sendGames": false,
+              "sendInline": false,
+              "embedLinks": false,
+              "sendPolls": false,
+              "changeInfo": true,
+              "inviteUsers": true,
+              "pinMessages": true,
+              "manageTopics": false,
+              "sendPhotos": false,
+              "sendVideos": false,
+              "sendRoundvideos": false,
+              "sendAudios": false,
+              "sendVoices": false,
+              "sendDocs": false,
+              "sendPlain": false,
+              "untilDate": 2147483647
+            },
+            "flags": 164864,
+            "viewMessages": false,
+            "sendMessages": false,
+            "sendMedia": false,
+            "sendStickers": false,
+            "sendGifs": false,
+            "sendGames": false,
+            "sendInline": false,
+            "embedLinks": false,
+            "sendPolls": false,
+            "changeInfo": true,
+            "inviteUsers": true,
+            "pinMessages": true,
+            "manageTopics": false,
+            "sendPhotos": false,
+            "sendVideos": false,
+            "sendRoundvideos": false,
+            "sendAudios": false,
+            "sendVoices": false,
+            "sendDocs": false,
+            "sendPlain": false,
+            "untilDate": 2147483647
+          },
+          "participantsCount": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": null,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        "flags": 286977,
+        "creator": true,
+        "left": false,
+        "broadcast": false,
+        "verified": false,
+        "megagroup": true,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": false,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 12,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "3959286856"
+        },
+        "accessHash": {
+          "value": "-6399249537774943740"
+        },
+        "title": "_fix_sg2_1775837781512",
+        "username": null,
+        "photo": {
+          "__className": "ChatPhotoEmpty",
+          "__constructorId": 935395612,
+          "className": "ChatPhotoEmpty",
+          "originalArgs": {}
+        },
+        "date": 1775837781,
+        "restrictionReason": null,
+        "adminRights": {
+          "__className": "ChatAdminRights",
+          "__constructorId": 1605510357,
+          "className": "ChatAdminRights",
+          "originalArgs": {
+            "flags": 129727,
+            "changeInfo": true,
+            "postMessages": true,
+            "editMessages": true,
+            "deleteMessages": true,
+            "banUsers": true,
+            "inviteUsers": true,
+            "pinMessages": true,
+            "addAdmins": true,
+            "anonymous": false,
+            "manageCall": true,
+            "other": true,
+            "manageTopics": true,
+            "postStories": true,
+            "editStories": true,
+            "deleteStories": true
+          },
+          "flags": 129727,
+          "changeInfo": true,
+          "postMessages": true,
+          "editMessages": true,
+          "deleteMessages": true,
+          "banUsers": true,
+          "inviteUsers": true,
+          "pinMessages": true,
+          "addAdmins": true,
+          "anonymous": false,
+          "manageCall": true,
+          "other": true,
+          "manageTopics": true,
+          "postStories": true,
+          "editStories": true,
+          "deleteStories": true
+        },
+        "bannedRights": null,
+        "defaultBannedRights": {
+          "__className": "ChatBannedRights",
+          "__constructorId": 2668758040,
+          "className": "ChatBannedRights",
+          "originalArgs": {
+            "flags": 164864,
+            "viewMessages": false,
+            "sendMessages": false,
+            "sendMedia": false,
+            "sendStickers": false,
+            "sendGifs": false,
+            "sendGames": false,
+            "sendInline": false,
+            "embedLinks": false,
+            "sendPolls": false,
+            "changeInfo": true,
+            "inviteUsers": true,
+            "pinMessages": true,
+            "manageTopics": false,
+            "sendPhotos": false,
+            "sendVideos": false,
+            "sendRoundvideos": false,
+            "sendAudios": false,
+            "sendVoices": false,
+            "sendDocs": false,
+            "sendPlain": false,
+            "untilDate": 2147483647
+          },
+          "flags": 164864,
+          "viewMessages": false,
+          "sendMessages": false,
+          "sendMedia": false,
+          "sendStickers": false,
+          "sendGifs": false,
+          "sendGames": false,
+          "sendInline": false,
+          "embedLinks": false,
+          "sendPolls": false,
+          "changeInfo": true,
+          "inviteUsers": true,
+          "pinMessages": true,
+          "manageTopics": false,
+          "sendPhotos": false,
+          "sendVideos": false,
+          "sendRoundvideos": false,
+          "sendAudios": false,
+          "sendVoices": false,
+          "sendDocs": false,
+          "sendPlain": false,
+          "untilDate": 2147483647
+        },
+        "participantsCount": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": null,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      }
+    ],
+    "date": 1775837782,
+    "seq": 0
+  }
+}

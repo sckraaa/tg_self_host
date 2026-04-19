@@ -1,0 +1,3266 @@
+> search alexey
+
+🔍 contacts.search("alexey")...
+
+📥 contacts.Search RESPONSE:
+{
+  "_class": "contacts.Found",
+  "_cid": "0xb3134d9d",
+  "className": "contacts.Found",
+  "originalArgs": {
+    "myResults": [],
+    "results": [
+      {
+        "_class": "PeerChannel",
+        "_cid": "0xa2a5371e",
+        "className": "PeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "BigInt(1862404593)"
+          }
+        },
+        "channelId": {
+          "value": "BigInt(1862404593)"
+        }
+      },
+      {
+        "_class": "PeerChannel",
+        "_cid": "0xa2a5371e",
+        "className": "PeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "BigInt(1562449404)"
+          }
+        },
+        "channelId": {
+          "value": "BigInt(1562449404)"
+        }
+      },
+      {
+        "_class": "PeerUser",
+        "_cid": "0x59511722",
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "BigInt(56261961)"
+          }
+        },
+        "userId": {
+          "value": "BigInt(56261961)"
+        }
+      },
+      {
+        "_class": "PeerChannel",
+        "_cid": "0xa2a5371e",
+        "className": "PeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "BigInt(1749853052)"
+          }
+        },
+        "channelId": {
+          "value": "BigInt(1749853052)"
+        }
+      },
+      {
+        "_class": "PeerChannel",
+        "_cid": "0xa2a5371e",
+        "className": "PeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "BigInt(1764693490)"
+          }
+        },
+        "channelId": {
+          "value": "BigInt(1764693490)"
+        }
+      },
+      {
+        "_class": "PeerUser",
+        "_cid": "0x59511722",
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "BigInt(8585982420)"
+          }
+        },
+        "userId": {
+          "value": "BigInt(8585982420)"
+        }
+      },
+      {
+        "_class": "PeerChannel",
+        "_cid": "0xa2a5371e",
+        "className": "PeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "BigInt(1717398432)"
+          }
+        },
+        "channelId": {
+          "value": "BigInt(1717398432)"
+        }
+      },
+      {
+        "_class": "PeerChannel",
+        "_cid": "0xa2a5371e",
+        "className": "PeerChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "BigInt(1127565162)"
+          }
+        },
+        "channelId": {
+          "value": "BigInt(1127565162)"
+        }
+      },
+      {
+        "_class": "PeerUser",
+        "_cid": "0x59511722",
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "BigInt(856178435)"
+          }
+        },
+        "userId": {
+          "value": "BigInt(856178435)"
+        }
+      },
+      {
+        "_class": "PeerUser",
+        "_cid": "0x59511722",
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "BigInt(1027763855)"
+          }
+        },
+        "userId": {
+          "value": "BigInt(1027763855)"
+        }
+      }
+    ],
+    "chats": [
+      {
+        "_class": "Channel",
+        "_cid": "0xe00998b7",
+        "className": "Channel",
+        "originalArgs": {
+          "flags": 139492,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": true,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 12,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "BigInt(1862404593)"
+          },
+          "accessHash": {
+            "value": "BigInt(802651407759711369)"
+          },
+          "title": "Алексей Пивоваров",
+          "username": "Alexey_Pivo_varov",
+          "photo": {
+            "_class": "ChatPhoto",
+            "_cid": "0x1c6e1c11",
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "photoId": {
+                "value": "BigInt(5235953133035835436)"
+              },
+              "strippedThumb": "Buffer(21)[01080864f1b2c61d90fcdc83ed451456f17a1928a3...]",
+              "dcId": 2
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5235953133035835436)"
+            },
+            "strippedThumb": "Buffer(21)[01080864f1b2c61d90fcdc83ed451456f17a1928a3...]",
+            "dcId": 2
+          },
+          "date": 1693118901,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 309981,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": null,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        "flags": 139492,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": true,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": false,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 12,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "BigInt(1862404593)"
+        },
+        "accessHash": {
+          "value": "BigInt(802651407759711369)"
+        },
+        "title": "Алексей Пивоваров",
+        "username": "Alexey_Pivo_varov",
+        "photo": {
+          "_class": "ChatPhoto",
+          "_cid": "0x1c6e1c11",
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5235953133035835436)"
+            },
+            "strippedThumb": "Buffer(21)[01080864f1b2c61d90fcdc83ed451456f17a1928a3...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5235953133035835436)"
+          },
+          "strippedThumb": "Buffer(21)[01080864f1b2c61d90fcdc83ed451456f17a1928a3...]",
+          "dcId": 2
+        },
+        "date": 1693118901,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 309981,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": null,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      {
+        "_class": "Channel",
+        "_cid": "0xe00998b7",
+        "className": "Channel",
+        "originalArgs": {
+          "flags": 139492,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": true,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 12,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "BigInt(1562449404)"
+          },
+          "accessHash": {
+            "value": "BigInt(4567277362496883197)"
+          },
+          "title": "Алексей Текслер",
+          "username": "alexeytexlerofficial",
+          "photo": {
+            "_class": "ChatPhoto",
+            "_cid": "0x1c6e1c11",
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "photoId": {
+                "value": "BigInt(5285372396838173112)"
+              },
+              "strippedThumb": "Buffer(16)[010808448a42a0118efcd1451472a19f...]",
+              "dcId": 2
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5285372396838173112)"
+            },
+            "strippedThumb": "Buffer(16)[010808448a42a0118efcd1451472a19f...]",
+            "dcId": 2
+          },
+          "date": 1646567918,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 29148,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": null,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        "flags": 139492,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": true,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": false,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 12,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "BigInt(1562449404)"
+        },
+        "accessHash": {
+          "value": "BigInt(4567277362496883197)"
+        },
+        "title": "Алексей Текслер",
+        "username": "alexeytexlerofficial",
+        "photo": {
+          "_class": "ChatPhoto",
+          "_cid": "0x1c6e1c11",
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5285372396838173112)"
+            },
+            "strippedThumb": "Buffer(16)[010808448a42a0118efcd1451472a19f...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5285372396838173112)"
+          },
+          "strippedThumb": "Buffer(16)[010808448a42a0118efcd1451472a19f...]",
+          "dcId": 2
+        },
+        "date": 1646567918,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 29148,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": null,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      {
+        "_class": "Channel",
+        "_cid": "0xe00998b7",
+        "className": "Channel",
+        "originalArgs": {
+          "flags": 1188068,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": true,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": true,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 1044,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": false,
+          "signatureProfiles": false,
+          "id": {
+            "value": "BigInt(1749853052)"
+          },
+          "accessHash": {
+            "value": "BigInt(-6162543755589100164)"
+          },
+          "title": "Алексей Петрухин",
+          "username": "alexeypetrukhin_official",
+          "photo": {
+            "_class": "ChatPhoto",
+            "_cid": "0x1c6e1c11",
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "photoId": {
+                "value": "BigInt(5294209777384758812)"
+              },
+              "strippedThumb": "Buffer(19)[010808ad6ede4da6e18dc72dd68a28a6909b3f...]",
+              "dcId": 2
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5294209777384758812)"
+            },
+            "strippedThumb": "Buffer(19)[010808ad6ede4da6e18dc72dd68a28a6909b3f...]",
+            "dcId": 2
+          },
+          "date": 1647029837,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 4193,
+          "usernames": null,
+          "storiesMaxId": 8,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": 1,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        "flags": 1188068,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": true,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": true,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 1044,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": false,
+        "signatureProfiles": false,
+        "id": {
+          "value": "BigInt(1749853052)"
+        },
+        "accessHash": {
+          "value": "BigInt(-6162543755589100164)"
+        },
+        "title": "Алексей Петрухин",
+        "username": "alexeypetrukhin_official",
+        "photo": {
+          "_class": "ChatPhoto",
+          "_cid": "0x1c6e1c11",
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5294209777384758812)"
+            },
+            "strippedThumb": "Buffer(19)[010808ad6ede4da6e18dc72dd68a28a6909b3f...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5294209777384758812)"
+          },
+          "strippedThumb": "Buffer(19)[010808ad6ede4da6e18dc72dd68a28a6909b3f...]",
+          "dcId": 2
+        },
+        "date": 1647029837,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 4193,
+        "usernames": null,
+        "storiesMaxId": 8,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": 1,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      {
+        "_class": "Channel",
+        "_cid": "0xe00998b7",
+        "className": "Channel",
+        "originalArgs": {
+          "flags": 1188068,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": true,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": true,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 1036,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "BigInt(1764693490)"
+          },
+          "accessHash": {
+            "value": "BigInt(-2242247740912932045)"
+          },
+          "title": "Алексей Крук",
+          "username": "alexeykruk",
+          "photo": {
+            "_class": "ChatPhoto",
+            "_cid": "0x1c6e1c11",
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "photoId": {
+                "value": "BigInt(5461018511791996297)"
+              },
+              "strippedThumb": "Buffer(18)[010808496498c806004ea7068a28a9b9563f...]",
+              "dcId": 2
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5461018511791996297)"
+            },
+            "strippedThumb": "Buffer(18)[010808496498c806004ea7068a28a9b9563f...]",
+            "dcId": 2
+          },
+          "date": 1647057566,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 302,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": 4,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        "flags": 1188068,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": true,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": true,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 1036,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "BigInt(1764693490)"
+        },
+        "accessHash": {
+          "value": "BigInt(-2242247740912932045)"
+        },
+        "title": "Алексей Крук",
+        "username": "alexeykruk",
+        "photo": {
+          "_class": "ChatPhoto",
+          "_cid": "0x1c6e1c11",
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5461018511791996297)"
+            },
+            "strippedThumb": "Buffer(18)[010808496498c806004ea7068a28a9b9563f...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5461018511791996297)"
+          },
+          "strippedThumb": "Buffer(18)[010808496498c806004ea7068a28a9b9563f...]",
+          "dcId": 2
+        },
+        "date": 1647057566,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 302,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": 4,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      {
+        "_class": "Channel",
+        "_cid": "0xe00998b7",
+        "className": "Channel",
+        "originalArgs": {
+          "flags": 1187940,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": false,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": true,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 1036,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "BigInt(1717398432)"
+          },
+          "accessHash": {
+            "value": "BigInt(5667323808840602251)"
+          },
+          "title": "ПАРКИНГ",
+          "username": "alexey_osipchuk",
+          "photo": {
+            "_class": "ChatPhoto",
+            "_cid": "0x1c6e1c11",
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "photoId": {
+                "value": "BigInt(5258086495376497932)"
+              },
+              "strippedThumb": "Buffer(20)[010808b4b7131d51a2dabb318fc319cd1451401f...]",
+              "dcId": 2
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5258086495376497932)"
+            },
+            "strippedThumb": "Buffer(20)[010808b4b7131d51a2dabb318fc319cd1451401f...]",
+            "dcId": 2
+          },
+          "date": 1647014653,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 2497,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": 9,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        "flags": 1187940,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": false,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": true,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 1036,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "BigInt(1717398432)"
+        },
+        "accessHash": {
+          "value": "BigInt(5667323808840602251)"
+        },
+        "title": "ПАРКИНГ",
+        "username": "alexey_osipchuk",
+        "photo": {
+          "_class": "ChatPhoto",
+          "_cid": "0x1c6e1c11",
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5258086495376497932)"
+            },
+            "strippedThumb": "Buffer(20)[010808b4b7131d51a2dabb318fc319cd1451401f...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5258086495376497932)"
+          },
+          "strippedThumb": "Buffer(20)[010808b4b7131d51a2dabb318fc319cd1451401f...]",
+          "dcId": 2
+        },
+        "date": 1647014653,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 2497,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": 9,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      {
+        "_class": "Channel",
+        "_cid": "0xe00998b7",
+        "className": "Channel",
+        "originalArgs": {
+          "flags": 139364,
+          "creator": false,
+          "left": true,
+          "broadcast": true,
+          "verified": false,
+          "megagroup": false,
+          "restricted": false,
+          "signatures": false,
+          "min": false,
+          "scam": false,
+          "hasLink": false,
+          "hasGeo": false,
+          "slowmodeEnabled": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "fake": false,
+          "gigagroup": false,
+          "noforwards": false,
+          "joinToSend": false,
+          "joinRequest": false,
+          "forum": false,
+          "flags2": 12,
+          "storiesHidden": false,
+          "storiesHiddenMin": true,
+          "storiesUnavailable": true,
+          "signatureProfiles": false,
+          "id": {
+            "value": "BigInt(1127565162)"
+          },
+          "accessHash": {
+            "value": "BigInt(-2618712841393020615)"
+          },
+          "title": "Lushnikov",
+          "username": "lushnikov_Alexey",
+          "photo": {
+            "_class": "ChatPhoto",
+            "_cid": "0x1c6e1c11",
+            "className": "ChatPhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "photoId": {
+                "value": "BigInt(5442673336376218228)"
+              },
+              "strippedThumb": "Buffer(17)[01080853751ee072719e78e68a28a9b167...]",
+              "dcId": 2
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5442673336376218228)"
+            },
+            "strippedThumb": "Buffer(17)[01080853751ee072719e78e68a28a9b167...]",
+            "dcId": 2
+          },
+          "date": 1505785797,
+          "restrictionReason": null,
+          "adminRights": null,
+          "bannedRights": null,
+          "defaultBannedRights": null,
+          "participantsCount": 7815,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "emojiStatus": null,
+          "level": null,
+          "subscriptionUntilDate": null,
+          "botVerificationIcon": null
+        },
+        "flags": 139364,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": false,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": false,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 12,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "BigInt(1127565162)"
+        },
+        "accessHash": {
+          "value": "BigInt(-2618712841393020615)"
+        },
+        "title": "Lushnikov",
+        "username": "lushnikov_Alexey",
+        "photo": {
+          "_class": "ChatPhoto",
+          "_cid": "0x1c6e1c11",
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5442673336376218228)"
+            },
+            "strippedThumb": "Buffer(17)[01080853751ee072719e78e68a28a9b167...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5442673336376218228)"
+          },
+          "strippedThumb": "Buffer(17)[01080853751ee072719e78e68a28a9b167...]",
+          "dcId": 2
+        },
+        "date": 1505785797,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 7815,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": null,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      }
+    ],
+    "users": [
+      {
+        "_class": "User",
+        "_cid": "0x4b46c37e",
+        "className": "User",
+        "originalArgs": {
+          "flags": 33554507,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 1040,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": true,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "BigInt(56261961)"
+          },
+          "accessHash": {
+            "value": "BigInt(-5599824776018672715)"
+          },
+          "firstName": "Alexey",
+          "lastName": null,
+          "username": "alexey",
+          "phone": null,
+          "photo": null,
+          "status": {
+            "_class": "UserStatusRecently",
+            "_cid": "0x7b197dc8",
+            "className": "UserStatusRecently",
+            "originalArgs": {
+              "flags": 0,
+              "byMe": false
+            },
+            "flags": 0,
+            "byMe": false
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 33554507,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 1040,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": true,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(56261961)"
+        },
+        "accessHash": {
+          "value": "BigInt(-5599824776018672715)"
+        },
+        "firstName": "Alexey",
+        "lastName": null,
+        "username": "alexey",
+        "phone": null,
+        "photo": null,
+        "status": {
+          "_class": "UserStatusRecently",
+          "_cid": "0x7b197dc8",
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 0,
+            "byMe": false
+          },
+          "flags": 0,
+          "byMe": false
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      {
+        "_class": "User",
+        "_cid": "0x4b46c37e",
+        "className": "User",
+        "originalArgs": {
+          "flags": 33570859,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": true,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "BigInt(8585982420)"
+          },
+          "accessHash": {
+            "value": "BigInt(169371941612296713)"
+          },
+          "firstName": "Говорят Великие: Трансформация",
+          "lastName": null,
+          "username": "AlexeyPR6_bot",
+          "phone": null,
+          "photo": {
+            "_class": "UserProfilePhoto",
+            "_cid": "0x82d1f706",
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "BigInt(5348496622112935230)"
+              },
+              "strippedThumb": "Buffer(19)[010808a1b57ec9b76a6feb9e33f9d145152988...]",
+              "dcId": 2
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(5348496622112935230)"
+            },
+            "strippedThumb": "Buffer(19)[010808a1b57ec9b76a6feb9e33f9d145152988...]",
+            "dcId": 2
+          },
+          "status": null,
+          "botInfoVersion": 8,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 33570859,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": true,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(8585982420)"
+        },
+        "accessHash": {
+          "value": "BigInt(169371941612296713)"
+        },
+        "firstName": "Говорят Великие: Трансформация",
+        "lastName": null,
+        "username": "AlexeyPR6_bot",
+        "phone": null,
+        "photo": {
+          "_class": "UserProfilePhoto",
+          "_cid": "0x82d1f706",
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(5348496622112935230)"
+            },
+            "strippedThumb": "Buffer(19)[010808a1b57ec9b76a6feb9e33f9d145152988...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(5348496622112935230)"
+          },
+          "strippedThumb": "Buffer(19)[010808a1b57ec9b76a6feb9e33f9d145152988...]",
+          "dcId": 2
+        },
+        "status": null,
+        "botInfoVersion": 8,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      {
+        "_class": "User",
+        "_cid": "0x4b46c37e",
+        "className": "User",
+        "originalArgs": {
+          "flags": 33554539,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "BigInt(856178435)"
+          },
+          "accessHash": {
+            "value": "BigInt(-2470940836275914506)"
+          },
+          "firstName": "Alexey",
+          "lastName": null,
+          "username": "AlexeyK",
+          "phone": null,
+          "photo": {
+            "_class": "UserProfilePhoto",
+            "_cid": "0x82d1f706",
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "BigInt(3677258378321700784)"
+              },
+              "strippedThumb": "Buffer(15)[01080872b0f9b3927b628a28a684cf...]",
+              "dcId": 2
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(3677258378321700784)"
+            },
+            "strippedThumb": "Buffer(15)[01080872b0f9b3927b628a28a684cf...]",
+            "dcId": 2
+          },
+          "status": {
+            "_class": "UserStatusRecently",
+            "_cid": "0x7b197dc8",
+            "className": "UserStatusRecently",
+            "originalArgs": {
+              "flags": 1,
+              "byMe": true
+            },
+            "flags": 1,
+            "byMe": true
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 33554539,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(856178435)"
+        },
+        "accessHash": {
+          "value": "BigInt(-2470940836275914506)"
+        },
+        "firstName": "Alexey",
+        "lastName": null,
+        "username": "AlexeyK",
+        "phone": null,
+        "photo": {
+          "_class": "UserProfilePhoto",
+          "_cid": "0x82d1f706",
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(3677258378321700784)"
+            },
+            "strippedThumb": "Buffer(15)[01080872b0f9b3927b628a28a684cf...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(3677258378321700784)"
+          },
+          "strippedThumb": "Buffer(15)[01080872b0f9b3927b628a28a684cf...]",
+          "dcId": 2
+        },
+        "status": {
+          "_class": "UserStatusRecently",
+          "_cid": "0x7b197dc8",
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 1,
+            "byMe": true
+          },
+          "flags": 1,
+          "byMe": true
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      {
+        "_class": "User",
+        "_cid": "0x4b46c37e",
+        "className": "User",
+        "originalArgs": {
+          "flags": 33554539,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "BigInt(1027763855)"
+          },
+          "accessHash": {
+            "value": "BigInt(4641009031047487277)"
+          },
+          "firstName": "Alexey",
+          "lastName": null,
+          "username": "AlexeyX",
+          "phone": null,
+          "photo": {
+            "_class": "UserProfilePhoto",
+            "_cid": "0x82d1f706",
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "BigInt(4414212145692125098)"
+              },
+              "strippedThumb": "Buffer(21)[01080895af5832a94c61fd39c668a28ad54519b933...]",
+              "dcId": 2
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(4414212145692125098)"
+            },
+            "strippedThumb": "Buffer(21)[01080895af5832a94c61fd39c668a28ad54519b933...]",
+            "dcId": 2
+          },
+          "status": {
+            "_class": "UserStatusRecently",
+            "_cid": "0x7b197dc8",
+            "className": "UserStatusRecently",
+            "originalArgs": {
+              "flags": 0,
+              "byMe": false
+            },
+            "flags": 0,
+            "byMe": false
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 33554539,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(1027763855)"
+        },
+        "accessHash": {
+          "value": "BigInt(4641009031047487277)"
+        },
+        "firstName": "Alexey",
+        "lastName": null,
+        "username": "AlexeyX",
+        "phone": null,
+        "photo": {
+          "_class": "UserProfilePhoto",
+          "_cid": "0x82d1f706",
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(4414212145692125098)"
+            },
+            "strippedThumb": "Buffer(21)[01080895af5832a94c61fd39c668a28ad54519b933...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(4414212145692125098)"
+          },
+          "strippedThumb": "Buffer(21)[01080895af5832a94c61fd39c668a28ad54519b933...]",
+          "dcId": 2
+        },
+        "status": {
+          "_class": "UserStatusRecently",
+          "_cid": "0x7b197dc8",
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 0,
+            "byMe": false
+          },
+          "flags": 0,
+          "byMe": false
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      }
+    ]
+  },
+  "myResults": [],
+  "results": [
+    {
+      "_class": "PeerChannel",
+      "_cid": "0xa2a5371e",
+      "className": "PeerChannel",
+      "originalArgs": {
+        "channelId": {
+          "value": "BigInt(1862404593)"
+        }
+      },
+      "channelId": {
+        "value": "BigInt(1862404593)"
+      }
+    },
+    {
+      "_class": "PeerChannel",
+      "_cid": "0xa2a5371e",
+      "className": "PeerChannel",
+      "originalArgs": {
+        "channelId": {
+          "value": "BigInt(1562449404)"
+        }
+      },
+      "channelId": {
+        "value": "BigInt(1562449404)"
+      }
+    },
+    {
+      "_class": "PeerUser",
+      "_cid": "0x59511722",
+      "className": "PeerUser",
+      "originalArgs": {
+        "userId": {
+          "value": "BigInt(56261961)"
+        }
+      },
+      "userId": {
+        "value": "BigInt(56261961)"
+      }
+    },
+    {
+      "_class": "PeerChannel",
+      "_cid": "0xa2a5371e",
+      "className": "PeerChannel",
+      "originalArgs": {
+        "channelId": {
+          "value": "BigInt(1749853052)"
+        }
+      },
+      "channelId": {
+        "value": "BigInt(1749853052)"
+      }
+    },
+    {
+      "_class": "PeerChannel",
+      "_cid": "0xa2a5371e",
+      "className": "PeerChannel",
+      "originalArgs": {
+        "channelId": {
+          "value": "BigInt(1764693490)"
+        }
+      },
+      "channelId": {
+        "value": "BigInt(1764693490)"
+      }
+    },
+    {
+      "_class": "PeerUser",
+      "_cid": "0x59511722",
+      "className": "PeerUser",
+      "originalArgs": {
+        "userId": {
+          "value": "BigInt(8585982420)"
+        }
+      },
+      "userId": {
+        "value": "BigInt(8585982420)"
+      }
+    },
+    {
+      "_class": "PeerChannel",
+      "_cid": "0xa2a5371e",
+      "className": "PeerChannel",
+      "originalArgs": {
+        "channelId": {
+          "value": "BigInt(1717398432)"
+        }
+      },
+      "channelId": {
+        "value": "BigInt(1717398432)"
+      }
+    },
+    {
+      "_class": "PeerChannel",
+      "_cid": "0xa2a5371e",
+      "className": "PeerChannel",
+      "originalArgs": {
+        "channelId": {
+          "value": "BigInt(1127565162)"
+        }
+      },
+      "channelId": {
+        "value": "BigInt(1127565162)"
+      }
+    },
+    {
+      "_class": "PeerUser",
+      "_cid": "0x59511722",
+      "className": "PeerUser",
+      "originalArgs": {
+        "userId": {
+          "value": "BigInt(856178435)"
+        }
+      },
+      "userId": {
+        "value": "BigInt(856178435)"
+      }
+    },
+    {
+      "_class": "PeerUser",
+      "_cid": "0x59511722",
+      "className": "PeerUser",
+      "originalArgs": {
+        "userId": {
+          "value": "BigInt(1027763855)"
+        }
+      },
+      "userId": {
+        "value": "BigInt(1027763855)"
+      }
+    }
+  ],
+  "chats": [
+    {
+      "_class": "Channel",
+      "_cid": "0xe00998b7",
+      "className": "Channel",
+      "originalArgs": {
+        "flags": 139492,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": true,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": false,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 12,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "BigInt(1862404593)"
+        },
+        "accessHash": {
+          "value": "BigInt(802651407759711369)"
+        },
+        "title": "Алексей Пивоваров",
+        "username": "Alexey_Pivo_varov",
+        "photo": {
+          "_class": "ChatPhoto",
+          "_cid": "0x1c6e1c11",
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5235953133035835436)"
+            },
+            "strippedThumb": "Buffer(21)[01080864f1b2c61d90fcdc83ed451456f17a1928a3...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5235953133035835436)"
+          },
+          "strippedThumb": "Buffer(21)[01080864f1b2c61d90fcdc83ed451456f17a1928a3...]",
+          "dcId": 2
+        },
+        "date": 1693118901,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 309981,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": null,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      "flags": 139492,
+      "creator": false,
+      "left": true,
+      "broadcast": true,
+      "verified": true,
+      "megagroup": false,
+      "restricted": false,
+      "signatures": false,
+      "min": false,
+      "scam": false,
+      "hasLink": false,
+      "hasGeo": false,
+      "slowmodeEnabled": false,
+      "callActive": false,
+      "callNotEmpty": false,
+      "fake": false,
+      "gigagroup": false,
+      "noforwards": false,
+      "joinToSend": false,
+      "joinRequest": false,
+      "forum": false,
+      "flags2": 12,
+      "storiesHidden": false,
+      "storiesHiddenMin": true,
+      "storiesUnavailable": true,
+      "signatureProfiles": false,
+      "id": {
+        "value": "BigInt(1862404593)"
+      },
+      "accessHash": {
+        "value": "BigInt(802651407759711369)"
+      },
+      "title": "Алексей Пивоваров",
+      "username": "Alexey_Pivo_varov",
+      "photo": {
+        "_class": "ChatPhoto",
+        "_cid": "0x1c6e1c11",
+        "className": "ChatPhoto",
+        "originalArgs": {
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5235953133035835436)"
+          },
+          "strippedThumb": "Buffer(21)[01080864f1b2c61d90fcdc83ed451456f17a1928a3...]",
+          "dcId": 2
+        },
+        "flags": 2,
+        "hasVideo": false,
+        "photoId": {
+          "value": "BigInt(5235953133035835436)"
+        },
+        "strippedThumb": "Buffer(21)[01080864f1b2c61d90fcdc83ed451456f17a1928a3...]",
+        "dcId": 2
+      },
+      "date": 1693118901,
+      "restrictionReason": null,
+      "adminRights": null,
+      "bannedRights": null,
+      "defaultBannedRights": null,
+      "participantsCount": 309981,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "emojiStatus": null,
+      "level": null,
+      "subscriptionUntilDate": null,
+      "botVerificationIcon": null
+    },
+    {
+      "_class": "Channel",
+      "_cid": "0xe00998b7",
+      "className": "Channel",
+      "originalArgs": {
+        "flags": 139492,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": true,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": false,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 12,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "BigInt(1562449404)"
+        },
+        "accessHash": {
+          "value": "BigInt(4567277362496883197)"
+        },
+        "title": "Алексей Текслер",
+        "username": "alexeytexlerofficial",
+        "photo": {
+          "_class": "ChatPhoto",
+          "_cid": "0x1c6e1c11",
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5285372396838173112)"
+            },
+            "strippedThumb": "Buffer(16)[010808448a42a0118efcd1451472a19f...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5285372396838173112)"
+          },
+          "strippedThumb": "Buffer(16)[010808448a42a0118efcd1451472a19f...]",
+          "dcId": 2
+        },
+        "date": 1646567918,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 29148,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": null,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      "flags": 139492,
+      "creator": false,
+      "left": true,
+      "broadcast": true,
+      "verified": true,
+      "megagroup": false,
+      "restricted": false,
+      "signatures": false,
+      "min": false,
+      "scam": false,
+      "hasLink": false,
+      "hasGeo": false,
+      "slowmodeEnabled": false,
+      "callActive": false,
+      "callNotEmpty": false,
+      "fake": false,
+      "gigagroup": false,
+      "noforwards": false,
+      "joinToSend": false,
+      "joinRequest": false,
+      "forum": false,
+      "flags2": 12,
+      "storiesHidden": false,
+      "storiesHiddenMin": true,
+      "storiesUnavailable": true,
+      "signatureProfiles": false,
+      "id": {
+        "value": "BigInt(1562449404)"
+      },
+      "accessHash": {
+        "value": "BigInt(4567277362496883197)"
+      },
+      "title": "Алексей Текслер",
+      "username": "alexeytexlerofficial",
+      "photo": {
+        "_class": "ChatPhoto",
+        "_cid": "0x1c6e1c11",
+        "className": "ChatPhoto",
+        "originalArgs": {
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5285372396838173112)"
+          },
+          "strippedThumb": "Buffer(16)[010808448a42a0118efcd1451472a19f...]",
+          "dcId": 2
+        },
+        "flags": 2,
+        "hasVideo": false,
+        "photoId": {
+          "value": "BigInt(5285372396838173112)"
+        },
+        "strippedThumb": "Buffer(16)[010808448a42a0118efcd1451472a19f...]",
+        "dcId": 2
+      },
+      "date": 1646567918,
+      "restrictionReason": null,
+      "adminRights": null,
+      "bannedRights": null,
+      "defaultBannedRights": null,
+      "participantsCount": 29148,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "emojiStatus": null,
+      "level": null,
+      "subscriptionUntilDate": null,
+      "botVerificationIcon": null
+    },
+    {
+      "_class": "Channel",
+      "_cid": "0xe00998b7",
+      "className": "Channel",
+      "originalArgs": {
+        "flags": 1188068,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": true,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": true,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 1044,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": false,
+        "signatureProfiles": false,
+        "id": {
+          "value": "BigInt(1749853052)"
+        },
+        "accessHash": {
+          "value": "BigInt(-6162543755589100164)"
+        },
+        "title": "Алексей Петрухин",
+        "username": "alexeypetrukhin_official",
+        "photo": {
+          "_class": "ChatPhoto",
+          "_cid": "0x1c6e1c11",
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5294209777384758812)"
+            },
+            "strippedThumb": "Buffer(19)[010808ad6ede4da6e18dc72dd68a28a6909b3f...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5294209777384758812)"
+          },
+          "strippedThumb": "Buffer(19)[010808ad6ede4da6e18dc72dd68a28a6909b3f...]",
+          "dcId": 2
+        },
+        "date": 1647029837,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 4193,
+        "usernames": null,
+        "storiesMaxId": 8,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": 1,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      "flags": 1188068,
+      "creator": false,
+      "left": true,
+      "broadcast": true,
+      "verified": true,
+      "megagroup": false,
+      "restricted": false,
+      "signatures": false,
+      "min": false,
+      "scam": false,
+      "hasLink": true,
+      "hasGeo": false,
+      "slowmodeEnabled": false,
+      "callActive": false,
+      "callNotEmpty": false,
+      "fake": false,
+      "gigagroup": false,
+      "noforwards": false,
+      "joinToSend": false,
+      "joinRequest": false,
+      "forum": false,
+      "flags2": 1044,
+      "storiesHidden": false,
+      "storiesHiddenMin": true,
+      "storiesUnavailable": false,
+      "signatureProfiles": false,
+      "id": {
+        "value": "BigInt(1749853052)"
+      },
+      "accessHash": {
+        "value": "BigInt(-6162543755589100164)"
+      },
+      "title": "Алексей Петрухин",
+      "username": "alexeypetrukhin_official",
+      "photo": {
+        "_class": "ChatPhoto",
+        "_cid": "0x1c6e1c11",
+        "className": "ChatPhoto",
+        "originalArgs": {
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5294209777384758812)"
+          },
+          "strippedThumb": "Buffer(19)[010808ad6ede4da6e18dc72dd68a28a6909b3f...]",
+          "dcId": 2
+        },
+        "flags": 2,
+        "hasVideo": false,
+        "photoId": {
+          "value": "BigInt(5294209777384758812)"
+        },
+        "strippedThumb": "Buffer(19)[010808ad6ede4da6e18dc72dd68a28a6909b3f...]",
+        "dcId": 2
+      },
+      "date": 1647029837,
+      "restrictionReason": null,
+      "adminRights": null,
+      "bannedRights": null,
+      "defaultBannedRights": null,
+      "participantsCount": 4193,
+      "usernames": null,
+      "storiesMaxId": 8,
+      "color": null,
+      "profileColor": null,
+      "emojiStatus": null,
+      "level": 1,
+      "subscriptionUntilDate": null,
+      "botVerificationIcon": null
+    },
+    {
+      "_class": "Channel",
+      "_cid": "0xe00998b7",
+      "className": "Channel",
+      "originalArgs": {
+        "flags": 1188068,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": true,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": true,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 1036,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "BigInt(1764693490)"
+        },
+        "accessHash": {
+          "value": "BigInt(-2242247740912932045)"
+        },
+        "title": "Алексей Крук",
+        "username": "alexeykruk",
+        "photo": {
+          "_class": "ChatPhoto",
+          "_cid": "0x1c6e1c11",
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5461018511791996297)"
+            },
+            "strippedThumb": "Buffer(18)[010808496498c806004ea7068a28a9b9563f...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5461018511791996297)"
+          },
+          "strippedThumb": "Buffer(18)[010808496498c806004ea7068a28a9b9563f...]",
+          "dcId": 2
+        },
+        "date": 1647057566,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 302,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": 4,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      "flags": 1188068,
+      "creator": false,
+      "left": true,
+      "broadcast": true,
+      "verified": true,
+      "megagroup": false,
+      "restricted": false,
+      "signatures": false,
+      "min": false,
+      "scam": false,
+      "hasLink": true,
+      "hasGeo": false,
+      "slowmodeEnabled": false,
+      "callActive": false,
+      "callNotEmpty": false,
+      "fake": false,
+      "gigagroup": false,
+      "noforwards": false,
+      "joinToSend": false,
+      "joinRequest": false,
+      "forum": false,
+      "flags2": 1036,
+      "storiesHidden": false,
+      "storiesHiddenMin": true,
+      "storiesUnavailable": true,
+      "signatureProfiles": false,
+      "id": {
+        "value": "BigInt(1764693490)"
+      },
+      "accessHash": {
+        "value": "BigInt(-2242247740912932045)"
+      },
+      "title": "Алексей Крук",
+      "username": "alexeykruk",
+      "photo": {
+        "_class": "ChatPhoto",
+        "_cid": "0x1c6e1c11",
+        "className": "ChatPhoto",
+        "originalArgs": {
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5461018511791996297)"
+          },
+          "strippedThumb": "Buffer(18)[010808496498c806004ea7068a28a9b9563f...]",
+          "dcId": 2
+        },
+        "flags": 2,
+        "hasVideo": false,
+        "photoId": {
+          "value": "BigInt(5461018511791996297)"
+        },
+        "strippedThumb": "Buffer(18)[010808496498c806004ea7068a28a9b9563f...]",
+        "dcId": 2
+      },
+      "date": 1647057566,
+      "restrictionReason": null,
+      "adminRights": null,
+      "bannedRights": null,
+      "defaultBannedRights": null,
+      "participantsCount": 302,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "emojiStatus": null,
+      "level": 4,
+      "subscriptionUntilDate": null,
+      "botVerificationIcon": null
+    },
+    {
+      "_class": "Channel",
+      "_cid": "0xe00998b7",
+      "className": "Channel",
+      "originalArgs": {
+        "flags": 1187940,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": false,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": true,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 1036,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "BigInt(1717398432)"
+        },
+        "accessHash": {
+          "value": "BigInt(5667323808840602251)"
+        },
+        "title": "ПАРКИНГ",
+        "username": "alexey_osipchuk",
+        "photo": {
+          "_class": "ChatPhoto",
+          "_cid": "0x1c6e1c11",
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5258086495376497932)"
+            },
+            "strippedThumb": "Buffer(20)[010808b4b7131d51a2dabb318fc319cd1451401f...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5258086495376497932)"
+          },
+          "strippedThumb": "Buffer(20)[010808b4b7131d51a2dabb318fc319cd1451401f...]",
+          "dcId": 2
+        },
+        "date": 1647014653,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 2497,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": 9,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      "flags": 1187940,
+      "creator": false,
+      "left": true,
+      "broadcast": true,
+      "verified": false,
+      "megagroup": false,
+      "restricted": false,
+      "signatures": false,
+      "min": false,
+      "scam": false,
+      "hasLink": true,
+      "hasGeo": false,
+      "slowmodeEnabled": false,
+      "callActive": false,
+      "callNotEmpty": false,
+      "fake": false,
+      "gigagroup": false,
+      "noforwards": false,
+      "joinToSend": false,
+      "joinRequest": false,
+      "forum": false,
+      "flags2": 1036,
+      "storiesHidden": false,
+      "storiesHiddenMin": true,
+      "storiesUnavailable": true,
+      "signatureProfiles": false,
+      "id": {
+        "value": "BigInt(1717398432)"
+      },
+      "accessHash": {
+        "value": "BigInt(5667323808840602251)"
+      },
+      "title": "ПАРКИНГ",
+      "username": "alexey_osipchuk",
+      "photo": {
+        "_class": "ChatPhoto",
+        "_cid": "0x1c6e1c11",
+        "className": "ChatPhoto",
+        "originalArgs": {
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5258086495376497932)"
+          },
+          "strippedThumb": "Buffer(20)[010808b4b7131d51a2dabb318fc319cd1451401f...]",
+          "dcId": 2
+        },
+        "flags": 2,
+        "hasVideo": false,
+        "photoId": {
+          "value": "BigInt(5258086495376497932)"
+        },
+        "strippedThumb": "Buffer(20)[010808b4b7131d51a2dabb318fc319cd1451401f...]",
+        "dcId": 2
+      },
+      "date": 1647014653,
+      "restrictionReason": null,
+      "adminRights": null,
+      "bannedRights": null,
+      "defaultBannedRights": null,
+      "participantsCount": 2497,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "emojiStatus": null,
+      "level": 9,
+      "subscriptionUntilDate": null,
+      "botVerificationIcon": null
+    },
+    {
+      "_class": "Channel",
+      "_cid": "0xe00998b7",
+      "className": "Channel",
+      "originalArgs": {
+        "flags": 139364,
+        "creator": false,
+        "left": true,
+        "broadcast": true,
+        "verified": false,
+        "megagroup": false,
+        "restricted": false,
+        "signatures": false,
+        "min": false,
+        "scam": false,
+        "hasLink": false,
+        "hasGeo": false,
+        "slowmodeEnabled": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "fake": false,
+        "gigagroup": false,
+        "noforwards": false,
+        "joinToSend": false,
+        "joinRequest": false,
+        "forum": false,
+        "flags2": 12,
+        "storiesHidden": false,
+        "storiesHiddenMin": true,
+        "storiesUnavailable": true,
+        "signatureProfiles": false,
+        "id": {
+          "value": "BigInt(1127565162)"
+        },
+        "accessHash": {
+          "value": "BigInt(-2618712841393020615)"
+        },
+        "title": "Lushnikov",
+        "username": "lushnikov_Alexey",
+        "photo": {
+          "_class": "ChatPhoto",
+          "_cid": "0x1c6e1c11",
+          "className": "ChatPhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "photoId": {
+              "value": "BigInt(5442673336376218228)"
+            },
+            "strippedThumb": "Buffer(17)[01080853751ee072719e78e68a28a9b167...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5442673336376218228)"
+          },
+          "strippedThumb": "Buffer(17)[01080853751ee072719e78e68a28a9b167...]",
+          "dcId": 2
+        },
+        "date": 1505785797,
+        "restrictionReason": null,
+        "adminRights": null,
+        "bannedRights": null,
+        "defaultBannedRights": null,
+        "participantsCount": 7815,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "emojiStatus": null,
+        "level": null,
+        "subscriptionUntilDate": null,
+        "botVerificationIcon": null
+      },
+      "flags": 139364,
+      "creator": false,
+      "left": true,
+      "broadcast": true,
+      "verified": false,
+      "megagroup": false,
+      "restricted": false,
+      "signatures": false,
+      "min": false,
+      "scam": false,
+      "hasLink": false,
+      "hasGeo": false,
+      "slowmodeEnabled": false,
+      "callActive": false,
+      "callNotEmpty": false,
+      "fake": false,
+      "gigagroup": false,
+      "noforwards": false,
+      "joinToSend": false,
+      "joinRequest": false,
+      "forum": false,
+      "flags2": 12,
+      "storiesHidden": false,
+      "storiesHiddenMin": true,
+      "storiesUnavailable": true,
+      "signatureProfiles": false,
+      "id": {
+        "value": "BigInt(1127565162)"
+      },
+      "accessHash": {
+        "value": "BigInt(-2618712841393020615)"
+      },
+      "title": "Lushnikov",
+      "username": "lushnikov_Alexey",
+      "photo": {
+        "_class": "ChatPhoto",
+        "_cid": "0x1c6e1c11",
+        "className": "ChatPhoto",
+        "originalArgs": {
+          "flags": 2,
+          "hasVideo": false,
+          "photoId": {
+            "value": "BigInt(5442673336376218228)"
+          },
+          "strippedThumb": "Buffer(17)[01080853751ee072719e78e68a28a9b167...]",
+          "dcId": 2
+        },
+        "flags": 2,
+        "hasVideo": false,
+        "photoId": {
+          "value": "BigInt(5442673336376218228)"
+        },
+        "strippedThumb": "Buffer(17)[01080853751ee072719e78e68a28a9b167...]",
+        "dcId": 2
+      },
+      "date": 1505785797,
+      "restrictionReason": null,
+      "adminRights": null,
+      "bannedRights": null,
+      "defaultBannedRights": null,
+      "participantsCount": 7815,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "emojiStatus": null,
+      "level": null,
+      "subscriptionUntilDate": null,
+      "botVerificationIcon": null
+    }
+  ],
+  "users": [
+    {
+      "_class": "User",
+      "_cid": "0x4b46c37e",
+      "className": "User",
+      "originalArgs": {
+        "flags": 33554507,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 1040,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": true,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(56261961)"
+        },
+        "accessHash": {
+          "value": "BigInt(-5599824776018672715)"
+        },
+        "firstName": "Alexey",
+        "lastName": null,
+        "username": "alexey",
+        "phone": null,
+        "photo": null,
+        "status": {
+          "_class": "UserStatusRecently",
+          "_cid": "0x7b197dc8",
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 0,
+            "byMe": false
+          },
+          "flags": 0,
+          "byMe": false
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      "flags": 33554507,
+      "self": false,
+      "contact": false,
+      "mutualContact": false,
+      "deleted": false,
+      "bot": false,
+      "botChatHistory": false,
+      "botNochats": false,
+      "verified": false,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": false,
+      "scam": false,
+      "applyMinPhoto": true,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 1040,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": true,
+      "botBusiness": false,
+      "botHasMainApp": false,
+      "id": {
+        "value": "BigInt(56261961)"
+      },
+      "accessHash": {
+        "value": "BigInt(-5599824776018672715)"
+      },
+      "firstName": "Alexey",
+      "lastName": null,
+      "username": "alexey",
+      "phone": null,
+      "photo": null,
+      "status": {
+        "_class": "UserStatusRecently",
+        "_cid": "0x7b197dc8",
+        "className": "UserStatusRecently",
+        "originalArgs": {
+          "flags": 0,
+          "byMe": false
+        },
+        "flags": 0,
+        "byMe": false
+      },
+      "botInfoVersion": null,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": null,
+      "botVerificationIcon": null
+    },
+    {
+      "_class": "User",
+      "_cid": "0x4b46c37e",
+      "className": "User",
+      "originalArgs": {
+        "flags": 33570859,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": true,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(8585982420)"
+        },
+        "accessHash": {
+          "value": "BigInt(169371941612296713)"
+        },
+        "firstName": "Говорят Великие: Трансформация",
+        "lastName": null,
+        "username": "AlexeyPR6_bot",
+        "phone": null,
+        "photo": {
+          "_class": "UserProfilePhoto",
+          "_cid": "0x82d1f706",
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(5348496622112935230)"
+            },
+            "strippedThumb": "Buffer(19)[010808a1b57ec9b76a6feb9e33f9d145152988...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(5348496622112935230)"
+          },
+          "strippedThumb": "Buffer(19)[010808a1b57ec9b76a6feb9e33f9d145152988...]",
+          "dcId": 2
+        },
+        "status": null,
+        "botInfoVersion": 8,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      "flags": 33570859,
+      "self": false,
+      "contact": false,
+      "mutualContact": false,
+      "deleted": false,
+      "bot": true,
+      "botChatHistory": false,
+      "botNochats": false,
+      "verified": false,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": false,
+      "scam": false,
+      "applyMinPhoto": true,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 16,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": false,
+      "botBusiness": false,
+      "botHasMainApp": false,
+      "id": {
+        "value": "BigInt(8585982420)"
+      },
+      "accessHash": {
+        "value": "BigInt(169371941612296713)"
+      },
+      "firstName": "Говорят Великие: Трансформация",
+      "lastName": null,
+      "username": "AlexeyPR6_bot",
+      "phone": null,
+      "photo": {
+        "_class": "UserProfilePhoto",
+        "_cid": "0x82d1f706",
+        "className": "UserProfilePhoto",
+        "originalArgs": {
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(5348496622112935230)"
+          },
+          "strippedThumb": "Buffer(19)[010808a1b57ec9b76a6feb9e33f9d145152988...]",
+          "dcId": 2
+        },
+        "flags": 2,
+        "hasVideo": false,
+        "personal": false,
+        "photoId": {
+          "value": "BigInt(5348496622112935230)"
+        },
+        "strippedThumb": "Buffer(19)[010808a1b57ec9b76a6feb9e33f9d145152988...]",
+        "dcId": 2
+      },
+      "status": null,
+      "botInfoVersion": 8,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": null,
+      "botVerificationIcon": null
+    },
+    {
+      "_class": "User",
+      "_cid": "0x4b46c37e",
+      "className": "User",
+      "originalArgs": {
+        "flags": 33554539,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(856178435)"
+        },
+        "accessHash": {
+          "value": "BigInt(-2470940836275914506)"
+        },
+        "firstName": "Alexey",
+        "lastName": null,
+        "username": "AlexeyK",
+        "phone": null,
+        "photo": {
+          "_class": "UserProfilePhoto",
+          "_cid": "0x82d1f706",
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(3677258378321700784)"
+            },
+            "strippedThumb": "Buffer(15)[01080872b0f9b3927b628a28a684cf...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(3677258378321700784)"
+          },
+          "strippedThumb": "Buffer(15)[01080872b0f9b3927b628a28a684cf...]",
+          "dcId": 2
+        },
+        "status": {
+          "_class": "UserStatusRecently",
+          "_cid": "0x7b197dc8",
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 1,
+            "byMe": true
+          },
+          "flags": 1,
+          "byMe": true
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      "flags": 33554539,
+      "self": false,
+      "contact": false,
+      "mutualContact": false,
+      "deleted": false,
+      "bot": false,
+      "botChatHistory": false,
+      "botNochats": false,
+      "verified": false,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": false,
+      "scam": false,
+      "applyMinPhoto": true,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 16,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": false,
+      "botBusiness": false,
+      "botHasMainApp": false,
+      "id": {
+        "value": "BigInt(856178435)"
+      },
+      "accessHash": {
+        "value": "BigInt(-2470940836275914506)"
+      },
+      "firstName": "Alexey",
+      "lastName": null,
+      "username": "AlexeyK",
+      "phone": null,
+      "photo": {
+        "_class": "UserProfilePhoto",
+        "_cid": "0x82d1f706",
+        "className": "UserProfilePhoto",
+        "originalArgs": {
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(3677258378321700784)"
+          },
+          "strippedThumb": "Buffer(15)[01080872b0f9b3927b628a28a684cf...]",
+          "dcId": 2
+        },
+        "flags": 2,
+        "hasVideo": false,
+        "personal": false,
+        "photoId": {
+          "value": "BigInt(3677258378321700784)"
+        },
+        "strippedThumb": "Buffer(15)[01080872b0f9b3927b628a28a684cf...]",
+        "dcId": 2
+      },
+      "status": {
+        "_class": "UserStatusRecently",
+        "_cid": "0x7b197dc8",
+        "className": "UserStatusRecently",
+        "originalArgs": {
+          "flags": 1,
+          "byMe": true
+        },
+        "flags": 1,
+        "byMe": true
+      },
+      "botInfoVersion": null,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": null,
+      "botVerificationIcon": null
+    },
+    {
+      "_class": "User",
+      "_cid": "0x4b46c37e",
+      "className": "User",
+      "originalArgs": {
+        "flags": 33554539,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(1027763855)"
+        },
+        "accessHash": {
+          "value": "BigInt(4641009031047487277)"
+        },
+        "firstName": "Alexey",
+        "lastName": null,
+        "username": "AlexeyX",
+        "phone": null,
+        "photo": {
+          "_class": "UserProfilePhoto",
+          "_cid": "0x82d1f706",
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(4414212145692125098)"
+            },
+            "strippedThumb": "Buffer(21)[01080895af5832a94c61fd39c668a28ad54519b933...]",
+            "dcId": 2
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(4414212145692125098)"
+          },
+          "strippedThumb": "Buffer(21)[01080895af5832a94c61fd39c668a28ad54519b933...]",
+          "dcId": 2
+        },
+        "status": {
+          "_class": "UserStatusRecently",
+          "_cid": "0x7b197dc8",
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 0,
+            "byMe": false
+          },
+          "flags": 0,
+          "byMe": false
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      "flags": 33554539,
+      "self": false,
+      "contact": false,
+      "mutualContact": false,
+      "deleted": false,
+      "bot": false,
+      "botChatHistory": false,
+      "botNochats": false,
+      "verified": false,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": false,
+      "scam": false,
+      "applyMinPhoto": true,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 16,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": false,
+      "botBusiness": false,
+      "botHasMainApp": false,
+      "id": {
+        "value": "BigInt(1027763855)"
+      },
+      "accessHash": {
+        "value": "BigInt(4641009031047487277)"
+      },
+      "firstName": "Alexey",
+      "lastName": null,
+      "username": "AlexeyX",
+      "phone": null,
+      "photo": {
+        "_class": "UserProfilePhoto",
+        "_cid": "0x82d1f706",
+        "className": "UserProfilePhoto",
+        "originalArgs": {
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(4414212145692125098)"
+          },
+          "strippedThumb": "Buffer(21)[01080895af5832a94c61fd39c668a28ad54519b933...]",
+          "dcId": 2
+        },
+        "flags": 2,
+        "hasVideo": false,
+        "personal": false,
+        "photoId": {
+          "value": "BigInt(4414212145692125098)"
+        },
+        "strippedThumb": "Buffer(21)[01080895af5832a94c61fd39c668a28ad54519b933...]",
+        "dcId": 2
+      },
+      "status": {
+        "_class": "UserStatusRecently",
+        "_cid": "0x7b197dc8",
+        "className": "UserStatusRecently",
+        "originalArgs": {
+          "flags": 0,
+          "byMe": false
+        },
+        "flags": 0,
+        "byMe": false
+      },
+      "botInfoVersion": null,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": null,
+      "botVerificationIcon": null
+    }
+  ]
+}

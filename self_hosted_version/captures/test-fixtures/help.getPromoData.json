@@ -1,0 +1,19 @@
+{
+  "method": "help.getPromoData",
+  "capturedAt": "2026-04-10T16:16:19.498Z",
+  "request": {
+    "__className": "help.GetPromoData",
+    "__constructorId": 3231151137,
+    "className": "help.GetPromoData",
+    "originalArgs": {}
+  },
+  "response": {
+    "__className": "help.PromoDataEmpty",
+    "__constructorId": 2566302837,
+    "className": "help.PromoDataEmpty",
+    "originalArgs": {
+      "expires": 1775838679
+    },
+    "expires": 1775838679
+  }
+}

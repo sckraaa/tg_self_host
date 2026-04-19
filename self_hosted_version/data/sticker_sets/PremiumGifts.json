@@ -1,0 +1,1803 @@
+{
+  "__className": "messages.StickerSet",
+  "__constructorId": 1846886166,
+  "className": "messages.StickerSet",
+  "originalArgs": {
+    "set": {
+      "__className": "StickerSet",
+      "__constructorId": 768691932,
+      "className": "StickerSet",
+      "originalArgs": {
+        "flags": 0,
+        "archived": false,
+        "official": false,
+        "masks": false,
+        "emojis": false,
+        "textColor": false,
+        "channelEmojiStatus": false,
+        "creator": false,
+        "installedDate": null,
+        "id": {
+          "value": "1258816259752003"
+        },
+        "accessHash": {
+          "value": "5769653287294035997"
+        },
+        "title": "Gifts",
+        "shortName": "GiftsPremium",
+        "thumbs": null,
+        "thumbDcId": null,
+        "thumbVersion": null,
+        "thumbDocumentId": null,
+        "count": 3,
+        "hash": 943400561
+      },
+      "flags": 0,
+      "archived": false,
+      "official": false,
+      "masks": false,
+      "emojis": false,
+      "textColor": false,
+      "channelEmojiStatus": false,
+      "creator": false,
+      "installedDate": null,
+      "id": {
+        "value": "1258816259752003"
+      },
+      "accessHash": {
+        "value": "5769653287294035997"
+      },
+      "title": "Gifts",
+      "shortName": "GiftsPremium",
+      "thumbs": null,
+      "thumbDcId": null,
+      "thumbVersion": null,
+      "thumbDocumentId": null,
+      "count": 3,
+      "hash": 943400561
+    },
+    "packs": [
+      {
+        "__className": "StickerPack",
+        "__constructorId": 313694676,
+        "className": "StickerPack",
+        "originalArgs": {
+          "emoticon": "2⃣",
+          "documents": [
+            {
+              "value": "5084588151377232306"
+            }
+          ]
+        },
+        "emoticon": "2⃣",
+        "documents": [
+          {
+            "value": "5084588151377232306"
+          }
+        ]
+      },
+      {
+        "__className": "StickerPack",
+        "__constructorId": 313694676,
+        "className": "StickerPack",
+        "originalArgs": {
+          "emoticon": "3⃣",
+          "documents": [
+            {
+              "value": "5082600084030357951"
+            }
+          ]
+        },
+        "emoticon": "3⃣",
+        "documents": [
+          {
+            "value": "5082600084030357951"
+          }
+        ]
+      },
+      {
+        "__className": "StickerPack",
+        "__constructorId": 313694676,
+        "className": "StickerPack",
+        "originalArgs": {
+          "emoticon": "4⃣",
+          "documents": [
+            {
+              "value": "5084864919069786886"
+            }
+          ]
+        },
+        "emoticon": "4⃣",
+        "documents": [
+          {
+            "value": "5084864919069786886"
+          }
+        ]
+      }
+    ],
+    "keywords": [],
+    "documents": [
+      {
+        "__className": "Document",
+        "__constructorId": 2413085912,
+        "className": "Document",
+        "originalArgs": {
+          "flags": 1,
+          "id": {
+            "value": "5084588151377232306"
+          },
+          "accessHash": {
+            "value": "-4894040057331591024"
+          },
+          "fileReference": {
+            "__type": "Buffer",
+            "hex": "0069dba9850994cfe78e79f281ed7cbfcb8ae3e8e4"
+          },
+          "date": 1657899574,
+          "mimeType": "application/x-tgsticker",
+          "size": {
+            "value": "60325"
+          },
+          "thumbs": [
+            {
+              "__className": "PhotoPathSize",
+              "__constructorId": 3626061121,
+              "className": "PhotoPathSize",
+              "originalArgs": {
+                "type": "j",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+                }
+              },
+              "type": "j",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+              }
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "m",
+                "w": 128,
+                "h": 128,
+                "size": 3746
+              },
+              "type": "m",
+              "w": 128,
+              "h": 128,
+              "size": 3746
+            }
+          ],
+          "videoThumbs": null,
+          "dcId": 1,
+          "attributes": [
+            {
+              "__className": "DocumentAttributeImageSize",
+              "__constructorId": 1815593308,
+              "className": "DocumentAttributeImageSize",
+              "originalArgs": {
+                "w": 512,
+                "h": 512
+              },
+              "w": 512,
+              "h": 512
+            },
+            {
+              "__className": "DocumentAttributeSticker",
+              "__constructorId": 1662637586,
+              "className": "DocumentAttributeSticker",
+              "originalArgs": {
+                "flags": 0,
+                "mask": false,
+                "alt": "2️⃣",
+                "stickerset": {
+                  "__className": "InputStickerSetID",
+                  "__constructorId": 2649203305,
+                  "className": "InputStickerSetID",
+                  "originalArgs": {
+                    "id": {
+                      "value": "1258816259752003"
+                    },
+                    "accessHash": {
+                      "value": "5769653287294035997"
+                    }
+                  },
+                  "id": {
+                    "value": "1258816259752003"
+                  },
+                  "accessHash": {
+                    "value": "5769653287294035997"
+                  }
+                },
+                "maskCoords": null
+              },
+              "flags": 0,
+              "mask": false,
+              "alt": "2️⃣",
+              "stickerset": {
+                "__className": "InputStickerSetID",
+                "__constructorId": 2649203305,
+                "className": "InputStickerSetID",
+                "originalArgs": {
+                  "id": {
+                    "value": "1258816259752003"
+                  },
+                  "accessHash": {
+                    "value": "5769653287294035997"
+                  }
+                },
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "maskCoords": null
+            },
+            {
+              "__className": "DocumentAttributeFilename",
+              "__constructorId": 358154344,
+              "className": "DocumentAttributeFilename",
+              "originalArgs": {
+                "fileName": "AnimatedSticker.tgs"
+              },
+              "fileName": "AnimatedSticker.tgs"
+            }
+          ]
+        },
+        "flags": 1,
+        "id": {
+          "value": "5084588151377232306"
+        },
+        "accessHash": {
+          "value": "-4894040057331591024"
+        },
+        "fileReference": {
+          "__type": "Buffer",
+          "hex": "0069dba9850994cfe78e79f281ed7cbfcb8ae3e8e4"
+        },
+        "date": 1657899574,
+        "mimeType": "application/x-tgsticker",
+        "size": {
+          "value": "60325"
+        },
+        "thumbs": [
+          {
+            "__className": "PhotoPathSize",
+            "__constructorId": 3626061121,
+            "className": "PhotoPathSize",
+            "originalArgs": {
+              "type": "j",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+              }
+            },
+            "type": "j",
+            "bytes": {
+              "__type": "Buffer",
+              "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+            }
+          },
+          {
+            "__className": "PhotoSize",
+            "__constructorId": 1976012384,
+            "className": "PhotoSize",
+            "originalArgs": {
+              "type": "m",
+              "w": 128,
+              "h": 128,
+              "size": 3746
+            },
+            "type": "m",
+            "w": 128,
+            "h": 128,
+            "size": 3746
+          }
+        ],
+        "videoThumbs": null,
+        "dcId": 1,
+        "attributes": [
+          {
+            "__className": "DocumentAttributeImageSize",
+            "__constructorId": 1815593308,
+            "className": "DocumentAttributeImageSize",
+            "originalArgs": {
+              "w": 512,
+              "h": 512
+            },
+            "w": 512,
+            "h": 512
+          },
+          {
+            "__className": "DocumentAttributeSticker",
+            "__constructorId": 1662637586,
+            "className": "DocumentAttributeSticker",
+            "originalArgs": {
+              "flags": 0,
+              "mask": false,
+              "alt": "2️⃣",
+              "stickerset": {
+                "__className": "InputStickerSetID",
+                "__constructorId": 2649203305,
+                "className": "InputStickerSetID",
+                "originalArgs": {
+                  "id": {
+                    "value": "1258816259752003"
+                  },
+                  "accessHash": {
+                    "value": "5769653287294035997"
+                  }
+                },
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "maskCoords": null
+            },
+            "flags": 0,
+            "mask": false,
+            "alt": "2️⃣",
+            "stickerset": {
+              "__className": "InputStickerSetID",
+              "__constructorId": 2649203305,
+              "className": "InputStickerSetID",
+              "originalArgs": {
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "id": {
+                "value": "1258816259752003"
+              },
+              "accessHash": {
+                "value": "5769653287294035997"
+              }
+            },
+            "maskCoords": null
+          },
+          {
+            "__className": "DocumentAttributeFilename",
+            "__constructorId": 358154344,
+            "className": "DocumentAttributeFilename",
+            "originalArgs": {
+              "fileName": "AnimatedSticker.tgs"
+            },
+            "fileName": "AnimatedSticker.tgs"
+          }
+        ]
+      },
+      {
+        "__className": "Document",
+        "__constructorId": 2413085912,
+        "className": "Document",
+        "originalArgs": {
+          "flags": 1,
+          "id": {
+            "value": "5082600084030357951"
+          },
+          "accessHash": {
+            "value": "-204676216581387898"
+          },
+          "fileReference": {
+            "__type": "Buffer",
+            "hex": "0069dba985f43a62a13deb24575eec58387f45f92c"
+          },
+          "date": 1657899588,
+          "mimeType": "application/x-tgsticker",
+          "size": {
+            "value": "60192"
+          },
+          "thumbs": [
+            {
+              "__className": "PhotoPathSize",
+              "__constructorId": 3626061121,
+              "className": "PhotoPathSize",
+              "originalArgs": {
+                "type": "j",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+                }
+              },
+              "type": "j",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+              }
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "m",
+                "w": 128,
+                "h": 128,
+                "size": 3824
+              },
+              "type": "m",
+              "w": 128,
+              "h": 128,
+              "size": 3824
+            }
+          ],
+          "videoThumbs": null,
+          "dcId": 1,
+          "attributes": [
+            {
+              "__className": "DocumentAttributeImageSize",
+              "__constructorId": 1815593308,
+              "className": "DocumentAttributeImageSize",
+              "originalArgs": {
+                "w": 512,
+                "h": 512
+              },
+              "w": 512,
+              "h": 512
+            },
+            {
+              "__className": "DocumentAttributeSticker",
+              "__constructorId": 1662637586,
+              "className": "DocumentAttributeSticker",
+              "originalArgs": {
+                "flags": 0,
+                "mask": false,
+                "alt": "3️⃣",
+                "stickerset": {
+                  "__className": "InputStickerSetID",
+                  "__constructorId": 2649203305,
+                  "className": "InputStickerSetID",
+                  "originalArgs": {
+                    "id": {
+                      "value": "1258816259752003"
+                    },
+                    "accessHash": {
+                      "value": "5769653287294035997"
+                    }
+                  },
+                  "id": {
+                    "value": "1258816259752003"
+                  },
+                  "accessHash": {
+                    "value": "5769653287294035997"
+                  }
+                },
+                "maskCoords": null
+              },
+              "flags": 0,
+              "mask": false,
+              "alt": "3️⃣",
+              "stickerset": {
+                "__className": "InputStickerSetID",
+                "__constructorId": 2649203305,
+                "className": "InputStickerSetID",
+                "originalArgs": {
+                  "id": {
+                    "value": "1258816259752003"
+                  },
+                  "accessHash": {
+                    "value": "5769653287294035997"
+                  }
+                },
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "maskCoords": null
+            },
+            {
+              "__className": "DocumentAttributeFilename",
+              "__constructorId": 358154344,
+              "className": "DocumentAttributeFilename",
+              "originalArgs": {
+                "fileName": "AnimatedSticker.tgs"
+              },
+              "fileName": "AnimatedSticker.tgs"
+            }
+          ]
+        },
+        "flags": 1,
+        "id": {
+          "value": "5082600084030357951"
+        },
+        "accessHash": {
+          "value": "-204676216581387898"
+        },
+        "fileReference": {
+          "__type": "Buffer",
+          "hex": "0069dba985f43a62a13deb24575eec58387f45f92c"
+        },
+        "date": 1657899588,
+        "mimeType": "application/x-tgsticker",
+        "size": {
+          "value": "60192"
+        },
+        "thumbs": [
+          {
+            "__className": "PhotoPathSize",
+            "__constructorId": 3626061121,
+            "className": "PhotoPathSize",
+            "originalArgs": {
+              "type": "j",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+              }
+            },
+            "type": "j",
+            "bytes": {
+              "__type": "Buffer",
+              "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+            }
+          },
+          {
+            "__className": "PhotoSize",
+            "__constructorId": 1976012384,
+            "className": "PhotoSize",
+            "originalArgs": {
+              "type": "m",
+              "w": 128,
+              "h": 128,
+              "size": 3824
+            },
+            "type": "m",
+            "w": 128,
+            "h": 128,
+            "size": 3824
+          }
+        ],
+        "videoThumbs": null,
+        "dcId": 1,
+        "attributes": [
+          {
+            "__className": "DocumentAttributeImageSize",
+            "__constructorId": 1815593308,
+            "className": "DocumentAttributeImageSize",
+            "originalArgs": {
+              "w": 512,
+              "h": 512
+            },
+            "w": 512,
+            "h": 512
+          },
+          {
+            "__className": "DocumentAttributeSticker",
+            "__constructorId": 1662637586,
+            "className": "DocumentAttributeSticker",
+            "originalArgs": {
+              "flags": 0,
+              "mask": false,
+              "alt": "3️⃣",
+              "stickerset": {
+                "__className": "InputStickerSetID",
+                "__constructorId": 2649203305,
+                "className": "InputStickerSetID",
+                "originalArgs": {
+                  "id": {
+                    "value": "1258816259752003"
+                  },
+                  "accessHash": {
+                    "value": "5769653287294035997"
+                  }
+                },
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "maskCoords": null
+            },
+            "flags": 0,
+            "mask": false,
+            "alt": "3️⃣",
+            "stickerset": {
+              "__className": "InputStickerSetID",
+              "__constructorId": 2649203305,
+              "className": "InputStickerSetID",
+              "originalArgs": {
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "id": {
+                "value": "1258816259752003"
+              },
+              "accessHash": {
+                "value": "5769653287294035997"
+              }
+            },
+            "maskCoords": null
+          },
+          {
+            "__className": "DocumentAttributeFilename",
+            "__constructorId": 358154344,
+            "className": "DocumentAttributeFilename",
+            "originalArgs": {
+              "fileName": "AnimatedSticker.tgs"
+            },
+            "fileName": "AnimatedSticker.tgs"
+          }
+        ]
+      },
+      {
+        "__className": "Document",
+        "__constructorId": 2413085912,
+        "className": "Document",
+        "originalArgs": {
+          "flags": 1,
+          "id": {
+            "value": "5084864919069786886"
+          },
+          "accessHash": {
+            "value": "-2451838997541107237"
+          },
+          "fileReference": {
+            "__type": "Buffer",
+            "hex": "0069dba985d3017791f6dae8f4f4248470999a99ef"
+          },
+          "date": 1657899598,
+          "mimeType": "application/x-tgsticker",
+          "size": {
+            "value": "60272"
+          },
+          "thumbs": [
+            {
+              "__className": "PhotoPathSize",
+              "__constructorId": 3626061121,
+              "className": "PhotoPathSize",
+              "originalArgs": {
+                "type": "j",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+                }
+              },
+              "type": "j",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+              }
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "m",
+                "w": 128,
+                "h": 128,
+                "size": 3840
+              },
+              "type": "m",
+              "w": 128,
+              "h": 128,
+              "size": 3840
+            }
+          ],
+          "videoThumbs": null,
+          "dcId": 1,
+          "attributes": [
+            {
+              "__className": "DocumentAttributeImageSize",
+              "__constructorId": 1815593308,
+              "className": "DocumentAttributeImageSize",
+              "originalArgs": {
+                "w": 512,
+                "h": 512
+              },
+              "w": 512,
+              "h": 512
+            },
+            {
+              "__className": "DocumentAttributeSticker",
+              "__constructorId": 1662637586,
+              "className": "DocumentAttributeSticker",
+              "originalArgs": {
+                "flags": 0,
+                "mask": false,
+                "alt": "4️⃣",
+                "stickerset": {
+                  "__className": "InputStickerSetID",
+                  "__constructorId": 2649203305,
+                  "className": "InputStickerSetID",
+                  "originalArgs": {
+                    "id": {
+                      "value": "1258816259752003"
+                    },
+                    "accessHash": {
+                      "value": "5769653287294035997"
+                    }
+                  },
+                  "id": {
+                    "value": "1258816259752003"
+                  },
+                  "accessHash": {
+                    "value": "5769653287294035997"
+                  }
+                },
+                "maskCoords": null
+              },
+              "flags": 0,
+              "mask": false,
+              "alt": "4️⃣",
+              "stickerset": {
+                "__className": "InputStickerSetID",
+                "__constructorId": 2649203305,
+                "className": "InputStickerSetID",
+                "originalArgs": {
+                  "id": {
+                    "value": "1258816259752003"
+                  },
+                  "accessHash": {
+                    "value": "5769653287294035997"
+                  }
+                },
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "maskCoords": null
+            },
+            {
+              "__className": "DocumentAttributeFilename",
+              "__constructorId": 358154344,
+              "className": "DocumentAttributeFilename",
+              "originalArgs": {
+                "fileName": "AnimatedSticker.tgs"
+              },
+              "fileName": "AnimatedSticker.tgs"
+            }
+          ]
+        },
+        "flags": 1,
+        "id": {
+          "value": "5084864919069786886"
+        },
+        "accessHash": {
+          "value": "-2451838997541107237"
+        },
+        "fileReference": {
+          "__type": "Buffer",
+          "hex": "0069dba985d3017791f6dae8f4f4248470999a99ef"
+        },
+        "date": 1657899598,
+        "mimeType": "application/x-tgsticker",
+        "size": {
+          "value": "60272"
+        },
+        "thumbs": [
+          {
+            "__className": "PhotoPathSize",
+            "__constructorId": 3626061121,
+            "className": "PhotoPathSize",
+            "originalArgs": {
+              "type": "j",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+              }
+            },
+            "type": "j",
+            "bytes": {
+              "__type": "Buffer",
+              "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+            }
+          },
+          {
+            "__className": "PhotoSize",
+            "__constructorId": 1976012384,
+            "className": "PhotoSize",
+            "originalArgs": {
+              "type": "m",
+              "w": 128,
+              "h": 128,
+              "size": 3840
+            },
+            "type": "m",
+            "w": 128,
+            "h": 128,
+            "size": 3840
+          }
+        ],
+        "videoThumbs": null,
+        "dcId": 1,
+        "attributes": [
+          {
+            "__className": "DocumentAttributeImageSize",
+            "__constructorId": 1815593308,
+            "className": "DocumentAttributeImageSize",
+            "originalArgs": {
+              "w": 512,
+              "h": 512
+            },
+            "w": 512,
+            "h": 512
+          },
+          {
+            "__className": "DocumentAttributeSticker",
+            "__constructorId": 1662637586,
+            "className": "DocumentAttributeSticker",
+            "originalArgs": {
+              "flags": 0,
+              "mask": false,
+              "alt": "4️⃣",
+              "stickerset": {
+                "__className": "InputStickerSetID",
+                "__constructorId": 2649203305,
+                "className": "InputStickerSetID",
+                "originalArgs": {
+                  "id": {
+                    "value": "1258816259752003"
+                  },
+                  "accessHash": {
+                    "value": "5769653287294035997"
+                  }
+                },
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "maskCoords": null
+            },
+            "flags": 0,
+            "mask": false,
+            "alt": "4️⃣",
+            "stickerset": {
+              "__className": "InputStickerSetID",
+              "__constructorId": 2649203305,
+              "className": "InputStickerSetID",
+              "originalArgs": {
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "id": {
+                "value": "1258816259752003"
+              },
+              "accessHash": {
+                "value": "5769653287294035997"
+              }
+            },
+            "maskCoords": null
+          },
+          {
+            "__className": "DocumentAttributeFilename",
+            "__constructorId": 358154344,
+            "className": "DocumentAttributeFilename",
+            "originalArgs": {
+              "fileName": "AnimatedSticker.tgs"
+            },
+            "fileName": "AnimatedSticker.tgs"
+          }
+        ]
+      }
+    ]
+  },
+  "set": {
+    "__className": "StickerSet",
+    "__constructorId": 768691932,
+    "className": "StickerSet",
+    "originalArgs": {
+      "flags": 0,
+      "archived": false,
+      "official": false,
+      "masks": false,
+      "emojis": false,
+      "textColor": false,
+      "channelEmojiStatus": false,
+      "creator": false,
+      "installedDate": null,
+      "id": {
+        "value": "1258816259752003"
+      },
+      "accessHash": {
+        "value": "5769653287294035997"
+      },
+      "title": "Gifts",
+      "shortName": "GiftsPremium",
+      "thumbs": null,
+      "thumbDcId": null,
+      "thumbVersion": null,
+      "thumbDocumentId": null,
+      "count": 3,
+      "hash": 943400561
+    },
+    "flags": 0,
+    "archived": false,
+    "official": false,
+    "masks": false,
+    "emojis": false,
+    "textColor": false,
+    "channelEmojiStatus": false,
+    "creator": false,
+    "installedDate": null,
+    "id": {
+      "value": "1258816259752003"
+    },
+    "accessHash": {
+      "value": "5769653287294035997"
+    },
+    "title": "Gifts",
+    "shortName": "GiftsPremium",
+    "thumbs": null,
+    "thumbDcId": null,
+    "thumbVersion": null,
+    "thumbDocumentId": null,
+    "count": 3,
+    "hash": 943400561
+  },
+  "packs": [
+    {
+      "__className": "StickerPack",
+      "__constructorId": 313694676,
+      "className": "StickerPack",
+      "originalArgs": {
+        "emoticon": "2⃣",
+        "documents": [
+          {
+            "value": "5084588151377232306"
+          }
+        ]
+      },
+      "emoticon": "2⃣",
+      "documents": [
+        {
+          "value": "5084588151377232306"
+        }
+      ]
+    },
+    {
+      "__className": "StickerPack",
+      "__constructorId": 313694676,
+      "className": "StickerPack",
+      "originalArgs": {
+        "emoticon": "3⃣",
+        "documents": [
+          {
+            "value": "5082600084030357951"
+          }
+        ]
+      },
+      "emoticon": "3⃣",
+      "documents": [
+        {
+          "value": "5082600084030357951"
+        }
+      ]
+    },
+    {
+      "__className": "StickerPack",
+      "__constructorId": 313694676,
+      "className": "StickerPack",
+      "originalArgs": {
+        "emoticon": "4⃣",
+        "documents": [
+          {
+            "value": "5084864919069786886"
+          }
+        ]
+      },
+      "emoticon": "4⃣",
+      "documents": [
+        {
+          "value": "5084864919069786886"
+        }
+      ]
+    }
+  ],
+  "keywords": [],
+  "documents": [
+    {
+      "__className": "Document",
+      "__constructorId": 2413085912,
+      "className": "Document",
+      "originalArgs": {
+        "flags": 1,
+        "id": {
+          "value": "5084588151377232306"
+        },
+        "accessHash": {
+          "value": "-4894040057331591024"
+        },
+        "fileReference": {
+          "__type": "Buffer",
+          "hex": "0069dba9850994cfe78e79f281ed7cbfcb8ae3e8e4"
+        },
+        "date": 1657899574,
+        "mimeType": "application/x-tgsticker",
+        "size": {
+          "value": "60325"
+        },
+        "thumbs": [
+          {
+            "__className": "PhotoPathSize",
+            "__constructorId": 3626061121,
+            "className": "PhotoPathSize",
+            "originalArgs": {
+              "type": "j",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+              }
+            },
+            "type": "j",
+            "bytes": {
+              "__type": "Buffer",
+              "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+            }
+          },
+          {
+            "__className": "PhotoSize",
+            "__constructorId": 1976012384,
+            "className": "PhotoSize",
+            "originalArgs": {
+              "type": "m",
+              "w": 128,
+              "h": 128,
+              "size": 3746
+            },
+            "type": "m",
+            "w": 128,
+            "h": 128,
+            "size": 3746
+          }
+        ],
+        "videoThumbs": null,
+        "dcId": 1,
+        "attributes": [
+          {
+            "__className": "DocumentAttributeImageSize",
+            "__constructorId": 1815593308,
+            "className": "DocumentAttributeImageSize",
+            "originalArgs": {
+              "w": 512,
+              "h": 512
+            },
+            "w": 512,
+            "h": 512
+          },
+          {
+            "__className": "DocumentAttributeSticker",
+            "__constructorId": 1662637586,
+            "className": "DocumentAttributeSticker",
+            "originalArgs": {
+              "flags": 0,
+              "mask": false,
+              "alt": "2️⃣",
+              "stickerset": {
+                "__className": "InputStickerSetID",
+                "__constructorId": 2649203305,
+                "className": "InputStickerSetID",
+                "originalArgs": {
+                  "id": {
+                    "value": "1258816259752003"
+                  },
+                  "accessHash": {
+                    "value": "5769653287294035997"
+                  }
+                },
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "maskCoords": null
+            },
+            "flags": 0,
+            "mask": false,
+            "alt": "2️⃣",
+            "stickerset": {
+              "__className": "InputStickerSetID",
+              "__constructorId": 2649203305,
+              "className": "InputStickerSetID",
+              "originalArgs": {
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "id": {
+                "value": "1258816259752003"
+              },
+              "accessHash": {
+                "value": "5769653287294035997"
+              }
+            },
+            "maskCoords": null
+          },
+          {
+            "__className": "DocumentAttributeFilename",
+            "__constructorId": 358154344,
+            "className": "DocumentAttributeFilename",
+            "originalArgs": {
+              "fileName": "AnimatedSticker.tgs"
+            },
+            "fileName": "AnimatedSticker.tgs"
+          }
+        ]
+      },
+      "flags": 1,
+      "id": {
+        "value": "5084588151377232306"
+      },
+      "accessHash": {
+        "value": "-4894040057331591024"
+      },
+      "fileReference": {
+        "__type": "Buffer",
+        "hex": "0069dba9850994cfe78e79f281ed7cbfcb8ae3e8e4"
+      },
+      "date": 1657899574,
+      "mimeType": "application/x-tgsticker",
+      "size": {
+        "value": "60325"
+      },
+      "thumbs": [
+        {
+          "__className": "PhotoPathSize",
+          "__constructorId": 3626061121,
+          "className": "PhotoPathSize",
+          "originalArgs": {
+            "type": "j",
+            "bytes": {
+              "__type": "Buffer",
+              "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+            }
+          },
+          "type": "j",
+          "bytes": {
+            "__type": "Buffer",
+            "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+          }
+        },
+        {
+          "__className": "PhotoSize",
+          "__constructorId": 1976012384,
+          "className": "PhotoSize",
+          "originalArgs": {
+            "type": "m",
+            "w": 128,
+            "h": 128,
+            "size": 3746
+          },
+          "type": "m",
+          "w": 128,
+          "h": 128,
+          "size": 3746
+        }
+      ],
+      "videoThumbs": null,
+      "dcId": 1,
+      "attributes": [
+        {
+          "__className": "DocumentAttributeImageSize",
+          "__constructorId": 1815593308,
+          "className": "DocumentAttributeImageSize",
+          "originalArgs": {
+            "w": 512,
+            "h": 512
+          },
+          "w": 512,
+          "h": 512
+        },
+        {
+          "__className": "DocumentAttributeSticker",
+          "__constructorId": 1662637586,
+          "className": "DocumentAttributeSticker",
+          "originalArgs": {
+            "flags": 0,
+            "mask": false,
+            "alt": "2️⃣",
+            "stickerset": {
+              "__className": "InputStickerSetID",
+              "__constructorId": 2649203305,
+              "className": "InputStickerSetID",
+              "originalArgs": {
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "id": {
+                "value": "1258816259752003"
+              },
+              "accessHash": {
+                "value": "5769653287294035997"
+              }
+            },
+            "maskCoords": null
+          },
+          "flags": 0,
+          "mask": false,
+          "alt": "2️⃣",
+          "stickerset": {
+            "__className": "InputStickerSetID",
+            "__constructorId": 2649203305,
+            "className": "InputStickerSetID",
+            "originalArgs": {
+              "id": {
+                "value": "1258816259752003"
+              },
+              "accessHash": {
+                "value": "5769653287294035997"
+              }
+            },
+            "id": {
+              "value": "1258816259752003"
+            },
+            "accessHash": {
+              "value": "5769653287294035997"
+            }
+          },
+          "maskCoords": null
+        },
+        {
+          "__className": "DocumentAttributeFilename",
+          "__constructorId": 358154344,
+          "className": "DocumentAttributeFilename",
+          "originalArgs": {
+            "fileName": "AnimatedSticker.tgs"
+          },
+          "fileName": "AnimatedSticker.tgs"
+        }
+      ]
+    },
+    {
+      "__className": "Document",
+      "__constructorId": 2413085912,
+      "className": "Document",
+      "originalArgs": {
+        "flags": 1,
+        "id": {
+          "value": "5082600084030357951"
+        },
+        "accessHash": {
+          "value": "-204676216581387898"
+        },
+        "fileReference": {
+          "__type": "Buffer",
+          "hex": "0069dba985f43a62a13deb24575eec58387f45f92c"
+        },
+        "date": 1657899588,
+        "mimeType": "application/x-tgsticker",
+        "size": {
+          "value": "60192"
+        },
+        "thumbs": [
+          {
+            "__className": "PhotoPathSize",
+            "__constructorId": 3626061121,
+            "className": "PhotoPathSize",
+            "originalArgs": {
+              "type": "j",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+              }
+            },
+            "type": "j",
+            "bytes": {
+              "__type": "Buffer",
+              "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+            }
+          },
+          {
+            "__className": "PhotoSize",
+            "__constructorId": 1976012384,
+            "className": "PhotoSize",
+            "originalArgs": {
+              "type": "m",
+              "w": 128,
+              "h": 128,
+              "size": 3824
+            },
+            "type": "m",
+            "w": 128,
+            "h": 128,
+            "size": 3824
+          }
+        ],
+        "videoThumbs": null,
+        "dcId": 1,
+        "attributes": [
+          {
+            "__className": "DocumentAttributeImageSize",
+            "__constructorId": 1815593308,
+            "className": "DocumentAttributeImageSize",
+            "originalArgs": {
+              "w": 512,
+              "h": 512
+            },
+            "w": 512,
+            "h": 512
+          },
+          {
+            "__className": "DocumentAttributeSticker",
+            "__constructorId": 1662637586,
+            "className": "DocumentAttributeSticker",
+            "originalArgs": {
+              "flags": 0,
+              "mask": false,
+              "alt": "3️⃣",
+              "stickerset": {
+                "__className": "InputStickerSetID",
+                "__constructorId": 2649203305,
+                "className": "InputStickerSetID",
+                "originalArgs": {
+                  "id": {
+                    "value": "1258816259752003"
+                  },
+                  "accessHash": {
+                    "value": "5769653287294035997"
+                  }
+                },
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "maskCoords": null
+            },
+            "flags": 0,
+            "mask": false,
+            "alt": "3️⃣",
+            "stickerset": {
+              "__className": "InputStickerSetID",
+              "__constructorId": 2649203305,
+              "className": "InputStickerSetID",
+              "originalArgs": {
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "id": {
+                "value": "1258816259752003"
+              },
+              "accessHash": {
+                "value": "5769653287294035997"
+              }
+            },
+            "maskCoords": null
+          },
+          {
+            "__className": "DocumentAttributeFilename",
+            "__constructorId": 358154344,
+            "className": "DocumentAttributeFilename",
+            "originalArgs": {
+              "fileName": "AnimatedSticker.tgs"
+            },
+            "fileName": "AnimatedSticker.tgs"
+          }
+        ]
+      },
+      "flags": 1,
+      "id": {
+        "value": "5082600084030357951"
+      },
+      "accessHash": {
+        "value": "-204676216581387898"
+      },
+      "fileReference": {
+        "__type": "Buffer",
+        "hex": "0069dba985f43a62a13deb24575eec58387f45f92c"
+      },
+      "date": 1657899588,
+      "mimeType": "application/x-tgsticker",
+      "size": {
+        "value": "60192"
+      },
+      "thumbs": [
+        {
+          "__className": "PhotoPathSize",
+          "__constructorId": 3626061121,
+          "className": "PhotoPathSize",
+          "originalArgs": {
+            "type": "j",
+            "bytes": {
+              "__type": "Buffer",
+              "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+            }
+          },
+          "type": "j",
+          "bytes": {
+            "__type": "Buffer",
+            "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+          }
+        },
+        {
+          "__className": "PhotoSize",
+          "__constructorId": 1976012384,
+          "className": "PhotoSize",
+          "originalArgs": {
+            "type": "m",
+            "w": 128,
+            "h": 128,
+            "size": 3824
+          },
+          "type": "m",
+          "w": 128,
+          "h": 128,
+          "size": 3824
+        }
+      ],
+      "videoThumbs": null,
+      "dcId": 1,
+      "attributes": [
+        {
+          "__className": "DocumentAttributeImageSize",
+          "__constructorId": 1815593308,
+          "className": "DocumentAttributeImageSize",
+          "originalArgs": {
+            "w": 512,
+            "h": 512
+          },
+          "w": 512,
+          "h": 512
+        },
+        {
+          "__className": "DocumentAttributeSticker",
+          "__constructorId": 1662637586,
+          "className": "DocumentAttributeSticker",
+          "originalArgs": {
+            "flags": 0,
+            "mask": false,
+            "alt": "3️⃣",
+            "stickerset": {
+              "__className": "InputStickerSetID",
+              "__constructorId": 2649203305,
+              "className": "InputStickerSetID",
+              "originalArgs": {
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "id": {
+                "value": "1258816259752003"
+              },
+              "accessHash": {
+                "value": "5769653287294035997"
+              }
+            },
+            "maskCoords": null
+          },
+          "flags": 0,
+          "mask": false,
+          "alt": "3️⃣",
+          "stickerset": {
+            "__className": "InputStickerSetID",
+            "__constructorId": 2649203305,
+            "className": "InputStickerSetID",
+            "originalArgs": {
+              "id": {
+                "value": "1258816259752003"
+              },
+              "accessHash": {
+                "value": "5769653287294035997"
+              }
+            },
+            "id": {
+              "value": "1258816259752003"
+            },
+            "accessHash": {
+              "value": "5769653287294035997"
+            }
+          },
+          "maskCoords": null
+        },
+        {
+          "__className": "DocumentAttributeFilename",
+          "__constructorId": 358154344,
+          "className": "DocumentAttributeFilename",
+          "originalArgs": {
+            "fileName": "AnimatedSticker.tgs"
+          },
+          "fileName": "AnimatedSticker.tgs"
+        }
+      ]
+    },
+    {
+      "__className": "Document",
+      "__constructorId": 2413085912,
+      "className": "Document",
+      "originalArgs": {
+        "flags": 1,
+        "id": {
+          "value": "5084864919069786886"
+        },
+        "accessHash": {
+          "value": "-2451838997541107237"
+        },
+        "fileReference": {
+          "__type": "Buffer",
+          "hex": "0069dba985d3017791f6dae8f4f4248470999a99ef"
+        },
+        "date": 1657899598,
+        "mimeType": "application/x-tgsticker",
+        "size": {
+          "value": "60272"
+        },
+        "thumbs": [
+          {
+            "__className": "PhotoPathSize",
+            "__constructorId": 3626061121,
+            "className": "PhotoPathSize",
+            "originalArgs": {
+              "type": "j",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+              }
+            },
+            "type": "j",
+            "bytes": {
+              "__type": "Buffer",
+              "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+            }
+          },
+          {
+            "__className": "PhotoSize",
+            "__constructorId": 1976012384,
+            "className": "PhotoSize",
+            "originalArgs": {
+              "type": "m",
+              "w": 128,
+              "h": 128,
+              "size": 3840
+            },
+            "type": "m",
+            "w": 128,
+            "h": 128,
+            "size": 3840
+          }
+        ],
+        "videoThumbs": null,
+        "dcId": 1,
+        "attributes": [
+          {
+            "__className": "DocumentAttributeImageSize",
+            "__constructorId": 1815593308,
+            "className": "DocumentAttributeImageSize",
+            "originalArgs": {
+              "w": 512,
+              "h": 512
+            },
+            "w": 512,
+            "h": 512
+          },
+          {
+            "__className": "DocumentAttributeSticker",
+            "__constructorId": 1662637586,
+            "className": "DocumentAttributeSticker",
+            "originalArgs": {
+              "flags": 0,
+              "mask": false,
+              "alt": "4️⃣",
+              "stickerset": {
+                "__className": "InputStickerSetID",
+                "__constructorId": 2649203305,
+                "className": "InputStickerSetID",
+                "originalArgs": {
+                  "id": {
+                    "value": "1258816259752003"
+                  },
+                  "accessHash": {
+                    "value": "5769653287294035997"
+                  }
+                },
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "maskCoords": null
+            },
+            "flags": 0,
+            "mask": false,
+            "alt": "4️⃣",
+            "stickerset": {
+              "__className": "InputStickerSetID",
+              "__constructorId": 2649203305,
+              "className": "InputStickerSetID",
+              "originalArgs": {
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "id": {
+                "value": "1258816259752003"
+              },
+              "accessHash": {
+                "value": "5769653287294035997"
+              }
+            },
+            "maskCoords": null
+          },
+          {
+            "__className": "DocumentAttributeFilename",
+            "__constructorId": 358154344,
+            "className": "DocumentAttributeFilename",
+            "originalArgs": {
+              "fileName": "AnimatedSticker.tgs"
+            },
+            "fileName": "AnimatedSticker.tgs"
+          }
+        ]
+      },
+      "flags": 1,
+      "id": {
+        "value": "5084864919069786886"
+      },
+      "accessHash": {
+        "value": "-2451838997541107237"
+      },
+      "fileReference": {
+        "__type": "Buffer",
+        "hex": "0069dba985d3017791f6dae8f4f4248470999a99ef"
+      },
+      "date": 1657899598,
+      "mimeType": "application/x-tgsticker",
+      "size": {
+        "value": "60272"
+      },
+      "thumbs": [
+        {
+          "__className": "PhotoPathSize",
+          "__constructorId": 3626061121,
+          "className": "PhotoPathSize",
+          "originalArgs": {
+            "type": "j",
+            "bytes": {
+              "__type": "Buffer",
+              "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+            }
+          },
+          "type": "j",
+          "bytes": {
+            "__type": "Buffer",
+            "hex": "1a02b109dc65814b085c4e01794d504878484706804c825e806a814245424644474b4663806e864d9d52aa588b449651a2548c44ba4c87014e91429f8bae8b88808e509a4b8a858b909396908dba938608a7889343a546b5438b809a81a5809385bb488706498a578c609543814488488b4b875d8f6a8e418042434343518161"
+          }
+        },
+        {
+          "__className": "PhotoSize",
+          "__constructorId": 1976012384,
+          "className": "PhotoSize",
+          "originalArgs": {
+            "type": "m",
+            "w": 128,
+            "h": 128,
+            "size": 3840
+          },
+          "type": "m",
+          "w": 128,
+          "h": 128,
+          "size": 3840
+        }
+      ],
+      "videoThumbs": null,
+      "dcId": 1,
+      "attributes": [
+        {
+          "__className": "DocumentAttributeImageSize",
+          "__constructorId": 1815593308,
+          "className": "DocumentAttributeImageSize",
+          "originalArgs": {
+            "w": 512,
+            "h": 512
+          },
+          "w": 512,
+          "h": 512
+        },
+        {
+          "__className": "DocumentAttributeSticker",
+          "__constructorId": 1662637586,
+          "className": "DocumentAttributeSticker",
+          "originalArgs": {
+            "flags": 0,
+            "mask": false,
+            "alt": "4️⃣",
+            "stickerset": {
+              "__className": "InputStickerSetID",
+              "__constructorId": 2649203305,
+              "className": "InputStickerSetID",
+              "originalArgs": {
+                "id": {
+                  "value": "1258816259752003"
+                },
+                "accessHash": {
+                  "value": "5769653287294035997"
+                }
+              },
+              "id": {
+                "value": "1258816259752003"
+              },
+              "accessHash": {
+                "value": "5769653287294035997"
+              }
+            },
+            "maskCoords": null
+          },
+          "flags": 0,
+          "mask": false,
+          "alt": "4️⃣",
+          "stickerset": {
+            "__className": "InputStickerSetID",
+            "__constructorId": 2649203305,
+            "className": "InputStickerSetID",
+            "originalArgs": {
+              "id": {
+                "value": "1258816259752003"
+              },
+              "accessHash": {
+                "value": "5769653287294035997"
+              }
+            },
+            "id": {
+              "value": "1258816259752003"
+            },
+            "accessHash": {
+              "value": "5769653287294035997"
+            }
+          },
+          "maskCoords": null
+        },
+        {
+          "__className": "DocumentAttributeFilename",
+          "__constructorId": 358154344,
+          "className": "DocumentAttributeFilename",
+          "originalArgs": {
+            "fileName": "AnimatedSticker.tgs"
+          },
+          "fileName": "AnimatedSticker.tgs"
+        }
+      ]
+    }
+  ]
+}

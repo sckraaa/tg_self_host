@@ -1,0 +1,24 @@
+{
+  "method": "upload.saveFilePart",
+  "capturedAt": "2026-04-10T16:16:29.833Z",
+  "request": {
+    "__className": "upload.SaveFilePart",
+    "__constructorId": 3003426337,
+    "className": "upload.SaveFilePart",
+    "originalArgs": {
+      "fileId": "1775837789702",
+      "filePart": 0,
+      "bytes": {
+        "__type": "Buffer",
+        "hex": "89504e470d0a1a0a0000000d4948445200000001000000010802000000907753de0000000c4944415478016360f80f000000020001e221bc330000000049454e44ae426082"
+      }
+    },
+    "fileId": "1775837789702",
+    "filePart": 0,
+    "bytes": {
+      "__type": "Buffer",
+      "hex": "89504e470d0a1a0a0000000d4948445200000001000000010802000000907753de0000000c4944415478016360f80f000000020001e221bc330000000049454e44ae426082"
+    }
+  },
+  "response": true
+}

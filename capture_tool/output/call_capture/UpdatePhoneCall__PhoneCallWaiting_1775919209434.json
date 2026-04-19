@@ -1,0 +1,181 @@
+{
+  "_class": "UpdatePhoneCall",
+  "_cid": "0xab0f6b1e",
+  "className": "UpdatePhoneCall",
+  "originalArgs": {
+    "phoneCall": {
+      "_class": "PhoneCallWaiting",
+      "_cid": "0xeed42858",
+      "className": "PhoneCallWaiting",
+      "originalArgs": {
+        "flags": 1,
+        "video": false,
+        "id": {
+          "value": "BigInt(1455057105073228126)"
+        },
+        "accessHash": {
+          "value": "BigInt(-6554213848121279973)"
+        },
+        "date": 1775919209,
+        "adminId": {
+          "value": "BigInt(338781882)"
+        },
+        "participantId": {
+          "value": "BigInt(6340886702)"
+        },
+        "protocol": {
+          "_class": "PhoneCallProtocol",
+          "_cid": "0xfc878fc8",
+          "className": "PhoneCallProtocol",
+          "originalArgs": {
+            "flags": 3,
+            "udpP2p": true,
+            "udpReflector": true,
+            "minLayer": 65,
+            "maxLayer": 92,
+            "libraryVersions": [
+              "5.0.0"
+            ]
+          },
+          "flags": 3,
+          "udpP2p": true,
+          "udpReflector": true,
+          "minLayer": 65,
+          "maxLayer": 92,
+          "libraryVersions": [
+            "5.0.0"
+          ]
+        },
+        "receiveDate": 1775919209,
+        "conferenceCall": null
+      },
+      "flags": 1,
+      "video": false,
+      "id": {
+        "value": "BigInt(1455057105073228126)"
+      },
+      "accessHash": {
+        "value": "BigInt(-6554213848121279973)"
+      },
+      "date": 1775919209,
+      "adminId": {
+        "value": "BigInt(338781882)"
+      },
+      "participantId": {
+        "value": "BigInt(6340886702)"
+      },
+      "protocol": {
+        "_class": "PhoneCallProtocol",
+        "_cid": "0xfc878fc8",
+        "className": "PhoneCallProtocol",
+        "originalArgs": {
+          "flags": 3,
+          "udpP2p": true,
+          "udpReflector": true,
+          "minLayer": 65,
+          "maxLayer": 92,
+          "libraryVersions": [
+            "5.0.0"
+          ]
+        },
+        "flags": 3,
+        "udpP2p": true,
+        "udpReflector": true,
+        "minLayer": 65,
+        "maxLayer": 92,
+        "libraryVersions": [
+          "5.0.0"
+        ]
+      },
+      "receiveDate": 1775919209,
+      "conferenceCall": null
+    }
+  },
+  "phoneCall": {
+    "_class": "PhoneCallWaiting",
+    "_cid": "0xeed42858",
+    "className": "PhoneCallWaiting",
+    "originalArgs": {
+      "flags": 1,
+      "video": false,
+      "id": {
+        "value": "BigInt(1455057105073228126)"
+      },
+      "accessHash": {
+        "value": "BigInt(-6554213848121279973)"
+      },
+      "date": 1775919209,
+      "adminId": {
+        "value": "BigInt(338781882)"
+      },
+      "participantId": {
+        "value": "BigInt(6340886702)"
+      },
+      "protocol": {
+        "_class": "PhoneCallProtocol",
+        "_cid": "0xfc878fc8",
+        "className": "PhoneCallProtocol",
+        "originalArgs": {
+          "flags": 3,
+          "udpP2p": true,
+          "udpReflector": true,
+          "minLayer": 65,
+          "maxLayer": 92,
+          "libraryVersions": [
+            "5.0.0"
+          ]
+        },
+        "flags": 3,
+        "udpP2p": true,
+        "udpReflector": true,
+        "minLayer": 65,
+        "maxLayer": 92,
+        "libraryVersions": [
+          "5.0.0"
+        ]
+      },
+      "receiveDate": 1775919209,
+      "conferenceCall": null
+    },
+    "flags": 1,
+    "video": false,
+    "id": {
+      "value": "BigInt(1455057105073228126)"
+    },
+    "accessHash": {
+      "value": "BigInt(-6554213848121279973)"
+    },
+    "date": 1775919209,
+    "adminId": {
+      "value": "BigInt(338781882)"
+    },
+    "participantId": {
+      "value": "BigInt(6340886702)"
+    },
+    "protocol": {
+      "_class": "PhoneCallProtocol",
+      "_cid": "0xfc878fc8",
+      "className": "PhoneCallProtocol",
+      "originalArgs": {
+        "flags": 3,
+        "udpP2p": true,
+        "udpReflector": true,
+        "minLayer": 65,
+        "maxLayer": 92,
+        "libraryVersions": [
+          "5.0.0"
+        ]
+      },
+      "flags": 3,
+      "udpP2p": true,
+      "udpReflector": true,
+      "minLayer": 65,
+      "maxLayer": 92,
+      "libraryVersions": [
+        "5.0.0"
+      ]
+    },
+    "receiveDate": 1775919209,
+    "conferenceCall": null
+  }
+}

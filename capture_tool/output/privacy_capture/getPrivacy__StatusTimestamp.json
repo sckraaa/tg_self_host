@@ -1,0 +1,32 @@
+{
+  "method": "account.getPrivacy",
+  "key": "InputPrivacyKeyStatusTimestamp",
+  "capturedAt": "2026-04-11T11:06:02.043Z",
+  "response": {
+    "__className": "account.PrivacyRules",
+    "__constructorId": 1352683077,
+    "className": "account.PrivacyRules",
+    "originalArgs": {
+      "rules": [
+        {
+          "__className": "PrivacyValueDisallowAll",
+          "__constructorId": 2339628899,
+          "className": "PrivacyValueDisallowAll",
+          "originalArgs": {}
+        }
+      ],
+      "chats": [],
+      "users": []
+    },
+    "rules": [
+      {
+        "__className": "PrivacyValueDisallowAll",
+        "__constructorId": 2339628899,
+        "className": "PrivacyValueDisallowAll",
+        "originalArgs": {}
+      }
+    ],
+    "chats": [],
+    "users": []
+  }
+}

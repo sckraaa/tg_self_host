@@ -1,0 +1,11 @@
+{
+  "method": "contacts.getStatuses",
+  "capturedAt": "2026-04-10T16:16:15.907Z",
+  "request": {
+    "__className": "contacts.GetStatuses",
+    "__constructorId": 3299038190,
+    "className": "contacts.GetStatuses",
+    "originalArgs": {}
+  },
+  "response": []
+}

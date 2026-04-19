@@ -1,0 +1,104 @@
+{
+  "method": "messages.toggleDialogPin__pin",
+  "capturedAt": "2026-04-10T16:16:29.083Z",
+  "request": {
+    "__className": "messages.ToggleDialogPin",
+    "__constructorId": 2805064279,
+    "className": "messages.ToggleDialogPin",
+    "originalArgs": {
+      "pinned": true,
+      "peer": {
+        "__className": "InputDialogPeer",
+        "__constructorId": 4239064759,
+        "className": "InputDialogPeer",
+        "originalArgs": {
+          "peer": {
+            "__className": "InputPeerUser",
+            "__constructorId": 3723011404,
+            "className": "InputPeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "338781882"
+              },
+              "accessHash": {
+                "value": "5980716527335755090"
+              }
+            },
+            "userId": {
+              "value": "338781882"
+            },
+            "accessHash": {
+              "value": "5980716527335755090"
+            }
+          }
+        },
+        "peer": {
+          "__className": "InputPeerUser",
+          "__constructorId": 3723011404,
+          "className": "InputPeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "338781882"
+            },
+            "accessHash": {
+              "value": "5980716527335755090"
+            }
+          },
+          "userId": {
+            "value": "338781882"
+          },
+          "accessHash": {
+            "value": "5980716527335755090"
+          }
+        }
+      }
+    },
+    "pinned": true,
+    "peer": {
+      "__className": "InputDialogPeer",
+      "__constructorId": 4239064759,
+      "className": "InputDialogPeer",
+      "originalArgs": {
+        "peer": {
+          "__className": "InputPeerUser",
+          "__constructorId": 3723011404,
+          "className": "InputPeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "338781882"
+            },
+            "accessHash": {
+              "value": "5980716527335755090"
+            }
+          },
+          "userId": {
+            "value": "338781882"
+          },
+          "accessHash": {
+            "value": "5980716527335755090"
+          }
+        }
+      },
+      "peer": {
+        "__className": "InputPeerUser",
+        "__constructorId": 3723011404,
+        "className": "InputPeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "338781882"
+          },
+          "accessHash": {
+            "value": "5980716527335755090"
+          }
+        },
+        "userId": {
+          "value": "338781882"
+        },
+        "accessHash": {
+          "value": "5980716527335755090"
+        }
+      }
+    }
+  },
+  "response": true
+}

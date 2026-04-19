@@ -1,0 +1,48 @@
+{
+  "method": "payments.getSavedStarGifts",
+  "capturedAt": "2026-04-10T16:16:21.512Z",
+  "request": {
+    "__className": "payments.GetSavedStarGifts",
+    "__constructorId": 595791337,
+    "className": "payments.GetSavedStarGifts",
+    "originalArgs": {
+      "peer": {
+        "__className": "InputPeerSelf",
+        "__constructorId": 2107670217,
+        "className": "InputPeerSelf",
+        "originalArgs": {}
+      },
+      "offset": "",
+      "limit": 20
+    },
+    "peer": {
+      "__className": "InputPeerSelf",
+      "__constructorId": 2107670217,
+      "className": "InputPeerSelf",
+      "originalArgs": {}
+    },
+    "offset": "",
+    "limit": 20
+  },
+  "response": {
+    "__className": "payments.SavedStarGifts",
+    "__constructorId": 2515765681,
+    "className": "payments.SavedStarGifts",
+    "originalArgs": {
+      "flags": 0,
+      "count": 0,
+      "chatNotificationsEnabled": null,
+      "gifts": [],
+      "nextOffset": null,
+      "chats": [],
+      "users": []
+    },
+    "flags": 0,
+    "count": 0,
+    "chatNotificationsEnabled": null,
+    "gifts": [],
+    "nextOffset": null,
+    "chats": [],
+    "users": []
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "method": "messages.setTyping__user",
+  "capturedAt": "2026-04-10T16:16:28.944Z",
+  "request": {
+    "__className": "messages.SetTyping",
+    "__constructorId": 1486110434,
+    "className": "messages.SetTyping",
+    "originalArgs": {
+      "peer": {
+        "__className": "InputPeerUser",
+        "__constructorId": 3723011404,
+        "className": "InputPeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "338781882"
+          },
+          "accessHash": {
+            "value": "5980716527335755090"
+          }
+        },
+        "userId": {
+          "value": "338781882"
+        },
+        "accessHash": {
+          "value": "5980716527335755090"
+        }
+      },
+      "action": {
+        "__className": "SendMessageTypingAction",
+        "__constructorId": 381645902,
+        "className": "SendMessageTypingAction",
+        "originalArgs": {}
+      }
+    },
+    "peer": {
+      "__className": "InputPeerUser",
+      "__constructorId": 3723011404,
+      "className": "InputPeerUser",
+      "originalArgs": {
+        "userId": {
+          "value": "338781882"
+        },
+        "accessHash": {
+          "value": "5980716527335755090"
+        }
+      },
+      "userId": {
+        "value": "338781882"
+      },
+      "accessHash": {
+        "value": "5980716527335755090"
+      }
+    },
+    "action": {
+      "__className": "SendMessageTypingAction",
+      "__constructorId": 381645902,
+      "className": "SendMessageTypingAction",
+      "originalArgs": {}
+    }
+  },
+  "response": true
+}

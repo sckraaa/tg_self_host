@@ -1,0 +1,30 @@
+{
+  "method": "messages.deleteMessages__user",
+  "capturedAt": "2026-04-10T16:15:56.250Z",
+  "request": {
+    "__className": "messages.DeleteMessages",
+    "__constructorId": 3851326930,
+    "className": "messages.DeleteMessages",
+    "originalArgs": {
+      "id": [
+        1450
+      ],
+      "revoke": true
+    },
+    "revoke": true,
+    "id": [
+      1450
+    ]
+  },
+  "response": {
+    "__className": "messages.AffectedMessages",
+    "__constructorId": 2228326789,
+    "className": "messages.AffectedMessages",
+    "originalArgs": {
+      "pts": 3531,
+      "ptsCount": 1
+    },
+    "pts": 3531,
+    "ptsCount": 1
+  }
+}

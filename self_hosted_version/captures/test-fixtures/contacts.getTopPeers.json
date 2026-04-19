@@ -1,0 +1,866 @@
+{
+  "method": "contacts.getTopPeers",
+  "capturedAt": "2026-04-10T16:16:15.769Z",
+  "request": {
+    "__className": "contacts.GetTopPeers",
+    "__constructorId": 2536798390,
+    "className": "contacts.GetTopPeers",
+    "originalArgs": {
+      "correspondents": true,
+      "offset": 0,
+      "limit": 10,
+      "hash": "0"
+    },
+    "correspondents": true,
+    "offset": 0,
+    "limit": 10,
+    "hash": "0"
+  },
+  "response": {
+    "__className": "contacts.TopPeers",
+    "__constructorId": 1891070632,
+    "className": "contacts.TopPeers",
+    "originalArgs": {
+      "categories": [
+        {
+          "__className": "TopPeerCategoryPeers",
+          "__constructorId": 4219683473,
+          "className": "TopPeerCategoryPeers",
+          "originalArgs": {
+            "category": {
+              "__className": "TopPeerCategoryCorrespondents",
+              "__constructorId": 104314861,
+              "className": "TopPeerCategoryCorrespondents",
+              "originalArgs": {}
+            },
+            "count": 2,
+            "peers": [
+              {
+                "__className": "TopPeer",
+                "__constructorId": 3989684315,
+                "className": "TopPeer",
+                "originalArgs": {
+                  "peer": {
+                    "__className": "PeerUser",
+                    "__constructorId": 1498486562,
+                    "className": "PeerUser",
+                    "originalArgs": {
+                      "userId": {
+                        "value": "338781882"
+                      }
+                    },
+                    "userId": {
+                      "value": "338781882"
+                    }
+                  },
+                  "rating": 30.399988174438477
+                },
+                "peer": {
+                  "__className": "PeerUser",
+                  "__constructorId": 1498486562,
+                  "className": "PeerUser",
+                  "originalArgs": {
+                    "userId": {
+                      "value": "338781882"
+                    }
+                  },
+                  "userId": {
+                    "value": "338781882"
+                  }
+                },
+                "rating": 30.399988174438477
+              },
+              {
+                "__className": "TopPeer",
+                "__constructorId": 3989684315,
+                "className": "TopPeer",
+                "originalArgs": {
+                  "peer": {
+                    "__className": "PeerUser",
+                    "__constructorId": 1498486562,
+                    "className": "PeerUser",
+                    "originalArgs": {
+                      "userId": {
+                        "value": "6340886702"
+                      }
+                    },
+                    "userId": {
+                      "value": "6340886702"
+                    }
+                  },
+                  "rating": 5.801564693450928
+                },
+                "peer": {
+                  "__className": "PeerUser",
+                  "__constructorId": 1498486562,
+                  "className": "PeerUser",
+                  "originalArgs": {
+                    "userId": {
+                      "value": "6340886702"
+                    }
+                  },
+                  "userId": {
+                    "value": "6340886702"
+                  }
+                },
+                "rating": 5.801564693450928
+              }
+            ]
+          },
+          "category": {
+            "__className": "TopPeerCategoryCorrespondents",
+            "__constructorId": 104314861,
+            "className": "TopPeerCategoryCorrespondents",
+            "originalArgs": {}
+          },
+          "count": 2,
+          "peers": [
+            {
+              "__className": "TopPeer",
+              "__constructorId": 3989684315,
+              "className": "TopPeer",
+              "originalArgs": {
+                "peer": {
+                  "__className": "PeerUser",
+                  "__constructorId": 1498486562,
+                  "className": "PeerUser",
+                  "originalArgs": {
+                    "userId": {
+                      "value": "338781882"
+                    }
+                  },
+                  "userId": {
+                    "value": "338781882"
+                  }
+                },
+                "rating": 30.399988174438477
+              },
+              "peer": {
+                "__className": "PeerUser",
+                "__constructorId": 1498486562,
+                "className": "PeerUser",
+                "originalArgs": {
+                  "userId": {
+                    "value": "338781882"
+                  }
+                },
+                "userId": {
+                  "value": "338781882"
+                }
+              },
+              "rating": 30.399988174438477
+            },
+            {
+              "__className": "TopPeer",
+              "__constructorId": 3989684315,
+              "className": "TopPeer",
+              "originalArgs": {
+                "peer": {
+                  "__className": "PeerUser",
+                  "__constructorId": 1498486562,
+                  "className": "PeerUser",
+                  "originalArgs": {
+                    "userId": {
+                      "value": "6340886702"
+                    }
+                  },
+                  "userId": {
+                    "value": "6340886702"
+                  }
+                },
+                "rating": 5.801564693450928
+              },
+              "peer": {
+                "__className": "PeerUser",
+                "__constructorId": 1498486562,
+                "className": "PeerUser",
+                "originalArgs": {
+                  "userId": {
+                    "value": "6340886702"
+                  }
+                },
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "rating": 5.801564693450928
+            }
+          ]
+        }
+      ],
+      "chats": [],
+      "users": [
+        {
+          "__className": "User",
+          "__constructorId": 1262928766,
+          "className": "User",
+          "originalArgs": {
+            "flags": 33554507,
+            "self": false,
+            "contact": false,
+            "mutualContact": false,
+            "deleted": false,
+            "bot": false,
+            "botChatHistory": false,
+            "botNochats": false,
+            "verified": false,
+            "restricted": false,
+            "min": false,
+            "botInlineGeo": false,
+            "support": false,
+            "scam": false,
+            "applyMinPhoto": true,
+            "fake": false,
+            "botAttachMenu": false,
+            "premium": false,
+            "attachMenuEnabled": false,
+            "flags2": 16,
+            "botCanEdit": false,
+            "closeFriend": false,
+            "storiesHidden": false,
+            "storiesUnavailable": true,
+            "contactRequirePremium": false,
+            "botBusiness": false,
+            "botHasMainApp": false,
+            "id": {
+              "value": "338781882"
+            },
+            "accessHash": {
+              "value": "5980716527335755090"
+            },
+            "firstName": "ㅤ",
+            "lastName": null,
+            "username": "sckr_a",
+            "phone": null,
+            "photo": null,
+            "status": {
+              "__className": "UserStatusRecently",
+              "__constructorId": 2065268168,
+              "className": "UserStatusRecently",
+              "originalArgs": {
+                "flags": 0,
+                "byMe": false
+              },
+              "flags": 0,
+              "byMe": false
+            },
+            "botInfoVersion": null,
+            "restrictionReason": null,
+            "botInlinePlaceholder": null,
+            "langCode": null,
+            "emojiStatus": null,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "botActiveUsers": null,
+            "botVerificationIcon": null
+          },
+          "flags": 33554507,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "338781882"
+          },
+          "accessHash": {
+            "value": "5980716527335755090"
+          },
+          "firstName": "ㅤ",
+          "lastName": null,
+          "username": "sckr_a",
+          "phone": null,
+          "photo": null,
+          "status": {
+            "__className": "UserStatusRecently",
+            "__constructorId": 2065268168,
+            "className": "UserStatusRecently",
+            "originalArgs": {
+              "flags": 0,
+              "byMe": false
+            },
+            "flags": 0,
+            "byMe": false
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        {
+          "__className": "User",
+          "__constructorId": 1262928766,
+          "className": "User",
+          "originalArgs": {
+            "flags": 33555547,
+            "self": true,
+            "contact": false,
+            "mutualContact": false,
+            "deleted": false,
+            "bot": false,
+            "botChatHistory": false,
+            "botNochats": false,
+            "verified": false,
+            "restricted": false,
+            "min": false,
+            "botInlineGeo": false,
+            "support": false,
+            "scam": false,
+            "applyMinPhoto": true,
+            "fake": false,
+            "botAttachMenu": false,
+            "premium": false,
+            "attachMenuEnabled": false,
+            "flags2": 16,
+            "botCanEdit": false,
+            "closeFriend": false,
+            "storiesHidden": false,
+            "storiesUnavailable": true,
+            "contactRequirePremium": false,
+            "botBusiness": false,
+            "botHasMainApp": false,
+            "id": {
+              "value": "6340886702"
+            },
+            "accessHash": {
+              "value": "-2827396686645499657"
+            },
+            "firstName": "🤷",
+            "lastName": null,
+            "username": "user28738229",
+            "phone": "17799037329",
+            "photo": null,
+            "status": {
+              "__className": "UserStatusOnline",
+              "__constructorId": 3988339017,
+              "className": "UserStatusOnline",
+              "originalArgs": {
+                "expires": 1775838054
+              },
+              "expires": 1775838054
+            },
+            "botInfoVersion": null,
+            "restrictionReason": null,
+            "botInlinePlaceholder": null,
+            "langCode": null,
+            "emojiStatus": null,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "botActiveUsers": null,
+            "botVerificationIcon": null
+          },
+          "flags": 33555547,
+          "self": true,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "6340886702"
+          },
+          "accessHash": {
+            "value": "-2827396686645499657"
+          },
+          "firstName": "🤷",
+          "lastName": null,
+          "username": "user28738229",
+          "phone": "17799037329",
+          "photo": null,
+          "status": {
+            "__className": "UserStatusOnline",
+            "__constructorId": 3988339017,
+            "className": "UserStatusOnline",
+            "originalArgs": {
+              "expires": 1775838054
+            },
+            "expires": 1775838054
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        }
+      ]
+    },
+    "categories": [
+      {
+        "__className": "TopPeerCategoryPeers",
+        "__constructorId": 4219683473,
+        "className": "TopPeerCategoryPeers",
+        "originalArgs": {
+          "category": {
+            "__className": "TopPeerCategoryCorrespondents",
+            "__constructorId": 104314861,
+            "className": "TopPeerCategoryCorrespondents",
+            "originalArgs": {}
+          },
+          "count": 2,
+          "peers": [
+            {
+              "__className": "TopPeer",
+              "__constructorId": 3989684315,
+              "className": "TopPeer",
+              "originalArgs": {
+                "peer": {
+                  "__className": "PeerUser",
+                  "__constructorId": 1498486562,
+                  "className": "PeerUser",
+                  "originalArgs": {
+                    "userId": {
+                      "value": "338781882"
+                    }
+                  },
+                  "userId": {
+                    "value": "338781882"
+                  }
+                },
+                "rating": 30.399988174438477
+              },
+              "peer": {
+                "__className": "PeerUser",
+                "__constructorId": 1498486562,
+                "className": "PeerUser",
+                "originalArgs": {
+                  "userId": {
+                    "value": "338781882"
+                  }
+                },
+                "userId": {
+                  "value": "338781882"
+                }
+              },
+              "rating": 30.399988174438477
+            },
+            {
+              "__className": "TopPeer",
+              "__constructorId": 3989684315,
+              "className": "TopPeer",
+              "originalArgs": {
+                "peer": {
+                  "__className": "PeerUser",
+                  "__constructorId": 1498486562,
+                  "className": "PeerUser",
+                  "originalArgs": {
+                    "userId": {
+                      "value": "6340886702"
+                    }
+                  },
+                  "userId": {
+                    "value": "6340886702"
+                  }
+                },
+                "rating": 5.801564693450928
+              },
+              "peer": {
+                "__className": "PeerUser",
+                "__constructorId": 1498486562,
+                "className": "PeerUser",
+                "originalArgs": {
+                  "userId": {
+                    "value": "6340886702"
+                  }
+                },
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "rating": 5.801564693450928
+            }
+          ]
+        },
+        "category": {
+          "__className": "TopPeerCategoryCorrespondents",
+          "__constructorId": 104314861,
+          "className": "TopPeerCategoryCorrespondents",
+          "originalArgs": {}
+        },
+        "count": 2,
+        "peers": [
+          {
+            "__className": "TopPeer",
+            "__constructorId": 3989684315,
+            "className": "TopPeer",
+            "originalArgs": {
+              "peer": {
+                "__className": "PeerUser",
+                "__constructorId": 1498486562,
+                "className": "PeerUser",
+                "originalArgs": {
+                  "userId": {
+                    "value": "338781882"
+                  }
+                },
+                "userId": {
+                  "value": "338781882"
+                }
+              },
+              "rating": 30.399988174438477
+            },
+            "peer": {
+              "__className": "PeerUser",
+              "__constructorId": 1498486562,
+              "className": "PeerUser",
+              "originalArgs": {
+                "userId": {
+                  "value": "338781882"
+                }
+              },
+              "userId": {
+                "value": "338781882"
+              }
+            },
+            "rating": 30.399988174438477
+          },
+          {
+            "__className": "TopPeer",
+            "__constructorId": 3989684315,
+            "className": "TopPeer",
+            "originalArgs": {
+              "peer": {
+                "__className": "PeerUser",
+                "__constructorId": 1498486562,
+                "className": "PeerUser",
+                "originalArgs": {
+                  "userId": {
+                    "value": "6340886702"
+                  }
+                },
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "rating": 5.801564693450928
+            },
+            "peer": {
+              "__className": "PeerUser",
+              "__constructorId": 1498486562,
+              "className": "PeerUser",
+              "originalArgs": {
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "rating": 5.801564693450928
+          }
+        ]
+      }
+    ],
+    "chats": [],
+    "users": [
+      {
+        "__className": "User",
+        "__constructorId": 1262928766,
+        "className": "User",
+        "originalArgs": {
+          "flags": 33554507,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "338781882"
+          },
+          "accessHash": {
+            "value": "5980716527335755090"
+          },
+          "firstName": "ㅤ",
+          "lastName": null,
+          "username": "sckr_a",
+          "phone": null,
+          "photo": null,
+          "status": {
+            "__className": "UserStatusRecently",
+            "__constructorId": 2065268168,
+            "className": "UserStatusRecently",
+            "originalArgs": {
+              "flags": 0,
+              "byMe": false
+            },
+            "flags": 0,
+            "byMe": false
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 33554507,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "338781882"
+        },
+        "accessHash": {
+          "value": "5980716527335755090"
+        },
+        "firstName": "ㅤ",
+        "lastName": null,
+        "username": "sckr_a",
+        "phone": null,
+        "photo": null,
+        "status": {
+          "__className": "UserStatusRecently",
+          "__constructorId": 2065268168,
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 0,
+            "byMe": false
+          },
+          "flags": 0,
+          "byMe": false
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      {
+        "__className": "User",
+        "__constructorId": 1262928766,
+        "className": "User",
+        "originalArgs": {
+          "flags": 33555547,
+          "self": true,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "6340886702"
+          },
+          "accessHash": {
+            "value": "-2827396686645499657"
+          },
+          "firstName": "🤷",
+          "lastName": null,
+          "username": "user28738229",
+          "phone": "17799037329",
+          "photo": null,
+          "status": {
+            "__className": "UserStatusOnline",
+            "__constructorId": 3988339017,
+            "className": "UserStatusOnline",
+            "originalArgs": {
+              "expires": 1775838054
+            },
+            "expires": 1775838054
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 33555547,
+        "self": true,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "6340886702"
+        },
+        "accessHash": {
+          "value": "-2827396686645499657"
+        },
+        "firstName": "🤷",
+        "lastName": null,
+        "username": "user28738229",
+        "phone": "17799037329",
+        "photo": null,
+        "status": {
+          "__className": "UserStatusOnline",
+          "__constructorId": 3988339017,
+          "className": "UserStatusOnline",
+          "originalArgs": {
+            "expires": 1775838054
+          },
+          "expires": 1775838054
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      }
+    ]
+  }
+}

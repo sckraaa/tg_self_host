@@ -1,0 +1,522 @@
+{
+  "method": "channels.getParticipants",
+  "capturedAt": "2026-04-10T16:16:07.277Z",
+  "request": {
+    "__className": "channels.GetParticipants",
+    "__constructorId": 2010044880,
+    "className": "channels.GetParticipants",
+    "originalArgs": {
+      "channel": {
+        "__className": "InputChannel",
+        "__constructorId": 4082822184,
+        "className": "InputChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "3979575518"
+          },
+          "accessHash": {
+            "value": "-8800464977273858649"
+          }
+        },
+        "channelId": {
+          "value": "3979575518"
+        },
+        "accessHash": {
+          "value": "-8800464977273858649"
+        }
+      },
+      "filter": {
+        "__className": "ChannelParticipantsRecent",
+        "__constructorId": 3728686201,
+        "className": "ChannelParticipantsRecent",
+        "originalArgs": {}
+      },
+      "offset": 0,
+      "limit": 100,
+      "hash": "0"
+    },
+    "channel": {
+      "__className": "InputChannel",
+      "__constructorId": 4082822184,
+      "className": "InputChannel",
+      "originalArgs": {
+        "channelId": {
+          "value": "3979575518"
+        },
+        "accessHash": {
+          "value": "-8800464977273858649"
+        }
+      },
+      "channelId": {
+        "value": "3979575518"
+      },
+      "accessHash": {
+        "value": "-8800464977273858649"
+      }
+    },
+    "filter": {
+      "__className": "ChannelParticipantsRecent",
+      "__constructorId": 3728686201,
+      "className": "ChannelParticipantsRecent",
+      "originalArgs": {}
+    },
+    "offset": 0,
+    "limit": 100,
+    "hash": "0"
+  },
+  "response": {
+    "__className": "channels.ChannelParticipants",
+    "__constructorId": 2595290799,
+    "className": "channels.ChannelParticipants",
+    "originalArgs": {
+      "count": 1,
+      "participants": [
+        {
+          "__className": "ChannelParticipantCreator",
+          "__constructorId": 803602899,
+          "className": "ChannelParticipantCreator",
+          "originalArgs": {
+            "flags": 0,
+            "userId": {
+              "value": "6340886702"
+            },
+            "adminRights": {
+              "__className": "ChatAdminRights",
+              "__constructorId": 1605510357,
+              "className": "ChatAdminRights",
+              "originalArgs": {
+                "flags": 129727,
+                "changeInfo": true,
+                "postMessages": true,
+                "editMessages": true,
+                "deleteMessages": true,
+                "banUsers": true,
+                "inviteUsers": true,
+                "pinMessages": true,
+                "addAdmins": true,
+                "anonymous": false,
+                "manageCall": true,
+                "other": true,
+                "manageTopics": true,
+                "postStories": true,
+                "editStories": true,
+                "deleteStories": true
+              },
+              "flags": 129727,
+              "changeInfo": true,
+              "postMessages": true,
+              "editMessages": true,
+              "deleteMessages": true,
+              "banUsers": true,
+              "inviteUsers": true,
+              "pinMessages": true,
+              "addAdmins": true,
+              "anonymous": false,
+              "manageCall": true,
+              "other": true,
+              "manageTopics": true,
+              "postStories": true,
+              "editStories": true,
+              "deleteStories": true
+            },
+            "rank": null
+          },
+          "flags": 0,
+          "userId": {
+            "value": "6340886702"
+          },
+          "adminRights": {
+            "__className": "ChatAdminRights",
+            "__constructorId": 1605510357,
+            "className": "ChatAdminRights",
+            "originalArgs": {
+              "flags": 129727,
+              "changeInfo": true,
+              "postMessages": true,
+              "editMessages": true,
+              "deleteMessages": true,
+              "banUsers": true,
+              "inviteUsers": true,
+              "pinMessages": true,
+              "addAdmins": true,
+              "anonymous": false,
+              "manageCall": true,
+              "other": true,
+              "manageTopics": true,
+              "postStories": true,
+              "editStories": true,
+              "deleteStories": true
+            },
+            "flags": 129727,
+            "changeInfo": true,
+            "postMessages": true,
+            "editMessages": true,
+            "deleteMessages": true,
+            "banUsers": true,
+            "inviteUsers": true,
+            "pinMessages": true,
+            "addAdmins": true,
+            "anonymous": false,
+            "manageCall": true,
+            "other": true,
+            "manageTopics": true,
+            "postStories": true,
+            "editStories": true,
+            "deleteStories": true
+          },
+          "rank": null
+        }
+      ],
+      "chats": [],
+      "users": [
+        {
+          "__className": "User",
+          "__constructorId": 1262928766,
+          "className": "User",
+          "originalArgs": {
+            "flags": 33555547,
+            "self": true,
+            "contact": false,
+            "mutualContact": false,
+            "deleted": false,
+            "bot": false,
+            "botChatHistory": false,
+            "botNochats": false,
+            "verified": false,
+            "restricted": false,
+            "min": false,
+            "botInlineGeo": false,
+            "support": false,
+            "scam": false,
+            "applyMinPhoto": true,
+            "fake": false,
+            "botAttachMenu": false,
+            "premium": false,
+            "attachMenuEnabled": false,
+            "flags2": 16,
+            "botCanEdit": false,
+            "closeFriend": false,
+            "storiesHidden": false,
+            "storiesUnavailable": true,
+            "contactRequirePremium": false,
+            "botBusiness": false,
+            "botHasMainApp": false,
+            "id": {
+              "value": "6340886702"
+            },
+            "accessHash": {
+              "value": "-2827396686645499657"
+            },
+            "firstName": "🤷",
+            "lastName": null,
+            "username": "user28738229",
+            "phone": "17799037329",
+            "photo": null,
+            "status": {
+              "__className": "UserStatusOnline",
+              "__constructorId": 3988339017,
+              "className": "UserStatusOnline",
+              "originalArgs": {
+                "expires": 1775838054
+              },
+              "expires": 1775838054
+            },
+            "botInfoVersion": null,
+            "restrictionReason": null,
+            "botInlinePlaceholder": null,
+            "langCode": null,
+            "emojiStatus": null,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "botActiveUsers": null,
+            "botVerificationIcon": null
+          },
+          "flags": 33555547,
+          "self": true,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "6340886702"
+          },
+          "accessHash": {
+            "value": "-2827396686645499657"
+          },
+          "firstName": "🤷",
+          "lastName": null,
+          "username": "user28738229",
+          "phone": "17799037329",
+          "photo": null,
+          "status": {
+            "__className": "UserStatusOnline",
+            "__constructorId": 3988339017,
+            "className": "UserStatusOnline",
+            "originalArgs": {
+              "expires": 1775838054
+            },
+            "expires": 1775838054
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        }
+      ]
+    },
+    "count": 1,
+    "participants": [
+      {
+        "__className": "ChannelParticipantCreator",
+        "__constructorId": 803602899,
+        "className": "ChannelParticipantCreator",
+        "originalArgs": {
+          "flags": 0,
+          "userId": {
+            "value": "6340886702"
+          },
+          "adminRights": {
+            "__className": "ChatAdminRights",
+            "__constructorId": 1605510357,
+            "className": "ChatAdminRights",
+            "originalArgs": {
+              "flags": 129727,
+              "changeInfo": true,
+              "postMessages": true,
+              "editMessages": true,
+              "deleteMessages": true,
+              "banUsers": true,
+              "inviteUsers": true,
+              "pinMessages": true,
+              "addAdmins": true,
+              "anonymous": false,
+              "manageCall": true,
+              "other": true,
+              "manageTopics": true,
+              "postStories": true,
+              "editStories": true,
+              "deleteStories": true
+            },
+            "flags": 129727,
+            "changeInfo": true,
+            "postMessages": true,
+            "editMessages": true,
+            "deleteMessages": true,
+            "banUsers": true,
+            "inviteUsers": true,
+            "pinMessages": true,
+            "addAdmins": true,
+            "anonymous": false,
+            "manageCall": true,
+            "other": true,
+            "manageTopics": true,
+            "postStories": true,
+            "editStories": true,
+            "deleteStories": true
+          },
+          "rank": null
+        },
+        "flags": 0,
+        "userId": {
+          "value": "6340886702"
+        },
+        "adminRights": {
+          "__className": "ChatAdminRights",
+          "__constructorId": 1605510357,
+          "className": "ChatAdminRights",
+          "originalArgs": {
+            "flags": 129727,
+            "changeInfo": true,
+            "postMessages": true,
+            "editMessages": true,
+            "deleteMessages": true,
+            "banUsers": true,
+            "inviteUsers": true,
+            "pinMessages": true,
+            "addAdmins": true,
+            "anonymous": false,
+            "manageCall": true,
+            "other": true,
+            "manageTopics": true,
+            "postStories": true,
+            "editStories": true,
+            "deleteStories": true
+          },
+          "flags": 129727,
+          "changeInfo": true,
+          "postMessages": true,
+          "editMessages": true,
+          "deleteMessages": true,
+          "banUsers": true,
+          "inviteUsers": true,
+          "pinMessages": true,
+          "addAdmins": true,
+          "anonymous": false,
+          "manageCall": true,
+          "other": true,
+          "manageTopics": true,
+          "postStories": true,
+          "editStories": true,
+          "deleteStories": true
+        },
+        "rank": null
+      }
+    ],
+    "chats": [],
+    "users": [
+      {
+        "__className": "User",
+        "__constructorId": 1262928766,
+        "className": "User",
+        "originalArgs": {
+          "flags": 33555547,
+          "self": true,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "6340886702"
+          },
+          "accessHash": {
+            "value": "-2827396686645499657"
+          },
+          "firstName": "🤷",
+          "lastName": null,
+          "username": "user28738229",
+          "phone": "17799037329",
+          "photo": null,
+          "status": {
+            "__className": "UserStatusOnline",
+            "__constructorId": 3988339017,
+            "className": "UserStatusOnline",
+            "originalArgs": {
+              "expires": 1775838054
+            },
+            "expires": 1775838054
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 33555547,
+        "self": true,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "6340886702"
+        },
+        "accessHash": {
+          "value": "-2827396686645499657"
+        },
+        "firstName": "🤷",
+        "lastName": null,
+        "username": "user28738229",
+        "phone": "17799037329",
+        "photo": null,
+        "status": {
+          "__className": "UserStatusOnline",
+          "__constructorId": 3988339017,
+          "className": "UserStatusOnline",
+          "originalArgs": {
+            "expires": 1775838054
+          },
+          "expires": 1775838054
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      }
+    ]
+  }
+}

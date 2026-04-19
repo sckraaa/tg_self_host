@@ -1,0 +1,72 @@
+{
+  "method": "account.updateNotifySettings",
+  "capturedAt": "2026-04-10T16:16:20.363Z",
+  "request": {
+    "__className": "account.UpdateNotifySettings",
+    "__constructorId": 2227067795,
+    "className": "account.UpdateNotifySettings",
+    "originalArgs": {
+      "peer": {
+        "__className": "InputNotifyPeer",
+        "__constructorId": 3099351820,
+        "className": "InputNotifyPeer",
+        "originalArgs": {
+          "peer": {
+            "__className": "InputPeerSelf",
+            "__constructorId": 2107670217,
+            "className": "InputPeerSelf",
+            "originalArgs": {}
+          }
+        },
+        "peer": {
+          "__className": "InputPeerSelf",
+          "__constructorId": 2107670217,
+          "className": "InputPeerSelf",
+          "originalArgs": {}
+        }
+      },
+      "settings": {
+        "__className": "InputPeerNotifySettings",
+        "__constructorId": 3402328802,
+        "className": "InputPeerNotifySettings",
+        "originalArgs": {
+          "muteUntil": 0,
+          "showPreviews": true
+        },
+        "showPreviews": true,
+        "muteUntil": 0
+      }
+    },
+    "peer": {
+      "__className": "InputNotifyPeer",
+      "__constructorId": 3099351820,
+      "className": "InputNotifyPeer",
+      "originalArgs": {
+        "peer": {
+          "__className": "InputPeerSelf",
+          "__constructorId": 2107670217,
+          "className": "InputPeerSelf",
+          "originalArgs": {}
+        }
+      },
+      "peer": {
+        "__className": "InputPeerSelf",
+        "__constructorId": 2107670217,
+        "className": "InputPeerSelf",
+        "originalArgs": {}
+      }
+    },
+    "settings": {
+      "__className": "InputPeerNotifySettings",
+      "__constructorId": 3402328802,
+      "className": "InputPeerNotifySettings",
+      "originalArgs": {
+        "muteUntil": 0,
+        "showPreviews": true
+      },
+      "showPreviews": true,
+      "muteUntil": 0
+    }
+  },
+  "response": true
+}

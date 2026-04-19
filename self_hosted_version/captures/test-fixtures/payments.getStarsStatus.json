@@ -1,0 +1,76 @@
+{
+  "method": "payments.getStarsStatus",
+  "capturedAt": "2026-04-10T16:16:16.737Z",
+  "request": {
+    "__className": "payments.GetStarsStatus",
+    "__constructorId": 273665959,
+    "className": "payments.GetStarsStatus",
+    "originalArgs": {
+      "peer": {
+        "__className": "InputPeerSelf",
+        "__constructorId": 2107670217,
+        "className": "InputPeerSelf",
+        "originalArgs": {}
+      }
+    },
+    "peer": {
+      "__className": "InputPeerSelf",
+      "__constructorId": 2107670217,
+      "className": "InputPeerSelf",
+      "originalArgs": {}
+    }
+  },
+  "response": {
+    "__className": "payments.StarsStatus",
+    "__constructorId": 1822222573,
+    "className": "payments.StarsStatus",
+    "originalArgs": {
+      "flags": 0,
+      "balance": {
+        "__className": "StarsAmount",
+        "__constructorId": 3149313187,
+        "className": "StarsAmount",
+        "originalArgs": {
+          "amount": {
+            "value": "0"
+          },
+          "nanos": 0
+        },
+        "amount": {
+          "value": "0"
+        },
+        "nanos": 0
+      },
+      "subscriptions": null,
+      "subscriptionsNextOffset": null,
+      "subscriptionsMissingBalance": null,
+      "history": null,
+      "nextOffset": null,
+      "chats": [],
+      "users": []
+    },
+    "flags": 0,
+    "balance": {
+      "__className": "StarsAmount",
+      "__constructorId": 3149313187,
+      "className": "StarsAmount",
+      "originalArgs": {
+        "amount": {
+          "value": "0"
+        },
+        "nanos": 0
+      },
+      "amount": {
+        "value": "0"
+      },
+      "nanos": 0
+    },
+    "subscriptions": null,
+    "subscriptionsNextOffset": null,
+    "subscriptionsMissingBalance": null,
+    "history": null,
+    "nextOffset": null,
+    "chats": [],
+    "users": []
+  }
+}

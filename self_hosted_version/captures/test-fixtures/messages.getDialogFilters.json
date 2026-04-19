@@ -1,0 +1,37 @@
+{
+  "method": "messages.getDialogFilters",
+  "capturedAt": "2026-04-10T16:15:51.635Z",
+  "request": {
+    "__className": "messages.GetDialogFilters",
+    "__constructorId": 4023684233,
+    "className": "messages.GetDialogFilters",
+    "originalArgs": {}
+  },
+  "response": {
+    "__className": "messages.DialogFilters",
+    "__constructorId": 718878489,
+    "className": "messages.DialogFilters",
+    "originalArgs": {
+      "flags": 0,
+      "tagsEnabled": false,
+      "filters": [
+        {
+          "__className": "DialogFilterDefault",
+          "__constructorId": 909284270,
+          "className": "DialogFilterDefault",
+          "originalArgs": {}
+        }
+      ]
+    },
+    "flags": 0,
+    "tagsEnabled": false,
+    "filters": [
+      {
+        "__className": "DialogFilterDefault",
+        "__constructorId": 909284270,
+        "className": "DialogFilterDefault",
+        "originalArgs": {}
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "method": "account.getContentSettings",
+  "capturedAt": "2026-04-10T16:16:09.205Z",
+  "request": {
+    "__className": "account.GetContentSettings",
+    "__constructorId": 2342210990,
+    "className": "account.GetContentSettings",
+    "originalArgs": {}
+  },
+  "response": {
+    "__className": "account.ContentSettings",
+    "__constructorId": 1474462241,
+    "className": "account.ContentSettings",
+    "originalArgs": {
+      "flags": 2,
+      "sensitiveEnabled": false,
+      "sensitiveCanChange": true
+    },
+    "flags": 2,
+    "sensitiveEnabled": false,
+    "sensitiveCanChange": true
+  }
+}

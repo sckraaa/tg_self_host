@@ -1,0 +1,47 @@
+{
+  "method": "messages.getPaidReactionPrivacy",
+  "capturedAt": "2026-04-10T16:16:18.919Z",
+  "request": {
+    "__className": "messages.GetPaidReactionPrivacy",
+    "__constructorId": 1193563562,
+    "className": "messages.GetPaidReactionPrivacy",
+    "originalArgs": {}
+  },
+  "response": {
+    "__className": "Updates",
+    "__constructorId": 1957577280,
+    "className": "Updates",
+    "originalArgs": {
+      "updates": [
+        {
+          "__className": "UpdatePaidReactionPrivacy",
+          "__constructorId": 1372224236,
+          "className": "UpdatePaidReactionPrivacy",
+          "originalArgs": {
+            "private": true
+          },
+          "private": true
+        }
+      ],
+      "users": [],
+      "chats": [],
+      "date": 1775837777,
+      "seq": 0
+    },
+    "updates": [
+      {
+        "__className": "UpdatePaidReactionPrivacy",
+        "__constructorId": 1372224236,
+        "className": "UpdatePaidReactionPrivacy",
+        "originalArgs": {
+          "private": true
+        },
+        "private": true
+      }
+    ],
+    "users": [],
+    "chats": [],
+    "date": 1775837777,
+    "seq": 0
+  }
+}

@@ -1,0 +1,861 @@
+{
+  "_class": "UpdatePhoneCall",
+  "_cid": "0xab0f6b1e",
+  "className": "UpdatePhoneCall",
+  "originalArgs": {
+    "phoneCall": {
+      "_class": "PhoneCall",
+      "_cid": "0x3ba5940c",
+      "className": "PhoneCall",
+      "originalArgs": {
+        "flags": 0,
+        "p2pAllowed": false,
+        "video": false,
+        "id": {
+          "value": "BigInt(1455057103915017514)"
+        },
+        "accessHash": {
+          "value": "BigInt(-4480189481836945821)"
+        },
+        "date": 1775920082,
+        "adminId": {
+          "value": "BigInt(338781882)"
+        },
+        "participantId": {
+          "value": "BigInt(6340886702)"
+        },
+        "gAOrB": "Buffer(256)[ab1ec223f2cc66e49437bc7e09b62c4a28e129d528a495408e4ec40f3b3fa671bb64a25075fa36607771a544c544fcc9c670379e7807502c6e6b93653b60978502990ff27accac555a82cc0e28c0d3653fa72c4805ed47ec0765a73691150bde4cc609b7b6ce73966db512f42c1d566b859224a206e656cf5138203f3e04d5f0]",
+        "keyFingerprint": {
+          "value": "BigInt(-5545734393129787439)"
+        },
+        "protocol": {
+          "_class": "PhoneCallProtocol",
+          "_cid": "0xfc878fc8",
+          "className": "PhoneCallProtocol",
+          "originalArgs": {
+            "flags": 3,
+            "udpP2p": true,
+            "udpReflector": true,
+            "minLayer": 65,
+            "maxLayer": 92,
+            "libraryVersions": [
+              "5.0.0"
+            ]
+          },
+          "flags": 3,
+          "udpP2p": true,
+          "udpReflector": true,
+          "minLayer": 65,
+          "maxLayer": 92,
+          "libraryVersions": [
+            "5.0.0"
+          ]
+        },
+        "connections": [
+          {
+            "_class": "PhoneConnectionWebrtc",
+            "_cid": "0x635fe375",
+            "className": "PhoneConnectionWebrtc",
+            "originalArgs": {
+              "flags": 3,
+              "turn": true,
+              "stun": true,
+              "id": {
+                "value": "BigInt(6014488022289)"
+              },
+              "ip": "91.108.13.17",
+              "ipv6": "2001:b28:f23d:f101:1:0:111:301",
+              "port": 1400,
+              "username": "1775941729:0db764855eaeefb5db",
+              "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+            },
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488022289)"
+            },
+            "ip": "91.108.13.17",
+            "ipv6": "2001:b28:f23d:f101:1:0:111:301",
+            "port": 1400,
+            "username": "1775941729:0db764855eaeefb5db",
+            "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+          },
+          {
+            "_class": "PhoneConnectionWebrtc",
+            "_cid": "0x635fe375",
+            "className": "PhoneConnectionWebrtc",
+            "originalArgs": {
+              "flags": 3,
+              "turn": true,
+              "stun": true,
+              "id": {
+                "value": "BigInt(6014488021298)"
+              },
+              "ip": "91.108.9.50",
+              "ipv6": "2001:67c:4e8:f102:3:0:278:802",
+              "port": 1400,
+              "username": "1775941729:0db764855eaeefb5db",
+              "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+            },
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488021298)"
+            },
+            "ip": "91.108.9.50",
+            "ipv6": "2001:67c:4e8:f102:3:0:278:802",
+            "port": 1400,
+            "username": "1775941729:0db764855eaeefb5db",
+            "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+          },
+          {
+            "_class": "PhoneConnectionWebrtc",
+            "_cid": "0x635fe375",
+            "className": "PhoneConnectionWebrtc",
+            "originalArgs": {
+              "flags": 3,
+              "turn": true,
+              "stun": true,
+              "id": {
+                "value": "BigInt(6014488023317)"
+              },
+              "ip": "91.108.17.21",
+              "ipv6": "2001:b28:f23f:f105:1:0:861:905",
+              "port": 1400,
+              "username": "1775941729:0db764855eaeefb5db",
+              "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+            },
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488023317)"
+            },
+            "ip": "91.108.17.21",
+            "ipv6": "2001:b28:f23f:f105:1:0:861:905",
+            "port": 1400,
+            "username": "1775941729:0db764855eaeefb5db",
+            "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+          },
+          {
+            "_class": "PhoneConnection",
+            "_cid": "0x9cc123c7",
+            "className": "PhoneConnection",
+            "originalArgs": {
+              "flags": 0,
+              "tcp": false,
+              "id": {
+                "value": "BigInt(2561334316307)"
+              },
+              "ip": "91.108.13.19",
+              "ipv6": "2001:b28:f23d:f101:1:0:111:303",
+              "port": 596,
+              "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+            },
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2561334316307)"
+            },
+            "ip": "91.108.13.19",
+            "ipv6": "2001:b28:f23d:f101:1:0:111:303",
+            "port": 596,
+            "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+          },
+          {
+            "_class": "PhoneConnection",
+            "_cid": "0x9cc123c7",
+            "className": "PhoneConnection",
+            "originalArgs": {
+              "flags": 0,
+              "tcp": false,
+              "id": {
+                "value": "BigInt(2574219219224)"
+              },
+              "ip": "91.108.17.24",
+              "ipv6": "2001:b28:f23f:f105:1:0:861:908",
+              "port": 599,
+              "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+            },
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2574219219224)"
+            },
+            "ip": "91.108.17.24",
+            "ipv6": "2001:b28:f23f:f105:1:0:861:908",
+            "port": 599,
+            "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+          },
+          {
+            "_class": "PhoneConnection",
+            "_cid": "0x9cc123c7",
+            "className": "PhoneConnection",
+            "originalArgs": {
+              "flags": 0,
+              "tcp": false,
+              "id": {
+                "value": "BigInt(2569924249892)"
+              },
+              "ip": "91.108.9.36",
+              "ipv6": "2001:67c:4e8:f102:2:0:278:704",
+              "port": 598,
+              "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+            },
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2569924249892)"
+            },
+            "ip": "91.108.9.36",
+            "ipv6": "2001:67c:4e8:f102:2:0:278:704",
+            "port": 598,
+            "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+          }
+        ],
+        "startDate": 1775920129,
+        "customParameters": null,
+        "conferenceCall": null
+      },
+      "flags": 0,
+      "p2pAllowed": false,
+      "video": false,
+      "id": {
+        "value": "BigInt(1455057103915017514)"
+      },
+      "accessHash": {
+        "value": "BigInt(-4480189481836945821)"
+      },
+      "date": 1775920082,
+      "adminId": {
+        "value": "BigInt(338781882)"
+      },
+      "participantId": {
+        "value": "BigInt(6340886702)"
+      },
+      "gAOrB": "Buffer(256)[ab1ec223f2cc66e49437bc7e09b62c4a28e129d528a495408e4ec40f3b3fa671bb64a25075fa36607771a544c544fcc9c670379e7807502c6e6b93653b60978502990ff27accac555a82cc0e28c0d3653fa72c4805ed47ec0765a73691150bde4cc609b7b6ce73966db512f42c1d566b859224a206e656cf5138203f3e04d5f0]",
+      "keyFingerprint": {
+        "value": "BigInt(-5545734393129787439)"
+      },
+      "protocol": {
+        "_class": "PhoneCallProtocol",
+        "_cid": "0xfc878fc8",
+        "className": "PhoneCallProtocol",
+        "originalArgs": {
+          "flags": 3,
+          "udpP2p": true,
+          "udpReflector": true,
+          "minLayer": 65,
+          "maxLayer": 92,
+          "libraryVersions": [
+            "5.0.0"
+          ]
+        },
+        "flags": 3,
+        "udpP2p": true,
+        "udpReflector": true,
+        "minLayer": 65,
+        "maxLayer": 92,
+        "libraryVersions": [
+          "5.0.0"
+        ]
+      },
+      "connections": [
+        {
+          "_class": "PhoneConnectionWebrtc",
+          "_cid": "0x635fe375",
+          "className": "PhoneConnectionWebrtc",
+          "originalArgs": {
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488022289)"
+            },
+            "ip": "91.108.13.17",
+            "ipv6": "2001:b28:f23d:f101:1:0:111:301",
+            "port": 1400,
+            "username": "1775941729:0db764855eaeefb5db",
+            "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+          },
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488022289)"
+          },
+          "ip": "91.108.13.17",
+          "ipv6": "2001:b28:f23d:f101:1:0:111:301",
+          "port": 1400,
+          "username": "1775941729:0db764855eaeefb5db",
+          "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+        },
+        {
+          "_class": "PhoneConnectionWebrtc",
+          "_cid": "0x635fe375",
+          "className": "PhoneConnectionWebrtc",
+          "originalArgs": {
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488021298)"
+            },
+            "ip": "91.108.9.50",
+            "ipv6": "2001:67c:4e8:f102:3:0:278:802",
+            "port": 1400,
+            "username": "1775941729:0db764855eaeefb5db",
+            "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+          },
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488021298)"
+          },
+          "ip": "91.108.9.50",
+          "ipv6": "2001:67c:4e8:f102:3:0:278:802",
+          "port": 1400,
+          "username": "1775941729:0db764855eaeefb5db",
+          "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+        },
+        {
+          "_class": "PhoneConnectionWebrtc",
+          "_cid": "0x635fe375",
+          "className": "PhoneConnectionWebrtc",
+          "originalArgs": {
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488023317)"
+            },
+            "ip": "91.108.17.21",
+            "ipv6": "2001:b28:f23f:f105:1:0:861:905",
+            "port": 1400,
+            "username": "1775941729:0db764855eaeefb5db",
+            "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+          },
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488023317)"
+          },
+          "ip": "91.108.17.21",
+          "ipv6": "2001:b28:f23f:f105:1:0:861:905",
+          "port": 1400,
+          "username": "1775941729:0db764855eaeefb5db",
+          "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+        },
+        {
+          "_class": "PhoneConnection",
+          "_cid": "0x9cc123c7",
+          "className": "PhoneConnection",
+          "originalArgs": {
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2561334316307)"
+            },
+            "ip": "91.108.13.19",
+            "ipv6": "2001:b28:f23d:f101:1:0:111:303",
+            "port": 596,
+            "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+          },
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2561334316307)"
+          },
+          "ip": "91.108.13.19",
+          "ipv6": "2001:b28:f23d:f101:1:0:111:303",
+          "port": 596,
+          "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+        },
+        {
+          "_class": "PhoneConnection",
+          "_cid": "0x9cc123c7",
+          "className": "PhoneConnection",
+          "originalArgs": {
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2574219219224)"
+            },
+            "ip": "91.108.17.24",
+            "ipv6": "2001:b28:f23f:f105:1:0:861:908",
+            "port": 599,
+            "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+          },
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2574219219224)"
+          },
+          "ip": "91.108.17.24",
+          "ipv6": "2001:b28:f23f:f105:1:0:861:908",
+          "port": 599,
+          "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+        },
+        {
+          "_class": "PhoneConnection",
+          "_cid": "0x9cc123c7",
+          "className": "PhoneConnection",
+          "originalArgs": {
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2569924249892)"
+            },
+            "ip": "91.108.9.36",
+            "ipv6": "2001:67c:4e8:f102:2:0:278:704",
+            "port": 598,
+            "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+          },
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2569924249892)"
+          },
+          "ip": "91.108.9.36",
+          "ipv6": "2001:67c:4e8:f102:2:0:278:704",
+          "port": 598,
+          "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+        }
+      ],
+      "startDate": 1775920129,
+      "customParameters": null,
+      "conferenceCall": null
+    }
+  },
+  "phoneCall": {
+    "_class": "PhoneCall",
+    "_cid": "0x3ba5940c",
+    "className": "PhoneCall",
+    "originalArgs": {
+      "flags": 0,
+      "p2pAllowed": false,
+      "video": false,
+      "id": {
+        "value": "BigInt(1455057103915017514)"
+      },
+      "accessHash": {
+        "value": "BigInt(-4480189481836945821)"
+      },
+      "date": 1775920082,
+      "adminId": {
+        "value": "BigInt(338781882)"
+      },
+      "participantId": {
+        "value": "BigInt(6340886702)"
+      },
+      "gAOrB": "Buffer(256)[ab1ec223f2cc66e49437bc7e09b62c4a28e129d528a495408e4ec40f3b3fa671bb64a25075fa36607771a544c544fcc9c670379e7807502c6e6b93653b60978502990ff27accac555a82cc0e28c0d3653fa72c4805ed47ec0765a73691150bde4cc609b7b6ce73966db512f42c1d566b859224a206e656cf5138203f3e04d5f0]",
+      "keyFingerprint": {
+        "value": "BigInt(-5545734393129787439)"
+      },
+      "protocol": {
+        "_class": "PhoneCallProtocol",
+        "_cid": "0xfc878fc8",
+        "className": "PhoneCallProtocol",
+        "originalArgs": {
+          "flags": 3,
+          "udpP2p": true,
+          "udpReflector": true,
+          "minLayer": 65,
+          "maxLayer": 92,
+          "libraryVersions": [
+            "5.0.0"
+          ]
+        },
+        "flags": 3,
+        "udpP2p": true,
+        "udpReflector": true,
+        "minLayer": 65,
+        "maxLayer": 92,
+        "libraryVersions": [
+          "5.0.0"
+        ]
+      },
+      "connections": [
+        {
+          "_class": "PhoneConnectionWebrtc",
+          "_cid": "0x635fe375",
+          "className": "PhoneConnectionWebrtc",
+          "originalArgs": {
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488022289)"
+            },
+            "ip": "91.108.13.17",
+            "ipv6": "2001:b28:f23d:f101:1:0:111:301",
+            "port": 1400,
+            "username": "1775941729:0db764855eaeefb5db",
+            "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+          },
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488022289)"
+          },
+          "ip": "91.108.13.17",
+          "ipv6": "2001:b28:f23d:f101:1:0:111:301",
+          "port": 1400,
+          "username": "1775941729:0db764855eaeefb5db",
+          "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+        },
+        {
+          "_class": "PhoneConnectionWebrtc",
+          "_cid": "0x635fe375",
+          "className": "PhoneConnectionWebrtc",
+          "originalArgs": {
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488021298)"
+            },
+            "ip": "91.108.9.50",
+            "ipv6": "2001:67c:4e8:f102:3:0:278:802",
+            "port": 1400,
+            "username": "1775941729:0db764855eaeefb5db",
+            "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+          },
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488021298)"
+          },
+          "ip": "91.108.9.50",
+          "ipv6": "2001:67c:4e8:f102:3:0:278:802",
+          "port": 1400,
+          "username": "1775941729:0db764855eaeefb5db",
+          "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+        },
+        {
+          "_class": "PhoneConnectionWebrtc",
+          "_cid": "0x635fe375",
+          "className": "PhoneConnectionWebrtc",
+          "originalArgs": {
+            "flags": 3,
+            "turn": true,
+            "stun": true,
+            "id": {
+              "value": "BigInt(6014488023317)"
+            },
+            "ip": "91.108.17.21",
+            "ipv6": "2001:b28:f23f:f105:1:0:861:905",
+            "port": 1400,
+            "username": "1775941729:0db764855eaeefb5db",
+            "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+          },
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488023317)"
+          },
+          "ip": "91.108.17.21",
+          "ipv6": "2001:b28:f23f:f105:1:0:861:905",
+          "port": 1400,
+          "username": "1775941729:0db764855eaeefb5db",
+          "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+        },
+        {
+          "_class": "PhoneConnection",
+          "_cid": "0x9cc123c7",
+          "className": "PhoneConnection",
+          "originalArgs": {
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2561334316307)"
+            },
+            "ip": "91.108.13.19",
+            "ipv6": "2001:b28:f23d:f101:1:0:111:303",
+            "port": 596,
+            "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+          },
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2561334316307)"
+          },
+          "ip": "91.108.13.19",
+          "ipv6": "2001:b28:f23d:f101:1:0:111:303",
+          "port": 596,
+          "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+        },
+        {
+          "_class": "PhoneConnection",
+          "_cid": "0x9cc123c7",
+          "className": "PhoneConnection",
+          "originalArgs": {
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2574219219224)"
+            },
+            "ip": "91.108.17.24",
+            "ipv6": "2001:b28:f23f:f105:1:0:861:908",
+            "port": 599,
+            "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+          },
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2574219219224)"
+          },
+          "ip": "91.108.17.24",
+          "ipv6": "2001:b28:f23f:f105:1:0:861:908",
+          "port": 599,
+          "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+        },
+        {
+          "_class": "PhoneConnection",
+          "_cid": "0x9cc123c7",
+          "className": "PhoneConnection",
+          "originalArgs": {
+            "flags": 0,
+            "tcp": false,
+            "id": {
+              "value": "BigInt(2569924249892)"
+            },
+            "ip": "91.108.9.36",
+            "ipv6": "2001:67c:4e8:f102:2:0:278:704",
+            "port": 598,
+            "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+          },
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2569924249892)"
+          },
+          "ip": "91.108.9.36",
+          "ipv6": "2001:67c:4e8:f102:2:0:278:704",
+          "port": 598,
+          "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+        }
+      ],
+      "startDate": 1775920129,
+      "customParameters": null,
+      "conferenceCall": null
+    },
+    "flags": 0,
+    "p2pAllowed": false,
+    "video": false,
+    "id": {
+      "value": "BigInt(1455057103915017514)"
+    },
+    "accessHash": {
+      "value": "BigInt(-4480189481836945821)"
+    },
+    "date": 1775920082,
+    "adminId": {
+      "value": "BigInt(338781882)"
+    },
+    "participantId": {
+      "value": "BigInt(6340886702)"
+    },
+    "gAOrB": "Buffer(256)[ab1ec223f2cc66e49437bc7e09b62c4a28e129d528a495408e4ec40f3b3fa671bb64a25075fa36607771a544c544fcc9c670379e7807502c6e6b93653b60978502990ff27accac555a82cc0e28c0d3653fa72c4805ed47ec0765a73691150bde4cc609b7b6ce73966db512f42c1d566b859224a206e656cf5138203f3e04d5f0]",
+    "keyFingerprint": {
+      "value": "BigInt(-5545734393129787439)"
+    },
+    "protocol": {
+      "_class": "PhoneCallProtocol",
+      "_cid": "0xfc878fc8",
+      "className": "PhoneCallProtocol",
+      "originalArgs": {
+        "flags": 3,
+        "udpP2p": true,
+        "udpReflector": true,
+        "minLayer": 65,
+        "maxLayer": 92,
+        "libraryVersions": [
+          "5.0.0"
+        ]
+      },
+      "flags": 3,
+      "udpP2p": true,
+      "udpReflector": true,
+      "minLayer": 65,
+      "maxLayer": 92,
+      "libraryVersions": [
+        "5.0.0"
+      ]
+    },
+    "connections": [
+      {
+        "_class": "PhoneConnectionWebrtc",
+        "_cid": "0x635fe375",
+        "className": "PhoneConnectionWebrtc",
+        "originalArgs": {
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488022289)"
+          },
+          "ip": "91.108.13.17",
+          "ipv6": "2001:b28:f23d:f101:1:0:111:301",
+          "port": 1400,
+          "username": "1775941729:0db764855eaeefb5db",
+          "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+        },
+        "flags": 3,
+        "turn": true,
+        "stun": true,
+        "id": {
+          "value": "BigInt(6014488022289)"
+        },
+        "ip": "91.108.13.17",
+        "ipv6": "2001:b28:f23d:f101:1:0:111:301",
+        "port": 1400,
+        "username": "1775941729:0db764855eaeefb5db",
+        "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+      },
+      {
+        "_class": "PhoneConnectionWebrtc",
+        "_cid": "0x635fe375",
+        "className": "PhoneConnectionWebrtc",
+        "originalArgs": {
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488021298)"
+          },
+          "ip": "91.108.9.50",
+          "ipv6": "2001:67c:4e8:f102:3:0:278:802",
+          "port": 1400,
+          "username": "1775941729:0db764855eaeefb5db",
+          "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+        },
+        "flags": 3,
+        "turn": true,
+        "stun": true,
+        "id": {
+          "value": "BigInt(6014488021298)"
+        },
+        "ip": "91.108.9.50",
+        "ipv6": "2001:67c:4e8:f102:3:0:278:802",
+        "port": 1400,
+        "username": "1775941729:0db764855eaeefb5db",
+        "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+      },
+      {
+        "_class": "PhoneConnectionWebrtc",
+        "_cid": "0x635fe375",
+        "className": "PhoneConnectionWebrtc",
+        "originalArgs": {
+          "flags": 3,
+          "turn": true,
+          "stun": true,
+          "id": {
+            "value": "BigInt(6014488023317)"
+          },
+          "ip": "91.108.17.21",
+          "ipv6": "2001:b28:f23f:f105:1:0:861:905",
+          "port": 1400,
+          "username": "1775941729:0db764855eaeefb5db",
+          "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+        },
+        "flags": 3,
+        "turn": true,
+        "stun": true,
+        "id": {
+          "value": "BigInt(6014488023317)"
+        },
+        "ip": "91.108.17.21",
+        "ipv6": "2001:b28:f23f:f105:1:0:861:905",
+        "port": 1400,
+        "username": "1775941729:0db764855eaeefb5db",
+        "password": "crk4VVHBD/MkP63XYcg2M/4oEgA="
+      },
+      {
+        "_class": "PhoneConnection",
+        "_cid": "0x9cc123c7",
+        "className": "PhoneConnection",
+        "originalArgs": {
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2561334316307)"
+          },
+          "ip": "91.108.13.19",
+          "ipv6": "2001:b28:f23d:f101:1:0:111:303",
+          "port": 596,
+          "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+        },
+        "flags": 0,
+        "tcp": false,
+        "id": {
+          "value": "BigInt(2561334316307)"
+        },
+        "ip": "91.108.13.19",
+        "ipv6": "2001:b28:f23d:f101:1:0:111:303",
+        "port": 596,
+        "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+      },
+      {
+        "_class": "PhoneConnection",
+        "_cid": "0x9cc123c7",
+        "className": "PhoneConnection",
+        "originalArgs": {
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2574219219224)"
+          },
+          "ip": "91.108.17.24",
+          "ipv6": "2001:b28:f23f:f105:1:0:861:908",
+          "port": 599,
+          "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+        },
+        "flags": 0,
+        "tcp": false,
+        "id": {
+          "value": "BigInt(2574219219224)"
+        },
+        "ip": "91.108.17.24",
+        "ipv6": "2001:b28:f23f:f105:1:0:861:908",
+        "port": 599,
+        "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+      },
+      {
+        "_class": "PhoneConnection",
+        "_cid": "0x9cc123c7",
+        "className": "PhoneConnection",
+        "originalArgs": {
+          "flags": 0,
+          "tcp": false,
+          "id": {
+            "value": "BigInt(2569924249892)"
+          },
+          "ip": "91.108.9.36",
+          "ipv6": "2001:67c:4e8:f102:2:0:278:704",
+          "port": 598,
+          "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+        },
+        "flags": 0,
+        "tcp": false,
+        "id": {
+          "value": "BigInt(2569924249892)"
+        },
+        "ip": "91.108.9.36",
+        "ipv6": "2001:67c:4e8:f102:2:0:278:704",
+        "port": 598,
+        "peerTag": "Buffer(16)[cb313a8022627cdbafca6ea16f2f5939]"
+      }
+    ],
+    "startDate": 1775920129,
+    "customParameters": null,
+    "conferenceCall": null
+  }
+}

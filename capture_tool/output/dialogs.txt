@@ -1,0 +1,5864 @@
+dialogs
+
+📥 messages.getDialogs...
+
+📥 messages.GetDialogs RESPONSE:
+{
+  "_class": "messages.Dialogs",
+  "_cid": "0x15ba6c40",
+  "className": "messages.Dialogs",
+  "originalArgs": {
+    "dialogs": [
+      {
+        "_class": "Dialog",
+        "_cid": "0xd58a08c6",
+        "className": "Dialog",
+        "originalArgs": {
+          "flags": 0,
+          "pinned": false,
+          "unreadMark": false,
+          "viewForumAsMessages": false,
+          "peer": {
+            "_class": "PeerUser",
+            "_cid": "0x59511722",
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "BigInt(6340886702)"
+              }
+            },
+            "userId": {
+              "value": "BigInt(6340886702)"
+            }
+          },
+          "topMessage": 1402,
+          "readInboxMaxId": 1402,
+          "readOutboxMaxId": 0,
+          "unreadCount": 0,
+          "unreadMentionsCount": 0,
+          "unreadReactionsCount": 0,
+          "notifySettings": {
+            "_class": "PeerNotifySettings",
+            "_cid": "0x99622c0c",
+            "className": "PeerNotifySettings",
+            "originalArgs": {
+              "flags": 63,
+              "showPreviews": true,
+              "silent": false,
+              "muteUntil": 0,
+              "iosSound": {
+                "_class": "NotificationSoundDefault",
+                "_cid": "0x97e8bebe",
+                "className": "NotificationSoundDefault",
+                "originalArgs": {}
+              },
+              "androidSound": {
+                "_class": "NotificationSoundLocal",
+                "_cid": "0x830b9ae4",
+                "className": "NotificationSoundLocal",
+                "originalArgs": {
+                  "title": "default",
+                  "data": "default"
+                },
+                "title": "default",
+                "data": "default"
+              },
+              "otherSound": {
+                "_class": "NotificationSoundLocal",
+                "_cid": "0x830b9ae4",
+                "className": "NotificationSoundLocal",
+                "originalArgs": {
+                  "title": "default",
+                  "data": "default"
+                },
+                "title": "default",
+                "data": "default"
+              },
+              "storiesMuted": null,
+              "storiesHideSender": null,
+              "storiesIosSound": null,
+              "storiesAndroidSound": null,
+              "storiesOtherSound": null
+            },
+            "flags": 63,
+            "showPreviews": true,
+            "silent": false,
+            "muteUntil": 0,
+            "iosSound": {
+              "_class": "NotificationSoundDefault",
+              "_cid": "0x97e8bebe",
+              "className": "NotificationSoundDefault",
+              "originalArgs": {}
+            },
+            "androidSound": {
+              "_class": "NotificationSoundLocal",
+              "_cid": "0x830b9ae4",
+              "className": "NotificationSoundLocal",
+              "originalArgs": {
+                "title": "default",
+                "data": "default"
+              },
+              "title": "default",
+              "data": "default"
+            },
+            "otherSound": {
+              "_class": "NotificationSoundLocal",
+              "_cid": "0x830b9ae4",
+              "className": "NotificationSoundLocal",
+              "originalArgs": {
+                "title": "default",
+                "data": "default"
+              },
+              "title": "default",
+              "data": "default"
+            },
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "pts": null,
+          "draft": null,
+          "folderId": null,
+          "ttlPeriod": null
+        },
+        "flags": 0,
+        "pinned": false,
+        "unreadMark": false,
+        "viewForumAsMessages": false,
+        "peer": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(6340886702)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(6340886702)"
+          }
+        },
+        "topMessage": 1402,
+        "readInboxMaxId": 1402,
+        "readOutboxMaxId": 0,
+        "unreadCount": 0,
+        "unreadMentionsCount": 0,
+        "unreadReactionsCount": 0,
+        "notifySettings": {
+          "_class": "PeerNotifySettings",
+          "_cid": "0x99622c0c",
+          "className": "PeerNotifySettings",
+          "originalArgs": {
+            "flags": 63,
+            "showPreviews": true,
+            "silent": false,
+            "muteUntil": 0,
+            "iosSound": {
+              "_class": "NotificationSoundDefault",
+              "_cid": "0x97e8bebe",
+              "className": "NotificationSoundDefault",
+              "originalArgs": {}
+            },
+            "androidSound": {
+              "_class": "NotificationSoundLocal",
+              "_cid": "0x830b9ae4",
+              "className": "NotificationSoundLocal",
+              "originalArgs": {
+                "title": "default",
+                "data": "default"
+              },
+              "title": "default",
+              "data": "default"
+            },
+            "otherSound": {
+              "_class": "NotificationSoundLocal",
+              "_cid": "0x830b9ae4",
+              "className": "NotificationSoundLocal",
+              "originalArgs": {
+                "title": "default",
+                "data": "default"
+              },
+              "title": "default",
+              "data": "default"
+            },
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "flags": 63,
+          "showPreviews": true,
+          "silent": false,
+          "muteUntil": 0,
+          "iosSound": {
+            "_class": "NotificationSoundDefault",
+            "_cid": "0x97e8bebe",
+            "className": "NotificationSoundDefault",
+            "originalArgs": {}
+          },
+          "androidSound": {
+            "_class": "NotificationSoundLocal",
+            "_cid": "0x830b9ae4",
+            "className": "NotificationSoundLocal",
+            "originalArgs": {
+              "title": "default",
+              "data": "default"
+            },
+            "title": "default",
+            "data": "default"
+          },
+          "otherSound": {
+            "_class": "NotificationSoundLocal",
+            "_cid": "0x830b9ae4",
+            "className": "NotificationSoundLocal",
+            "originalArgs": {
+              "title": "default",
+              "data": "default"
+            },
+            "title": "default",
+            "data": "default"
+          },
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "pts": null,
+        "draft": null,
+        "folderId": null,
+        "ttlPeriod": null
+      },
+      {
+        "_class": "Dialog",
+        "_cid": "0xd58a08c6",
+        "className": "Dialog",
+        "originalArgs": {
+          "flags": 0,
+          "pinned": false,
+          "unreadMark": false,
+          "viewForumAsMessages": false,
+          "peer": {
+            "_class": "PeerUser",
+            "_cid": "0x59511722",
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "BigInt(777000)"
+              }
+            },
+            "userId": {
+              "value": "BigInt(777000)"
+            }
+          },
+          "topMessage": 1400,
+          "readInboxMaxId": 1400,
+          "readOutboxMaxId": 1169,
+          "unreadCount": 0,
+          "unreadMentionsCount": 0,
+          "unreadReactionsCount": 0,
+          "notifySettings": {
+            "_class": "PeerNotifySettings",
+            "_cid": "0x99622c0c",
+            "className": "PeerNotifySettings",
+            "originalArgs": {
+              "flags": 5,
+              "showPreviews": true,
+              "silent": null,
+              "muteUntil": 2147483647,
+              "iosSound": null,
+              "androidSound": null,
+              "otherSound": null,
+              "storiesMuted": null,
+              "storiesHideSender": null,
+              "storiesIosSound": null,
+              "storiesAndroidSound": null,
+              "storiesOtherSound": null
+            },
+            "flags": 5,
+            "showPreviews": true,
+            "silent": null,
+            "muteUntil": 2147483647,
+            "iosSound": null,
+            "androidSound": null,
+            "otherSound": null,
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "pts": null,
+          "draft": null,
+          "folderId": null,
+          "ttlPeriod": null
+        },
+        "flags": 0,
+        "pinned": false,
+        "unreadMark": false,
+        "viewForumAsMessages": false,
+        "peer": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(777000)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(777000)"
+          }
+        },
+        "topMessage": 1400,
+        "readInboxMaxId": 1400,
+        "readOutboxMaxId": 1169,
+        "unreadCount": 0,
+        "unreadMentionsCount": 0,
+        "unreadReactionsCount": 0,
+        "notifySettings": {
+          "_class": "PeerNotifySettings",
+          "_cid": "0x99622c0c",
+          "className": "PeerNotifySettings",
+          "originalArgs": {
+            "flags": 5,
+            "showPreviews": true,
+            "silent": null,
+            "muteUntil": 2147483647,
+            "iosSound": null,
+            "androidSound": null,
+            "otherSound": null,
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "flags": 5,
+          "showPreviews": true,
+          "silent": null,
+          "muteUntil": 2147483647,
+          "iosSound": null,
+          "androidSound": null,
+          "otherSound": null,
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "pts": null,
+        "draft": null,
+        "folderId": null,
+        "ttlPeriod": null
+      },
+      {
+        "_class": "Dialog",
+        "_cid": "0xd58a08c6",
+        "className": "Dialog",
+        "originalArgs": {
+          "flags": 0,
+          "pinned": false,
+          "unreadMark": false,
+          "viewForumAsMessages": false,
+          "peer": {
+            "_class": "PeerUser",
+            "_cid": "0x59511722",
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "BigInt(338781882)"
+              }
+            },
+            "userId": {
+              "value": "BigInt(338781882)"
+            }
+          },
+          "topMessage": 1241,
+          "readInboxMaxId": 1241,
+          "readOutboxMaxId": 1244,
+          "unreadCount": 0,
+          "unreadMentionsCount": 0,
+          "unreadReactionsCount": 0,
+          "notifySettings": {
+            "_class": "PeerNotifySettings",
+            "_cid": "0x99622c0c",
+            "className": "PeerNotifySettings",
+            "originalArgs": {
+              "flags": 0,
+              "showPreviews": null,
+              "silent": null,
+              "muteUntil": null,
+              "iosSound": null,
+              "androidSound": null,
+              "otherSound": null,
+              "storiesMuted": null,
+              "storiesHideSender": null,
+              "storiesIosSound": null,
+              "storiesAndroidSound": null,
+              "storiesOtherSound": null
+            },
+            "flags": 0,
+            "showPreviews": null,
+            "silent": null,
+            "muteUntil": null,
+            "iosSound": null,
+            "androidSound": null,
+            "otherSound": null,
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "pts": null,
+          "draft": null,
+          "folderId": null,
+          "ttlPeriod": null
+        },
+        "flags": 0,
+        "pinned": false,
+        "unreadMark": false,
+        "viewForumAsMessages": false,
+        "peer": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(338781882)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(338781882)"
+          }
+        },
+        "topMessage": 1241,
+        "readInboxMaxId": 1241,
+        "readOutboxMaxId": 1244,
+        "unreadCount": 0,
+        "unreadMentionsCount": 0,
+        "unreadReactionsCount": 0,
+        "notifySettings": {
+          "_class": "PeerNotifySettings",
+          "_cid": "0x99622c0c",
+          "className": "PeerNotifySettings",
+          "originalArgs": {
+            "flags": 0,
+            "showPreviews": null,
+            "silent": null,
+            "muteUntil": null,
+            "iosSound": null,
+            "androidSound": null,
+            "otherSound": null,
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "flags": 0,
+          "showPreviews": null,
+          "silent": null,
+          "muteUntil": null,
+          "iosSound": null,
+          "androidSound": null,
+          "otherSound": null,
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "pts": null,
+        "draft": null,
+        "folderId": null,
+        "ttlPeriod": null
+      },
+      {
+        "_class": "Dialog",
+        "_cid": "0xd58a08c6",
+        "className": "Dialog",
+        "originalArgs": {
+          "flags": 0,
+          "pinned": false,
+          "unreadMark": false,
+          "viewForumAsMessages": false,
+          "peer": {
+            "_class": "PeerUser",
+            "_cid": "0x59511722",
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "BigInt(93372553)"
+              }
+            },
+            "userId": {
+              "value": "BigInt(93372553)"
+            }
+          },
+          "topMessage": 1195,
+          "readInboxMaxId": 1195,
+          "readOutboxMaxId": 1194,
+          "unreadCount": 0,
+          "unreadMentionsCount": 0,
+          "unreadReactionsCount": 0,
+          "notifySettings": {
+            "_class": "PeerNotifySettings",
+            "_cid": "0x99622c0c",
+            "className": "PeerNotifySettings",
+            "originalArgs": {
+              "flags": 0,
+              "showPreviews": null,
+              "silent": null,
+              "muteUntil": null,
+              "iosSound": null,
+              "androidSound": null,
+              "otherSound": null,
+              "storiesMuted": null,
+              "storiesHideSender": null,
+              "storiesIosSound": null,
+              "storiesAndroidSound": null,
+              "storiesOtherSound": null
+            },
+            "flags": 0,
+            "showPreviews": null,
+            "silent": null,
+            "muteUntil": null,
+            "iosSound": null,
+            "androidSound": null,
+            "otherSound": null,
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "pts": null,
+          "draft": null,
+          "folderId": null,
+          "ttlPeriod": null
+        },
+        "flags": 0,
+        "pinned": false,
+        "unreadMark": false,
+        "viewForumAsMessages": false,
+        "peer": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(93372553)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(93372553)"
+          }
+        },
+        "topMessage": 1195,
+        "readInboxMaxId": 1195,
+        "readOutboxMaxId": 1194,
+        "unreadCount": 0,
+        "unreadMentionsCount": 0,
+        "unreadReactionsCount": 0,
+        "notifySettings": {
+          "_class": "PeerNotifySettings",
+          "_cid": "0x99622c0c",
+          "className": "PeerNotifySettings",
+          "originalArgs": {
+            "flags": 0,
+            "showPreviews": null,
+            "silent": null,
+            "muteUntil": null,
+            "iosSound": null,
+            "androidSound": null,
+            "otherSound": null,
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "flags": 0,
+          "showPreviews": null,
+          "silent": null,
+          "muteUntil": null,
+          "iosSound": null,
+          "androidSound": null,
+          "otherSound": null,
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "pts": null,
+        "draft": null,
+        "folderId": null,
+        "ttlPeriod": null
+      }
+    ],
+    "messages": [
+      {
+        "_class": "Message",
+        "_cid": "0x96fdbbe9",
+        "className": "Message",
+        "originalArgs": {
+          "flags": 268435456,
+          "out": false,
+          "mentioned": false,
+          "mediaUnread": false,
+          "silent": false,
+          "post": false,
+          "fromScheduled": false,
+          "legacy": false,
+          "editHide": false,
+          "pinned": false,
+          "noforwards": false,
+          "invertMedia": false,
+          "flags2": 0,
+          "offline": false,
+          "videoProcessingPending": false,
+          "id": 1402,
+          "fromId": null,
+          "fromBoostsApplied": null,
+          "peerId": {
+            "_class": "PeerUser",
+            "_cid": "0x59511722",
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "BigInt(6340886702)"
+              }
+            },
+            "userId": {
+              "value": "BigInt(6340886702)"
+            }
+          },
+          "savedPeerId": {
+            "_class": "PeerUser",
+            "_cid": "0x59511722",
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "BigInt(6340886702)"
+              }
+            },
+            "userId": {
+              "value": "BigInt(6340886702)"
+            }
+          },
+          "fwdFrom": null,
+          "viaBotId": null,
+          "viaBusinessBotId": null,
+          "replyTo": null,
+          "date": 1775675367,
+          "message": "test_getmsgs",
+          "media": null,
+          "replyMarkup": null,
+          "entities": null,
+          "views": null,
+          "forwards": null,
+          "replies": null,
+          "editDate": null,
+          "postAuthor": null,
+          "groupedId": null,
+          "reactions": null,
+          "restrictionReason": null,
+          "ttlPeriod": null,
+          "quickReplyShortcutId": null,
+          "effect": null,
+          "factcheck": null,
+          "reportDeliveryUntilDate": null
+        },
+        "out": false,
+        "mentioned": false,
+        "mediaUnread": false,
+        "silent": false,
+        "post": false,
+        "fromScheduled": false,
+        "legacy": false,
+        "editHide": false,
+        "ttlPeriod": null,
+        "id": 1402,
+        "fromId": null,
+        "peerId": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(6340886702)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(6340886702)"
+          }
+        },
+        "fwdFrom": null,
+        "viaBotId": null,
+        "replyTo": null,
+        "date": 1775675367,
+        "message": "test_getmsgs",
+        "media": null,
+        "replyMarkup": null,
+        "entities": null,
+        "views": null,
+        "forwards": null,
+        "replies": null,
+        "editDate": null,
+        "pinned": false,
+        "postAuthor": null,
+        "groupedId": null,
+        "restrictionReason": null,
+        "noforwards": false,
+        "reactions": null,
+        "flags": 268435456,
+        "invertMedia": false,
+        "flags2": 0,
+        "offline": false,
+        "videoProcessingPending": false,
+        "fromBoostsApplied": null,
+        "savedPeerId": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(6340886702)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(6340886702)"
+          }
+        },
+        "viaBusinessBotId": null,
+        "quickReplyShortcutId": null,
+        "effect": null,
+        "factcheck": null,
+        "reportDeliveryUntilDate": null
+      },
+      {
+        "_class": "Message",
+        "_cid": "0x96fdbbe9",
+        "className": "Message",
+        "originalArgs": {
+          "flags": 128,
+          "out": false,
+          "mentioned": false,
+          "mediaUnread": false,
+          "silent": false,
+          "post": false,
+          "fromScheduled": false,
+          "legacy": false,
+          "editHide": false,
+          "pinned": false,
+          "noforwards": false,
+          "invertMedia": false,
+          "flags2": 0,
+          "offline": false,
+          "videoProcessingPending": false,
+          "id": 1400,
+          "fromId": null,
+          "fromBoostsApplied": null,
+          "peerId": {
+            "_class": "PeerUser",
+            "_cid": "0x59511722",
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "BigInt(777000)"
+              }
+            },
+            "userId": {
+              "value": "BigInt(777000)"
+            }
+          },
+          "savedPeerId": null,
+          "fwdFrom": null,
+          "viaBotId": null,
+          "viaBusinessBotId": null,
+          "replyTo": null,
+          "date": 1775672371,
+          "message": "Login code: 15869. Do not give this code to anyone, even if they say they are from Telegram!\n\n❗️This code can be used to log in to your Telegram account. We never ask it for anything else.\n\nIf you didn't request this code by trying to log in on another device, simply ignore this message.",
+          "media": null,
+          "replyMarkup": null,
+          "entities": [
+            {
+              "_class": "MessageEntityBold",
+              "_cid": "0xbd610bc9",
+              "className": "MessageEntityBold",
+              "originalArgs": {
+                "offset": 0,
+                "length": 11
+              },
+              "offset": 0,
+              "length": 11
+            },
+            {
+              "_class": "MessageEntityBold",
+              "_cid": "0xbd610bc9",
+              "className": "MessageEntityBold",
+              "originalArgs": {
+                "offset": 22,
+                "length": 3
+              },
+              "offset": 22,
+              "length": 3
+            }
+          ],
+          "views": null,
+          "forwards": null,
+          "replies": null,
+          "editDate": null,
+          "postAuthor": null,
+          "groupedId": null,
+          "reactions": null,
+          "restrictionReason": null,
+          "ttlPeriod": null,
+          "quickReplyShortcutId": null,
+          "effect": null,
+          "factcheck": null,
+          "reportDeliveryUntilDate": null
+        },
+        "out": false,
+        "mentioned": false,
+        "mediaUnread": false,
+        "silent": false,
+        "post": false,
+        "fromScheduled": false,
+        "legacy": false,
+        "editHide": false,
+        "ttlPeriod": null,
+        "id": 1400,
+        "fromId": null,
+        "peerId": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(777000)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(777000)"
+          }
+        },
+        "fwdFrom": null,
+        "viaBotId": null,
+        "replyTo": null,
+        "date": 1775672371,
+        "message": "Login code: 15869. Do not give this code to anyone, even if they say they are from Telegram!\n\n❗️This code can be used to log in to your Telegram account. We never ask it for anything else.\n\nIf you didn't request this code by trying to log in on another device, simply ignore this message.",
+        "media": null,
+        "replyMarkup": null,
+        "entities": [
+          {
+            "_class": "MessageEntityBold",
+            "_cid": "0xbd610bc9",
+            "className": "MessageEntityBold",
+            "originalArgs": {
+              "offset": 0,
+              "length": 11
+            },
+            "offset": 0,
+            "length": 11
+          },
+          {
+            "_class": "MessageEntityBold",
+            "_cid": "0xbd610bc9",
+            "className": "MessageEntityBold",
+            "originalArgs": {
+              "offset": 22,
+              "length": 3
+            },
+            "offset": 22,
+            "length": 3
+          }
+        ],
+        "views": null,
+        "forwards": null,
+        "replies": null,
+        "editDate": null,
+        "pinned": false,
+        "postAuthor": null,
+        "groupedId": null,
+        "restrictionReason": null,
+        "noforwards": false,
+        "reactions": null,
+        "flags": 128,
+        "invertMedia": false,
+        "flags2": 0,
+        "offline": false,
+        "videoProcessingPending": false,
+        "fromBoostsApplied": null,
+        "savedPeerId": null,
+        "viaBusinessBotId": null,
+        "quickReplyShortcutId": null,
+        "effect": null,
+        "factcheck": null,
+        "reportDeliveryUntilDate": null
+      },
+      {
+        "_class": "Message",
+        "_cid": "0x96fdbbe9",
+        "className": "Message",
+        "originalArgs": {
+          "flags": 640,
+          "out": false,
+          "mentioned": false,
+          "mediaUnread": false,
+          "silent": false,
+          "post": false,
+          "fromScheduled": false,
+          "legacy": false,
+          "editHide": false,
+          "pinned": false,
+          "noforwards": false,
+          "invertMedia": false,
+          "flags2": 0,
+          "offline": false,
+          "videoProcessingPending": false,
+          "id": 1241,
+          "fromId": null,
+          "fromBoostsApplied": null,
+          "peerId": {
+            "_class": "PeerUser",
+            "_cid": "0x59511722",
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "BigInt(338781882)"
+              }
+            },
+            "userId": {
+              "value": "BigInt(338781882)"
+            }
+          },
+          "savedPeerId": null,
+          "fwdFrom": null,
+          "viaBotId": null,
+          "viaBusinessBotId": null,
+          "replyTo": null,
+          "date": 1765289915,
+          "message": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE\nJoin the raffle using my link and complete tasks to get tickets for participation in the raffle.",
+          "media": {
+            "_class": "MessageMediaWebPage",
+            "_cid": "0xddf10c3b",
+            "className": "MessageMediaWebPage",
+            "originalArgs": {
+              "flags": 25,
+              "forceLargeMedia": true,
+              "forceSmallMedia": false,
+              "manual": true,
+              "safe": true,
+              "webpage": {
+                "_class": "WebPage",
+                "_cid": "0xe89c45b2",
+                "className": "WebPage",
+                "originalArgs": {
+                  "flags": 8223,
+                  "hasLargeMedia": true,
+                  "id": {
+                    "value": "BigInt(4080568427275839192)"
+                  },
+                  "url": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+                  "displayUrl": "t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+                  "hash": 0,
+                  "type": "telegram_botapp",
+                  "siteName": "Telegram",
+                  "title": "Tribute",
+                  "description": "This bot helps content creators receive financial support from their followers directly in the app.",
+                  "photo": {
+                    "_class": "Photo",
+                    "_cid": "0xfb197a65",
+                    "className": "Photo",
+                    "originalArgs": {
+                      "flags": "[max depth]",
+                      "hasStickers": "[max depth]",
+                      "id": "[max depth]",
+                      "accessHash": "[max depth]",
+                      "fileReference": "[max depth]",
+                      "date": "[max depth]",
+                      "sizes": "[max depth]",
+                      "videoSizes": "[max depth]",
+                      "dcId": "[max depth]"
+                    },
+                    "flags": 0,
+                    "hasStickers": false,
+                    "id": {
+                      "value": "[max depth]"
+                    },
+                    "accessHash": {
+                      "value": "[max depth]"
+                    },
+                    "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                    "date": 1694426740,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ],
+                    "videoSizes": null,
+                    "dcId": 2
+                  },
+                  "embedUrl": null,
+                  "embedType": null,
+                  "embedWidth": null,
+                  "embedHeight": null,
+                  "duration": null,
+                  "author": null,
+                  "document": null,
+                  "cachedPage": null,
+                  "attributes": null
+                },
+                "flags": 8223,
+                "hasLargeMedia": true,
+                "id": {
+                  "value": "BigInt(4080568427275839192)"
+                },
+                "url": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+                "displayUrl": "t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+                "hash": 0,
+                "type": "telegram_botapp",
+                "siteName": "Telegram",
+                "title": "Tribute",
+                "description": "This bot helps content creators receive financial support from their followers directly in the app.",
+                "photo": {
+                  "_class": "Photo",
+                  "_cid": "0xfb197a65",
+                  "className": "Photo",
+                  "originalArgs": {
+                    "flags": 0,
+                    "hasStickers": false,
+                    "id": {
+                      "value": "[max depth]"
+                    },
+                    "accessHash": {
+                      "value": "[max depth]"
+                    },
+                    "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                    "date": 1694426740,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ],
+                    "videoSizes": null,
+                    "dcId": 2
+                  },
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "BigInt(5474176002369376025)"
+                  },
+                  "accessHash": {
+                    "value": "BigInt(7005538101599339108)"
+                  },
+                  "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                  "date": 1694426740,
+                  "sizes": [
+                    {
+                      "_class": "PhotoStrippedSize",
+                      "_cid": "0xe0b0bc2e",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSize",
+                      "_cid": "0x75c78e60",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSizeProgressive",
+                      "_cid": "0xfa3efb95",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "embedUrl": null,
+                "embedType": null,
+                "embedWidth": null,
+                "embedHeight": null,
+                "duration": null,
+                "author": null,
+                "document": null,
+                "cachedPage": null,
+                "attributes": null
+              }
+            },
+            "flags": 25,
+            "forceLargeMedia": true,
+            "forceSmallMedia": false,
+            "manual": true,
+            "safe": true,
+            "webpage": {
+              "_class": "WebPage",
+              "_cid": "0xe89c45b2",
+              "className": "WebPage",
+              "originalArgs": {
+                "flags": 8223,
+                "hasLargeMedia": true,
+                "id": {
+                  "value": "BigInt(4080568427275839192)"
+                },
+                "url": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+                "displayUrl": "t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+                "hash": 0,
+                "type": "telegram_botapp",
+                "siteName": "Telegram",
+                "title": "Tribute",
+                "description": "This bot helps content creators receive financial support from their followers directly in the app.",
+                "photo": {
+                  "_class": "Photo",
+                  "_cid": "0xfb197a65",
+                  "className": "Photo",
+                  "originalArgs": {
+                    "flags": 0,
+                    "hasStickers": false,
+                    "id": {
+                      "value": "[max depth]"
+                    },
+                    "accessHash": {
+                      "value": "[max depth]"
+                    },
+                    "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                    "date": 1694426740,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ],
+                    "videoSizes": null,
+                    "dcId": 2
+                  },
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "BigInt(5474176002369376025)"
+                  },
+                  "accessHash": {
+                    "value": "BigInt(7005538101599339108)"
+                  },
+                  "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                  "date": 1694426740,
+                  "sizes": [
+                    {
+                      "_class": "PhotoStrippedSize",
+                      "_cid": "0xe0b0bc2e",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSize",
+                      "_cid": "0x75c78e60",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSizeProgressive",
+                      "_cid": "0xfa3efb95",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "embedUrl": null,
+                "embedType": null,
+                "embedWidth": null,
+                "embedHeight": null,
+                "duration": null,
+                "author": null,
+                "document": null,
+                "cachedPage": null,
+                "attributes": null
+              },
+              "flags": 8223,
+              "hasLargeMedia": true,
+              "id": {
+                "value": "BigInt(4080568427275839192)"
+              },
+              "url": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+              "displayUrl": "t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+              "hash": 0,
+              "type": "telegram_botapp",
+              "siteName": "Telegram",
+              "title": "Tribute",
+              "description": "This bot helps content creators receive financial support from their followers directly in the app.",
+              "photo": {
+                "_class": "Photo",
+                "_cid": "0xfb197a65",
+                "className": "Photo",
+                "originalArgs": {
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "BigInt(5474176002369376025)"
+                  },
+                  "accessHash": {
+                    "value": "BigInt(7005538101599339108)"
+                  },
+                  "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                  "date": 1694426740,
+                  "sizes": [
+                    {
+                      "_class": "PhotoStrippedSize",
+                      "_cid": "0xe0b0bc2e",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSize",
+                      "_cid": "0x75c78e60",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSizeProgressive",
+                      "_cid": "0xfa3efb95",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "BigInt(5474176002369376025)"
+                },
+                "accessHash": {
+                  "value": "BigInt(7005538101599339108)"
+                },
+                "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                "date": 1694426740,
+                "sizes": [
+                  {
+                    "_class": "PhotoStrippedSize",
+                    "_cid": "0xe0b0bc2e",
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    "type": "i",
+                    "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    "type": "m",
+                    "w": 320,
+                    "h": 180,
+                    "size": 4418
+                  },
+                  {
+                    "_class": "PhotoSizeProgressive",
+                    "_cid": "0xfa3efb95",
+                    "className": "PhotoSizeProgressive",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    },
+                    "type": "x",
+                    "w": 640,
+                    "h": 360,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ]
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 2
+              },
+              "embedUrl": null,
+              "embedType": null,
+              "embedWidth": null,
+              "embedHeight": null,
+              "duration": null,
+              "author": null,
+              "document": null,
+              "cachedPage": null,
+              "attributes": null
+            }
+          },
+          "replyMarkup": null,
+          "entities": [
+            {
+              "_class": "MessageEntityUrl",
+              "_cid": "0x6ed02538",
+              "className": "MessageEntityUrl",
+              "originalArgs": {
+                "offset": 0,
+                "length": 67
+              },
+              "offset": 0,
+              "length": 67
+            }
+          ],
+          "views": null,
+          "forwards": null,
+          "replies": null,
+          "editDate": null,
+          "postAuthor": null,
+          "groupedId": null,
+          "reactions": null,
+          "restrictionReason": null,
+          "ttlPeriod": null,
+          "quickReplyShortcutId": null,
+          "effect": null,
+          "factcheck": null,
+          "reportDeliveryUntilDate": null
+        },
+        "out": false,
+        "mentioned": false,
+        "mediaUnread": false,
+        "silent": false,
+        "post": false,
+        "fromScheduled": false,
+        "legacy": false,
+        "editHide": false,
+        "ttlPeriod": null,
+        "id": 1241,
+        "fromId": null,
+        "peerId": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(338781882)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(338781882)"
+          }
+        },
+        "fwdFrom": null,
+        "viaBotId": null,
+        "replyTo": null,
+        "date": 1765289915,
+        "message": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE\nJoin the raffle using my link and complete tasks to get tickets for participation in the raffle.",
+        "media": {
+          "_class": "MessageMediaWebPage",
+          "_cid": "0xddf10c3b",
+          "className": "MessageMediaWebPage",
+          "originalArgs": {
+            "flags": 25,
+            "forceLargeMedia": true,
+            "forceSmallMedia": false,
+            "manual": true,
+            "safe": true,
+            "webpage": {
+              "_class": "WebPage",
+              "_cid": "0xe89c45b2",
+              "className": "WebPage",
+              "originalArgs": {
+                "flags": 8223,
+                "hasLargeMedia": true,
+                "id": {
+                  "value": "BigInt(4080568427275839192)"
+                },
+                "url": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+                "displayUrl": "t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+                "hash": 0,
+                "type": "telegram_botapp",
+                "siteName": "Telegram",
+                "title": "Tribute",
+                "description": "This bot helps content creators receive financial support from their followers directly in the app.",
+                "photo": {
+                  "_class": "Photo",
+                  "_cid": "0xfb197a65",
+                  "className": "Photo",
+                  "originalArgs": {
+                    "flags": 0,
+                    "hasStickers": false,
+                    "id": {
+                      "value": "[max depth]"
+                    },
+                    "accessHash": {
+                      "value": "[max depth]"
+                    },
+                    "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                    "date": 1694426740,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ],
+                    "videoSizes": null,
+                    "dcId": 2
+                  },
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "BigInt(5474176002369376025)"
+                  },
+                  "accessHash": {
+                    "value": "BigInt(7005538101599339108)"
+                  },
+                  "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                  "date": 1694426740,
+                  "sizes": [
+                    {
+                      "_class": "PhotoStrippedSize",
+                      "_cid": "0xe0b0bc2e",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSize",
+                      "_cid": "0x75c78e60",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSizeProgressive",
+                      "_cid": "0xfa3efb95",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "embedUrl": null,
+                "embedType": null,
+                "embedWidth": null,
+                "embedHeight": null,
+                "duration": null,
+                "author": null,
+                "document": null,
+                "cachedPage": null,
+                "attributes": null
+              },
+              "flags": 8223,
+              "hasLargeMedia": true,
+              "id": {
+                "value": "BigInt(4080568427275839192)"
+              },
+              "url": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+              "displayUrl": "t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+              "hash": 0,
+              "type": "telegram_botapp",
+              "siteName": "Telegram",
+              "title": "Tribute",
+              "description": "This bot helps content creators receive financial support from their followers directly in the app.",
+              "photo": {
+                "_class": "Photo",
+                "_cid": "0xfb197a65",
+                "className": "Photo",
+                "originalArgs": {
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "BigInt(5474176002369376025)"
+                  },
+                  "accessHash": {
+                    "value": "BigInt(7005538101599339108)"
+                  },
+                  "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                  "date": 1694426740,
+                  "sizes": [
+                    {
+                      "_class": "PhotoStrippedSize",
+                      "_cid": "0xe0b0bc2e",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSize",
+                      "_cid": "0x75c78e60",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSizeProgressive",
+                      "_cid": "0xfa3efb95",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "BigInt(5474176002369376025)"
+                },
+                "accessHash": {
+                  "value": "BigInt(7005538101599339108)"
+                },
+                "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                "date": 1694426740,
+                "sizes": [
+                  {
+                    "_class": "PhotoStrippedSize",
+                    "_cid": "0xe0b0bc2e",
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    "type": "i",
+                    "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    "type": "m",
+                    "w": 320,
+                    "h": 180,
+                    "size": 4418
+                  },
+                  {
+                    "_class": "PhotoSizeProgressive",
+                    "_cid": "0xfa3efb95",
+                    "className": "PhotoSizeProgressive",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    },
+                    "type": "x",
+                    "w": 640,
+                    "h": 360,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ]
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 2
+              },
+              "embedUrl": null,
+              "embedType": null,
+              "embedWidth": null,
+              "embedHeight": null,
+              "duration": null,
+              "author": null,
+              "document": null,
+              "cachedPage": null,
+              "attributes": null
+            }
+          },
+          "flags": 25,
+          "forceLargeMedia": true,
+          "forceSmallMedia": false,
+          "manual": true,
+          "safe": true,
+          "webpage": {
+            "_class": "WebPage",
+            "_cid": "0xe89c45b2",
+            "className": "WebPage",
+            "originalArgs": {
+              "flags": 8223,
+              "hasLargeMedia": true,
+              "id": {
+                "value": "BigInt(4080568427275839192)"
+              },
+              "url": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+              "displayUrl": "t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+              "hash": 0,
+              "type": "telegram_botapp",
+              "siteName": "Telegram",
+              "title": "Tribute",
+              "description": "This bot helps content creators receive financial support from their followers directly in the app.",
+              "photo": {
+                "_class": "Photo",
+                "_cid": "0xfb197a65",
+                "className": "Photo",
+                "originalArgs": {
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "BigInt(5474176002369376025)"
+                  },
+                  "accessHash": {
+                    "value": "BigInt(7005538101599339108)"
+                  },
+                  "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                  "date": 1694426740,
+                  "sizes": [
+                    {
+                      "_class": "PhotoStrippedSize",
+                      "_cid": "0xe0b0bc2e",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSize",
+                      "_cid": "0x75c78e60",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSizeProgressive",
+                      "_cid": "0xfa3efb95",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "BigInt(5474176002369376025)"
+                },
+                "accessHash": {
+                  "value": "BigInt(7005538101599339108)"
+                },
+                "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                "date": 1694426740,
+                "sizes": [
+                  {
+                    "_class": "PhotoStrippedSize",
+                    "_cid": "0xe0b0bc2e",
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    "type": "i",
+                    "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    "type": "m",
+                    "w": 320,
+                    "h": 180,
+                    "size": 4418
+                  },
+                  {
+                    "_class": "PhotoSizeProgressive",
+                    "_cid": "0xfa3efb95",
+                    "className": "PhotoSizeProgressive",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    },
+                    "type": "x",
+                    "w": 640,
+                    "h": 360,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ]
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 2
+              },
+              "embedUrl": null,
+              "embedType": null,
+              "embedWidth": null,
+              "embedHeight": null,
+              "duration": null,
+              "author": null,
+              "document": null,
+              "cachedPage": null,
+              "attributes": null
+            },
+            "flags": 8223,
+            "hasLargeMedia": true,
+            "id": {
+              "value": "BigInt(4080568427275839192)"
+            },
+            "url": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+            "displayUrl": "t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+            "hash": 0,
+            "type": "telegram_botapp",
+            "siteName": "Telegram",
+            "title": "Tribute",
+            "description": "This bot helps content creators receive financial support from their followers directly in the app.",
+            "photo": {
+              "_class": "Photo",
+              "_cid": "0xfb197a65",
+              "className": "Photo",
+              "originalArgs": {
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "BigInt(5474176002369376025)"
+                },
+                "accessHash": {
+                  "value": "BigInt(7005538101599339108)"
+                },
+                "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                "date": 1694426740,
+                "sizes": [
+                  {
+                    "_class": "PhotoStrippedSize",
+                    "_cid": "0xe0b0bc2e",
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    "type": "i",
+                    "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    "type": "m",
+                    "w": 320,
+                    "h": 180,
+                    "size": 4418
+                  },
+                  {
+                    "_class": "PhotoSizeProgressive",
+                    "_cid": "0xfa3efb95",
+                    "className": "PhotoSizeProgressive",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    },
+                    "type": "x",
+                    "w": 640,
+                    "h": 360,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ]
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 2
+              },
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "BigInt(5474176002369376025)"
+              },
+              "accessHash": {
+                "value": "BigInt(7005538101599339108)"
+              },
+              "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+              "date": 1694426740,
+              "sizes": [
+                {
+                  "_class": "PhotoStrippedSize",
+                  "_cid": "0xe0b0bc2e",
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                  },
+                  "type": "i",
+                  "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "m",
+                    "w": 320,
+                    "h": 180,
+                    "size": 4418
+                  },
+                  "type": "m",
+                  "w": 320,
+                  "h": 180,
+                  "size": 4418
+                },
+                {
+                  "_class": "PhotoSizeProgressive",
+                  "_cid": "0xfa3efb95",
+                  "className": "PhotoSizeProgressive",
+                  "originalArgs": {
+                    "type": "x",
+                    "w": 640,
+                    "h": 360,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ]
+                  },
+                  "type": "x",
+                  "w": 640,
+                  "h": 360,
+                  "sizes": [
+                    1772,
+                    2522,
+                    3238,
+                    3765,
+                    8042
+                  ]
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 2
+            },
+            "embedUrl": null,
+            "embedType": null,
+            "embedWidth": null,
+            "embedHeight": null,
+            "duration": null,
+            "author": null,
+            "document": null,
+            "cachedPage": null,
+            "attributes": null
+          }
+        },
+        "replyMarkup": null,
+        "entities": [
+          {
+            "_class": "MessageEntityUrl",
+            "_cid": "0x6ed02538",
+            "className": "MessageEntityUrl",
+            "originalArgs": {
+              "offset": 0,
+              "length": 67
+            },
+            "offset": 0,
+            "length": 67
+          }
+        ],
+        "views": null,
+        "forwards": null,
+        "replies": null,
+        "editDate": null,
+        "pinned": false,
+        "postAuthor": null,
+        "groupedId": null,
+        "restrictionReason": null,
+        "noforwards": false,
+        "reactions": null,
+        "flags": 640,
+        "invertMedia": false,
+        "flags2": 0,
+        "offline": false,
+        "videoProcessingPending": false,
+        "fromBoostsApplied": null,
+        "savedPeerId": null,
+        "viaBusinessBotId": null,
+        "quickReplyShortcutId": null,
+        "effect": null,
+        "factcheck": null,
+        "reportDeliveryUntilDate": null
+      },
+      {
+        "_class": "Message",
+        "_cid": "0x96fdbbe9",
+        "className": "Message",
+        "originalArgs": {
+          "flags": 192,
+          "out": false,
+          "mentioned": false,
+          "mediaUnread": false,
+          "silent": false,
+          "post": false,
+          "fromScheduled": false,
+          "legacy": false,
+          "editHide": false,
+          "pinned": false,
+          "noforwards": false,
+          "invertMedia": false,
+          "flags2": 0,
+          "offline": false,
+          "videoProcessingPending": false,
+          "id": 1195,
+          "fromId": null,
+          "fromBoostsApplied": null,
+          "peerId": {
+            "_class": "PeerUser",
+            "_cid": "0x59511722",
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "BigInt(93372553)"
+              }
+            },
+            "userId": {
+              "value": "BigInt(93372553)"
+            }
+          },
+          "savedPeerId": null,
+          "fwdFrom": null,
+          "viaBotId": null,
+          "viaBusinessBotId": null,
+          "replyTo": null,
+          "date": 1730288138,
+          "message": "Done! Congratulations on your new bot. You will find it at t.me/flowflix_storage_bot. You can now add a description, about section and profile picture for your bot, see /help for a list of commands. By the way, when you've finished creating your cool bot, ping our Bot Support if you want a better username for it. Just make sure the bot is fully operational before you do this.\n\nUse this token to access the HTTP API:\n7246847959:AAHeMPstUF8fzUurF55ie5fdRbXdDQCCA90\nKeep your token secure and store it safely, it can be used by anyone to control your bot.\n\nFor a description of the Bot API, see this page: https://core.telegram.org/bots/api",
+          "media": null,
+          "replyMarkup": {
+            "_class": "ReplyKeyboardHide",
+            "_cid": "0xa03e5b85",
+            "className": "ReplyKeyboardHide",
+            "originalArgs": {
+              "flags": 0,
+              "selective": false
+            },
+            "flags": 0,
+            "selective": false
+          },
+          "entities": [
+            {
+              "_class": "MessageEntityUrl",
+              "_cid": "0x6ed02538",
+              "className": "MessageEntityUrl",
+              "originalArgs": {
+                "offset": 59,
+                "length": 25
+              },
+              "offset": 59,
+              "length": 25
+            },
+            {
+              "_class": "MessageEntityBotCommand",
+              "_cid": "0x6cef8ac7",
+              "className": "MessageEntityBotCommand",
+              "originalArgs": {
+                "offset": 169,
+                "length": 5
+              },
+              "offset": 169,
+              "length": 5
+            },
+            {
+              "_class": "MessageEntityCode",
+              "_cid": "0x28a20571",
+              "className": "MessageEntityCode",
+              "originalArgs": {
+                "offset": 419,
+                "length": 46
+              },
+              "offset": 419,
+              "length": 46
+            },
+            {
+              "_class": "MessageEntityBold",
+              "_cid": "0xbd610bc9",
+              "className": "MessageEntityBold",
+              "originalArgs": {
+                "offset": 482,
+                "length": 6
+              },
+              "offset": 482,
+              "length": 6
+            },
+            {
+              "_class": "MessageEntityBold",
+              "_cid": "0xbd610bc9",
+              "className": "MessageEntityBold",
+              "originalArgs": {
+                "offset": 493,
+                "length": 15
+              },
+              "offset": 493,
+              "length": 15
+            },
+            {
+              "_class": "MessageEntityUrl",
+              "_cid": "0x6ed02538",
+              "className": "MessageEntityUrl",
+              "originalArgs": {
+                "offset": 606,
+                "length": 34
+              },
+              "offset": 606,
+              "length": 34
+            }
+          ],
+          "views": null,
+          "forwards": null,
+          "replies": null,
+          "editDate": null,
+          "postAuthor": null,
+          "groupedId": null,
+          "reactions": null,
+          "restrictionReason": null,
+          "ttlPeriod": null,
+          "quickReplyShortcutId": null,
+          "effect": null,
+          "factcheck": null,
+          "reportDeliveryUntilDate": null
+        },
+        "out": false,
+        "mentioned": false,
+        "mediaUnread": false,
+        "silent": false,
+        "post": false,
+        "fromScheduled": false,
+        "legacy": false,
+        "editHide": false,
+        "ttlPeriod": null,
+        "id": 1195,
+        "fromId": null,
+        "peerId": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(93372553)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(93372553)"
+          }
+        },
+        "fwdFrom": null,
+        "viaBotId": null,
+        "replyTo": null,
+        "date": 1730288138,
+        "message": "Done! Congratulations on your new bot. You will find it at t.me/flowflix_storage_bot. You can now add a description, about section and profile picture for your bot, see /help for a list of commands. By the way, when you've finished creating your cool bot, ping our Bot Support if you want a better username for it. Just make sure the bot is fully operational before you do this.\n\nUse this token to access the HTTP API:\n7246847959:AAHeMPstUF8fzUurF55ie5fdRbXdDQCCA90\nKeep your token secure and store it safely, it can be used by anyone to control your bot.\n\nFor a description of the Bot API, see this page: https://core.telegram.org/bots/api",
+        "media": null,
+        "replyMarkup": {
+          "_class": "ReplyKeyboardHide",
+          "_cid": "0xa03e5b85",
+          "className": "ReplyKeyboardHide",
+          "originalArgs": {
+            "flags": 0,
+            "selective": false
+          },
+          "flags": 0,
+          "selective": false
+        },
+        "entities": [
+          {
+            "_class": "MessageEntityUrl",
+            "_cid": "0x6ed02538",
+            "className": "MessageEntityUrl",
+            "originalArgs": {
+              "offset": 59,
+              "length": 25
+            },
+            "offset": 59,
+            "length": 25
+          },
+          {
+            "_class": "MessageEntityBotCommand",
+            "_cid": "0x6cef8ac7",
+            "className": "MessageEntityBotCommand",
+            "originalArgs": {
+              "offset": 169,
+              "length": 5
+            },
+            "offset": 169,
+            "length": 5
+          },
+          {
+            "_class": "MessageEntityCode",
+            "_cid": "0x28a20571",
+            "className": "MessageEntityCode",
+            "originalArgs": {
+              "offset": 419,
+              "length": 46
+            },
+            "offset": 419,
+            "length": 46
+          },
+          {
+            "_class": "MessageEntityBold",
+            "_cid": "0xbd610bc9",
+            "className": "MessageEntityBold",
+            "originalArgs": {
+              "offset": 482,
+              "length": 6
+            },
+            "offset": 482,
+            "length": 6
+          },
+          {
+            "_class": "MessageEntityBold",
+            "_cid": "0xbd610bc9",
+            "className": "MessageEntityBold",
+            "originalArgs": {
+              "offset": 493,
+              "length": 15
+            },
+            "offset": 493,
+            "length": 15
+          },
+          {
+            "_class": "MessageEntityUrl",
+            "_cid": "0x6ed02538",
+            "className": "MessageEntityUrl",
+            "originalArgs": {
+              "offset": 606,
+              "length": 34
+            },
+            "offset": 606,
+            "length": 34
+          }
+        ],
+        "views": null,
+        "forwards": null,
+        "replies": null,
+        "editDate": null,
+        "pinned": false,
+        "postAuthor": null,
+        "groupedId": null,
+        "restrictionReason": null,
+        "noforwards": false,
+        "reactions": null,
+        "flags": 192,
+        "invertMedia": false,
+        "flags2": 0,
+        "offline": false,
+        "videoProcessingPending": false,
+        "fromBoostsApplied": null,
+        "savedPeerId": null,
+        "viaBusinessBotId": null,
+        "quickReplyShortcutId": null,
+        "effect": null,
+        "factcheck": null,
+        "reportDeliveryUntilDate": null
+      }
+    ],
+    "chats": [],
+    "users": [
+      {
+        "_class": "User",
+        "_cid": "0x4b46c37e",
+        "className": "User",
+        "originalArgs": {
+          "flags": 33555547,
+          "self": true,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "BigInt(6340886702)"
+          },
+          "accessHash": {
+            "value": "BigInt(-2827396686645499657)"
+          },
+          "firstName": "🤷",
+          "lastName": null,
+          "username": "user28738229",
+          "phone": "17799037329",
+          "photo": null,
+          "status": {
+            "_class": "UserStatusOffline",
+            "_cid": "0x008c703f",
+            "className": "UserStatusOffline",
+            "originalArgs": {
+              "wasOnline": 1775737215
+            },
+            "wasOnline": 1775737215
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 33555547,
+        "self": true,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(6340886702)"
+        },
+        "accessHash": {
+          "value": "BigInt(-2827396686645499657)"
+        },
+        "firstName": "🤷",
+        "lastName": null,
+        "username": "user28738229",
+        "phone": "17799037329",
+        "photo": null,
+        "status": {
+          "_class": "UserStatusOffline",
+          "_cid": "0x008c703f",
+          "className": "UserStatusOffline",
+          "originalArgs": {
+            "wasOnline": 1775737215
+          },
+          "wasOnline": 1775737215
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      {
+        "_class": "User",
+        "_cid": "0x4b46c37e",
+        "className": "User",
+        "originalArgs": {
+          "flags": 42074227,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": true,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": true,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "BigInt(777000)"
+          },
+          "accessHash": {
+            "value": "BigInt(2974067603837347815)"
+          },
+          "firstName": "Telegram",
+          "lastName": null,
+          "username": null,
+          "phone": "42777",
+          "photo": {
+            "_class": "UserProfilePhoto",
+            "_cid": "0x82d1f706",
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "BigInt(3337190045231036)"
+              },
+              "strippedThumb": "Buffer(17)[01080893e4f2cf5dff00a514515d5638cf...]",
+              "dcId": 1
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(3337190045231036)"
+            },
+            "strippedThumb": "Buffer(17)[01080893e4f2cf5dff00a514515d5638cf...]",
+            "dcId": 1
+          },
+          "status": {
+            "_class": "UserStatusRecently",
+            "_cid": "0x7b197dc8",
+            "className": "UserStatusRecently",
+            "originalArgs": {
+              "flags": 1,
+              "byMe": true
+            },
+            "flags": 1,
+            "byMe": true
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 42074227,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": true,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": true,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(777000)"
+        },
+        "accessHash": {
+          "value": "BigInt(2974067603837347815)"
+        },
+        "firstName": "Telegram",
+        "lastName": null,
+        "username": null,
+        "phone": "42777",
+        "photo": {
+          "_class": "UserProfilePhoto",
+          "_cid": "0x82d1f706",
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(3337190045231036)"
+            },
+            "strippedThumb": "Buffer(17)[01080893e4f2cf5dff00a514515d5638cf...]",
+            "dcId": 1
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(3337190045231036)"
+          },
+          "strippedThumb": "Buffer(17)[01080893e4f2cf5dff00a514515d5638cf...]",
+          "dcId": 1
+        },
+        "status": {
+          "_class": "UserStatusRecently",
+          "_cid": "0x7b197dc8",
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 1,
+            "byMe": true
+          },
+          "flags": 1,
+          "byMe": true
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      {
+        "_class": "User",
+        "_cid": "0x4b46c37e",
+        "className": "User",
+        "originalArgs": {
+          "flags": 33554507,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "BigInt(338781882)"
+          },
+          "accessHash": {
+            "value": "BigInt(5980716527335755090)"
+          },
+          "firstName": "ㅤ",
+          "lastName": null,
+          "username": "sckr_a",
+          "phone": null,
+          "photo": null,
+          "status": {
+            "_class": "UserStatusRecently",
+            "_cid": "0x7b197dc8",
+            "className": "UserStatusRecently",
+            "originalArgs": {
+              "flags": 0,
+              "byMe": false
+            },
+            "flags": 0,
+            "byMe": false
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 33554507,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(338781882)"
+        },
+        "accessHash": {
+          "value": "BigInt(5980716527335755090)"
+        },
+        "firstName": "ㅤ",
+        "lastName": null,
+        "username": "sckr_a",
+        "phone": null,
+        "photo": null,
+        "status": {
+          "_class": "UserStatusRecently",
+          "_cid": "0x7b197dc8",
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 0,
+            "byMe": false
+          },
+          "flags": 0,
+          "byMe": false
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      {
+        "_class": "User",
+        "_cid": "0x4b46c37e",
+        "className": "User",
+        "originalArgs": {
+          "flags": 33767467,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": true,
+          "botChatHistory": false,
+          "botNochats": true,
+          "verified": true,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 12304,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": true,
+          "id": {
+            "value": "BigInt(93372553)"
+          },
+          "accessHash": {
+            "value": "BigInt(-7174274352962912888)"
+          },
+          "firstName": "BotFather",
+          "lastName": null,
+          "username": "BotFather",
+          "phone": null,
+          "photo": {
+            "_class": "UserProfilePhoto",
+            "_cid": "0x82d1f706",
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "BigInt(401032061935265706)"
+              },
+              "strippedThumb": "Buffer(16)[0108089fcf7fb417ec64d9451450163f...]",
+              "dcId": 1
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(401032061935265706)"
+            },
+            "strippedThumb": "Buffer(16)[0108089fcf7fb417ec64d9451450163f...]",
+            "dcId": 1
+          },
+          "status": null,
+          "botInfoVersion": 28,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": 8110429,
+          "botVerificationIcon": null
+        },
+        "flags": 33767467,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": true,
+        "botChatHistory": false,
+        "botNochats": true,
+        "verified": true,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 12304,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": true,
+        "id": {
+          "value": "BigInt(93372553)"
+        },
+        "accessHash": {
+          "value": "BigInt(-7174274352962912888)"
+        },
+        "firstName": "BotFather",
+        "lastName": null,
+        "username": "BotFather",
+        "phone": null,
+        "photo": {
+          "_class": "UserProfilePhoto",
+          "_cid": "0x82d1f706",
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(401032061935265706)"
+            },
+            "strippedThumb": "Buffer(16)[0108089fcf7fb417ec64d9451450163f...]",
+            "dcId": 1
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(401032061935265706)"
+          },
+          "strippedThumb": "Buffer(16)[0108089fcf7fb417ec64d9451450163f...]",
+          "dcId": 1
+        },
+        "status": null,
+        "botInfoVersion": 28,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": 8110429,
+        "botVerificationIcon": null
+      }
+    ]
+  },
+  "dialogs": [
+    {
+      "_class": "Dialog",
+      "_cid": "0xd58a08c6",
+      "className": "Dialog",
+      "originalArgs": {
+        "flags": 0,
+        "pinned": false,
+        "unreadMark": false,
+        "viewForumAsMessages": false,
+        "peer": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(6340886702)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(6340886702)"
+          }
+        },
+        "topMessage": 1402,
+        "readInboxMaxId": 1402,
+        "readOutboxMaxId": 0,
+        "unreadCount": 0,
+        "unreadMentionsCount": 0,
+        "unreadReactionsCount": 0,
+        "notifySettings": {
+          "_class": "PeerNotifySettings",
+          "_cid": "0x99622c0c",
+          "className": "PeerNotifySettings",
+          "originalArgs": {
+            "flags": 63,
+            "showPreviews": true,
+            "silent": false,
+            "muteUntil": 0,
+            "iosSound": {
+              "_class": "NotificationSoundDefault",
+              "_cid": "0x97e8bebe",
+              "className": "NotificationSoundDefault",
+              "originalArgs": {}
+            },
+            "androidSound": {
+              "_class": "NotificationSoundLocal",
+              "_cid": "0x830b9ae4",
+              "className": "NotificationSoundLocal",
+              "originalArgs": {
+                "title": "default",
+                "data": "default"
+              },
+              "title": "default",
+              "data": "default"
+            },
+            "otherSound": {
+              "_class": "NotificationSoundLocal",
+              "_cid": "0x830b9ae4",
+              "className": "NotificationSoundLocal",
+              "originalArgs": {
+                "title": "default",
+                "data": "default"
+              },
+              "title": "default",
+              "data": "default"
+            },
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "flags": 63,
+          "showPreviews": true,
+          "silent": false,
+          "muteUntil": 0,
+          "iosSound": {
+            "_class": "NotificationSoundDefault",
+            "_cid": "0x97e8bebe",
+            "className": "NotificationSoundDefault",
+            "originalArgs": {}
+          },
+          "androidSound": {
+            "_class": "NotificationSoundLocal",
+            "_cid": "0x830b9ae4",
+            "className": "NotificationSoundLocal",
+            "originalArgs": {
+              "title": "default",
+              "data": "default"
+            },
+            "title": "default",
+            "data": "default"
+          },
+          "otherSound": {
+            "_class": "NotificationSoundLocal",
+            "_cid": "0x830b9ae4",
+            "className": "NotificationSoundLocal",
+            "originalArgs": {
+              "title": "default",
+              "data": "default"
+            },
+            "title": "default",
+            "data": "default"
+          },
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "pts": null,
+        "draft": null,
+        "folderId": null,
+        "ttlPeriod": null
+      },
+      "flags": 0,
+      "pinned": false,
+      "unreadMark": false,
+      "viewForumAsMessages": false,
+      "peer": {
+        "_class": "PeerUser",
+        "_cid": "0x59511722",
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "BigInt(6340886702)"
+          }
+        },
+        "userId": {
+          "value": "BigInt(6340886702)"
+        }
+      },
+      "topMessage": 1402,
+      "readInboxMaxId": 1402,
+      "readOutboxMaxId": 0,
+      "unreadCount": 0,
+      "unreadMentionsCount": 0,
+      "unreadReactionsCount": 0,
+      "notifySettings": {
+        "_class": "PeerNotifySettings",
+        "_cid": "0x99622c0c",
+        "className": "PeerNotifySettings",
+        "originalArgs": {
+          "flags": 63,
+          "showPreviews": true,
+          "silent": false,
+          "muteUntil": 0,
+          "iosSound": {
+            "_class": "NotificationSoundDefault",
+            "_cid": "0x97e8bebe",
+            "className": "NotificationSoundDefault",
+            "originalArgs": {}
+          },
+          "androidSound": {
+            "_class": "NotificationSoundLocal",
+            "_cid": "0x830b9ae4",
+            "className": "NotificationSoundLocal",
+            "originalArgs": {
+              "title": "default",
+              "data": "default"
+            },
+            "title": "default",
+            "data": "default"
+          },
+          "otherSound": {
+            "_class": "NotificationSoundLocal",
+            "_cid": "0x830b9ae4",
+            "className": "NotificationSoundLocal",
+            "originalArgs": {
+              "title": "default",
+              "data": "default"
+            },
+            "title": "default",
+            "data": "default"
+          },
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "flags": 63,
+        "showPreviews": true,
+        "silent": false,
+        "muteUntil": 0,
+        "iosSound": {
+          "_class": "NotificationSoundDefault",
+          "_cid": "0x97e8bebe",
+          "className": "NotificationSoundDefault",
+          "originalArgs": {}
+        },
+        "androidSound": {
+          "_class": "NotificationSoundLocal",
+          "_cid": "0x830b9ae4",
+          "className": "NotificationSoundLocal",
+          "originalArgs": {
+            "title": "default",
+            "data": "default"
+          },
+          "title": "default",
+          "data": "default"
+        },
+        "otherSound": {
+          "_class": "NotificationSoundLocal",
+          "_cid": "0x830b9ae4",
+          "className": "NotificationSoundLocal",
+          "originalArgs": {
+            "title": "default",
+            "data": "default"
+          },
+          "title": "default",
+          "data": "default"
+        },
+        "storiesMuted": null,
+        "storiesHideSender": null,
+        "storiesIosSound": null,
+        "storiesAndroidSound": null,
+        "storiesOtherSound": null
+      },
+      "pts": null,
+      "draft": null,
+      "folderId": null,
+      "ttlPeriod": null
+    },
+    {
+      "_class": "Dialog",
+      "_cid": "0xd58a08c6",
+      "className": "Dialog",
+      "originalArgs": {
+        "flags": 0,
+        "pinned": false,
+        "unreadMark": false,
+        "viewForumAsMessages": false,
+        "peer": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(777000)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(777000)"
+          }
+        },
+        "topMessage": 1400,
+        "readInboxMaxId": 1400,
+        "readOutboxMaxId": 1169,
+        "unreadCount": 0,
+        "unreadMentionsCount": 0,
+        "unreadReactionsCount": 0,
+        "notifySettings": {
+          "_class": "PeerNotifySettings",
+          "_cid": "0x99622c0c",
+          "className": "PeerNotifySettings",
+          "originalArgs": {
+            "flags": 5,
+            "showPreviews": true,
+            "silent": null,
+            "muteUntil": 2147483647,
+            "iosSound": null,
+            "androidSound": null,
+            "otherSound": null,
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "flags": 5,
+          "showPreviews": true,
+          "silent": null,
+          "muteUntil": 2147483647,
+          "iosSound": null,
+          "androidSound": null,
+          "otherSound": null,
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "pts": null,
+        "draft": null,
+        "folderId": null,
+        "ttlPeriod": null
+      },
+      "flags": 0,
+      "pinned": false,
+      "unreadMark": false,
+      "viewForumAsMessages": false,
+      "peer": {
+        "_class": "PeerUser",
+        "_cid": "0x59511722",
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "BigInt(777000)"
+          }
+        },
+        "userId": {
+          "value": "BigInt(777000)"
+        }
+      },
+      "topMessage": 1400,
+      "readInboxMaxId": 1400,
+      "readOutboxMaxId": 1169,
+      "unreadCount": 0,
+      "unreadMentionsCount": 0,
+      "unreadReactionsCount": 0,
+      "notifySettings": {
+        "_class": "PeerNotifySettings",
+        "_cid": "0x99622c0c",
+        "className": "PeerNotifySettings",
+        "originalArgs": {
+          "flags": 5,
+          "showPreviews": true,
+          "silent": null,
+          "muteUntil": 2147483647,
+          "iosSound": null,
+          "androidSound": null,
+          "otherSound": null,
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "flags": 5,
+        "showPreviews": true,
+        "silent": null,
+        "muteUntil": 2147483647,
+        "iosSound": null,
+        "androidSound": null,
+        "otherSound": null,
+        "storiesMuted": null,
+        "storiesHideSender": null,
+        "storiesIosSound": null,
+        "storiesAndroidSound": null,
+        "storiesOtherSound": null
+      },
+      "pts": null,
+      "draft": null,
+      "folderId": null,
+      "ttlPeriod": null
+    },
+    {
+      "_class": "Dialog",
+      "_cid": "0xd58a08c6",
+      "className": "Dialog",
+      "originalArgs": {
+        "flags": 0,
+        "pinned": false,
+        "unreadMark": false,
+        "viewForumAsMessages": false,
+        "peer": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(338781882)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(338781882)"
+          }
+        },
+        "topMessage": 1241,
+        "readInboxMaxId": 1241,
+        "readOutboxMaxId": 1244,
+        "unreadCount": 0,
+        "unreadMentionsCount": 0,
+        "unreadReactionsCount": 0,
+        "notifySettings": {
+          "_class": "PeerNotifySettings",
+          "_cid": "0x99622c0c",
+          "className": "PeerNotifySettings",
+          "originalArgs": {
+            "flags": 0,
+            "showPreviews": null,
+            "silent": null,
+            "muteUntil": null,
+            "iosSound": null,
+            "androidSound": null,
+            "otherSound": null,
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "flags": 0,
+          "showPreviews": null,
+          "silent": null,
+          "muteUntil": null,
+          "iosSound": null,
+          "androidSound": null,
+          "otherSound": null,
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "pts": null,
+        "draft": null,
+        "folderId": null,
+        "ttlPeriod": null
+      },
+      "flags": 0,
+      "pinned": false,
+      "unreadMark": false,
+      "viewForumAsMessages": false,
+      "peer": {
+        "_class": "PeerUser",
+        "_cid": "0x59511722",
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "BigInt(338781882)"
+          }
+        },
+        "userId": {
+          "value": "BigInt(338781882)"
+        }
+      },
+      "topMessage": 1241,
+      "readInboxMaxId": 1241,
+      "readOutboxMaxId": 1244,
+      "unreadCount": 0,
+      "unreadMentionsCount": 0,
+      "unreadReactionsCount": 0,
+      "notifySettings": {
+        "_class": "PeerNotifySettings",
+        "_cid": "0x99622c0c",
+        "className": "PeerNotifySettings",
+        "originalArgs": {
+          "flags": 0,
+          "showPreviews": null,
+          "silent": null,
+          "muteUntil": null,
+          "iosSound": null,
+          "androidSound": null,
+          "otherSound": null,
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "flags": 0,
+        "showPreviews": null,
+        "silent": null,
+        "muteUntil": null,
+        "iosSound": null,
+        "androidSound": null,
+        "otherSound": null,
+        "storiesMuted": null,
+        "storiesHideSender": null,
+        "storiesIosSound": null,
+        "storiesAndroidSound": null,
+        "storiesOtherSound": null
+      },
+      "pts": null,
+      "draft": null,
+      "folderId": null,
+      "ttlPeriod": null
+    },
+    {
+      "_class": "Dialog",
+      "_cid": "0xd58a08c6",
+      "className": "Dialog",
+      "originalArgs": {
+        "flags": 0,
+        "pinned": false,
+        "unreadMark": false,
+        "viewForumAsMessages": false,
+        "peer": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(93372553)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(93372553)"
+          }
+        },
+        "topMessage": 1195,
+        "readInboxMaxId": 1195,
+        "readOutboxMaxId": 1194,
+        "unreadCount": 0,
+        "unreadMentionsCount": 0,
+        "unreadReactionsCount": 0,
+        "notifySettings": {
+          "_class": "PeerNotifySettings",
+          "_cid": "0x99622c0c",
+          "className": "PeerNotifySettings",
+          "originalArgs": {
+            "flags": 0,
+            "showPreviews": null,
+            "silent": null,
+            "muteUntil": null,
+            "iosSound": null,
+            "androidSound": null,
+            "otherSound": null,
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "flags": 0,
+          "showPreviews": null,
+          "silent": null,
+          "muteUntil": null,
+          "iosSound": null,
+          "androidSound": null,
+          "otherSound": null,
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "pts": null,
+        "draft": null,
+        "folderId": null,
+        "ttlPeriod": null
+      },
+      "flags": 0,
+      "pinned": false,
+      "unreadMark": false,
+      "viewForumAsMessages": false,
+      "peer": {
+        "_class": "PeerUser",
+        "_cid": "0x59511722",
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "BigInt(93372553)"
+          }
+        },
+        "userId": {
+          "value": "BigInt(93372553)"
+        }
+      },
+      "topMessage": 1195,
+      "readInboxMaxId": 1195,
+      "readOutboxMaxId": 1194,
+      "unreadCount": 0,
+      "unreadMentionsCount": 0,
+      "unreadReactionsCount": 0,
+      "notifySettings": {
+        "_class": "PeerNotifySettings",
+        "_cid": "0x99622c0c",
+        "className": "PeerNotifySettings",
+        "originalArgs": {
+          "flags": 0,
+          "showPreviews": null,
+          "silent": null,
+          "muteUntil": null,
+          "iosSound": null,
+          "androidSound": null,
+          "otherSound": null,
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "flags": 0,
+        "showPreviews": null,
+        "silent": null,
+        "muteUntil": null,
+        "iosSound": null,
+        "androidSound": null,
+        "otherSound": null,
+        "storiesMuted": null,
+        "storiesHideSender": null,
+        "storiesIosSound": null,
+        "storiesAndroidSound": null,
+        "storiesOtherSound": null
+      },
+      "pts": null,
+      "draft": null,
+      "folderId": null,
+      "ttlPeriod": null
+    }
+  ],
+  "messages": [
+    {
+      "_class": "Message",
+      "_cid": "0x96fdbbe9",
+      "className": "Message",
+      "originalArgs": {
+        "flags": 268435456,
+        "out": false,
+        "mentioned": false,
+        "mediaUnread": false,
+        "silent": false,
+        "post": false,
+        "fromScheduled": false,
+        "legacy": false,
+        "editHide": false,
+        "pinned": false,
+        "noforwards": false,
+        "invertMedia": false,
+        "flags2": 0,
+        "offline": false,
+        "videoProcessingPending": false,
+        "id": 1402,
+        "fromId": null,
+        "fromBoostsApplied": null,
+        "peerId": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(6340886702)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(6340886702)"
+          }
+        },
+        "savedPeerId": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(6340886702)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(6340886702)"
+          }
+        },
+        "fwdFrom": null,
+        "viaBotId": null,
+        "viaBusinessBotId": null,
+        "replyTo": null,
+        "date": 1775675367,
+        "message": "test_getmsgs",
+        "media": null,
+        "replyMarkup": null,
+        "entities": null,
+        "views": null,
+        "forwards": null,
+        "replies": null,
+        "editDate": null,
+        "postAuthor": null,
+        "groupedId": null,
+        "reactions": null,
+        "restrictionReason": null,
+        "ttlPeriod": null,
+        "quickReplyShortcutId": null,
+        "effect": null,
+        "factcheck": null,
+        "reportDeliveryUntilDate": null
+      },
+      "out": false,
+      "mentioned": false,
+      "mediaUnread": false,
+      "silent": false,
+      "post": false,
+      "fromScheduled": false,
+      "legacy": false,
+      "editHide": false,
+      "ttlPeriod": null,
+      "id": 1402,
+      "fromId": null,
+      "peerId": {
+        "_class": "PeerUser",
+        "_cid": "0x59511722",
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "BigInt(6340886702)"
+          }
+        },
+        "userId": {
+          "value": "BigInt(6340886702)"
+        }
+      },
+      "fwdFrom": null,
+      "viaBotId": null,
+      "replyTo": null,
+      "date": 1775675367,
+      "message": "test_getmsgs",
+      "media": null,
+      "replyMarkup": null,
+      "entities": null,
+      "views": null,
+      "forwards": null,
+      "replies": null,
+      "editDate": null,
+      "pinned": false,
+      "postAuthor": null,
+      "groupedId": null,
+      "restrictionReason": null,
+      "noforwards": false,
+      "reactions": null,
+      "flags": 268435456,
+      "invertMedia": false,
+      "flags2": 0,
+      "offline": false,
+      "videoProcessingPending": false,
+      "fromBoostsApplied": null,
+      "savedPeerId": {
+        "_class": "PeerUser",
+        "_cid": "0x59511722",
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "BigInt(6340886702)"
+          }
+        },
+        "userId": {
+          "value": "BigInt(6340886702)"
+        }
+      },
+      "viaBusinessBotId": null,
+      "quickReplyShortcutId": null,
+      "effect": null,
+      "factcheck": null,
+      "reportDeliveryUntilDate": null
+    },
+    {
+      "_class": "Message",
+      "_cid": "0x96fdbbe9",
+      "className": "Message",
+      "originalArgs": {
+        "flags": 128,
+        "out": false,
+        "mentioned": false,
+        "mediaUnread": false,
+        "silent": false,
+        "post": false,
+        "fromScheduled": false,
+        "legacy": false,
+        "editHide": false,
+        "pinned": false,
+        "noforwards": false,
+        "invertMedia": false,
+        "flags2": 0,
+        "offline": false,
+        "videoProcessingPending": false,
+        "id": 1400,
+        "fromId": null,
+        "fromBoostsApplied": null,
+        "peerId": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(777000)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(777000)"
+          }
+        },
+        "savedPeerId": null,
+        "fwdFrom": null,
+        "viaBotId": null,
+        "viaBusinessBotId": null,
+        "replyTo": null,
+        "date": 1775672371,
+        "message": "Login code: 15869. Do not give this code to anyone, even if they say they are from Telegram!\n\n❗️This code can be used to log in to your Telegram account. We never ask it for anything else.\n\nIf you didn't request this code by trying to log in on another device, simply ignore this message.",
+        "media": null,
+        "replyMarkup": null,
+        "entities": [
+          {
+            "_class": "MessageEntityBold",
+            "_cid": "0xbd610bc9",
+            "className": "MessageEntityBold",
+            "originalArgs": {
+              "offset": 0,
+              "length": 11
+            },
+            "offset": 0,
+            "length": 11
+          },
+          {
+            "_class": "MessageEntityBold",
+            "_cid": "0xbd610bc9",
+            "className": "MessageEntityBold",
+            "originalArgs": {
+              "offset": 22,
+              "length": 3
+            },
+            "offset": 22,
+            "length": 3
+          }
+        ],
+        "views": null,
+        "forwards": null,
+        "replies": null,
+        "editDate": null,
+        "postAuthor": null,
+        "groupedId": null,
+        "reactions": null,
+        "restrictionReason": null,
+        "ttlPeriod": null,
+        "quickReplyShortcutId": null,
+        "effect": null,
+        "factcheck": null,
+        "reportDeliveryUntilDate": null
+      },
+      "out": false,
+      "mentioned": false,
+      "mediaUnread": false,
+      "silent": false,
+      "post": false,
+      "fromScheduled": false,
+      "legacy": false,
+      "editHide": false,
+      "ttlPeriod": null,
+      "id": 1400,
+      "fromId": null,
+      "peerId": {
+        "_class": "PeerUser",
+        "_cid": "0x59511722",
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "BigInt(777000)"
+          }
+        },
+        "userId": {
+          "value": "BigInt(777000)"
+        }
+      },
+      "fwdFrom": null,
+      "viaBotId": null,
+      "replyTo": null,
+      "date": 1775672371,
+      "message": "Login code: 15869. Do not give this code to anyone, even if they say they are from Telegram!\n\n❗️This code can be used to log in to your Telegram account. We never ask it for anything else.\n\nIf you didn't request this code by trying to log in on another device, simply ignore this message.",
+      "media": null,
+      "replyMarkup": null,
+      "entities": [
+        {
+          "_class": "MessageEntityBold",
+          "_cid": "0xbd610bc9",
+          "className": "MessageEntityBold",
+          "originalArgs": {
+            "offset": 0,
+            "length": 11
+          },
+          "offset": 0,
+          "length": 11
+        },
+        {
+          "_class": "MessageEntityBold",
+          "_cid": "0xbd610bc9",
+          "className": "MessageEntityBold",
+          "originalArgs": {
+            "offset": 22,
+            "length": 3
+          },
+          "offset": 22,
+          "length": 3
+        }
+      ],
+      "views": null,
+      "forwards": null,
+      "replies": null,
+      "editDate": null,
+      "pinned": false,
+      "postAuthor": null,
+      "groupedId": null,
+      "restrictionReason": null,
+      "noforwards": false,
+      "reactions": null,
+      "flags": 128,
+      "invertMedia": false,
+      "flags2": 0,
+      "offline": false,
+      "videoProcessingPending": false,
+      "fromBoostsApplied": null,
+      "savedPeerId": null,
+      "viaBusinessBotId": null,
+      "quickReplyShortcutId": null,
+      "effect": null,
+      "factcheck": null,
+      "reportDeliveryUntilDate": null
+    },
+    {
+      "_class": "Message",
+      "_cid": "0x96fdbbe9",
+      "className": "Message",
+      "originalArgs": {
+        "flags": 640,
+        "out": false,
+        "mentioned": false,
+        "mediaUnread": false,
+        "silent": false,
+        "post": false,
+        "fromScheduled": false,
+        "legacy": false,
+        "editHide": false,
+        "pinned": false,
+        "noforwards": false,
+        "invertMedia": false,
+        "flags2": 0,
+        "offline": false,
+        "videoProcessingPending": false,
+        "id": 1241,
+        "fromId": null,
+        "fromBoostsApplied": null,
+        "peerId": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(338781882)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(338781882)"
+          }
+        },
+        "savedPeerId": null,
+        "fwdFrom": null,
+        "viaBotId": null,
+        "viaBusinessBotId": null,
+        "replyTo": null,
+        "date": 1765289915,
+        "message": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE\nJoin the raffle using my link and complete tasks to get tickets for participation in the raffle.",
+        "media": {
+          "_class": "MessageMediaWebPage",
+          "_cid": "0xddf10c3b",
+          "className": "MessageMediaWebPage",
+          "originalArgs": {
+            "flags": 25,
+            "forceLargeMedia": true,
+            "forceSmallMedia": false,
+            "manual": true,
+            "safe": true,
+            "webpage": {
+              "_class": "WebPage",
+              "_cid": "0xe89c45b2",
+              "className": "WebPage",
+              "originalArgs": {
+                "flags": 8223,
+                "hasLargeMedia": true,
+                "id": {
+                  "value": "BigInt(4080568427275839192)"
+                },
+                "url": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+                "displayUrl": "t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+                "hash": 0,
+                "type": "telegram_botapp",
+                "siteName": "Telegram",
+                "title": "Tribute",
+                "description": "This bot helps content creators receive financial support from their followers directly in the app.",
+                "photo": {
+                  "_class": "Photo",
+                  "_cid": "0xfb197a65",
+                  "className": "Photo",
+                  "originalArgs": {
+                    "flags": 0,
+                    "hasStickers": false,
+                    "id": {
+                      "value": "[max depth]"
+                    },
+                    "accessHash": {
+                      "value": "[max depth]"
+                    },
+                    "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                    "date": 1694426740,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ],
+                    "videoSizes": null,
+                    "dcId": 2
+                  },
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "BigInt(5474176002369376025)"
+                  },
+                  "accessHash": {
+                    "value": "BigInt(7005538101599339108)"
+                  },
+                  "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                  "date": 1694426740,
+                  "sizes": [
+                    {
+                      "_class": "PhotoStrippedSize",
+                      "_cid": "0xe0b0bc2e",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSize",
+                      "_cid": "0x75c78e60",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSizeProgressive",
+                      "_cid": "0xfa3efb95",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "embedUrl": null,
+                "embedType": null,
+                "embedWidth": null,
+                "embedHeight": null,
+                "duration": null,
+                "author": null,
+                "document": null,
+                "cachedPage": null,
+                "attributes": null
+              },
+              "flags": 8223,
+              "hasLargeMedia": true,
+              "id": {
+                "value": "BigInt(4080568427275839192)"
+              },
+              "url": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+              "displayUrl": "t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+              "hash": 0,
+              "type": "telegram_botapp",
+              "siteName": "Telegram",
+              "title": "Tribute",
+              "description": "This bot helps content creators receive financial support from their followers directly in the app.",
+              "photo": {
+                "_class": "Photo",
+                "_cid": "0xfb197a65",
+                "className": "Photo",
+                "originalArgs": {
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "BigInt(5474176002369376025)"
+                  },
+                  "accessHash": {
+                    "value": "BigInt(7005538101599339108)"
+                  },
+                  "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                  "date": 1694426740,
+                  "sizes": [
+                    {
+                      "_class": "PhotoStrippedSize",
+                      "_cid": "0xe0b0bc2e",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSize",
+                      "_cid": "0x75c78e60",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSizeProgressive",
+                      "_cid": "0xfa3efb95",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "BigInt(5474176002369376025)"
+                },
+                "accessHash": {
+                  "value": "BigInt(7005538101599339108)"
+                },
+                "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                "date": 1694426740,
+                "sizes": [
+                  {
+                    "_class": "PhotoStrippedSize",
+                    "_cid": "0xe0b0bc2e",
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    "type": "i",
+                    "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    "type": "m",
+                    "w": 320,
+                    "h": 180,
+                    "size": 4418
+                  },
+                  {
+                    "_class": "PhotoSizeProgressive",
+                    "_cid": "0xfa3efb95",
+                    "className": "PhotoSizeProgressive",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    },
+                    "type": "x",
+                    "w": 640,
+                    "h": 360,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ]
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 2
+              },
+              "embedUrl": null,
+              "embedType": null,
+              "embedWidth": null,
+              "embedHeight": null,
+              "duration": null,
+              "author": null,
+              "document": null,
+              "cachedPage": null,
+              "attributes": null
+            }
+          },
+          "flags": 25,
+          "forceLargeMedia": true,
+          "forceSmallMedia": false,
+          "manual": true,
+          "safe": true,
+          "webpage": {
+            "_class": "WebPage",
+            "_cid": "0xe89c45b2",
+            "className": "WebPage",
+            "originalArgs": {
+              "flags": 8223,
+              "hasLargeMedia": true,
+              "id": {
+                "value": "BigInt(4080568427275839192)"
+              },
+              "url": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+              "displayUrl": "t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+              "hash": 0,
+              "type": "telegram_botapp",
+              "siteName": "Telegram",
+              "title": "Tribute",
+              "description": "This bot helps content creators receive financial support from their followers directly in the app.",
+              "photo": {
+                "_class": "Photo",
+                "_cid": "0xfb197a65",
+                "className": "Photo",
+                "originalArgs": {
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "BigInt(5474176002369376025)"
+                  },
+                  "accessHash": {
+                    "value": "BigInt(7005538101599339108)"
+                  },
+                  "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                  "date": 1694426740,
+                  "sizes": [
+                    {
+                      "_class": "PhotoStrippedSize",
+                      "_cid": "0xe0b0bc2e",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSize",
+                      "_cid": "0x75c78e60",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSizeProgressive",
+                      "_cid": "0xfa3efb95",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "BigInt(5474176002369376025)"
+                },
+                "accessHash": {
+                  "value": "BigInt(7005538101599339108)"
+                },
+                "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                "date": 1694426740,
+                "sizes": [
+                  {
+                    "_class": "PhotoStrippedSize",
+                    "_cid": "0xe0b0bc2e",
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    "type": "i",
+                    "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    "type": "m",
+                    "w": 320,
+                    "h": 180,
+                    "size": 4418
+                  },
+                  {
+                    "_class": "PhotoSizeProgressive",
+                    "_cid": "0xfa3efb95",
+                    "className": "PhotoSizeProgressive",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    },
+                    "type": "x",
+                    "w": 640,
+                    "h": 360,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ]
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 2
+              },
+              "embedUrl": null,
+              "embedType": null,
+              "embedWidth": null,
+              "embedHeight": null,
+              "duration": null,
+              "author": null,
+              "document": null,
+              "cachedPage": null,
+              "attributes": null
+            },
+            "flags": 8223,
+            "hasLargeMedia": true,
+            "id": {
+              "value": "BigInt(4080568427275839192)"
+            },
+            "url": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+            "displayUrl": "t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+            "hash": 0,
+            "type": "telegram_botapp",
+            "siteName": "Telegram",
+            "title": "Tribute",
+            "description": "This bot helps content creators receive financial support from their followers directly in the app.",
+            "photo": {
+              "_class": "Photo",
+              "_cid": "0xfb197a65",
+              "className": "Photo",
+              "originalArgs": {
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "BigInt(5474176002369376025)"
+                },
+                "accessHash": {
+                  "value": "BigInt(7005538101599339108)"
+                },
+                "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                "date": 1694426740,
+                "sizes": [
+                  {
+                    "_class": "PhotoStrippedSize",
+                    "_cid": "0xe0b0bc2e",
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    "type": "i",
+                    "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    "type": "m",
+                    "w": 320,
+                    "h": 180,
+                    "size": 4418
+                  },
+                  {
+                    "_class": "PhotoSizeProgressive",
+                    "_cid": "0xfa3efb95",
+                    "className": "PhotoSizeProgressive",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    },
+                    "type": "x",
+                    "w": 640,
+                    "h": 360,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ]
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 2
+              },
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "BigInt(5474176002369376025)"
+              },
+              "accessHash": {
+                "value": "BigInt(7005538101599339108)"
+              },
+              "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+              "date": 1694426740,
+              "sizes": [
+                {
+                  "_class": "PhotoStrippedSize",
+                  "_cid": "0xe0b0bc2e",
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                  },
+                  "type": "i",
+                  "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "m",
+                    "w": 320,
+                    "h": 180,
+                    "size": 4418
+                  },
+                  "type": "m",
+                  "w": 320,
+                  "h": 180,
+                  "size": 4418
+                },
+                {
+                  "_class": "PhotoSizeProgressive",
+                  "_cid": "0xfa3efb95",
+                  "className": "PhotoSizeProgressive",
+                  "originalArgs": {
+                    "type": "x",
+                    "w": 640,
+                    "h": 360,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ]
+                  },
+                  "type": "x",
+                  "w": 640,
+                  "h": 360,
+                  "sizes": [
+                    1772,
+                    2522,
+                    3238,
+                    3765,
+                    8042
+                  ]
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 2
+            },
+            "embedUrl": null,
+            "embedType": null,
+            "embedWidth": null,
+            "embedHeight": null,
+            "duration": null,
+            "author": null,
+            "document": null,
+            "cachedPage": null,
+            "attributes": null
+          }
+        },
+        "replyMarkup": null,
+        "entities": [
+          {
+            "_class": "MessageEntityUrl",
+            "_cid": "0x6ed02538",
+            "className": "MessageEntityUrl",
+            "originalArgs": {
+              "offset": 0,
+              "length": 67
+            },
+            "offset": 0,
+            "length": 67
+          }
+        ],
+        "views": null,
+        "forwards": null,
+        "replies": null,
+        "editDate": null,
+        "postAuthor": null,
+        "groupedId": null,
+        "reactions": null,
+        "restrictionReason": null,
+        "ttlPeriod": null,
+        "quickReplyShortcutId": null,
+        "effect": null,
+        "factcheck": null,
+        "reportDeliveryUntilDate": null
+      },
+      "out": false,
+      "mentioned": false,
+      "mediaUnread": false,
+      "silent": false,
+      "post": false,
+      "fromScheduled": false,
+      "legacy": false,
+      "editHide": false,
+      "ttlPeriod": null,
+      "id": 1241,
+      "fromId": null,
+      "peerId": {
+        "_class": "PeerUser",
+        "_cid": "0x59511722",
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "BigInt(338781882)"
+          }
+        },
+        "userId": {
+          "value": "BigInt(338781882)"
+        }
+      },
+      "fwdFrom": null,
+      "viaBotId": null,
+      "replyTo": null,
+      "date": 1765289915,
+      "message": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE\nJoin the raffle using my link and complete tasks to get tickets for participation in the raffle.",
+      "media": {
+        "_class": "MessageMediaWebPage",
+        "_cid": "0xddf10c3b",
+        "className": "MessageMediaWebPage",
+        "originalArgs": {
+          "flags": 25,
+          "forceLargeMedia": true,
+          "forceSmallMedia": false,
+          "manual": true,
+          "safe": true,
+          "webpage": {
+            "_class": "WebPage",
+            "_cid": "0xe89c45b2",
+            "className": "WebPage",
+            "originalArgs": {
+              "flags": 8223,
+              "hasLargeMedia": true,
+              "id": {
+                "value": "BigInt(4080568427275839192)"
+              },
+              "url": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+              "displayUrl": "t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+              "hash": 0,
+              "type": "telegram_botapp",
+              "siteName": "Telegram",
+              "title": "Tribute",
+              "description": "This bot helps content creators receive financial support from their followers directly in the app.",
+              "photo": {
+                "_class": "Photo",
+                "_cid": "0xfb197a65",
+                "className": "Photo",
+                "originalArgs": {
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "BigInt(5474176002369376025)"
+                  },
+                  "accessHash": {
+                    "value": "BigInt(7005538101599339108)"
+                  },
+                  "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                  "date": 1694426740,
+                  "sizes": [
+                    {
+                      "_class": "PhotoStrippedSize",
+                      "_cid": "0xe0b0bc2e",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSize",
+                      "_cid": "0x75c78e60",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    {
+                      "_class": "PhotoSizeProgressive",
+                      "_cid": "0xfa3efb95",
+                      "className": "[max depth]",
+                      "originalArgs": "[max depth]",
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 2
+                },
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "BigInt(5474176002369376025)"
+                },
+                "accessHash": {
+                  "value": "BigInt(7005538101599339108)"
+                },
+                "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                "date": 1694426740,
+                "sizes": [
+                  {
+                    "_class": "PhotoStrippedSize",
+                    "_cid": "0xe0b0bc2e",
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    "type": "i",
+                    "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    "type": "m",
+                    "w": 320,
+                    "h": 180,
+                    "size": 4418
+                  },
+                  {
+                    "_class": "PhotoSizeProgressive",
+                    "_cid": "0xfa3efb95",
+                    "className": "PhotoSizeProgressive",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    },
+                    "type": "x",
+                    "w": 640,
+                    "h": 360,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ]
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 2
+              },
+              "embedUrl": null,
+              "embedType": null,
+              "embedWidth": null,
+              "embedHeight": null,
+              "duration": null,
+              "author": null,
+              "document": null,
+              "cachedPage": null,
+              "attributes": null
+            },
+            "flags": 8223,
+            "hasLargeMedia": true,
+            "id": {
+              "value": "BigInt(4080568427275839192)"
+            },
+            "url": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+            "displayUrl": "t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+            "hash": 0,
+            "type": "telegram_botapp",
+            "siteName": "Telegram",
+            "title": "Tribute",
+            "description": "This bot helps content creators receive financial support from their followers directly in the app.",
+            "photo": {
+              "_class": "Photo",
+              "_cid": "0xfb197a65",
+              "className": "Photo",
+              "originalArgs": {
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "BigInt(5474176002369376025)"
+                },
+                "accessHash": {
+                  "value": "BigInt(7005538101599339108)"
+                },
+                "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                "date": 1694426740,
+                "sizes": [
+                  {
+                    "_class": "PhotoStrippedSize",
+                    "_cid": "0xe0b0bc2e",
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    "type": "i",
+                    "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    "type": "m",
+                    "w": 320,
+                    "h": 180,
+                    "size": 4418
+                  },
+                  {
+                    "_class": "PhotoSizeProgressive",
+                    "_cid": "0xfa3efb95",
+                    "className": "PhotoSizeProgressive",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    },
+                    "type": "x",
+                    "w": 640,
+                    "h": 360,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ]
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 2
+              },
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "BigInt(5474176002369376025)"
+              },
+              "accessHash": {
+                "value": "BigInt(7005538101599339108)"
+              },
+              "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+              "date": 1694426740,
+              "sizes": [
+                {
+                  "_class": "PhotoStrippedSize",
+                  "_cid": "0xe0b0bc2e",
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                  },
+                  "type": "i",
+                  "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "m",
+                    "w": 320,
+                    "h": 180,
+                    "size": 4418
+                  },
+                  "type": "m",
+                  "w": 320,
+                  "h": 180,
+                  "size": 4418
+                },
+                {
+                  "_class": "PhotoSizeProgressive",
+                  "_cid": "0xfa3efb95",
+                  "className": "PhotoSizeProgressive",
+                  "originalArgs": {
+                    "type": "x",
+                    "w": 640,
+                    "h": 360,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ]
+                  },
+                  "type": "x",
+                  "w": 640,
+                  "h": 360,
+                  "sizes": [
+                    1772,
+                    2522,
+                    3238,
+                    3765,
+                    8042
+                  ]
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 2
+            },
+            "embedUrl": null,
+            "embedType": null,
+            "embedWidth": null,
+            "embedHeight": null,
+            "duration": null,
+            "author": null,
+            "document": null,
+            "cachedPage": null,
+            "attributes": null
+          }
+        },
+        "flags": 25,
+        "forceLargeMedia": true,
+        "forceSmallMedia": false,
+        "manual": true,
+        "safe": true,
+        "webpage": {
+          "_class": "WebPage",
+          "_cid": "0xe89c45b2",
+          "className": "WebPage",
+          "originalArgs": {
+            "flags": 8223,
+            "hasLargeMedia": true,
+            "id": {
+              "value": "BigInt(4080568427275839192)"
+            },
+            "url": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+            "displayUrl": "t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+            "hash": 0,
+            "type": "telegram_botapp",
+            "siteName": "Telegram",
+            "title": "Tribute",
+            "description": "This bot helps content creators receive financial support from their followers directly in the app.",
+            "photo": {
+              "_class": "Photo",
+              "_cid": "0xfb197a65",
+              "className": "Photo",
+              "originalArgs": {
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "BigInt(5474176002369376025)"
+                },
+                "accessHash": {
+                  "value": "BigInt(7005538101599339108)"
+                },
+                "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+                "date": 1694426740,
+                "sizes": [
+                  {
+                    "_class": "PhotoStrippedSize",
+                    "_cid": "0xe0b0bc2e",
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "bytes": "[max depth]"
+                    },
+                    "type": "i",
+                    "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                  },
+                  {
+                    "_class": "PhotoSize",
+                    "_cid": "0x75c78e60",
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "size": "[max depth]"
+                    },
+                    "type": "m",
+                    "w": 320,
+                    "h": 180,
+                    "size": 4418
+                  },
+                  {
+                    "_class": "PhotoSizeProgressive",
+                    "_cid": "0xfa3efb95",
+                    "className": "PhotoSizeProgressive",
+                    "originalArgs": {
+                      "type": "[max depth]",
+                      "w": "[max depth]",
+                      "h": "[max depth]",
+                      "sizes": "[max depth]"
+                    },
+                    "type": "x",
+                    "w": 640,
+                    "h": 360,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ]
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 2
+              },
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "BigInt(5474176002369376025)"
+              },
+              "accessHash": {
+                "value": "BigInt(7005538101599339108)"
+              },
+              "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+              "date": 1694426740,
+              "sizes": [
+                {
+                  "_class": "PhotoStrippedSize",
+                  "_cid": "0xe0b0bc2e",
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                  },
+                  "type": "i",
+                  "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "m",
+                    "w": 320,
+                    "h": 180,
+                    "size": 4418
+                  },
+                  "type": "m",
+                  "w": 320,
+                  "h": 180,
+                  "size": 4418
+                },
+                {
+                  "_class": "PhotoSizeProgressive",
+                  "_cid": "0xfa3efb95",
+                  "className": "PhotoSizeProgressive",
+                  "originalArgs": {
+                    "type": "x",
+                    "w": 640,
+                    "h": 360,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ]
+                  },
+                  "type": "x",
+                  "w": 640,
+                  "h": 360,
+                  "sizes": [
+                    1772,
+                    2522,
+                    3238,
+                    3765,
+                    8042
+                  ]
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 2
+            },
+            "embedUrl": null,
+            "embedType": null,
+            "embedWidth": null,
+            "embedHeight": null,
+            "duration": null,
+            "author": null,
+            "document": null,
+            "cachedPage": null,
+            "attributes": null
+          },
+          "flags": 8223,
+          "hasLargeMedia": true,
+          "id": {
+            "value": "BigInt(4080568427275839192)"
+          },
+          "url": "https://t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+          "displayUrl": "t.me/tribute/app?startapp=ep_4Nk6nDq2dpEfsZN9DqjKqQ2QEkbWyE",
+          "hash": 0,
+          "type": "telegram_botapp",
+          "siteName": "Telegram",
+          "title": "Tribute",
+          "description": "This bot helps content creators receive financial support from their followers directly in the app.",
+          "photo": {
+            "_class": "Photo",
+            "_cid": "0xfb197a65",
+            "className": "Photo",
+            "originalArgs": {
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "BigInt(5474176002369376025)"
+              },
+              "accessHash": {
+                "value": "BigInt(7005538101599339108)"
+              },
+              "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+              "date": 1694426740,
+              "sizes": [
+                {
+                  "_class": "PhotoStrippedSize",
+                  "_cid": "0xe0b0bc2e",
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                  },
+                  "type": "i",
+                  "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                },
+                {
+                  "_class": "PhotoSize",
+                  "_cid": "0x75c78e60",
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "m",
+                    "w": 320,
+                    "h": 180,
+                    "size": 4418
+                  },
+                  "type": "m",
+                  "w": 320,
+                  "h": 180,
+                  "size": 4418
+                },
+                {
+                  "_class": "PhotoSizeProgressive",
+                  "_cid": "0xfa3efb95",
+                  "className": "PhotoSizeProgressive",
+                  "originalArgs": {
+                    "type": "x",
+                    "w": 640,
+                    "h": 360,
+                    "sizes": [
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]",
+                      "[max depth]"
+                    ]
+                  },
+                  "type": "x",
+                  "w": 640,
+                  "h": 360,
+                  "sizes": [
+                    1772,
+                    2522,
+                    3238,
+                    3765,
+                    8042
+                  ]
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 2
+            },
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "BigInt(5474176002369376025)"
+            },
+            "accessHash": {
+              "value": "BigInt(7005538101599339108)"
+            },
+            "fileReference": "Buffer(21)[0069d799876a1cd3b8fda8ede85ee986c67d5a8cd6...]",
+            "date": 1694426740,
+            "sizes": [
+              {
+                "_class": "PhotoStrippedSize",
+                "_cid": "0xe0b0bc2e",
+                "className": "PhotoStrippedSize",
+                "originalArgs": {
+                  "type": "i",
+                  "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+                },
+                "type": "i",
+                "bytes": "Buffer(86)[011728b1ba8dd50eea7c72ec6ce01f635d56396e4b83e5eeed4ddd5798aaaf20...]"
+              },
+              {
+                "_class": "PhotoSize",
+                "_cid": "0x75c78e60",
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "m",
+                  "w": 320,
+                  "h": 180,
+                  "size": 4418
+                },
+                "type": "m",
+                "w": 320,
+                "h": 180,
+                "size": 4418
+              },
+              {
+                "_class": "PhotoSizeProgressive",
+                "_cid": "0xfa3efb95",
+                "className": "PhotoSizeProgressive",
+                "originalArgs": {
+                  "type": "x",
+                  "w": 640,
+                  "h": 360,
+                  "sizes": [
+                    1772,
+                    2522,
+                    3238,
+                    3765,
+                    8042
+                  ]
+                },
+                "type": "x",
+                "w": 640,
+                "h": 360,
+                "sizes": [
+                  1772,
+                  2522,
+                  3238,
+                  3765,
+                  8042
+                ]
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 2
+          },
+          "embedUrl": null,
+          "embedType": null,
+          "embedWidth": null,
+          "embedHeight": null,
+          "duration": null,
+          "author": null,
+          "document": null,
+          "cachedPage": null,
+          "attributes": null
+        }
+      },
+      "replyMarkup": null,
+      "entities": [
+        {
+          "_class": "MessageEntityUrl",
+          "_cid": "0x6ed02538",
+          "className": "MessageEntityUrl",
+          "originalArgs": {
+            "offset": 0,
+            "length": 67
+          },
+          "offset": 0,
+          "length": 67
+        }
+      ],
+      "views": null,
+      "forwards": null,
+      "replies": null,
+      "editDate": null,
+      "pinned": false,
+      "postAuthor": null,
+      "groupedId": null,
+      "restrictionReason": null,
+      "noforwards": false,
+      "reactions": null,
+      "flags": 640,
+      "invertMedia": false,
+      "flags2": 0,
+      "offline": false,
+      "videoProcessingPending": false,
+      "fromBoostsApplied": null,
+      "savedPeerId": null,
+      "viaBusinessBotId": null,
+      "quickReplyShortcutId": null,
+      "effect": null,
+      "factcheck": null,
+      "reportDeliveryUntilDate": null
+    },
+    {
+      "_class": "Message",
+      "_cid": "0x96fdbbe9",
+      "className": "Message",
+      "originalArgs": {
+        "flags": 192,
+        "out": false,
+        "mentioned": false,
+        "mediaUnread": false,
+        "silent": false,
+        "post": false,
+        "fromScheduled": false,
+        "legacy": false,
+        "editHide": false,
+        "pinned": false,
+        "noforwards": false,
+        "invertMedia": false,
+        "flags2": 0,
+        "offline": false,
+        "videoProcessingPending": false,
+        "id": 1195,
+        "fromId": null,
+        "fromBoostsApplied": null,
+        "peerId": {
+          "_class": "PeerUser",
+          "_cid": "0x59511722",
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "BigInt(93372553)"
+            }
+          },
+          "userId": {
+            "value": "BigInt(93372553)"
+          }
+        },
+        "savedPeerId": null,
+        "fwdFrom": null,
+        "viaBotId": null,
+        "viaBusinessBotId": null,
+        "replyTo": null,
+        "date": 1730288138,
+        "message": "Done! Congratulations on your new bot. You will find it at t.me/flowflix_storage_bot. You can now add a description, about section and profile picture for your bot, see /help for a list of commands. By the way, when you've finished creating your cool bot, ping our Bot Support if you want a better username for it. Just make sure the bot is fully operational before you do this.\n\nUse this token to access the HTTP API:\n7246847959:AAHeMPstUF8fzUurF55ie5fdRbXdDQCCA90\nKeep your token secure and store it safely, it can be used by anyone to control your bot.\n\nFor a description of the Bot API, see this page: https://core.telegram.org/bots/api",
+        "media": null,
+        "replyMarkup": {
+          "_class": "ReplyKeyboardHide",
+          "_cid": "0xa03e5b85",
+          "className": "ReplyKeyboardHide",
+          "originalArgs": {
+            "flags": 0,
+            "selective": false
+          },
+          "flags": 0,
+          "selective": false
+        },
+        "entities": [
+          {
+            "_class": "MessageEntityUrl",
+            "_cid": "0x6ed02538",
+            "className": "MessageEntityUrl",
+            "originalArgs": {
+              "offset": 59,
+              "length": 25
+            },
+            "offset": 59,
+            "length": 25
+          },
+          {
+            "_class": "MessageEntityBotCommand",
+            "_cid": "0x6cef8ac7",
+            "className": "MessageEntityBotCommand",
+            "originalArgs": {
+              "offset": 169,
+              "length": 5
+            },
+            "offset": 169,
+            "length": 5
+          },
+          {
+            "_class": "MessageEntityCode",
+            "_cid": "0x28a20571",
+            "className": "MessageEntityCode",
+            "originalArgs": {
+              "offset": 419,
+              "length": 46
+            },
+            "offset": 419,
+            "length": 46
+          },
+          {
+            "_class": "MessageEntityBold",
+            "_cid": "0xbd610bc9",
+            "className": "MessageEntityBold",
+            "originalArgs": {
+              "offset": 482,
+              "length": 6
+            },
+            "offset": 482,
+            "length": 6
+          },
+          {
+            "_class": "MessageEntityBold",
+            "_cid": "0xbd610bc9",
+            "className": "MessageEntityBold",
+            "originalArgs": {
+              "offset": 493,
+              "length": 15
+            },
+            "offset": 493,
+            "length": 15
+          },
+          {
+            "_class": "MessageEntityUrl",
+            "_cid": "0x6ed02538",
+            "className": "MessageEntityUrl",
+            "originalArgs": {
+              "offset": 606,
+              "length": 34
+            },
+            "offset": 606,
+            "length": 34
+          }
+        ],
+        "views": null,
+        "forwards": null,
+        "replies": null,
+        "editDate": null,
+        "postAuthor": null,
+        "groupedId": null,
+        "reactions": null,
+        "restrictionReason": null,
+        "ttlPeriod": null,
+        "quickReplyShortcutId": null,
+        "effect": null,
+        "factcheck": null,
+        "reportDeliveryUntilDate": null
+      },
+      "out": false,
+      "mentioned": false,
+      "mediaUnread": false,
+      "silent": false,
+      "post": false,
+      "fromScheduled": false,
+      "legacy": false,
+      "editHide": false,
+      "ttlPeriod": null,
+      "id": 1195,
+      "fromId": null,
+      "peerId": {
+        "_class": "PeerUser",
+        "_cid": "0x59511722",
+        "className": "PeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "BigInt(93372553)"
+          }
+        },
+        "userId": {
+          "value": "BigInt(93372553)"
+        }
+      },
+      "fwdFrom": null,
+      "viaBotId": null,
+      "replyTo": null,
+      "date": 1730288138,
+      "message": "Done! Congratulations on your new bot. You will find it at t.me/flowflix_storage_bot. You can now add a description, about section and profile picture for your bot, see /help for a list of commands. By the way, when you've finished creating your cool bot, ping our Bot Support if you want a better username for it. Just make sure the bot is fully operational before you do this.\n\nUse this token to access the HTTP API:\n7246847959:AAHeMPstUF8fzUurF55ie5fdRbXdDQCCA90\nKeep your token secure and store it safely, it can be used by anyone to control your bot.\n\nFor a description of the Bot API, see this page: https://core.telegram.org/bots/api",
+      "media": null,
+      "replyMarkup": {
+        "_class": "ReplyKeyboardHide",
+        "_cid": "0xa03e5b85",
+        "className": "ReplyKeyboardHide",
+        "originalArgs": {
+          "flags": 0,
+          "selective": false
+        },
+        "flags": 0,
+        "selective": false
+      },
+      "entities": [
+        {
+          "_class": "MessageEntityUrl",
+          "_cid": "0x6ed02538",
+          "className": "MessageEntityUrl",
+          "originalArgs": {
+            "offset": 59,
+            "length": 25
+          },
+          "offset": 59,
+          "length": 25
+        },
+        {
+          "_class": "MessageEntityBotCommand",
+          "_cid": "0x6cef8ac7",
+          "className": "MessageEntityBotCommand",
+          "originalArgs": {
+            "offset": 169,
+            "length": 5
+          },
+          "offset": 169,
+          "length": 5
+        },
+        {
+          "_class": "MessageEntityCode",
+          "_cid": "0x28a20571",
+          "className": "MessageEntityCode",
+          "originalArgs": {
+            "offset": 419,
+            "length": 46
+          },
+          "offset": 419,
+          "length": 46
+        },
+        {
+          "_class": "MessageEntityBold",
+          "_cid": "0xbd610bc9",
+          "className": "MessageEntityBold",
+          "originalArgs": {
+            "offset": 482,
+            "length": 6
+          },
+          "offset": 482,
+          "length": 6
+        },
+        {
+          "_class": "MessageEntityBold",
+          "_cid": "0xbd610bc9",
+          "className": "MessageEntityBold",
+          "originalArgs": {
+            "offset": 493,
+            "length": 15
+          },
+          "offset": 493,
+          "length": 15
+        },
+        {
+          "_class": "MessageEntityUrl",
+          "_cid": "0x6ed02538",
+          "className": "MessageEntityUrl",
+          "originalArgs": {
+            "offset": 606,
+            "length": 34
+          },
+          "offset": 606,
+          "length": 34
+        }
+      ],
+      "views": null,
+      "forwards": null,
+      "replies": null,
+      "editDate": null,
+      "pinned": false,
+      "postAuthor": null,
+      "groupedId": null,
+      "restrictionReason": null,
+      "noforwards": false,
+      "reactions": null,
+      "flags": 192,
+      "invertMedia": false,
+      "flags2": 0,
+      "offline": false,
+      "videoProcessingPending": false,
+      "fromBoostsApplied": null,
+      "savedPeerId": null,
+      "viaBusinessBotId": null,
+      "quickReplyShortcutId": null,
+      "effect": null,
+      "factcheck": null,
+      "reportDeliveryUntilDate": null
+    }
+  ],
+  "chats": [],
+  "users": [
+    {
+      "_class": "User",
+      "_cid": "0x4b46c37e",
+      "className": "User",
+      "originalArgs": {
+        "flags": 33555547,
+        "self": true,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(6340886702)"
+        },
+        "accessHash": {
+          "value": "BigInt(-2827396686645499657)"
+        },
+        "firstName": "🤷",
+        "lastName": null,
+        "username": "user28738229",
+        "phone": "17799037329",
+        "photo": null,
+        "status": {
+          "_class": "UserStatusOffline",
+          "_cid": "0x008c703f",
+          "className": "UserStatusOffline",
+          "originalArgs": {
+            "wasOnline": 1775737215
+          },
+          "wasOnline": 1775737215
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      "flags": 33555547,
+      "self": true,
+      "contact": false,
+      "mutualContact": false,
+      "deleted": false,
+      "bot": false,
+      "botChatHistory": false,
+      "botNochats": false,
+      "verified": false,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": false,
+      "scam": false,
+      "applyMinPhoto": true,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 16,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": false,
+      "botBusiness": false,
+      "botHasMainApp": false,
+      "id": {
+        "value": "BigInt(6340886702)"
+      },
+      "accessHash": {
+        "value": "BigInt(-2827396686645499657)"
+      },
+      "firstName": "🤷",
+      "lastName": null,
+      "username": "user28738229",
+      "phone": "17799037329",
+      "photo": null,
+      "status": {
+        "_class": "UserStatusOffline",
+        "_cid": "0x008c703f",
+        "className": "UserStatusOffline",
+        "originalArgs": {
+          "wasOnline": 1775737215
+        },
+        "wasOnline": 1775737215
+      },
+      "botInfoVersion": null,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": null,
+      "botVerificationIcon": null
+    },
+    {
+      "_class": "User",
+      "_cid": "0x4b46c37e",
+      "className": "User",
+      "originalArgs": {
+        "flags": 42074227,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": true,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": true,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(777000)"
+        },
+        "accessHash": {
+          "value": "BigInt(2974067603837347815)"
+        },
+        "firstName": "Telegram",
+        "lastName": null,
+        "username": null,
+        "phone": "42777",
+        "photo": {
+          "_class": "UserProfilePhoto",
+          "_cid": "0x82d1f706",
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(3337190045231036)"
+            },
+            "strippedThumb": "Buffer(17)[01080893e4f2cf5dff00a514515d5638cf...]",
+            "dcId": 1
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(3337190045231036)"
+          },
+          "strippedThumb": "Buffer(17)[01080893e4f2cf5dff00a514515d5638cf...]",
+          "dcId": 1
+        },
+        "status": {
+          "_class": "UserStatusRecently",
+          "_cid": "0x7b197dc8",
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 1,
+            "byMe": true
+          },
+          "flags": 1,
+          "byMe": true
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      "flags": 42074227,
+      "self": false,
+      "contact": false,
+      "mutualContact": false,
+      "deleted": false,
+      "bot": false,
+      "botChatHistory": false,
+      "botNochats": false,
+      "verified": true,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": true,
+      "scam": false,
+      "applyMinPhoto": true,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 16,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": false,
+      "botBusiness": false,
+      "botHasMainApp": false,
+      "id": {
+        "value": "BigInt(777000)"
+      },
+      "accessHash": {
+        "value": "BigInt(2974067603837347815)"
+      },
+      "firstName": "Telegram",
+      "lastName": null,
+      "username": null,
+      "phone": "42777",
+      "photo": {
+        "_class": "UserProfilePhoto",
+        "_cid": "0x82d1f706",
+        "className": "UserProfilePhoto",
+        "originalArgs": {
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(3337190045231036)"
+          },
+          "strippedThumb": "Buffer(17)[01080893e4f2cf5dff00a514515d5638cf...]",
+          "dcId": 1
+        },
+        "flags": 2,
+        "hasVideo": false,
+        "personal": false,
+        "photoId": {
+          "value": "BigInt(3337190045231036)"
+        },
+        "strippedThumb": "Buffer(17)[01080893e4f2cf5dff00a514515d5638cf...]",
+        "dcId": 1
+      },
+      "status": {
+        "_class": "UserStatusRecently",
+        "_cid": "0x7b197dc8",
+        "className": "UserStatusRecently",
+        "originalArgs": {
+          "flags": 1,
+          "byMe": true
+        },
+        "flags": 1,
+        "byMe": true
+      },
+      "botInfoVersion": null,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": null,
+      "botVerificationIcon": null
+    },
+    {
+      "_class": "User",
+      "_cid": "0x4b46c37e",
+      "className": "User",
+      "originalArgs": {
+        "flags": 33554507,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "BigInt(338781882)"
+        },
+        "accessHash": {
+          "value": "BigInt(5980716527335755090)"
+        },
+        "firstName": "ㅤ",
+        "lastName": null,
+        "username": "sckr_a",
+        "phone": null,
+        "photo": null,
+        "status": {
+          "_class": "UserStatusRecently",
+          "_cid": "0x7b197dc8",
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 0,
+            "byMe": false
+          },
+          "flags": 0,
+          "byMe": false
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      "flags": 33554507,
+      "self": false,
+      "contact": false,
+      "mutualContact": false,
+      "deleted": false,
+      "bot": false,
+      "botChatHistory": false,
+      "botNochats": false,
+      "verified": false,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": false,
+      "scam": false,
+      "applyMinPhoto": true,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 16,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": false,
+      "botBusiness": false,
+      "botHasMainApp": false,
+      "id": {
+        "value": "BigInt(338781882)"
+      },
+      "accessHash": {
+        "value": "BigInt(5980716527335755090)"
+      },
+      "firstName": "ㅤ",
+      "lastName": null,
+      "username": "sckr_a",
+      "phone": null,
+      "photo": null,
+      "status": {
+        "_class": "UserStatusRecently",
+        "_cid": "0x7b197dc8",
+        "className": "UserStatusRecently",
+        "originalArgs": {
+          "flags": 0,
+          "byMe": false
+        },
+        "flags": 0,
+        "byMe": false
+      },
+      "botInfoVersion": null,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": null,
+      "botVerificationIcon": null
+    },
+    {
+      "_class": "User",
+      "_cid": "0x4b46c37e",
+      "className": "User",
+      "originalArgs": {
+        "flags": 33767467,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": true,
+        "botChatHistory": false,
+        "botNochats": true,
+        "verified": true,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 12304,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": true,
+        "id": {
+          "value": "BigInt(93372553)"
+        },
+        "accessHash": {
+          "value": "BigInt(-7174274352962912888)"
+        },
+        "firstName": "BotFather",
+        "lastName": null,
+        "username": "BotFather",
+        "phone": null,
+        "photo": {
+          "_class": "UserProfilePhoto",
+          "_cid": "0x82d1f706",
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "BigInt(401032061935265706)"
+            },
+            "strippedThumb": "Buffer(16)[0108089fcf7fb417ec64d9451450163f...]",
+            "dcId": 1
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(401032061935265706)"
+          },
+          "strippedThumb": "Buffer(16)[0108089fcf7fb417ec64d9451450163f...]",
+          "dcId": 1
+        },
+        "status": null,
+        "botInfoVersion": 28,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": 8110429,
+        "botVerificationIcon": null
+      },
+      "flags": 33767467,
+      "self": false,
+      "contact": false,
+      "mutualContact": false,
+      "deleted": false,
+      "bot": true,
+      "botChatHistory": false,
+      "botNochats": true,
+      "verified": true,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": false,
+      "scam": false,
+      "applyMinPhoto": true,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 12304,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": false,
+      "botBusiness": false,
+      "botHasMainApp": true,
+      "id": {
+        "value": "BigInt(93372553)"
+      },
+      "accessHash": {
+        "value": "BigInt(-7174274352962912888)"
+      },
+      "firstName": "BotFather",
+      "lastName": null,
+      "username": "BotFather",
+      "phone": null,
+      "photo": {
+        "_class": "UserProfilePhoto",
+        "_cid": "0x82d1f706",
+        "className": "UserProfilePhoto",
+        "originalArgs": {
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "BigInt(401032061935265706)"
+          },
+          "strippedThumb": "Buffer(16)[0108089fcf7fb417ec64d9451450163f...]",
+          "dcId": 1
+        },
+        "flags": 2,
+        "hasVideo": false,
+        "personal": false,
+        "photoId": {
+          "value": "BigInt(401032061935265706)"
+        },
+        "strippedThumb": "Buffer(16)[0108089fcf7fb417ec64d9451450163f...]",
+        "dcId": 1
+      },
+      "status": null,
+      "botInfoVersion": 28,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": 8110429,
+      "botVerificationIcon": null
+    }
+  ]
+}

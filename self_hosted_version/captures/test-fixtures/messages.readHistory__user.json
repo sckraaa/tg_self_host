@@ -1,0 +1,62 @@
+{
+  "method": "messages.readHistory__user",
+  "capturedAt": "2026-04-10T16:15:56.115Z",
+  "request": {
+    "__className": "messages.ReadHistory",
+    "__constructorId": 238054714,
+    "className": "messages.ReadHistory",
+    "originalArgs": {
+      "peer": {
+        "__className": "InputPeerUser",
+        "__constructorId": 3723011404,
+        "className": "InputPeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "338781882"
+          },
+          "accessHash": {
+            "value": "5980716527335755090"
+          }
+        },
+        "userId": {
+          "value": "338781882"
+        },
+        "accessHash": {
+          "value": "5980716527335755090"
+        }
+      },
+      "maxId": 1450
+    },
+    "peer": {
+      "__className": "InputPeerUser",
+      "__constructorId": 3723011404,
+      "className": "InputPeerUser",
+      "originalArgs": {
+        "userId": {
+          "value": "338781882"
+        },
+        "accessHash": {
+          "value": "5980716527335755090"
+        }
+      },
+      "userId": {
+        "value": "338781882"
+      },
+      "accessHash": {
+        "value": "5980716527335755090"
+      }
+    },
+    "maxId": 1450
+  },
+  "response": {
+    "__className": "messages.AffectedMessages",
+    "__constructorId": 2228326789,
+    "className": "messages.AffectedMessages",
+    "originalArgs": {
+      "pts": 3530,
+      "ptsCount": 0
+    },
+    "pts": 3530,
+    "ptsCount": 0
+  }
+}

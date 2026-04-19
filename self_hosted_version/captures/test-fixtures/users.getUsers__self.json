@@ -1,0 +1,152 @@
+{
+  "method": "users.getUsers__self",
+  "capturedAt": "2026-04-10T16:15:51.177Z",
+  "request": {
+    "__className": "users.GetUsers",
+    "__constructorId": 227648840,
+    "className": "users.GetUsers",
+    "originalArgs": {
+      "id": [
+        {
+          "__className": "InputUserSelf",
+          "__constructorId": 4156666175,
+          "className": "InputUserSelf",
+          "originalArgs": {}
+        }
+      ]
+    },
+    "id": [
+      {
+        "__className": "InputUserSelf",
+        "__constructorId": 4156666175,
+        "className": "InputUserSelf",
+        "originalArgs": {}
+      }
+    ]
+  },
+  "response": [
+    {
+      "__className": "User",
+      "__constructorId": 1262928766,
+      "className": "User",
+      "originalArgs": {
+        "flags": 33555547,
+        "self": true,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "6340886702"
+        },
+        "accessHash": {
+          "value": "-2827396686645499657"
+        },
+        "firstName": "🤷",
+        "lastName": null,
+        "username": "user28738229",
+        "phone": "17799037329",
+        "photo": null,
+        "status": {
+          "__className": "UserStatusOffline",
+          "__constructorId": 9203775,
+          "className": "UserStatusOffline",
+          "originalArgs": {
+            "wasOnline": 1775837105
+          },
+          "wasOnline": 1775837105
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      "flags": 33555547,
+      "self": true,
+      "contact": false,
+      "mutualContact": false,
+      "deleted": false,
+      "bot": false,
+      "botChatHistory": false,
+      "botNochats": false,
+      "verified": false,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": false,
+      "scam": false,
+      "applyMinPhoto": true,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 16,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": false,
+      "botBusiness": false,
+      "botHasMainApp": false,
+      "id": {
+        "value": "6340886702"
+      },
+      "accessHash": {
+        "value": "-2827396686645499657"
+      },
+      "firstName": "🤷",
+      "lastName": null,
+      "username": "user28738229",
+      "phone": "17799037329",
+      "photo": null,
+      "status": {
+        "__className": "UserStatusOffline",
+        "__constructorId": 9203775,
+        "className": "UserStatusOffline",
+        "originalArgs": {
+          "wasOnline": 1775837105
+        },
+        "wasOnline": 1775837105
+      },
+      "botInfoVersion": null,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": null,
+      "botVerificationIcon": null
+    }
+  ]
+}

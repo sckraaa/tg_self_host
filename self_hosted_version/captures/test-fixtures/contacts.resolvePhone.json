@@ -1,0 +1,5 @@
+{
+  "method": "contacts.resolvePhone",
+  "capturedAt": "2026-04-10T16:16:30.121Z",
+  "error": "400: PHONE_NOT_OCCUPIED (caused by contacts.ResolvePhone)"
+}

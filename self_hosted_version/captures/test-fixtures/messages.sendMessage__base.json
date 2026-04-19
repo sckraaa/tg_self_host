@@ -1,0 +1,78 @@
+{
+  "method": "messages.sendMessage__base",
+  "capturedAt": "2026-04-10T16:15:56.913Z",
+  "request": {
+    "__className": "messages.SendMessage",
+    "__constructorId": 2554304325,
+    "className": "messages.SendMessage",
+    "originalArgs": {
+      "peer": {
+        "__className": "InputPeerUser",
+        "__constructorId": 3723011404,
+        "className": "InputPeerUser",
+        "originalArgs": {
+          "userId": {
+            "value": "338781882"
+          },
+          "accessHash": {
+            "value": "5980716527335755090"
+          }
+        },
+        "userId": {
+          "value": "338781882"
+        },
+        "accessHash": {
+          "value": "5980716527335755090"
+        }
+      },
+      "message": "[fixture-base] 2026-04-10T16:15:56.751Z",
+      "randomId": "1958386481111630"
+    },
+    "peer": {
+      "__className": "InputPeerUser",
+      "__constructorId": 3723011404,
+      "className": "InputPeerUser",
+      "originalArgs": {
+        "userId": {
+          "value": "338781882"
+        },
+        "accessHash": {
+          "value": "5980716527335755090"
+        }
+      },
+      "userId": {
+        "value": "338781882"
+      },
+      "accessHash": {
+        "value": "5980716527335755090"
+      }
+    },
+    "message": "[fixture-base] 2026-04-10T16:15:56.751Z",
+    "randomId": "1958386481111630"
+  },
+  "response": {
+    "__className": "UpdateShortSentMessage",
+    "__constructorId": 2417352961,
+    "className": "UpdateShortSentMessage",
+    "originalArgs": {
+      "flags": 2,
+      "out": true,
+      "id": 1451,
+      "pts": 3532,
+      "ptsCount": 1,
+      "date": 1775837756,
+      "media": null,
+      "entities": null,
+      "ttlPeriod": null
+    },
+    "flags": 2,
+    "out": true,
+    "id": 1451,
+    "pts": 3532,
+    "ptsCount": 1,
+    "date": 1775837756,
+    "media": null,
+    "entities": null,
+    "ttlPeriod": null
+  }
+}

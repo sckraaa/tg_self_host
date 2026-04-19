@@ -1,0 +1,5 @@
+{
+  "method": "messages.sendMedia__photo",
+  "capturedAt": "2026-04-10T16:15:59.909Z",
+  "error": "400: IMAGE_PROCESS_FAILED (caused by messages.SendMedia)"
+}

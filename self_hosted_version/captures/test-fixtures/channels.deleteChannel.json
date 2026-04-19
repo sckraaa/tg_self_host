@@ -1,0 +1,126 @@
+{
+  "method": "channels.deleteChannel",
+  "capturedAt": "2026-04-10T16:16:24.805Z",
+  "request": {
+    "__className": "channels.DeleteChannel",
+    "__constructorId": 3222347747,
+    "className": "channels.DeleteChannel",
+    "originalArgs": {
+      "channel": {
+        "__className": "InputChannel",
+        "__constructorId": 4082822184,
+        "className": "InputChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "3959286856"
+          },
+          "accessHash": {
+            "value": "-6399249537774943740"
+          }
+        },
+        "channelId": {
+          "value": "3959286856"
+        },
+        "accessHash": {
+          "value": "-6399249537774943740"
+        }
+      }
+    },
+    "channel": {
+      "__className": "InputChannel",
+      "__constructorId": 4082822184,
+      "className": "InputChannel",
+      "originalArgs": {
+        "channelId": {
+          "value": "3959286856"
+        },
+        "accessHash": {
+          "value": "-6399249537774943740"
+        }
+      },
+      "channelId": {
+        "value": "3959286856"
+      },
+      "accessHash": {
+        "value": "-6399249537774943740"
+      }
+    }
+  },
+  "response": {
+    "__className": "Updates",
+    "__constructorId": 1957577280,
+    "className": "Updates",
+    "originalArgs": {
+      "updates": [],
+      "users": [],
+      "chats": [
+        {
+          "__className": "ChannelForbidden",
+          "__constructorId": 399807445,
+          "className": "ChannelForbidden",
+          "originalArgs": {
+            "flags": 256,
+            "broadcast": false,
+            "megagroup": true,
+            "id": {
+              "value": "3959286856"
+            },
+            "accessHash": {
+              "value": "-6399249537774943740"
+            },
+            "title": "_fix_sg2_1775837781512",
+            "untilDate": null
+          },
+          "flags": 256,
+          "broadcast": false,
+          "megagroup": true,
+          "id": {
+            "value": "3959286856"
+          },
+          "accessHash": {
+            "value": "-6399249537774943740"
+          },
+          "title": "_fix_sg2_1775837781512",
+          "untilDate": null
+        }
+      ],
+      "date": 1775837783,
+      "seq": 0
+    },
+    "updates": [],
+    "users": [],
+    "chats": [
+      {
+        "__className": "ChannelForbidden",
+        "__constructorId": 399807445,
+        "className": "ChannelForbidden",
+        "originalArgs": {
+          "flags": 256,
+          "broadcast": false,
+          "megagroup": true,
+          "id": {
+            "value": "3959286856"
+          },
+          "accessHash": {
+            "value": "-6399249537774943740"
+          },
+          "title": "_fix_sg2_1775837781512",
+          "untilDate": null
+        },
+        "flags": 256,
+        "broadcast": false,
+        "megagroup": true,
+        "id": {
+          "value": "3959286856"
+        },
+        "accessHash": {
+          "value": "-6399249537774943740"
+        },
+        "title": "_fix_sg2_1775837781512",
+        "untilDate": null
+      }
+    ],
+    "date": 1775837783,
+    "seq": 0
+  }
+}

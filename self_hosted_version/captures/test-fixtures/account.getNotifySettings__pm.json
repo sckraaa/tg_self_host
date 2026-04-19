@@ -1,0 +1,130 @@
+{
+  "method": "account.getNotifySettings__pm",
+  "capturedAt": "2026-04-10T16:16:08.660Z",
+  "request": {
+    "__className": "account.GetNotifySettings",
+    "__constructorId": 313765169,
+    "className": "account.GetNotifySettings",
+    "originalArgs": {
+      "peer": {
+        "__className": "InputNotifyPeer",
+        "__constructorId": 3099351820,
+        "className": "InputNotifyPeer",
+        "originalArgs": {
+          "peer": {
+            "__className": "InputPeerSelf",
+            "__constructorId": 2107670217,
+            "className": "InputPeerSelf",
+            "originalArgs": {}
+          }
+        },
+        "peer": {
+          "__className": "InputPeerSelf",
+          "__constructorId": 2107670217,
+          "className": "InputPeerSelf",
+          "originalArgs": {}
+        }
+      }
+    },
+    "peer": {
+      "__className": "InputNotifyPeer",
+      "__constructorId": 3099351820,
+      "className": "InputNotifyPeer",
+      "originalArgs": {
+        "peer": {
+          "__className": "InputPeerSelf",
+          "__constructorId": 2107670217,
+          "className": "InputPeerSelf",
+          "originalArgs": {}
+        }
+      },
+      "peer": {
+        "__className": "InputPeerSelf",
+        "__constructorId": 2107670217,
+        "className": "InputPeerSelf",
+        "originalArgs": {}
+      }
+    }
+  },
+  "response": {
+    "__className": "PeerNotifySettings",
+    "__constructorId": 2573347852,
+    "className": "PeerNotifySettings",
+    "originalArgs": {
+      "flags": 63,
+      "showPreviews": true,
+      "silent": false,
+      "muteUntil": 0,
+      "iosSound": {
+        "__className": "NotificationSoundDefault",
+        "__constructorId": 2548612798,
+        "className": "NotificationSoundDefault",
+        "originalArgs": {}
+      },
+      "androidSound": {
+        "__className": "NotificationSoundLocal",
+        "__constructorId": 2198575844,
+        "className": "NotificationSoundLocal",
+        "originalArgs": {
+          "title": "default",
+          "data": "default"
+        },
+        "title": "default",
+        "data": "default"
+      },
+      "otherSound": {
+        "__className": "NotificationSoundLocal",
+        "__constructorId": 2198575844,
+        "className": "NotificationSoundLocal",
+        "originalArgs": {
+          "title": "default",
+          "data": "default"
+        },
+        "title": "default",
+        "data": "default"
+      },
+      "storiesMuted": null,
+      "storiesHideSender": null,
+      "storiesIosSound": null,
+      "storiesAndroidSound": null,
+      "storiesOtherSound": null
+    },
+    "flags": 63,
+    "showPreviews": true,
+    "silent": false,
+    "muteUntil": 0,
+    "iosSound": {
+      "__className": "NotificationSoundDefault",
+      "__constructorId": 2548612798,
+      "className": "NotificationSoundDefault",
+      "originalArgs": {}
+    },
+    "androidSound": {
+      "__className": "NotificationSoundLocal",
+      "__constructorId": 2198575844,
+      "className": "NotificationSoundLocal",
+      "originalArgs": {
+        "title": "default",
+        "data": "default"
+      },
+      "title": "default",
+      "data": "default"
+    },
+    "otherSound": {
+      "__className": "NotificationSoundLocal",
+      "__constructorId": 2198575844,
+      "className": "NotificationSoundLocal",
+      "originalArgs": {
+        "title": "default",
+        "data": "default"
+      },
+      "title": "default",
+      "data": "default"
+    },
+    "storiesMuted": null,
+    "storiesHideSender": null,
+    "storiesIosSound": null,
+    "storiesAndroidSound": null,
+    "storiesOtherSound": null
+  }
+}

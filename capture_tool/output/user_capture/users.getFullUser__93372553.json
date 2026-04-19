@@ -1,0 +1,4462 @@
+{
+  "method": "users.getFullUser",
+  "userName": "BotFather [BOT]",
+  "capturedAt": "2026-04-11T10:33:36.957Z",
+  "response": {
+    "__className": "users.UserFull",
+    "__constructorId": 997004590,
+    "className": "users.UserFull",
+    "originalArgs": {
+      "fullUser": {
+        "__className": "UserFull",
+        "__constructorId": 1301765052,
+        "className": "UserFull",
+        "originalArgs": {
+          "flags": 142,
+          "blocked": false,
+          "phoneCallsAvailable": false,
+          "phoneCallsPrivate": false,
+          "canPinMessage": true,
+          "hasScheduled": false,
+          "videoCallsAvailable": false,
+          "voiceMessagesForbidden": false,
+          "translationsDisabled": false,
+          "storiesPinnedAvailable": false,
+          "blockedMyStoriesFrom": false,
+          "wallpaperOverridden": false,
+          "contactRequirePremium": false,
+          "readDatesPrivate": false,
+          "flags2": 0,
+          "sponsoredEnabled": false,
+          "canViewRevenue": false,
+          "botCanManageEmojiStatus": false,
+          "id": {
+            "value": "93372553"
+          },
+          "about": "BotFather is the one bot to rule them all. Use it to create new bot accounts and manage your existing bots.",
+          "settings": {
+            "__className": "PeerSettings",
+            "__constructorId": 2899733598,
+            "className": "PeerSettings",
+            "originalArgs": {
+              "flags": 0,
+              "reportSpam": false,
+              "addContact": false,
+              "blockContact": false,
+              "shareContact": false,
+              "needContactsException": false,
+              "reportGeo": false,
+              "autoarchived": false,
+              "inviteMembers": false,
+              "requestChatBroadcast": false,
+              "businessBotPaused": false,
+              "businessBotCanReply": false,
+              "geoDistance": null,
+              "requestChatTitle": null,
+              "requestChatDate": null,
+              "businessBotId": null,
+              "businessBotManageUrl": null
+            },
+            "flags": 0,
+            "reportSpam": false,
+            "addContact": false,
+            "blockContact": false,
+            "shareContact": false,
+            "needContactsException": false,
+            "reportGeo": false,
+            "autoarchived": false,
+            "inviteMembers": false,
+            "requestChatBroadcast": false,
+            "businessBotPaused": false,
+            "businessBotCanReply": false,
+            "geoDistance": null,
+            "requestChatTitle": null,
+            "requestChatDate": null,
+            "businessBotId": null,
+            "businessBotManageUrl": null
+          },
+          "personalPhoto": null,
+          "profilePhoto": {
+            "__className": "Photo",
+            "__constructorId": 4212750949,
+            "className": "Photo",
+            "originalArgs": {
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "401032061935265706"
+              },
+              "accessHash": {
+                "value": "-3949229001045920986"
+              },
+              "fileReference": {
+                "__type": "Buffer",
+                "hex": "0069da2380cf4344fae1ff4f00bc4076a2d5d079cf"
+              },
+              "date": 1435136511,
+              "sizes": [
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "a",
+                    "w": 160,
+                    "h": 160,
+                    "size": 12700
+                  },
+                  "type": "a",
+                  "w": 160,
+                  "h": 160,
+                  "size": 12700
+                },
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "b",
+                    "w": 320,
+                    "h": 320,
+                    "size": 35464
+                  },
+                  "type": "b",
+                  "w": 320,
+                  "h": 320,
+                  "size": 35464
+                },
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "c",
+                    "w": 640,
+                    "h": 640,
+                    "size": 99537
+                  },
+                  "type": "c",
+                  "w": 640,
+                  "h": 640,
+                  "size": 99537
+                },
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "d",
+                    "w": 888,
+                    "h": 888,
+                    "size": 134700
+                  },
+                  "type": "d",
+                  "w": 888,
+                  "h": 888,
+                  "size": 134700
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 1
+            },
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "401032061935265706"
+            },
+            "accessHash": {
+              "value": "-3949229001045920986"
+            },
+            "fileReference": {
+              "__type": "Buffer",
+              "hex": "0069da2380cf4344fae1ff4f00bc4076a2d5d079cf"
+            },
+            "date": 1435136511,
+            "sizes": [
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "a",
+                  "w": 160,
+                  "h": 160,
+                  "size": 12700
+                },
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 12700
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "b",
+                  "w": 320,
+                  "h": 320,
+                  "size": 35464
+                },
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 35464
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "c",
+                  "w": 640,
+                  "h": 640,
+                  "size": 99537
+                },
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 99537
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "d",
+                  "w": 888,
+                  "h": 888,
+                  "size": 134700
+                },
+                "type": "d",
+                "w": 888,
+                "h": 888,
+                "size": 134700
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 1
+          },
+          "fallbackPhoto": null,
+          "notifySettings": {
+            "__className": "PeerNotifySettings",
+            "__constructorId": 2573347852,
+            "className": "PeerNotifySettings",
+            "originalArgs": {
+              "flags": 0,
+              "showPreviews": null,
+              "silent": null,
+              "muteUntil": null,
+              "iosSound": null,
+              "androidSound": null,
+              "otherSound": null,
+              "storiesMuted": null,
+              "storiesHideSender": null,
+              "storiesIosSound": null,
+              "storiesAndroidSound": null,
+              "storiesOtherSound": null
+            },
+            "flags": 0,
+            "showPreviews": null,
+            "silent": null,
+            "muteUntil": null,
+            "iosSound": null,
+            "androidSound": null,
+            "otherSound": null,
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "botInfo": {
+            "__className": "BotInfo",
+            "__constructorId": 1300890265,
+            "className": "BotInfo",
+            "originalArgs": {
+              "flags": 270,
+              "hasPreviewMedias": false,
+              "userId": null,
+              "description": "BotFather is the one bot to rule them all. Use it to create new bot accounts and manage your existing bots.\n\nAbout Telegram bots:\nhttps://core.telegram.org/bots\nBot API manual:\nhttps://core.telegram.org/bots/api\n\nContact @BotSupport if you have questions about the Bot API.",
+              "descriptionPhoto": null,
+              "descriptionDocument": null,
+              "commands": [
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "newbot",
+                    "description": "create a new bot"
+                  },
+                  "command": "newbot",
+                  "description": "create a new bot"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "mybots",
+                    "description": "edit your bots"
+                  },
+                  "command": "mybots",
+                  "description": "edit your bots"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "myapps",
+                    "description": "edit your web apps"
+                  },
+                  "command": "myapps",
+                  "description": "edit your web apps"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "mygames",
+                    "description": "edit your games"
+                  },
+                  "command": "mygames",
+                  "description": "edit your games"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "token",
+                    "description": "get authorization token"
+                  },
+                  "command": "token",
+                  "description": "get authorization token"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "revoke",
+                    "description": "revoke bot access token"
+                  },
+                  "command": "revoke",
+                  "description": "revoke bot access token"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "setname",
+                    "description": "change a bot's name"
+                  },
+                  "command": "setname",
+                  "description": "change a bot's name"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "setdescription",
+                    "description": "change bot description"
+                  },
+                  "command": "setdescription",
+                  "description": "change bot description"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "setabouttext",
+                    "description": "change bot about info"
+                  },
+                  "command": "setabouttext",
+                  "description": "change bot about info"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "setuserpic",
+                    "description": "change bot profile photo"
+                  },
+                  "command": "setuserpic",
+                  "description": "change bot profile photo"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "setinline",
+                    "description": "change inline settings"
+                  },
+                  "command": "setinline",
+                  "description": "change inline settings"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "setinlinegeo",
+                    "description": "toggle inline location requests"
+                  },
+                  "command": "setinlinegeo",
+                  "description": "toggle inline location requests"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "setinlinefeedback",
+                    "description": "change inline feedback settings"
+                  },
+                  "command": "setinlinefeedback",
+                  "description": "change inline feedback settings"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "setcommands",
+                    "description": "change bot commands list"
+                  },
+                  "command": "setcommands",
+                  "description": "change bot commands list"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "setjoingroups",
+                    "description": "can your bot be added to groups?"
+                  },
+                  "command": "setjoingroups",
+                  "description": "can your bot be added to groups?"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "setdomain",
+                    "description": "link website's domain to the bot"
+                  },
+                  "command": "setdomain",
+                  "description": "link website's domain to the bot"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "setprivacy",
+                    "description": "what messages does your bot see in groups?"
+                  },
+                  "command": "setprivacy",
+                  "description": "what messages does your bot see in groups?"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "setmanagermode",
+                    "description": "toggle manager mode"
+                  },
+                  "command": "setmanagermode",
+                  "description": "toggle manager mode"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "setthreads",
+                    "description": "toggle threaded mode"
+                  },
+                  "command": "setthreads",
+                  "description": "toggle threaded mode"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "setbot2bot",
+                    "description": "toggle Bot 2 Bot communication"
+                  },
+                  "command": "setbot2bot",
+                  "description": "toggle Bot 2 Bot communication"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "deletebot",
+                    "description": "delete a bot"
+                  },
+                  "command": "deletebot",
+                  "description": "delete a bot"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "newapp",
+                    "description": "create a new web app"
+                  },
+                  "command": "newapp",
+                  "description": "create a new web app"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "listapps",
+                    "description": "get a list of your web apps"
+                  },
+                  "command": "listapps",
+                  "description": "get a list of your web apps"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "editapp",
+                    "description": "edit a web app"
+                  },
+                  "command": "editapp",
+                  "description": "edit a web app"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "deleteapp",
+                    "description": "delete an existing web app"
+                  },
+                  "command": "deleteapp",
+                  "description": "delete an existing web app"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "newgame",
+                    "description": "create a new game"
+                  },
+                  "command": "newgame",
+                  "description": "create a new game"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "listgames",
+                    "description": "get a list of your games"
+                  },
+                  "command": "listgames",
+                  "description": "get a list of your games"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "editgame",
+                    "description": "edit a game"
+                  },
+                  "command": "editgame",
+                  "description": "edit a game"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "deletegame",
+                    "description": "delete an existing game"
+                  },
+                  "command": "deletegame",
+                  "description": "delete an existing game"
+                },
+                {
+                  "__className": "BotCommand",
+                  "__constructorId": 3262826695,
+                  "className": "BotCommand",
+                  "originalArgs": {
+                    "command": "cancel",
+                    "description": "cancel the current operation"
+                  },
+                  "command": "cancel",
+                  "description": "cancel the current operation"
+                }
+              ],
+              "menuButton": {
+                "__className": "BotMenuButton",
+                "__constructorId": 3350559974,
+                "className": "BotMenuButton",
+                "originalArgs": {
+                  "text": "Open",
+                  "url": "https://webappinternal.telegram.org/botfather"
+                },
+                "text": "Open",
+                "url": "https://webappinternal.telegram.org/botfather"
+              },
+              "privacyPolicyUrl": null,
+              "appSettings": {
+                "__className": "BotAppSettings",
+                "__constructorId": 3382384976,
+                "className": "BotAppSettings",
+                "originalArgs": {
+                  "flags": 30,
+                  "placeholderPath": null,
+                  "backgroundColor": 1712166,
+                  "backgroundDarkColor": 1712166,
+                  "headerColor": 2173491,
+                  "headerDarkColor": 2173491
+                },
+                "flags": 30,
+                "placeholderPath": null,
+                "backgroundColor": 1712166,
+                "backgroundDarkColor": 1712166,
+                "headerColor": 2173491,
+                "headerDarkColor": 2173491
+              },
+              "verifierSettings": null
+            },
+            "flags": 270,
+            "hasPreviewMedias": false,
+            "userId": null,
+            "description": "BotFather is the one bot to rule them all. Use it to create new bot accounts and manage your existing bots.\n\nAbout Telegram bots:\nhttps://core.telegram.org/bots\nBot API manual:\nhttps://core.telegram.org/bots/api\n\nContact @BotSupport if you have questions about the Bot API.",
+            "descriptionPhoto": null,
+            "descriptionDocument": null,
+            "commands": [
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "newbot",
+                  "description": "create a new bot"
+                },
+                "command": "newbot",
+                "description": "create a new bot"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "mybots",
+                  "description": "edit your bots"
+                },
+                "command": "mybots",
+                "description": "edit your bots"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "myapps",
+                  "description": "edit your web apps"
+                },
+                "command": "myapps",
+                "description": "edit your web apps"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "mygames",
+                  "description": "edit your games"
+                },
+                "command": "mygames",
+                "description": "edit your games"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "token",
+                  "description": "get authorization token"
+                },
+                "command": "token",
+                "description": "get authorization token"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "revoke",
+                  "description": "revoke bot access token"
+                },
+                "command": "revoke",
+                "description": "revoke bot access token"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setname",
+                  "description": "change a bot's name"
+                },
+                "command": "setname",
+                "description": "change a bot's name"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setdescription",
+                  "description": "change bot description"
+                },
+                "command": "setdescription",
+                "description": "change bot description"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setabouttext",
+                  "description": "change bot about info"
+                },
+                "command": "setabouttext",
+                "description": "change bot about info"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setuserpic",
+                  "description": "change bot profile photo"
+                },
+                "command": "setuserpic",
+                "description": "change bot profile photo"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setinline",
+                  "description": "change inline settings"
+                },
+                "command": "setinline",
+                "description": "change inline settings"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setinlinegeo",
+                  "description": "toggle inline location requests"
+                },
+                "command": "setinlinegeo",
+                "description": "toggle inline location requests"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setinlinefeedback",
+                  "description": "change inline feedback settings"
+                },
+                "command": "setinlinefeedback",
+                "description": "change inline feedback settings"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setcommands",
+                  "description": "change bot commands list"
+                },
+                "command": "setcommands",
+                "description": "change bot commands list"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setjoingroups",
+                  "description": "can your bot be added to groups?"
+                },
+                "command": "setjoingroups",
+                "description": "can your bot be added to groups?"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setdomain",
+                  "description": "link website's domain to the bot"
+                },
+                "command": "setdomain",
+                "description": "link website's domain to the bot"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setprivacy",
+                  "description": "what messages does your bot see in groups?"
+                },
+                "command": "setprivacy",
+                "description": "what messages does your bot see in groups?"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setmanagermode",
+                  "description": "toggle manager mode"
+                },
+                "command": "setmanagermode",
+                "description": "toggle manager mode"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setthreads",
+                  "description": "toggle threaded mode"
+                },
+                "command": "setthreads",
+                "description": "toggle threaded mode"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setbot2bot",
+                  "description": "toggle Bot 2 Bot communication"
+                },
+                "command": "setbot2bot",
+                "description": "toggle Bot 2 Bot communication"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "deletebot",
+                  "description": "delete a bot"
+                },
+                "command": "deletebot",
+                "description": "delete a bot"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "newapp",
+                  "description": "create a new web app"
+                },
+                "command": "newapp",
+                "description": "create a new web app"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "listapps",
+                  "description": "get a list of your web apps"
+                },
+                "command": "listapps",
+                "description": "get a list of your web apps"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "editapp",
+                  "description": "edit a web app"
+                },
+                "command": "editapp",
+                "description": "edit a web app"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "deleteapp",
+                  "description": "delete an existing web app"
+                },
+                "command": "deleteapp",
+                "description": "delete an existing web app"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "newgame",
+                  "description": "create a new game"
+                },
+                "command": "newgame",
+                "description": "create a new game"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "listgames",
+                  "description": "get a list of your games"
+                },
+                "command": "listgames",
+                "description": "get a list of your games"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "editgame",
+                  "description": "edit a game"
+                },
+                "command": "editgame",
+                "description": "edit a game"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "deletegame",
+                  "description": "delete an existing game"
+                },
+                "command": "deletegame",
+                "description": "delete an existing game"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "cancel",
+                  "description": "cancel the current operation"
+                },
+                "command": "cancel",
+                "description": "cancel the current operation"
+              }
+            ],
+            "menuButton": {
+              "__className": "BotMenuButton",
+              "__constructorId": 3350559974,
+              "className": "BotMenuButton",
+              "originalArgs": {
+                "text": "Open",
+                "url": "https://webappinternal.telegram.org/botfather"
+              },
+              "text": "Open",
+              "url": "https://webappinternal.telegram.org/botfather"
+            },
+            "privacyPolicyUrl": null,
+            "appSettings": {
+              "__className": "BotAppSettings",
+              "__constructorId": 3382384976,
+              "className": "BotAppSettings",
+              "originalArgs": {
+                "flags": 30,
+                "placeholderPath": null,
+                "backgroundColor": 1712166,
+                "backgroundDarkColor": 1712166,
+                "headerColor": 2173491,
+                "headerDarkColor": 2173491
+              },
+              "flags": 30,
+              "placeholderPath": null,
+              "backgroundColor": 1712166,
+              "backgroundDarkColor": 1712166,
+              "headerColor": 2173491,
+              "headerDarkColor": 2173491
+            },
+            "verifierSettings": null
+          },
+          "pinnedMsgId": null,
+          "commonChatsCount": 0,
+          "folderId": null,
+          "ttlPeriod": null,
+          "themeEmoticon": null,
+          "privateForwardName": null,
+          "botGroupAdminRights": null,
+          "botBroadcastAdminRights": null,
+          "premiumGifts": null,
+          "wallpaper": null,
+          "stories": null,
+          "businessWorkHours": null,
+          "businessLocation": null,
+          "businessGreetingMessage": null,
+          "businessAwayMessage": null,
+          "businessIntro": null,
+          "birthday": null,
+          "personalChannelId": null,
+          "personalChannelMessage": null,
+          "stargiftsCount": null,
+          "starrefProgram": null,
+          "botVerification": null
+        },
+        "flags": 142,
+        "blocked": false,
+        "phoneCallsAvailable": false,
+        "phoneCallsPrivate": false,
+        "canPinMessage": true,
+        "hasScheduled": false,
+        "videoCallsAvailable": false,
+        "voiceMessagesForbidden": false,
+        "translationsDisabled": false,
+        "storiesPinnedAvailable": false,
+        "blockedMyStoriesFrom": false,
+        "wallpaperOverridden": false,
+        "contactRequirePremium": false,
+        "readDatesPrivate": false,
+        "flags2": 0,
+        "sponsoredEnabled": false,
+        "canViewRevenue": false,
+        "botCanManageEmojiStatus": false,
+        "id": {
+          "value": "93372553"
+        },
+        "about": "BotFather is the one bot to rule them all. Use it to create new bot accounts and manage your existing bots.",
+        "settings": {
+          "__className": "PeerSettings",
+          "__constructorId": 2899733598,
+          "className": "PeerSettings",
+          "originalArgs": {
+            "flags": 0,
+            "reportSpam": false,
+            "addContact": false,
+            "blockContact": false,
+            "shareContact": false,
+            "needContactsException": false,
+            "reportGeo": false,
+            "autoarchived": false,
+            "inviteMembers": false,
+            "requestChatBroadcast": false,
+            "businessBotPaused": false,
+            "businessBotCanReply": false,
+            "geoDistance": null,
+            "requestChatTitle": null,
+            "requestChatDate": null,
+            "businessBotId": null,
+            "businessBotManageUrl": null
+          },
+          "flags": 0,
+          "reportSpam": false,
+          "addContact": false,
+          "blockContact": false,
+          "shareContact": false,
+          "needContactsException": false,
+          "reportGeo": false,
+          "autoarchived": false,
+          "inviteMembers": false,
+          "requestChatBroadcast": false,
+          "businessBotPaused": false,
+          "businessBotCanReply": false,
+          "geoDistance": null,
+          "requestChatTitle": null,
+          "requestChatDate": null,
+          "businessBotId": null,
+          "businessBotManageUrl": null
+        },
+        "personalPhoto": null,
+        "profilePhoto": {
+          "__className": "Photo",
+          "__constructorId": 4212750949,
+          "className": "Photo",
+          "originalArgs": {
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "401032061935265706"
+            },
+            "accessHash": {
+              "value": "-3949229001045920986"
+            },
+            "fileReference": {
+              "__type": "Buffer",
+              "hex": "0069da2380cf4344fae1ff4f00bc4076a2d5d079cf"
+            },
+            "date": 1435136511,
+            "sizes": [
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "a",
+                  "w": 160,
+                  "h": 160,
+                  "size": 12700
+                },
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 12700
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "b",
+                  "w": 320,
+                  "h": 320,
+                  "size": 35464
+                },
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 35464
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "c",
+                  "w": 640,
+                  "h": 640,
+                  "size": 99537
+                },
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 99537
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "d",
+                  "w": 888,
+                  "h": 888,
+                  "size": 134700
+                },
+                "type": "d",
+                "w": 888,
+                "h": 888,
+                "size": 134700
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 1
+          },
+          "flags": 0,
+          "hasStickers": false,
+          "id": {
+            "value": "401032061935265706"
+          },
+          "accessHash": {
+            "value": "-3949229001045920986"
+          },
+          "fileReference": {
+            "__type": "Buffer",
+            "hex": "0069da2380cf4344fae1ff4f00bc4076a2d5d079cf"
+          },
+          "date": 1435136511,
+          "sizes": [
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 12700
+              },
+              "type": "a",
+              "w": 160,
+              "h": 160,
+              "size": 12700
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 35464
+              },
+              "type": "b",
+              "w": 320,
+              "h": 320,
+              "size": 35464
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 99537
+              },
+              "type": "c",
+              "w": 640,
+              "h": 640,
+              "size": 99537
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "d",
+                "w": 888,
+                "h": 888,
+                "size": 134700
+              },
+              "type": "d",
+              "w": 888,
+              "h": 888,
+              "size": 134700
+            }
+          ],
+          "videoSizes": null,
+          "dcId": 1
+        },
+        "fallbackPhoto": null,
+        "notifySettings": {
+          "__className": "PeerNotifySettings",
+          "__constructorId": 2573347852,
+          "className": "PeerNotifySettings",
+          "originalArgs": {
+            "flags": 0,
+            "showPreviews": null,
+            "silent": null,
+            "muteUntil": null,
+            "iosSound": null,
+            "androidSound": null,
+            "otherSound": null,
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "flags": 0,
+          "showPreviews": null,
+          "silent": null,
+          "muteUntil": null,
+          "iosSound": null,
+          "androidSound": null,
+          "otherSound": null,
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "botInfo": {
+          "__className": "BotInfo",
+          "__constructorId": 1300890265,
+          "className": "BotInfo",
+          "originalArgs": {
+            "flags": 270,
+            "hasPreviewMedias": false,
+            "userId": null,
+            "description": "BotFather is the one bot to rule them all. Use it to create new bot accounts and manage your existing bots.\n\nAbout Telegram bots:\nhttps://core.telegram.org/bots\nBot API manual:\nhttps://core.telegram.org/bots/api\n\nContact @BotSupport if you have questions about the Bot API.",
+            "descriptionPhoto": null,
+            "descriptionDocument": null,
+            "commands": [
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "newbot",
+                  "description": "create a new bot"
+                },
+                "command": "newbot",
+                "description": "create a new bot"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "mybots",
+                  "description": "edit your bots"
+                },
+                "command": "mybots",
+                "description": "edit your bots"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "myapps",
+                  "description": "edit your web apps"
+                },
+                "command": "myapps",
+                "description": "edit your web apps"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "mygames",
+                  "description": "edit your games"
+                },
+                "command": "mygames",
+                "description": "edit your games"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "token",
+                  "description": "get authorization token"
+                },
+                "command": "token",
+                "description": "get authorization token"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "revoke",
+                  "description": "revoke bot access token"
+                },
+                "command": "revoke",
+                "description": "revoke bot access token"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setname",
+                  "description": "change a bot's name"
+                },
+                "command": "setname",
+                "description": "change a bot's name"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setdescription",
+                  "description": "change bot description"
+                },
+                "command": "setdescription",
+                "description": "change bot description"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setabouttext",
+                  "description": "change bot about info"
+                },
+                "command": "setabouttext",
+                "description": "change bot about info"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setuserpic",
+                  "description": "change bot profile photo"
+                },
+                "command": "setuserpic",
+                "description": "change bot profile photo"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setinline",
+                  "description": "change inline settings"
+                },
+                "command": "setinline",
+                "description": "change inline settings"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setinlinegeo",
+                  "description": "toggle inline location requests"
+                },
+                "command": "setinlinegeo",
+                "description": "toggle inline location requests"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setinlinefeedback",
+                  "description": "change inline feedback settings"
+                },
+                "command": "setinlinefeedback",
+                "description": "change inline feedback settings"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setcommands",
+                  "description": "change bot commands list"
+                },
+                "command": "setcommands",
+                "description": "change bot commands list"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setjoingroups",
+                  "description": "can your bot be added to groups?"
+                },
+                "command": "setjoingroups",
+                "description": "can your bot be added to groups?"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setdomain",
+                  "description": "link website's domain to the bot"
+                },
+                "command": "setdomain",
+                "description": "link website's domain to the bot"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setprivacy",
+                  "description": "what messages does your bot see in groups?"
+                },
+                "command": "setprivacy",
+                "description": "what messages does your bot see in groups?"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setmanagermode",
+                  "description": "toggle manager mode"
+                },
+                "command": "setmanagermode",
+                "description": "toggle manager mode"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setthreads",
+                  "description": "toggle threaded mode"
+                },
+                "command": "setthreads",
+                "description": "toggle threaded mode"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setbot2bot",
+                  "description": "toggle Bot 2 Bot communication"
+                },
+                "command": "setbot2bot",
+                "description": "toggle Bot 2 Bot communication"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "deletebot",
+                  "description": "delete a bot"
+                },
+                "command": "deletebot",
+                "description": "delete a bot"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "newapp",
+                  "description": "create a new web app"
+                },
+                "command": "newapp",
+                "description": "create a new web app"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "listapps",
+                  "description": "get a list of your web apps"
+                },
+                "command": "listapps",
+                "description": "get a list of your web apps"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "editapp",
+                  "description": "edit a web app"
+                },
+                "command": "editapp",
+                "description": "edit a web app"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "deleteapp",
+                  "description": "delete an existing web app"
+                },
+                "command": "deleteapp",
+                "description": "delete an existing web app"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "newgame",
+                  "description": "create a new game"
+                },
+                "command": "newgame",
+                "description": "create a new game"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "listgames",
+                  "description": "get a list of your games"
+                },
+                "command": "listgames",
+                "description": "get a list of your games"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "editgame",
+                  "description": "edit a game"
+                },
+                "command": "editgame",
+                "description": "edit a game"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "deletegame",
+                  "description": "delete an existing game"
+                },
+                "command": "deletegame",
+                "description": "delete an existing game"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "cancel",
+                  "description": "cancel the current operation"
+                },
+                "command": "cancel",
+                "description": "cancel the current operation"
+              }
+            ],
+            "menuButton": {
+              "__className": "BotMenuButton",
+              "__constructorId": 3350559974,
+              "className": "BotMenuButton",
+              "originalArgs": {
+                "text": "Open",
+                "url": "https://webappinternal.telegram.org/botfather"
+              },
+              "text": "Open",
+              "url": "https://webappinternal.telegram.org/botfather"
+            },
+            "privacyPolicyUrl": null,
+            "appSettings": {
+              "__className": "BotAppSettings",
+              "__constructorId": 3382384976,
+              "className": "BotAppSettings",
+              "originalArgs": {
+                "flags": 30,
+                "placeholderPath": null,
+                "backgroundColor": 1712166,
+                "backgroundDarkColor": 1712166,
+                "headerColor": 2173491,
+                "headerDarkColor": 2173491
+              },
+              "flags": 30,
+              "placeholderPath": null,
+              "backgroundColor": 1712166,
+              "backgroundDarkColor": 1712166,
+              "headerColor": 2173491,
+              "headerDarkColor": 2173491
+            },
+            "verifierSettings": null
+          },
+          "flags": 270,
+          "hasPreviewMedias": false,
+          "userId": null,
+          "description": "BotFather is the one bot to rule them all. Use it to create new bot accounts and manage your existing bots.\n\nAbout Telegram bots:\nhttps://core.telegram.org/bots\nBot API manual:\nhttps://core.telegram.org/bots/api\n\nContact @BotSupport if you have questions about the Bot API.",
+          "descriptionPhoto": null,
+          "descriptionDocument": null,
+          "commands": [
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "newbot",
+                "description": "create a new bot"
+              },
+              "command": "newbot",
+              "description": "create a new bot"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "mybots",
+                "description": "edit your bots"
+              },
+              "command": "mybots",
+              "description": "edit your bots"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "myapps",
+                "description": "edit your web apps"
+              },
+              "command": "myapps",
+              "description": "edit your web apps"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "mygames",
+                "description": "edit your games"
+              },
+              "command": "mygames",
+              "description": "edit your games"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "token",
+                "description": "get authorization token"
+              },
+              "command": "token",
+              "description": "get authorization token"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "revoke",
+                "description": "revoke bot access token"
+              },
+              "command": "revoke",
+              "description": "revoke bot access token"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setname",
+                "description": "change a bot's name"
+              },
+              "command": "setname",
+              "description": "change a bot's name"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setdescription",
+                "description": "change bot description"
+              },
+              "command": "setdescription",
+              "description": "change bot description"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setabouttext",
+                "description": "change bot about info"
+              },
+              "command": "setabouttext",
+              "description": "change bot about info"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setuserpic",
+                "description": "change bot profile photo"
+              },
+              "command": "setuserpic",
+              "description": "change bot profile photo"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setinline",
+                "description": "change inline settings"
+              },
+              "command": "setinline",
+              "description": "change inline settings"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setinlinegeo",
+                "description": "toggle inline location requests"
+              },
+              "command": "setinlinegeo",
+              "description": "toggle inline location requests"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setinlinefeedback",
+                "description": "change inline feedback settings"
+              },
+              "command": "setinlinefeedback",
+              "description": "change inline feedback settings"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setcommands",
+                "description": "change bot commands list"
+              },
+              "command": "setcommands",
+              "description": "change bot commands list"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setjoingroups",
+                "description": "can your bot be added to groups?"
+              },
+              "command": "setjoingroups",
+              "description": "can your bot be added to groups?"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setdomain",
+                "description": "link website's domain to the bot"
+              },
+              "command": "setdomain",
+              "description": "link website's domain to the bot"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setprivacy",
+                "description": "what messages does your bot see in groups?"
+              },
+              "command": "setprivacy",
+              "description": "what messages does your bot see in groups?"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setmanagermode",
+                "description": "toggle manager mode"
+              },
+              "command": "setmanagermode",
+              "description": "toggle manager mode"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setthreads",
+                "description": "toggle threaded mode"
+              },
+              "command": "setthreads",
+              "description": "toggle threaded mode"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setbot2bot",
+                "description": "toggle Bot 2 Bot communication"
+              },
+              "command": "setbot2bot",
+              "description": "toggle Bot 2 Bot communication"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "deletebot",
+                "description": "delete a bot"
+              },
+              "command": "deletebot",
+              "description": "delete a bot"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "newapp",
+                "description": "create a new web app"
+              },
+              "command": "newapp",
+              "description": "create a new web app"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "listapps",
+                "description": "get a list of your web apps"
+              },
+              "command": "listapps",
+              "description": "get a list of your web apps"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "editapp",
+                "description": "edit a web app"
+              },
+              "command": "editapp",
+              "description": "edit a web app"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "deleteapp",
+                "description": "delete an existing web app"
+              },
+              "command": "deleteapp",
+              "description": "delete an existing web app"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "newgame",
+                "description": "create a new game"
+              },
+              "command": "newgame",
+              "description": "create a new game"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "listgames",
+                "description": "get a list of your games"
+              },
+              "command": "listgames",
+              "description": "get a list of your games"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "editgame",
+                "description": "edit a game"
+              },
+              "command": "editgame",
+              "description": "edit a game"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "deletegame",
+                "description": "delete an existing game"
+              },
+              "command": "deletegame",
+              "description": "delete an existing game"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "cancel",
+                "description": "cancel the current operation"
+              },
+              "command": "cancel",
+              "description": "cancel the current operation"
+            }
+          ],
+          "menuButton": {
+            "__className": "BotMenuButton",
+            "__constructorId": 3350559974,
+            "className": "BotMenuButton",
+            "originalArgs": {
+              "text": "Open",
+              "url": "https://webappinternal.telegram.org/botfather"
+            },
+            "text": "Open",
+            "url": "https://webappinternal.telegram.org/botfather"
+          },
+          "privacyPolicyUrl": null,
+          "appSettings": {
+            "__className": "BotAppSettings",
+            "__constructorId": 3382384976,
+            "className": "BotAppSettings",
+            "originalArgs": {
+              "flags": 30,
+              "placeholderPath": null,
+              "backgroundColor": 1712166,
+              "backgroundDarkColor": 1712166,
+              "headerColor": 2173491,
+              "headerDarkColor": 2173491
+            },
+            "flags": 30,
+            "placeholderPath": null,
+            "backgroundColor": 1712166,
+            "backgroundDarkColor": 1712166,
+            "headerColor": 2173491,
+            "headerDarkColor": 2173491
+          },
+          "verifierSettings": null
+        },
+        "pinnedMsgId": null,
+        "commonChatsCount": 0,
+        "folderId": null,
+        "ttlPeriod": null,
+        "themeEmoticon": null,
+        "privateForwardName": null,
+        "botGroupAdminRights": null,
+        "botBroadcastAdminRights": null,
+        "premiumGifts": null,
+        "wallpaper": null,
+        "stories": null,
+        "businessWorkHours": null,
+        "businessLocation": null,
+        "businessGreetingMessage": null,
+        "businessAwayMessage": null,
+        "businessIntro": null,
+        "birthday": null,
+        "personalChannelId": null,
+        "personalChannelMessage": null,
+        "stargiftsCount": null,
+        "starrefProgram": null,
+        "botVerification": null
+      },
+      "chats": [],
+      "users": [
+        {
+          "__className": "User",
+          "__constructorId": 1262928766,
+          "className": "User",
+          "originalArgs": {
+            "flags": 33767467,
+            "self": false,
+            "contact": false,
+            "mutualContact": false,
+            "deleted": false,
+            "bot": true,
+            "botChatHistory": false,
+            "botNochats": true,
+            "verified": true,
+            "restricted": false,
+            "min": false,
+            "botInlineGeo": false,
+            "support": false,
+            "scam": false,
+            "applyMinPhoto": true,
+            "fake": false,
+            "botAttachMenu": false,
+            "premium": false,
+            "attachMenuEnabled": false,
+            "flags2": 12304,
+            "botCanEdit": false,
+            "closeFriend": false,
+            "storiesHidden": false,
+            "storiesUnavailable": true,
+            "contactRequirePremium": false,
+            "botBusiness": false,
+            "botHasMainApp": true,
+            "id": {
+              "value": "93372553"
+            },
+            "accessHash": {
+              "value": "-7174274352962912888"
+            },
+            "firstName": "BotFather",
+            "lastName": null,
+            "username": "BotFather",
+            "phone": null,
+            "photo": {
+              "__className": "UserProfilePhoto",
+              "__constructorId": 2194798342,
+              "className": "UserProfilePhoto",
+              "originalArgs": {
+                "flags": 2,
+                "hasVideo": false,
+                "personal": false,
+                "photoId": {
+                  "value": "401032061935265706"
+                },
+                "strippedThumb": {
+                  "__type": "Buffer",
+                  "hex": "0108089fcf7fb417ec64d9451450163f"
+                },
+                "dcId": 1
+              },
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "401032061935265706"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "0108089fcf7fb417ec64d9451450163f"
+              },
+              "dcId": 1
+            },
+            "status": null,
+            "botInfoVersion": 28,
+            "restrictionReason": null,
+            "botInlinePlaceholder": null,
+            "langCode": null,
+            "emojiStatus": null,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "botActiveUsers": 8153630,
+            "botVerificationIcon": null
+          },
+          "flags": 33767467,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": true,
+          "botChatHistory": false,
+          "botNochats": true,
+          "verified": true,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 12304,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": true,
+          "id": {
+            "value": "93372553"
+          },
+          "accessHash": {
+            "value": "-7174274352962912888"
+          },
+          "firstName": "BotFather",
+          "lastName": null,
+          "username": "BotFather",
+          "phone": null,
+          "photo": {
+            "__className": "UserProfilePhoto",
+            "__constructorId": 2194798342,
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "401032061935265706"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "0108089fcf7fb417ec64d9451450163f"
+              },
+              "dcId": 1
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "401032061935265706"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "0108089fcf7fb417ec64d9451450163f"
+            },
+            "dcId": 1
+          },
+          "status": null,
+          "botInfoVersion": 28,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": 8153630,
+          "botVerificationIcon": null
+        }
+      ]
+    },
+    "fullUser": {
+      "__className": "UserFull",
+      "__constructorId": 1301765052,
+      "className": "UserFull",
+      "originalArgs": {
+        "flags": 142,
+        "blocked": false,
+        "phoneCallsAvailable": false,
+        "phoneCallsPrivate": false,
+        "canPinMessage": true,
+        "hasScheduled": false,
+        "videoCallsAvailable": false,
+        "voiceMessagesForbidden": false,
+        "translationsDisabled": false,
+        "storiesPinnedAvailable": false,
+        "blockedMyStoriesFrom": false,
+        "wallpaperOverridden": false,
+        "contactRequirePremium": false,
+        "readDatesPrivate": false,
+        "flags2": 0,
+        "sponsoredEnabled": false,
+        "canViewRevenue": false,
+        "botCanManageEmojiStatus": false,
+        "id": {
+          "value": "93372553"
+        },
+        "about": "BotFather is the one bot to rule them all. Use it to create new bot accounts and manage your existing bots.",
+        "settings": {
+          "__className": "PeerSettings",
+          "__constructorId": 2899733598,
+          "className": "PeerSettings",
+          "originalArgs": {
+            "flags": 0,
+            "reportSpam": false,
+            "addContact": false,
+            "blockContact": false,
+            "shareContact": false,
+            "needContactsException": false,
+            "reportGeo": false,
+            "autoarchived": false,
+            "inviteMembers": false,
+            "requestChatBroadcast": false,
+            "businessBotPaused": false,
+            "businessBotCanReply": false,
+            "geoDistance": null,
+            "requestChatTitle": null,
+            "requestChatDate": null,
+            "businessBotId": null,
+            "businessBotManageUrl": null
+          },
+          "flags": 0,
+          "reportSpam": false,
+          "addContact": false,
+          "blockContact": false,
+          "shareContact": false,
+          "needContactsException": false,
+          "reportGeo": false,
+          "autoarchived": false,
+          "inviteMembers": false,
+          "requestChatBroadcast": false,
+          "businessBotPaused": false,
+          "businessBotCanReply": false,
+          "geoDistance": null,
+          "requestChatTitle": null,
+          "requestChatDate": null,
+          "businessBotId": null,
+          "businessBotManageUrl": null
+        },
+        "personalPhoto": null,
+        "profilePhoto": {
+          "__className": "Photo",
+          "__constructorId": 4212750949,
+          "className": "Photo",
+          "originalArgs": {
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "401032061935265706"
+            },
+            "accessHash": {
+              "value": "-3949229001045920986"
+            },
+            "fileReference": {
+              "__type": "Buffer",
+              "hex": "0069da2380cf4344fae1ff4f00bc4076a2d5d079cf"
+            },
+            "date": 1435136511,
+            "sizes": [
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "a",
+                  "w": 160,
+                  "h": 160,
+                  "size": 12700
+                },
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 12700
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "b",
+                  "w": 320,
+                  "h": 320,
+                  "size": 35464
+                },
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 35464
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "c",
+                  "w": 640,
+                  "h": 640,
+                  "size": 99537
+                },
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 99537
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "d",
+                  "w": 888,
+                  "h": 888,
+                  "size": 134700
+                },
+                "type": "d",
+                "w": 888,
+                "h": 888,
+                "size": 134700
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 1
+          },
+          "flags": 0,
+          "hasStickers": false,
+          "id": {
+            "value": "401032061935265706"
+          },
+          "accessHash": {
+            "value": "-3949229001045920986"
+          },
+          "fileReference": {
+            "__type": "Buffer",
+            "hex": "0069da2380cf4344fae1ff4f00bc4076a2d5d079cf"
+          },
+          "date": 1435136511,
+          "sizes": [
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 12700
+              },
+              "type": "a",
+              "w": 160,
+              "h": 160,
+              "size": 12700
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 35464
+              },
+              "type": "b",
+              "w": 320,
+              "h": 320,
+              "size": 35464
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 99537
+              },
+              "type": "c",
+              "w": 640,
+              "h": 640,
+              "size": 99537
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "d",
+                "w": 888,
+                "h": 888,
+                "size": 134700
+              },
+              "type": "d",
+              "w": 888,
+              "h": 888,
+              "size": 134700
+            }
+          ],
+          "videoSizes": null,
+          "dcId": 1
+        },
+        "fallbackPhoto": null,
+        "notifySettings": {
+          "__className": "PeerNotifySettings",
+          "__constructorId": 2573347852,
+          "className": "PeerNotifySettings",
+          "originalArgs": {
+            "flags": 0,
+            "showPreviews": null,
+            "silent": null,
+            "muteUntil": null,
+            "iosSound": null,
+            "androidSound": null,
+            "otherSound": null,
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "flags": 0,
+          "showPreviews": null,
+          "silent": null,
+          "muteUntil": null,
+          "iosSound": null,
+          "androidSound": null,
+          "otherSound": null,
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "botInfo": {
+          "__className": "BotInfo",
+          "__constructorId": 1300890265,
+          "className": "BotInfo",
+          "originalArgs": {
+            "flags": 270,
+            "hasPreviewMedias": false,
+            "userId": null,
+            "description": "BotFather is the one bot to rule them all. Use it to create new bot accounts and manage your existing bots.\n\nAbout Telegram bots:\nhttps://core.telegram.org/bots\nBot API manual:\nhttps://core.telegram.org/bots/api\n\nContact @BotSupport if you have questions about the Bot API.",
+            "descriptionPhoto": null,
+            "descriptionDocument": null,
+            "commands": [
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "newbot",
+                  "description": "create a new bot"
+                },
+                "command": "newbot",
+                "description": "create a new bot"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "mybots",
+                  "description": "edit your bots"
+                },
+                "command": "mybots",
+                "description": "edit your bots"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "myapps",
+                  "description": "edit your web apps"
+                },
+                "command": "myapps",
+                "description": "edit your web apps"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "mygames",
+                  "description": "edit your games"
+                },
+                "command": "mygames",
+                "description": "edit your games"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "token",
+                  "description": "get authorization token"
+                },
+                "command": "token",
+                "description": "get authorization token"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "revoke",
+                  "description": "revoke bot access token"
+                },
+                "command": "revoke",
+                "description": "revoke bot access token"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setname",
+                  "description": "change a bot's name"
+                },
+                "command": "setname",
+                "description": "change a bot's name"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setdescription",
+                  "description": "change bot description"
+                },
+                "command": "setdescription",
+                "description": "change bot description"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setabouttext",
+                  "description": "change bot about info"
+                },
+                "command": "setabouttext",
+                "description": "change bot about info"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setuserpic",
+                  "description": "change bot profile photo"
+                },
+                "command": "setuserpic",
+                "description": "change bot profile photo"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setinline",
+                  "description": "change inline settings"
+                },
+                "command": "setinline",
+                "description": "change inline settings"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setinlinegeo",
+                  "description": "toggle inline location requests"
+                },
+                "command": "setinlinegeo",
+                "description": "toggle inline location requests"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setinlinefeedback",
+                  "description": "change inline feedback settings"
+                },
+                "command": "setinlinefeedback",
+                "description": "change inline feedback settings"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setcommands",
+                  "description": "change bot commands list"
+                },
+                "command": "setcommands",
+                "description": "change bot commands list"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setjoingroups",
+                  "description": "can your bot be added to groups?"
+                },
+                "command": "setjoingroups",
+                "description": "can your bot be added to groups?"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setdomain",
+                  "description": "link website's domain to the bot"
+                },
+                "command": "setdomain",
+                "description": "link website's domain to the bot"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setprivacy",
+                  "description": "what messages does your bot see in groups?"
+                },
+                "command": "setprivacy",
+                "description": "what messages does your bot see in groups?"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setmanagermode",
+                  "description": "toggle manager mode"
+                },
+                "command": "setmanagermode",
+                "description": "toggle manager mode"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setthreads",
+                  "description": "toggle threaded mode"
+                },
+                "command": "setthreads",
+                "description": "toggle threaded mode"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "setbot2bot",
+                  "description": "toggle Bot 2 Bot communication"
+                },
+                "command": "setbot2bot",
+                "description": "toggle Bot 2 Bot communication"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "deletebot",
+                  "description": "delete a bot"
+                },
+                "command": "deletebot",
+                "description": "delete a bot"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "newapp",
+                  "description": "create a new web app"
+                },
+                "command": "newapp",
+                "description": "create a new web app"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "listapps",
+                  "description": "get a list of your web apps"
+                },
+                "command": "listapps",
+                "description": "get a list of your web apps"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "editapp",
+                  "description": "edit a web app"
+                },
+                "command": "editapp",
+                "description": "edit a web app"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "deleteapp",
+                  "description": "delete an existing web app"
+                },
+                "command": "deleteapp",
+                "description": "delete an existing web app"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "newgame",
+                  "description": "create a new game"
+                },
+                "command": "newgame",
+                "description": "create a new game"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "listgames",
+                  "description": "get a list of your games"
+                },
+                "command": "listgames",
+                "description": "get a list of your games"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "editgame",
+                  "description": "edit a game"
+                },
+                "command": "editgame",
+                "description": "edit a game"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "deletegame",
+                  "description": "delete an existing game"
+                },
+                "command": "deletegame",
+                "description": "delete an existing game"
+              },
+              {
+                "__className": "BotCommand",
+                "__constructorId": 3262826695,
+                "className": "BotCommand",
+                "originalArgs": {
+                  "command": "cancel",
+                  "description": "cancel the current operation"
+                },
+                "command": "cancel",
+                "description": "cancel the current operation"
+              }
+            ],
+            "menuButton": {
+              "__className": "BotMenuButton",
+              "__constructorId": 3350559974,
+              "className": "BotMenuButton",
+              "originalArgs": {
+                "text": "Open",
+                "url": "https://webappinternal.telegram.org/botfather"
+              },
+              "text": "Open",
+              "url": "https://webappinternal.telegram.org/botfather"
+            },
+            "privacyPolicyUrl": null,
+            "appSettings": {
+              "__className": "BotAppSettings",
+              "__constructorId": 3382384976,
+              "className": "BotAppSettings",
+              "originalArgs": {
+                "flags": 30,
+                "placeholderPath": null,
+                "backgroundColor": 1712166,
+                "backgroundDarkColor": 1712166,
+                "headerColor": 2173491,
+                "headerDarkColor": 2173491
+              },
+              "flags": 30,
+              "placeholderPath": null,
+              "backgroundColor": 1712166,
+              "backgroundDarkColor": 1712166,
+              "headerColor": 2173491,
+              "headerDarkColor": 2173491
+            },
+            "verifierSettings": null
+          },
+          "flags": 270,
+          "hasPreviewMedias": false,
+          "userId": null,
+          "description": "BotFather is the one bot to rule them all. Use it to create new bot accounts and manage your existing bots.\n\nAbout Telegram bots:\nhttps://core.telegram.org/bots\nBot API manual:\nhttps://core.telegram.org/bots/api\n\nContact @BotSupport if you have questions about the Bot API.",
+          "descriptionPhoto": null,
+          "descriptionDocument": null,
+          "commands": [
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "newbot",
+                "description": "create a new bot"
+              },
+              "command": "newbot",
+              "description": "create a new bot"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "mybots",
+                "description": "edit your bots"
+              },
+              "command": "mybots",
+              "description": "edit your bots"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "myapps",
+                "description": "edit your web apps"
+              },
+              "command": "myapps",
+              "description": "edit your web apps"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "mygames",
+                "description": "edit your games"
+              },
+              "command": "mygames",
+              "description": "edit your games"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "token",
+                "description": "get authorization token"
+              },
+              "command": "token",
+              "description": "get authorization token"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "revoke",
+                "description": "revoke bot access token"
+              },
+              "command": "revoke",
+              "description": "revoke bot access token"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setname",
+                "description": "change a bot's name"
+              },
+              "command": "setname",
+              "description": "change a bot's name"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setdescription",
+                "description": "change bot description"
+              },
+              "command": "setdescription",
+              "description": "change bot description"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setabouttext",
+                "description": "change bot about info"
+              },
+              "command": "setabouttext",
+              "description": "change bot about info"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setuserpic",
+                "description": "change bot profile photo"
+              },
+              "command": "setuserpic",
+              "description": "change bot profile photo"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setinline",
+                "description": "change inline settings"
+              },
+              "command": "setinline",
+              "description": "change inline settings"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setinlinegeo",
+                "description": "toggle inline location requests"
+              },
+              "command": "setinlinegeo",
+              "description": "toggle inline location requests"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setinlinefeedback",
+                "description": "change inline feedback settings"
+              },
+              "command": "setinlinefeedback",
+              "description": "change inline feedback settings"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setcommands",
+                "description": "change bot commands list"
+              },
+              "command": "setcommands",
+              "description": "change bot commands list"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setjoingroups",
+                "description": "can your bot be added to groups?"
+              },
+              "command": "setjoingroups",
+              "description": "can your bot be added to groups?"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setdomain",
+                "description": "link website's domain to the bot"
+              },
+              "command": "setdomain",
+              "description": "link website's domain to the bot"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setprivacy",
+                "description": "what messages does your bot see in groups?"
+              },
+              "command": "setprivacy",
+              "description": "what messages does your bot see in groups?"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setmanagermode",
+                "description": "toggle manager mode"
+              },
+              "command": "setmanagermode",
+              "description": "toggle manager mode"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setthreads",
+                "description": "toggle threaded mode"
+              },
+              "command": "setthreads",
+              "description": "toggle threaded mode"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setbot2bot",
+                "description": "toggle Bot 2 Bot communication"
+              },
+              "command": "setbot2bot",
+              "description": "toggle Bot 2 Bot communication"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "deletebot",
+                "description": "delete a bot"
+              },
+              "command": "deletebot",
+              "description": "delete a bot"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "newapp",
+                "description": "create a new web app"
+              },
+              "command": "newapp",
+              "description": "create a new web app"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "listapps",
+                "description": "get a list of your web apps"
+              },
+              "command": "listapps",
+              "description": "get a list of your web apps"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "editapp",
+                "description": "edit a web app"
+              },
+              "command": "editapp",
+              "description": "edit a web app"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "deleteapp",
+                "description": "delete an existing web app"
+              },
+              "command": "deleteapp",
+              "description": "delete an existing web app"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "newgame",
+                "description": "create a new game"
+              },
+              "command": "newgame",
+              "description": "create a new game"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "listgames",
+                "description": "get a list of your games"
+              },
+              "command": "listgames",
+              "description": "get a list of your games"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "editgame",
+                "description": "edit a game"
+              },
+              "command": "editgame",
+              "description": "edit a game"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "deletegame",
+                "description": "delete an existing game"
+              },
+              "command": "deletegame",
+              "description": "delete an existing game"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "cancel",
+                "description": "cancel the current operation"
+              },
+              "command": "cancel",
+              "description": "cancel the current operation"
+            }
+          ],
+          "menuButton": {
+            "__className": "BotMenuButton",
+            "__constructorId": 3350559974,
+            "className": "BotMenuButton",
+            "originalArgs": {
+              "text": "Open",
+              "url": "https://webappinternal.telegram.org/botfather"
+            },
+            "text": "Open",
+            "url": "https://webappinternal.telegram.org/botfather"
+          },
+          "privacyPolicyUrl": null,
+          "appSettings": {
+            "__className": "BotAppSettings",
+            "__constructorId": 3382384976,
+            "className": "BotAppSettings",
+            "originalArgs": {
+              "flags": 30,
+              "placeholderPath": null,
+              "backgroundColor": 1712166,
+              "backgroundDarkColor": 1712166,
+              "headerColor": 2173491,
+              "headerDarkColor": 2173491
+            },
+            "flags": 30,
+            "placeholderPath": null,
+            "backgroundColor": 1712166,
+            "backgroundDarkColor": 1712166,
+            "headerColor": 2173491,
+            "headerDarkColor": 2173491
+          },
+          "verifierSettings": null
+        },
+        "pinnedMsgId": null,
+        "commonChatsCount": 0,
+        "folderId": null,
+        "ttlPeriod": null,
+        "themeEmoticon": null,
+        "privateForwardName": null,
+        "botGroupAdminRights": null,
+        "botBroadcastAdminRights": null,
+        "premiumGifts": null,
+        "wallpaper": null,
+        "stories": null,
+        "businessWorkHours": null,
+        "businessLocation": null,
+        "businessGreetingMessage": null,
+        "businessAwayMessage": null,
+        "businessIntro": null,
+        "birthday": null,
+        "personalChannelId": null,
+        "personalChannelMessage": null,
+        "stargiftsCount": null,
+        "starrefProgram": null,
+        "botVerification": null
+      },
+      "flags": 142,
+      "blocked": false,
+      "phoneCallsAvailable": false,
+      "phoneCallsPrivate": false,
+      "canPinMessage": true,
+      "hasScheduled": false,
+      "videoCallsAvailable": false,
+      "voiceMessagesForbidden": false,
+      "translationsDisabled": false,
+      "storiesPinnedAvailable": false,
+      "blockedMyStoriesFrom": false,
+      "wallpaperOverridden": false,
+      "contactRequirePremium": false,
+      "readDatesPrivate": false,
+      "flags2": 0,
+      "sponsoredEnabled": false,
+      "canViewRevenue": false,
+      "botCanManageEmojiStatus": false,
+      "id": {
+        "value": "93372553"
+      },
+      "about": "BotFather is the one bot to rule them all. Use it to create new bot accounts and manage your existing bots.",
+      "settings": {
+        "__className": "PeerSettings",
+        "__constructorId": 2899733598,
+        "className": "PeerSettings",
+        "originalArgs": {
+          "flags": 0,
+          "reportSpam": false,
+          "addContact": false,
+          "blockContact": false,
+          "shareContact": false,
+          "needContactsException": false,
+          "reportGeo": false,
+          "autoarchived": false,
+          "inviteMembers": false,
+          "requestChatBroadcast": false,
+          "businessBotPaused": false,
+          "businessBotCanReply": false,
+          "geoDistance": null,
+          "requestChatTitle": null,
+          "requestChatDate": null,
+          "businessBotId": null,
+          "businessBotManageUrl": null
+        },
+        "flags": 0,
+        "reportSpam": false,
+        "addContact": false,
+        "blockContact": false,
+        "shareContact": false,
+        "needContactsException": false,
+        "reportGeo": false,
+        "autoarchived": false,
+        "inviteMembers": false,
+        "requestChatBroadcast": false,
+        "businessBotPaused": false,
+        "businessBotCanReply": false,
+        "geoDistance": null,
+        "requestChatTitle": null,
+        "requestChatDate": null,
+        "businessBotId": null,
+        "businessBotManageUrl": null
+      },
+      "personalPhoto": null,
+      "profilePhoto": {
+        "__className": "Photo",
+        "__constructorId": 4212750949,
+        "className": "Photo",
+        "originalArgs": {
+          "flags": 0,
+          "hasStickers": false,
+          "id": {
+            "value": "401032061935265706"
+          },
+          "accessHash": {
+            "value": "-3949229001045920986"
+          },
+          "fileReference": {
+            "__type": "Buffer",
+            "hex": "0069da2380cf4344fae1ff4f00bc4076a2d5d079cf"
+          },
+          "date": 1435136511,
+          "sizes": [
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 12700
+              },
+              "type": "a",
+              "w": 160,
+              "h": 160,
+              "size": 12700
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 35464
+              },
+              "type": "b",
+              "w": 320,
+              "h": 320,
+              "size": 35464
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 99537
+              },
+              "type": "c",
+              "w": 640,
+              "h": 640,
+              "size": 99537
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "d",
+                "w": 888,
+                "h": 888,
+                "size": 134700
+              },
+              "type": "d",
+              "w": 888,
+              "h": 888,
+              "size": 134700
+            }
+          ],
+          "videoSizes": null,
+          "dcId": 1
+        },
+        "flags": 0,
+        "hasStickers": false,
+        "id": {
+          "value": "401032061935265706"
+        },
+        "accessHash": {
+          "value": "-3949229001045920986"
+        },
+        "fileReference": {
+          "__type": "Buffer",
+          "hex": "0069da2380cf4344fae1ff4f00bc4076a2d5d079cf"
+        },
+        "date": 1435136511,
+        "sizes": [
+          {
+            "__className": "PhotoSize",
+            "__constructorId": 1976012384,
+            "className": "PhotoSize",
+            "originalArgs": {
+              "type": "a",
+              "w": 160,
+              "h": 160,
+              "size": 12700
+            },
+            "type": "a",
+            "w": 160,
+            "h": 160,
+            "size": 12700
+          },
+          {
+            "__className": "PhotoSize",
+            "__constructorId": 1976012384,
+            "className": "PhotoSize",
+            "originalArgs": {
+              "type": "b",
+              "w": 320,
+              "h": 320,
+              "size": 35464
+            },
+            "type": "b",
+            "w": 320,
+            "h": 320,
+            "size": 35464
+          },
+          {
+            "__className": "PhotoSize",
+            "__constructorId": 1976012384,
+            "className": "PhotoSize",
+            "originalArgs": {
+              "type": "c",
+              "w": 640,
+              "h": 640,
+              "size": 99537
+            },
+            "type": "c",
+            "w": 640,
+            "h": 640,
+            "size": 99537
+          },
+          {
+            "__className": "PhotoSize",
+            "__constructorId": 1976012384,
+            "className": "PhotoSize",
+            "originalArgs": {
+              "type": "d",
+              "w": 888,
+              "h": 888,
+              "size": 134700
+            },
+            "type": "d",
+            "w": 888,
+            "h": 888,
+            "size": 134700
+          }
+        ],
+        "videoSizes": null,
+        "dcId": 1
+      },
+      "fallbackPhoto": null,
+      "notifySettings": {
+        "__className": "PeerNotifySettings",
+        "__constructorId": 2573347852,
+        "className": "PeerNotifySettings",
+        "originalArgs": {
+          "flags": 0,
+          "showPreviews": null,
+          "silent": null,
+          "muteUntil": null,
+          "iosSound": null,
+          "androidSound": null,
+          "otherSound": null,
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "flags": 0,
+        "showPreviews": null,
+        "silent": null,
+        "muteUntil": null,
+        "iosSound": null,
+        "androidSound": null,
+        "otherSound": null,
+        "storiesMuted": null,
+        "storiesHideSender": null,
+        "storiesIosSound": null,
+        "storiesAndroidSound": null,
+        "storiesOtherSound": null
+      },
+      "botInfo": {
+        "__className": "BotInfo",
+        "__constructorId": 1300890265,
+        "className": "BotInfo",
+        "originalArgs": {
+          "flags": 270,
+          "hasPreviewMedias": false,
+          "userId": null,
+          "description": "BotFather is the one bot to rule them all. Use it to create new bot accounts and manage your existing bots.\n\nAbout Telegram bots:\nhttps://core.telegram.org/bots\nBot API manual:\nhttps://core.telegram.org/bots/api\n\nContact @BotSupport if you have questions about the Bot API.",
+          "descriptionPhoto": null,
+          "descriptionDocument": null,
+          "commands": [
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "newbot",
+                "description": "create a new bot"
+              },
+              "command": "newbot",
+              "description": "create a new bot"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "mybots",
+                "description": "edit your bots"
+              },
+              "command": "mybots",
+              "description": "edit your bots"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "myapps",
+                "description": "edit your web apps"
+              },
+              "command": "myapps",
+              "description": "edit your web apps"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "mygames",
+                "description": "edit your games"
+              },
+              "command": "mygames",
+              "description": "edit your games"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "token",
+                "description": "get authorization token"
+              },
+              "command": "token",
+              "description": "get authorization token"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "revoke",
+                "description": "revoke bot access token"
+              },
+              "command": "revoke",
+              "description": "revoke bot access token"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setname",
+                "description": "change a bot's name"
+              },
+              "command": "setname",
+              "description": "change a bot's name"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setdescription",
+                "description": "change bot description"
+              },
+              "command": "setdescription",
+              "description": "change bot description"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setabouttext",
+                "description": "change bot about info"
+              },
+              "command": "setabouttext",
+              "description": "change bot about info"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setuserpic",
+                "description": "change bot profile photo"
+              },
+              "command": "setuserpic",
+              "description": "change bot profile photo"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setinline",
+                "description": "change inline settings"
+              },
+              "command": "setinline",
+              "description": "change inline settings"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setinlinegeo",
+                "description": "toggle inline location requests"
+              },
+              "command": "setinlinegeo",
+              "description": "toggle inline location requests"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setinlinefeedback",
+                "description": "change inline feedback settings"
+              },
+              "command": "setinlinefeedback",
+              "description": "change inline feedback settings"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setcommands",
+                "description": "change bot commands list"
+              },
+              "command": "setcommands",
+              "description": "change bot commands list"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setjoingroups",
+                "description": "can your bot be added to groups?"
+              },
+              "command": "setjoingroups",
+              "description": "can your bot be added to groups?"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setdomain",
+                "description": "link website's domain to the bot"
+              },
+              "command": "setdomain",
+              "description": "link website's domain to the bot"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setprivacy",
+                "description": "what messages does your bot see in groups?"
+              },
+              "command": "setprivacy",
+              "description": "what messages does your bot see in groups?"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setmanagermode",
+                "description": "toggle manager mode"
+              },
+              "command": "setmanagermode",
+              "description": "toggle manager mode"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setthreads",
+                "description": "toggle threaded mode"
+              },
+              "command": "setthreads",
+              "description": "toggle threaded mode"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "setbot2bot",
+                "description": "toggle Bot 2 Bot communication"
+              },
+              "command": "setbot2bot",
+              "description": "toggle Bot 2 Bot communication"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "deletebot",
+                "description": "delete a bot"
+              },
+              "command": "deletebot",
+              "description": "delete a bot"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "newapp",
+                "description": "create a new web app"
+              },
+              "command": "newapp",
+              "description": "create a new web app"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "listapps",
+                "description": "get a list of your web apps"
+              },
+              "command": "listapps",
+              "description": "get a list of your web apps"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "editapp",
+                "description": "edit a web app"
+              },
+              "command": "editapp",
+              "description": "edit a web app"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "deleteapp",
+                "description": "delete an existing web app"
+              },
+              "command": "deleteapp",
+              "description": "delete an existing web app"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "newgame",
+                "description": "create a new game"
+              },
+              "command": "newgame",
+              "description": "create a new game"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "listgames",
+                "description": "get a list of your games"
+              },
+              "command": "listgames",
+              "description": "get a list of your games"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "editgame",
+                "description": "edit a game"
+              },
+              "command": "editgame",
+              "description": "edit a game"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "deletegame",
+                "description": "delete an existing game"
+              },
+              "command": "deletegame",
+              "description": "delete an existing game"
+            },
+            {
+              "__className": "BotCommand",
+              "__constructorId": 3262826695,
+              "className": "BotCommand",
+              "originalArgs": {
+                "command": "cancel",
+                "description": "cancel the current operation"
+              },
+              "command": "cancel",
+              "description": "cancel the current operation"
+            }
+          ],
+          "menuButton": {
+            "__className": "BotMenuButton",
+            "__constructorId": 3350559974,
+            "className": "BotMenuButton",
+            "originalArgs": {
+              "text": "Open",
+              "url": "https://webappinternal.telegram.org/botfather"
+            },
+            "text": "Open",
+            "url": "https://webappinternal.telegram.org/botfather"
+          },
+          "privacyPolicyUrl": null,
+          "appSettings": {
+            "__className": "BotAppSettings",
+            "__constructorId": 3382384976,
+            "className": "BotAppSettings",
+            "originalArgs": {
+              "flags": 30,
+              "placeholderPath": null,
+              "backgroundColor": 1712166,
+              "backgroundDarkColor": 1712166,
+              "headerColor": 2173491,
+              "headerDarkColor": 2173491
+            },
+            "flags": 30,
+            "placeholderPath": null,
+            "backgroundColor": 1712166,
+            "backgroundDarkColor": 1712166,
+            "headerColor": 2173491,
+            "headerDarkColor": 2173491
+          },
+          "verifierSettings": null
+        },
+        "flags": 270,
+        "hasPreviewMedias": false,
+        "userId": null,
+        "description": "BotFather is the one bot to rule them all. Use it to create new bot accounts and manage your existing bots.\n\nAbout Telegram bots:\nhttps://core.telegram.org/bots\nBot API manual:\nhttps://core.telegram.org/bots/api\n\nContact @BotSupport if you have questions about the Bot API.",
+        "descriptionPhoto": null,
+        "descriptionDocument": null,
+        "commands": [
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "newbot",
+              "description": "create a new bot"
+            },
+            "command": "newbot",
+            "description": "create a new bot"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "mybots",
+              "description": "edit your bots"
+            },
+            "command": "mybots",
+            "description": "edit your bots"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "myapps",
+              "description": "edit your web apps"
+            },
+            "command": "myapps",
+            "description": "edit your web apps"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "mygames",
+              "description": "edit your games"
+            },
+            "command": "mygames",
+            "description": "edit your games"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "token",
+              "description": "get authorization token"
+            },
+            "command": "token",
+            "description": "get authorization token"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "revoke",
+              "description": "revoke bot access token"
+            },
+            "command": "revoke",
+            "description": "revoke bot access token"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "setname",
+              "description": "change a bot's name"
+            },
+            "command": "setname",
+            "description": "change a bot's name"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "setdescription",
+              "description": "change bot description"
+            },
+            "command": "setdescription",
+            "description": "change bot description"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "setabouttext",
+              "description": "change bot about info"
+            },
+            "command": "setabouttext",
+            "description": "change bot about info"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "setuserpic",
+              "description": "change bot profile photo"
+            },
+            "command": "setuserpic",
+            "description": "change bot profile photo"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "setinline",
+              "description": "change inline settings"
+            },
+            "command": "setinline",
+            "description": "change inline settings"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "setinlinegeo",
+              "description": "toggle inline location requests"
+            },
+            "command": "setinlinegeo",
+            "description": "toggle inline location requests"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "setinlinefeedback",
+              "description": "change inline feedback settings"
+            },
+            "command": "setinlinefeedback",
+            "description": "change inline feedback settings"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "setcommands",
+              "description": "change bot commands list"
+            },
+            "command": "setcommands",
+            "description": "change bot commands list"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "setjoingroups",
+              "description": "can your bot be added to groups?"
+            },
+            "command": "setjoingroups",
+            "description": "can your bot be added to groups?"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "setdomain",
+              "description": "link website's domain to the bot"
+            },
+            "command": "setdomain",
+            "description": "link website's domain to the bot"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "setprivacy",
+              "description": "what messages does your bot see in groups?"
+            },
+            "command": "setprivacy",
+            "description": "what messages does your bot see in groups?"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "setmanagermode",
+              "description": "toggle manager mode"
+            },
+            "command": "setmanagermode",
+            "description": "toggle manager mode"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "setthreads",
+              "description": "toggle threaded mode"
+            },
+            "command": "setthreads",
+            "description": "toggle threaded mode"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "setbot2bot",
+              "description": "toggle Bot 2 Bot communication"
+            },
+            "command": "setbot2bot",
+            "description": "toggle Bot 2 Bot communication"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "deletebot",
+              "description": "delete a bot"
+            },
+            "command": "deletebot",
+            "description": "delete a bot"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "newapp",
+              "description": "create a new web app"
+            },
+            "command": "newapp",
+            "description": "create a new web app"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "listapps",
+              "description": "get a list of your web apps"
+            },
+            "command": "listapps",
+            "description": "get a list of your web apps"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "editapp",
+              "description": "edit a web app"
+            },
+            "command": "editapp",
+            "description": "edit a web app"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "deleteapp",
+              "description": "delete an existing web app"
+            },
+            "command": "deleteapp",
+            "description": "delete an existing web app"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "newgame",
+              "description": "create a new game"
+            },
+            "command": "newgame",
+            "description": "create a new game"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "listgames",
+              "description": "get a list of your games"
+            },
+            "command": "listgames",
+            "description": "get a list of your games"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "editgame",
+              "description": "edit a game"
+            },
+            "command": "editgame",
+            "description": "edit a game"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "deletegame",
+              "description": "delete an existing game"
+            },
+            "command": "deletegame",
+            "description": "delete an existing game"
+          },
+          {
+            "__className": "BotCommand",
+            "__constructorId": 3262826695,
+            "className": "BotCommand",
+            "originalArgs": {
+              "command": "cancel",
+              "description": "cancel the current operation"
+            },
+            "command": "cancel",
+            "description": "cancel the current operation"
+          }
+        ],
+        "menuButton": {
+          "__className": "BotMenuButton",
+          "__constructorId": 3350559974,
+          "className": "BotMenuButton",
+          "originalArgs": {
+            "text": "Open",
+            "url": "https://webappinternal.telegram.org/botfather"
+          },
+          "text": "Open",
+          "url": "https://webappinternal.telegram.org/botfather"
+        },
+        "privacyPolicyUrl": null,
+        "appSettings": {
+          "__className": "BotAppSettings",
+          "__constructorId": 3382384976,
+          "className": "BotAppSettings",
+          "originalArgs": {
+            "flags": 30,
+            "placeholderPath": null,
+            "backgroundColor": 1712166,
+            "backgroundDarkColor": 1712166,
+            "headerColor": 2173491,
+            "headerDarkColor": 2173491
+          },
+          "flags": 30,
+          "placeholderPath": null,
+          "backgroundColor": 1712166,
+          "backgroundDarkColor": 1712166,
+          "headerColor": 2173491,
+          "headerDarkColor": 2173491
+        },
+        "verifierSettings": null
+      },
+      "pinnedMsgId": null,
+      "commonChatsCount": 0,
+      "folderId": null,
+      "ttlPeriod": null,
+      "themeEmoticon": null,
+      "privateForwardName": null,
+      "botGroupAdminRights": null,
+      "botBroadcastAdminRights": null,
+      "premiumGifts": null,
+      "wallpaper": null,
+      "stories": null,
+      "businessWorkHours": null,
+      "businessLocation": null,
+      "businessGreetingMessage": null,
+      "businessAwayMessage": null,
+      "businessIntro": null,
+      "birthday": null,
+      "personalChannelId": null,
+      "personalChannelMessage": null,
+      "stargiftsCount": null,
+      "starrefProgram": null,
+      "botVerification": null
+    },
+    "chats": [],
+    "users": [
+      {
+        "__className": "User",
+        "__constructorId": 1262928766,
+        "className": "User",
+        "originalArgs": {
+          "flags": 33767467,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": true,
+          "botChatHistory": false,
+          "botNochats": true,
+          "verified": true,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 12304,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": true,
+          "id": {
+            "value": "93372553"
+          },
+          "accessHash": {
+            "value": "-7174274352962912888"
+          },
+          "firstName": "BotFather",
+          "lastName": null,
+          "username": "BotFather",
+          "phone": null,
+          "photo": {
+            "__className": "UserProfilePhoto",
+            "__constructorId": 2194798342,
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "401032061935265706"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "0108089fcf7fb417ec64d9451450163f"
+              },
+              "dcId": 1
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "401032061935265706"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "0108089fcf7fb417ec64d9451450163f"
+            },
+            "dcId": 1
+          },
+          "status": null,
+          "botInfoVersion": 28,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": 8153630,
+          "botVerificationIcon": null
+        },
+        "flags": 33767467,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": true,
+        "botChatHistory": false,
+        "botNochats": true,
+        "verified": true,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 12304,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": true,
+        "id": {
+          "value": "93372553"
+        },
+        "accessHash": {
+          "value": "-7174274352962912888"
+        },
+        "firstName": "BotFather",
+        "lastName": null,
+        "username": "BotFather",
+        "phone": null,
+        "photo": {
+          "__className": "UserProfilePhoto",
+          "__constructorId": 2194798342,
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "401032061935265706"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "0108089fcf7fb417ec64d9451450163f"
+            },
+            "dcId": 1
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "401032061935265706"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "0108089fcf7fb417ec64d9451450163f"
+          },
+          "dcId": 1
+        },
+        "status": null,
+        "botInfoVersion": 28,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": 8153630,
+        "botVerificationIcon": null
+      }
+    ]
+  }
+}

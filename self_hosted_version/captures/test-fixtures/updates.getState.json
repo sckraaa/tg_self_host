@@ -1,0 +1,27 @@
+{
+  "method": "updates.getState",
+  "capturedAt": "2026-04-10T16:15:50.895Z",
+  "request": {
+    "__className": "updates.GetState",
+    "__constructorId": 3990128682,
+    "className": "updates.GetState",
+    "originalArgs": {}
+  },
+  "response": {
+    "__className": "updates.State",
+    "__constructorId": 2775329342,
+    "className": "updates.State",
+    "originalArgs": {
+      "pts": 3528,
+      "qts": 0,
+      "date": 1775837750,
+      "seq": 24,
+      "unreadCount": 0
+    },
+    "pts": 3528,
+    "qts": 0,
+    "date": 1775837750,
+    "seq": 24,
+    "unreadCount": 0
+  }
+}

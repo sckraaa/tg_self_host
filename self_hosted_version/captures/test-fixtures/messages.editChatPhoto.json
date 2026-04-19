@@ -1,0 +1,5 @@
+{
+  "method": "messages.editChatPhoto",
+  "capturedAt": "2026-04-10T16:16:28.526Z",
+  "error": "400: PHOTO_CROP_SIZE_SMALL (caused by messages.EditChatPhoto)"
+}

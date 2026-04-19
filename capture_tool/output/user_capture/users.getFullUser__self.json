@@ -1,0 +1,1725 @@
+{
+  "method": "users.getFullUser",
+  "capturedAt": "2026-04-11T10:33:33.659Z",
+  "response": {
+    "__className": "users.UserFull",
+    "__constructorId": 997004590,
+    "className": "users.UserFull",
+    "originalArgs": {
+      "fullUser": {
+        "__className": "UserFull",
+        "__constructorId": 1301765052,
+        "className": "UserFull",
+        "originalArgs": {
+          "flags": 132,
+          "blocked": false,
+          "phoneCallsAvailable": false,
+          "phoneCallsPrivate": false,
+          "canPinMessage": true,
+          "hasScheduled": false,
+          "videoCallsAvailable": false,
+          "voiceMessagesForbidden": false,
+          "translationsDisabled": false,
+          "storiesPinnedAvailable": false,
+          "blockedMyStoriesFrom": false,
+          "wallpaperOverridden": false,
+          "contactRequirePremium": false,
+          "readDatesPrivate": false,
+          "flags2": 0,
+          "sponsoredEnabled": false,
+          "canViewRevenue": false,
+          "botCanManageEmojiStatus": false,
+          "id": {
+            "value": "6340886702"
+          },
+          "about": null,
+          "settings": {
+            "__className": "PeerSettings",
+            "__constructorId": 2899733598,
+            "className": "PeerSettings",
+            "originalArgs": {
+              "flags": 0,
+              "reportSpam": false,
+              "addContact": false,
+              "blockContact": false,
+              "shareContact": false,
+              "needContactsException": false,
+              "reportGeo": false,
+              "autoarchived": false,
+              "inviteMembers": false,
+              "requestChatBroadcast": false,
+              "businessBotPaused": false,
+              "businessBotCanReply": false,
+              "geoDistance": null,
+              "requestChatTitle": null,
+              "requestChatDate": null,
+              "businessBotId": null,
+              "businessBotManageUrl": null
+            },
+            "flags": 0,
+            "reportSpam": false,
+            "addContact": false,
+            "blockContact": false,
+            "shareContact": false,
+            "needContactsException": false,
+            "reportGeo": false,
+            "autoarchived": false,
+            "inviteMembers": false,
+            "requestChatBroadcast": false,
+            "businessBotPaused": false,
+            "businessBotCanReply": false,
+            "geoDistance": null,
+            "requestChatTitle": null,
+            "requestChatDate": null,
+            "businessBotId": null,
+            "businessBotManageUrl": null
+          },
+          "personalPhoto": null,
+          "profilePhoto": {
+            "__className": "Photo",
+            "__constructorId": 4212750949,
+            "className": "Photo",
+            "originalArgs": {
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "5103009275159710925"
+              },
+              "accessHash": {
+                "value": "2633172147846861246"
+              },
+              "fileReference": {
+                "__type": "Buffer",
+                "hex": "0069da237d1b0c256b4565e7ed60869e8bfc4d983f"
+              },
+              "date": 1775878230,
+              "sizes": [
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "a",
+                    "w": 160,
+                    "h": 160,
+                    "size": 5762
+                  },
+                  "type": "a",
+                  "w": 160,
+                  "h": 160,
+                  "size": 5762
+                },
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "b",
+                    "w": 320,
+                    "h": 320,
+                    "size": 16110
+                  },
+                  "type": "b",
+                  "w": 320,
+                  "h": 320,
+                  "size": 16110
+                },
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "c",
+                    "w": 640,
+                    "h": 640,
+                    "size": 47839
+                  },
+                  "type": "c",
+                  "w": 640,
+                  "h": 640,
+                  "size": 47839
+                },
+                {
+                  "__className": "PhotoStrippedSize",
+                  "__constructorId": 3769678894,
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828c5a29caacec1554b13d00152c7693c8ccab19caf5078a00828ab8ba74a6312332aaff173cafd454c34d40c51a7f988ca903822803368ab5770451a23c45be6e0ab738a2800b29046ec7be383e956a5ba26e124c91c7e759aac54e41a91e72c88a3236fe54016da4726546f94b72726986624444b75e31ffd7aa8d2333b3742dc1c5368026964568d973c86e33e9454145001451450014514500145145007"
+                    }
+                  },
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828c5a29caacec1554b13d00152c7693c8ccab19caf5078a00828ab8ba74a6312332aaff173cafd454c34d40c51a7f988ca903822803368ab5770451a23c45be6e0ab738a2800b29046ec7be383e956a5ba26e124c91c7e759aac54e41a91e72c88a3236fe54016da4726546f94b72726986624444b75e31ffd7aa8d2333b3742dc1c5368026964568d973c86e33e9454145001451450014514500145145007"
+                  }
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 1
+            },
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "5103009275159710925"
+            },
+            "accessHash": {
+              "value": "2633172147846861246"
+            },
+            "fileReference": {
+              "__type": "Buffer",
+              "hex": "0069da237d1b0c256b4565e7ed60869e8bfc4d983f"
+            },
+            "date": 1775878230,
+            "sizes": [
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "a",
+                  "w": 160,
+                  "h": 160,
+                  "size": 5762
+                },
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 5762
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "b",
+                  "w": 320,
+                  "h": 320,
+                  "size": 16110
+                },
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 16110
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "c",
+                  "w": 640,
+                  "h": 640,
+                  "size": 47839
+                },
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 47839
+              },
+              {
+                "__className": "PhotoStrippedSize",
+                "__constructorId": 3769678894,
+                "className": "PhotoStrippedSize",
+                "originalArgs": {
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828c5a29caacec1554b13d00152c7693c8ccab19caf5078a00828ab8ba74a6312332aaff173cafd454c34d40c51a7f988ca903822803368ab5770451a23c45be6e0ab738a2800b29046ec7be383e956a5ba26e124c91c7e759aac54e41a91e72c88a3236fe54016da4726546f94b72726986624444b75e31ffd7aa8d2333b3742dc1c5368026964568d973c86e33e9454145001451450014514500145145007"
+                  }
+                },
+                "type": "i",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "012828c5a29caacec1554b13d00152c7693c8ccab19caf5078a00828ab8ba74a6312332aaff173cafd454c34d40c51a7f988ca903822803368ab5770451a23c45be6e0ab738a2800b29046ec7be383e956a5ba26e124c91c7e759aac54e41a91e72c88a3236fe54016da4726546f94b72726986624444b75e31ffd7aa8d2333b3742dc1c5368026964568d973c86e33e9454145001451450014514500145145007"
+                }
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 1
+          },
+          "fallbackPhoto": null,
+          "notifySettings": {
+            "__className": "PeerNotifySettings",
+            "__constructorId": 2573347852,
+            "className": "PeerNotifySettings",
+            "originalArgs": {
+              "flags": 63,
+              "showPreviews": true,
+              "silent": false,
+              "muteUntil": 0,
+              "iosSound": {
+                "__className": "NotificationSoundDefault",
+                "__constructorId": 2548612798,
+                "className": "NotificationSoundDefault",
+                "originalArgs": {}
+              },
+              "androidSound": {
+                "__className": "NotificationSoundLocal",
+                "__constructorId": 2198575844,
+                "className": "NotificationSoundLocal",
+                "originalArgs": {
+                  "title": "default",
+                  "data": "default"
+                },
+                "title": "default",
+                "data": "default"
+              },
+              "otherSound": {
+                "__className": "NotificationSoundLocal",
+                "__constructorId": 2198575844,
+                "className": "NotificationSoundLocal",
+                "originalArgs": {
+                  "title": "default",
+                  "data": "default"
+                },
+                "title": "default",
+                "data": "default"
+              },
+              "storiesMuted": null,
+              "storiesHideSender": null,
+              "storiesIosSound": null,
+              "storiesAndroidSound": null,
+              "storiesOtherSound": null
+            },
+            "flags": 63,
+            "showPreviews": true,
+            "silent": false,
+            "muteUntil": 0,
+            "iosSound": {
+              "__className": "NotificationSoundDefault",
+              "__constructorId": 2548612798,
+              "className": "NotificationSoundDefault",
+              "originalArgs": {}
+            },
+            "androidSound": {
+              "__className": "NotificationSoundLocal",
+              "__constructorId": 2198575844,
+              "className": "NotificationSoundLocal",
+              "originalArgs": {
+                "title": "default",
+                "data": "default"
+              },
+              "title": "default",
+              "data": "default"
+            },
+            "otherSound": {
+              "__className": "NotificationSoundLocal",
+              "__constructorId": 2198575844,
+              "className": "NotificationSoundLocal",
+              "originalArgs": {
+                "title": "default",
+                "data": "default"
+              },
+              "title": "default",
+              "data": "default"
+            },
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "botInfo": null,
+          "pinnedMsgId": null,
+          "commonChatsCount": 0,
+          "folderId": null,
+          "ttlPeriod": null,
+          "themeEmoticon": null,
+          "privateForwardName": null,
+          "botGroupAdminRights": null,
+          "botBroadcastAdminRights": null,
+          "premiumGifts": null,
+          "wallpaper": null,
+          "stories": null,
+          "businessWorkHours": null,
+          "businessLocation": null,
+          "businessGreetingMessage": null,
+          "businessAwayMessage": null,
+          "businessIntro": null,
+          "birthday": null,
+          "personalChannelId": null,
+          "personalChannelMessage": null,
+          "stargiftsCount": null,
+          "starrefProgram": null,
+          "botVerification": null
+        },
+        "flags": 132,
+        "blocked": false,
+        "phoneCallsAvailable": false,
+        "phoneCallsPrivate": false,
+        "canPinMessage": true,
+        "hasScheduled": false,
+        "videoCallsAvailable": false,
+        "voiceMessagesForbidden": false,
+        "translationsDisabled": false,
+        "storiesPinnedAvailable": false,
+        "blockedMyStoriesFrom": false,
+        "wallpaperOverridden": false,
+        "contactRequirePremium": false,
+        "readDatesPrivate": false,
+        "flags2": 0,
+        "sponsoredEnabled": false,
+        "canViewRevenue": false,
+        "botCanManageEmojiStatus": false,
+        "id": {
+          "value": "6340886702"
+        },
+        "about": null,
+        "settings": {
+          "__className": "PeerSettings",
+          "__constructorId": 2899733598,
+          "className": "PeerSettings",
+          "originalArgs": {
+            "flags": 0,
+            "reportSpam": false,
+            "addContact": false,
+            "blockContact": false,
+            "shareContact": false,
+            "needContactsException": false,
+            "reportGeo": false,
+            "autoarchived": false,
+            "inviteMembers": false,
+            "requestChatBroadcast": false,
+            "businessBotPaused": false,
+            "businessBotCanReply": false,
+            "geoDistance": null,
+            "requestChatTitle": null,
+            "requestChatDate": null,
+            "businessBotId": null,
+            "businessBotManageUrl": null
+          },
+          "flags": 0,
+          "reportSpam": false,
+          "addContact": false,
+          "blockContact": false,
+          "shareContact": false,
+          "needContactsException": false,
+          "reportGeo": false,
+          "autoarchived": false,
+          "inviteMembers": false,
+          "requestChatBroadcast": false,
+          "businessBotPaused": false,
+          "businessBotCanReply": false,
+          "geoDistance": null,
+          "requestChatTitle": null,
+          "requestChatDate": null,
+          "businessBotId": null,
+          "businessBotManageUrl": null
+        },
+        "personalPhoto": null,
+        "profilePhoto": {
+          "__className": "Photo",
+          "__constructorId": 4212750949,
+          "className": "Photo",
+          "originalArgs": {
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "5103009275159710925"
+            },
+            "accessHash": {
+              "value": "2633172147846861246"
+            },
+            "fileReference": {
+              "__type": "Buffer",
+              "hex": "0069da237d1b0c256b4565e7ed60869e8bfc4d983f"
+            },
+            "date": 1775878230,
+            "sizes": [
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "a",
+                  "w": 160,
+                  "h": 160,
+                  "size": 5762
+                },
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 5762
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "b",
+                  "w": 320,
+                  "h": 320,
+                  "size": 16110
+                },
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 16110
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "c",
+                  "w": 640,
+                  "h": 640,
+                  "size": 47839
+                },
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 47839
+              },
+              {
+                "__className": "PhotoStrippedSize",
+                "__constructorId": 3769678894,
+                "className": "PhotoStrippedSize",
+                "originalArgs": {
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828c5a29caacec1554b13d00152c7693c8ccab19caf5078a00828ab8ba74a6312332aaff173cafd454c34d40c51a7f988ca903822803368ab5770451a23c45be6e0ab738a2800b29046ec7be383e956a5ba26e124c91c7e759aac54e41a91e72c88a3236fe54016da4726546f94b72726986624444b75e31ffd7aa8d2333b3742dc1c5368026964568d973c86e33e9454145001451450014514500145145007"
+                  }
+                },
+                "type": "i",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "012828c5a29caacec1554b13d00152c7693c8ccab19caf5078a00828ab8ba74a6312332aaff173cafd454c34d40c51a7f988ca903822803368ab5770451a23c45be6e0ab738a2800b29046ec7be383e956a5ba26e124c91c7e759aac54e41a91e72c88a3236fe54016da4726546f94b72726986624444b75e31ffd7aa8d2333b3742dc1c5368026964568d973c86e33e9454145001451450014514500145145007"
+                }
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 1
+          },
+          "flags": 0,
+          "hasStickers": false,
+          "id": {
+            "value": "5103009275159710925"
+          },
+          "accessHash": {
+            "value": "2633172147846861246"
+          },
+          "fileReference": {
+            "__type": "Buffer",
+            "hex": "0069da237d1b0c256b4565e7ed60869e8bfc4d983f"
+          },
+          "date": 1775878230,
+          "sizes": [
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 5762
+              },
+              "type": "a",
+              "w": 160,
+              "h": 160,
+              "size": 5762
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 16110
+              },
+              "type": "b",
+              "w": 320,
+              "h": 320,
+              "size": 16110
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 47839
+              },
+              "type": "c",
+              "w": 640,
+              "h": 640,
+              "size": 47839
+            },
+            {
+              "__className": "PhotoStrippedSize",
+              "__constructorId": 3769678894,
+              "className": "PhotoStrippedSize",
+              "originalArgs": {
+                "type": "i",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "012828c5a29caacec1554b13d00152c7693c8ccab19caf5078a00828ab8ba74a6312332aaff173cafd454c34d40c51a7f988ca903822803368ab5770451a23c45be6e0ab738a2800b29046ec7be383e956a5ba26e124c91c7e759aac54e41a91e72c88a3236fe54016da4726546f94b72726986624444b75e31ffd7aa8d2333b3742dc1c5368026964568d973c86e33e9454145001451450014514500145145007"
+                }
+              },
+              "type": "i",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "012828c5a29caacec1554b13d00152c7693c8ccab19caf5078a00828ab8ba74a6312332aaff173cafd454c34d40c51a7f988ca903822803368ab5770451a23c45be6e0ab738a2800b29046ec7be383e956a5ba26e124c91c7e759aac54e41a91e72c88a3236fe54016da4726546f94b72726986624444b75e31ffd7aa8d2333b3742dc1c5368026964568d973c86e33e9454145001451450014514500145145007"
+              }
+            }
+          ],
+          "videoSizes": null,
+          "dcId": 1
+        },
+        "fallbackPhoto": null,
+        "notifySettings": {
+          "__className": "PeerNotifySettings",
+          "__constructorId": 2573347852,
+          "className": "PeerNotifySettings",
+          "originalArgs": {
+            "flags": 63,
+            "showPreviews": true,
+            "silent": false,
+            "muteUntil": 0,
+            "iosSound": {
+              "__className": "NotificationSoundDefault",
+              "__constructorId": 2548612798,
+              "className": "NotificationSoundDefault",
+              "originalArgs": {}
+            },
+            "androidSound": {
+              "__className": "NotificationSoundLocal",
+              "__constructorId": 2198575844,
+              "className": "NotificationSoundLocal",
+              "originalArgs": {
+                "title": "default",
+                "data": "default"
+              },
+              "title": "default",
+              "data": "default"
+            },
+            "otherSound": {
+              "__className": "NotificationSoundLocal",
+              "__constructorId": 2198575844,
+              "className": "NotificationSoundLocal",
+              "originalArgs": {
+                "title": "default",
+                "data": "default"
+              },
+              "title": "default",
+              "data": "default"
+            },
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "flags": 63,
+          "showPreviews": true,
+          "silent": false,
+          "muteUntil": 0,
+          "iosSound": {
+            "__className": "NotificationSoundDefault",
+            "__constructorId": 2548612798,
+            "className": "NotificationSoundDefault",
+            "originalArgs": {}
+          },
+          "androidSound": {
+            "__className": "NotificationSoundLocal",
+            "__constructorId": 2198575844,
+            "className": "NotificationSoundLocal",
+            "originalArgs": {
+              "title": "default",
+              "data": "default"
+            },
+            "title": "default",
+            "data": "default"
+          },
+          "otherSound": {
+            "__className": "NotificationSoundLocal",
+            "__constructorId": 2198575844,
+            "className": "NotificationSoundLocal",
+            "originalArgs": {
+              "title": "default",
+              "data": "default"
+            },
+            "title": "default",
+            "data": "default"
+          },
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "botInfo": null,
+        "pinnedMsgId": null,
+        "commonChatsCount": 0,
+        "folderId": null,
+        "ttlPeriod": null,
+        "themeEmoticon": null,
+        "privateForwardName": null,
+        "botGroupAdminRights": null,
+        "botBroadcastAdminRights": null,
+        "premiumGifts": null,
+        "wallpaper": null,
+        "stories": null,
+        "businessWorkHours": null,
+        "businessLocation": null,
+        "businessGreetingMessage": null,
+        "businessAwayMessage": null,
+        "businessIntro": null,
+        "birthday": null,
+        "personalChannelId": null,
+        "personalChannelMessage": null,
+        "stargiftsCount": null,
+        "starrefProgram": null,
+        "botVerification": null
+      },
+      "chats": [],
+      "users": [
+        {
+          "__className": "User",
+          "__constructorId": 1262928766,
+          "className": "User",
+          "originalArgs": {
+            "flags": 33555571,
+            "self": true,
+            "contact": false,
+            "mutualContact": false,
+            "deleted": false,
+            "bot": false,
+            "botChatHistory": false,
+            "botNochats": false,
+            "verified": false,
+            "restricted": false,
+            "min": false,
+            "botInlineGeo": false,
+            "support": false,
+            "scam": false,
+            "applyMinPhoto": true,
+            "fake": false,
+            "botAttachMenu": false,
+            "premium": false,
+            "attachMenuEnabled": false,
+            "flags2": 16,
+            "botCanEdit": false,
+            "closeFriend": false,
+            "storiesHidden": false,
+            "storiesUnavailable": true,
+            "contactRequirePremium": false,
+            "botBusiness": false,
+            "botHasMainApp": false,
+            "id": {
+              "value": "6340886702"
+            },
+            "accessHash": {
+              "value": "-2827396686645499657"
+            },
+            "firstName": "🤷",
+            "lastName": null,
+            "username": null,
+            "phone": "17799037329",
+            "photo": {
+              "__className": "UserProfilePhoto",
+              "__constructorId": 2194798342,
+              "className": "UserProfilePhoto",
+              "originalArgs": {
+                "flags": 2,
+                "hasVideo": false,
+                "personal": false,
+                "photoId": {
+                  "value": "5103009275159710925"
+                },
+                "strippedThumb": {
+                  "__type": "Buffer",
+                  "hex": "010808cbdd084fb8c5b1d49a28a2803f"
+                },
+                "dcId": 1
+              },
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "5103009275159710925"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808cbdd084fb8c5b1d49a28a2803f"
+              },
+              "dcId": 1
+            },
+            "status": {
+              "__className": "UserStatusOffline",
+              "__constructorId": 9203775,
+              "className": "UserStatusOffline",
+              "originalArgs": {
+                "wasOnline": 1775902934
+              },
+              "wasOnline": 1775902934
+            },
+            "botInfoVersion": null,
+            "restrictionReason": null,
+            "botInlinePlaceholder": null,
+            "langCode": null,
+            "emojiStatus": null,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "botActiveUsers": null,
+            "botVerificationIcon": null
+          },
+          "flags": 33555571,
+          "self": true,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "6340886702"
+          },
+          "accessHash": {
+            "value": "-2827396686645499657"
+          },
+          "firstName": "🤷",
+          "lastName": null,
+          "username": null,
+          "phone": "17799037329",
+          "photo": {
+            "__className": "UserProfilePhoto",
+            "__constructorId": 2194798342,
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "5103009275159710925"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808cbdd084fb8c5b1d49a28a2803f"
+              },
+              "dcId": 1
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "5103009275159710925"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808cbdd084fb8c5b1d49a28a2803f"
+            },
+            "dcId": 1
+          },
+          "status": {
+            "__className": "UserStatusOffline",
+            "__constructorId": 9203775,
+            "className": "UserStatusOffline",
+            "originalArgs": {
+              "wasOnline": 1775902934
+            },
+            "wasOnline": 1775902934
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        }
+      ]
+    },
+    "fullUser": {
+      "__className": "UserFull",
+      "__constructorId": 1301765052,
+      "className": "UserFull",
+      "originalArgs": {
+        "flags": 132,
+        "blocked": false,
+        "phoneCallsAvailable": false,
+        "phoneCallsPrivate": false,
+        "canPinMessage": true,
+        "hasScheduled": false,
+        "videoCallsAvailable": false,
+        "voiceMessagesForbidden": false,
+        "translationsDisabled": false,
+        "storiesPinnedAvailable": false,
+        "blockedMyStoriesFrom": false,
+        "wallpaperOverridden": false,
+        "contactRequirePremium": false,
+        "readDatesPrivate": false,
+        "flags2": 0,
+        "sponsoredEnabled": false,
+        "canViewRevenue": false,
+        "botCanManageEmojiStatus": false,
+        "id": {
+          "value": "6340886702"
+        },
+        "about": null,
+        "settings": {
+          "__className": "PeerSettings",
+          "__constructorId": 2899733598,
+          "className": "PeerSettings",
+          "originalArgs": {
+            "flags": 0,
+            "reportSpam": false,
+            "addContact": false,
+            "blockContact": false,
+            "shareContact": false,
+            "needContactsException": false,
+            "reportGeo": false,
+            "autoarchived": false,
+            "inviteMembers": false,
+            "requestChatBroadcast": false,
+            "businessBotPaused": false,
+            "businessBotCanReply": false,
+            "geoDistance": null,
+            "requestChatTitle": null,
+            "requestChatDate": null,
+            "businessBotId": null,
+            "businessBotManageUrl": null
+          },
+          "flags": 0,
+          "reportSpam": false,
+          "addContact": false,
+          "blockContact": false,
+          "shareContact": false,
+          "needContactsException": false,
+          "reportGeo": false,
+          "autoarchived": false,
+          "inviteMembers": false,
+          "requestChatBroadcast": false,
+          "businessBotPaused": false,
+          "businessBotCanReply": false,
+          "geoDistance": null,
+          "requestChatTitle": null,
+          "requestChatDate": null,
+          "businessBotId": null,
+          "businessBotManageUrl": null
+        },
+        "personalPhoto": null,
+        "profilePhoto": {
+          "__className": "Photo",
+          "__constructorId": 4212750949,
+          "className": "Photo",
+          "originalArgs": {
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "5103009275159710925"
+            },
+            "accessHash": {
+              "value": "2633172147846861246"
+            },
+            "fileReference": {
+              "__type": "Buffer",
+              "hex": "0069da237d1b0c256b4565e7ed60869e8bfc4d983f"
+            },
+            "date": 1775878230,
+            "sizes": [
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "a",
+                  "w": 160,
+                  "h": 160,
+                  "size": 5762
+                },
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 5762
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "b",
+                  "w": 320,
+                  "h": 320,
+                  "size": 16110
+                },
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 16110
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "c",
+                  "w": 640,
+                  "h": 640,
+                  "size": 47839
+                },
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 47839
+              },
+              {
+                "__className": "PhotoStrippedSize",
+                "__constructorId": 3769678894,
+                "className": "PhotoStrippedSize",
+                "originalArgs": {
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828c5a29caacec1554b13d00152c7693c8ccab19caf5078a00828ab8ba74a6312332aaff173cafd454c34d40c51a7f988ca903822803368ab5770451a23c45be6e0ab738a2800b29046ec7be383e956a5ba26e124c91c7e759aac54e41a91e72c88a3236fe54016da4726546f94b72726986624444b75e31ffd7aa8d2333b3742dc1c5368026964568d973c86e33e9454145001451450014514500145145007"
+                  }
+                },
+                "type": "i",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "012828c5a29caacec1554b13d00152c7693c8ccab19caf5078a00828ab8ba74a6312332aaff173cafd454c34d40c51a7f988ca903822803368ab5770451a23c45be6e0ab738a2800b29046ec7be383e956a5ba26e124c91c7e759aac54e41a91e72c88a3236fe54016da4726546f94b72726986624444b75e31ffd7aa8d2333b3742dc1c5368026964568d973c86e33e9454145001451450014514500145145007"
+                }
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 1
+          },
+          "flags": 0,
+          "hasStickers": false,
+          "id": {
+            "value": "5103009275159710925"
+          },
+          "accessHash": {
+            "value": "2633172147846861246"
+          },
+          "fileReference": {
+            "__type": "Buffer",
+            "hex": "0069da237d1b0c256b4565e7ed60869e8bfc4d983f"
+          },
+          "date": 1775878230,
+          "sizes": [
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 5762
+              },
+              "type": "a",
+              "w": 160,
+              "h": 160,
+              "size": 5762
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 16110
+              },
+              "type": "b",
+              "w": 320,
+              "h": 320,
+              "size": 16110
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 47839
+              },
+              "type": "c",
+              "w": 640,
+              "h": 640,
+              "size": 47839
+            },
+            {
+              "__className": "PhotoStrippedSize",
+              "__constructorId": 3769678894,
+              "className": "PhotoStrippedSize",
+              "originalArgs": {
+                "type": "i",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "012828c5a29caacec1554b13d00152c7693c8ccab19caf5078a00828ab8ba74a6312332aaff173cafd454c34d40c51a7f988ca903822803368ab5770451a23c45be6e0ab738a2800b29046ec7be383e956a5ba26e124c91c7e759aac54e41a91e72c88a3236fe54016da4726546f94b72726986624444b75e31ffd7aa8d2333b3742dc1c5368026964568d973c86e33e9454145001451450014514500145145007"
+                }
+              },
+              "type": "i",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "012828c5a29caacec1554b13d00152c7693c8ccab19caf5078a00828ab8ba74a6312332aaff173cafd454c34d40c51a7f988ca903822803368ab5770451a23c45be6e0ab738a2800b29046ec7be383e956a5ba26e124c91c7e759aac54e41a91e72c88a3236fe54016da4726546f94b72726986624444b75e31ffd7aa8d2333b3742dc1c5368026964568d973c86e33e9454145001451450014514500145145007"
+              }
+            }
+          ],
+          "videoSizes": null,
+          "dcId": 1
+        },
+        "fallbackPhoto": null,
+        "notifySettings": {
+          "__className": "PeerNotifySettings",
+          "__constructorId": 2573347852,
+          "className": "PeerNotifySettings",
+          "originalArgs": {
+            "flags": 63,
+            "showPreviews": true,
+            "silent": false,
+            "muteUntil": 0,
+            "iosSound": {
+              "__className": "NotificationSoundDefault",
+              "__constructorId": 2548612798,
+              "className": "NotificationSoundDefault",
+              "originalArgs": {}
+            },
+            "androidSound": {
+              "__className": "NotificationSoundLocal",
+              "__constructorId": 2198575844,
+              "className": "NotificationSoundLocal",
+              "originalArgs": {
+                "title": "default",
+                "data": "default"
+              },
+              "title": "default",
+              "data": "default"
+            },
+            "otherSound": {
+              "__className": "NotificationSoundLocal",
+              "__constructorId": 2198575844,
+              "className": "NotificationSoundLocal",
+              "originalArgs": {
+                "title": "default",
+                "data": "default"
+              },
+              "title": "default",
+              "data": "default"
+            },
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "flags": 63,
+          "showPreviews": true,
+          "silent": false,
+          "muteUntil": 0,
+          "iosSound": {
+            "__className": "NotificationSoundDefault",
+            "__constructorId": 2548612798,
+            "className": "NotificationSoundDefault",
+            "originalArgs": {}
+          },
+          "androidSound": {
+            "__className": "NotificationSoundLocal",
+            "__constructorId": 2198575844,
+            "className": "NotificationSoundLocal",
+            "originalArgs": {
+              "title": "default",
+              "data": "default"
+            },
+            "title": "default",
+            "data": "default"
+          },
+          "otherSound": {
+            "__className": "NotificationSoundLocal",
+            "__constructorId": 2198575844,
+            "className": "NotificationSoundLocal",
+            "originalArgs": {
+              "title": "default",
+              "data": "default"
+            },
+            "title": "default",
+            "data": "default"
+          },
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "botInfo": null,
+        "pinnedMsgId": null,
+        "commonChatsCount": 0,
+        "folderId": null,
+        "ttlPeriod": null,
+        "themeEmoticon": null,
+        "privateForwardName": null,
+        "botGroupAdminRights": null,
+        "botBroadcastAdminRights": null,
+        "premiumGifts": null,
+        "wallpaper": null,
+        "stories": null,
+        "businessWorkHours": null,
+        "businessLocation": null,
+        "businessGreetingMessage": null,
+        "businessAwayMessage": null,
+        "businessIntro": null,
+        "birthday": null,
+        "personalChannelId": null,
+        "personalChannelMessage": null,
+        "stargiftsCount": null,
+        "starrefProgram": null,
+        "botVerification": null
+      },
+      "flags": 132,
+      "blocked": false,
+      "phoneCallsAvailable": false,
+      "phoneCallsPrivate": false,
+      "canPinMessage": true,
+      "hasScheduled": false,
+      "videoCallsAvailable": false,
+      "voiceMessagesForbidden": false,
+      "translationsDisabled": false,
+      "storiesPinnedAvailable": false,
+      "blockedMyStoriesFrom": false,
+      "wallpaperOverridden": false,
+      "contactRequirePremium": false,
+      "readDatesPrivate": false,
+      "flags2": 0,
+      "sponsoredEnabled": false,
+      "canViewRevenue": false,
+      "botCanManageEmojiStatus": false,
+      "id": {
+        "value": "6340886702"
+      },
+      "about": null,
+      "settings": {
+        "__className": "PeerSettings",
+        "__constructorId": 2899733598,
+        "className": "PeerSettings",
+        "originalArgs": {
+          "flags": 0,
+          "reportSpam": false,
+          "addContact": false,
+          "blockContact": false,
+          "shareContact": false,
+          "needContactsException": false,
+          "reportGeo": false,
+          "autoarchived": false,
+          "inviteMembers": false,
+          "requestChatBroadcast": false,
+          "businessBotPaused": false,
+          "businessBotCanReply": false,
+          "geoDistance": null,
+          "requestChatTitle": null,
+          "requestChatDate": null,
+          "businessBotId": null,
+          "businessBotManageUrl": null
+        },
+        "flags": 0,
+        "reportSpam": false,
+        "addContact": false,
+        "blockContact": false,
+        "shareContact": false,
+        "needContactsException": false,
+        "reportGeo": false,
+        "autoarchived": false,
+        "inviteMembers": false,
+        "requestChatBroadcast": false,
+        "businessBotPaused": false,
+        "businessBotCanReply": false,
+        "geoDistance": null,
+        "requestChatTitle": null,
+        "requestChatDate": null,
+        "businessBotId": null,
+        "businessBotManageUrl": null
+      },
+      "personalPhoto": null,
+      "profilePhoto": {
+        "__className": "Photo",
+        "__constructorId": 4212750949,
+        "className": "Photo",
+        "originalArgs": {
+          "flags": 0,
+          "hasStickers": false,
+          "id": {
+            "value": "5103009275159710925"
+          },
+          "accessHash": {
+            "value": "2633172147846861246"
+          },
+          "fileReference": {
+            "__type": "Buffer",
+            "hex": "0069da237d1b0c256b4565e7ed60869e8bfc4d983f"
+          },
+          "date": 1775878230,
+          "sizes": [
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 5762
+              },
+              "type": "a",
+              "w": 160,
+              "h": 160,
+              "size": 5762
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 16110
+              },
+              "type": "b",
+              "w": 320,
+              "h": 320,
+              "size": 16110
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 47839
+              },
+              "type": "c",
+              "w": 640,
+              "h": 640,
+              "size": 47839
+            },
+            {
+              "__className": "PhotoStrippedSize",
+              "__constructorId": 3769678894,
+              "className": "PhotoStrippedSize",
+              "originalArgs": {
+                "type": "i",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "012828c5a29caacec1554b13d00152c7693c8ccab19caf5078a00828ab8ba74a6312332aaff173cafd454c34d40c51a7f988ca903822803368ab5770451a23c45be6e0ab738a2800b29046ec7be383e956a5ba26e124c91c7e759aac54e41a91e72c88a3236fe54016da4726546f94b72726986624444b75e31ffd7aa8d2333b3742dc1c5368026964568d973c86e33e9454145001451450014514500145145007"
+                }
+              },
+              "type": "i",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "012828c5a29caacec1554b13d00152c7693c8ccab19caf5078a00828ab8ba74a6312332aaff173cafd454c34d40c51a7f988ca903822803368ab5770451a23c45be6e0ab738a2800b29046ec7be383e956a5ba26e124c91c7e759aac54e41a91e72c88a3236fe54016da4726546f94b72726986624444b75e31ffd7aa8d2333b3742dc1c5368026964568d973c86e33e9454145001451450014514500145145007"
+              }
+            }
+          ],
+          "videoSizes": null,
+          "dcId": 1
+        },
+        "flags": 0,
+        "hasStickers": false,
+        "id": {
+          "value": "5103009275159710925"
+        },
+        "accessHash": {
+          "value": "2633172147846861246"
+        },
+        "fileReference": {
+          "__type": "Buffer",
+          "hex": "0069da237d1b0c256b4565e7ed60869e8bfc4d983f"
+        },
+        "date": 1775878230,
+        "sizes": [
+          {
+            "__className": "PhotoSize",
+            "__constructorId": 1976012384,
+            "className": "PhotoSize",
+            "originalArgs": {
+              "type": "a",
+              "w": 160,
+              "h": 160,
+              "size": 5762
+            },
+            "type": "a",
+            "w": 160,
+            "h": 160,
+            "size": 5762
+          },
+          {
+            "__className": "PhotoSize",
+            "__constructorId": 1976012384,
+            "className": "PhotoSize",
+            "originalArgs": {
+              "type": "b",
+              "w": 320,
+              "h": 320,
+              "size": 16110
+            },
+            "type": "b",
+            "w": 320,
+            "h": 320,
+            "size": 16110
+          },
+          {
+            "__className": "PhotoSize",
+            "__constructorId": 1976012384,
+            "className": "PhotoSize",
+            "originalArgs": {
+              "type": "c",
+              "w": 640,
+              "h": 640,
+              "size": 47839
+            },
+            "type": "c",
+            "w": 640,
+            "h": 640,
+            "size": 47839
+          },
+          {
+            "__className": "PhotoStrippedSize",
+            "__constructorId": 3769678894,
+            "className": "PhotoStrippedSize",
+            "originalArgs": {
+              "type": "i",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "012828c5a29caacec1554b13d00152c7693c8ccab19caf5078a00828ab8ba74a6312332aaff173cafd454c34d40c51a7f988ca903822803368ab5770451a23c45be6e0ab738a2800b29046ec7be383e956a5ba26e124c91c7e759aac54e41a91e72c88a3236fe54016da4726546f94b72726986624444b75e31ffd7aa8d2333b3742dc1c5368026964568d973c86e33e9454145001451450014514500145145007"
+              }
+            },
+            "type": "i",
+            "bytes": {
+              "__type": "Buffer",
+              "hex": "012828c5a29caacec1554b13d00152c7693c8ccab19caf5078a00828ab8ba74a6312332aaff173cafd454c34d40c51a7f988ca903822803368ab5770451a23c45be6e0ab738a2800b29046ec7be383e956a5ba26e124c91c7e759aac54e41a91e72c88a3236fe54016da4726546f94b72726986624444b75e31ffd7aa8d2333b3742dc1c5368026964568d973c86e33e9454145001451450014514500145145007"
+            }
+          }
+        ],
+        "videoSizes": null,
+        "dcId": 1
+      },
+      "fallbackPhoto": null,
+      "notifySettings": {
+        "__className": "PeerNotifySettings",
+        "__constructorId": 2573347852,
+        "className": "PeerNotifySettings",
+        "originalArgs": {
+          "flags": 63,
+          "showPreviews": true,
+          "silent": false,
+          "muteUntil": 0,
+          "iosSound": {
+            "__className": "NotificationSoundDefault",
+            "__constructorId": 2548612798,
+            "className": "NotificationSoundDefault",
+            "originalArgs": {}
+          },
+          "androidSound": {
+            "__className": "NotificationSoundLocal",
+            "__constructorId": 2198575844,
+            "className": "NotificationSoundLocal",
+            "originalArgs": {
+              "title": "default",
+              "data": "default"
+            },
+            "title": "default",
+            "data": "default"
+          },
+          "otherSound": {
+            "__className": "NotificationSoundLocal",
+            "__constructorId": 2198575844,
+            "className": "NotificationSoundLocal",
+            "originalArgs": {
+              "title": "default",
+              "data": "default"
+            },
+            "title": "default",
+            "data": "default"
+          },
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "flags": 63,
+        "showPreviews": true,
+        "silent": false,
+        "muteUntil": 0,
+        "iosSound": {
+          "__className": "NotificationSoundDefault",
+          "__constructorId": 2548612798,
+          "className": "NotificationSoundDefault",
+          "originalArgs": {}
+        },
+        "androidSound": {
+          "__className": "NotificationSoundLocal",
+          "__constructorId": 2198575844,
+          "className": "NotificationSoundLocal",
+          "originalArgs": {
+            "title": "default",
+            "data": "default"
+          },
+          "title": "default",
+          "data": "default"
+        },
+        "otherSound": {
+          "__className": "NotificationSoundLocal",
+          "__constructorId": 2198575844,
+          "className": "NotificationSoundLocal",
+          "originalArgs": {
+            "title": "default",
+            "data": "default"
+          },
+          "title": "default",
+          "data": "default"
+        },
+        "storiesMuted": null,
+        "storiesHideSender": null,
+        "storiesIosSound": null,
+        "storiesAndroidSound": null,
+        "storiesOtherSound": null
+      },
+      "botInfo": null,
+      "pinnedMsgId": null,
+      "commonChatsCount": 0,
+      "folderId": null,
+      "ttlPeriod": null,
+      "themeEmoticon": null,
+      "privateForwardName": null,
+      "botGroupAdminRights": null,
+      "botBroadcastAdminRights": null,
+      "premiumGifts": null,
+      "wallpaper": null,
+      "stories": null,
+      "businessWorkHours": null,
+      "businessLocation": null,
+      "businessGreetingMessage": null,
+      "businessAwayMessage": null,
+      "businessIntro": null,
+      "birthday": null,
+      "personalChannelId": null,
+      "personalChannelMessage": null,
+      "stargiftsCount": null,
+      "starrefProgram": null,
+      "botVerification": null
+    },
+    "chats": [],
+    "users": [
+      {
+        "__className": "User",
+        "__constructorId": 1262928766,
+        "className": "User",
+        "originalArgs": {
+          "flags": 33555571,
+          "self": true,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "6340886702"
+          },
+          "accessHash": {
+            "value": "-2827396686645499657"
+          },
+          "firstName": "🤷",
+          "lastName": null,
+          "username": null,
+          "phone": "17799037329",
+          "photo": {
+            "__className": "UserProfilePhoto",
+            "__constructorId": 2194798342,
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "5103009275159710925"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808cbdd084fb8c5b1d49a28a2803f"
+              },
+              "dcId": 1
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "5103009275159710925"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808cbdd084fb8c5b1d49a28a2803f"
+            },
+            "dcId": 1
+          },
+          "status": {
+            "__className": "UserStatusOffline",
+            "__constructorId": 9203775,
+            "className": "UserStatusOffline",
+            "originalArgs": {
+              "wasOnline": 1775902934
+            },
+            "wasOnline": 1775902934
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 33555571,
+        "self": true,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "6340886702"
+        },
+        "accessHash": {
+          "value": "-2827396686645499657"
+        },
+        "firstName": "🤷",
+        "lastName": null,
+        "username": null,
+        "phone": "17799037329",
+        "photo": {
+          "__className": "UserProfilePhoto",
+          "__constructorId": 2194798342,
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "5103009275159710925"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808cbdd084fb8c5b1d49a28a2803f"
+            },
+            "dcId": 1
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "5103009275159710925"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "010808cbdd084fb8c5b1d49a28a2803f"
+          },
+          "dcId": 1
+        },
+        "status": {
+          "__className": "UserStatusOffline",
+          "__constructorId": 9203775,
+          "className": "UserStatusOffline",
+          "originalArgs": {
+            "wasOnline": 1775902934
+          },
+          "wasOnline": 1775902934
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      }
+    ]
+  }
+}

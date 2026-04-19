@@ -1,0 +1,5 @@
+{
+  "method": "channels.editPhoto",
+  "capturedAt": "2026-04-10T16:16:23.673Z",
+  "error": "400: PHOTO_CROP_SIZE_SMALL (caused by channels.EditPhoto)"
+}

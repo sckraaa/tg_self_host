@@ -1,0 +1,32 @@
+{
+  "method": "account.getPrivacy",
+  "key": "InputPrivacyKeyPhoneCall",
+  "capturedAt": "2026-04-11T11:06:02.941Z",
+  "response": {
+    "__className": "account.PrivacyRules",
+    "__constructorId": 1352683077,
+    "className": "account.PrivacyRules",
+    "originalArgs": {
+      "rules": [
+        {
+          "__className": "PrivacyValueAllowAll",
+          "__constructorId": 1698855810,
+          "className": "PrivacyValueAllowAll",
+          "originalArgs": {}
+        }
+      ],
+      "chats": [],
+      "users": []
+    },
+    "rules": [
+      {
+        "__className": "PrivacyValueAllowAll",
+        "__constructorId": 1698855810,
+        "className": "PrivacyValueAllowAll",
+        "originalArgs": {}
+      }
+    ],
+    "chats": [],
+    "users": []
+  }
+}

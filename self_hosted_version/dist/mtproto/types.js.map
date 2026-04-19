@@ -1,0 +1,1 @@
+{"version":3,"file":"types.js","sourceRoot":"","sources":["../../src/mtproto/types.ts"],"names":[],"mappings":"AA0BA,MAAM,CAAC,MAAM,mBAAmB,GAAG;IACjC,qBAAqB,EAAE,CAAC,GAAG;IAC3B,eAAe,EAAE,CAAC,GAAG;IACrB,eAAe,EAAE,CAAC,GAAG;IACrB,gBAAgB,EAAE,CAAC,GAAG;IACtB,0BAA0B,EAAE,CAAC,GAAG;CACxB,CAAC"}

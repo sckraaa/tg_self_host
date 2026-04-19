@@ -1,0 +1,29 @@
+{
+  "method": "account.getGlobalPrivacySettings",
+  "capturedAt": "2026-04-10T16:16:09.067Z",
+  "request": {
+    "__className": "account.GetGlobalPrivacySettings",
+    "__constructorId": 3945483510,
+    "className": "account.GetGlobalPrivacySettings",
+    "originalArgs": {}
+  },
+  "response": {
+    "__className": "GlobalPrivacySettings",
+    "__constructorId": 1934380235,
+    "className": "GlobalPrivacySettings",
+    "originalArgs": {
+      "flags": 4,
+      "archiveAndMuteNewNoncontactPeers": false,
+      "keepArchivedUnmuted": false,
+      "keepArchivedFolders": true,
+      "hideReadMarks": false,
+      "newNoncontactPeersRequirePremium": false
+    },
+    "flags": 4,
+    "archiveAndMuteNewNoncontactPeers": false,
+    "keepArchivedUnmuted": false,
+    "keepArchivedFolders": true,
+    "hideReadMarks": false,
+    "newNoncontactPeersRequirePremium": false
+  }
+}

@@ -1,0 +1,821 @@
+{
+  "method": "messages.getDialogs (users extracted)",
+  "capturedAt": "2026-04-11T10:33:35.065Z",
+  "users": [
+    {
+      "__className": "User",
+      "__constructorId": 1262928766,
+      "className": "User",
+      "originalArgs": {
+        "flags": 33554507,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "338781882"
+        },
+        "accessHash": {
+          "value": "5980716527335755090"
+        },
+        "firstName": "ㅤ",
+        "lastName": null,
+        "username": "sckr_a",
+        "phone": null,
+        "photo": null,
+        "status": {
+          "__className": "UserStatusRecently",
+          "__constructorId": 2065268168,
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 0,
+            "byMe": false
+          },
+          "flags": 0,
+          "byMe": false
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      "flags": 33554507,
+      "self": false,
+      "contact": false,
+      "mutualContact": false,
+      "deleted": false,
+      "bot": false,
+      "botChatHistory": false,
+      "botNochats": false,
+      "verified": false,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": false,
+      "scam": false,
+      "applyMinPhoto": true,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 16,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": false,
+      "botBusiness": false,
+      "botHasMainApp": false,
+      "id": {
+        "value": "338781882"
+      },
+      "accessHash": {
+        "value": "5980716527335755090"
+      },
+      "firstName": "ㅤ",
+      "lastName": null,
+      "username": "sckr_a",
+      "phone": null,
+      "photo": null,
+      "status": {
+        "__className": "UserStatusRecently",
+        "__constructorId": 2065268168,
+        "className": "UserStatusRecently",
+        "originalArgs": {
+          "flags": 0,
+          "byMe": false
+        },
+        "flags": 0,
+        "byMe": false
+      },
+      "botInfoVersion": null,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": null,
+      "botVerificationIcon": null
+    },
+    {
+      "__className": "User",
+      "__constructorId": 1262928766,
+      "className": "User",
+      "originalArgs": {
+        "flags": 33555571,
+        "self": true,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "6340886702"
+        },
+        "accessHash": {
+          "value": "-2827396686645499657"
+        },
+        "firstName": "🤷",
+        "lastName": null,
+        "username": null,
+        "phone": "17799037329",
+        "photo": {
+          "__className": "UserProfilePhoto",
+          "__constructorId": 2194798342,
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "5103009275159710925"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808cbdd084fb8c5b1d49a28a2803f"
+            },
+            "dcId": 1
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "5103009275159710925"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "010808cbdd084fb8c5b1d49a28a2803f"
+          },
+          "dcId": 1
+        },
+        "status": {
+          "__className": "UserStatusOffline",
+          "__constructorId": 9203775,
+          "className": "UserStatusOffline",
+          "originalArgs": {
+            "wasOnline": 1775902934
+          },
+          "wasOnline": 1775902934
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      "flags": 33555571,
+      "self": true,
+      "contact": false,
+      "mutualContact": false,
+      "deleted": false,
+      "bot": false,
+      "botChatHistory": false,
+      "botNochats": false,
+      "verified": false,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": false,
+      "scam": false,
+      "applyMinPhoto": true,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 16,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": false,
+      "botBusiness": false,
+      "botHasMainApp": false,
+      "id": {
+        "value": "6340886702"
+      },
+      "accessHash": {
+        "value": "-2827396686645499657"
+      },
+      "firstName": "🤷",
+      "lastName": null,
+      "username": null,
+      "phone": "17799037329",
+      "photo": {
+        "__className": "UserProfilePhoto",
+        "__constructorId": 2194798342,
+        "className": "UserProfilePhoto",
+        "originalArgs": {
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "5103009275159710925"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "010808cbdd084fb8c5b1d49a28a2803f"
+          },
+          "dcId": 1
+        },
+        "flags": 2,
+        "hasVideo": false,
+        "personal": false,
+        "photoId": {
+          "value": "5103009275159710925"
+        },
+        "strippedThumb": {
+          "__type": "Buffer",
+          "hex": "010808cbdd084fb8c5b1d49a28a2803f"
+        },
+        "dcId": 1
+      },
+      "status": {
+        "__className": "UserStatusOffline",
+        "__constructorId": 9203775,
+        "className": "UserStatusOffline",
+        "originalArgs": {
+          "wasOnline": 1775902934
+        },
+        "wasOnline": 1775902934
+      },
+      "botInfoVersion": null,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": null,
+      "botVerificationIcon": null
+    },
+    {
+      "__className": "User",
+      "__constructorId": 1262928766,
+      "className": "User",
+      "originalArgs": {
+        "flags": 42074227,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": true,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": true,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "777000"
+        },
+        "accessHash": {
+          "value": "2974067603837347815"
+        },
+        "firstName": "Telegram",
+        "lastName": null,
+        "username": null,
+        "phone": "42777",
+        "photo": {
+          "__className": "UserProfilePhoto",
+          "__constructorId": 2194798342,
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "3337190045231036"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "01080893e4f2cf5dff00a514515d5638cf"
+            },
+            "dcId": 1
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "3337190045231036"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "01080893e4f2cf5dff00a514515d5638cf"
+          },
+          "dcId": 1
+        },
+        "status": {
+          "__className": "UserStatusRecently",
+          "__constructorId": 2065268168,
+          "className": "UserStatusRecently",
+          "originalArgs": {
+            "flags": 1,
+            "byMe": true
+          },
+          "flags": 1,
+          "byMe": true
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      },
+      "flags": 42074227,
+      "self": false,
+      "contact": false,
+      "mutualContact": false,
+      "deleted": false,
+      "bot": false,
+      "botChatHistory": false,
+      "botNochats": false,
+      "verified": true,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": true,
+      "scam": false,
+      "applyMinPhoto": true,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 16,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": false,
+      "botBusiness": false,
+      "botHasMainApp": false,
+      "id": {
+        "value": "777000"
+      },
+      "accessHash": {
+        "value": "2974067603837347815"
+      },
+      "firstName": "Telegram",
+      "lastName": null,
+      "username": null,
+      "phone": "42777",
+      "photo": {
+        "__className": "UserProfilePhoto",
+        "__constructorId": 2194798342,
+        "className": "UserProfilePhoto",
+        "originalArgs": {
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "3337190045231036"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "01080893e4f2cf5dff00a514515d5638cf"
+          },
+          "dcId": 1
+        },
+        "flags": 2,
+        "hasVideo": false,
+        "personal": false,
+        "photoId": {
+          "value": "3337190045231036"
+        },
+        "strippedThumb": {
+          "__type": "Buffer",
+          "hex": "01080893e4f2cf5dff00a514515d5638cf"
+        },
+        "dcId": 1
+      },
+      "status": {
+        "__className": "UserStatusRecently",
+        "__constructorId": 2065268168,
+        "className": "UserStatusRecently",
+        "originalArgs": {
+          "flags": 1,
+          "byMe": true
+        },
+        "flags": 1,
+        "byMe": true
+      },
+      "botInfoVersion": null,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": null,
+      "botVerificationIcon": null
+    },
+    {
+      "__className": "User",
+      "__constructorId": 1262928766,
+      "className": "User",
+      "originalArgs": {
+        "flags": 33767467,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": true,
+        "botChatHistory": false,
+        "botNochats": true,
+        "verified": true,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 12304,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": true,
+        "id": {
+          "value": "93372553"
+        },
+        "accessHash": {
+          "value": "-7174274352962912888"
+        },
+        "firstName": "BotFather",
+        "lastName": null,
+        "username": "BotFather",
+        "phone": null,
+        "photo": {
+          "__className": "UserProfilePhoto",
+          "__constructorId": 2194798342,
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "401032061935265706"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "0108089fcf7fb417ec64d9451450163f"
+            },
+            "dcId": 1
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "401032061935265706"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "0108089fcf7fb417ec64d9451450163f"
+          },
+          "dcId": 1
+        },
+        "status": null,
+        "botInfoVersion": 28,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": 8153630,
+        "botVerificationIcon": null
+      },
+      "flags": 33767467,
+      "self": false,
+      "contact": false,
+      "mutualContact": false,
+      "deleted": false,
+      "bot": true,
+      "botChatHistory": false,
+      "botNochats": true,
+      "verified": true,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": false,
+      "scam": false,
+      "applyMinPhoto": true,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 12304,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": false,
+      "botBusiness": false,
+      "botHasMainApp": true,
+      "id": {
+        "value": "93372553"
+      },
+      "accessHash": {
+        "value": "-7174274352962912888"
+      },
+      "firstName": "BotFather",
+      "lastName": null,
+      "username": "BotFather",
+      "phone": null,
+      "photo": {
+        "__className": "UserProfilePhoto",
+        "__constructorId": 2194798342,
+        "className": "UserProfilePhoto",
+        "originalArgs": {
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "401032061935265706"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "0108089fcf7fb417ec64d9451450163f"
+          },
+          "dcId": 1
+        },
+        "flags": 2,
+        "hasVideo": false,
+        "personal": false,
+        "photoId": {
+          "value": "401032061935265706"
+        },
+        "strippedThumb": {
+          "__type": "Buffer",
+          "hex": "0108089fcf7fb417ec64d9451450163f"
+        },
+        "dcId": 1
+      },
+      "status": null,
+      "botInfoVersion": 28,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": 8153630,
+      "botVerificationIcon": null
+    },
+    {
+      "__className": "User",
+      "__constructorId": 1262928766,
+      "className": "User",
+      "originalArgs": {
+        "flags": 33636395,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": true,
+        "botChatHistory": false,
+        "botNochats": true,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 4112,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "1087968824"
+        },
+        "accessHash": {
+          "value": "6689012025452885356"
+        },
+        "firstName": "Group",
+        "lastName": null,
+        "username": "GroupAnonymousBot",
+        "phone": null,
+        "photo": {
+          "__className": "UserProfilePhoto",
+          "__constructorId": 2194798342,
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "5159307831025969322"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808a398becf8c7ef339ce7f4a28a2988f"
+            },
+            "dcId": 1
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "5159307831025969322"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "010808a398becf8c7ef339ce7f4a28a2988f"
+          },
+          "dcId": 1
+        },
+        "status": null,
+        "botInfoVersion": 3,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": 12958,
+        "botVerificationIcon": null
+      },
+      "flags": 33636395,
+      "self": false,
+      "contact": false,
+      "mutualContact": false,
+      "deleted": false,
+      "bot": true,
+      "botChatHistory": false,
+      "botNochats": true,
+      "verified": false,
+      "restricted": false,
+      "min": false,
+      "botInlineGeo": false,
+      "support": false,
+      "scam": false,
+      "applyMinPhoto": true,
+      "fake": false,
+      "botAttachMenu": false,
+      "premium": false,
+      "attachMenuEnabled": false,
+      "flags2": 4112,
+      "botCanEdit": false,
+      "closeFriend": false,
+      "storiesHidden": false,
+      "storiesUnavailable": true,
+      "contactRequirePremium": false,
+      "botBusiness": false,
+      "botHasMainApp": false,
+      "id": {
+        "value": "1087968824"
+      },
+      "accessHash": {
+        "value": "6689012025452885356"
+      },
+      "firstName": "Group",
+      "lastName": null,
+      "username": "GroupAnonymousBot",
+      "phone": null,
+      "photo": {
+        "__className": "UserProfilePhoto",
+        "__constructorId": 2194798342,
+        "className": "UserProfilePhoto",
+        "originalArgs": {
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "5159307831025969322"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "010808a398becf8c7ef339ce7f4a28a2988f"
+          },
+          "dcId": 1
+        },
+        "flags": 2,
+        "hasVideo": false,
+        "personal": false,
+        "photoId": {
+          "value": "5159307831025969322"
+        },
+        "strippedThumb": {
+          "__type": "Buffer",
+          "hex": "010808a398becf8c7ef339ce7f4a28a2988f"
+        },
+        "dcId": 1
+      },
+      "status": null,
+      "botInfoVersion": 3,
+      "restrictionReason": null,
+      "botInlinePlaceholder": null,
+      "langCode": null,
+      "emojiStatus": null,
+      "usernames": null,
+      "storiesMaxId": null,
+      "color": null,
+      "profileColor": null,
+      "botActiveUsers": 12958,
+      "botVerificationIcon": null
+    }
+  ]
+}

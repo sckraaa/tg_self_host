@@ -1,0 +1,1092 @@
+{
+  "method": "messages.getWebPagePreview",
+  "capturedAt": "2026-04-10T16:16:15.483Z",
+  "request": {
+    "__className": "messages.GetWebPagePreview",
+    "__constructorId": 1460498287,
+    "className": "messages.GetWebPagePreview",
+    "originalArgs": {
+      "message": "https://telegram.org"
+    },
+    "message": "https://telegram.org"
+  },
+  "response": {
+    "__className": "messages.WebPagePreview",
+    "__constructorId": 3040774945,
+    "className": "messages.WebPagePreview",
+    "originalArgs": {
+      "media": {
+        "__className": "MessageMediaWebPage",
+        "__constructorId": 3723562043,
+        "className": "MessageMediaWebPage",
+        "originalArgs": {
+          "flags": 16,
+          "forceLargeMedia": false,
+          "forceSmallMedia": false,
+          "manual": false,
+          "safe": true,
+          "webpage": {
+            "__className": "WebPage",
+            "__constructorId": 3902555570,
+            "className": "WebPage",
+            "originalArgs": {
+              "flags": 31,
+              "hasLargeMedia": false,
+              "id": {
+                "value": "4108701750636741774"
+              },
+              "url": "https://telegram.org/",
+              "displayUrl": "telegram.org",
+              "hash": 0,
+              "type": "article",
+              "siteName": "Telegram",
+              "title": "Telegram – a new era of messaging",
+              "description": "Fast. Secure. Powerful.",
+              "photo": {
+                "__className": "Photo",
+                "__constructorId": 4212750949,
+                "className": "Photo",
+                "originalArgs": {
+                  "flags": 0,
+                  "hasStickers": false,
+                  "id": {
+                    "value": "5939170331731889524"
+                  },
+                  "accessHash": {
+                    "value": "-8321270824269113973"
+                  },
+                  "fileReference": {
+                    "__type": "Buffer",
+                    "hex": "0069d9224ffc170f9293b74bf5197f6351bf8bda01"
+                  },
+                  "date": 1775054560,
+                  "sizes": [
+                    {
+                      "__className": "PhotoStrippedSize",
+                      "__constructorId": 3769678894,
+                      "className": "PhotoStrippedSize",
+                      "originalArgs": {
+                        "type": "i",
+                        "bytes": {
+                          "__type": "Buffer",
+                          "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                        }
+                      },
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                      }
+                    },
+                    {
+                      "__className": "PhotoSize",
+                      "__constructorId": 1976012384,
+                      "className": "PhotoSize",
+                      "originalArgs": {
+                        "type": "m",
+                        "w": 256,
+                        "h": 256,
+                        "size": 8045
+                      },
+                      "type": "m",
+                      "w": 256,
+                      "h": 256,
+                      "size": 8045
+                    }
+                  ],
+                  "videoSizes": null,
+                  "dcId": 4
+                },
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "5939170331731889524"
+                },
+                "accessHash": {
+                  "value": "-8321270824269113973"
+                },
+                "fileReference": {
+                  "__type": "Buffer",
+                  "hex": "0069d9224ffc170f9293b74bf5197f6351bf8bda01"
+                },
+                "date": 1775054560,
+                "sizes": [
+                  {
+                    "__className": "PhotoStrippedSize",
+                    "__constructorId": 3769678894,
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                      }
+                    },
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                    }
+                  },
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "m",
+                      "w": 256,
+                      "h": 256,
+                      "size": 8045
+                    },
+                    "type": "m",
+                    "w": 256,
+                    "h": 256,
+                    "size": 8045
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 4
+              },
+              "embedUrl": null,
+              "embedType": null,
+              "embedWidth": null,
+              "embedHeight": null,
+              "duration": null,
+              "author": null,
+              "document": null,
+              "cachedPage": null,
+              "attributes": null
+            },
+            "flags": 31,
+            "hasLargeMedia": false,
+            "id": {
+              "value": "4108701750636741774"
+            },
+            "url": "https://telegram.org/",
+            "displayUrl": "telegram.org",
+            "hash": 0,
+            "type": "article",
+            "siteName": "Telegram",
+            "title": "Telegram – a new era of messaging",
+            "description": "Fast. Secure. Powerful.",
+            "photo": {
+              "__className": "Photo",
+              "__constructorId": 4212750949,
+              "className": "Photo",
+              "originalArgs": {
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "5939170331731889524"
+                },
+                "accessHash": {
+                  "value": "-8321270824269113973"
+                },
+                "fileReference": {
+                  "__type": "Buffer",
+                  "hex": "0069d9224ffc170f9293b74bf5197f6351bf8bda01"
+                },
+                "date": 1775054560,
+                "sizes": [
+                  {
+                    "__className": "PhotoStrippedSize",
+                    "__constructorId": 3769678894,
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                      }
+                    },
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                    }
+                  },
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "m",
+                      "w": 256,
+                      "h": 256,
+                      "size": 8045
+                    },
+                    "type": "m",
+                    "w": 256,
+                    "h": 256,
+                    "size": 8045
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 4
+              },
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "5939170331731889524"
+              },
+              "accessHash": {
+                "value": "-8321270824269113973"
+              },
+              "fileReference": {
+                "__type": "Buffer",
+                "hex": "0069d9224ffc170f9293b74bf5197f6351bf8bda01"
+              },
+              "date": 1775054560,
+              "sizes": [
+                {
+                  "__className": "PhotoStrippedSize",
+                  "__constructorId": 3769678894,
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                    }
+                  },
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                  }
+                },
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "m",
+                    "w": 256,
+                    "h": 256,
+                    "size": 8045
+                  },
+                  "type": "m",
+                  "w": 256,
+                  "h": 256,
+                  "size": 8045
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 4
+            },
+            "embedUrl": null,
+            "embedType": null,
+            "embedWidth": null,
+            "embedHeight": null,
+            "duration": null,
+            "author": null,
+            "document": null,
+            "cachedPage": null,
+            "attributes": null
+          }
+        },
+        "flags": 16,
+        "forceLargeMedia": false,
+        "forceSmallMedia": false,
+        "manual": false,
+        "safe": true,
+        "webpage": {
+          "__className": "WebPage",
+          "__constructorId": 3902555570,
+          "className": "WebPage",
+          "originalArgs": {
+            "flags": 31,
+            "hasLargeMedia": false,
+            "id": {
+              "value": "4108701750636741774"
+            },
+            "url": "https://telegram.org/",
+            "displayUrl": "telegram.org",
+            "hash": 0,
+            "type": "article",
+            "siteName": "Telegram",
+            "title": "Telegram – a new era of messaging",
+            "description": "Fast. Secure. Powerful.",
+            "photo": {
+              "__className": "Photo",
+              "__constructorId": 4212750949,
+              "className": "Photo",
+              "originalArgs": {
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "5939170331731889524"
+                },
+                "accessHash": {
+                  "value": "-8321270824269113973"
+                },
+                "fileReference": {
+                  "__type": "Buffer",
+                  "hex": "0069d9224ffc170f9293b74bf5197f6351bf8bda01"
+                },
+                "date": 1775054560,
+                "sizes": [
+                  {
+                    "__className": "PhotoStrippedSize",
+                    "__constructorId": 3769678894,
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                      }
+                    },
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                    }
+                  },
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "m",
+                      "w": 256,
+                      "h": 256,
+                      "size": 8045
+                    },
+                    "type": "m",
+                    "w": 256,
+                    "h": 256,
+                    "size": 8045
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 4
+              },
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "5939170331731889524"
+              },
+              "accessHash": {
+                "value": "-8321270824269113973"
+              },
+              "fileReference": {
+                "__type": "Buffer",
+                "hex": "0069d9224ffc170f9293b74bf5197f6351bf8bda01"
+              },
+              "date": 1775054560,
+              "sizes": [
+                {
+                  "__className": "PhotoStrippedSize",
+                  "__constructorId": 3769678894,
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                    }
+                  },
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                  }
+                },
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "m",
+                    "w": 256,
+                    "h": 256,
+                    "size": 8045
+                  },
+                  "type": "m",
+                  "w": 256,
+                  "h": 256,
+                  "size": 8045
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 4
+            },
+            "embedUrl": null,
+            "embedType": null,
+            "embedWidth": null,
+            "embedHeight": null,
+            "duration": null,
+            "author": null,
+            "document": null,
+            "cachedPage": null,
+            "attributes": null
+          },
+          "flags": 31,
+          "hasLargeMedia": false,
+          "id": {
+            "value": "4108701750636741774"
+          },
+          "url": "https://telegram.org/",
+          "displayUrl": "telegram.org",
+          "hash": 0,
+          "type": "article",
+          "siteName": "Telegram",
+          "title": "Telegram – a new era of messaging",
+          "description": "Fast. Secure. Powerful.",
+          "photo": {
+            "__className": "Photo",
+            "__constructorId": 4212750949,
+            "className": "Photo",
+            "originalArgs": {
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "5939170331731889524"
+              },
+              "accessHash": {
+                "value": "-8321270824269113973"
+              },
+              "fileReference": {
+                "__type": "Buffer",
+                "hex": "0069d9224ffc170f9293b74bf5197f6351bf8bda01"
+              },
+              "date": 1775054560,
+              "sizes": [
+                {
+                  "__className": "PhotoStrippedSize",
+                  "__constructorId": 3769678894,
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                    }
+                  },
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                  }
+                },
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "m",
+                    "w": 256,
+                    "h": 256,
+                    "size": 8045
+                  },
+                  "type": "m",
+                  "w": 256,
+                  "h": 256,
+                  "size": 8045
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 4
+            },
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "5939170331731889524"
+            },
+            "accessHash": {
+              "value": "-8321270824269113973"
+            },
+            "fileReference": {
+              "__type": "Buffer",
+              "hex": "0069d9224ffc170f9293b74bf5197f6351bf8bda01"
+            },
+            "date": 1775054560,
+            "sizes": [
+              {
+                "__className": "PhotoStrippedSize",
+                "__constructorId": 3769678894,
+                "className": "PhotoStrippedSize",
+                "originalArgs": {
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                  }
+                },
+                "type": "i",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                }
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "m",
+                  "w": 256,
+                  "h": 256,
+                  "size": 8045
+                },
+                "type": "m",
+                "w": 256,
+                "h": 256,
+                "size": 8045
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 4
+          },
+          "embedUrl": null,
+          "embedType": null,
+          "embedWidth": null,
+          "embedHeight": null,
+          "duration": null,
+          "author": null,
+          "document": null,
+          "cachedPage": null,
+          "attributes": null
+        }
+      },
+      "users": []
+    },
+    "media": {
+      "__className": "MessageMediaWebPage",
+      "__constructorId": 3723562043,
+      "className": "MessageMediaWebPage",
+      "originalArgs": {
+        "flags": 16,
+        "forceLargeMedia": false,
+        "forceSmallMedia": false,
+        "manual": false,
+        "safe": true,
+        "webpage": {
+          "__className": "WebPage",
+          "__constructorId": 3902555570,
+          "className": "WebPage",
+          "originalArgs": {
+            "flags": 31,
+            "hasLargeMedia": false,
+            "id": {
+              "value": "4108701750636741774"
+            },
+            "url": "https://telegram.org/",
+            "displayUrl": "telegram.org",
+            "hash": 0,
+            "type": "article",
+            "siteName": "Telegram",
+            "title": "Telegram – a new era of messaging",
+            "description": "Fast. Secure. Powerful.",
+            "photo": {
+              "__className": "Photo",
+              "__constructorId": 4212750949,
+              "className": "Photo",
+              "originalArgs": {
+                "flags": 0,
+                "hasStickers": false,
+                "id": {
+                  "value": "5939170331731889524"
+                },
+                "accessHash": {
+                  "value": "-8321270824269113973"
+                },
+                "fileReference": {
+                  "__type": "Buffer",
+                  "hex": "0069d9224ffc170f9293b74bf5197f6351bf8bda01"
+                },
+                "date": 1775054560,
+                "sizes": [
+                  {
+                    "__className": "PhotoStrippedSize",
+                    "__constructorId": 3769678894,
+                    "className": "PhotoStrippedSize",
+                    "originalArgs": {
+                      "type": "i",
+                      "bytes": {
+                        "__type": "Buffer",
+                        "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                      }
+                    },
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                    }
+                  },
+                  {
+                    "__className": "PhotoSize",
+                    "__constructorId": 1976012384,
+                    "className": "PhotoSize",
+                    "originalArgs": {
+                      "type": "m",
+                      "w": 256,
+                      "h": 256,
+                      "size": 8045
+                    },
+                    "type": "m",
+                    "w": 256,
+                    "h": 256,
+                    "size": 8045
+                  }
+                ],
+                "videoSizes": null,
+                "dcId": 4
+              },
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "5939170331731889524"
+              },
+              "accessHash": {
+                "value": "-8321270824269113973"
+              },
+              "fileReference": {
+                "__type": "Buffer",
+                "hex": "0069d9224ffc170f9293b74bf5197f6351bf8bda01"
+              },
+              "date": 1775054560,
+              "sizes": [
+                {
+                  "__className": "PhotoStrippedSize",
+                  "__constructorId": 3769678894,
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                    }
+                  },
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                  }
+                },
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "m",
+                    "w": 256,
+                    "h": 256,
+                    "size": 8045
+                  },
+                  "type": "m",
+                  "w": 256,
+                  "h": 256,
+                  "size": 8045
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 4
+            },
+            "embedUrl": null,
+            "embedType": null,
+            "embedWidth": null,
+            "embedHeight": null,
+            "duration": null,
+            "author": null,
+            "document": null,
+            "cachedPage": null,
+            "attributes": null
+          },
+          "flags": 31,
+          "hasLargeMedia": false,
+          "id": {
+            "value": "4108701750636741774"
+          },
+          "url": "https://telegram.org/",
+          "displayUrl": "telegram.org",
+          "hash": 0,
+          "type": "article",
+          "siteName": "Telegram",
+          "title": "Telegram – a new era of messaging",
+          "description": "Fast. Secure. Powerful.",
+          "photo": {
+            "__className": "Photo",
+            "__constructorId": 4212750949,
+            "className": "Photo",
+            "originalArgs": {
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "5939170331731889524"
+              },
+              "accessHash": {
+                "value": "-8321270824269113973"
+              },
+              "fileReference": {
+                "__type": "Buffer",
+                "hex": "0069d9224ffc170f9293b74bf5197f6351bf8bda01"
+              },
+              "date": 1775054560,
+              "sizes": [
+                {
+                  "__className": "PhotoStrippedSize",
+                  "__constructorId": 3769678894,
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                    }
+                  },
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                  }
+                },
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "m",
+                    "w": 256,
+                    "h": 256,
+                    "size": 8045
+                  },
+                  "type": "m",
+                  "w": 256,
+                  "h": 256,
+                  "size": 8045
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 4
+            },
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "5939170331731889524"
+            },
+            "accessHash": {
+              "value": "-8321270824269113973"
+            },
+            "fileReference": {
+              "__type": "Buffer",
+              "hex": "0069d9224ffc170f9293b74bf5197f6351bf8bda01"
+            },
+            "date": 1775054560,
+            "sizes": [
+              {
+                "__className": "PhotoStrippedSize",
+                "__constructorId": 3769678894,
+                "className": "PhotoStrippedSize",
+                "originalArgs": {
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                  }
+                },
+                "type": "i",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                }
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "m",
+                  "w": 256,
+                  "h": 256,
+                  "size": 8045
+                },
+                "type": "m",
+                "w": 256,
+                "h": 256,
+                "size": 8045
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 4
+          },
+          "embedUrl": null,
+          "embedType": null,
+          "embedWidth": null,
+          "embedHeight": null,
+          "duration": null,
+          "author": null,
+          "document": null,
+          "cachedPage": null,
+          "attributes": null
+        }
+      },
+      "flags": 16,
+      "forceLargeMedia": false,
+      "forceSmallMedia": false,
+      "manual": false,
+      "safe": true,
+      "webpage": {
+        "__className": "WebPage",
+        "__constructorId": 3902555570,
+        "className": "WebPage",
+        "originalArgs": {
+          "flags": 31,
+          "hasLargeMedia": false,
+          "id": {
+            "value": "4108701750636741774"
+          },
+          "url": "https://telegram.org/",
+          "displayUrl": "telegram.org",
+          "hash": 0,
+          "type": "article",
+          "siteName": "Telegram",
+          "title": "Telegram – a new era of messaging",
+          "description": "Fast. Secure. Powerful.",
+          "photo": {
+            "__className": "Photo",
+            "__constructorId": 4212750949,
+            "className": "Photo",
+            "originalArgs": {
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "5939170331731889524"
+              },
+              "accessHash": {
+                "value": "-8321270824269113973"
+              },
+              "fileReference": {
+                "__type": "Buffer",
+                "hex": "0069d9224ffc170f9293b74bf5197f6351bf8bda01"
+              },
+              "date": 1775054560,
+              "sizes": [
+                {
+                  "__className": "PhotoStrippedSize",
+                  "__constructorId": 3769678894,
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                    }
+                  },
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                  }
+                },
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "m",
+                    "w": 256,
+                    "h": 256,
+                    "size": 8045
+                  },
+                  "type": "m",
+                  "w": 256,
+                  "h": 256,
+                  "size": 8045
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 4
+            },
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "5939170331731889524"
+            },
+            "accessHash": {
+              "value": "-8321270824269113973"
+            },
+            "fileReference": {
+              "__type": "Buffer",
+              "hex": "0069d9224ffc170f9293b74bf5197f6351bf8bda01"
+            },
+            "date": 1775054560,
+            "sizes": [
+              {
+                "__className": "PhotoStrippedSize",
+                "__constructorId": 3769678894,
+                "className": "PhotoStrippedSize",
+                "originalArgs": {
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                  }
+                },
+                "type": "i",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                }
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "m",
+                  "w": 256,
+                  "h": 256,
+                  "size": 8045
+                },
+                "type": "m",
+                "w": 256,
+                "h": 256,
+                "size": 8045
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 4
+          },
+          "embedUrl": null,
+          "embedType": null,
+          "embedWidth": null,
+          "embedHeight": null,
+          "duration": null,
+          "author": null,
+          "document": null,
+          "cachedPage": null,
+          "attributes": null
+        },
+        "flags": 31,
+        "hasLargeMedia": false,
+        "id": {
+          "value": "4108701750636741774"
+        },
+        "url": "https://telegram.org/",
+        "displayUrl": "telegram.org",
+        "hash": 0,
+        "type": "article",
+        "siteName": "Telegram",
+        "title": "Telegram – a new era of messaging",
+        "description": "Fast. Secure. Powerful.",
+        "photo": {
+          "__className": "Photo",
+          "__constructorId": 4212750949,
+          "className": "Photo",
+          "originalArgs": {
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "5939170331731889524"
+            },
+            "accessHash": {
+              "value": "-8321270824269113973"
+            },
+            "fileReference": {
+              "__type": "Buffer",
+              "hex": "0069d9224ffc170f9293b74bf5197f6351bf8bda01"
+            },
+            "date": 1775054560,
+            "sizes": [
+              {
+                "__className": "PhotoStrippedSize",
+                "__constructorId": 3769678894,
+                "className": "PhotoStrippedSize",
+                "originalArgs": {
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                  }
+                },
+                "type": "i",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                }
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "m",
+                  "w": 256,
+                  "h": 256,
+                  "size": 8045
+                },
+                "type": "m",
+                "w": 256,
+                "h": 256,
+                "size": 8045
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 4
+          },
+          "flags": 0,
+          "hasStickers": false,
+          "id": {
+            "value": "5939170331731889524"
+          },
+          "accessHash": {
+            "value": "-8321270824269113973"
+          },
+          "fileReference": {
+            "__type": "Buffer",
+            "hex": "0069d9224ffc170f9293b74bf5197f6351bf8bda01"
+          },
+          "date": 1775054560,
+          "sizes": [
+            {
+              "__className": "PhotoStrippedSize",
+              "__constructorId": 3769678894,
+              "className": "PhotoStrippedSize",
+              "originalArgs": {
+                "type": "i",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+                }
+              },
+              "type": "i",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "012828d5965589727f2f5aa325c492679c0f4145cc9e64c79e0702a2ada115d4e69cdb7642e4e739a923b89131ce47a1a6a44f27dd527de9f2db98a30ccc339c62a9b8ecc94a5ba2f452acabb97f11e94550b693cb9873c1e0d158ca3666f19a6b5223d79ab51adb2ae59c31f7ff000a86e5364c78e0f22a2adbe2463f0b3450b4a7206d8fb7a9a8ef9be545f539a8a0ba31e15f95fe54dba944b20da72a05428be62dc938910ea3145496c9be61c703934554a7664c617572fcb12ca9b5bf03e95424b692327e5c8f5145159c64d686b38a7a9160e718e6a58eda4931f2e07a9a28ad24ec8c6114dea5f8a258936afe27d68a28ac1b3a523f"
+              }
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "m",
+                "w": 256,
+                "h": 256,
+                "size": 8045
+              },
+              "type": "m",
+              "w": 256,
+              "h": 256,
+              "size": 8045
+            }
+          ],
+          "videoSizes": null,
+          "dcId": 4
+        },
+        "embedUrl": null,
+        "embedType": null,
+        "embedWidth": null,
+        "embedHeight": null,
+        "duration": null,
+        "author": null,
+        "document": null,
+        "cachedPage": null,
+        "attributes": null
+      }
+    },
+    "users": []
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "_class": "UpdatePhoneCall",
+  "_cid": "0xab0f6b1e",
+  "className": "UpdatePhoneCall",
+  "originalArgs": {
+    "phoneCall": {
+      "_class": "PhoneCallAccepted",
+      "_cid": "0x22fd7181",
+      "className": "PhoneCallAccepted",
+      "originalArgs": {
+        "flags": 0,
+        "video": false,
+        "id": {
+          "value": "BigInt(1455057103897009316)"
+        },
+        "accessHash": {
+          "value": "BigInt(885897142498115767)"
+        },
+        "date": 1775920239,
+        "adminId": {
+          "value": "BigInt(338781882)"
+        },
+        "participantId": {
+          "value": "BigInt(6340886702)"
+        },
+        "gB": "Buffer(256)[32f9d6b5acfa9dc01fbda01c762d730c1f0f040e293e2eb5672fbf5a1cee444fc7f55df99e31c81d65b86573659c28acb6816eb1cb91038f5ceb901a8cba4f9436146a3421d7bc4e2f6c06bc1c67934f3ab1b18d991dd8a6ad8df8baaa22df4adc7245f224e0c50b5b3173ad88d785cda696533e5408985c600248edd592c14e]",
+        "protocol": {
+          "_class": "PhoneCallProtocol",
+          "_cid": "0xfc878fc8",
+          "className": "PhoneCallProtocol",
+          "originalArgs": {
+            "flags": 3,
+            "udpP2p": true,
+            "udpReflector": true,
+            "minLayer": 65,
+            "maxLayer": 92,
+            "libraryVersions": [
+              "5.0.0"
+            ]
+          },
+          "flags": 3,
+          "udpP2p": true,
+          "udpReflector": true,
+          "minLayer": 65,
+          "maxLayer": 92,
+          "libraryVersions": [
+            "5.0.0"
+          ]
+        },
+        "conferenceCall": null
+      },
+      "flags": 0,
+      "video": false,
+      "id": {
+        "value": "BigInt(1455057103897009316)"
+      },
+      "accessHash": {
+        "value": "BigInt(885897142498115767)"
+      },
+      "date": 1775920239,
+      "adminId": {
+        "value": "BigInt(338781882)"
+      },
+      "participantId": {
+        "value": "BigInt(6340886702)"
+      },
+      "gB": "Buffer(256)[32f9d6b5acfa9dc01fbda01c762d730c1f0f040e293e2eb5672fbf5a1cee444fc7f55df99e31c81d65b86573659c28acb6816eb1cb91038f5ceb901a8cba4f9436146a3421d7bc4e2f6c06bc1c67934f3ab1b18d991dd8a6ad8df8baaa22df4adc7245f224e0c50b5b3173ad88d785cda696533e5408985c600248edd592c14e]",
+      "protocol": {
+        "_class": "PhoneCallProtocol",
+        "_cid": "0xfc878fc8",
+        "className": "PhoneCallProtocol",
+        "originalArgs": {
+          "flags": 3,
+          "udpP2p": true,
+          "udpReflector": true,
+          "minLayer": 65,
+          "maxLayer": 92,
+          "libraryVersions": [
+            "5.0.0"
+          ]
+        },
+        "flags": 3,
+        "udpP2p": true,
+        "udpReflector": true,
+        "minLayer": 65,
+        "maxLayer": 92,
+        "libraryVersions": [
+          "5.0.0"
+        ]
+      },
+      "conferenceCall": null
+    }
+  },
+  "phoneCall": {
+    "_class": "PhoneCallAccepted",
+    "_cid": "0x22fd7181",
+    "className": "PhoneCallAccepted",
+    "originalArgs": {
+      "flags": 0,
+      "video": false,
+      "id": {
+        "value": "BigInt(1455057103897009316)"
+      },
+      "accessHash": {
+        "value": "BigInt(885897142498115767)"
+      },
+      "date": 1775920239,
+      "adminId": {
+        "value": "BigInt(338781882)"
+      },
+      "participantId": {
+        "value": "BigInt(6340886702)"
+      },
+      "gB": "Buffer(256)[32f9d6b5acfa9dc01fbda01c762d730c1f0f040e293e2eb5672fbf5a1cee444fc7f55df99e31c81d65b86573659c28acb6816eb1cb91038f5ceb901a8cba4f9436146a3421d7bc4e2f6c06bc1c67934f3ab1b18d991dd8a6ad8df8baaa22df4adc7245f224e0c50b5b3173ad88d785cda696533e5408985c600248edd592c14e]",
+      "protocol": {
+        "_class": "PhoneCallProtocol",
+        "_cid": "0xfc878fc8",
+        "className": "PhoneCallProtocol",
+        "originalArgs": {
+          "flags": 3,
+          "udpP2p": true,
+          "udpReflector": true,
+          "minLayer": 65,
+          "maxLayer": 92,
+          "libraryVersions": [
+            "5.0.0"
+          ]
+        },
+        "flags": 3,
+        "udpP2p": true,
+        "udpReflector": true,
+        "minLayer": 65,
+        "maxLayer": 92,
+        "libraryVersions": [
+          "5.0.0"
+        ]
+      },
+      "conferenceCall": null
+    },
+    "flags": 0,
+    "video": false,
+    "id": {
+      "value": "BigInt(1455057103897009316)"
+    },
+    "accessHash": {
+      "value": "BigInt(885897142498115767)"
+    },
+    "date": 1775920239,
+    "adminId": {
+      "value": "BigInt(338781882)"
+    },
+    "participantId": {
+      "value": "BigInt(6340886702)"
+    },
+    "gB": "Buffer(256)[32f9d6b5acfa9dc01fbda01c762d730c1f0f040e293e2eb5672fbf5a1cee444fc7f55df99e31c81d65b86573659c28acb6816eb1cb91038f5ceb901a8cba4f9436146a3421d7bc4e2f6c06bc1c67934f3ab1b18d991dd8a6ad8df8baaa22df4adc7245f224e0c50b5b3173ad88d785cda696533e5408985c600248edd592c14e]",
+    "protocol": {
+      "_class": "PhoneCallProtocol",
+      "_cid": "0xfc878fc8",
+      "className": "PhoneCallProtocol",
+      "originalArgs": {
+        "flags": 3,
+        "udpP2p": true,
+        "udpReflector": true,
+        "minLayer": 65,
+        "maxLayer": 92,
+        "libraryVersions": [
+          "5.0.0"
+        ]
+      },
+      "flags": 3,
+      "udpP2p": true,
+      "udpReflector": true,
+      "minLayer": 65,
+      "maxLayer": 92,
+      "libraryVersions": [
+        "5.0.0"
+      ]
+    },
+    "conferenceCall": null
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "method": "stories.getPeerMaxIDs",
+  "capturedAt": "2026-04-10T16:16:17.013Z",
+  "request": {
+    "__className": "stories.GetPeerMaxIDs",
+    "__constructorId": 1398375363,
+    "className": "stories.GetPeerMaxIDs",
+    "originalArgs": {
+      "id": [
+        {
+          "__className": "InputPeerSelf",
+          "__constructorId": 2107670217,
+          "className": "InputPeerSelf",
+          "originalArgs": {}
+        }
+      ]
+    },
+    "id": [
+      {
+        "__className": "InputPeerSelf",
+        "__constructorId": 2107670217,
+        "className": "InputPeerSelf",
+        "originalArgs": {}
+      }
+    ]
+  },
+  "response": [
+    0
+  ]
+}

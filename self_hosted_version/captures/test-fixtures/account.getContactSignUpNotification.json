@@ -1,0 +1,11 @@
+{
+  "method": "account.getContactSignUpNotification",
+  "capturedAt": "2026-04-10T16:16:09.695Z",
+  "request": {
+    "__className": "account.GetContactSignUpNotification",
+    "__constructorId": 2668087080,
+    "className": "account.GetContactSignUpNotification",
+    "originalArgs": {}
+  },
+  "response": false
+}

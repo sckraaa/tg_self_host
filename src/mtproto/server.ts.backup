@@ -1,0 +1,4697 @@
+import { WebSocketServer, WebSocket } from 'ws';
+import { createServer } from 'http';
+import { gunzipSync } from 'zlib';
+import { readFileSync, existsSync } from 'fs';
+import { resolve as resolvePath } from 'path';
+import { AuthHandler } from './auth.js';
+import { BinaryReader, BinaryWriter } from './codec.js';
+import { sha256Sync, sha1Sync, IGE, CTR, generateRandomBytes } from '../crypto/utils.js';
+import {
+  type FixtureChat,
+  getOfficialCaptureFixture,
+  type FixtureDialog,
+  type FixtureMessage,
+  type FixtureUser,
+  type OfficialCaptureFixture,
+} from './officialCaptureFixture.js';
+import { getMessageStore, type StoredMessage, type StoredUser } from '../database/messageStore.js';
+
+// Seed user constants (hardcoded until SQLite user management is implemented)
+const SEED_USER_ID = 100000;
+const SEED_USER_ACCESS_HASH = 0x1234567890ABCDEFn;
+const SEED_USER_FIRST_NAME = 'User';
+const SEED_USER_LAST_NAME = '';
+const SEED_USER_PHONE = '+10000000000';
+
+const clients = new Map<string, ClientSession>();
+const authHandler = new AuthHandler();
+const messageStore = getMessageStore();
+let lastGeneratedMessageId = 0n;
+
+// Map authKeyIdHex → userId for restoring auth state on reconnect
+const authKeyUserMap = new Map<string, number>();
+
+// Load persisted auth keys from SQLite on startup
+{
+  const persistedKeys = messageStore.loadAllAuthKeys();
+  for (const { keyIdHex, authKey, userId } of persistedKeys) {
+    authHandler.loadAuthKey(keyIdHex, authKey);
+    if (userId) {
+      authKeyUserMap.set(keyIdHex, userId);
+    }
+  }
+  if (persistedKeys.length > 0) {
+    console.log(`[STARTUP] Loaded ${persistedKeys.length} persisted auth key(s)`);
+  }
+}
+
+function getKeyIdHex(authKey: Buffer): string {
+  return sha1Sync(authKey).slice(12, 20).toString('hex');
+}
+
+export interface ClientSession {
+  id: string;
+  socket?: WebSocket;
+  authKey?: Buffer;
+  keyId?: bigint;
+  dcId: number;
+  userId?: number;
+  connectedAt: number;
+  lastActivityAt: number;
+  handshakeComplete?: boolean;
+  obfuscated?: boolean;
+  encryptor?: CTR;
+  decryptor?: CTR;
+  serverSalt?: Buffer;
+  sessionId?: Buffer;
+  sentNewSessionCreated?: boolean;
+}
+
+function generateClientId(): string {
+  return `sess_${Date.now()}_${Math.random().toString(36).substring(2, 12)}`;
+}
+
+function generateMessageId(): bigint {
+  const nowMs = BigInt(Date.now());
+  const seconds = nowMs / 1000n;
+  const nanoseconds = (nowMs % 1000n) * 1000000n;
+  let msgId = (seconds << 32n) | (nanoseconds << 2n) | 1n;
+
+  if (msgId <= lastGeneratedMessageId) {
+    msgId = lastGeneratedMessageId + 4n;
+  }
+
+  lastGeneratedMessageId = msgId;
+  return msgId;
+}
+
+export function startServer(port: number, host: string) {
+  const server = createServer();
+  const wss = new WebSocketServer({ server });
+
+  wss.on('connection', (ws: WebSocket, req) => {
+    const clientId = generateClientId();
+    const session: ClientSession = {
+      id: clientId,
+      socket: ws,
+      dcId: 2,
+      userId: undefined,
+      connectedAt: Date.now(),
+      lastActivityAt: Date.now(),
+    };
+    clients.set(clientId, session);
+
+    console.log(`[${new Date().toISOString()}] Client connected: ${clientId}`);
+
+    let receiveBuffer: Buffer = Buffer.alloc(0);
+
+    ws.on('message', (data: unknown) => {
+      const buffer = Buffer.isBuffer(data) ? data : Buffer.from(data as Buffer);
+      session.lastActivityAt = Date.now();
+
+      receiveBuffer = Buffer.concat([receiveBuffer, buffer]);
+
+      let isPreDecrypted = false;
+
+      while (receiveBuffer.length > 0) {
+        try {
+          const result = processBuffer(receiveBuffer, session, isPreDecrypted);
+          if (!result) break;
+
+          receiveBuffer = result.remaining || Buffer.alloc(0);
+          isPreDecrypted = result.preDecrypted || false;
+          if (result.response && result.response.length > 0) {
+            ws.send(result.response);
+          }
+        } catch (error) {
+          console.error(`[${new Date().toISOString()}] Session ${session.id} processing error:`, (error as Error).message);
+          receiveBuffer = Buffer.alloc(0);
+          break;
+        }
+      }
+    });
+
+    ws.on('close', () => {
+      console.log(`[${new Date().toISOString()}] Client disconnected: ${clientId}`);
+      authHandler.clearAuthState(clientId);
+      clients.delete(clientId);
+    });
+
+    ws.on('error', (error) => {
+      console.error(`[${new Date().toISOString()}] Client ${clientId} error:`, error);
+    });
+  });
+
+  server.listen(port, host, () => {
+    console.log(`[${new Date().toISOString()}] MTProto server running on ${host}:${port}`);
+  });
+
+  return { server, wss, clients };
+}
+
+interface ProcessResult {
+  remaining: Buffer | null;
+  response?: Buffer | null;
+  preDecrypted?: boolean;
+}
+
+function processBuffer(buffer: Buffer, session: ClientSession, preDecrypted = false): ProcessResult | null {
+  // Step 1: Handle obfuscation header (first 64 bytes from client)
+  if (!session.obfuscated && !session.handshakeComplete) {
+    if (buffer.length < 64) {
+      return null; // wait for more data
+    }
+
+    const header = buffer.slice(0, 64);
+
+    // Bytes 0-55 are plaintext, bytes 56-63 are encrypted by the client's encryptor.
+    // Client encryptKey = header[8..40], encryptIv = header[40..56]
+    // Reversed = header[8..56].reverse()
+    // Server encryptKey = reversed[0..32], encryptIv = reversed[32..48]
+    const decryptKey = Buffer.from(header.slice(8, 40));
+    const decryptIv = Buffer.from(header.slice(40, 56));
+
+    const reversed = Buffer.from(header.slice(8, 56)).reverse();
+    const encryptKey = Buffer.from(reversed.slice(0, 32));
+    const encryptIv = Buffer.from(reversed.slice(32, 48));
+
+    // Server decrypts what client encrypts, and vice versa
+    session.decryptor = new CTR(decryptKey, decryptIv);
+    session.encryptor = new CTR(encryptKey, encryptIv);
+
+    // Decrypt the full 64-byte header to advance CTR counter and verify tag
+    const decryptedHeader = session.decryptor.decrypt(Buffer.from(header));
+    const tag = decryptedHeader.slice(56, 60);
+    
+    const expectedTag = Buffer.from('efefefef', 'hex');
+    if (!tag.equals(expectedTag)) {
+      console.log(`[${new Date().toISOString()}] Session ${session.id} obfuscation tag: ${tag.toString('hex')} (expected efefefef)`);
+    }
+
+    session.obfuscated = true;
+    session.handshakeComplete = true;
+    console.log(`[${new Date().toISOString()}] Session ${session.id} obfuscated transport initialized`);
+
+    return { remaining: buffer.slice(64) as Buffer, response: Buffer.alloc(0) };
+  }
+
+  if (!session.decryptor) {
+    console.log(`[${new Date().toISOString()}] Session ${session.id} no decryptor available`);
+    return null;
+  }
+
+  // Step 2: Decrypt and parse abridged frames
+  if (buffer.length < 1) return null;
+
+  // If data was already decrypted (from previous iteration), use as-is
+  const decrypted = preDecrypted ? buffer : session.decryptor.decrypt(Buffer.from(buffer));
+
+  let msgLen: number;
+  let headerLen: number;
+
+  if (decrypted[0] >= 0x7f) {
+    if (decrypted.length < 4) return null;
+    msgLen = decrypted[1] | (decrypted[2] << 8) | (decrypted[3] << 16);
+    headerLen = 4;
+  } else {
+    msgLen = decrypted[0];
+    headerLen = 1;
+  }
+
+  msgLen = msgLen << 2;
+
+  if (decrypted.length < headerLen + msgLen) {
+    console.log(`[${new Date().toISOString()}] Session ${session.id} incomplete packet: have ${decrypted.length}, need ${headerLen + msgLen}`);
+    return null;
+  }
+
+  const msgData = decrypted.slice(headerLen, headerLen + msgLen);
+  const remaining = Buffer.from(decrypted.slice(headerLen + msgLen));
+
+  // Check auth_key_id: 0 = unencrypted (auth), non-zero = encrypted
+  const authKeyId = msgData.readBigInt64LE(0);
+
+  if (authKeyId === 0n) {
+    // Unencrypted message: auth_key_id(8) + msg_id(8) + length(4) = 20 bytes
+    const innerPayload = msgData.length >= 20 ? msgData.slice(20) : msgData;
+    const response = handleUnencryptedAuthPayload(innerPayload, session);
+    return { remaining, response, preDecrypted: true };
+  }
+
+  // Encrypted message
+  const response = handleEncryptedMessage(msgData, session);
+  return { remaining, response, preDecrypted: true };
+}
+
+function handleUnencryptedAuthPayload(buffer: Buffer, session: ClientSession): Buffer | null {
+  const reader = new BinaryReader(buffer);
+  const constructorId = reader.peekConstructorId();
+
+  console.log(`[${new Date().toISOString()}] Session ${session.id} received: 0x${constructorId.toString(16)}`);
+
+  switch (constructorId) {
+    case 0xbe7e8ef1: // req_pq_multi
+    case 0x60469778: // req_pq (legacy)
+    {
+      const result = authHandler.processReqPqMultiSync(buffer, session.id);
+      return createObfuscatedResponse(result, session);
+    }
+    case 0xd712e4be: { // ReqDHParams
+      const result = authHandler.processReqDHParamsSync(buffer, session.id);
+      return createObfuscatedResponse(result, session);
+    }
+    case 0xf5045f1f: { // set_client_DH_params
+      const result = authHandler.processSetClientDHParamsSync(buffer, session.id);
+      // Persist newly created auth key to SQLite
+      for (const entry of authHandler.getAllAuthKeys()) {
+        messageStore.saveAuthKey(entry.keyIdHex, entry.authKey);
+      }
+      return createObfuscatedResponse(result, session);
+    }
+    default:
+      console.log(`Unknown auth payload: 0x${constructorId.toString(16)}`);
+      return null;
+  }
+}
+
+function createObfuscatedResponse(data: Buffer, session: ClientSession): Buffer {
+  const authKeyIdBuf = Buffer.alloc(8);
+  const msgId = Buffer.alloc(8);
+  msgId.writeBigInt64LE(generateMessageId(), 0);
+  const msgLen = Buffer.alloc(4);
+  msgLen.writeInt32LE(data.length, 0);
+
+  const envelope = Buffer.concat([authKeyIdBuf, msgId, msgLen, data]);
+  const length = envelope.length >> 2;
+  let frame: Buffer;
+  if (length < 127) {
+    frame = Buffer.concat([Buffer.from([length]), envelope]);
+  } else {
+    const header = Buffer.alloc(4);
+    header[0] = 0x7f;
+    header[1] = length & 0xff;
+    header[2] = (length >> 8) & 0xff;
+    header[3] = (length >> 16) & 0xff;
+    frame = Buffer.concat([header, envelope]);
+  }
+  if (session.encryptor) {
+    return session.encryptor.encrypt(frame);
+  }
+  return frame;
+}
+
+function isServiceMessage(constructorId: number): boolean {
+  return (
+    constructorId === 0xf3427b8c || // ping_delay_disconnect
+    constructorId === 0x7abe77ec || // ping
+    constructorId === 0x62d6b459    // msgs_ack
+  );
+}
+
+function handleEncryptedMessage(data: Buffer, session: ClientSession): Buffer | null {
+  const authKeyId = data.readBigInt64LE(0);
+  let authKey = authHandler.getAuthKey(session.id);
+
+  if (!authKey) {
+    // Try to find auth key by auth_key_id from the message header
+    authKey = authHandler.getAuthKeyByKeyId(authKeyId);
+    if (authKey) {
+      // Bind this auth key to the current session for future lookups
+      authHandler.bindAuthKeyToSession(session.id, authKeyId);
+      // Restore userId from auth_key → user mapping
+      const keyHex = getKeyIdHex(authKey);
+      const mappedUserId = authKeyUserMap.get(keyHex);
+      if (mappedUserId) {
+        session.userId = mappedUserId;
+      }
+      console.log(`[${new Date().toISOString()}] Session ${session.id} recovered auth key by keyId (userId=${session.userId || 'none'})`);
+      session.authKey = authKey;
+    }
+  }
+
+  if (!authKey) {
+    console.log(`[${new Date().toISOString()}] Session ${session.id} no auth key for encrypted message (keyId=0x${authKeyId.toString(16)})`);
+    return null;
+  }
+
+  // Always store authKey on session for use in auth handlers
+  if (!session.authKey) {
+    session.authKey = authKey;
+  }
+
+  // MTProto 2.0 encrypted message:
+  // auth_key_id(8) + msg_key(16) + encrypted_data(N)
+  const msgKey = data.slice(8, 24);
+  const encryptedPayload = data.slice(24);
+
+  // Derive AES key/iv from msg_key and auth_key (client→server: x=0)
+  // sha256_a = SHA256(msg_key + substr(auth_key, x, 36))    x=0 → [0:36]
+  // sha256_b = SHA256(substr(auth_key, 40+x, 36) + msg_key) x=0 → [40:76]
+  const sha256a = sha256Sync(Buffer.concat([msgKey, authKey.slice(0, 36)]));
+  const sha256b = sha256Sync(Buffer.concat([authKey.slice(40, 76), msgKey]));
+
+  const aesKey = Buffer.concat([sha256a.slice(0, 8), sha256b.slice(8, 24), sha256a.slice(24, 32)]);
+  const aesIv = Buffer.concat([sha256b.slice(0, 8), sha256a.slice(8, 24), sha256b.slice(24, 32)]);
+
+  // Decrypt with IGE
+  const ige = new IGE(aesKey, aesIv);
+  const decryptedData = ige.decryptIge(encryptedPayload);
+
+  // Parse inner message:
+  // server_salt(8) + session_id(8) + message_id(8) + seq_no(4) + message_data_length(4) + message_data
+  const serverSalt = decryptedData.slice(0, 8);
+  const sessionId = decryptedData.slice(8, 16);
+  const messageId = decryptedData.readBigInt64LE(16);
+  const seqNo = decryptedData.readInt32LE(24);
+  const msgDataLen = decryptedData.readInt32LE(28);
+  const innerData = decryptedData.slice(32, 32 + msgDataLen);
+
+  // Store session salt and session ID
+  session.serverSalt = serverSalt;
+  session.sessionId = sessionId;
+
+  // Send new_session_created on first encrypted message for this session
+  let newSessionMsg: Buffer | null = null;
+  if (!session.sentNewSessionCreated) {
+    session.sentNewSessionCreated = true;
+    const nsW = new BinaryWriter();
+    nsW.writeInt(0x9ec20908);  // new_session_created
+    nsW.writeLong(messageId);  // first_msg_id
+    nsW.writeLong(BigInt(Date.now()) * 1000000n); // unique_id
+    nsW.writeLong(serverSalt.readBigInt64LE(0));   // server_salt
+    newSessionMsg = nsW.getBytes();
+    console.log(`[${new Date().toISOString()}] Session ${session.id} sending new_session_created`);
+  }
+
+  // (verbose) encrypted msg log suppressed
+
+  // Parse TL constructor from inner data
+  const constructorId = innerData.readUInt32LE(0);
+  // (verbose) inner constructor log suppressed
+
+  // Handle msg_container
+  if (constructorId === 0x73f1f8dc) {
+    const containerResp = handleMsgContainer(innerData, messageId, session, authKey);
+    if (newSessionMsg && containerResp) {
+      // Send new_session_created separately before the container response
+      const nsBuf = createEncryptedResponse(newSessionMsg, 0n, session, authKey);
+      session.socket?.send(nsBuf);
+    }
+    return containerResp;
+  }
+
+  // Service messages that should NOT be wrapped in rpc_result
+  if (isServiceMessage(constructorId)) {
+    const responseData = handleTlRequest(innerData, session, messageId);
+    if (newSessionMsg) {
+      const nsBuf = createEncryptedResponse(newSessionMsg, 0n, session, authKey);
+      session.socket?.send(nsBuf);
+    }
+    if (!responseData) return null;
+    return createEncryptedResponse(responseData, messageId, session, authKey);
+  }
+
+  // RPC call: process and wrap in rpc_result
+  let responseData: Buffer | null = null;
+  try {
+    responseData = handleTlRequest(innerData, session, messageId);
+  } catch (err) {
+    const cid = innerData.readUInt32LE(0);
+    console.error(`[${new Date().toISOString()}] Session ${session.id} HANDLER ERROR for 0x${cid.toString(16)}:`, err);
+    responseData = buildRpcErrorObject(500, 'INTERNAL_ERROR');
+  }
+  if (newSessionMsg) {
+    const nsBuf = createEncryptedResponse(newSessionMsg, 0n, session, authKey);
+    session.socket?.send(nsBuf);
+  }
+  if (!responseData) return null;
+
+  const rpcResult = new BinaryWriter();
+  rpcResult.writeInt(0xf35c6d01);  // rpc_result constructor
+  rpcResult.writeLong(messageId);   // req_msg_id
+  rpcResult.writeBytes(responseData);
+
+  return createEncryptedResponse(rpcResult.getBytes(), messageId, session, authKey);
+}
+
+function handleMsgContainer(data: Buffer, containerMsgId: bigint, session: ClientSession, authKey: Buffer): Buffer | null {
+  // msg_container#73f1f8dc count:int messages:...
+  const count = data.readInt32LE(4);
+  let offset = 8; // skip constructor(4) + count(4)
+
+  const responses: Buffer[] = [];
+
+  for (let i = 0; i < count; i++) {
+    if (offset + 16 > data.length) break;
+    const msgId = data.readBigInt64LE(offset); offset += 8;
+    const seqNo = data.readInt32LE(offset); offset += 4;
+    const bodyLen = data.readInt32LE(offset); offset += 4;
+    const body = data.slice(offset, offset + bodyLen); offset += bodyLen;
+
+    const innerConstructor = body.readUInt32LE(0);
+    // (verbose) container item log suppressed
+
+    let responseData: Buffer | null = null;
+    try {
+      responseData = handleTlRequest(body, session, msgId);
+    } catch (err) {
+      console.error(`[${new Date().toISOString()}] Session ${session.id} HANDLER ERROR for 0x${innerConstructor.toString(16)}:`, err);
+      responseData = buildRpcErrorObject(500, 'INTERNAL_ERROR');
+    }
+    if (responseData) {
+      if (isServiceMessage(innerConstructor)) {
+        // Service messages (ping, msgs_ack) — send response directly, no rpc_result
+        responses.push(responseData);
+      } else {
+        const rpcResult = new BinaryWriter();
+        rpcResult.writeInt(0xf35c6d01);
+        rpcResult.writeLong(msgId);
+        rpcResult.writeBytes(responseData);
+        responses.push(rpcResult.getBytes());
+      }
+    }
+  }
+
+  if (responses.length === 0) return null;
+
+  // Wrap all responses in a msg_container
+  const containerW = new BinaryWriter();
+  containerW.writeInt(0x73f1f8dc); // msg_container
+  containerW.writeInt(responses.length);
+  let baseMsgId = generateMessageId();
+  for (const resp of responses) {
+    containerW.writeLong(baseMsgId);
+    baseMsgId += 4n; // ensure unique message IDs
+    containerW.writeInt(1); // seqNo
+    containerW.writeInt(resp.length);
+    containerW.writeBytes(resp);
+  }
+
+  return createEncryptedResponse(containerW.getBytes(), containerMsgId, session, authKey);
+}
+
+// Module-level active session for resolving inputPeerSelf/inputUserSelf in nested parsers
+let _activeSession: ClientSession | undefined;
+
+/** Return fixture only for non-DB (demo) users; registered users get no fixture data */
+function getFixtureForSession(session: ClientSession): OfficialCaptureFixture | undefined {
+  const selfId = session.userId || SEED_USER_ID;
+  const dbUser = messageStore.getUserById(selfId);
+  if (dbUser) return undefined; // registered user — no fixture
+  return getOfficialCaptureFixture(selfId);
+}
+
+function handleTlRequest(data: Buffer, session: ClientSession, reqMsgId: bigint = 0n): Buffer | null {
+  _activeSession = session;
+  const constructorId = data.readUInt32LE(0);
+
+  switch (constructorId) {
+    case 0xda9b0d0d: { // invokeWithLayer
+      const layer = data.readInt32LE(4);
+      console.log(`[${new Date().toISOString()}] Session ${session.id} invokeWithLayer: ${layer}`);
+      return handleTlRequest(data.slice(8), session, reqMsgId);
+    }
+
+    case 0xc1cd5ea9: { // initConnection
+      console.log(`[${new Date().toISOString()}] Session ${session.id} initConnection`);
+      const innerQuery = skipInitConnection(data);
+      if (innerQuery) return handleTlRequest(innerQuery, session, reqMsgId);
+      return buildConfig();
+    }
+
+    case 0xc4f9186b: { // help.getConfig
+      console.log(`[${new Date().toISOString()}] Session ${session.id} help.getConfig`);
+      return buildConfig();
+    }
+
+    case 0x61003e28: { // help.getAppConfig (old)
+      console.log(`[${new Date().toISOString()}] Session ${session.id} help.getAppConfig`);
+      return buildAppConfig();
+    }
+
+    case 0x61e3f854: { // help.getAppConfig (new with hash)
+      console.log(`[${new Date().toISOString()}] Session ${session.id} help.getAppConfig v2`);
+      return buildAppConfig();
+    }
+
+    case 0xda80f42f: { // help.getPeerColors
+      console.log(`[${new Date().toISOString()}] Session ${session.id} help.getPeerColors`);
+      return buildPeerColorsEmpty();
+    }
+
+    case 0xabcfa9fd: { // help.getPeerProfileColors
+      console.log(`[${new Date().toISOString()}] Session ${session.id} help.getPeerProfileColors`);
+      return buildPeerProfileColors();
+    }
+
+    // ========== AUTH METHODS ==========
+
+    case 0x518ad0b7: { // auth.initPasskeyLogin
+      console.log(`[${new Date().toISOString()}] Session ${session.id} auth.initPasskeyLogin`);
+      // Return auth.passkeyLoginOptions#e2037789 with empty DataJSON
+      // so Chrome doesn't break the container with an RPC error
+      const pw = new BinaryWriter();
+      pw.writeInt(0xe2037789);  // auth.passkeyLoginOptions
+      pw.writeInt(0x7d748d04);  // dataJSON
+      writeTlString(pw, '{}');  // empty JSON options
+      return pw.getBytes();
+    }
+
+    case 0xb7e085fe: { // auth.exportLoginToken
+      console.log(`[${new Date().toISOString()}] Session ${session.id} auth.exportLoginToken`);
+      const tokenResp = buildLoginToken();
+      console.log(`[${new Date().toISOString()}] auth.exportLoginToken response (${tokenResp.length} bytes): ${tokenResp.toString('hex')}`);
+      return tokenResp;
+    }
+
+    case 0xa677244f: { // auth.sendCode
+      const reader = new BinaryReader(data);
+      reader.offset = 4; // skip constructor
+      const phoneNumber = readTlString(reader);
+      console.log(`[${new Date().toISOString()}] Session ${session.id} auth.sendCode phone=${phoneNumber}`);
+      const authCode = messageStore.generateAuthCode(phoneNumber);
+      console.log(`\n  *** AUTH CODE for ${phoneNumber}: ${authCode.code} ***\n`);
+      return buildSentCode(authCode.phoneCodeHash, 5);
+    }
+
+    case 0x8d52a951: { // auth.signIn
+      const reader = new BinaryReader(data);
+      reader.offset = 4; // skip constructor
+      const flags = reader.readInt() >>> 0;
+      const phoneNumber = readTlString(reader);
+      const phoneCodeHash = readTlString(reader);
+      let phoneCode: string | undefined;
+      if (flags & (1 << 0)) {
+        phoneCode = readTlString(reader);
+      }
+      console.log(`[${new Date().toISOString()}] Session ${session.id} auth.signIn phone=${phoneNumber} code=${phoneCode}`);
+
+      if (!phoneCode) {
+        return buildRpcErrorObject(400, 'PHONE_CODE_EMPTY');
+      }
+
+      if (!messageStore.verifyAuthCode(phoneNumber, phoneCodeHash, phoneCode)) {
+        return buildRpcErrorObject(400, 'PHONE_CODE_INVALID');
+      }
+
+      // Check if user exists
+      const existingUser = messageStore.getUserByPhone(phoneNumber);
+      if (existingUser) {
+        session.userId = existingUser.id;
+        // Bind auth_key → user
+        if (session.authKey) {
+          const keyHex = getKeyIdHex(session.authKey);
+          authKeyUserMap.set(keyHex, existingUser.id);
+          messageStore.bindAuthKeyToUser(keyHex, existingUser.id);
+        }
+        console.log(`[${new Date().toISOString()}] Session ${session.id} signed in as userId=${existingUser.id}`);
+        return buildAuthAuthorization(existingUser);
+      }
+
+      // User not found → sign up required
+      console.log(`[${new Date().toISOString()}] Session ${session.id} sign up required for ${phoneNumber}`);
+      return buildAuthSignUpRequired();
+    }
+
+    case 0xaac7b717: { // auth.signUp
+      const reader = new BinaryReader(data);
+      reader.offset = 4; // skip constructor
+      const flags = reader.readInt() >>> 0;
+      const phoneNumber = readTlString(reader);
+      const phoneCodeHash = readTlString(reader);
+      const firstName = readTlString(reader);
+      const lastName = readTlString(reader);
+      console.log(`[${new Date().toISOString()}] Session ${session.id} auth.signUp phone=${phoneNumber} name=${firstName} ${lastName}`);
+
+      // Create user
+      const newUser = messageStore.createUser(phoneNumber, firstName, lastName);
+      session.userId = newUser.id;
+      // Bind auth_key → user
+      if (session.authKey) {
+        const keyHex = getKeyIdHex(session.authKey);
+        authKeyUserMap.set(keyHex, newUser.id);
+        messageStore.bindAuthKeyToUser(keyHex, newUser.id);
+      }
+      console.log(`[${new Date().toISOString()}] Session ${session.id} signed up as userId=${newUser.id} (${firstName} ${lastName})`);
+      return buildAuthAuthorization(newUser);
+    }
+
+    case 0x3e72ba19: { // auth.logOut
+      console.log(`[${new Date().toISOString()}] Session ${session.id} auth.logOut`);
+      session.userId = undefined;
+      if (session.authKey) {
+        const keyHex = getKeyIdHex(session.authKey);
+        authKeyUserMap.delete(keyHex);
+        messageStore.bindAuthKeyToUser(keyHex, 0);
+      }
+      // auth.loggedOut#c3a2835f flags:# future_auth_token:flags.0?bytes
+      const w = new BinaryWriter();
+      w.writeInt(0xc3a2835f);
+      w.writeInt(0); // flags
+      return w.getBytes();
+    }
+
+    case 0xb921197a: // updates.getState (old)
+    case 0xedd4882a: { // updates.getState
+      console.log(`[${new Date().toISOString()}] Session ${session.id} updates.getState (userId=${session.userId || 'none'})`);
+      if (!session.userId) {
+        return buildRpcErrorObject(401, 'AUTH_KEY_UNREGISTERED');
+      }
+      return buildUpdatesState();
+    }
+
+    // ping/pong
+    case 0xf3427b8c: { // ping_delay_disconnect
+      const pingId = data.readBigInt64LE(4);
+      // ping log suppressed
+      // pong#347773c5 msg_id:long ping_id:long
+      const pongW = new BinaryWriter();
+      pongW.writeInt(0x347773c5);
+      pongW.writeLong(reqMsgId); // msg_id of the original ping request
+      pongW.writeLong(pingId);
+      return pongW.getBytes();
+    }
+
+    case 0x7abe77ec: { // ping
+      const pingId = data.readBigInt64LE(4);
+      console.log(`[${new Date().toISOString()}] Session ${session.id} ping`);
+      const pongW = new BinaryWriter();
+      pongW.writeInt(0x347773c5);
+      pongW.writeLong(reqMsgId);
+      pongW.writeLong(pingId);
+      return pongW.getBytes();
+    }
+
+    // langpack methods
+    case 0xf2f2330a: { // langpack.getLangPack lang_pack:string lang_code:string
+      const lpReader1 = new BinaryReader(data);
+      lpReader1.offset = 4; // skip constructor
+      const langPackName1 = readTlString(lpReader1);
+      console.log(`[${new Date().toISOString()}] Session ${session.id} langpack.getLangPack (pack=${langPackName1})`);
+      return buildLangPackDifference(langPackName1);
+    }
+
+    case 0xefea3803: { // langpack.getStrings lang_pack:string lang_code:string keys:Vector<string>
+      const lpReader2 = new BinaryReader(data);
+      lpReader2.offset = 4;
+      const langPackName2 = readTlString(lpReader2);
+      const langCode2 = readTlString(lpReader2);
+      const vecCtor = lpReader2.readInt() >>> 0;
+      const keyCount = lpReader2.readInt();
+      const keys: string[] = [];
+      for (let i = 0; i < keyCount; i++) keys.push(readTlString(lpReader2));
+      console.log(`[${new Date().toISOString()}] Session ${session.id} langpack.getStrings (pack=${langPackName2}, ${keyCount} keys)`);
+      return buildLangPackStringsResponse(langPackName2, keys);
+    }
+
+    case 0x6a596502: { // langpack.getLanguage
+      console.log(`[${new Date().toISOString()}] Session ${session.id} langpack.getLanguage`);
+      return buildLangPackLanguage();
+    }
+
+    case 0x42c6978f: { // langpack.getLanguages
+      console.log(`[${new Date().toISOString()}] Session ${session.id} langpack.getLanguages`);
+      return buildEmptyVector();
+    }
+
+    case 0xcd984aa5: { // langpack.getDifference lang_pack:string lang_code:string from_version:int
+      const lpReader3 = new BinaryReader(data);
+      lpReader3.offset = 4;
+      const langPackName3 = readTlString(lpReader3);
+      console.log(`[${new Date().toISOString()}] Session ${session.id} langpack.getDifference (pack=${langPackName3})`);
+      return buildLangPackDifference(langPackName3);
+    }
+
+    // updates methods
+    case 0x25d218ec: { // updates.getDifference (older)
+      console.log(`[${new Date().toISOString()}] Session ${session.id} updates.getDifference`);
+      if (!session.userId) return buildRpcErrorObject(401, 'AUTH_KEY_UNREGISTERED');
+      return buildUpdatesDifference(data, session.userId);
+    }
+
+    case 0x19c2f763: { // updates.getDifference (newer)
+      console.log(`[${new Date().toISOString()}] Session ${session.id} updates.getDifference v2`);
+      if (!session.userId) return buildRpcErrorObject(401, 'AUTH_KEY_UNREGISTERED');
+      return buildUpdatesDifference(data, session.userId);
+    }
+
+    // msg_ack — just acknowledge, no response needed
+    case 0x62d6b459: { // msgs_ack
+      return null;
+    }
+
+    // invokeAfterMsg
+    case 0xcb9f372d: {
+      console.log(`[${new Date().toISOString()}] Session ${session.id} invokeAfterMsg`);
+      // Skip constructor(4) + msg_id(8) = 12 bytes
+      return handleTlRequest(data.slice(12), session, reqMsgId);
+    }
+
+    // invokeWithoutUpdates
+    case 0xbf9459b7: {
+      console.log(`[${new Date().toISOString()}] Session ${session.id} invokeWithoutUpdates`);
+      return handleTlRequest(data.slice(4), session, reqMsgId);
+    }
+
+    // gzip_packed — decompress and process inner data
+    case 0x3072cfa1: {
+      console.log(`[${new Date().toISOString()}] Session ${session.id} gzip_packed`);
+      try {
+        const reader = new BinaryReader(data);
+        reader.offset = 4; // skip constructor
+        const firstByte = reader.readByte();
+        let len: number;
+        if (firstByte <= 253) {
+          len = firstByte;
+        } else {
+          const b = reader.readBytes(3);
+          len = b[0] | (b[1] << 8) | (b[2] << 16);
+        }
+        const headerLen = firstByte <= 253 ? 1 : 4;
+        const gzippedData = reader.readBytes(len);
+        const decompressed = Buffer.from(gunzipSync(gzippedData));
+        console.log(`[${new Date().toISOString()}] Session ${session.id} gzip decompressed: ${len} -> ${decompressed.length} bytes, inner constructor: 0x${decompressed.readUInt32LE(0).toString(16)}`);
+        return handleTlRequest(decompressed, session, reqMsgId);
+      } catch (e) {
+        console.error(`[${new Date().toISOString()}] Session ${session.id} gzip decompress error:`, (e as Error).message);
+        return null;
+      }
+    }
+
+    // ========== PRIORITY 1: Main UI API Stubs ==========
+
+    case 0xb60f5918: { // users.getFullUser
+      console.log(`[${new Date().toISOString()}] Session ${session.id} users.getFullUser`);
+      const request = parseGetFullUserRequest(data, session);
+      const selfId = session.userId || SEED_USER_ID;
+      return buildUserFullForUser(session, undefined, request?.userId || String(selfId));
+    }
+
+    case 0x0d91a548: { // users.getUsers
+      console.log(`[${new Date().toISOString()}] Session ${session.id} users.getUsers`);
+      const request = parseGetUsersRequest(data, session);
+      if (!request || request.length === 0) {
+        return buildUsersVector(session);
+      }
+
+      return buildUsersVectorForIds(session, undefined, request.map(({ userId }) => userId));
+    }
+
+    case 0xefd48c89: { // messages.getDialogFilters
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getDialogFilters`);
+      return buildDialogFilters();
+    }
+
+    case 0xa0f4cb4f: { // messages.getDialogs
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getDialogs`);
+      const dialogsSelfId = session.userId || SEED_USER_ID;
+      return buildDialogsFromDb(dialogsSelfId);
+    }
+
+    case 0x6628562c: { // account.updateStatus
+      console.log(`[${new Date().toISOString()}] Session ${session.id} account.updateStatus`);
+      const statusSelfId = session.userId || SEED_USER_ID;
+      // Parse offline flag: account.updateStatus#6628562c offline:Bool
+      const statusReader = new BinaryReader(data);
+      statusReader.readInt(); // constructor
+      const offlineCtor = statusReader.readInt() >>> 0;
+      const isOffline = offlineCtor === 0xbc799737; // boolTrue = offline
+      // Broadcast status to all contacts
+      const statusUpdate = buildUpdateUserStatus(statusSelfId, isOffline);
+      const allUsers = messageStore.getAllUsers();
+      for (const user of allUsers) {
+        if (user.id !== statusSelfId) {
+          broadcastToUser(user.id, statusUpdate);
+        }
+      }
+      return buildBoolTrue();
+    }
+
+    case 0x735787a8: { // help.getCountriesList
+      console.log(`[${new Date().toISOString()}] Session ${session.id} help.getCountriesList`);
+      return buildCountriesListEmpty();
+    }
+
+    case 0xe470bcfd: { // messages.getPeerDialogs
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getPeerDialogs`);
+      const peerDialogsSelfId = session.userId || SEED_USER_ID;
+      const requestedPeerKeys = parsePeerDialogsRequest(data);
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getPeerDialogs peers: ${JSON.stringify(requestedPeerKeys)}`);
+      return buildPeerDialogsForPeers(requestedPeerKeys, peerDialogsSelfId);
+    }
+
+    case 0x4423e6c5: { // messages.getHistory
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getHistory`);
+      const histSelfId = session.userId || SEED_USER_ID;
+      const request = parseHistoryRequest(data);
+      if (request?.peerKey) {
+        const storedMessages = listStoredMessagesAsFixtureForUser(request.peerKey, histSelfId);
+        if (storedMessages.length > 0) {
+          return buildGetMessagesResponse(storedMessages, null, histSelfId);
+        }
+      }
+      return buildMessagesSliceEmpty();
+    }
+
+    case 0x998ab009: { // messages.getSavedHistory
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getSavedHistory`);
+      const savedSelfId = session.userId || SEED_USER_ID;
+      const request = parseHistoryRequest(data);
+      const savedPeerKey = `user:${savedSelfId}`;
+      const storedMessages = listStoredMessagesAsFixtureForUser(savedPeerKey, savedSelfId);
+      if (storedMessages.length > 0) {
+        return buildGetMessagesResponse(storedMessages, null, savedSelfId);
+      }
+      return buildMessagesEmpty();
+    }
+
+    case 0x63c66506: { // messages.getMessages
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getMessages`);
+      const messageIds = parseGetMessagesRequest(data);
+      if (!messageIds || messageIds.length === 0) {
+        return buildGetMessagesResponse([]);
+      }
+
+      const selfId = session.userId || SEED_USER_ID;
+      const foundMessages: FixtureMessage[] = [];
+
+      for (const msgId of messageIds) {
+        const stored = messageStore.getMessageForUser(msgId, selfId);
+        if (stored) {
+          const isSavedMessages = stored.peerKey === `user:${selfId}`;
+          foundMessages.push({
+            id: stored.messageId,
+            peerKey: stored.peerKey,
+            date: stored.date,
+            text: stored.text,
+            className: 'Message',
+            out: isSavedMessages ? false : stored.isOutgoing,
+            post: stored.post,
+            fromPeerKey: isSavedMessages ? undefined : stored.fromPeerKey,
+            savedPeerKey: isSavedMessages ? `user:${selfId}` : undefined,
+            editDate: stored.editDate,
+          });
+        }
+      }
+
+      return buildGetMessagesResponse(foundMessages, null, selfId);
+    }
+
+    case 0x29ee847a: { // messages.search
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.search`);
+      return buildMessagesEmpty();
+    }
+
+    case 0xf516760b: { // messages.getScheduledHistory
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getScheduledHistory`);
+      return buildMessagesEmpty();
+    }
+
+    case 0x3d6ce850: { // messages.getSponsoredMessages
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getSponsoredMessages`);
+      return buildSponsoredMessagesEmpty();
+    }
+
+    case 0x78499170: { // stories.getPeerMaxIDs
+      console.log(`[${new Date().toISOString()}] Session ${session.id} stories.getPeerMaxIDs`);
+      const peers = parsePeerVectorRequest(data) || [];
+      return buildRecentStoriesVector(peers.length);
+    }
+
+    case 0x08736a09: { // channels.getFullChannel
+      console.log(`[${new Date().toISOString()}] Session ${session.id} channels.getFullChannel`);
+      const request = parseGetFullChannelRequest(data);
+      return buildChannelFullEmpty(request?.channelId);
+    }
+
+    case 0xad8c9a23: { // channels.getMessages
+      console.log(`[${new Date().toISOString()}] Session ${session.id} channels.getMessages`);
+      return buildGetMessagesResponse([]);
+    }
+
+    case 0x545cd15a: { // messages.sendMessage
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.sendMessage`);
+      const request = parseSendMessageRequest(data);
+      if (!request?.peerKey) {
+        return buildRpcErrorObject(400, 'MSG_OPTION_UNSUPPORTED');
+      }
+
+      const selfId = session.userId || SEED_USER_ID;
+      const isSavedMessages = request.peerKey === `user:${selfId}`;
+      const isP2P = request.peerKey.startsWith('user:') && !isSavedMessages;
+      const senderPeerKey = request.peerKey.startsWith('channel:')
+        ? undefined
+        : `user:${selfId}`;
+
+      // Store outgoing message (sender's copy)
+      const storedMessage = messageStore.appendOutgoingMessage(selfId, {
+        peerKey: request.peerKey,
+        text: request.message,
+        clientRandomId: request.randomId,
+        seedMaxMessageId: 0,
+        fromPeerKey: isSavedMessages ? undefined : senderPeerKey,
+        post: request.peerKey.startsWith('channel:'),
+      });
+
+      const messageFixture = getStoredMessageAsFixture(request.peerKey, storedMessage.messageId, selfId);
+
+      const userIds: string[] = [String(selfId)];
+      const chatIds: string[] = [];
+      if (messageFixture) {
+        collectEntityIdsFromPeerKey(messageFixture.peerKey, userIds, chatIds);
+      }
+
+      // Build shared update buffers (used by both response and broadcast to sender's other tabs)
+      const sharedUpdates: Buffer[] = [];
+      if (messageFixture) {
+        sharedUpdates.push(buildUpdateNewMessage(messageFixture, storedMessage.updatePts, storedMessage.updatePtsCount));
+      }
+
+      // For Saved Messages, also auto-read
+      if (isSavedMessages) {
+        const readInfo = messageStore.appendUpdateEvent_ReadHistory(selfId, request.peerKey, storedMessage.messageId);
+        if (readInfo) {
+          sharedUpdates.push(buildUpdateReadHistoryInbox(request.peerKey, storedMessage.messageId, readInfo.pts, readInfo.ptsCount, selfId));
+        }
+        const outboxReadInfo = messageStore.appendUpdateEvent_ReadHistoryOutbox(selfId, request.peerKey, storedMessage.messageId);
+        if (outboxReadInfo) {
+          sharedUpdates.push(buildUpdateReadHistoryOutbox(request.peerKey, storedMessage.messageId, outboxReadInfo.pts, outboxReadInfo.ptsCount));
+        }
+      }
+
+      // Broadcast to sender's other sessions
+      broadcastSessionUpdates(
+        session,
+        buildLiveUpdatesEnvelope(sharedUpdates, userIds, chatIds),
+      );
+
+      // P2P: store incoming copy for recipient and broadcast to recipient's sessions
+      if (isP2P) {
+        const recipientIdStr = request.peerKey.replace('user:', '');
+        const recipientId = Number(recipientIdStr);
+        const recipientPeerKey = `user:${selfId}`; // recipient sees conversation with sender
+
+        // Store incoming message for recipient
+        const recipientMessage = messageStore.appendOutgoingMessage(recipientId, {
+          peerKey: recipientPeerKey,
+          text: request.message,
+          clientRandomId: `recv_${request.randomId}`,
+          seedMaxMessageId: 0,
+          fromPeerKey: `user:${selfId}`,
+          post: false,
+        });
+        // Mark as incoming (not outgoing) for recipient
+        messageStore.markMessageIncoming(recipientId, recipientPeerKey, recipientMessage.messageId);
+
+        const recipientFixture = getStoredMessageAsFixture(recipientPeerKey, recipientMessage.messageId, recipientId);
+        if (recipientFixture) {
+          const recipientUserIds = [String(selfId), recipientIdStr];
+          const recipientUpdates: Buffer[] = [
+            buildUpdateNewMessage(recipientFixture, recipientMessage.updatePts, recipientMessage.updatePtsCount),
+          ];
+          broadcastToUser(
+            recipientId,
+            buildLiveUpdatesEnvelope(recipientUpdates, recipientUserIds, []),
+          );
+        }
+      }
+
+      // Response to sender: UpdateMessageID + shared updates
+      const senderUpdates: Buffer[] = [
+        buildUpdateMessageID(storedMessage.messageId, request.randomId),
+        ...sharedUpdates,
+      ];
+      return buildLiveUpdatesEnvelope(senderUpdates, userIds, chatIds);
+    }
+
+    case 0x51e842e1: { // messages.editMessage
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.editMessage`);
+      const editSelfId = session.userId || SEED_USER_ID;
+      const editReq = parseEditMessageRequest(data);
+      if (!editReq?.peerKey || !editReq.messageId || !editReq.newText) {
+        return buildRpcErrorObject(400, 'MESSAGE_EDIT_INVALID');
+      }
+
+      // Edit sender's copy
+      const editResult = messageStore.editMessage(editSelfId, editReq.peerKey, editReq.messageId, editReq.newText);
+      if (!editResult) {
+        return buildRpcErrorObject(400, 'MESSAGE_ID_INVALID');
+      }
+
+      const editFixture = getStoredMessageAsFixture(editReq.peerKey, editReq.messageId, editSelfId);
+      if (!editFixture) {
+        return buildRpcErrorObject(400, 'MESSAGE_ID_INVALID');
+      }
+
+      const editUserIds: string[] = [String(editSelfId)];
+      const editChatIds: string[] = [];
+      collectEntityIdsFromPeerKey(editFixture.peerKey, editUserIds, editChatIds);
+      if (editFixture.fromPeerKey) collectEntityIdsFromPeerKey(editFixture.fromPeerKey, editUserIds, editChatIds);
+
+      const editUpdate = buildUpdateEditMessage(editFixture, editResult.updatePts, editResult.updatePtsCount);
+
+      // Broadcast to sender's other sessions
+      broadcastSessionUpdates(session, buildLiveUpdatesEnvelope([editUpdate], editUserIds, editChatIds));
+
+      // P2P: edit recipient's copy and broadcast
+      const isP2PEdit = editReq.peerKey.startsWith('user:') && editReq.peerKey !== `user:${editSelfId}`;
+      if (isP2PEdit) {
+        const recipientId = Number(editReq.peerKey.replace('user:', ''));
+        const recipientPeerKey = `user:${editSelfId}`;
+        const recipientEdit = messageStore.editMessage(recipientId, recipientPeerKey, editReq.messageId, editReq.newText);
+        if (recipientEdit) {
+          const recipientFixture = getStoredMessageAsFixture(recipientPeerKey, editReq.messageId, recipientId);
+          if (recipientFixture) {
+            const recipientUserIds = [String(editSelfId), String(recipientId)];
+            const recipientEditUpdate = buildUpdateEditMessage(recipientFixture, recipientEdit.updatePts, recipientEdit.updatePtsCount);
+            broadcastToUser(recipientId, buildLiveUpdatesEnvelope([recipientEditUpdate], recipientUserIds, []));
+          }
+        }
+      }
+
+      // Response to sender
+      return buildLiveUpdatesEnvelope([editUpdate], editUserIds, editChatIds);
+    }
+
+    case 0xe58e95d2: { // messages.deleteMessages
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.deleteMessages`);
+      const delSelfId = session.userId || SEED_USER_ID;
+      const delReq = parseDeleteMessagesRequest(data);
+      if (!delReq?.messageIds.length) {
+        return buildAffectedMessages(messageStore.getUpdateState().pts, 0);
+      }
+
+      // Find which peer these messages belong to for this user
+      const firstMsg = messageStore.findMessageInAllPeers(delSelfId, delReq.messageIds[0]);
+      if (!firstMsg) {
+        return buildAffectedMessages(messageStore.getUpdateState().pts, 0);
+      }
+
+      const delResult = messageStore.deleteMessages(delSelfId, firstMsg.peerKey, delReq.messageIds);
+      if (!delResult) {
+        return buildAffectedMessages(messageStore.getUpdateState().pts, 0);
+      }
+
+      // Broadcast deleteMessages update to sender's other sessions
+      const delUpdate = buildUpdateDeleteMessages(delReq.messageIds, delResult.updatePts, delResult.updatePtsCount);
+      broadcastSessionUpdates(session, buildLiveUpdatesEnvelope([delUpdate], [], []));
+
+      // If revoke, also delete from recipient and broadcast
+      if (delReq.revoke) {
+        const isP2PDel = firstMsg.peerKey.startsWith('user:') && firstMsg.peerKey !== `user:${delSelfId}`;
+        if (isP2PDel) {
+          const recipientId = Number(firstMsg.peerKey.replace('user:', ''));
+          const recipientPeerKey = `user:${delSelfId}`;
+          const recipientDel = messageStore.deleteMessages(recipientId, recipientPeerKey, delReq.messageIds);
+          if (recipientDel) {
+            const recipientDelUpdate = buildUpdateDeleteMessages(delReq.messageIds, recipientDel.updatePts, recipientDel.updatePtsCount);
+            broadcastToUser(recipientId, buildLiveUpdatesEnvelope([recipientDelUpdate], [], []));
+          }
+        }
+      }
+
+      return buildAffectedMessages(delResult.updatePts, delResult.updatePtsCount);
+    }
+
+    case 0x58943ee2: { // messages.setTyping
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.setTyping`);
+      const typingSelfId = session.userId || SEED_USER_ID;
+      const typingReq = parseSetTypingRequest(data);
+      if (typingReq?.peerKey) {
+        const isP2PTyping = typingReq.peerKey.startsWith('user:') && typingReq.peerKey !== `user:${typingSelfId}`;
+        if (isP2PTyping) {
+          const targetUserId = Number(typingReq.peerKey.replace('user:', ''));
+          const typingUpdate = buildUpdateUserTyping(typingSelfId, typingReq.actionConstructor);
+          broadcastToUser(targetUserId, typingUpdate);
+        }
+      }
+      return buildBoolTrue();
+    }
+
+    case 0x0e306d3a: { // messages.readHistory
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.readHistory`);
+      const request = parseReadHistoryRequest(data);
+      if (!request) {
+        return buildRpcErrorObject(400, 'MSG_OPTION_UNSUPPORTED');
+      }
+
+      const readSelfId = session.userId || SEED_USER_ID;
+      const state = messageStore.markHistoryRead(readSelfId, request.peerKey, request.maxId);
+      broadcastSessionUpdates(session, buildLiveReadHistoryUpdates(
+        request.peerKey,
+        request.maxId,
+        state.updatePts,
+        state.updatePtsCount,
+        readSelfId,
+      ));
+      return buildAffectedMessages(state.updatePts, state.updatePtsCount);
+    }
+
+    case 0xcc104937: { // channels.readHistory
+      console.log(`[${new Date().toISOString()}] Session ${session.id} channels.readHistory`);
+      const request = parseChannelReadHistoryRequest(data);
+      if (!request) {
+        return buildRpcErrorObject(400, 'MSG_OPTION_UNSUPPORTED');
+      }
+
+      const chanReadSelfId = session.userId || SEED_USER_ID;
+      messageStore.markHistoryRead(chanReadSelfId, request.peerKey, request.maxId);
+      return buildBoolTrue();
+    }
+
+    case 0xd6b94df2: { // messages.getPinnedDialogs (newer layer)
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getPinnedDialogs`);
+      return buildPinnedDialogs();
+    }
+
+    case 0x1fb33026: { // help.getNearestDc
+      console.log(`[${new Date().toISOString()}] Session ${session.id} help.getNearestDc`);
+      return buildNearestDc();
+    }
+
+    case 0x5dd69e12: { // contacts.getContacts
+      console.log(`[${new Date().toISOString()}] Session ${session.id} contacts.getContacts`);
+      const selfId = session.userId || SEED_USER_ID;
+      return buildContactsFromDb(selfId);
+    }
+
+    case 0x11f812d8: { // contacts.search
+      console.log(`[${new Date().toISOString()}] Session ${session.id} contacts.search`);
+      const searchReader = new BinaryReader(data);
+      searchReader.offset = 4; // skip constructor
+      const query = readTlString(searchReader);
+      const selfId = session.userId || SEED_USER_ID;
+      console.log(`[${new Date().toISOString()}] contacts.search query="${query}" selfId=${selfId}`);
+      return buildContactsFound(query, selfId);
+    }
+
+    case 0x21202222: { // messages.getDialogUnreadMarks
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getDialogUnreadMarks`);
+      return buildEmptyVector();
+    }
+
+    case 0x12b3ad31: { // account.getNotifySettings
+      console.log(`[${new Date().toISOString()}] Session ${session.id} account.getNotifySettings`);
+      return buildPeerNotifySettings();
+    }
+
+    case 0xe320c158: { // account.getAuthorizations
+      console.log(`[${new Date().toISOString()}] Session ${session.id} account.getAuthorizations`);
+      return buildAuthorizationsEmpty();
+    }
+
+    case 0xc0977421: { // help.getPromoData
+      console.log(`[${new Date().toISOString()}] Session ${session.id} help.getPromoData`);
+      return buildPromoDataEmpty();
+    }
+
+    case 0x07967d36: { // account.getWallPapers (correct constructor)
+      console.log(`[${new Date().toISOString()}] Session ${session.id} account.getWallPapers`);
+      return buildWallPapersNotModified();
+    }
+
+    case 0x150b3b4c: { // messages.getStickerSet (old)
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getStickerSet`);
+      return buildStickerSetNotModified();
+    }
+
+    case 0xc8a0ec74: { // messages.getStickerSet (new)
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getStickerSet v2`);
+      return buildStickerSetNotModified();
+    }
+
+    case 0x72d4742c: { // help.getAppChangelog
+      console.log(`[${new Date().toISOString()}] Session ${session.id} help.getAppChangelog`);
+      return buildUpdatesEmpty();
+    }
+
+    case 0x973478b6: { // contacts.getTopPeers
+      console.log(`[${new Date().toISOString()}] Session ${session.id} contacts.getTopPeers`);
+      return buildTopPeersDisabled();
+    }
+
+    case 0x3671cf: { // contacts.getStatuses
+      console.log(`[${new Date().toISOString()}] Session ${session.id} contacts.getStatuses`);
+      return buildEmptyVector();
+    }
+
+    case 0x9a868f80: { // contacts.getBlocked
+      console.log(`[${new Date().toISOString()}] Session ${session.id} contacts.getBlocked`);
+      return buildBlockedEmpty();
+    }
+
+    case 0x18dea0ac: { // messages.getAvailableReactions
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getAvailableReactions`);
+      return buildAvailableReactionsNotModified();
+    }
+
+    case 0x1e91fc99: { // messages.getSavedDialogs
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getSavedDialogs`);
+      return buildSavedDialogsEmpty();
+    }
+
+    case 0xd63d94e0: { // messages.getPinnedSavedDialogs
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getPinnedSavedDialogs`);
+      return buildSavedDialogsEmpty();
+    }
+
+    case 0xeeb0d625: { // stories.getAllStories
+      console.log(`[${new Date().toISOString()}] Session ${session.id} stories.getAllStories`);
+      return buildAllStoriesEmpty();
+    }
+
+    case 0xbdf93428: { // messages.getDefaultTagReactions
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getDefaultTagReactions`);
+      return buildReactionsEmpty();
+    }
+
+    case 0xeb2b4cf6: { // account.getGlobalPrivacySettings
+      console.log(`[${new Date().toISOString()}] Session ${session.id} account.getGlobalPrivacySettings`);
+      return buildGlobalPrivacySettings();
+    }
+
+    case 0x16fcc2cb: { // messages.getAttachMenuBots
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getAttachMenuBots`);
+      return buildAttachMenuBotsNotModified();
+    }
+
+    case 0x9f07c728: { // account.getContactSignUpNotification
+      console.log(`[${new Date().toISOString()}] Session ${session.id} account.getContactSignUpNotification`);
+      return buildBoolFalse();
+    }
+
+    case 0x53577479: { // account.getNotifyExceptions
+      console.log(`[${new Date().toISOString()}] Session ${session.id} account.getNotifyExceptions`);
+      return buildUpdatesEmpty();
+    }
+
+    case 0x35a0e062: { // messages.getEmojiKeywords
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getEmojiKeywords`);
+      return buildEmojiKeywordsDifference();
+    }
+
+    case 0x1508b6af: { // messages.getEmojiKeywordsDifference
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getEmojiKeywordsDifference`);
+      return buildEmojiKeywordsDifference();
+    }
+
+    case 0xd5b10c26: { // messages.getEmojiURL
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getEmojiURL`);
+      return buildEmojiURL();
+    }
+
+    case 0xbb8125ba: { // messages.getTopReactions
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getTopReactions`);
+      return buildReactionsNotModified();
+    }
+
+    case 0x39461db2: { // messages.getRecentReactions
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getRecentReactions`);
+      return buildReactionsNotModified();
+    }
+
+    case 0x658b7188: { // messages.getDefaultHistoryTTL
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getDefaultHistoryTTL`);
+      return buildDefaultHistoryTTL();
+    }
+
+    case 0x3637e05b: { // messages.getSavedReactionTags
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getSavedReactionTags`);
+      return buildSavedReactionTagsEmpty();
+    }
+
+    case 0xd483f2a8: { // messages.getQuickReplies
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getQuickReplies`);
+      return buildQuickRepliesEmpty();
+    }
+
+    case 0xdea20a39: { // messages.getAvailableEffects
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getAvailableEffects`);
+      return buildAvailableEffectsEmpty();
+    }
+
+    case 0x472455aa: { // messages.getPaidReactionPrivacy
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getPaidReactionPrivacy`);
+      return buildUpdatesEmpty();
+    }
+
+    case 0x570d6f6f: { // messages.getWebPagePreview
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getWebPagePreview`);
+      return buildWebPagePreviewEmpty();
+    }
+
+    case 0x54ae308e: { // messages.saveDraft
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.saveDraft`);
+      return buildBoolTrue();
+    }
+
+    case 0xe04232f3: { // messages.getPinnedDialogs
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getPinnedDialogs`);
+      return buildPinnedDialogs();
+    }
+
+    case 0x8b9b4dae: { // account.getContentSettings
+      console.log(`[${new Date().toISOString()}] Session ${session.id} account.getContentSettings`);
+      return buildContentSettings();
+    }
+
+    case 0xdadbc950: { // account.getPrivacy
+      console.log(`[${new Date().toISOString()}] Session ${session.id} account.getPrivacy`);
+      return buildPrivacyRulesEmpty();
+    }
+
+    case 0x548a30f5: { // account.getPassword
+      console.log(`[${new Date().toISOString()}] Session ${session.id} account.getPassword`);
+      return buildAccountPassword();
+    }
+
+    case 0xb8a0a1a8: { // messages.getAllStickers
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getAllStickers`);
+      return buildAllStickersNotModified();
+    }
+
+    case 0xfbfca18f: { // messages.getEmojiStickers
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getEmojiStickers`);
+      return buildAllStickersNotModified();
+    }
+
+    case 0xd9ab0f54: { // messages.getCustomEmojiDocuments
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getCustomEmojiDocuments`);
+      return buildEmptyVector();
+    }
+
+    case 0x0ecf6736: { // messages.getFeaturedEmojiStickers
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getFeaturedEmojiStickers`);
+      return buildFeaturedStickersNotModified();
+    }
+
+    case 0x64780b14: { // messages.getFeaturedStickers
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getFeaturedStickers`);
+      return buildFeaturedStickersNotModified();
+    }
+
+    case 0x9da9403b: { // messages.getRecentStickers
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getRecentStickers`);
+      return buildRecentStickersNotModified();
+    }
+
+    case 0x5cf09635: { // messages.getSavedGifs
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getSavedGifs`);
+      return buildSavedGifsNotModified();
+    }
+
+    case 0x04f1aaa9: { // messages.getFavedStickers
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getFavedStickers`);
+      return buildFavedStickersNotModified();
+    }
+
+    case 0x49b30240: { // help.getTimezonesList
+      console.log(`[${new Date().toISOString()}] Session ${session.id} help.getTimezonesList`);
+      return buildTimezonesListEmpty();
+    }
+
+    case 0xc00ec7d3: { // payments.getStarsTopupOptions
+      console.log(`[${new Date().toISOString()}] Session ${session.id} payments.getStarsTopupOptions`);
+      return buildEmptyVector();
+    }
+
+    case 0x4ea9b3bf: { // payments.getStarsStatus
+      console.log(`[${new Date().toISOString()}] Session ${session.id} payments.getStarsStatus`);
+      return buildStarsStatusEmpty();
+    }
+
+    case 0x2e7b4543: { // account.getCollectibleEmojiStatuses
+      console.log(`[${new Date().toISOString()}] Session ${session.id} account.getCollectibleEmojiStatuses`);
+      return buildEmojiStatusesEmpty();
+    }
+
+    case 0xc4563590: { // payments.getStarGifts
+      console.log(`[${new Date().toISOString()}] Session ${session.id} payments.getStarGifts`);
+      return buildStarGiftsEmpty();
+    }
+
+    case 0xa319e569: { // payments.getSavedStarGifts
+      console.log(`[${new Date().toISOString()}] Session ${session.id} payments.getSavedStarGifts`);
+      return buildSavedStarGiftsEmpty();
+    }
+
+    case 0xa5d0514d: { // payments.getStarGiftActiveAuctions
+      console.log(`[${new Date().toISOString()}] Session ${session.id} payments.getStarGiftActiveAuctions`);
+      return buildStarGiftActiveAuctionsEmpty();
+    }
+
+    case 0x5dd8c7b8: { // auth.initPasskeyLogin
+      console.log(`[${new Date().toISOString()}] Session ${session.id} auth.initPasskeyLogin (unsupported)`);
+      return buildRpcErrorObject(400, 'PASSKEY_NOT_SUPPORTED');
+    }
+
+    case 0xd5a5d3a1: { // messages.getStickers
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getStickers`);
+      // messages.stickersNotModified#f1749a22
+      const sW = new BinaryWriter();
+      sW.writeInt(0xf1749a22);
+      return sW.getBytes();
+    }
+
+    // ========== PRIORITY 1: resolve, notify, pin ==========
+
+    case 0x725afbbc: { // contacts.resolveUsername
+      console.log(`[${new Date().toISOString()}] Session ${session.id} contacts.resolveUsername`);
+      const reader = new BinaryReader(data);
+      reader.offset = 4; // skip constructor
+      const rFlags = reader.readInt();
+      const username = readTlString(reader);
+      console.log(`[${new Date().toISOString()}] resolveUsername: "${username}"`);
+      return buildResolvedPeer(username);
+    }
+
+    case 0x8af94344: { // contacts.resolvePhone
+      console.log(`[${new Date().toISOString()}] Session ${session.id} contacts.resolvePhone`);
+      const reader = new BinaryReader(data);
+      reader.offset = 4; // skip constructor
+      const phone = readTlString(reader);
+      console.log(`[${new Date().toISOString()}] resolvePhone: "${phone}"`);
+      const user = messageStore.getUserByPhone(phone);
+      if (!user) return buildRpcErrorObject(400, 'PHONE_NOT_OCCUPIED');
+      return buildResolvedPeerForUser(user);
+    }
+
+    case 0x84be5b93: { // account.updateNotifySettings
+      console.log(`[${new Date().toISOString()}] Session ${session.id} account.updateNotifySettings`);
+      return buildBoolTrue();
+    }
+
+    case 0xa731e257: { // messages.toggleDialogPin
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.toggleDialogPin`);
+      return buildBoolTrue();
+    }
+
+    case 0x3b1adf37: { // messages.reorderPinnedDialogs
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.reorderPinnedDialogs`);
+      return buildBoolTrue();
+    }
+
+    // ========== PRIORITY 2: upload, media, avatar ==========
+
+    case 0xb304a621: { // upload.saveFilePart
+      console.log(`[${new Date().toISOString()}] Session ${session.id} upload.saveFilePart`);
+      const reader = new BinaryReader(data);
+      reader.offset = 4;
+      const fileId = reader.readLong();
+      const filePart = reader.readInt();
+      const bytesLen = reader.readInt();
+      const bytes = data.slice(reader.offset, reader.offset + bytesLen);
+      messageStore.saveFilePart(fileId.toString(), filePart, bytes);
+      return buildBoolTrue();
+    }
+
+    case 0xde7b673d: { // upload.saveBigFilePart
+      console.log(`[${new Date().toISOString()}] Session ${session.id} upload.saveBigFilePart`);
+      const reader = new BinaryReader(data);
+      reader.offset = 4;
+      const fileId = reader.readLong();
+      const filePart = reader.readInt();
+      const fileTotalParts = reader.readInt();
+      const bytesLen = reader.readInt();
+      const bytes = data.slice(reader.offset, reader.offset + bytesLen);
+      messageStore.saveFilePart(fileId.toString(), filePart, bytes);
+      return buildBoolTrue();
+    }
+
+    case 0xbe5335be: { // upload.getFile
+      console.log(`[${new Date().toISOString()}] Session ${session.id} upload.getFile`);
+      const reader = new BinaryReader(data);
+      reader.offset = 4;
+      const getFileFlags = reader.readInt();
+      const locationConstructor = reader.readInt();
+      // inputPhotoFileLocation#40181ffe = volumeId + localId + secret
+      // inputDocumentFileLocation#bad07584 = id + access_hash + file_reference
+      // inputPeerPhotoFileLocation#37c1011c = flags + peer + photo_id
+      let fileData: Buffer | undefined;
+      if (locationConstructor === 0x37c1011c) {
+        // inputPeerPhotoFileLocation — profile photo
+        const photoFlags = reader.readInt();
+        skipInputPeer(reader);
+        const photoId = reader.readLong();
+        fileData = messageStore.getUploadedFile(photoId.toString());
+      } else if (locationConstructor === 0xbad07584) {
+        // inputDocumentFileLocation
+        const docId = reader.readLong();
+        fileData = messageStore.getUploadedFile(docId.toString());
+      }
+      if (!fileData) {
+        // Return empty file
+        const w = new BinaryWriter();
+        w.writeInt(0x96a18d5); // upload.file
+        w.writeInt(0x007efe10); // storage.fileUnknown
+        w.writeInt(0); // mtime
+        writeTlBytes(w, Buffer.alloc(0));
+        return w.getBytes();
+      }
+      const w = new BinaryWriter();
+      w.writeInt(0x96a18d5); // upload.file
+      w.writeInt(0x40bc6f52); // storage.fileJpeg
+      w.writeInt(Math.floor(Date.now() / 1000));
+      writeTlBytes(w, fileData);
+      return w.getBytes();
+    }
+
+    case 0x330e77f: { // messages.sendMedia
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.sendMedia`);
+      // For now, treat like a text message with media placeholder
+      const reader = new BinaryReader(data);
+      reader.offset = 4;
+      const sendMediaFlags = reader.readInt();
+      // skip flags booleans, read peer
+      const peerKey = readInputPeerKey(reader);
+      // Skip reply_to if present (flag 0)
+      if (sendMediaFlags & (1 << 0)) skipInputReplyTo(reader);
+      // Skip media (complex — for now just store a text message)
+      // Read message text after media
+      const selfId = session.userId || SEED_USER_ID;
+      // For simplicity, store as text message indicating media was sent
+      const mediaText = '[Media message]';
+      if (!peerKey) return buildRpcErrorObject(400, 'PEER_ID_INVALID');
+      const isSavedMessages = peerKey === `user:${selfId}`;
+      const isP2P = peerKey.startsWith('user:') && !isSavedMessages;
+      const senderPeerKey = peerKey.startsWith('channel:') ? undefined : `user:${selfId}`;
+      // Read random_id — skip to it: after media and message string, there's random_id
+      // Since parsing media is complex, we just return an updates envelope with empty message
+      return buildRpcErrorObject(400, 'MEDIA_INVALID');
+    }
+
+    case 0x388a3b5: { // photos.uploadProfilePhoto
+      console.log(`[${new Date().toISOString()}] Session ${session.id} photos.uploadProfilePhoto`);
+      // Stub: return empty photo
+      const w = new BinaryWriter();
+      // photos.photo#20212ca8 photo:Photo users:Vector<User>
+      w.writeInt(0x20212ca8);
+      // photoEmpty#2331b22d id:long
+      w.writeInt(0x2331b22d);
+      w.writeLong(BigInt(Date.now()));
+      // users: empty vector
+      writeEmptyVectorToWriter(w);
+      return w.getBytes();
+    }
+
+    // ========== PRIORITY 3: forward, profile, reactions ==========
+
+    case 0x78515775: { // account.updateProfile
+      console.log(`[${new Date().toISOString()}] Session ${session.id} account.updateProfile`);
+      const reader = new BinaryReader(data);
+      reader.offset = 4;
+      const profileFlags = reader.readInt();
+      let newFirstName: string | undefined;
+      let newLastName: string | undefined;
+      let newAbout: string | undefined;
+      if (profileFlags & (1 << 0)) newFirstName = readTlString(reader);
+      if (profileFlags & (1 << 1)) newLastName = readTlString(reader);
+      if (profileFlags & (1 << 2)) newAbout = readTlString(reader);
+
+      const selfId = session.userId || SEED_USER_ID;
+      if (newFirstName !== undefined || newLastName !== undefined) {
+        messageStore.updateUser(selfId, {
+          firstName: newFirstName,
+          lastName: newLastName,
+        });
+      }
+
+      const updatedUser = getFixtureUserForId(undefined, String(selfId), true);
+      const w = new BinaryWriter();
+      writeUserFromFixture(w, { ...updatedUser, self: true });
+      return w.getBytes();
+    }
+
+    case 0x13704a7c: { // messages.forwardMessages
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.forwardMessages`);
+      const selfId = session.userId || SEED_USER_ID;
+      const fwdReq = parseForwardMessagesRequest(data, session);
+      if (!fwdReq || !fwdReq.toPeerKey) {
+        return buildRpcErrorObject(400, 'PEER_ID_INVALID');
+      }
+
+      const allUpdates: Buffer[] = [];
+      const userIds: string[] = [String(selfId)];
+      const chatIds: string[] = [];
+      collectEntityIdsFromPeerKey(fwdReq.toPeerKey, userIds, chatIds);
+
+      for (let i = 0; i < fwdReq.messageIds.length; i++) {
+        // Get original message text
+        const origMsg = messageStore.getMessageForUser(fwdReq.messageIds[i], selfId);
+        const text = origMsg?.text || '';
+
+        // Store forwarded message as sender's copy
+        const stored = messageStore.appendOutgoingMessage(selfId, {
+          peerKey: fwdReq.toPeerKey,
+          text,
+          clientRandomId: fwdReq.randomIds[i] || `fwd_${Date.now()}_${i}`,
+          seedMaxMessageId: 0,
+          fromPeerKey: `user:${selfId}`,
+          post: false,
+        });
+
+        const fixture = getStoredMessageAsFixture(fwdReq.toPeerKey, stored.messageId, selfId);
+        if (fixture) {
+          allUpdates.push(buildUpdateNewMessage(fixture, stored.updatePts, stored.updatePtsCount));
+        }
+
+        // P2P: store incoming copy for recipient
+        const isSavedMessages = fwdReq.toPeerKey === `user:${selfId}`;
+        const isP2P = fwdReq.toPeerKey.startsWith('user:') && !isSavedMessages;
+        if (isP2P) {
+          const recipientId = Number(fwdReq.toPeerKey.replace('user:', ''));
+          const recipientPeerKey = `user:${selfId}`;
+          const recipientMsg = messageStore.appendOutgoingMessage(recipientId, {
+            peerKey: recipientPeerKey,
+            text,
+            clientRandomId: `recv_fwd_${Date.now()}_${i}`,
+            seedMaxMessageId: 0,
+            fromPeerKey: `user:${selfId}`,
+            post: false,
+          });
+          messageStore.markMessageIncoming(recipientId, recipientPeerKey, recipientMsg.messageId);
+          const recipientFixture = getStoredMessageAsFixture(recipientPeerKey, recipientMsg.messageId, recipientId);
+          if (recipientFixture) {
+            broadcastToUser(recipientId, buildLiveUpdatesEnvelope(
+              [buildUpdateNewMessage(recipientFixture, recipientMsg.updatePts, recipientMsg.updatePtsCount)],
+              [String(selfId), String(recipientId)],
+              [],
+            ));
+          }
+        }
+      }
+
+      broadcastSessionUpdates(session, buildLiveUpdatesEnvelope(allUpdates, userIds, chatIds));
+      return buildLiveUpdatesEnvelope(allUpdates, userIds, chatIds);
+    }
+
+    case 0xd30d78d4: { // messages.sendReaction
+      console.log(`[${new Date().toISOString()}] Session ${session.id} messages.sendReaction`);
+      return buildUpdatesEmpty();
+    }
+
+    default: {
+      console.log(`[${new Date().toISOString()}] Session ${session.id} unhandled TL: 0x${constructorId.toString(16)}`);
+      return buildRpcErrorObject(400, `METHOD_NOT_IMPLEMENTED_0x${constructorId.toString(16)}`);
+    }
+  }
+}
+
+function skipInitConnection(data: Buffer): Buffer | null {
+  // initConnection#c1cd5ea9 {X:Type} flags:# api_id:int device_model:string 
+  // system_version:string app_version:string system_lang_code:string 
+  // lang_pack:string lang_code:string proxy:flags.0?InputClientProxy params:flags.1?JSONValue query:!X
+  try {
+    let offset = 4; // skip constructor
+    const flags = data.readUInt32LE(offset); offset += 4;
+    offset += 4; // api_id
+    
+    // Skip TL strings: device_model, system_version, app_version, system_lang_code, lang_pack, lang_code
+    for (let i = 0; i < 6; i++) {
+      offset = skipTlString(data, offset);
+    }
+    
+    // proxy (flags.0)
+    if (flags & 1) {
+      // InputClientProxy: constructor(4) + address(TL string) + port(4)
+      offset += 4;
+      offset = skipTlString(data, offset);
+      offset += 4;
+    }
+    
+    // params (flags.1) - JSONValue
+    if (flags & 2) {
+      offset = skipJsonValue(data, offset);
+    }
+    
+    return data.slice(offset);
+  } catch (e) {
+    console.log(`[${new Date().toISOString()}] Failed to parse initConnection:`, (e as Error).message);
+    return null;
+  }
+}
+
+function skipTlString(data: Buffer, offset: number): number {
+  const firstByte = data[offset];
+  let len: number;
+  let headerLen: number;
+  
+  if (firstByte <= 253) {
+    len = firstByte;
+    headerLen = 1;
+  } else {
+    len = data[offset + 1] | (data[offset + 2] << 8) | (data[offset + 3] << 16);
+    headerLen = 4;
+  }
+  
+  const totalOccupied = headerLen + len;
+  const padding = totalOccupied % 4 === 0 ? 0 : 4 - (totalOccupied % 4);
+  return offset + totalOccupied + padding;
+}
+
+function skipJsonValue(data: Buffer, offset: number): number {
+  const constructor = data.readUInt32LE(offset);
+  offset += 4;
+  
+  switch (constructor) {
+    case 0xc7345e6a: // jsonObject
+    {
+      const count = data.readInt32LE(offset); offset += 4;
+      for (let i = 0; i < count; i++) {
+        offset = skipTlString(data, offset); // key
+        offset = skipJsonValue(data, offset); // value
+      }
+      return offset;
+    }
+    case 0xc0de1bd9: // jsonString
+      return skipTlString(data, offset);
+    case 0x2be0dfa4: // jsonNumber
+      return offset + 8; // double
+    case 0xc7345e6a: // jsonArray
+    {
+      const count = data.readInt32LE(offset); offset += 4;
+      for (let i = 0; i < count; i++) {
+        offset = skipJsonValue(data, offset);
+      }
+      return offset;
+    }
+    case 0xc3f11eb2: // jsonBool
+      return offset + 4;
+    case 0x3f6d7b68: // jsonNull
+      return offset;
+    default:
+      return offset;
+  }
+}
+
+function writeTlString(w: BinaryWriter, str: string): void {
+  const buf = Buffer.from(str, 'utf-8');
+  let header: Buffer;
+  let headerLen: number;
+  if (buf.length <= 253) {
+    header = Buffer.alloc(1);
+    header[0] = buf.length;
+    headerLen = 1;
+  } else {
+    header = Buffer.alloc(4);
+    header[0] = 254;
+    header[1] = buf.length & 0xff;
+    header[2] = (buf.length >> 8) & 0xff;
+    header[3] = (buf.length >> 16) & 0xff;
+    headerLen = 4;
+  }
+  const totalLen = headerLen + buf.length;
+  const padLen = (4 - (totalLen % 4)) % 4;
+  w.writeBytes(Buffer.concat([header, buf, Buffer.alloc(padLen)]));
+}
+
+function writeTlBytes(w: BinaryWriter, data: Buffer): void {
+  let header: Buffer;
+  let headerLen: number;
+  if (data.length <= 253) {
+    header = Buffer.alloc(1);
+    header[0] = data.length;
+    headerLen = 1;
+  } else {
+    header = Buffer.alloc(4);
+    header[0] = 254;
+    header[1] = data.length & 0xff;
+    header[2] = (data.length >> 8) & 0xff;
+    header[3] = (data.length >> 16) & 0xff;
+    headerLen = 4;
+  }
+  const totalLen = headerLen + data.length;
+  const padLen = (4 - (totalLen % 4)) % 4;
+  w.writeBytes(Buffer.concat([header, data, Buffer.alloc(padLen)]));
+}
+
+type ParsedHistoryRequest = {
+  peerKey: string;
+  offsetId: number;
+  limit: number;
+};
+
+type ParsedSendMessageRequest = {
+  peerKey: string;
+  message: string;
+  randomId: string;
+};
+
+type ParsedReadHistoryRequest = {
+  peerKey: string;
+  maxId: number;
+};
+
+type ParsedUpdatesDifferenceRequest = {
+  pts: number;
+};
+
+type ParsedChannelRef = {
+  channelId: string;
+};
+
+type ParsedUserRef = {
+  userId: string;
+};
+
+type ParsedPeerRef = {
+  peerKey: string;
+};
+
+function parseHistoryRequest(data: Buffer): ParsedHistoryRequest | undefined {
+  const reader = new BinaryReader(data);
+  reader.offset = 4; // skip constructor
+  const peerKey = readInputPeerKey(reader);
+  if (!peerKey) {
+    return undefined;
+  }
+
+  const offsetId = reader.readInt();
+  reader.readInt(); // offset_date
+  reader.readInt(); // add_offset
+  const limit = reader.readInt();
+
+  return {
+    peerKey,
+    offsetId,
+    limit,
+  };
+}
+
+function parseGetMessagesRequest(data: Buffer): number[] | undefined {
+  // messages.getMessages#63c66506 id:Vector<InputMessage>
+  const reader = new BinaryReader(data);
+  reader.offset = 4; // skip constructor
+  const vectorConstructor = reader.readInt() >>> 0;
+  if (vectorConstructor !== 0x1cb5c415) {
+    return undefined;
+  }
+
+  const count = reader.readInt();
+  const ids: number[] = [];
+  for (let i = 0; i < count; i++) {
+    const inputMsgConstructor = reader.readInt() >>> 0;
+    if (inputMsgConstructor === 0xa676a322) {
+      // inputMessageID#a676a322 id:int
+      ids.push(reader.readInt());
+    } else if (inputMsgConstructor === 0x86872538) {
+      // inputMessagePinned — skip
+    } else if (inputMsgConstructor === 0xbad88395) {
+      // inputMessageReplyTo#bad88395 id:int
+      reader.readInt(); // skip id
+    } else if (inputMsgConstructor === 0xacfa1571) {
+      // inputMessageCallbackQuery#acfa1571 id:int query_id:long
+      reader.readInt(); // skip id
+      reader.readLong(); // skip query_id
+    }
+  }
+  return ids;
+}
+
+// Old parsePeerDialogsRequest removed — replaced by the one near buildPeerDialogsForPeers
+
+interface ParsedSetTypingRequest {
+  peerKey: string;
+  actionConstructor: number;
+}
+
+function parseSetTypingRequest(data: Buffer): ParsedSetTypingRequest | undefined {
+  try {
+    const reader = new BinaryReader(data);
+    reader.readInt(); // skip constructor
+    const flags = reader.readInt();
+    const peerKey = readInputPeerKey(reader);
+    if (!peerKey) return undefined;
+    // top_msg_id is flags.0
+    if (flags & 1) reader.readInt();
+    const actionConstructor = reader.readInt() >>> 0;
+    return { peerKey, actionConstructor };
+  } catch {
+    return undefined;
+  }
+}
+
+interface ParsedEditMessageRequest {
+  peerKey: string;
+  messageId: number;
+  newText?: string;
+}
+
+function parseEditMessageRequest(data: Buffer): ParsedEditMessageRequest | undefined {
+  try {
+    const reader = new BinaryReader(data);
+    reader.readInt(); // skip constructor
+    const flags = reader.readInt();
+    const peerKey = readInputPeerKey(reader);
+    if (!peerKey) return undefined;
+    const messageId = reader.readInt();
+    const newText = (flags & (1 << 11)) ? readTlString(reader) : undefined;
+    return { peerKey, messageId, newText };
+  } catch {
+    return undefined;
+  }
+}
+
+interface ParsedDeleteMessagesRequest {
+  revoke: boolean;
+  messageIds: number[];
+}
+
+function parseDeleteMessagesRequest(data: Buffer): ParsedDeleteMessagesRequest | undefined {
+  try {
+    const reader = new BinaryReader(data);
+    reader.readInt(); // skip constructor
+    const flags = reader.readInt();
+    const revoke = !!(flags & 1);
+    const vectorId = reader.readInt() >>> 0;
+    if (vectorId !== 0x1cb5c415) return undefined;
+    const count = reader.readInt();
+    const messageIds: number[] = [];
+    for (let i = 0; i < count; i++) {
+      messageIds.push(reader.readInt());
+    }
+    return { revoke, messageIds };
+  } catch {
+    return undefined;
+  }
+}
+
+function parseReadHistoryRequest(data: Buffer): ParsedReadHistoryRequest | undefined {
+  const reader = new BinaryReader(data);
+  reader.offset = 4; // skip constructor
+  const peerKey = readInputPeerKey(reader);
+  if (!peerKey) {
+    return undefined;
+  }
+
+  return {
+    peerKey,
+    maxId: reader.readInt(),
+  };
+}
+
+function parseUpdatesDifferenceRequest(data: Buffer): ParsedUpdatesDifferenceRequest | undefined {
+  const constructorId = data.readUInt32LE(0);
+  const reader = new BinaryReader(data);
+  reader.offset = 4; // skip constructor
+  if (constructorId === 0x25d218ec) {
+    return {
+      pts: reader.readInt(),
+    };
+  }
+
+  const flags = reader.readInt() >>> 0;
+  const pts = reader.readInt();
+  if (flags & (1 << 1)) {
+    reader.readInt(); // pts_limit
+  }
+  if (flags & (1 << 0)) {
+    reader.readInt(); // pts_total_limit
+  }
+
+  return { pts };
+}
+
+function parseChannelReadHistoryRequest(data: Buffer): ParsedReadHistoryRequest | undefined {
+  const reader = new BinaryReader(data);
+  reader.offset = 4; // skip constructor
+  const constructorId = reader.readInt() >>> 0;
+  if (constructorId !== 0x27bcbbfc) { // inputChannel
+    return undefined;
+  }
+
+  const channelId = reader.readLong().toString();
+  reader.readLong(); // access_hash
+
+  return {
+    peerKey: `channel:${channelId}`,
+    maxId: reader.readInt(),
+  };
+}
+
+function parseGetFullChannelRequest(data: Buffer): ParsedChannelRef | undefined {
+  const reader = new BinaryReader(data);
+  reader.offset = 4; // skip constructor
+  const constructorId = reader.readInt() >>> 0;
+  if (constructorId !== 0x27bcbbfc) { // inputChannel
+    return undefined;
+  }
+
+  return {
+    channelId: reader.readLong().toString(),
+  };
+}
+
+function parseGetFullUserRequest(data: Buffer, session?: ClientSession): ParsedUserRef | undefined {
+  const reader = new BinaryReader(data);
+  reader.offset = 4; // skip constructor
+  return readInputUserRef(reader, session);
+}
+
+function parseGetUsersRequest(data: Buffer, session?: ClientSession): ParsedUserRef[] | undefined {
+  const reader = new BinaryReader(data);
+  reader.offset = 4; // skip constructor
+  const vectorConstructor = reader.readInt() >>> 0;
+  if (vectorConstructor !== 0x1cb5c415) {
+    return undefined;
+  }
+
+  const count = reader.readInt();
+  const users: ParsedUserRef[] = [];
+  for (let index = 0; index < count; index++) {
+    const user = readInputUserRef(reader, session);
+    if (user) {
+      users.push(user);
+    }
+  }
+
+  return users;
+}
+
+function parsePeerVectorRequest(data: Buffer): ParsedPeerRef[] | undefined {
+  const reader = new BinaryReader(data);
+  reader.offset = 4; // skip constructor
+  const vectorConstructor = reader.readInt() >>> 0;
+  if (vectorConstructor !== 0x1cb5c415) {
+    return undefined;
+  }
+
+  const count = reader.readInt();
+  const peers: ParsedPeerRef[] = [];
+  for (let index = 0; index < count; index++) {
+    const peerKey = readInputPeerKey(reader);
+    if (peerKey) {
+      peers.push({ peerKey });
+    }
+  }
+
+  return peers;
+}
+
+function parseSendMessageRequest(data: Buffer): ParsedSendMessageRequest | undefined {
+  try {
+    const reader = new BinaryReader(data);
+    reader.offset = 4; // skip constructor
+    const flags = reader.readInt() >>> 0;
+
+    const peerKey = readInputPeerKey(reader);
+    if (!peerKey) {
+      return undefined;
+    }
+
+    // Skip reply_to:flags.0?InputReplyTo if present
+    if ((flags & (1 << 0)) !== 0) {
+      if (!skipInputReplyTo(reader)) {
+        console.log(`[WARN] parseSendMessageRequest: could not skip InputReplyTo`);
+        return undefined;
+      }
+    }
+
+    const message = readTlString(reader);
+    const randomId = reader.readLong(false).toString();
+
+    return {
+      peerKey,
+      message,
+      randomId,
+    };
+  } catch (e) {
+    console.log(`[WARN] parseSendMessageRequest: parse error:`, (e as Error).message);
+    return undefined;
+  }
+}
+
+function skipInputReplyTo(reader: BinaryReader): boolean {
+  const constructorId = reader.readInt() >>> 0;
+  switch (constructorId) {
+    case 0x869fbe10: { // inputReplyToMessage
+      const flags = reader.readInt() >>> 0;
+      reader.readInt(); // reply_to_msg_id
+      if (flags & (1 << 0)) reader.readInt(); // top_msg_id
+      if (flags & (1 << 1)) skipInputPeer(reader); // reply_to_peer_id
+      if (flags & (1 << 2)) skipTlStringByReader(reader); // quote_text
+      if (flags & (1 << 3)) skipTlVector(reader); // quote_entities
+      if (flags & (1 << 4)) reader.readInt(); // quote_offset
+      if (flags & (1 << 5)) skipInputPeer(reader); // monoforum_peer_id
+      if (flags & (1 << 6)) reader.readInt(); // todo_item_id
+      return true;
+    }
+    case 0x5881323a: { // inputReplyToStory
+      skipInputPeer(reader); // peer
+      reader.readInt(); // story_id
+      return true;
+    }
+    case 0x69d66c45: { // inputReplyToMonoForum
+      skipInputPeer(reader); // monoforum_peer_id
+      return true;
+    }
+    default:
+      return false;
+  }
+}
+
+function skipInputPeer(reader: BinaryReader): void {
+  const constructorId = reader.readInt() >>> 0;
+  switch (constructorId) {
+    case 0xdde8a54c: // inputPeerUser
+      reader.readLong(); // user_id
+      reader.readLong(); // access_hash
+      break;
+    case 0x35a95cb9: // inputPeerChat
+      reader.readLong(); // chat_id
+      break;
+    case 0x27bcbbfc: // inputPeerChannel
+      reader.readLong(); // channel_id
+      reader.readLong(); // access_hash
+      break;
+    case 0x7da07ec9: // inputPeerSelf
+    case 0x7f3b18ea: // inputPeerEmpty
+      break;
+    default:
+      throw new Error(`Unknown InputPeer constructor: 0x${constructorId.toString(16)}`);
+  }
+}
+
+function skipTlStringByReader(reader: BinaryReader): void {
+  const first = reader.readByte();
+  let length = first;
+  if (first === 254) {
+    const bytes = reader.readBytes(3);
+    length = bytes[0] | (bytes[1] << 8) | (bytes[2] << 16);
+  }
+  reader.readBytes(length);
+  const headerLength = first === 254 ? 4 : 1;
+  const padding = (4 - ((headerLength + length) % 4)) % 4;
+  if (padding > 0) reader.readBytes(padding);
+}
+
+function skipTlVector(reader: BinaryReader): void {
+  // Generic vector skip - skips the vector constructor + count, then blindly skips items
+  // This works by reading count and trying to skip each TL object
+  const vectorConstructor = reader.readInt() >>> 0;
+  if (vectorConstructor !== 0x1cb5c415) {
+    throw new Error(`Expected vector constructor, got 0x${vectorConstructor.toString(16)}`);
+  }
+  const count = reader.readInt();
+  for (let i = 0; i < count; i++) {
+    skipTlObject(reader);
+  }
+}
+
+function skipTlObject(reader: BinaryReader): void {
+  // Skip a single TL object by reading its constructor and known fixed fields
+  // This is a best-effort approach for common types like MessageEntity
+  const constructorId = reader.readInt() >>> 0;
+  switch (constructorId) {
+    // messageEntityBold, messageEntityItalic, messageEntityCode, etc.
+    // All simple entities have: offset:int length:int
+    case 0xbd610bc9: // messageEntityBold
+    case 0x826f8b60: // messageEntityItalic
+    case 0x28a20571: // messageEntityCode
+    case 0x6cef8ac7: // messageEntityUnderline
+    case 0xbf0693d4: // messageEntityStrike
+    case 0x020df5d0: // messageEntityBlockquote
+    case 0xbb92ba95: // messageEntityUnknown
+    case 0xfa04579d: // messageEntityMention
+    case 0x6f635b0d: // messageEntityHashtag
+    case 0x6ed02538: // messageEntityBotCommand
+    case 0x73924be0: // messageEntityUrl
+    case 0x64e475c2: // messageEntityEmail
+    case 0x4c4e743f: // messageEntityCashtag
+    case 0x9b69e34b: // messageEntityPhone
+    case 0x9c4e7e8b: // messageEntitySpoiler
+      reader.readInt(); // offset
+      reader.readInt(); // length
+      break;
+    case 0x76a6d327: // messageEntityTextUrl
+      reader.readInt(); // offset
+      reader.readInt(); // length
+      skipTlStringByReader(reader); // url
+      break;
+    case 0xdc7b1140: // messageEntityMentionName
+      reader.readInt(); // offset
+      reader.readInt(); // length
+      reader.readLong(); // user_id
+      break;
+    case 0x32ca960f: // messageEntityPre
+      reader.readInt(); // offset
+      reader.readInt(); // length
+      skipTlStringByReader(reader); // language
+      break;
+    case 0xc8cf05f8: // messageEntityCustomEmoji
+      reader.readInt(); // offset
+      reader.readInt(); // length
+      reader.readLong(); // document_id
+      break;
+    default:
+      // Unknown entity type - try to skip offset(4) + length(4)
+      reader.readInt();
+      reader.readInt();
+      break;
+  }
+}
+
+function readInputUserRef(reader: BinaryReader, session?: ClientSession): ParsedUserRef | undefined {
+  const constructorId = reader.readInt() >>> 0;
+  switch (constructorId) {
+    case 0xf21158c6: { // inputUser
+      const userId = reader.readLong().toString();
+      reader.readLong(); // access_hash
+      return { userId };
+    }
+    case 0xf7c1b13f: { // inputUserSelf
+      return { userId: String(session?.userId || SEED_USER_ID) };
+    }
+    default:
+      return undefined;
+  }
+}
+
+function readInputDialogPeerKey(reader: BinaryReader): string | undefined {
+  const constructorId = reader.readInt() >>> 0;
+  switch (constructorId) {
+    case 0xfcaafeb7: // inputDialogPeer
+      return readInputPeerKey(reader);
+    case 0x64600527: // inputDialogPeerFolder
+      reader.readInt(); // folder_id
+      return undefined;
+    default:
+      return undefined;
+  }
+}
+
+function readInputPeerKey(reader: BinaryReader): string | undefined {
+  const constructorId = reader.readInt() >>> 0;
+  switch (constructorId) {
+    case 0xdde8a54c: { // inputPeerUser
+      const userId = reader.readLong().toString();
+      reader.readLong(); // access_hash
+      return `user:${userId}`;
+    }
+    case 0x35a95cb9: { // inputPeerChat
+      return `chat:${reader.readLong().toString()}`;
+    }
+    case 0x27bcbbfc: { // inputPeerChannel
+      const channelId = reader.readLong().toString();
+      reader.readLong(); // access_hash
+      return `channel:${channelId}`;
+    }
+    case 0x7da07ec9: { // inputPeerSelf
+      return `user:${_activeSession?.userId || SEED_USER_ID}`;
+    }
+    default:
+      return undefined;
+  }
+}
+
+function readTlString(reader: BinaryReader): string {
+  const first = reader.readByte();
+  let length = first;
+
+  if (first === 254) {
+    const bytes = reader.readBytes(3);
+    length = bytes[0] | (bytes[1] << 8) | (bytes[2] << 16);
+  }
+
+  const value = reader.readBytes(length).toString('utf-8');
+  const headerLength = first === 254 ? 4 : 1;
+  const padding = (4 - ((headerLength + length) % 4)) % 4;
+  if (padding > 0) {
+    reader.readBytes(padding);
+  }
+
+  return value;
+}
+
+function buildDialogsSliceFromFixture(fixture: OfficialCaptureFixture): Buffer {
+  const topMessagesByPeer = new Map<string, FixtureMessage>();
+  for (const message of fixture.dialogMessages) {
+    const current = topMessagesByPeer.get(message.peerKey);
+    if (!current || message.id > current.id) {
+      topMessagesByPeer.set(message.peerKey, message);
+    }
+  }
+
+  const dialogs = fixture.dialogs.map((dialog) => {
+    const localMessages = listStoredMessagesAsFixture(dialog.peerKey);
+    const mergedMessages = mergeMessagesById([
+      ...(topMessagesByPeer.get(dialog.peerKey) ? [topMessagesByPeer.get(dialog.peerKey)!] : []),
+      ...localMessages,
+    ]);
+
+    return mergeDialogWithMessages(dialog, mergedMessages);
+  });
+  const topMessages = dialogs
+    .map((dialog) => buildTopDialogMessage(dialog.peerKey, topMessagesByPeer.get(dialog.peerKey)))
+    .filter((message): message is FixtureMessage => Boolean(message));
+
+  const w = new BinaryWriter();
+  // messages.dialogsSlice#71e094f3 count:int dialogs:Vector<Dialog> messages:Vector<Message> chats:Vector<Chat> users:Vector<User>
+  w.writeInt(0x71e094f3);
+  w.writeInt(dialogs.length);
+  writeDialogVector(w, dialogs);
+  writeMessageVector(w, topMessages);
+  writeChatVector(w, fixture, collectChatIdsFromMessages(fixture.dialogChatIds, topMessages));
+  writeUserVector(w, fixture, fixture.dialogUserIds);
+  return w.getBytes();
+}
+
+function buildPeerDialogsFromFixture(
+  fixture: OfficialCaptureFixture,
+  peerKey: string,
+  dialogs: FixtureDialog[],
+  messages: FixtureMessage[],
+  userIds: string[],
+  chatIds: string[],
+): Buffer {
+  const mergedMessages = mergeMessagesById([
+    ...messages,
+    ...listStoredMessagesAsFixture(peerKey),
+  ]);
+  const mergedDialogs = dialogs.length > 0
+    ? dialogs.map((dialog) => mergeDialogWithMessages(dialog, mergedMessages))
+    : mergedMessages.length > 0
+      ? [createDialogFromMessage(peerKey, mergedMessages[0])]
+      : dialogs;
+
+  const w = new BinaryWriter();
+  // messages.peerDialogs#3371c354 dialogs:Vector<Dialog> messages:Vector<Message> chats:Vector<Chat> users:Vector<User> state:updates.State
+  w.writeInt(0x3371c354);
+  writeDialogVector(w, mergedDialogs);
+  writeMessageVector(w, mergedMessages.slice(0, Math.max(1, mergedMessages.length)));
+  writeChatVector(w, fixture, collectChatIdsFromMessages(chatIds, mergedMessages));
+  writeUserVector(w, fixture, userIds);
+  writeUpdatesStateToWriter(w);
+  return w.getBytes();
+}
+
+function buildHistoryFromFixture(
+  fixture: OfficialCaptureFixture,
+  history: OfficialCaptureFixture['historiesByKey'][string],
+  request: ParsedHistoryRequest,
+): Buffer {
+  const mergedMessages = mergeMessagesById([
+    ...history.messages,
+    ...listStoredMessagesAsFixture(history.peerKey),
+  ]);
+  const visibleMessages = sliceHistoryMessages(mergedMessages, request.offsetId, request.limit);
+
+  const w = new BinaryWriter();
+  if (history.responseClassName === 'messages.ChannelMessages') {
+    // messages.channelMessages#c776ba4e flags:# inexact:flags.1?true pts:int count:int offset_id_offset:flags.2?int messages:Vector<Message> topics:Vector<ForumTopic> chats:Vector<Chat> users:Vector<User>
+    w.writeInt(0xc776ba4e);
+    w.writeInt(0); // flags
+    w.writeInt(history.pts || 0);
+    w.writeInt(history.count || mergedMessages.length);
+    writeMessageVector(w, visibleMessages);
+    writeEmptyVectorToWriter(w); // topics
+    writeChatVector(w, fixture, collectChatIdsFromMessages(history.chatIds, mergedMessages));
+    writeUserVector(w, fixture, history.userIds);
+    return w.getBytes();
+  }
+
+  if (history.responseClassName === 'messages.Messages') {
+    // messages.messages#1d73e7ea messages:Vector<Message> topics:Vector<ForumTopic> chats:Vector<Chat> users:Vector<User>
+    w.writeInt(0x1d73e7ea);
+    writeMessageVector(w, visibleMessages);
+    writeEmptyVectorToWriter(w); // topics
+    writeChatVector(w, fixture, collectChatIdsFromMessages(history.chatIds, mergedMessages));
+    writeUserVector(w, fixture, history.userIds);
+    return w.getBytes();
+  }
+
+  // messages.messagesSlice#5f206716 flags:# inexact:flags.1?true count:int next_rate:flags.0?int offset_id_offset:flags.2?int messages:Vector<Message> topics:Vector<ForumTopic> chats:Vector<Chat> users:Vector<User>
+  w.writeInt(0x5f206716);
+  w.writeInt(0); // flags
+  w.writeInt(history.count || mergedMessages.length);
+  writeMessageVector(w, visibleMessages);
+  writeEmptyVectorToWriter(w); // topics
+  writeChatVector(w, fixture, collectChatIdsFromMessages(history.chatIds, mergedMessages));
+  writeUserVector(w, fixture, history.userIds);
+  return w.getBytes();
+}
+
+function buildMessagesSliceEmpty(): Buffer {
+  const w = new BinaryWriter();
+  w.writeInt(0x5f206716);
+  w.writeInt(0);
+  w.writeInt(0);
+  writeEmptyVectorToWriter(w); // messages
+  writeEmptyVectorToWriter(w); // topics
+  writeEmptyVectorToWriter(w); // chats
+  writeEmptyVectorToWriter(w); // users
+  return w.getBytes();
+}
+
+function buildGetMessagesResponse(messages: FixtureMessage[], fixture?: OfficialCaptureFixture | null, selfId?: number): Buffer {
+  // messages.messages#1d73e7ea messages:Vector<Message> topics:Vector<ForumTopic> chats:Vector<Chat> users:Vector<User>
+  const w = new BinaryWriter();
+  w.writeInt(0x1d73e7ea);
+  writeMessageVector(w, messages);
+  writeEmptyVectorToWriter(w); // topics
+
+  const effectiveSelfId = selfId ?? SEED_USER_ID;
+  const userIdSet = new Set<string>([String(effectiveSelfId)]);
+  const chatIds: string[] = [];
+  for (const msg of messages) {
+    collectEntityIdsFromPeerKey(msg.peerKey, [], chatIds);
+    if (msg.peerKey.startsWith('user:')) userIdSet.add(msg.peerKey.replace('user:', ''));
+    if (msg.fromPeerKey?.startsWith('user:')) userIdSet.add(msg.fromPeerKey.replace('user:', ''));
+  }
+
+  if (fixture) {
+    writeChatVector(w, fixture, chatIds);
+    writeUserVector(w, fixture, Array.from(userIdSet));
+  } else {
+    writeEmptyVectorToWriter(w); // chats
+    // Write users from DB
+    const userIds = Array.from(userIdSet);
+    w.writeInt(0x1cb5c415);
+    w.writeInt(userIds.length);
+    for (const userId of userIds) {
+      const isSelf = userId === String(effectiveSelfId);
+      writeUserFromFixture(w, getFixtureUserForId(undefined, userId, isSelf));
+    }
+  }
+  return w.getBytes();
+}
+
+function buildWebPagePreviewEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // messages.webPagePreview#8c9a88ac media:MessageMedia chats:Vector<Chat> users:Vector<User>
+  w.writeInt(0x8c9a88ac);
+  // messageMediaEmpty#3ded6320
+  w.writeInt(0x3ded6320);
+  writeEmptyVectorToWriter(w); // chats
+  writeEmptyVectorToWriter(w); // users
+  return w.getBytes();
+}
+
+function buildMessagesEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // messages.messages#1d73e7ea messages:Vector<Message> topics:Vector<ForumTopic> chats:Vector<Chat> users:Vector<User>
+  w.writeInt(0x1d73e7ea);
+  writeEmptyVectorToWriter(w); // messages
+  writeEmptyVectorToWriter(w); // topics
+  writeEmptyVectorToWriter(w); // chats
+  writeEmptyVectorToWriter(w); // users
+  return w.getBytes();
+}
+
+function buildRecentStoriesVector(count: number): Buffer {
+  const w = new BinaryWriter();
+  w.writeInt(0x1cb5c415);
+  w.writeInt(count);
+  for (let index = 0; index < count; index++) {
+    w.writeInt(0x711d692d); // recentStory
+    w.writeInt(0); // flags
+  }
+  return w.getBytes();
+}
+
+function getReadStateForPeerKey(peerKey: string, selfId: number, fixtureDialog?: FixtureDialog) {
+  const stored = messageStore.getPeerState(selfId, peerKey);
+
+  return {
+    readInboxMaxId: Math.max(fixtureDialog?.readInboxMaxId || 0, stored?.readInboxMaxId || 0),
+    readOutboxMaxId: Math.max(fixtureDialog?.readOutboxMaxId || 0, stored?.readOutboxMaxId || 0),
+  };
+}
+
+function listStoredMessagesAsFixture(peerKey: string, selfId: number = SEED_USER_ID): FixtureMessage[] {
+  const isSavedMessages = peerKey === `user:${selfId}`;
+  return messageStore.listMessages(selfId, peerKey).map((message) => ({
+    id: message.messageId,
+    peerKey: message.peerKey,
+    date: message.date,
+    text: message.text,
+    className: 'Message',
+    out: isSavedMessages ? false : message.isOutgoing,
+    post: message.post,
+    fromPeerKey: isSavedMessages ? undefined : message.fromPeerKey,
+    savedPeerKey: isSavedMessages ? `user:${SEED_USER_ID}` : undefined,
+    editDate: message.editDate,
+  }));
+}
+
+function listStoredMessagesAsFixtureForUser(peerKey: string, userId: number): FixtureMessage[] {
+  const isSavedMessages = peerKey === `user:${userId}`;
+  return messageStore.listMessagesForUser(peerKey, userId).map((message) => ({
+    id: message.messageId,
+    peerKey: message.peerKey,
+    date: message.date,
+    text: message.text,
+    className: 'Message',
+    out: isSavedMessages ? false : message.isOutgoing,
+    post: message.post,
+    fromPeerKey: isSavedMessages ? undefined : message.fromPeerKey,
+    savedPeerKey: isSavedMessages ? `user:${userId}` : undefined,
+    editDate: message.editDate,
+  }));
+}
+
+function getStoredMessageAsFixture(peerKey: string, messageId: number, selfId?: number): FixtureMessage | undefined {
+  const effectiveSelfId = selfId ?? SEED_USER_ID;
+  const message = messageStore.getMessage(effectiveSelfId, peerKey, messageId);
+  if (!message) {
+    return undefined;
+  }
+
+  const isSavedMessages = peerKey === `user:${effectiveSelfId}`;
+  return {
+    id: message.messageId,
+    peerKey: message.peerKey,
+    date: message.date,
+    text: message.text,
+    className: 'Message',
+    out: isSavedMessages ? false : message.isOutgoing,
+    post: message.post,
+    fromPeerKey: isSavedMessages ? undefined : message.fromPeerKey,
+    savedPeerKey: isSavedMessages ? `user:${effectiveSelfId}` : undefined,
+    editDate: message.editDate,
+  };
+}
+
+function mergeMessagesById(messages: FixtureMessage[]): FixtureMessage[] {
+  const uniqueMessages = new Map<number, FixtureMessage>();
+  for (const message of messages) {
+    uniqueMessages.set(message.id, message);
+  }
+
+  return Array.from(uniqueMessages.values())
+    .sort((left, right) => (right.id - left.id) || (right.date - left.date));
+}
+
+function mergeDialogWithMessages(dialog: FixtureDialog, messages: FixtureMessage[]): FixtureDialog {
+  const topMessage = messages[0];
+  const mergedDialog = !topMessage ? dialog : {
+    ...dialog,
+    topMessage: topMessage.id,
+    readOutboxMaxId: topMessage.out
+      ? Math.max(dialog.readOutboxMaxId, topMessage.id)
+      : dialog.readOutboxMaxId,
+    readInboxMaxId: topMessage.out && dialog.peerKey === `user:${SEED_USER_ID}`
+      ? Math.max(dialog.readInboxMaxId, topMessage.id)
+      : dialog.readInboxMaxId,
+  };
+
+  return applyStoredDialogState(mergedDialog);
+}
+
+function buildTopDialogMessage(peerKey: string, baseMessage?: FixtureMessage): FixtureMessage | undefined {
+  const mergedMessages = mergeMessagesById([
+    ...(baseMessage ? [baseMessage] : []),
+    ...listStoredMessagesAsFixture(peerKey),
+  ]);
+
+  return mergedMessages[0];
+}
+
+function createDialogFromMessage(peerKey: string, message: FixtureMessage): FixtureDialog {
+  return applyStoredDialogState({
+    peerKey,
+    topMessage: message.id,
+    readInboxMaxId: peerKey === `user:${SEED_USER_ID}` ? message.id : 0,
+    readOutboxMaxId: message.out ? message.id : 0,
+    unreadCount: 0,
+    unreadMentionsCount: 0,
+    unreadReactionsCount: 0,
+  });
+}
+
+function sliceHistoryMessages(messages: FixtureMessage[], offsetId: number, limit: number): FixtureMessage[] {
+  const filteredMessages = offsetId > 0
+    ? messages.filter((message) => message.id < offsetId)
+    : messages;
+
+  return filteredMessages.slice(0, limit > 0 ? limit : filteredMessages.length);
+}
+
+function collectChatIdsFromMessages(baseChatIds: string[], messages: FixtureMessage[]): string[] {
+  const derivedChatIds = messages
+    .filter((message) => message.peerKey.startsWith('channel:') || message.peerKey.startsWith('chat:'))
+    .map((message) => message.peerKey.split(':', 2)[1]);
+
+  return Array.from(new Set([...baseChatIds, ...derivedChatIds]));
+}
+
+function collectUserIdsFromMessages(baseUserIds: string[], messages: FixtureMessage[]): string[] {
+  const peerUserIds = messages
+    .filter((message) => message.peerKey.startsWith('user:'))
+    .map((message) => message.peerKey.split(':', 2)[1]);
+  const fromUserIds = messages
+    .filter((message) => message.fromPeerKey?.startsWith('user:'))
+    .map((message) => message.fromPeerKey!.split(':', 2)[1]);
+
+  return Array.from(new Set([...baseUserIds, ...peerUserIds, ...fromUserIds]));
+}
+
+function collectEntityIdsFromPeerKey(peerKey: string, userIds: string[], chatIds: string[]) {
+  if (peerKey.startsWith('user:')) {
+    userIds.push(peerKey.split(':', 2)[1]);
+    return;
+  }
+
+  if (peerKey.startsWith('channel:') || peerKey.startsWith('chat:')) {
+    chatIds.push(peerKey.split(':', 2)[1]);
+  }
+}
+
+function getHighestObservedMessageId(fixture: OfficialCaptureFixture, peerKey: string): number {
+  const dialogMax = fixture.dialogs
+    .filter((dialog) => dialog.peerKey === peerKey)
+    .reduce((max, dialog) => Math.max(max, dialog.topMessage), 0);
+  const dialogMessagesMax = fixture.dialogMessages
+    .filter((message) => message.peerKey === peerKey)
+    .reduce((max, message) => Math.max(max, message.id), 0);
+  const historyMessagesMax = Object.values(fixture.historiesByKey)
+    .filter((history) => history.peerKey === peerKey)
+    .flatMap((history) => history.messages)
+    .reduce((max, message) => Math.max(max, message.id), 0);
+
+  return Math.max(dialogMax, dialogMessagesMax, historyMessagesMax);
+}
+
+function applyStoredDialogState(dialog: FixtureDialog, selfId: number = SEED_USER_ID): FixtureDialog {
+  const state = messageStore.getPeerState(selfId, dialog.peerKey);
+  if (!state) {
+    return dialog;
+  }
+
+  return {
+    ...dialog,
+    readInboxMaxId: Math.max(dialog.readInboxMaxId, state.readInboxMaxId),
+    readOutboxMaxId: Math.max(dialog.readOutboxMaxId, state.readOutboxMaxId),
+  };
+}
+
+function writeDialogVector(w: BinaryWriter, dialogs: FixtureDialog[]): void {
+  w.writeInt(0x1cb5c415);
+  w.writeInt(dialogs.length);
+  for (const dialog of dialogs) {
+    writeDialogFromFixture(w, dialog);
+  }
+}
+
+function writeMessageVector(w: BinaryWriter, messages: FixtureMessage[]): void {
+  w.writeInt(0x1cb5c415);
+  w.writeInt(messages.length);
+  for (const message of messages) {
+    writeMessageFromFixture(w, message);
+  }
+}
+
+function writeUserVector(w: BinaryWriter, fixture: OfficialCaptureFixture, userIds: string[]): void {
+  const uniqueUserIds = Array.from(new Set(userIds));
+  w.writeInt(0x1cb5c415);
+  w.writeInt(uniqueUserIds.length);
+  for (const userId of uniqueUserIds) {
+    const user = fixture.usersById[userId];
+    if (user) {
+      writeUserFromFixture(w, user);
+      continue;
+    }
+
+    writeFallbackUserFromId(w, userId);
+  }
+}
+
+function writeChatVector(w: BinaryWriter, fixture: OfficialCaptureFixture, chatIds: string[]): void {
+  const chats = Array.from(new Set(chatIds))
+    .map((chatId) => fixture.chatsById[chatId])
+    .filter((chat): chat is FixtureChat => Boolean(chat));
+  w.writeInt(0x1cb5c415);
+  w.writeInt(chats.length);
+  for (const chat of chats) {
+    writeChatFromFixture(w, chat);
+  }
+}
+
+function writeDialogFromFixture(w: BinaryWriter, dialog: FixtureDialog): void {
+  // dialog#d58a08c6 flags:# pinned:flags.2?true unread_mark:flags.3?true view_forum_as_messages:flags.6?true peer:Peer top_message:int read_inbox_max_id:int read_outbox_max_id:int unread_count:int unread_mentions_count:int unread_reactions_count:int notify_settings:PeerNotifySettings ...
+  w.writeInt(0xd58a08c6);
+  let flags = 0;
+  if (dialog.pts !== undefined) flags |= (1 << 0);
+  if (dialog.draftDate !== undefined) flags |= (1 << 1);
+  w.writeInt(flags);
+  writePeerByKey(w, dialog.peerKey);
+  w.writeInt(dialog.topMessage);
+  w.writeInt(dialog.readInboxMaxId);
+  w.writeInt(dialog.readOutboxMaxId);
+  w.writeInt(dialog.unreadCount);
+  w.writeInt(dialog.unreadMentionsCount);
+  w.writeInt(dialog.unreadReactionsCount);
+  writePeerNotifySettingsToWriter(w);
+  if (dialog.pts !== undefined) {
+    w.writeInt(dialog.pts);
+  }
+  if (dialog.draftDate !== undefined) {
+    writeDraftMessageEmpty(w, dialog.draftDate);
+  }
+}
+
+function writeMessageFromFixture(w: BinaryWriter, message: FixtureMessage): void {
+  // message#3ae56482 flags:# ... flags2:# id:int from_id:flags.8?Peer from_boosts_applied:flags.29?int
+  // from_rank:flags2.12?string peer_id:Peer saved_peer_id:flags.28?Peer ... date:int message:string ...
+  w.writeInt(0x3ae56482);
+  let flags = 0;
+  if (message.out) flags |= (1 << 1);
+  if (message.fromPeerKey) flags |= (1 << 8);
+  if (message.post) flags |= (1 << 14);
+  if (message.editDate) flags |= (1 << 15);
+  if (message.savedPeerKey) flags |= (1 << 28);
+  w.writeInt(flags);
+  w.writeInt(0); // flags2
+  w.writeInt(message.id);
+  if (message.fromPeerKey) {
+    writePeerByKey(w, message.fromPeerKey);
+  }
+  writePeerByKey(w, message.peerKey);
+  if (message.savedPeerKey) {
+    writePeerByKey(w, message.savedPeerKey);
+  }
+  w.writeInt(message.date);
+  writeTlString(w, message.text);
+  if (message.editDate) {
+    w.writeInt(message.editDate);
+  }
+}
+
+function writeUserFromFixture(w: BinaryWriter, user: FixtureUser): void {
+  let flags = 0;
+  if (user.accessHash) flags |= (1 << 0);
+  if (user.firstName) flags |= (1 << 1);
+  if (user.lastName) flags |= (1 << 2);
+  if (user.username) flags |= (1 << 3);
+  if (user.phone) flags |= (1 << 4);
+  flags |= (1 << 6); // always include status
+  if (user.self) flags |= (1 << 10); // self
+
+  w.writeInt(0x31774388);
+  w.writeInt(flags);
+  w.writeInt(1 << 4); // flags2 stories_unavailable
+  w.writeLong(BigInt(user.id));
+  if (user.accessHash) {
+    w.writeLong(BigInt(user.accessHash));
+  }
+  if (user.firstName) {
+    writeTlString(w, user.firstName);
+  }
+  if (user.lastName) {
+    writeTlString(w, user.lastName);
+  }
+  if (user.username) {
+    writeTlString(w, user.username);
+  }
+  if (user.phone) {
+    writeTlString(w, user.phone);
+  }
+  // status: always written (flag bit 6 always set)
+  // userStatusOnline#edb93949 expires:int
+  w.writeInt(0xedb93949);
+  w.writeInt(Math.floor(Date.now() / 1000) + 300);
+}
+
+function writeFallbackUserFromId(w: BinaryWriter, userId: string): void {
+  writeUserFromFixture(w, {
+    id: userId,
+    accessHash: '0',
+    firstName: 'User',
+  });
+}
+
+function writeChatFromFixture(w: BinaryWriter, chat: FixtureChat): void {
+  if (chat.className === 'Channel') {
+    writeChannelFromFixture(w, chat);
+  }
+}
+
+function writeChannelFromFixture(w: BinaryWriter, chat: FixtureChat): void {
+  let flags = 0;
+  if (chat.creator) flags |= (1 << 0);
+  if (chat.broadcast) flags |= (1 << 5);
+  if (chat.username) flags |= (1 << 6);
+  if (chat.accessHash) flags |= (1 << 13);
+
+  w.writeInt(0x1c32b11c);
+  w.writeInt(flags);
+  w.writeInt(0); // flags2
+  w.writeLong(BigInt(chat.id));
+  if (chat.accessHash) {
+    w.writeLong(BigInt(chat.accessHash));
+  }
+  writeTlString(w, chat.title);
+  if (chat.username) {
+    writeTlString(w, chat.username);
+  }
+  writeChatPhotoEmpty(w);
+  w.writeInt(chat.date);
+}
+
+function writePeerByKey(w: BinaryWriter, peerKey: string): void {
+  const [type, rawId] = peerKey.split(':');
+  const id = BigInt(rawId || '0');
+
+  switch (type) {
+    case 'user':
+      w.writeInt(0x59511722); // peerUser
+      w.writeLong(id);
+      return;
+    case 'chat':
+      w.writeInt(0x36c6019a); // peerChat
+      w.writeLong(id);
+      return;
+    case 'channel':
+      w.writeInt(0xa2a5371e); // peerChannel
+      w.writeLong(id);
+      return;
+    default:
+      w.writeInt(0x59511722);
+      w.writeLong(id);
+  }
+}
+
+function writePeerNotifySettingsToWriter(w: BinaryWriter): void {
+  // peerNotifySettings#99622c0c flags:#
+  //   show_previews:flags.0?Bool silent:flags.1?Bool mute_until:flags.2?int
+  //   ios_sound:flags.3?NotificationSound android_sound:flags.4?NotificationSound other_sound:flags.5?NotificationSound
+  w.writeInt(0x99622c0c);
+  const flags = (1 << 0) | (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5); // 63
+  w.writeInt(flags);
+  w.writeInt(0x997275b5); // show_previews = boolTrue
+  w.writeInt(0xbc799737); // silent = boolFalse
+  w.writeInt(0);          // mute_until = 0
+  // ios_sound: notificationSoundDefault#97e8bebe
+  w.writeInt(0x97e8bebe);
+  // android_sound: notificationSoundLocal#830b9ae4 title:"default" data:"default"
+  w.writeInt(0x830b9ae4);
+  writeTlString(w, 'default');
+  writeTlString(w, 'default');
+  // other_sound: notificationSoundLocal#830b9ae4 title:"default" data:"default"
+  w.writeInt(0x830b9ae4);
+  writeTlString(w, 'default');
+  writeTlString(w, 'default');
+}
+
+function writeDraftMessageEmpty(w: BinaryWriter, date: number): void {
+  // draftMessageEmpty#1b0c841a flags:# date:int
+  w.writeInt(0x1b0c841a);
+  w.writeInt(1);
+  w.writeInt(date);
+}
+
+function writeChatPhotoEmpty(w: BinaryWriter): void {
+  w.writeInt(0x37c1011c);
+}
+
+function writePhotoEmpty(w: BinaryWriter, photoId: bigint): void {
+  // photoEmpty#2331b22d id:long
+  w.writeInt(0x2331b22d);
+  w.writeLong(photoId);
+}
+
+function writeEmptyVectorToWriter(w: BinaryWriter): void {
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+}
+
+function writeBufferVector(w: BinaryWriter, items: Buffer[]): void {
+  w.writeInt(0x1cb5c415);
+  w.writeInt(items.length);
+  for (const item of items) {
+    w.writeBytes(item);
+  }
+}
+
+function writeUpdatesStateToWriter(w: BinaryWriter): void {
+  const state = messageStore.getUpdateState();
+  w.writeInt(0xa56c2a3e);
+  w.writeInt(state.pts);
+  w.writeInt(state.qts);
+  w.writeInt(state.date);
+  w.writeInt(state.seq);
+  w.writeInt(state.unreadCount);
+}
+
+function writeEmptyJsonObject(w: BinaryWriter): void {
+  // jsonObject#99c1d49d value:Vector<JSONObjectValue>
+  w.writeInt(0x99c1d49d);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+}
+
+function buildConfig(): Buffer {
+  const w = new BinaryWriter();
+  // config#cc1a241e flags:# ... = Config
+  // flags.0 = tmp_sessions present
+  // No optional flags set for now (flags = 0)
+  w.writeInt(0xcc1a241e);  // config constructor
+  w.writeInt(0);           // flags (no optional fields)
+  w.writeInt(Math.floor(Date.now() / 1000)); // date
+  w.writeInt(Math.floor(Date.now() / 1000) + 3600); // expires
+  w.writeInt(0xbc799737); // test_mode = boolFalse#bc799737
+  w.writeInt(2);           // this_dc
+
+  // dc_options: Vector<DcOption>
+  w.writeInt(0x1cb5c415);  // vector constructor
+  w.writeInt(1);           // count = 1
+  // dcOption#18b7a10d flags:# id:int ip_address:string port:int
+  w.writeInt(0x18b7a10d);
+  w.writeInt(0);           // flags
+  w.writeInt(2);           // id = 2
+  writeTlString(w, '127.0.0.1');
+  w.writeInt(8080);        // port
+
+  writeTlString(w, '');    // dc_txt_domain_name
+  w.writeInt(200);         // chat_size_max
+  w.writeInt(200000);      // megagroup_size_max
+  w.writeInt(100);         // forwarded_count_max
+  w.writeInt(60000);       // online_update_period_ms
+  w.writeInt(5000);        // offline_blur_timeout_ms
+  w.writeInt(30000);       // offline_idle_timeout_ms
+  w.writeInt(300000);      // online_cloud_timeout_ms
+  w.writeInt(1500);        // notify_cloud_delay_ms
+  w.writeInt(25000);       // notify_default_delay_ms
+  w.writeInt(60000);       // push_chat_period_ms
+  w.writeInt(2);           // push_chat_limit
+  w.writeInt(172800);      // edit_time_limit
+  w.writeInt(2147483647);  // revoke_time_limit
+  w.writeInt(2147483647);  // revoke_pm_time_limit
+  w.writeInt(2419200);     // rating_e_decay
+  w.writeInt(200);         // stickers_recent_limit
+  w.writeInt(604800);      // channels_read_media_period
+  // tmp_sessions: flags.0 — NOT present (flag 0 not set)
+  w.writeInt(60);          // call_receive_timeout_ms
+  w.writeInt(60);          // call_ring_timeout_ms
+  w.writeInt(30);          // call_connect_timeout_ms
+  w.writeInt(10);          // call_packet_timeout_ms
+  writeTlString(w, 'https://localhost/'); // me_url_prefix
+  // autoupdate_url_prefix: flags.7 — NOT present
+  // gif_search_username: flags.9 — NOT present
+  // venue_search_username: flags.10 — NOT present
+  // img_search_username: flags.11 — NOT present
+  // static_maps_provider: flags.12 — NOT present
+  w.writeInt(1024);        // caption_length_max
+  w.writeInt(4096);        // message_length_max
+  w.writeInt(2);           // webfile_dc_id
+  // suggested_lang_code: flags.2 — NOT present
+  // lang_pack_version: flags.2 — NOT present
+  // base_lang_pack_version: flags.2 — NOT present
+  // reactions_default: flags.15 — NOT present
+  // autologin_token: flags.16 — NOT present
+
+  return w.getBytes();
+}
+
+function buildAppConfig(): Buffer {
+  const w = new BinaryWriter();
+  // help.appConfig#dd18782e hash:int config:JSONValue
+  w.writeInt(0xdd18782e);
+  w.writeInt(0); // hash
+  writeEmptyJsonObject(w);
+  return w.getBytes();
+}
+
+function buildUpdatesState(): Buffer {
+  const w = new BinaryWriter();
+  // updates.state#a56c2a3e pts:int qts:int date:int seq:int unread_count:int
+  writeUpdatesStateToWriter(w);
+  return w.getBytes();
+}
+
+const langPackCache = new Map<string, Record<string, string>>();
+function loadLangPackStrings(packName: string): Record<string, string> {
+  const cached = langPackCache.get(packName);
+  if (cached) return cached;
+
+  // Try pack-specific file first, then fall back to langpack-en.json
+  const candidates = [
+    resolvePath(process.cwd(), 'data', `langpack-${packName}.json`),
+    resolvePath(process.cwd(), 'data', 'langpack-en.json'),
+  ];
+
+  for (const langPackPath of candidates) {
+    if (existsSync(langPackPath)) {
+      try {
+        const strings = JSON.parse(readFileSync(langPackPath, 'utf8'));
+        console.log(`[LangPack] Loaded ${Object.keys(strings).length} strings for "${packName}" from ${langPackPath}`);
+        langPackCache.set(packName, strings);
+        return strings;
+      } catch (e) {
+        console.error(`[LangPack] Failed to load ${langPackPath}:`, e);
+      }
+    }
+  }
+
+  console.warn(`[LangPack] No langpack file for "${packName}" — run scripts/generate-langpack.cjs`);
+  const empty = {};
+  langPackCache.set(packName, empty);
+  return empty;
+}
+
+function buildLangPackDifference(packName: string = 'weba'): Buffer {
+  const strings = loadLangPackStrings(packName);
+  const entries = Object.entries(strings);
+
+  const w = new BinaryWriter();
+  // langPackDifference#f385c1f6 lang_code:string from_version:int version:int strings:Vector<LangPackString>
+  w.writeInt(0xf385c1f6);
+  writeTlString(w, 'en');  // lang_code
+  w.writeInt(0);            // from_version
+  w.writeInt(1);            // version
+  // strings: Vector<LangPackString>
+  w.writeInt(0x1cb5c415);
+  w.writeInt(entries.length);
+  for (const [key, value] of entries) {
+    // langPackString#cad181f6 key:string value:string
+    w.writeInt(0xcad181f6);
+    writeTlString(w, key);
+    writeTlString(w, value);
+  }
+  return w.getBytes();
+}
+
+function buildLangPackStringsResponse(packName: string, keys: string[]): Buffer {
+  const strings = loadLangPackStrings(packName);
+  const w = new BinaryWriter();
+  // Vector<LangPackString>
+  w.writeInt(0x1cb5c415);
+  w.writeInt(keys.length);
+  for (const key of keys) {
+    const value = strings[key];
+    if (value !== undefined) {
+      // langPackString#cad181f6 key:string value:string
+      w.writeInt(0xcad181f6);
+      writeTlString(w, key);
+      writeTlString(w, value);
+    } else {
+      // langPackStringDeleted#2979eeb2 key:string
+      w.writeInt(0x2979eeb2);
+      writeTlString(w, key);
+    }
+  }
+  return w.getBytes();
+}
+
+function buildLangPackLanguage(): Buffer {
+  const w = new BinaryWriter();
+  // langPackLanguage#eeca5ce3 flags:# official:flags.0?true rtl:flags.2?true beta:flags.3?true
+  // name:string native_name:string lang_code:string base_lang_code:flags.1?string
+  // plural_code:string strings_count:int translated_count:int translations_url:string
+  w.writeInt(0xeeca5ce3);
+  w.writeInt(1);             // flags (official = true)
+  writeTlString(w, 'English');  // name
+  writeTlString(w, 'English');  // native_name
+  writeTlString(w, 'en');       // lang_code
+  // base_lang_code: flags.1 — NOT present
+  writeTlString(w, 'en');       // plural_code
+  w.writeInt(0);                // strings_count
+  w.writeInt(0);                // translated_count
+  writeTlString(w, '');         // translations_url
+  return w.getBytes();
+}
+
+function buildEmptyVector(): Buffer {
+  const w = new BinaryWriter();
+  w.writeInt(0x1cb5c415);  // vector constructor
+  w.writeInt(0);            // count = 0
+  return w.getBytes();
+}
+
+function buildUpdatesDifferenceEmpty(): Buffer {
+  const state = messageStore.getUpdateState();
+  const w = new BinaryWriter();
+  // updates.differenceEmpty#5d75a138 date:int seq:int
+  w.writeInt(0x5d75a138);
+  w.writeInt(state.date);
+  w.writeInt(state.seq);
+  return w.getBytes();
+}
+
+function buildUpdatesDifference(data: Buffer, selfId: number): Buffer {
+  const request = parseUpdatesDifferenceRequest(data);
+  const currentState = messageStore.getUpdateState();
+  const fromPts = request?.pts ?? currentState.pts;
+  const events = messageStore.listUpdateEventsAfter(fromPts);
+
+  if (!events.length) {
+    return buildUpdatesDifferenceEmpty();
+  }
+
+  const newMessages: FixtureMessage[] = [];
+  const otherUpdates: Buffer[] = [];
+  const userIds: string[] = [];
+  const chatIds: string[] = [];
+
+  const seenMessageIds = new Set<number>();
+
+  for (const event of events) {
+    collectEntityIdsFromPeerKey(event.peerKey, userIds, chatIds);
+
+    if (event.kind === 'new_message' && event.messageId !== undefined) {
+      // Use getMessageForUser to find the correct copy for this user
+      // This filters out events that belong to the other user's copy
+      const stored = messageStore.getMessageForUser(event.messageId, selfId);
+      if (stored && !seenMessageIds.has(stored.messageId)) {
+        seenMessageIds.add(stored.messageId);
+        const isSavedMessages = stored.peerKey === `user:${selfId}`;
+        const message: FixtureMessage = {
+          id: stored.messageId,
+          peerKey: stored.peerKey,
+          date: stored.date,
+          text: stored.text,
+          className: 'Message',
+          out: isSavedMessages ? false : stored.isOutgoing,
+          post: stored.post,
+          fromPeerKey: isSavedMessages ? undefined : stored.fromPeerKey,
+          savedPeerKey: isSavedMessages ? `user:${selfId}` : undefined,
+          editDate: stored.editDate,
+        };
+        newMessages.push(message);
+        collectEntityIdsFromPeerKey(message.peerKey, userIds, chatIds);
+        if (message.fromPeerKey) {
+          collectEntityIdsFromPeerKey(message.fromPeerKey, userIds, chatIds);
+        }
+      }
+      continue;
+    }
+
+    if (event.kind === 'edit_message' && event.messageId !== undefined) {
+      const editedMsg = messageStore.getMessageForUser(event.messageId, selfId);
+      if (editedMsg && !seenMessageIds.has(editedMsg.messageId)) {
+        seenMessageIds.add(editedMsg.messageId);
+        const isSavedMessages = editedMsg.peerKey === `user:${selfId}`;
+        const editFixture: FixtureMessage = {
+          id: editedMsg.messageId,
+          peerKey: editedMsg.peerKey,
+          date: editedMsg.date,
+          text: editedMsg.text,
+          className: 'Message',
+          out: isSavedMessages ? false : editedMsg.isOutgoing,
+          post: editedMsg.post,
+          fromPeerKey: isSavedMessages ? undefined : editedMsg.fromPeerKey,
+          savedPeerKey: isSavedMessages ? `user:${selfId}` : undefined,
+          editDate: editedMsg.editDate,
+        };
+        otherUpdates.push(buildUpdateEditMessage(editFixture, event.pts, event.ptsCount));
+        if (editFixture.fromPeerKey) {
+          collectEntityIdsFromPeerKey(editFixture.fromPeerKey, userIds, chatIds);
+        }
+      }
+      continue;
+    }
+
+    if (event.kind === 'delete_messages' && event.messageId !== undefined) {
+      otherUpdates.push(buildUpdateDeleteMessages([event.messageId], event.pts, event.ptsCount));
+      continue;
+    }
+
+    if (event.kind === 'read_history' && event.maxId !== undefined && !event.peerKey.startsWith('channel:')) {
+      otherUpdates.push(buildUpdateReadHistoryInbox(event.peerKey, event.maxId, event.pts, event.ptsCount));
+    }
+
+    if (event.kind === 'read_history_outbox' && event.maxId !== undefined && !event.peerKey.startsWith('channel:')) {
+      otherUpdates.push(buildUpdateReadHistoryOutbox(event.peerKey, event.maxId, event.pts, event.ptsCount));
+    }
+  }
+
+  const mergedMessages = mergeMessagesById(newMessages);
+  const resolvedUserIds = collectUserIdsFromMessages(userIds, mergedMessages);
+  const resolvedChatIds = collectChatIdsFromMessages(chatIds, mergedMessages);
+
+  const w = new BinaryWriter();
+  // updates.difference#00f49ca0 new_messages:Vector<Message> new_encrypted_messages:Vector<EncryptedMessage> other_updates:Vector<Update> chats:Vector<Chat> users:Vector<User> state:updates.State
+  w.writeInt(0x00f49ca0);
+  writeMessageVector(w, mergedMessages);
+  writeEmptyVectorToWriter(w); // new_encrypted_messages
+  writeBufferVector(w, otherUpdates);
+
+  writeEmptyVectorToWriter(w); // chats
+
+  // users
+  const allUserIds = Array.from(new Set([String(selfId), ...resolvedUserIds]));
+  w.writeInt(0x1cb5c415);
+  w.writeInt(allUserIds.length);
+  for (const userId of allUserIds) {
+    const isSelf = userId === String(selfId);
+    writeUserFromFixture(w, getFixtureUserForId(undefined, userId, isSelf));
+  }
+
+  writeUpdatesStateToWriter(w);
+  return w.getBytes();
+}
+
+function buildUpdateReadHistoryInbox(peerKey: string, maxId: number, pts: number, ptsCount: number, selfId?: number): Buffer {
+  const w = new BinaryWriter();
+  // updateReadHistoryInbox#9e84bc99 flags:# folder_id:flags.0?int peer:Peer top_msg_id:flags.1?int max_id:int still_unread_count:int pts:int pts_count:int
+  w.writeInt(0x9e84bc99);
+  w.writeInt(0); // flags=0 (no folder_id, no top_msg_id)
+  writePeerByKey(w, peerKey);
+  w.writeInt(maxId);
+  const stillUnread = selfId ? messageStore.getUnreadCount(selfId, peerKey) : 0;
+  w.writeInt(stillUnread); // still_unread_count
+  w.writeInt(pts);
+  w.writeInt(ptsCount);
+  return w.getBytes();
+}
+
+function buildUpdateReadHistoryOutbox(peerKey: string, maxId: number, pts: number, ptsCount: number): Buffer {
+  const w = new BinaryWriter();
+  // updateReadHistoryOutbox#2f2f21bf peer:Peer max_id:int pts:int pts_count:int
+  w.writeInt(0x2f2f21bf);
+  writePeerByKey(w, peerKey);
+  w.writeInt(maxId);
+  w.writeInt(pts);
+  w.writeInt(ptsCount);
+  return w.getBytes();
+}
+
+// ========== PRIORITY 1 BUILDERS ==========
+
+function buildUserFull(session: ClientSession): Buffer {
+  return buildUserFullForUser(session, undefined, String(session.userId || SEED_USER_ID));
+}
+
+function buildUserFullForUser(
+  session: ClientSession,
+  fixture: OfficialCaptureFixture | undefined,
+  userId: string,
+): Buffer {
+  const w = new BinaryWriter();
+  // users.userFull#3b6d152e full_user:UserFull chats:Vector<Chat> users:Vector<User>
+  w.writeInt(0x3b6d152e);
+  const user = getFixtureUserForId(fixture, userId);
+  
+  // --- UserFull ---
+  // userFull#a02bc13e flags:# ... flags2:# id:long settings:PeerSettings
+  // notify_settings:PeerNotifySettings common_chats_count:int ...
+  // id:long about:flags.1?string settings:PeerSettings 
+  // personal_photo:flags.21?Photo profile_photo:flags.2?Photo fallback_photo:flags.22?Photo
+  // notify_settings:PeerNotifySettings ...
+  w.writeInt(0xa02bc13e);
+  w.writeInt(0);           // flags
+  w.writeInt(0);           // flags2
+  w.writeLong(BigInt(user.id));
+  // about: flags.1 — NOT present
+  // settings: PeerSettings
+  w.writeInt(0xf47741f7);  // peerSettings#f47741f7 flags:#
+  w.writeInt(0);
+  // personal_photo: flags.21 — NOT present
+  // profile_photo: flags.2 — NOT present
+  // fallback_photo: flags.22 — NOT present
+  // notify_settings: PeerNotifySettings
+  writePeerNotifySettingsToWriter(w);
+  // common_chats_count
+  w.writeInt(0);
+  // Remaining required fields skipped via flags=0
+
+  // --- chats: Vector<Chat> ---
+  w.writeInt(0x1cb5c415); // vector constructor
+  w.writeInt(0);           // count = 0
+
+  // --- users: Vector<User> ---
+  w.writeInt(0x1cb5c415); // vector constructor
+  w.writeInt(1);           // count = 1
+  writeUserFromFixture(w, user);
+
+  return w.getBytes();
+}
+
+function writeUser(w: BinaryWriter, session: ClientSession): void {
+  writeUserFromFixture(w, getFixtureUserForId(undefined, String(session.userId || SEED_USER_ID)));
+}
+
+function getFixtureUserForId(
+  fixture: OfficialCaptureFixture | undefined,
+  userId: string,
+  isSelf?: boolean,
+): FixtureUser {
+  const fixtureUser = fixture?.usersById[userId];
+  if (fixtureUser) {
+    return fixtureUser;
+  }
+
+  // Look up user in database
+  const dbUser = messageStore.getUserById(Number(userId));
+  if (dbUser) {
+    return {
+      id: String(dbUser.id),
+      accessHash: dbUser.accessHash.toString(),
+      firstName: dbUser.firstName,
+      lastName: dbUser.lastName || undefined,
+      username: dbUser.username,
+      phone: dbUser.phone,
+      self: isSelf,
+    };
+  }
+
+  return {
+    id: userId,
+    accessHash: '0',
+    firstName: 'User',
+  };
+}
+
+function writeSeedUser(w: BinaryWriter, session: ClientSession): void {
+  const userId = session.userId || SEED_USER_ID;
+  const user = getFixtureUserForId(undefined, String(userId), true);
+  // Use writeUserFromFixture which handles all fields properly
+  writeUserFromFixture(w, { ...user, self: true });
+}
+
+function buildUsersVector(session: ClientSession): Buffer {
+  return buildUsersVectorForIds(session, undefined, [String(session.userId || SEED_USER_ID)]);
+}
+
+function buildUsersVectorForIds(
+  session: ClientSession,
+  fixture: OfficialCaptureFixture | undefined,
+  userIds: string[],
+): Buffer {
+  const w = new BinaryWriter();
+  // Vector<User>
+  w.writeInt(0x1cb5c415);  // vector constructor
+  const uniqueUserIds = Array.from(new Set(userIds));
+  w.writeInt(uniqueUserIds.length);
+  for (const userId of uniqueUserIds) {
+    if (userId === String(SEED_USER_ID) && !fixture?.usersById[userId]) {
+      writeSeedUser(w, session);
+      continue;
+    }
+
+    writeUserFromFixture(w, getFixtureUserForId(fixture, userId));
+  }
+  return w.getBytes();
+}
+
+function buildDialogFilters(): Buffer {
+  const w = new BinaryWriter();
+  // messages.dialogFilters#2ad93719 flags:# tags_enabled:flags.0?true filters:Vector<DialogFilter>
+  w.writeInt(0x2ad93719);
+  w.writeInt(0);
+  // filters: Vector<DialogFilter>
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildDialogsEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // messages.dialogs#15ba6c40 dialogs:Vector<Dialog> messages:Vector<Message> 
+  // chats:Vector<Chat> users:Vector<User>
+  w.writeInt(0x15ba6c40);
+  // dialogs: empty vector
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  // messages: empty vector
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  // chats: empty vector
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  // users: empty vector
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildDialogsFromDb(selfId: number): Buffer {
+  const peerKeys = messageStore.getDialogPeerKeysForUser(selfId);
+  if (peerKeys.length === 0) return buildDialogsEmpty();
+
+  // Collect dialog data
+  const dialogData: Array<{
+    peerKey: string;
+    topMessage: StoredMessage;
+  }> = [];
+  const userIdSet = new Set<string>([String(selfId)]);
+
+  for (const peerKey of peerKeys) {
+    const lastMsg = messageStore.getLastMessageForUser(peerKey, selfId);
+    if (!lastMsg) continue;
+    dialogData.push({ peerKey, topMessage: lastMsg });
+    // Collect user IDs from peer key
+    if (peerKey.startsWith('user:')) {
+      userIdSet.add(peerKey.replace('user:', ''));
+    }
+    if (lastMsg.fromPeerKey?.startsWith('user:')) {
+      userIdSet.add(lastMsg.fromPeerKey.replace('user:', ''));
+    }
+  }
+
+  // Sort by last message date descending
+  dialogData.sort((a, b) => b.topMessage.date - a.topMessage.date);
+
+  const w = new BinaryWriter();
+  // messages.dialogs#15ba6c40
+  w.writeInt(0x15ba6c40);
+
+  // dialogs: Vector<Dialog>
+  w.writeInt(0x1cb5c415);
+  w.writeInt(dialogData.length);
+  for (const { peerKey, topMessage } of dialogData) {
+    const peerState = messageStore.getPeerState(selfId, peerKey);
+    // dialog#d58a08c6 flags:# peer:Peer top_message:int read_inbox_max_id:int
+    //   read_outbox_max_id:int unread_count:int unread_mentions_count:int
+    //   unread_reactions_count:int notify_settings:PeerNotifySettings
+    w.writeInt(0xd58a08c6);
+    w.writeInt(0); // flags (no pinned, no draft, no folder, no ttl)
+    writePeerByKey(w, peerKey);
+    w.writeInt(topMessage.messageId); // top_message
+    w.writeInt(peerState?.readInboxMaxId || 0); // read_inbox_max_id
+    w.writeInt(peerState?.readOutboxMaxId || 0); // read_outbox_max_id
+    const unreadCount = messageStore.getUnreadCount(selfId, peerKey);
+    w.writeInt(unreadCount); // unread_count
+    w.writeInt(0); // unread_mentions_count
+    w.writeInt(0); // unread_reactions_count
+    writePeerNotifySettingsToWriter(w);
+  }
+
+  // messages: Vector<Message>
+  w.writeInt(0x1cb5c415);
+  w.writeInt(dialogData.length);
+  for (const { peerKey, topMessage } of dialogData) {
+    const isSavedMessages = peerKey === `user:${selfId}`;
+    const fixtureMsg: FixtureMessage = {
+      id: topMessage.messageId,
+      peerKey: topMessage.peerKey,
+      date: topMessage.date,
+      text: topMessage.text,
+      className: 'Message',
+      out: isSavedMessages ? false : topMessage.isOutgoing,
+      post: topMessage.post,
+      fromPeerKey: isSavedMessages ? undefined : topMessage.fromPeerKey,
+      savedPeerKey: isSavedMessages ? `user:${selfId}` : undefined,
+    };
+    writeMessageFromFixture(w, fixtureMsg);
+  }
+
+  // chats: empty Vector<Chat>
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+
+  // users: Vector<User>
+  const userIds = Array.from(userIdSet);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(userIds.length);
+  for (const userId of userIds) {
+    const isSelf = userId === String(selfId);
+    writeUserFromFixture(w, getFixtureUserForId(undefined, userId, isSelf));
+  }
+
+  return w.getBytes();
+}
+
+function parsePeerDialogsRequest(data: Buffer): string[] {
+  try {
+    const reader = new BinaryReader(data);
+    reader.readInt(); // constructor id
+    const vectorId = reader.readInt() >>> 0;
+    if (vectorId !== 0x1cb5c415) return [];
+    const count = reader.readInt();
+    const peerKeys: string[] = [];
+    for (let i = 0; i < count; i++) {
+      const inputDialogPeerCtor = reader.readInt() >>> 0;
+      if (inputDialogPeerCtor === 0xfcaafeb7) { // inputDialogPeer
+        const key = readInputPeerKey(reader);
+        if (key) peerKeys.push(key);
+      } else if (inputDialogPeerCtor === 0x64600527) { // inputDialogPeerFolder
+        reader.readInt(); // folder_id
+      }
+    }
+    return peerKeys;
+  } catch (e) {
+    console.error('Failed to parse getPeerDialogs request:', (e as Error).message);
+    return [];
+  }
+}
+
+function buildPeerDialogsForPeers(peerKeys: string[], selfId: number): Buffer {
+  const w = new BinaryWriter();
+  // messages.peerDialogs#3371c354 dialogs:Vector<Dialog> messages:Vector<Message>
+  // chats:Vector<Chat> users:Vector<User> state:updates.State
+  w.writeInt(0x3371c354);
+
+  const userIdSet = new Set<string>([String(selfId)]);
+
+  // dialogs: Vector<Dialog>
+  w.writeInt(0x1cb5c415);
+  w.writeInt(peerKeys.length);
+  for (const peerKey of peerKeys) {
+    const lastMsg = messageStore.getLastMessageForUser(peerKey, selfId);
+    const peerState = messageStore.getPeerState(selfId, peerKey);
+    // dialog#d58a08c6
+    w.writeInt(0xd58a08c6);
+    w.writeInt(0); // flags
+    writePeerByKey(w, peerKey);
+    w.writeInt(lastMsg?.messageId || 0); // top_message
+    w.writeInt(peerState?.readInboxMaxId || 0); // read_inbox_max_id
+    w.writeInt(peerState?.readOutboxMaxId || 0); // read_outbox_max_id
+    const peerUnread = messageStore.getUnreadCount(selfId, peerKey);
+    w.writeInt(peerUnread); // unread_count
+    w.writeInt(0); // unread_mentions_count
+    w.writeInt(0); // unread_reactions_count
+    writePeerNotifySettingsToWriter(w);
+    // Collect user IDs
+    if (peerKey.startsWith('user:')) {
+      userIdSet.add(peerKey.replace('user:', ''));
+    }
+  }
+
+  // messages: Vector<Message> — include top messages if any
+  const topMessages: FixtureMessage[] = [];
+  for (const peerKey of peerKeys) {
+    const lastMsg = messageStore.getLastMessageForUser(peerKey, selfId);
+    if (lastMsg) {
+      const isSavedMessages = peerKey === `user:${selfId}`;
+      topMessages.push({
+        id: lastMsg.messageId,
+        peerKey: lastMsg.peerKey,
+        date: lastMsg.date,
+        text: lastMsg.text,
+        className: 'Message',
+        out: isSavedMessages ? false : lastMsg.isOutgoing,
+        post: lastMsg.post,
+        fromPeerKey: isSavedMessages ? undefined : lastMsg.fromPeerKey,
+        savedPeerKey: isSavedMessages ? `user:${selfId}` : undefined,
+      });
+    }
+  }
+  w.writeInt(0x1cb5c415);
+  w.writeInt(topMessages.length);
+  for (const msg of topMessages) {
+    writeMessageFromFixture(w, msg);
+  }
+
+  // chats: empty
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+
+  // users: Vector<User>
+  const userIds = Array.from(userIdSet);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(userIds.length);
+  for (const userId of userIds) {
+    const isSelf = userId === String(selfId);
+    writeUserFromFixture(w, getFixtureUserForId(undefined, userId, isSelf));
+  }
+
+  // state: updates.state
+  writeUpdatesStateToWriter(w);
+  return w.getBytes();
+}
+
+function buildPeerDialogs(): Buffer {
+  return buildPeerDialogsForPeers([], 0);
+}
+
+function buildNearestDc(): Buffer {
+  const w = new BinaryWriter();
+  // nearestDc#8e1a1775 country:string this_dc:int nearest_dc:int
+  w.writeInt(0x8e1a1775);
+  writeTlString(w, 'US');
+  w.writeInt(2);  // this_dc
+  w.writeInt(2);  // nearest_dc
+  return w.getBytes();
+}
+
+function buildBoolTrue(): Buffer {
+  const w = new BinaryWriter();
+  w.writeInt(0x997275b5);  // boolTrue
+  return w.getBytes();
+}
+
+function buildBoolFalse(): Buffer {
+  const w = new BinaryWriter();
+  w.writeInt(0xbc799737);  // boolFalse
+  return w.getBytes();
+}
+
+// ========== AUTH BUILDERS ==========
+
+function buildSentCode(phoneCodeHash: string, codeLength: number): Buffer {
+  const w = new BinaryWriter();
+  // auth.sentCode#5e002502 flags:# type:auth.SentCodeType phone_code_hash:string next_type:flags.1?auth.CodeType timeout:flags.2?int
+  const flags = (1 << 2); // timeout present
+  w.writeInt(0x5e002502);
+  w.writeInt(flags);
+  // type: auth.sentCodeTypeApp#3dbb5986 length:int
+  w.writeInt(0x3dbb5986);
+  w.writeInt(codeLength);
+  writeTlString(w, phoneCodeHash);
+  // next_type: flags.1 — NOT present
+  // timeout: flags.2 — present
+  w.writeInt(300); // 5 minutes
+  return w.getBytes();
+}
+
+function buildAuthAuthorization(user: import('../database/messageStore.js').StoredUser): Buffer {
+  const w = new BinaryWriter();
+  // auth.authorization#2ea2c0d4 flags:# setup_password_required:flags.1?true otherwise_relogin_days:flags.1?int tmp_sessions:flags.0?int future_auth_token:flags.2?bytes user:User
+  w.writeInt(0x2ea2c0d4);
+  w.writeInt(0); // flags — no optional fields
+  // Write user TL object
+  writeUserFromFixture(w, {
+    id: String(user.id),
+    accessHash: user.accessHash.toString(),
+    firstName: user.firstName,
+    phone: user.phone,
+    self: true,
+  });
+  return w.getBytes();
+}
+
+function buildAuthSignUpRequired(): Buffer {
+  const w = new BinaryWriter();
+  // auth.authorizationSignUpRequired#44747e9a flags:# terms_of_service:flags.0?help.TermsOfService
+  w.writeInt(0x44747e9a);
+  w.writeInt(0); // flags — no terms
+  return w.getBytes();
+}
+
+function buildContactsEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // contacts.contacts#eae87e42 contacts:Vector<Contact> saved_count:int users:Vector<User>
+  w.writeInt(0xeae87e42);
+  // contacts: empty
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0);  // saved_count
+  // users: empty
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildContactsFromDb(selfId: number): Buffer {
+  const allUsers = messageStore.getAllUsers(selfId);
+  const w = new BinaryWriter();
+  // contacts.contacts#eae87e42 contacts:Vector<Contact> saved_count:int users:Vector<User>
+  w.writeInt(0xeae87e42);
+  // contacts: Vector<Contact>
+  w.writeInt(0x1cb5c415);
+  w.writeInt(allUsers.length);
+  for (const user of allUsers) {
+    // contact#145ade0b user_id:long mutual:Bool
+    w.writeInt(0x145ade0b);
+    w.writeLong(BigInt(user.id));
+    w.writeInt(0x997275b5); // boolTrue — mutual
+  }
+  w.writeInt(allUsers.length); // saved_count
+  // users: Vector<User>
+  w.writeInt(0x1cb5c415);
+  w.writeInt(allUsers.length);
+  for (const user of allUsers) {
+    writeUserFromFixture(w, {
+      id: String(user.id),
+      accessHash: user.accessHash.toString(),
+      firstName: user.firstName,
+      lastName: user.lastName,
+      phone: user.phone,
+    });
+  }
+  return w.getBytes();
+}
+
+function buildContactsFound(query: string, selfId: number): Buffer {
+  const foundUsers = messageStore.searchUsers(query, selfId);
+  const w = new BinaryWriter();
+  // contacts.found#b3134d9d myResults:Vector<Peer> results:Vector<Peer> chats:Vector<Chat> users:Vector<User>
+  w.writeInt(0xb3134d9d);
+  // myResults: empty
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  // results: Vector<Peer>
+  w.writeInt(0x1cb5c415);
+  w.writeInt(foundUsers.length);
+  for (const user of foundUsers) {
+    // peerUser#59511722 user_id:long
+    w.writeInt(0x59511722);
+    w.writeLong(BigInt(user.id));
+  }
+  // chats: empty
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  // users: Vector<User>
+  w.writeInt(0x1cb5c415);
+  w.writeInt(foundUsers.length);
+  for (const user of foundUsers) {
+    writeUserFromFixture(w, {
+      id: String(user.id),
+      accessHash: user.accessHash.toString(),
+      firstName: user.firstName,
+      lastName: user.lastName,
+      phone: user.phone,
+    });
+  }
+  return w.getBytes();
+}
+
+// contacts.resolvedPeer#7f077ad9 peer:Peer chats:Vector<Chat> users:Vector<User>
+function buildResolvedPeer(username: string): Buffer {
+  const user = messageStore.getUserByUsername(username);
+  if (!user) {
+    return buildRpcErrorObject(400, 'USERNAME_NOT_OCCUPIED');
+  }
+  return buildResolvedPeerForUser(user);
+}
+
+function buildResolvedPeerForUser(user: StoredUser): Buffer {
+  const w = new BinaryWriter();
+  w.writeInt(0x7f077ad9); // contacts.resolvedPeer
+  // peer: PeerUser#59511722
+  w.writeInt(0x59511722);
+  w.writeLong(BigInt(user.id));
+  // chats: empty vector
+  writeEmptyVectorToWriter(w);
+  // users: Vector<User> with 1 user
+  w.writeInt(0x1cb5c415);
+  w.writeInt(1);
+  writeUserFromFixture(w, {
+    id: String(user.id),
+    accessHash: user.accessHash.toString(),
+    firstName: user.firstName,
+    lastName: user.lastName || undefined,
+    username: user.username,
+    phone: user.phone,
+  });
+  return w.getBytes();
+}
+
+function parseForwardMessagesRequest(data: Buffer, session: ClientSession): { fromPeerKey: string | undefined; toPeerKey: string | undefined; messageIds: number[]; randomIds: string[] } | undefined {
+  try {
+    const reader = new BinaryReader(data);
+    reader.offset = 4; // skip constructor
+    const flags = reader.readInt() >>> 0;
+
+    // from_peer: InputPeer
+    const fromPeerKey = readInputPeerKey(reader);
+
+    // id: Vector<int>
+    const vectorCid = reader.readInt() >>> 0;
+    const idCount = reader.readInt();
+    const messageIds: number[] = [];
+    for (let i = 0; i < idCount; i++) {
+      messageIds.push(reader.readInt());
+    }
+
+    // random_id: Vector<long>
+    const rVectorCid = reader.readInt() >>> 0;
+    const rCount = reader.readInt();
+    const randomIds: string[] = [];
+    for (let i = 0; i < rCount; i++) {
+      randomIds.push(reader.readLong(false).toString());
+    }
+
+    // to_peer: InputPeer
+    const toPeerKey = readInputPeerKey(reader);
+
+    return { fromPeerKey, toPeerKey, messageIds, randomIds };
+  } catch (e) {
+    console.log(`[WARN] parseForwardMessagesRequest: parse error:`, (e as Error).message);
+    return undefined;
+  }
+}
+
+function buildPeerNotifySettings(): Buffer {
+  const w = new BinaryWriter();
+  writePeerNotifySettingsToWriter(w);
+  return w.getBytes();
+}
+
+function buildPromoDataEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // help.promoDataEmpty#98f6ac75 expires:int
+  w.writeInt(0x98f6ac75);
+  w.writeInt(Math.floor(Date.now() / 1000) + 86400); // expires in 24h
+  return w.getBytes();
+}
+
+function buildWallPapersNotModified(): Buffer {
+  const w = new BinaryWriter();
+  // account.wallPapersNotModified#1c199183
+  w.writeInt(0x1c199183);
+  return w.getBytes();
+}
+
+function buildStickerSetNotModified(): Buffer {
+  const w = new BinaryWriter();
+  // messages.stickerSetNotModified#d3f924eb
+  w.writeInt(0xd3f924eb);
+  return w.getBytes();
+}
+
+function buildUpdatesEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // updates#74ae4240 updates:Vector<Update> users:Vector<User> chats:Vector<Chat> date:int seq:int
+  w.writeInt(0x74ae4240);
+  // updates: empty
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  // users: empty
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  // chats: empty
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(Math.floor(Date.now() / 1000)); // date
+  w.writeInt(0); // seq
+  return w.getBytes();
+}
+
+function buildLoginToken(): Buffer {
+  const w = new BinaryWriter();
+  // auth.loginToken#629f1980 expires:int token:bytes
+  w.writeInt(0x629f1980);
+  w.writeInt(Math.floor(Date.now() / 1000) + 30); // expires in 30s
+  // token: TL bytes (random 32 bytes)
+  const token = generateRandomBytes(32);
+  writeTlBytes(w, token);
+  return w.getBytes();
+}
+
+function buildTopPeersDisabled(): Buffer {
+  const w = new BinaryWriter();
+  // contacts.topPeersDisabled#b52c939d
+  w.writeInt(0xb52c939d);
+  return w.getBytes();
+}
+
+function buildBlockedEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // contacts.blocked#ade1591 blocked:Vector<PeerBlocked> chats:Vector<Chat> users:Vector<User>
+  w.writeInt(0x0ade1591);
+  // blocked: empty
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  // chats: empty
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  // users: empty
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildAvailableReactionsNotModified(): Buffer {
+  const w = new BinaryWriter();
+  // messages.availableReactionsNotModified#9f071957
+  w.writeInt(0x9f071957);
+  return w.getBytes();
+}
+
+function buildSavedDialogsEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // messages.savedDialogs#f83ae221 dialogs:Vector<SavedDialog> messages:Vector<Message> chats:Vector<Chat> users:Vector<User>
+  w.writeInt(0xf83ae221);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildSponsoredMessagesEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // messages.sponsoredMessagesEmpty#1839490f
+  w.writeInt(0x1839490f);
+  return w.getBytes();
+}
+
+function buildChannelFullFromFixture(fixture: OfficialCaptureFixture, channelId: string): Buffer {
+  const chat = fixture.chatsById[channelId];
+  if (!chat) {
+    return buildChannelFullEmpty(channelId);
+  }
+
+  const peerKey = `channel:${channelId}`;
+  const fixtureDialog = fixture.dialogs.find((dialog) => dialog.peerKey === peerKey);
+  const readState = getReadStateForPeerKey(peerKey, SEED_USER_ID, fixtureDialog);
+  const channelPts = fixture.historiesByKey[peerKey]?.pts || messageStore.getUpdateState().pts;
+
+  const w = new BinaryWriter();
+  // messages.chatFull#e5d7d19c full_chat:ChatFull chats:Vector<Chat> users:Vector<User>
+  w.writeInt(0xe5d7d19c);
+
+  // channelFull#e4e0b29d
+  w.writeInt(0xe4e0b29d);
+  w.writeInt(0); // flags
+  w.writeInt(0); // flags2
+  w.writeLong(BigInt(channelId));
+  writeTlString(w, '');
+  w.writeInt(readState.readInboxMaxId);
+  w.writeInt(readState.readOutboxMaxId);
+  w.writeInt(0); // unread_count
+  writePhotoEmpty(w, 0n);
+  writePeerNotifySettingsToWriter(w);
+  writeEmptyVectorToWriter(w); // bot_info
+  w.writeInt(channelPts);
+
+  w.writeInt(0x1cb5c415);
+  w.writeInt(1);
+  writeChatFromFixture(w, chat);
+
+  writeEmptyVectorToWriter(w); // users
+  return w.getBytes();
+}
+
+function buildChannelFullEmpty(channelId = '0'): Buffer {
+  const w = new BinaryWriter();
+  // messages.chatFull#e5d7d19c full_chat:ChatFull chats:Vector<Chat> users:Vector<User>
+  w.writeInt(0xe5d7d19c);
+
+  // channelFull#e4e0b29d
+  w.writeInt(0xe4e0b29d);
+  w.writeInt(0); // flags
+  w.writeInt(0); // flags2
+  w.writeLong(BigInt(channelId));
+  writeTlString(w, '');
+  w.writeInt(0);
+  w.writeInt(0);
+  w.writeInt(0);
+  writePhotoEmpty(w, 0n);
+  writePeerNotifySettingsToWriter(w);
+  writeEmptyVectorToWriter(w); // bot_info
+  w.writeInt(messageStore.getUpdateState().pts);
+
+  writeEmptyVectorToWriter(w); // chats
+  writeEmptyVectorToWriter(w); // users
+  return w.getBytes();
+}
+
+function buildEmptyStoriesStealthMode(): Buffer {
+  const w = new BinaryWriter();
+  // storiesStealthMode#712e27fd flags:#
+  w.writeInt(0x712e27fd);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildAllStoriesEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // stories.allStories#6efc5e81 flags:# count:int state:string peer_stories:Vector<PeerStories> chats:Vector<Chat> users:Vector<User> stealth_mode:StoriesStealthMode
+  w.writeInt(0x6efc5e81);
+  w.writeInt(0);
+  w.writeInt(0);
+  writeTlString(w, '');
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeBytes(buildEmptyStoriesStealthMode());
+  return w.getBytes();
+}
+
+function buildReactionsEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // messages.reactions#eafdf716 hash:long reactions:Vector<Reaction>
+  w.writeInt(0xeafdf716);
+  w.writeLong(0n);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildGlobalPrivacySettings(): Buffer {
+  const w = new BinaryWriter();
+  // globalPrivacySettings#fe41b34f flags:#
+  w.writeInt(0xfe41b34f);
+  w.writeInt(0);  // flags
+  return w.getBytes();
+}
+
+function buildPeerColorsEmpty(): Buffer {
+  return buildPeerColors(false);
+}
+
+function buildPeerProfileColors(): Buffer {
+  return buildPeerColors(true);
+}
+
+function buildPeerColors(isProfile: boolean): Buffer {
+  const w = new BinaryWriter();
+  w.writeInt(0x00f8ed08); // help.peerColors
+  w.writeInt(1);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(7);
+
+  const lightPalettes = [
+    [0xd67722, 0xe89f3c, 0xf2c05a],
+    [0xc7508b, 0xdb6aa3, 0xee95c2],
+    [0x3f8fce, 0x61a9e6, 0x8ac4f4],
+    [0x3aa86f, 0x5bbf86, 0x84d7a8],
+    [0x665fff, 0x817aff, 0xa49eff],
+    [0xba6a2f, 0xcf8751, 0xe4a674],
+    [0x9a5fd1, 0xb07ae2, 0xc99cf0],
+  ];
+  const darkPalettes = [
+    [0xa35314, 0xbf6a1a, 0xd88a35],
+    [0x963062, 0xaf4478, 0xca6797],
+    [0x276d9f, 0x3187bb, 0x54a5d7],
+    [0x27734c, 0x2f8758, 0x46a66f],
+    [0x4d49c4, 0x625de0, 0x7f79f0],
+    [0x885223, 0x9e6631, 0xb5804f],
+    [0x6f43a5, 0x8758be, 0xa072d6],
+  ];
+
+  for (let colorId = 0; colorId < 7; colorId++) {
+    w.writeInt(0xadec6ebe); // help.peerColorOption
+    w.writeInt((1 << 1) | (1 << 2)); // colors + dark_colors
+    w.writeInt(colorId);
+    if (isProfile) {
+      writePeerColorProfileSet(w, lightPalettes[colorId]);
+      writePeerColorProfileSet(w, darkPalettes[colorId]);
+    } else {
+      writePeerColorSet(w, lightPalettes[colorId]);
+      writePeerColorSet(w, darkPalettes[colorId]);
+    }
+  }
+
+  return w.getBytes();
+}
+
+function writePeerColorSet(w: BinaryWriter, colors: number[]): void {
+  w.writeInt(0x26219a58); // help.peerColorSet
+  w.writeInt(0x1cb5c415);
+  w.writeInt(colors.length);
+  for (const color of colors) {
+    w.writeInt(color);
+  }
+}
+
+function writePeerColorProfileSet(w: BinaryWriter, colors: number[]): void {
+  w.writeInt(0x767d61eb); // help.peerColorProfileSet
+  writeIntVector(w, colors);
+  writeIntVector(w, colors);
+  writeIntVector(w, colors);
+}
+
+function writeIntVector(w: BinaryWriter, values: number[]): void {
+  w.writeInt(0x1cb5c415);
+  w.writeInt(values.length);
+  for (const value of values) {
+    w.writeInt(value);
+  }
+}
+
+function buildCountriesListEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // help.countriesList#87d0759e countries:Vector<help.Country> hash:int
+  w.writeInt(0x87d0759e);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildTimezonesListEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // help.timezonesList#7b74ed71 timezones:Vector<Timezone> hash:int
+  w.writeInt(0x7b74ed71);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildPrivacyRulesEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // account.privacyRules#50a04e45 rules:Vector<PrivacyRule> chats:Vector<Chat> users:Vector<User>
+  w.writeInt(0x50a04e45);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildAuthorizationsEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // account.authorizations#4bff8ea0 authorization_ttl_days:int authorizations:Vector<Authorization>
+  w.writeInt(0x4bff8ea0);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildSavedReactionTagsEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // messages.savedReactionTags#3259950a tags:Vector<SavedReactionTag> hash:long
+  w.writeInt(0x3259950a);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeLong(0n);
+  return w.getBytes();
+}
+
+function buildQuickRepliesEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // messages.quickReplies#c68d6695 quick_replies:Vector<QuickReply> messages:Vector<Message> chats:Vector<Chat> users:Vector<User>
+  w.writeInt(0xc68d6695);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildAvailableEffectsEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // messages.availableEffects#bddb616e hash:int effects:Vector<AvailableEffect> documents:Vector<Document>
+  w.writeInt(0xbddb616e);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildAttachMenuBotsNotModified(): Buffer {
+  const w = new BinaryWriter();
+  // messages.attachMenuBotsNotModified#f1d88a5c
+  w.writeInt(0xf1d88a5c);
+  return w.getBytes();
+}
+
+function buildStarsAmountZero(): Buffer {
+  const w = new BinaryWriter();
+  // starsAmount#bbb6b4a3 amount:long nanos:int
+  w.writeInt(0xbbb6b4a3);
+  w.writeLong(0n);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildStarsStatusEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // payments.starsStatus#6c9ce8ed flags:# balance:StarsAmount chats:Vector<Chat> users:Vector<User>
+  w.writeInt(0x6c9ce8ed);
+  w.writeInt(0);
+  w.writeBytes(buildStarsAmountZero());
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildEmojiStatusesEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // account.emojiStatuses#90c467d1 hash:long statuses:Vector<EmojiStatus>
+  w.writeInt(0x90c467d1);
+  w.writeLong(0n);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildStarGiftsEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // payments.starGifts#2ed82995 hash:int gifts:Vector<StarGift> chats:Vector<Chat> users:Vector<User>
+  w.writeInt(0x2ed82995);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildSavedStarGiftsEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // payments.savedStarGifts#95f389b1 flags:# count:int gifts:Vector<SavedStarGift> chats:Vector<Chat> users:Vector<User>
+  w.writeInt(0x95f389b1);
+  w.writeInt(0);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildStarGiftActiveAuctionsEmpty(): Buffer {
+  const w = new BinaryWriter();
+  // payments.starGiftActiveAuctions#aef6abbc auctions:Vector<StarGiftActiveAuctionState> users:Vector<User> chats:Vector<Chat>
+  w.writeInt(0xaef6abbc);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildEmojiKeywordsDifference(): Buffer {
+  const w = new BinaryWriter();
+  // emojiKeywordsDifference#5cc761bd lang_code:string from_version:int version:int keywords:Vector<EmojiKeyword>
+  w.writeInt(0x5cc761bd);
+  writeTlString(w, 'en');
+  w.writeInt(0);  // from_version
+  w.writeInt(1);  // version
+  // keywords: empty vector
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildEmojiURL(): Buffer {
+  const w = new BinaryWriter();
+  // emojiURL#a575739d url:string
+  w.writeInt(0xa575739d);
+  writeTlString(w, '');
+  return w.getBytes();
+}
+
+function buildReactionsNotModified(): Buffer {
+  const w = new BinaryWriter();
+  // messages.reactionsNotModified#b06fdbdf
+  w.writeInt(0xb06fdbdf);
+  return w.getBytes();
+}
+
+function buildDefaultHistoryTTL(): Buffer {
+  const w = new BinaryWriter();
+  // defaultHistoryTTL#43b46b20 period:int
+  w.writeInt(0x43b46b20);
+  w.writeInt(0);  // period = 0 (no auto-delete)
+  return w.getBytes();
+}
+
+function buildPinnedDialogs(): Buffer {
+  const w = new BinaryWriter();
+  // messages.peerDialogs#3371c354 dialogs:Vector<Dialog> messages:Vector<Message>
+  // chats:Vector<Chat> users:Vector<User> state:updates.State
+  w.writeInt(0x3371c354);
+  // dialogs: empty
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  // messages: empty
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  // chats: empty
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  // users: empty
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  // state
+  writeUpdatesStateToWriter(w);
+  return w.getBytes();
+}
+
+function buildContentSettings(): Buffer {
+  const w = new BinaryWriter();
+  // account.contentSettings#57e28221 flags:#
+  w.writeInt(0x57e28221);
+  w.writeInt(0);  // flags
+  return w.getBytes();
+}
+
+function buildAccountPassword(): Buffer {
+  const w = new BinaryWriter();
+  // account.password#957b50fb flags:# has_recovery:flags.0?true has_secure_values:flags.1?true
+  // has_password:flags.2?true current_algo:flags.2?PasswordKdfAlgo
+  // srp_B:flags.2?bytes srp_id:flags.2?long
+  // hint:flags.3?string email_unconfirmed_pattern:flags.4?string
+  // new_algo:PasswordKdfAlgo new_secure_algo:SecurePasswordKdfAlgo secret_random:bytes
+  // pending_reset_date:flags.5?int login_email_pattern:flags.6?string
+  w.writeInt(0x957b50fb);
+  w.writeInt(0);  // flags (has_password=false)
+  // current_algo: flags.2 — NOT present
+  // srp_B: flags.2 — NOT present
+  // srp_id: flags.2 — NOT present
+  // hint: flags.3 — NOT present
+  // email_unconfirmed_pattern: flags.4 — NOT present
+  // new_algo: passwordKdfAlgoUnknown#d45ab096
+  w.writeInt(0xd45ab096);
+  // new_secure_algo: securePasswordKdfAlgoUnknown#4a8537
+  w.writeInt(0x004a8537);
+  // secure_random: bytes (empty)
+  writeTlBytes(w, Buffer.alloc(0));
+  return w.getBytes();
+}
+
+function buildAllStickersNotModified(): Buffer {
+  const w = new BinaryWriter();
+  // messages.allStickersNotModified#e86602c3
+  w.writeInt(0xe86602c3);
+  return w.getBytes();
+}
+
+function buildFeaturedStickersNotModified(): Buffer {
+  const w = new BinaryWriter();
+  // messages.featuredStickersNotModified#c6dc0c66 count:int
+  w.writeInt(0xc6dc0c66);
+  w.writeInt(0);  // count
+  return w.getBytes();
+}
+
+function buildRecentStickersNotModified(): Buffer {
+  const w = new BinaryWriter();
+  // messages.recentStickersNotModified#b17f890
+  w.writeInt(0x0b17f890);
+  return w.getBytes();
+}
+
+function buildSavedGifsNotModified(): Buffer {
+  const w = new BinaryWriter();
+  // messages.savedGifsNotModified#e8025ca2
+  w.writeInt(0xe8025ca2);
+  return w.getBytes();
+}
+
+function buildFavedStickersNotModified(): Buffer {
+  const w = new BinaryWriter();
+  // messages.favedStickersNotModified#9e8fa6d3
+  w.writeInt(0x9e8fa6d3);
+  return w.getBytes();
+}
+
+function buildUpdateShortSentMessage(messageId: number, pts: number, date: number): Buffer {
+  const w = new BinaryWriter();
+  // updateShortSentMessage#9015e101 flags:# out:flags.1?true id:int pts:int pts_count:int date:int ...
+  w.writeInt(0x9015e101);
+  w.writeInt(1 << 1); // out
+  w.writeInt(messageId);
+  w.writeInt(pts);
+  w.writeInt(1); // pts_count
+  w.writeInt(date);
+  return w.getBytes();
+}
+
+function buildAffectedMessages(pts: number, ptsCount: number): Buffer {
+  const w = new BinaryWriter();
+  // messages.affectedMessages#84d19185 pts:int pts_count:int
+  w.writeInt(0x84d19185);
+  w.writeInt(pts);
+  w.writeInt(ptsCount);
+  return w.getBytes();
+}
+
+function buildRpcErrorObject(errorCode: number, errorMessage: string): Buffer {
+  const w = new BinaryWriter();
+  w.writeInt(0x2144ca19);
+  w.writeInt(errorCode);
+  writeTlString(w, errorMessage);
+  return w.getBytes();
+}
+
+function buildRpcError(reqMsgId: bigint, errorCode: number, errorMessage: string): Buffer {
+  const w = new BinaryWriter();
+  // rpc_result#f35c6d01 req_msg_id:long result:Object
+  w.writeInt(0xf35c6d01);
+  w.writeLong(reqMsgId);
+  // rpc_error#2144ca19 error_code:int error_message:string
+  w.writeInt(0x2144ca19);
+  w.writeInt(errorCode);
+  // TL string
+  const msgBuf = Buffer.from(errorMessage);
+  const msgHeader = Buffer.alloc(1);
+  msgHeader[0] = msgBuf.length;
+  const msgPad = Buffer.alloc((4 - ((1 + msgBuf.length) % 4)) % 4);
+  w.writeBytes(Buffer.concat([msgHeader, msgBuf, msgPad]));
+  return w.getBytes();
+}
+
+function createEncryptedResponse(responseData: Buffer, reqMsgId: bigint, session: ClientSession, authKey: Buffer): Buffer {
+  // Build inner message
+  const innerW = new BinaryWriter();
+  innerW.writeBytes(session.serverSalt || Buffer.alloc(8));  // server_salt
+  innerW.writeBytes(session.sessionId || Buffer.alloc(8));   // session_id
+  // message_id (server response: must be slightly after request)  
+  const respMsgId = generateMessageId();
+  innerW.writeLong(respMsgId);
+  innerW.writeInt(1);  // seq_no (server, content-related = odd)
+  innerW.writeInt(responseData.length);  // message_data_length
+  innerW.writeBytes(responseData);
+
+  // Add padding (12-1024 bytes, total must be divisible by 16)
+  const innerBytes = innerW.getBytes();
+  let paddingLen = 12 + ((16 - ((innerBytes.length + 12) % 16)) % 16);
+  if (paddingLen < 12) paddingLen += 16;
+  const padded = Buffer.concat([innerBytes, generateRandomBytes(paddingLen)]);
+
+  // Compute msg_key (server→client: x=8)
+  const msgKeyLarge = sha256Sync(Buffer.concat([authKey.slice(96, 128), padded]));
+  const msgKey = msgKeyLarge.slice(8, 24);
+
+  // Derive AES key/iv (server→client: x=8 → auth_key[8:44] and auth_key[48:84])
+  const sha256a = sha256Sync(Buffer.concat([msgKey, authKey.slice(8, 44)]));
+  const sha256b = sha256Sync(Buffer.concat([authKey.slice(48, 84), msgKey]));
+  const aesKey = Buffer.concat([sha256a.slice(0, 8), sha256b.slice(8, 24), sha256a.slice(24, 32)]);
+  const aesIv = Buffer.concat([sha256b.slice(0, 8), sha256a.slice(8, 24), sha256b.slice(24, 32)]);
+
+  // Encrypt with IGE
+  const ige = new IGE(aesKey, aesIv);
+  const encryptedData = ige.encryptIge(padded);
+
+  // Build outer message: auth_key_id(8) + msg_key(16) + encrypted_data
+  const authKeyHash = sha1Sync(authKey);
+  const authKeyIdBuf = authKeyHash.slice(12, 20); // lower 64 bits
+  const envelope = Buffer.concat([authKeyIdBuf, msgKey, encryptedData]);
+
+  // Abridged frame + CTR encrypt
+  const length = envelope.length >> 2;
+  let frame: Buffer;
+  if (length < 127) {
+    frame = Buffer.concat([Buffer.from([length]), envelope]);
+  } else {
+    const header = Buffer.alloc(4);
+    header[0] = 0x7f;
+    header[1] = length & 0xff;
+    header[2] = (length >> 8) & 0xff;
+    header[3] = (length >> 16) & 0xff;
+    frame = Buffer.concat([header, envelope]);
+  }
+
+  if (session.encryptor) {
+    return session.encryptor.encrypt(frame);
+  }
+  return frame;
+}
+
+function sendSessionUpdate(session: ClientSession, responseData: Buffer): void {
+  if (!session.socket || session.socket.readyState !== WebSocket.OPEN) {
+    return;
+  }
+
+  if (!session.serverSalt || !session.sessionId) {
+    return;
+  }
+
+  const authKey = authHandler.getAuthKey(session.id);
+  if (!authKey) {
+    return;
+  }
+
+  session.socket.send(createEncryptedResponse(responseData, 0n, session, authKey));
+}
+
+function broadcastSessionUpdates(sourceSession: ClientSession, responseData: Buffer | null): void {
+  if (!responseData) {
+    return;
+  }
+
+  const sourceUserId = sourceSession.userId || SEED_USER_ID;
+  let sentCount = 0;
+  for (const targetSession of clients.values()) {
+    if (targetSession.id === sourceSession.id) {
+      continue;
+    }
+
+    if ((targetSession.userId || SEED_USER_ID) !== sourceUserId) {
+      continue;
+    }
+
+    sendSessionUpdate(targetSession, responseData);
+    sentCount++;
+  }
+  console.log(`[${new Date().toISOString()}] Broadcast from ${sourceSession.id}: ${responseData.length} bytes to ${sentCount} other sessions (total clients: ${clients.size})`);
+}
+
+function broadcastToUser(targetUserId: number, responseData: Buffer | null, excludeSessionId?: string): void {
+  if (!responseData) return;
+  let sentCount = 0;
+  for (const targetSession of clients.values()) {
+    if (excludeSessionId && targetSession.id === excludeSessionId) continue;
+    if ((targetSession.userId || SEED_USER_ID) !== targetUserId) continue;
+    sendSessionUpdate(targetSession, responseData);
+    sentCount++;
+  }
+  console.log(`[${new Date().toISOString()}] BroadcastToUser ${targetUserId}: ${responseData.length} bytes to ${sentCount} sessions`);
+}
+
+function buildLiveNewMessageUpdates(
+  peerKey: string,
+  messageId: number,
+  pts: number,
+  ptsCount: number,
+): Buffer | null {
+  const message = getStoredMessageAsFixture(peerKey, messageId);
+  if (!message) {
+    return null;
+  }
+
+  const userIds: string[] = [];
+  const chatIds: string[] = [];
+  collectEntityIdsFromPeerKey(message.peerKey, userIds, chatIds);
+  if (message.fromPeerKey) {
+    collectEntityIdsFromPeerKey(message.fromPeerKey, userIds, chatIds);
+  }
+
+  const update = buildUpdateNewMessage(message, pts, ptsCount);
+  return buildLiveUpdatesEnvelope([update], userIds, chatIds);
+}
+
+function buildLiveReadHistoryUpdates(peerKey: string, maxId: number, pts: number, ptsCount: number, selfId?: number): Buffer {
+  const userIds: string[] = [];
+  const chatIds: string[] = [];
+  collectEntityIdsFromPeerKey(peerKey, userIds, chatIds);
+
+  return buildLiveUpdatesEnvelope([
+    buildUpdateReadHistoryInbox(peerKey, maxId, pts, ptsCount, selfId),
+  ], userIds, chatIds);
+}
+
+function buildLiveUpdatesEnvelope(updateBuffers: Buffer[], userIds: string[], chatIds: string[]): Buffer {
+  const state = messageStore.getUpdateState();
+  const w = new BinaryWriter();
+  // updates#74ae4240 updates:Vector<Update> users:Vector<User> chats:Vector<Chat> date:int seq:int
+  w.writeInt(0x74ae4240);
+  writeBufferVector(w, updateBuffers);
+
+  // users
+  if (userIds.length > 0) {
+    w.writeInt(0x1cb5c415);
+    w.writeInt(userIds.length);
+    for (const userId of userIds) {
+      writeUserFromFixture(w, getFixtureUserForId(undefined, userId, false));
+    }
+  } else {
+    writeEmptyVectorToWriter(w);
+  }
+  writeEmptyVectorToWriter(w); // chats
+
+  w.writeInt(state.date);
+  w.writeInt(state.seq);
+  return w.getBytes();
+}
+
+function buildUpdateMessageID(messageId: number, randomId: string): Buffer {
+  const w = new BinaryWriter();
+  // updateMessageID#4e90bfd6 id:int random_id:long
+  w.writeInt(0x4e90bfd6);
+  w.writeInt(messageId);
+  w.writeLong(BigInt(randomId));
+  return w.getBytes();
+}
+
+function buildUpdateUserStatus(userId: number, isOffline: boolean): Buffer {
+  const w = new BinaryWriter();
+  // updates#74ae4240
+  w.writeInt(0x74ae4240);
+  // updates: Vector<Update> — 1 item
+  w.writeInt(0x1cb5c415);
+  w.writeInt(1);
+  // updateUserStatus#e5bdf8de user_id:long status:UserStatus
+  w.writeInt(0xe5bdf8de);
+  w.writeLong(BigInt(userId));
+  if (isOffline) {
+    // userStatusOffline#008c703f was_online:int
+    w.writeInt(0x008c703f);
+    w.writeInt(Math.floor(Date.now() / 1000));
+  } else {
+    // userStatusOnline#edb93949 expires:int
+    w.writeInt(0xedb93949);
+    w.writeInt(Math.floor(Date.now() / 1000) + 300); // online for 5 min
+  }
+  // users: empty
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  // chats: empty
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  // date, seq
+  w.writeInt(Math.floor(Date.now() / 1000));
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildUpdateUserTyping(userId: number, actionConstructor: number): Buffer {
+  // Wrap in updates#74ae4240 so client processes it
+  const w = new BinaryWriter();
+  // updates#74ae4240
+  w.writeInt(0x74ae4240);
+  // updates: Vector<Update> — 1 item
+  w.writeInt(0x1cb5c415);
+  w.writeInt(1);
+  // updateUserTyping#2a17bf5c flags:# user_id:long top_msg_id:flags.0?int action:SendMessageAction
+  w.writeInt(0x2a17bf5c);
+  w.writeInt(0); // flags (no top_msg_id)
+  w.writeLong(BigInt(userId)); // user_id
+  w.writeInt(actionConstructor); // action constructor (e.g. sendMessageTypingAction#16bf744e)
+  // users: empty Vector<User>
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  // chats: empty Vector<Chat>
+  w.writeInt(0x1cb5c415);
+  w.writeInt(0);
+  // date, seq
+  w.writeInt(Math.floor(Date.now() / 1000));
+  w.writeInt(0);
+  return w.getBytes();
+}
+
+function buildUpdateEditMessage(message: FixtureMessage, pts: number, ptsCount: number): Buffer {
+  const w = new BinaryWriter();
+  // updateEditMessage#e40370a3 message:Message pts:int pts_count:int
+  w.writeInt(0xe40370a3);
+  writeMessageFromFixture(w, message);
+  w.writeInt(pts);
+  w.writeInt(ptsCount);
+  return w.getBytes();
+}
+
+function buildUpdateDeleteMessages(messageIds: number[], pts: number, ptsCount: number): Buffer {
+  const w = new BinaryWriter();
+  // updateDeleteMessages#a20db0e5 messages:Vector<int> pts:int pts_count:int
+  w.writeInt(0xa20db0e5);
+  w.writeInt(0x1cb5c415); // vector
+  w.writeInt(messageIds.length);
+  for (const id of messageIds) {
+    w.writeInt(id);
+  }
+  w.writeInt(pts);
+  w.writeInt(ptsCount);
+  return w.getBytes();
+}
+
+function buildUpdateNewMessage(message: FixtureMessage, pts: number, ptsCount: number): Buffer {
+  const w = new BinaryWriter();
+  // updateNewMessage#1f2b0afd message:Message pts:int pts_count:int
+  w.writeInt(0x1f2b0afd);
+  writeMessageFromFixture(w, message);
+  w.writeInt(pts);
+  w.writeInt(ptsCount);
+  return w.getBytes();
+}

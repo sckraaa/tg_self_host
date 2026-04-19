@@ -1,0 +1,932 @@
+{
+  "method": "messages.getTopReactions",
+  "capturedAt": "2026-04-10T16:16:13.661Z",
+  "request": {
+    "__className": "messages.GetTopReactions",
+    "__constructorId": 3145803194,
+    "className": "messages.GetTopReactions",
+    "originalArgs": {
+      "limit": 50,
+      "hash": "0"
+    },
+    "limit": 50,
+    "hash": "0"
+  },
+  "response": {
+    "__className": "messages.Reactions",
+    "__constructorId": 3942512406,
+    "className": "messages.Reactions",
+    "originalArgs": {
+      "hash": {
+        "value": "43046283918185673"
+      },
+      "reactions": [
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "❤"
+          },
+          "emoticon": "❤"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "👍"
+          },
+          "emoticon": "👍"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "👎"
+          },
+          "emoticon": "👎"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🔥"
+          },
+          "emoticon": "🔥"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🥰"
+          },
+          "emoticon": "🥰"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "👏"
+          },
+          "emoticon": "👏"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "😁"
+          },
+          "emoticon": "😁"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🤔"
+          },
+          "emoticon": "🤔"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🤯"
+          },
+          "emoticon": "🤯"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "😱"
+          },
+          "emoticon": "😱"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🤬"
+          },
+          "emoticon": "🤬"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "😢"
+          },
+          "emoticon": "😢"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🎉"
+          },
+          "emoticon": "🎉"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🤩"
+          },
+          "emoticon": "🤩"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🤮"
+          },
+          "emoticon": "🤮"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "💩"
+          },
+          "emoticon": "💩"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🙏"
+          },
+          "emoticon": "🙏"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "👌"
+          },
+          "emoticon": "👌"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🕊"
+          },
+          "emoticon": "🕊"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🤡"
+          },
+          "emoticon": "🤡"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🥱"
+          },
+          "emoticon": "🥱"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🥴"
+          },
+          "emoticon": "🥴"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "😍"
+          },
+          "emoticon": "😍"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🐳"
+          },
+          "emoticon": "🐳"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "❤‍🔥"
+          },
+          "emoticon": "❤‍🔥"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🌚"
+          },
+          "emoticon": "🌚"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🌭"
+          },
+          "emoticon": "🌭"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "💯"
+          },
+          "emoticon": "💯"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🤣"
+          },
+          "emoticon": "🤣"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "⚡"
+          },
+          "emoticon": "⚡"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🍌"
+          },
+          "emoticon": "🍌"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🏆"
+          },
+          "emoticon": "🏆"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "💔"
+          },
+          "emoticon": "💔"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🤨"
+          },
+          "emoticon": "🤨"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "😐"
+          },
+          "emoticon": "😐"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🍓"
+          },
+          "emoticon": "🍓"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🍾"
+          },
+          "emoticon": "🍾"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "💋"
+          },
+          "emoticon": "💋"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🖕"
+          },
+          "emoticon": "🖕"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "😈"
+          },
+          "emoticon": "😈"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "😴"
+          },
+          "emoticon": "😴"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "😭"
+          },
+          "emoticon": "😭"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🤓"
+          },
+          "emoticon": "🤓"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "👻"
+          },
+          "emoticon": "👻"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "👨‍💻"
+          },
+          "emoticon": "👨‍💻"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "👀"
+          },
+          "emoticon": "👀"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🎃"
+          },
+          "emoticon": "🎃"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "🙈"
+          },
+          "emoticon": "🙈"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "😇"
+          },
+          "emoticon": "😇"
+        },
+        {
+          "__className": "ReactionEmoji",
+          "__constructorId": 455247544,
+          "className": "ReactionEmoji",
+          "originalArgs": {
+            "emoticon": "😨"
+          },
+          "emoticon": "😨"
+        }
+      ]
+    },
+    "hash": {
+      "value": "43046283918185673"
+    },
+    "reactions": [
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "❤"
+        },
+        "emoticon": "❤"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "👍"
+        },
+        "emoticon": "👍"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "👎"
+        },
+        "emoticon": "👎"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🔥"
+        },
+        "emoticon": "🔥"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🥰"
+        },
+        "emoticon": "🥰"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "👏"
+        },
+        "emoticon": "👏"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "😁"
+        },
+        "emoticon": "😁"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🤔"
+        },
+        "emoticon": "🤔"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🤯"
+        },
+        "emoticon": "🤯"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "😱"
+        },
+        "emoticon": "😱"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🤬"
+        },
+        "emoticon": "🤬"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "😢"
+        },
+        "emoticon": "😢"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🎉"
+        },
+        "emoticon": "🎉"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🤩"
+        },
+        "emoticon": "🤩"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🤮"
+        },
+        "emoticon": "🤮"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "💩"
+        },
+        "emoticon": "💩"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🙏"
+        },
+        "emoticon": "🙏"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "👌"
+        },
+        "emoticon": "👌"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🕊"
+        },
+        "emoticon": "🕊"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🤡"
+        },
+        "emoticon": "🤡"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🥱"
+        },
+        "emoticon": "🥱"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🥴"
+        },
+        "emoticon": "🥴"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "😍"
+        },
+        "emoticon": "😍"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🐳"
+        },
+        "emoticon": "🐳"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "❤‍🔥"
+        },
+        "emoticon": "❤‍🔥"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🌚"
+        },
+        "emoticon": "🌚"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🌭"
+        },
+        "emoticon": "🌭"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "💯"
+        },
+        "emoticon": "💯"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🤣"
+        },
+        "emoticon": "🤣"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "⚡"
+        },
+        "emoticon": "⚡"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🍌"
+        },
+        "emoticon": "🍌"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🏆"
+        },
+        "emoticon": "🏆"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "💔"
+        },
+        "emoticon": "💔"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🤨"
+        },
+        "emoticon": "🤨"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "😐"
+        },
+        "emoticon": "😐"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🍓"
+        },
+        "emoticon": "🍓"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🍾"
+        },
+        "emoticon": "🍾"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "💋"
+        },
+        "emoticon": "💋"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🖕"
+        },
+        "emoticon": "🖕"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "😈"
+        },
+        "emoticon": "😈"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "😴"
+        },
+        "emoticon": "😴"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "😭"
+        },
+        "emoticon": "😭"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🤓"
+        },
+        "emoticon": "🤓"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "👻"
+        },
+        "emoticon": "👻"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "👨‍💻"
+        },
+        "emoticon": "👨‍💻"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "👀"
+        },
+        "emoticon": "👀"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🎃"
+        },
+        "emoticon": "🎃"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "🙈"
+        },
+        "emoticon": "🙈"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "😇"
+        },
+        "emoticon": "😇"
+      },
+      {
+        "__className": "ReactionEmoji",
+        "__constructorId": 455247544,
+        "className": "ReactionEmoji",
+        "originalArgs": {
+          "emoticon": "😨"
+        },
+        "emoticon": "😨"
+      }
+    ]
+  }
+}

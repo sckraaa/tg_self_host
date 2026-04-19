@@ -1,0 +1,58 @@
+{
+  "method": "langpack.getStrings__sample",
+  "capturedAt": "2026-04-10T16:16:11.915Z",
+  "request": {
+    "__className": "langpack.GetStrings",
+    "__constructorId": 4025104387,
+    "className": "langpack.GetStrings",
+    "originalArgs": {
+      "langPack": "tdesktop",
+      "langCode": "en",
+      "keys": [
+        "lng_settings_save",
+        "lng_cancel",
+        "lng_ok"
+      ]
+    },
+    "langPack": "tdesktop",
+    "langCode": "en",
+    "keys": [
+      "lng_settings_save",
+      "lng_cancel",
+      "lng_ok"
+    ]
+  },
+  "response": [
+    {
+      "__className": "LangPackString",
+      "__constructorId": 3402727926,
+      "className": "LangPackString",
+      "originalArgs": {
+        "key": "lng_settings_save",
+        "value": "Save"
+      },
+      "key": "lng_settings_save",
+      "value": "Save"
+    },
+    {
+      "__className": "LangPackString",
+      "__constructorId": 3402727926,
+      "className": "LangPackString",
+      "originalArgs": {
+        "key": "lng_cancel",
+        "value": "Cancel"
+      },
+      "key": "lng_cancel",
+      "value": "Cancel"
+    },
+    {
+      "__className": "LangPackStringDeleted",
+      "__constructorId": 695856818,
+      "className": "LangPackStringDeleted",
+      "originalArgs": {
+        "key": "lng_ok"
+      },
+      "key": "lng_ok"
+    }
+  ]
+}

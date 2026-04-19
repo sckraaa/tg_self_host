@@ -1,0 +1,2588 @@
+{
+  "method": "help.getPeerColors",
+  "capturedAt": "2026-04-10T16:16:10.731Z",
+  "request": {
+    "__className": "help.GetPeerColors",
+    "__constructorId": 3665884207,
+    "className": "help.GetPeerColors",
+    "originalArgs": {
+      "hash": 0
+    },
+    "hash": 0
+  },
+  "response": {
+    "__className": "help.PeerColors",
+    "__constructorId": 16313608,
+    "className": "help.PeerColors",
+    "originalArgs": {
+      "hash": -727783590,
+      "colors": [
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 8,
+            "hidden": false,
+            "colorId": 5,
+            "colors": null,
+            "darkColors": null,
+            "channelMinLevel": 1,
+            "groupMinLevel": null
+          },
+          "flags": 8,
+          "hidden": false,
+          "colorId": 5,
+          "colors": null,
+          "darkColors": null,
+          "channelMinLevel": 1,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 8,
+            "hidden": false,
+            "colorId": 3,
+            "colors": null,
+            "darkColors": null,
+            "channelMinLevel": 1,
+            "groupMinLevel": null
+          },
+          "flags": 8,
+          "hidden": false,
+          "colorId": 3,
+          "colors": null,
+          "darkColors": null,
+          "channelMinLevel": 1,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 8,
+            "hidden": false,
+            "colorId": 1,
+            "colors": null,
+            "darkColors": null,
+            "channelMinLevel": 1,
+            "groupMinLevel": null
+          },
+          "flags": 8,
+          "hidden": false,
+          "colorId": 1,
+          "colors": null,
+          "darkColors": null,
+          "channelMinLevel": 1,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 8,
+            "hidden": false,
+            "colorId": 0,
+            "colors": null,
+            "darkColors": null,
+            "channelMinLevel": 1,
+            "groupMinLevel": null
+          },
+          "flags": 8,
+          "hidden": false,
+          "colorId": 0,
+          "colors": null,
+          "darkColors": null,
+          "channelMinLevel": 1,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 8,
+            "hidden": false,
+            "colorId": 2,
+            "colors": null,
+            "darkColors": null,
+            "channelMinLevel": 1,
+            "groupMinLevel": null
+          },
+          "flags": 8,
+          "hidden": false,
+          "colorId": 2,
+          "colors": null,
+          "darkColors": null,
+          "channelMinLevel": 1,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 8,
+            "hidden": false,
+            "colorId": 4,
+            "colors": null,
+            "darkColors": null,
+            "channelMinLevel": 1,
+            "groupMinLevel": null
+          },
+          "flags": 8,
+          "hidden": false,
+          "colorId": 4,
+          "colors": null,
+          "darkColors": null,
+          "channelMinLevel": 1,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 8,
+            "hidden": false,
+            "colorId": 6,
+            "colors": null,
+            "darkColors": null,
+            "channelMinLevel": 1,
+            "groupMinLevel": null
+          },
+          "flags": 8,
+          "hidden": false,
+          "colorId": 6,
+          "colors": null,
+          "darkColors": null,
+          "channelMinLevel": 1,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 14,
+            "hidden": false,
+            "colorId": 12,
+            "colors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  3379668,
+                  8246256
+                ]
+              },
+              "colors": [
+                3379668,
+                8246256
+              ]
+            },
+            "darkColors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  5423103,
+                  742548
+                ]
+              },
+              "colors": [
+                5423103,
+                742548
+              ]
+            },
+            "channelMinLevel": 2,
+            "groupMinLevel": null
+          },
+          "flags": 14,
+          "hidden": false,
+          "colorId": 12,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                3379668,
+                8246256
+              ]
+            },
+            "colors": [
+              3379668,
+              8246256
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                5423103,
+                742548
+              ]
+            },
+            "colors": [
+              5423103,
+              742548
+            ]
+          },
+          "channelMinLevel": 2,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 14,
+            "hidden": false,
+            "colorId": 10,
+            "colors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  2599184,
+                  11000919
+                ]
+              },
+              "colors": [
+                2599184,
+                11000919
+              ]
+            },
+            "darkColors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  11004782,
+                  1474093
+                ]
+              },
+              "colors": [
+                11004782,
+                1474093
+              ]
+            },
+            "channelMinLevel": 2,
+            "groupMinLevel": null
+          },
+          "flags": 14,
+          "hidden": false,
+          "colorId": 10,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                2599184,
+                11000919
+              ]
+            },
+            "colors": [
+              2599184,
+              11000919
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                11004782,
+                1474093
+              ]
+            },
+            "colors": [
+              11004782,
+              1474093
+            ]
+          },
+          "channelMinLevel": 2,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 14,
+            "hidden": false,
+            "colorId": 8,
+            "colors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  14712875,
+                  16434484
+                ]
+              },
+              "colors": [
+                14712875,
+                16434484
+              ]
+            },
+            "darkColors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  15511630,
+                  12801812
+                ]
+              },
+              "colors": [
+                15511630,
+                12801812
+              ]
+            },
+            "channelMinLevel": 2,
+            "groupMinLevel": null
+          },
+          "flags": 14,
+          "hidden": false,
+          "colorId": 8,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                14712875,
+                16434484
+              ]
+            },
+            "colors": [
+              14712875,
+              16434484
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                15511630,
+                12801812
+              ]
+            },
+            "colors": [
+              15511630,
+              12801812
+            ]
+          },
+          "channelMinLevel": 2,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 14,
+            "hidden": false,
+            "colorId": 7,
+            "colors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  14766162,
+                  16363107
+                ]
+              },
+              "colors": [
+                14766162,
+                16363107
+              ]
+            },
+            "darkColors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  16749440,
+                  10039095
+                ]
+              },
+              "colors": [
+                16749440,
+                10039095
+              ]
+            },
+            "channelMinLevel": 2,
+            "groupMinLevel": null
+          },
+          "flags": 14,
+          "hidden": false,
+          "colorId": 7,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                14766162,
+                16363107
+              ]
+            },
+            "colors": [
+              14766162,
+              16363107
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                16749440,
+                10039095
+              ]
+            },
+            "colors": [
+              16749440,
+              10039095
+            ]
+          },
+          "channelMinLevel": 2,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 14,
+            "hidden": false,
+            "colorId": 9,
+            "colors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  10510323,
+                  16027647
+                ]
+              },
+              "colors": [
+                10510323,
+                16027647
+              ]
+            },
+            "darkColors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  13015039,
+                  6173128
+                ]
+              },
+              "colors": [
+                13015039,
+                6173128
+              ]
+            },
+            "channelMinLevel": 2,
+            "groupMinLevel": null
+          },
+          "flags": 14,
+          "hidden": false,
+          "colorId": 9,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                10510323,
+                16027647
+              ]
+            },
+            "colors": [
+              10510323,
+              16027647
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                13015039,
+                6173128
+              ]
+            },
+            "colors": [
+              13015039,
+              6173128
+            ]
+          },
+          "channelMinLevel": 2,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 14,
+            "hidden": false,
+            "colorId": 11,
+            "colors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  2600142,
+                  8579286
+                ]
+              },
+              "colors": [
+                2600142,
+                8579286
+              ]
+            },
+            "darkColors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  4249808,
+                  285823
+                ]
+              },
+              "colors": [
+                4249808,
+                285823
+              ]
+            },
+            "channelMinLevel": 2,
+            "groupMinLevel": null
+          },
+          "flags": 14,
+          "hidden": false,
+          "colorId": 11,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                2600142,
+                8579286
+              ]
+            },
+            "colors": [
+              2600142,
+              8579286
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                4249808,
+                285823
+              ]
+            },
+            "colors": [
+              4249808,
+              285823
+            ]
+          },
+          "channelMinLevel": 2,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 14,
+            "hidden": false,
+            "colorId": 13,
+            "colors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  14500721,
+                  16760479
+                ]
+              },
+              "colors": [
+                14500721,
+                16760479
+              ]
+            },
+            "darkColors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  16746150,
+                  9320046
+                ]
+              },
+              "colors": [
+                16746150,
+                9320046
+              ]
+            },
+            "channelMinLevel": 2,
+            "groupMinLevel": null
+          },
+          "flags": 14,
+          "hidden": false,
+          "colorId": 13,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                14500721,
+                16760479
+              ]
+            },
+            "colors": [
+              14500721,
+              16760479
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                16746150,
+                9320046
+              ]
+            },
+            "colors": [
+              16746150,
+              9320046
+            ]
+          },
+          "channelMinLevel": 2,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 14,
+            "hidden": false,
+            "colorId": 14,
+            "colors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  2391021,
+                  15747158,
+                  16777215
+                ]
+              },
+              "colors": [
+                2391021,
+                15747158,
+                16777215
+              ]
+            },
+            "darkColors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  4170494,
+                  15024719,
+                  16777215
+                ]
+              },
+              "colors": [
+                4170494,
+                15024719,
+                16777215
+              ]
+            },
+            "channelMinLevel": 3,
+            "groupMinLevel": null
+          },
+          "flags": 14,
+          "hidden": false,
+          "colorId": 14,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                2391021,
+                15747158,
+                16777215
+              ]
+            },
+            "colors": [
+              2391021,
+              15747158,
+              16777215
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                4170494,
+                15024719,
+                16777215
+              ]
+            },
+            "colors": [
+              4170494,
+              15024719,
+              16777215
+            ]
+          },
+          "channelMinLevel": 3,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 14,
+            "hidden": false,
+            "colorId": 15,
+            "colors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  14055202,
+                  2007057,
+                  16777215
+                ]
+              },
+              "colors": [
+                14055202,
+                2007057,
+                16777215
+              ]
+            },
+            "darkColors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  16748638,
+                  3319079,
+                  16777215
+                ]
+              },
+              "colors": [
+                16748638,
+                3319079,
+                16777215
+              ]
+            },
+            "channelMinLevel": 3,
+            "groupMinLevel": null
+          },
+          "flags": 14,
+          "hidden": false,
+          "colorId": 15,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                14055202,
+                2007057,
+                16777215
+              ]
+            },
+            "colors": [
+              14055202,
+              2007057,
+              16777215
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                16748638,
+                3319079,
+                16777215
+              ]
+            },
+            "colors": [
+              16748638,
+              3319079,
+              16777215
+            ]
+          },
+          "channelMinLevel": 3,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 14,
+            "hidden": false,
+            "colorId": 16,
+            "colors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  1547842,
+                  15223359,
+                  16777215
+                ]
+              },
+              "colors": [
+                1547842,
+                15223359,
+                16777215
+              ]
+            },
+            "darkColors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  6738788,
+                  13976655,
+                  16777215
+                ]
+              },
+              "colors": [
+                6738788,
+                13976655,
+                16777215
+              ]
+            },
+            "channelMinLevel": 3,
+            "groupMinLevel": null
+          },
+          "flags": 14,
+          "hidden": false,
+          "colorId": 16,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                1547842,
+                15223359,
+                16777215
+              ]
+            },
+            "colors": [
+              1547842,
+              15223359,
+              16777215
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                6738788,
+                13976655,
+                16777215
+              ]
+            },
+            "colors": [
+              6738788,
+              13976655,
+              16777215
+            ]
+          },
+          "channelMinLevel": 3,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 14,
+            "hidden": false,
+            "colorId": 17,
+            "colors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  2659503,
+                  7324758,
+                  16777215
+                ]
+              },
+              "colors": [
+                2659503,
+                7324758,
+                16777215
+              ]
+            },
+            "darkColors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  2276578,
+                  4039232,
+                  16777215
+                ]
+              },
+              "colors": [
+                2276578,
+                4039232,
+                16777215
+              ]
+            },
+            "channelMinLevel": 3,
+            "groupMinLevel": null
+          },
+          "flags": 14,
+          "hidden": false,
+          "colorId": 17,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                2659503,
+                7324758,
+                16777215
+              ]
+            },
+            "colors": [
+              2659503,
+              7324758,
+              16777215
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                2276578,
+                4039232,
+                16777215
+              ]
+            },
+            "colors": [
+              2276578,
+              4039232,
+              16777215
+            ]
+          },
+          "channelMinLevel": 3,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 14,
+            "hidden": false,
+            "colorId": 18,
+            "colors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  826035,
+                  16756117,
+                  16770741
+                ]
+              },
+              "colors": [
+                826035,
+                16756117,
+                16770741
+              ]
+            },
+            "darkColors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  2276578,
+                  16750456,
+                  16767595
+                ]
+              },
+              "colors": [
+                2276578,
+                16750456,
+                16767595
+              ]
+            },
+            "channelMinLevel": 3,
+            "groupMinLevel": null
+          },
+          "flags": 14,
+          "hidden": false,
+          "colorId": 18,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                826035,
+                16756117,
+                16770741
+              ]
+            },
+            "colors": [
+              826035,
+              16756117,
+              16770741
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                2276578,
+                16750456,
+                16767595
+              ]
+            },
+            "colors": [
+              2276578,
+              16750456,
+              16767595
+            ]
+          },
+          "channelMinLevel": 3,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 14,
+            "hidden": false,
+            "colorId": 19,
+            "colors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  7821270,
+                  16225808,
+                  16768654
+                ]
+              },
+              "colors": [
+                7821270,
+                16225808,
+                16768654
+              ]
+            },
+            "darkColors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  9933311,
+                  15889181,
+                  16767833
+                ]
+              },
+              "colors": [
+                9933311,
+                15889181,
+                16767833
+              ]
+            },
+            "channelMinLevel": 3,
+            "groupMinLevel": null
+          },
+          "flags": 14,
+          "hidden": false,
+          "colorId": 19,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                7821270,
+                16225808,
+                16768654
+              ]
+            },
+            "colors": [
+              7821270,
+              16225808,
+              16768654
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                9933311,
+                15889181,
+                16767833
+              ]
+            },
+            "colors": [
+              9933311,
+              15889181,
+              16767833
+            ]
+          },
+          "channelMinLevel": 3,
+          "groupMinLevel": null
+        },
+        {
+          "__className": "help.PeerColorOption",
+          "__constructorId": 2917953214,
+          "className": "help.PeerColorOption",
+          "originalArgs": {
+            "flags": 14,
+            "hidden": false,
+            "colorId": 20,
+            "colors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  1410511,
+                  15903517,
+                  16777215
+                ]
+              },
+              "colors": [
+                1410511,
+                15903517,
+                16777215
+              ]
+            },
+            "darkColors": {
+              "__className": "help.PeerColorSet",
+              "__constructorId": 639736408,
+              "className": "help.PeerColorSet",
+              "originalArgs": {
+                "colors": [
+                  4040427,
+                  15639837,
+                  16777215
+                ]
+              },
+              "colors": [
+                4040427,
+                15639837,
+                16777215
+              ]
+            },
+            "channelMinLevel": 3,
+            "groupMinLevel": null
+          },
+          "flags": 14,
+          "hidden": false,
+          "colorId": 20,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                1410511,
+                15903517,
+                16777215
+              ]
+            },
+            "colors": [
+              1410511,
+              15903517,
+              16777215
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                4040427,
+                15639837,
+                16777215
+              ]
+            },
+            "colors": [
+              4040427,
+              15639837,
+              16777215
+            ]
+          },
+          "channelMinLevel": 3,
+          "groupMinLevel": null
+        }
+      ]
+    },
+    "hash": -727783590,
+    "colors": [
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 8,
+          "hidden": false,
+          "colorId": 5,
+          "colors": null,
+          "darkColors": null,
+          "channelMinLevel": 1,
+          "groupMinLevel": null
+        },
+        "flags": 8,
+        "hidden": false,
+        "colorId": 5,
+        "colors": null,
+        "darkColors": null,
+        "channelMinLevel": 1,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 8,
+          "hidden": false,
+          "colorId": 3,
+          "colors": null,
+          "darkColors": null,
+          "channelMinLevel": 1,
+          "groupMinLevel": null
+        },
+        "flags": 8,
+        "hidden": false,
+        "colorId": 3,
+        "colors": null,
+        "darkColors": null,
+        "channelMinLevel": 1,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 8,
+          "hidden": false,
+          "colorId": 1,
+          "colors": null,
+          "darkColors": null,
+          "channelMinLevel": 1,
+          "groupMinLevel": null
+        },
+        "flags": 8,
+        "hidden": false,
+        "colorId": 1,
+        "colors": null,
+        "darkColors": null,
+        "channelMinLevel": 1,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 8,
+          "hidden": false,
+          "colorId": 0,
+          "colors": null,
+          "darkColors": null,
+          "channelMinLevel": 1,
+          "groupMinLevel": null
+        },
+        "flags": 8,
+        "hidden": false,
+        "colorId": 0,
+        "colors": null,
+        "darkColors": null,
+        "channelMinLevel": 1,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 8,
+          "hidden": false,
+          "colorId": 2,
+          "colors": null,
+          "darkColors": null,
+          "channelMinLevel": 1,
+          "groupMinLevel": null
+        },
+        "flags": 8,
+        "hidden": false,
+        "colorId": 2,
+        "colors": null,
+        "darkColors": null,
+        "channelMinLevel": 1,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 8,
+          "hidden": false,
+          "colorId": 4,
+          "colors": null,
+          "darkColors": null,
+          "channelMinLevel": 1,
+          "groupMinLevel": null
+        },
+        "flags": 8,
+        "hidden": false,
+        "colorId": 4,
+        "colors": null,
+        "darkColors": null,
+        "channelMinLevel": 1,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 8,
+          "hidden": false,
+          "colorId": 6,
+          "colors": null,
+          "darkColors": null,
+          "channelMinLevel": 1,
+          "groupMinLevel": null
+        },
+        "flags": 8,
+        "hidden": false,
+        "colorId": 6,
+        "colors": null,
+        "darkColors": null,
+        "channelMinLevel": 1,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 14,
+          "hidden": false,
+          "colorId": 12,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                3379668,
+                8246256
+              ]
+            },
+            "colors": [
+              3379668,
+              8246256
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                5423103,
+                742548
+              ]
+            },
+            "colors": [
+              5423103,
+              742548
+            ]
+          },
+          "channelMinLevel": 2,
+          "groupMinLevel": null
+        },
+        "flags": 14,
+        "hidden": false,
+        "colorId": 12,
+        "colors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              3379668,
+              8246256
+            ]
+          },
+          "colors": [
+            3379668,
+            8246256
+          ]
+        },
+        "darkColors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              5423103,
+              742548
+            ]
+          },
+          "colors": [
+            5423103,
+            742548
+          ]
+        },
+        "channelMinLevel": 2,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 14,
+          "hidden": false,
+          "colorId": 10,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                2599184,
+                11000919
+              ]
+            },
+            "colors": [
+              2599184,
+              11000919
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                11004782,
+                1474093
+              ]
+            },
+            "colors": [
+              11004782,
+              1474093
+            ]
+          },
+          "channelMinLevel": 2,
+          "groupMinLevel": null
+        },
+        "flags": 14,
+        "hidden": false,
+        "colorId": 10,
+        "colors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              2599184,
+              11000919
+            ]
+          },
+          "colors": [
+            2599184,
+            11000919
+          ]
+        },
+        "darkColors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              11004782,
+              1474093
+            ]
+          },
+          "colors": [
+            11004782,
+            1474093
+          ]
+        },
+        "channelMinLevel": 2,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 14,
+          "hidden": false,
+          "colorId": 8,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                14712875,
+                16434484
+              ]
+            },
+            "colors": [
+              14712875,
+              16434484
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                15511630,
+                12801812
+              ]
+            },
+            "colors": [
+              15511630,
+              12801812
+            ]
+          },
+          "channelMinLevel": 2,
+          "groupMinLevel": null
+        },
+        "flags": 14,
+        "hidden": false,
+        "colorId": 8,
+        "colors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              14712875,
+              16434484
+            ]
+          },
+          "colors": [
+            14712875,
+            16434484
+          ]
+        },
+        "darkColors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              15511630,
+              12801812
+            ]
+          },
+          "colors": [
+            15511630,
+            12801812
+          ]
+        },
+        "channelMinLevel": 2,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 14,
+          "hidden": false,
+          "colorId": 7,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                14766162,
+                16363107
+              ]
+            },
+            "colors": [
+              14766162,
+              16363107
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                16749440,
+                10039095
+              ]
+            },
+            "colors": [
+              16749440,
+              10039095
+            ]
+          },
+          "channelMinLevel": 2,
+          "groupMinLevel": null
+        },
+        "flags": 14,
+        "hidden": false,
+        "colorId": 7,
+        "colors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              14766162,
+              16363107
+            ]
+          },
+          "colors": [
+            14766162,
+            16363107
+          ]
+        },
+        "darkColors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              16749440,
+              10039095
+            ]
+          },
+          "colors": [
+            16749440,
+            10039095
+          ]
+        },
+        "channelMinLevel": 2,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 14,
+          "hidden": false,
+          "colorId": 9,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                10510323,
+                16027647
+              ]
+            },
+            "colors": [
+              10510323,
+              16027647
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                13015039,
+                6173128
+              ]
+            },
+            "colors": [
+              13015039,
+              6173128
+            ]
+          },
+          "channelMinLevel": 2,
+          "groupMinLevel": null
+        },
+        "flags": 14,
+        "hidden": false,
+        "colorId": 9,
+        "colors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              10510323,
+              16027647
+            ]
+          },
+          "colors": [
+            10510323,
+            16027647
+          ]
+        },
+        "darkColors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              13015039,
+              6173128
+            ]
+          },
+          "colors": [
+            13015039,
+            6173128
+          ]
+        },
+        "channelMinLevel": 2,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 14,
+          "hidden": false,
+          "colorId": 11,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                2600142,
+                8579286
+              ]
+            },
+            "colors": [
+              2600142,
+              8579286
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                4249808,
+                285823
+              ]
+            },
+            "colors": [
+              4249808,
+              285823
+            ]
+          },
+          "channelMinLevel": 2,
+          "groupMinLevel": null
+        },
+        "flags": 14,
+        "hidden": false,
+        "colorId": 11,
+        "colors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              2600142,
+              8579286
+            ]
+          },
+          "colors": [
+            2600142,
+            8579286
+          ]
+        },
+        "darkColors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              4249808,
+              285823
+            ]
+          },
+          "colors": [
+            4249808,
+            285823
+          ]
+        },
+        "channelMinLevel": 2,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 14,
+          "hidden": false,
+          "colorId": 13,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                14500721,
+                16760479
+              ]
+            },
+            "colors": [
+              14500721,
+              16760479
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                16746150,
+                9320046
+              ]
+            },
+            "colors": [
+              16746150,
+              9320046
+            ]
+          },
+          "channelMinLevel": 2,
+          "groupMinLevel": null
+        },
+        "flags": 14,
+        "hidden": false,
+        "colorId": 13,
+        "colors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              14500721,
+              16760479
+            ]
+          },
+          "colors": [
+            14500721,
+            16760479
+          ]
+        },
+        "darkColors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              16746150,
+              9320046
+            ]
+          },
+          "colors": [
+            16746150,
+            9320046
+          ]
+        },
+        "channelMinLevel": 2,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 14,
+          "hidden": false,
+          "colorId": 14,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                2391021,
+                15747158,
+                16777215
+              ]
+            },
+            "colors": [
+              2391021,
+              15747158,
+              16777215
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                4170494,
+                15024719,
+                16777215
+              ]
+            },
+            "colors": [
+              4170494,
+              15024719,
+              16777215
+            ]
+          },
+          "channelMinLevel": 3,
+          "groupMinLevel": null
+        },
+        "flags": 14,
+        "hidden": false,
+        "colorId": 14,
+        "colors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              2391021,
+              15747158,
+              16777215
+            ]
+          },
+          "colors": [
+            2391021,
+            15747158,
+            16777215
+          ]
+        },
+        "darkColors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              4170494,
+              15024719,
+              16777215
+            ]
+          },
+          "colors": [
+            4170494,
+            15024719,
+            16777215
+          ]
+        },
+        "channelMinLevel": 3,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 14,
+          "hidden": false,
+          "colorId": 15,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                14055202,
+                2007057,
+                16777215
+              ]
+            },
+            "colors": [
+              14055202,
+              2007057,
+              16777215
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                16748638,
+                3319079,
+                16777215
+              ]
+            },
+            "colors": [
+              16748638,
+              3319079,
+              16777215
+            ]
+          },
+          "channelMinLevel": 3,
+          "groupMinLevel": null
+        },
+        "flags": 14,
+        "hidden": false,
+        "colorId": 15,
+        "colors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              14055202,
+              2007057,
+              16777215
+            ]
+          },
+          "colors": [
+            14055202,
+            2007057,
+            16777215
+          ]
+        },
+        "darkColors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              16748638,
+              3319079,
+              16777215
+            ]
+          },
+          "colors": [
+            16748638,
+            3319079,
+            16777215
+          ]
+        },
+        "channelMinLevel": 3,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 14,
+          "hidden": false,
+          "colorId": 16,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                1547842,
+                15223359,
+                16777215
+              ]
+            },
+            "colors": [
+              1547842,
+              15223359,
+              16777215
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                6738788,
+                13976655,
+                16777215
+              ]
+            },
+            "colors": [
+              6738788,
+              13976655,
+              16777215
+            ]
+          },
+          "channelMinLevel": 3,
+          "groupMinLevel": null
+        },
+        "flags": 14,
+        "hidden": false,
+        "colorId": 16,
+        "colors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              1547842,
+              15223359,
+              16777215
+            ]
+          },
+          "colors": [
+            1547842,
+            15223359,
+            16777215
+          ]
+        },
+        "darkColors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              6738788,
+              13976655,
+              16777215
+            ]
+          },
+          "colors": [
+            6738788,
+            13976655,
+            16777215
+          ]
+        },
+        "channelMinLevel": 3,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 14,
+          "hidden": false,
+          "colorId": 17,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                2659503,
+                7324758,
+                16777215
+              ]
+            },
+            "colors": [
+              2659503,
+              7324758,
+              16777215
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                2276578,
+                4039232,
+                16777215
+              ]
+            },
+            "colors": [
+              2276578,
+              4039232,
+              16777215
+            ]
+          },
+          "channelMinLevel": 3,
+          "groupMinLevel": null
+        },
+        "flags": 14,
+        "hidden": false,
+        "colorId": 17,
+        "colors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              2659503,
+              7324758,
+              16777215
+            ]
+          },
+          "colors": [
+            2659503,
+            7324758,
+            16777215
+          ]
+        },
+        "darkColors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              2276578,
+              4039232,
+              16777215
+            ]
+          },
+          "colors": [
+            2276578,
+            4039232,
+            16777215
+          ]
+        },
+        "channelMinLevel": 3,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 14,
+          "hidden": false,
+          "colorId": 18,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                826035,
+                16756117,
+                16770741
+              ]
+            },
+            "colors": [
+              826035,
+              16756117,
+              16770741
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                2276578,
+                16750456,
+                16767595
+              ]
+            },
+            "colors": [
+              2276578,
+              16750456,
+              16767595
+            ]
+          },
+          "channelMinLevel": 3,
+          "groupMinLevel": null
+        },
+        "flags": 14,
+        "hidden": false,
+        "colorId": 18,
+        "colors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              826035,
+              16756117,
+              16770741
+            ]
+          },
+          "colors": [
+            826035,
+            16756117,
+            16770741
+          ]
+        },
+        "darkColors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              2276578,
+              16750456,
+              16767595
+            ]
+          },
+          "colors": [
+            2276578,
+            16750456,
+            16767595
+          ]
+        },
+        "channelMinLevel": 3,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 14,
+          "hidden": false,
+          "colorId": 19,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                7821270,
+                16225808,
+                16768654
+              ]
+            },
+            "colors": [
+              7821270,
+              16225808,
+              16768654
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                9933311,
+                15889181,
+                16767833
+              ]
+            },
+            "colors": [
+              9933311,
+              15889181,
+              16767833
+            ]
+          },
+          "channelMinLevel": 3,
+          "groupMinLevel": null
+        },
+        "flags": 14,
+        "hidden": false,
+        "colorId": 19,
+        "colors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              7821270,
+              16225808,
+              16768654
+            ]
+          },
+          "colors": [
+            7821270,
+            16225808,
+            16768654
+          ]
+        },
+        "darkColors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              9933311,
+              15889181,
+              16767833
+            ]
+          },
+          "colors": [
+            9933311,
+            15889181,
+            16767833
+          ]
+        },
+        "channelMinLevel": 3,
+        "groupMinLevel": null
+      },
+      {
+        "__className": "help.PeerColorOption",
+        "__constructorId": 2917953214,
+        "className": "help.PeerColorOption",
+        "originalArgs": {
+          "flags": 14,
+          "hidden": false,
+          "colorId": 20,
+          "colors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                1410511,
+                15903517,
+                16777215
+              ]
+            },
+            "colors": [
+              1410511,
+              15903517,
+              16777215
+            ]
+          },
+          "darkColors": {
+            "__className": "help.PeerColorSet",
+            "__constructorId": 639736408,
+            "className": "help.PeerColorSet",
+            "originalArgs": {
+              "colors": [
+                4040427,
+                15639837,
+                16777215
+              ]
+            },
+            "colors": [
+              4040427,
+              15639837,
+              16777215
+            ]
+          },
+          "channelMinLevel": 3,
+          "groupMinLevel": null
+        },
+        "flags": 14,
+        "hidden": false,
+        "colorId": 20,
+        "colors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              1410511,
+              15903517,
+              16777215
+            ]
+          },
+          "colors": [
+            1410511,
+            15903517,
+            16777215
+          ]
+        },
+        "darkColors": {
+          "__className": "help.PeerColorSet",
+          "__constructorId": 639736408,
+          "className": "help.PeerColorSet",
+          "originalArgs": {
+            "colors": [
+              4040427,
+              15639837,
+              16777215
+            ]
+          },
+          "colors": [
+            4040427,
+            15639837,
+            16777215
+          ]
+        },
+        "channelMinLevel": 3,
+        "groupMinLevel": null
+      }
+    ]
+  }
+}

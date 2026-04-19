@@ -1,0 +1,344 @@
+{
+  "capturedAt": "2026-04-11T11:06:07.448Z",
+  "privacyKeys": {
+    "StatusTimestamp": {
+      "__className": "account.PrivacyRules",
+      "__constructorId": 1352683077,
+      "className": "account.PrivacyRules",
+      "originalArgs": {
+        "rules": [
+          {
+            "__className": "PrivacyValueDisallowAll",
+            "__constructorId": 2339628899,
+            "className": "PrivacyValueDisallowAll",
+            "originalArgs": {}
+          }
+        ],
+        "chats": [],
+        "users": []
+      },
+      "rules": [
+        {
+          "__className": "PrivacyValueDisallowAll",
+          "__constructorId": 2339628899,
+          "className": "PrivacyValueDisallowAll",
+          "originalArgs": {}
+        }
+      ],
+      "chats": [],
+      "users": []
+    },
+    "ChatInvite": {
+      "__className": "account.PrivacyRules",
+      "__constructorId": 1352683077,
+      "className": "account.PrivacyRules",
+      "originalArgs": {
+        "rules": [
+          {
+            "__className": "PrivacyValueAllowAll",
+            "__constructorId": 1698855810,
+            "className": "PrivacyValueAllowAll",
+            "originalArgs": {}
+          }
+        ],
+        "chats": [],
+        "users": []
+      },
+      "rules": [
+        {
+          "__className": "PrivacyValueAllowAll",
+          "__constructorId": 1698855810,
+          "className": "PrivacyValueAllowAll",
+          "originalArgs": {}
+        }
+      ],
+      "chats": [],
+      "users": []
+    },
+    "PhoneCall": {
+      "__className": "account.PrivacyRules",
+      "__constructorId": 1352683077,
+      "className": "account.PrivacyRules",
+      "originalArgs": {
+        "rules": [
+          {
+            "__className": "PrivacyValueAllowAll",
+            "__constructorId": 1698855810,
+            "className": "PrivacyValueAllowAll",
+            "originalArgs": {}
+          }
+        ],
+        "chats": [],
+        "users": []
+      },
+      "rules": [
+        {
+          "__className": "PrivacyValueAllowAll",
+          "__constructorId": 1698855810,
+          "className": "PrivacyValueAllowAll",
+          "originalArgs": {}
+        }
+      ],
+      "chats": [],
+      "users": []
+    },
+    "PhoneP2P": {
+      "__className": "account.PrivacyRules",
+      "__constructorId": 1352683077,
+      "className": "account.PrivacyRules",
+      "originalArgs": {
+        "rules": [
+          {
+            "__className": "PrivacyValueAllowContacts",
+            "__constructorId": 4294843308,
+            "className": "PrivacyValueAllowContacts",
+            "originalArgs": {}
+          }
+        ],
+        "chats": [],
+        "users": []
+      },
+      "rules": [
+        {
+          "__className": "PrivacyValueAllowContacts",
+          "__constructorId": 4294843308,
+          "className": "PrivacyValueAllowContacts",
+          "originalArgs": {}
+        }
+      ],
+      "chats": [],
+      "users": []
+    },
+    "Forwards": {
+      "__className": "account.PrivacyRules",
+      "__constructorId": 1352683077,
+      "className": "account.PrivacyRules",
+      "originalArgs": {
+        "rules": [
+          {
+            "__className": "PrivacyValueAllowAll",
+            "__constructorId": 1698855810,
+            "className": "PrivacyValueAllowAll",
+            "originalArgs": {}
+          }
+        ],
+        "chats": [],
+        "users": []
+      },
+      "rules": [
+        {
+          "__className": "PrivacyValueAllowAll",
+          "__constructorId": 1698855810,
+          "className": "PrivacyValueAllowAll",
+          "originalArgs": {}
+        }
+      ],
+      "chats": [],
+      "users": []
+    },
+    "ProfilePhoto": {
+      "__className": "account.PrivacyRules",
+      "__constructorId": 1352683077,
+      "className": "account.PrivacyRules",
+      "originalArgs": {
+        "rules": [
+          {
+            "__className": "PrivacyValueAllowAll",
+            "__constructorId": 1698855810,
+            "className": "PrivacyValueAllowAll",
+            "originalArgs": {}
+          }
+        ],
+        "chats": [],
+        "users": []
+      },
+      "rules": [
+        {
+          "__className": "PrivacyValueAllowAll",
+          "__constructorId": 1698855810,
+          "className": "PrivacyValueAllowAll",
+          "originalArgs": {}
+        }
+      ],
+      "chats": [],
+      "users": []
+    },
+    "PhoneNumber": {
+      "__className": "account.PrivacyRules",
+      "__constructorId": 1352683077,
+      "className": "account.PrivacyRules",
+      "originalArgs": {
+        "rules": [
+          {
+            "__className": "PrivacyValueDisallowAll",
+            "__constructorId": 2339628899,
+            "className": "PrivacyValueDisallowAll",
+            "originalArgs": {}
+          }
+        ],
+        "chats": [],
+        "users": []
+      },
+      "rules": [
+        {
+          "__className": "PrivacyValueDisallowAll",
+          "__constructorId": 2339628899,
+          "className": "PrivacyValueDisallowAll",
+          "originalArgs": {}
+        }
+      ],
+      "chats": [],
+      "users": []
+    },
+    "AddedByPhone": {
+      "__className": "account.PrivacyRules",
+      "__constructorId": 1352683077,
+      "className": "account.PrivacyRules",
+      "originalArgs": {
+        "rules": [
+          {
+            "__className": "PrivacyValueAllowContacts",
+            "__constructorId": 4294843308,
+            "className": "PrivacyValueAllowContacts",
+            "originalArgs": {}
+          },
+          {
+            "__className": "PrivacyValueDisallowAll",
+            "__constructorId": 2339628899,
+            "className": "PrivacyValueDisallowAll",
+            "originalArgs": {}
+          }
+        ],
+        "chats": [],
+        "users": []
+      },
+      "rules": [
+        {
+          "__className": "PrivacyValueAllowContacts",
+          "__constructorId": 4294843308,
+          "className": "PrivacyValueAllowContacts",
+          "originalArgs": {}
+        },
+        {
+          "__className": "PrivacyValueDisallowAll",
+          "__constructorId": 2339628899,
+          "className": "PrivacyValueDisallowAll",
+          "originalArgs": {}
+        }
+      ],
+      "chats": [],
+      "users": []
+    },
+    "VoiceMessages": {
+      "__className": "account.PrivacyRules",
+      "__constructorId": 1352683077,
+      "className": "account.PrivacyRules",
+      "originalArgs": {
+        "rules": [
+          {
+            "__className": "PrivacyValueAllowAll",
+            "__constructorId": 1698855810,
+            "className": "PrivacyValueAllowAll",
+            "originalArgs": {}
+          }
+        ],
+        "chats": [],
+        "users": []
+      },
+      "rules": [
+        {
+          "__className": "PrivacyValueAllowAll",
+          "__constructorId": 1698855810,
+          "className": "PrivacyValueAllowAll",
+          "originalArgs": {}
+        }
+      ],
+      "chats": [],
+      "users": []
+    },
+    "About": {
+      "__className": "account.PrivacyRules",
+      "__constructorId": 1352683077,
+      "className": "account.PrivacyRules",
+      "originalArgs": {
+        "rules": [
+          {
+            "__className": "PrivacyValueAllowAll",
+            "__constructorId": 1698855810,
+            "className": "PrivacyValueAllowAll",
+            "originalArgs": {}
+          }
+        ],
+        "chats": [],
+        "users": []
+      },
+      "rules": [
+        {
+          "__className": "PrivacyValueAllowAll",
+          "__constructorId": 1698855810,
+          "className": "PrivacyValueAllowAll",
+          "originalArgs": {}
+        }
+      ],
+      "chats": [],
+      "users": []
+    },
+    "Birthday": {
+      "__className": "account.PrivacyRules",
+      "__constructorId": 1352683077,
+      "className": "account.PrivacyRules",
+      "originalArgs": {
+        "rules": [
+          {
+            "__className": "PrivacyValueAllowContacts",
+            "__constructorId": 4294843308,
+            "className": "PrivacyValueAllowContacts",
+            "originalArgs": {}
+          }
+        ],
+        "chats": [],
+        "users": []
+      },
+      "rules": [
+        {
+          "__className": "PrivacyValueAllowContacts",
+          "__constructorId": 4294843308,
+          "className": "PrivacyValueAllowContacts",
+          "originalArgs": {}
+        }
+      ],
+      "chats": [],
+      "users": []
+    },
+    "StarGiftsAutoSave": {
+      "__className": "account.PrivacyRules",
+      "__constructorId": 1352683077,
+      "className": "account.PrivacyRules",
+      "originalArgs": {
+        "rules": [
+          {
+            "__className": "PrivacyValueAllowAll",
+            "__constructorId": 1698855810,
+            "className": "PrivacyValueAllowAll",
+            "originalArgs": {}
+          }
+        ],
+        "chats": [],
+        "users": []
+      },
+      "rules": [
+        {
+          "__className": "PrivacyValueAllowAll",
+          "__constructorId": 1698855810,
+          "className": "PrivacyValueAllowAll",
+          "originalArgs": {}
+        }
+      ],
+      "chats": [],
+      "users": []
+    },
+    "NoPaidMessages": {
+      "error": "Api.InputPrivacyKeyNoPaidMessages is not a constructor"
+    }
+  }
+}

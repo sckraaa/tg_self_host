@@ -1,0 +1,32 @@
+{
+  "method": "messages.getRecentStickers",
+  "capturedAt": "2026-04-10T16:16:13.110Z",
+  "request": {
+    "__className": "messages.GetRecentStickers",
+    "__constructorId": 2645114939,
+    "className": "messages.GetRecentStickers",
+    "originalArgs": {
+      "hash": "0"
+    },
+    "hash": "0"
+  },
+  "response": {
+    "__className": "messages.RecentStickers",
+    "__constructorId": 2295561302,
+    "className": "messages.RecentStickers",
+    "originalArgs": {
+      "hash": {
+        "value": "0"
+      },
+      "packs": [],
+      "stickers": [],
+      "dates": []
+    },
+    "hash": {
+      "value": "0"
+    },
+    "packs": [],
+    "stickers": [],
+    "dates": []
+  }
+}

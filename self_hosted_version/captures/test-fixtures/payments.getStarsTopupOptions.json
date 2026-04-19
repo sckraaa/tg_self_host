@@ -1,0 +1,417 @@
+{
+  "method": "payments.getStarsTopupOptions",
+  "capturedAt": "2026-04-10T16:16:16.592Z",
+  "request": {
+    "__className": "payments.GetStarsTopupOptions",
+    "__constructorId": 3222194131,
+    "className": "payments.GetStarsTopupOptions",
+    "originalArgs": {}
+  },
+  "response": [
+    {
+      "__className": "StarsTopupOption",
+      "__constructorId": 198776256,
+      "className": "StarsTopupOption",
+      "originalArgs": {
+        "flags": 1,
+        "extended": false,
+        "stars": {
+          "value": "100"
+        },
+        "storeProduct": "telegram_stars.topup.x100",
+        "currency": "USD",
+        "amount": {
+          "value": "169"
+        }
+      },
+      "flags": 1,
+      "extended": false,
+      "stars": {
+        "value": "100"
+      },
+      "storeProduct": "telegram_stars.topup.x100",
+      "currency": "USD",
+      "amount": {
+        "value": "169"
+      }
+    },
+    {
+      "__className": "StarsTopupOption",
+      "__constructorId": 198776256,
+      "className": "StarsTopupOption",
+      "originalArgs": {
+        "flags": 3,
+        "extended": true,
+        "stars": {
+          "value": "150"
+        },
+        "storeProduct": "telegram_stars.topup.x150",
+        "currency": "USD",
+        "amount": {
+          "value": "249"
+        }
+      },
+      "flags": 3,
+      "extended": true,
+      "stars": {
+        "value": "150"
+      },
+      "storeProduct": "telegram_stars.topup.x150",
+      "currency": "USD",
+      "amount": {
+        "value": "249"
+      }
+    },
+    {
+      "__className": "StarsTopupOption",
+      "__constructorId": 198776256,
+      "className": "StarsTopupOption",
+      "originalArgs": {
+        "flags": 1,
+        "extended": false,
+        "stars": {
+          "value": "250"
+        },
+        "storeProduct": "telegram_stars.topup.x250",
+        "currency": "USD",
+        "amount": {
+          "value": "403"
+        }
+      },
+      "flags": 1,
+      "extended": false,
+      "stars": {
+        "value": "250"
+      },
+      "storeProduct": "telegram_stars.topup.x250",
+      "currency": "USD",
+      "amount": {
+        "value": "403"
+      }
+    },
+    {
+      "__className": "StarsTopupOption",
+      "__constructorId": 198776256,
+      "className": "StarsTopupOption",
+      "originalArgs": {
+        "flags": 3,
+        "extended": true,
+        "stars": {
+          "value": "350"
+        },
+        "storeProduct": "telegram_stars.topup.x350",
+        "currency": "USD",
+        "amount": {
+          "value": "559"
+        }
+      },
+      "flags": 3,
+      "extended": true,
+      "stars": {
+        "value": "350"
+      },
+      "storeProduct": "telegram_stars.topup.x350",
+      "currency": "USD",
+      "amount": {
+        "value": "559"
+      }
+    },
+    {
+      "__className": "StarsTopupOption",
+      "__constructorId": 198776256,
+      "className": "StarsTopupOption",
+      "originalArgs": {
+        "flags": 1,
+        "extended": false,
+        "stars": {
+          "value": "500"
+        },
+        "storeProduct": "telegram_stars.topup.x500",
+        "currency": "USD",
+        "amount": {
+          "value": "789"
+        }
+      },
+      "flags": 1,
+      "extended": false,
+      "stars": {
+        "value": "500"
+      },
+      "storeProduct": "telegram_stars.topup.x500",
+      "currency": "USD",
+      "amount": {
+        "value": "789"
+      }
+    },
+    {
+      "__className": "StarsTopupOption",
+      "__constructorId": 198776256,
+      "className": "StarsTopupOption",
+      "originalArgs": {
+        "flags": 3,
+        "extended": true,
+        "stars": {
+          "value": "750"
+        },
+        "storeProduct": "telegram_stars.topup.x750",
+        "currency": "USD",
+        "amount": {
+          "value": "1179"
+        }
+      },
+      "flags": 3,
+      "extended": true,
+      "stars": {
+        "value": "750"
+      },
+      "storeProduct": "telegram_stars.topup.x750",
+      "currency": "USD",
+      "amount": {
+        "value": "1179"
+      }
+    },
+    {
+      "__className": "StarsTopupOption",
+      "__constructorId": 198776256,
+      "className": "StarsTopupOption",
+      "originalArgs": {
+        "flags": 1,
+        "extended": false,
+        "stars": {
+          "value": "1000"
+        },
+        "storeProduct": "telegram_stars.topup.x1000",
+        "currency": "USD",
+        "amount": {
+          "value": "1569"
+        }
+      },
+      "flags": 1,
+      "extended": false,
+      "stars": {
+        "value": "1000"
+      },
+      "storeProduct": "telegram_stars.topup.x1000",
+      "currency": "USD",
+      "amount": {
+        "value": "1569"
+      }
+    },
+    {
+      "__className": "StarsTopupOption",
+      "__constructorId": 198776256,
+      "className": "StarsTopupOption",
+      "originalArgs": {
+        "flags": 3,
+        "extended": true,
+        "stars": {
+          "value": "1500"
+        },
+        "storeProduct": "telegram_stars.topup.x1500",
+        "currency": "USD",
+        "amount": {
+          "value": "2339"
+        }
+      },
+      "flags": 3,
+      "extended": true,
+      "stars": {
+        "value": "1500"
+      },
+      "storeProduct": "telegram_stars.topup.x1500",
+      "currency": "USD",
+      "amount": {
+        "value": "2339"
+      }
+    },
+    {
+      "__className": "StarsTopupOption",
+      "__constructorId": 198776256,
+      "className": "StarsTopupOption",
+      "originalArgs": {
+        "flags": 1,
+        "extended": false,
+        "stars": {
+          "value": "2500"
+        },
+        "storeProduct": "telegram_stars.topup.x2500",
+        "currency": "USD",
+        "amount": {
+          "value": "3899"
+        }
+      },
+      "flags": 1,
+      "extended": false,
+      "stars": {
+        "value": "2500"
+      },
+      "storeProduct": "telegram_stars.topup.x2500",
+      "currency": "USD",
+      "amount": {
+        "value": "3899"
+      }
+    },
+    {
+      "__className": "StarsTopupOption",
+      "__constructorId": 198776256,
+      "className": "StarsTopupOption",
+      "originalArgs": {
+        "flags": 3,
+        "extended": true,
+        "stars": {
+          "value": "5000"
+        },
+        "storeProduct": "telegram_stars.topup.x5000",
+        "currency": "USD",
+        "amount": {
+          "value": "7799"
+        }
+      },
+      "flags": 3,
+      "extended": true,
+      "stars": {
+        "value": "5000"
+      },
+      "storeProduct": "telegram_stars.topup.x5000",
+      "currency": "USD",
+      "amount": {
+        "value": "7799"
+      }
+    },
+    {
+      "__className": "StarsTopupOption",
+      "__constructorId": 198776256,
+      "className": "StarsTopupOption",
+      "originalArgs": {
+        "flags": 1,
+        "extended": false,
+        "stars": {
+          "value": "10000"
+        },
+        "storeProduct": "telegram_stars.topup.x10000",
+        "currency": "USD",
+        "amount": {
+          "value": "15599"
+        }
+      },
+      "flags": 1,
+      "extended": false,
+      "stars": {
+        "value": "10000"
+      },
+      "storeProduct": "telegram_stars.topup.x10000",
+      "currency": "USD",
+      "amount": {
+        "value": "15599"
+      }
+    },
+    {
+      "__className": "StarsTopupOption",
+      "__constructorId": 198776256,
+      "className": "StarsTopupOption",
+      "originalArgs": {
+        "flags": 3,
+        "extended": true,
+        "stars": {
+          "value": "25000"
+        },
+        "storeProduct": "telegram_stars.topup.x25000",
+        "currency": "USD",
+        "amount": {
+          "value": "38900"
+        }
+      },
+      "flags": 3,
+      "extended": true,
+      "stars": {
+        "value": "25000"
+      },
+      "storeProduct": "telegram_stars.topup.x25000",
+      "currency": "USD",
+      "amount": {
+        "value": "38900"
+      }
+    },
+    {
+      "__className": "StarsTopupOption",
+      "__constructorId": 198776256,
+      "className": "StarsTopupOption",
+      "originalArgs": {
+        "flags": 1,
+        "extended": false,
+        "stars": {
+          "value": "50000"
+        },
+        "storeProduct": "telegram_stars.topup.x50000",
+        "currency": "USD",
+        "amount": {
+          "value": "77900"
+        }
+      },
+      "flags": 1,
+      "extended": false,
+      "stars": {
+        "value": "50000"
+      },
+      "storeProduct": "telegram_stars.topup.x50000",
+      "currency": "USD",
+      "amount": {
+        "value": "77900"
+      }
+    },
+    {
+      "__className": "StarsTopupOption",
+      "__constructorId": 198776256,
+      "className": "StarsTopupOption",
+      "originalArgs": {
+        "flags": 3,
+        "extended": true,
+        "stars": {
+          "value": "100000"
+        },
+        "storeProduct": "telegram_stars.topup.x100000",
+        "currency": "USD",
+        "amount": {
+          "value": "154900"
+        }
+      },
+      "flags": 3,
+      "extended": true,
+      "stars": {
+        "value": "100000"
+      },
+      "storeProduct": "telegram_stars.topup.x100000",
+      "currency": "USD",
+      "amount": {
+        "value": "154900"
+      }
+    },
+    {
+      "__className": "StarsTopupOption",
+      "__constructorId": 198776256,
+      "className": "StarsTopupOption",
+      "originalArgs": {
+        "flags": 1,
+        "extended": false,
+        "stars": {
+          "value": "150000"
+        },
+        "storeProduct": "telegram_stars.topup.x150000",
+        "currency": "USD",
+        "amount": {
+          "value": "232900"
+        }
+      },
+      "flags": 1,
+      "extended": false,
+      "stars": {
+        "value": "150000"
+      },
+      "storeProduct": "telegram_stars.topup.x150000",
+      "currency": "USD",
+      "amount": {
+        "value": "232900"
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "method": "messages.getDialogUnreadMarks",
+  "capturedAt": "2026-04-10T16:16:13.939Z",
+  "request": {
+    "__className": "messages.GetDialogUnreadMarks",
+    "__constructorId": 585256482,
+    "className": "messages.GetDialogUnreadMarks",
+    "originalArgs": {}
+  },
+  "response": []
+}

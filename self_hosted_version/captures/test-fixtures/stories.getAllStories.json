@@ -1,0 +1,57 @@
+{
+  "method": "stories.getAllStories",
+  "capturedAt": "2026-04-10T16:16:16.876Z",
+  "request": {
+    "__className": "stories.GetAllStories",
+    "__constructorId": 4004566565,
+    "className": "stories.GetAllStories",
+    "originalArgs": {}
+  },
+  "response": {
+    "__className": "stories.AllStories",
+    "__constructorId": 1862033025,
+    "className": "stories.AllStories",
+    "originalArgs": {
+      "flags": 0,
+      "hasMore": false,
+      "count": 0,
+      "state": "1775837776:1544588013:0:b7301bd9049c67493a",
+      "peerStories": [],
+      "chats": [],
+      "users": [],
+      "stealthMode": {
+        "__className": "StoriesStealthMode",
+        "__constructorId": 1898850301,
+        "className": "StoriesStealthMode",
+        "originalArgs": {
+          "flags": 0,
+          "activeUntilDate": null,
+          "cooldownUntilDate": null
+        },
+        "flags": 0,
+        "activeUntilDate": null,
+        "cooldownUntilDate": null
+      }
+    },
+    "flags": 0,
+    "hasMore": false,
+    "count": 0,
+    "state": "1775837776:1544588013:0:b7301bd9049c67493a",
+    "peerStories": [],
+    "chats": [],
+    "users": [],
+    "stealthMode": {
+      "__className": "StoriesStealthMode",
+      "__constructorId": 1898850301,
+      "className": "StoriesStealthMode",
+      "originalArgs": {
+        "flags": 0,
+        "activeUntilDate": null,
+        "cooldownUntilDate": null
+      },
+      "flags": 0,
+      "activeUntilDate": null,
+      "cooldownUntilDate": null
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "_class": "UpdatePhoneCall",
+  "_cid": "0xab0f6b1e",
+  "className": "UpdatePhoneCall",
+  "originalArgs": {
+    "phoneCall": {
+      "_class": "PhoneCallDiscarded",
+      "_cid": "0xf9d25503",
+      "className": "PhoneCallDiscarded",
+      "originalArgs": {
+        "flags": 1,
+        "needRating": false,
+        "needDebug": false,
+        "video": false,
+        "id": {
+          "value": "BigInt(1455057104719953674)"
+        },
+        "reason": {
+          "_class": "PhoneCallDiscardReasonHangup",
+          "_cid": "0x57adc690",
+          "className": "PhoneCallDiscardReasonHangup",
+          "originalArgs": {}
+        },
+        "duration": null,
+        "conferenceCall": null
+      },
+      "flags": 1,
+      "needRating": false,
+      "needDebug": false,
+      "video": false,
+      "id": {
+        "value": "BigInt(1455057104719953674)"
+      },
+      "reason": {
+        "_class": "PhoneCallDiscardReasonHangup",
+        "_cid": "0x57adc690",
+        "className": "PhoneCallDiscardReasonHangup",
+        "originalArgs": {}
+      },
+      "duration": null,
+      "conferenceCall": null
+    }
+  },
+  "phoneCall": {
+    "_class": "PhoneCallDiscarded",
+    "_cid": "0xf9d25503",
+    "className": "PhoneCallDiscarded",
+    "originalArgs": {
+      "flags": 1,
+      "needRating": false,
+      "needDebug": false,
+      "video": false,
+      "id": {
+        "value": "BigInt(1455057104719953674)"
+      },
+      "reason": {
+        "_class": "PhoneCallDiscardReasonHangup",
+        "_cid": "0x57adc690",
+        "className": "PhoneCallDiscardReasonHangup",
+        "originalArgs": {}
+      },
+      "duration": null,
+      "conferenceCall": null
+    },
+    "flags": 1,
+    "needRating": false,
+    "needDebug": false,
+    "video": false,
+    "id": {
+      "value": "BigInt(1455057104719953674)"
+    },
+    "reason": {
+      "_class": "PhoneCallDiscardReasonHangup",
+      "_cid": "0x57adc690",
+      "className": "PhoneCallDiscardReasonHangup",
+      "originalArgs": {}
+    },
+    "duration": null,
+    "conferenceCall": null
+  }
+}

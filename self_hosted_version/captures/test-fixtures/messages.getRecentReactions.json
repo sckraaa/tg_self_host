@@ -1,0 +1,30 @@
+{
+  "method": "messages.getRecentReactions",
+  "capturedAt": "2026-04-10T16:16:13.801Z",
+  "request": {
+    "__className": "messages.GetRecentReactions",
+    "__constructorId": 960896434,
+    "className": "messages.GetRecentReactions",
+    "originalArgs": {
+      "limit": 50,
+      "hash": "0"
+    },
+    "limit": 50,
+    "hash": "0"
+  },
+  "response": {
+    "__className": "messages.Reactions",
+    "__constructorId": 3942512406,
+    "className": "messages.Reactions",
+    "originalArgs": {
+      "hash": {
+        "value": "0"
+      },
+      "reactions": []
+    },
+    "hash": {
+      "value": "0"
+    },
+    "reactions": []
+  }
+}

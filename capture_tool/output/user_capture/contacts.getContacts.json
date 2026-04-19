@@ -1,0 +1,17 @@
+{
+  "method": "contacts.getContacts",
+  "capturedAt": "2026-04-11T10:33:34.102Z",
+  "response": {
+    "__className": "contacts.Contacts",
+    "__constructorId": 3941105218,
+    "className": "contacts.Contacts",
+    "originalArgs": {
+      "contacts": [],
+      "savedCount": 0,
+      "users": []
+    },
+    "contacts": [],
+    "savedCount": 0,
+    "users": []
+  }
+}

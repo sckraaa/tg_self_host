@@ -1,0 +1,7 @@
+node_modules
+dist
+.cache
+captures
+*.log
+*.test.ts
+tests/

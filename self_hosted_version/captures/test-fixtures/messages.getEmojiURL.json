@@ -1,0 +1,22 @@
+{
+  "method": "messages.getEmojiURL",
+  "capturedAt": "2026-04-10T16:16:18.562Z",
+  "request": {
+    "__className": "messages.GetEmojiURL",
+    "__constructorId": 3585149990,
+    "className": "messages.GetEmojiURL",
+    "originalArgs": {
+      "langCode": "en"
+    },
+    "langCode": "en"
+  },
+  "response": {
+    "__className": "EmojiURL",
+    "__constructorId": 2775937949,
+    "className": "EmojiURL",
+    "originalArgs": {
+      "url": "https://translations.telegram.org/en/emoji?auth_hash=-1x0yHeFcgoW0WTUHA8uK_Iuvp4RAmM3NqwH_JRfbfZp2SJSDAAAAAF58kCuGi74y4JxEwV-84w-oA9rSIoPc3LlGbUUaoUB5zynyGY"
+    },
+    "url": "https://translations.telegram.org/en/emoji?auth_hash=-1x0yHeFcgoW0WTUHA8uK_Iuvp4RAmM3NqwH_JRfbfZp2SJSDAAAAAF58kCuGi74y4JxEwV-84w-oA9rSIoPc3LlGbUUaoUB5zynyGY"
+  }
+}

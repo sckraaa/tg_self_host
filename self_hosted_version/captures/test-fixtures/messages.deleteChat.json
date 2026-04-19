@@ -1,0 +1,18 @@
+{
+  "method": "messages.deleteChat",
+  "capturedAt": "2026-04-10T16:16:28.668Z",
+  "request": {
+    "__className": "messages.DeleteChat",
+    "__constructorId": 1540419152,
+    "className": "messages.DeleteChat",
+    "originalArgs": {
+      "chatId": {
+        "value": "5243805965"
+      }
+    },
+    "chatId": {
+      "value": "5243805965"
+    }
+  },
+  "response": true
+}

@@ -1,0 +1,181 @@
+{
+  "_class": "UpdatePhoneCall",
+  "_cid": "0xab0f6b1e",
+  "className": "UpdatePhoneCall",
+  "originalArgs": {
+    "phoneCall": {
+      "_class": "PhoneCallRequested",
+      "_cid": "0x45361c63",
+      "className": "PhoneCallRequested",
+      "originalArgs": {
+        "flags": 0,
+        "video": false,
+        "id": {
+          "value": "BigInt(1455057105073228126)"
+        },
+        "accessHash": {
+          "value": "BigInt(-5756361899536165577)"
+        },
+        "date": 1775919209,
+        "adminId": {
+          "value": "BigInt(338781882)"
+        },
+        "participantId": {
+          "value": "BigInt(6340886702)"
+        },
+        "gAHash": "Buffer(32)[0000000000000000000000000000000000000000000000000000000000000000]",
+        "protocol": {
+          "_class": "PhoneCallProtocol",
+          "_cid": "0xfc878fc8",
+          "className": "PhoneCallProtocol",
+          "originalArgs": {
+            "flags": 3,
+            "udpP2p": true,
+            "udpReflector": true,
+            "minLayer": 65,
+            "maxLayer": 92,
+            "libraryVersions": [
+              "5.0.0"
+            ]
+          },
+          "flags": 3,
+          "udpP2p": true,
+          "udpReflector": true,
+          "minLayer": 65,
+          "maxLayer": 92,
+          "libraryVersions": [
+            "5.0.0"
+          ]
+        },
+        "conferenceCall": null
+      },
+      "flags": 0,
+      "video": false,
+      "id": {
+        "value": "BigInt(1455057105073228126)"
+      },
+      "accessHash": {
+        "value": "BigInt(-5756361899536165577)"
+      },
+      "date": 1775919209,
+      "adminId": {
+        "value": "BigInt(338781882)"
+      },
+      "participantId": {
+        "value": "BigInt(6340886702)"
+      },
+      "gAHash": "Buffer(32)[0000000000000000000000000000000000000000000000000000000000000000]",
+      "protocol": {
+        "_class": "PhoneCallProtocol",
+        "_cid": "0xfc878fc8",
+        "className": "PhoneCallProtocol",
+        "originalArgs": {
+          "flags": 3,
+          "udpP2p": true,
+          "udpReflector": true,
+          "minLayer": 65,
+          "maxLayer": 92,
+          "libraryVersions": [
+            "5.0.0"
+          ]
+        },
+        "flags": 3,
+        "udpP2p": true,
+        "udpReflector": true,
+        "minLayer": 65,
+        "maxLayer": 92,
+        "libraryVersions": [
+          "5.0.0"
+        ]
+      },
+      "conferenceCall": null
+    }
+  },
+  "phoneCall": {
+    "_class": "PhoneCallRequested",
+    "_cid": "0x45361c63",
+    "className": "PhoneCallRequested",
+    "originalArgs": {
+      "flags": 0,
+      "video": false,
+      "id": {
+        "value": "BigInt(1455057105073228126)"
+      },
+      "accessHash": {
+        "value": "BigInt(-5756361899536165577)"
+      },
+      "date": 1775919209,
+      "adminId": {
+        "value": "BigInt(338781882)"
+      },
+      "participantId": {
+        "value": "BigInt(6340886702)"
+      },
+      "gAHash": "Buffer(32)[0000000000000000000000000000000000000000000000000000000000000000]",
+      "protocol": {
+        "_class": "PhoneCallProtocol",
+        "_cid": "0xfc878fc8",
+        "className": "PhoneCallProtocol",
+        "originalArgs": {
+          "flags": 3,
+          "udpP2p": true,
+          "udpReflector": true,
+          "minLayer": 65,
+          "maxLayer": 92,
+          "libraryVersions": [
+            "5.0.0"
+          ]
+        },
+        "flags": 3,
+        "udpP2p": true,
+        "udpReflector": true,
+        "minLayer": 65,
+        "maxLayer": 92,
+        "libraryVersions": [
+          "5.0.0"
+        ]
+      },
+      "conferenceCall": null
+    },
+    "flags": 0,
+    "video": false,
+    "id": {
+      "value": "BigInt(1455057105073228126)"
+    },
+    "accessHash": {
+      "value": "BigInt(-5756361899536165577)"
+    },
+    "date": 1775919209,
+    "adminId": {
+      "value": "BigInt(338781882)"
+    },
+    "participantId": {
+      "value": "BigInt(6340886702)"
+    },
+    "gAHash": "Buffer(32)[0000000000000000000000000000000000000000000000000000000000000000]",
+    "protocol": {
+      "_class": "PhoneCallProtocol",
+      "_cid": "0xfc878fc8",
+      "className": "PhoneCallProtocol",
+      "originalArgs": {
+        "flags": 3,
+        "udpP2p": true,
+        "udpReflector": true,
+        "minLayer": 65,
+        "maxLayer": 92,
+        "libraryVersions": [
+          "5.0.0"
+        ]
+      },
+      "flags": 3,
+      "udpP2p": true,
+      "udpReflector": true,
+      "minLayer": 65,
+      "maxLayer": 92,
+      "libraryVersions": [
+        "5.0.0"
+      ]
+    },
+    "conferenceCall": null
+  }
+}

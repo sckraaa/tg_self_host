@@ -1,0 +1,1 @@
+{"version":3,"file":"mtproto-server.d.ts","sourceRoot":"","sources":["../../src/server/mtproto-server.ts"],"names":[],"mappings":"AAAA,OAAO,EAAmB,SAAS,EAAE,MAAM,IAAI,CAAC;AAGhD,OAAO,KAAK,EAAE,eAAe,EAAE,MAAM,MAAM,CAAC;AAI5C,wBAAgB,WAAW,CAAC,IAAI,EAAE,MAAM,EAAE,IAAI,EAAE,MAAM;;;EAsCrD;AAUD,wBAAgB,cAAc,CAAC,IAAI,EAAE,MAAM,QAM1C"}

@@ -1,0 +1,1606 @@
+{
+  "method": "users.getFullUser",
+  "userName": "Group [BOT]",
+  "capturedAt": "2026-04-11T10:33:37.615Z",
+  "response": {
+    "__className": "users.UserFull",
+    "__constructorId": 997004590,
+    "className": "users.UserFull",
+    "originalArgs": {
+      "fullUser": {
+        "__className": "UserFull",
+        "__constructorId": 1301765052,
+        "className": "UserFull",
+        "originalArgs": {
+          "flags": 142,
+          "blocked": false,
+          "phoneCallsAvailable": false,
+          "phoneCallsPrivate": false,
+          "canPinMessage": true,
+          "hasScheduled": false,
+          "videoCallsAvailable": false,
+          "voiceMessagesForbidden": false,
+          "translationsDisabled": false,
+          "storiesPinnedAvailable": false,
+          "blockedMyStoriesFrom": false,
+          "wallpaperOverridden": false,
+          "contactRequirePremium": false,
+          "readDatesPrivate": false,
+          "flags2": 0,
+          "sponsoredEnabled": false,
+          "canViewRevenue": false,
+          "botCanManageEmojiStatus": false,
+          "id": {
+            "value": "1087968824"
+          },
+          "about": "This user is an anonymous admin in this group. Update your app to version 7.1+ to use this feature.",
+          "settings": {
+            "__className": "PeerSettings",
+            "__constructorId": 2899733598,
+            "className": "PeerSettings",
+            "originalArgs": {
+              "flags": 16,
+              "reportSpam": false,
+              "addContact": false,
+              "blockContact": false,
+              "shareContact": false,
+              "needContactsException": true,
+              "reportGeo": false,
+              "autoarchived": false,
+              "inviteMembers": false,
+              "requestChatBroadcast": false,
+              "businessBotPaused": false,
+              "businessBotCanReply": false,
+              "geoDistance": null,
+              "requestChatTitle": null,
+              "requestChatDate": null,
+              "businessBotId": null,
+              "businessBotManageUrl": null
+            },
+            "flags": 16,
+            "reportSpam": false,
+            "addContact": false,
+            "blockContact": false,
+            "shareContact": false,
+            "needContactsException": true,
+            "reportGeo": false,
+            "autoarchived": false,
+            "inviteMembers": false,
+            "requestChatBroadcast": false,
+            "businessBotPaused": false,
+            "businessBotCanReply": false,
+            "geoDistance": null,
+            "requestChatTitle": null,
+            "requestChatDate": null,
+            "businessBotId": null,
+            "businessBotManageUrl": null
+          },
+          "personalPhoto": null,
+          "profilePhoto": {
+            "__className": "Photo",
+            "__constructorId": 4212750949,
+            "className": "Photo",
+            "originalArgs": {
+              "flags": 0,
+              "hasStickers": false,
+              "id": {
+                "value": "5159307831025969322"
+              },
+              "accessHash": {
+                "value": "5159653935462931656"
+              },
+              "fileReference": {
+                "__type": "Buffer",
+                "hex": "0069da23812dd5e01215a32f2175f22918e61997dc"
+              },
+              "date": 1601403027,
+              "sizes": [
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "a",
+                    "w": 160,
+                    "h": 160,
+                    "size": 3682
+                  },
+                  "type": "a",
+                  "w": 160,
+                  "h": 160,
+                  "size": 3682
+                },
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "b",
+                    "w": 320,
+                    "h": 320,
+                    "size": 8622
+                  },
+                  "type": "b",
+                  "w": 320,
+                  "h": 320,
+                  "size": 8622
+                },
+                {
+                  "__className": "PhotoSize",
+                  "__constructorId": 1976012384,
+                  "className": "PhotoSize",
+                  "originalArgs": {
+                    "type": "c",
+                    "w": 640,
+                    "h": 640,
+                    "size": 20113
+                  },
+                  "type": "c",
+                  "w": 640,
+                  "h": 640,
+                  "size": 20113
+                },
+                {
+                  "__className": "PhotoStrippedSize",
+                  "__constructorId": 3769678894,
+                  "className": "PhotoStrippedSize",
+                  "originalArgs": {
+                    "type": "i",
+                    "bytes": {
+                      "__type": "Buffer",
+                      "hex": "012828cca28a92008678fcc384dc0b7d29888e8adbdfa5efdf88f3fee9c7e559138413b88ce533f29f6a008e8a28a002b46d2e258e2cc515bc6bd3739c6e3f5cd675590629a18d2493cb68f233b4904139edde802e7f695df9de4f911f999c6dc1ff001a8eee79648b74b15bc8a38dc87254d47f6e2250b96fb385d98e338c633f5a8c98a186458e43234800fba400339efde802b51451400514514005145140051451401f"
+                    }
+                  },
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828cca28a92008678fcc384dc0b7d29888e8adbdfa5efdf88f3fee9c7e559138413b88ce533f29f6a008e8a28a002b46d2e258e2cc515bc6bd3739c6e3f5cd675590629a18d2493cb68f233b4904139edde802e7f695df9de4f911f999c6dc1ff001a8eee79648b74b15bc8a38dc87254d47f6e2250b96fb385d98e338c633f5a8c98a186458e43234800fba400339efde802b51451400514514005145140051451401f"
+                  }
+                }
+              ],
+              "videoSizes": null,
+              "dcId": 1
+            },
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "5159307831025969322"
+            },
+            "accessHash": {
+              "value": "5159653935462931656"
+            },
+            "fileReference": {
+              "__type": "Buffer",
+              "hex": "0069da23812dd5e01215a32f2175f22918e61997dc"
+            },
+            "date": 1601403027,
+            "sizes": [
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "a",
+                  "w": 160,
+                  "h": 160,
+                  "size": 3682
+                },
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 3682
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "b",
+                  "w": 320,
+                  "h": 320,
+                  "size": 8622
+                },
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 8622
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "c",
+                  "w": 640,
+                  "h": 640,
+                  "size": 20113
+                },
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 20113
+              },
+              {
+                "__className": "PhotoStrippedSize",
+                "__constructorId": 3769678894,
+                "className": "PhotoStrippedSize",
+                "originalArgs": {
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828cca28a92008678fcc384dc0b7d29888e8adbdfa5efdf88f3fee9c7e559138413b88ce533f29f6a008e8a28a002b46d2e258e2cc515bc6bd3739c6e3f5cd675590629a18d2493cb68f233b4904139edde802e7f695df9de4f911f999c6dc1ff001a8eee79648b74b15bc8a38dc87254d47f6e2250b96fb385d98e338c633f5a8c98a186458e43234800fba400339efde802b51451400514514005145140051451401f"
+                  }
+                },
+                "type": "i",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "012828cca28a92008678fcc384dc0b7d29888e8adbdfa5efdf88f3fee9c7e559138413b88ce533f29f6a008e8a28a002b46d2e258e2cc515bc6bd3739c6e3f5cd675590629a18d2493cb68f233b4904139edde802e7f695df9de4f911f999c6dc1ff001a8eee79648b74b15bc8a38dc87254d47f6e2250b96fb385d98e338c633f5a8c98a186458e43234800fba400339efde802b51451400514514005145140051451401f"
+                }
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 1
+          },
+          "fallbackPhoto": null,
+          "notifySettings": {
+            "__className": "PeerNotifySettings",
+            "__constructorId": 2573347852,
+            "className": "PeerNotifySettings",
+            "originalArgs": {
+              "flags": 0,
+              "showPreviews": null,
+              "silent": null,
+              "muteUntil": null,
+              "iosSound": null,
+              "androidSound": null,
+              "otherSound": null,
+              "storiesMuted": null,
+              "storiesHideSender": null,
+              "storiesIosSound": null,
+              "storiesAndroidSound": null,
+              "storiesOtherSound": null
+            },
+            "flags": 0,
+            "showPreviews": null,
+            "silent": null,
+            "muteUntil": null,
+            "iosSound": null,
+            "androidSound": null,
+            "otherSound": null,
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "botInfo": {
+            "__className": "BotInfo",
+            "__constructorId": 1300890265,
+            "className": "BotInfo",
+            "originalArgs": {
+              "flags": 2,
+              "hasPreviewMedias": false,
+              "userId": null,
+              "description": "This user is an anonymous admin in this group. Update your app to version 7.1+ to use this feature.",
+              "descriptionPhoto": null,
+              "descriptionDocument": null,
+              "commands": null,
+              "menuButton": null,
+              "privacyPolicyUrl": null,
+              "appSettings": null,
+              "verifierSettings": null
+            },
+            "flags": 2,
+            "hasPreviewMedias": false,
+            "userId": null,
+            "description": "This user is an anonymous admin in this group. Update your app to version 7.1+ to use this feature.",
+            "descriptionPhoto": null,
+            "descriptionDocument": null,
+            "commands": null,
+            "menuButton": null,
+            "privacyPolicyUrl": null,
+            "appSettings": null,
+            "verifierSettings": null
+          },
+          "pinnedMsgId": null,
+          "commonChatsCount": 0,
+          "folderId": null,
+          "ttlPeriod": null,
+          "themeEmoticon": null,
+          "privateForwardName": null,
+          "botGroupAdminRights": null,
+          "botBroadcastAdminRights": null,
+          "premiumGifts": null,
+          "wallpaper": null,
+          "stories": null,
+          "businessWorkHours": null,
+          "businessLocation": null,
+          "businessGreetingMessage": null,
+          "businessAwayMessage": null,
+          "businessIntro": null,
+          "birthday": null,
+          "personalChannelId": null,
+          "personalChannelMessage": null,
+          "stargiftsCount": null,
+          "starrefProgram": null,
+          "botVerification": null
+        },
+        "flags": 142,
+        "blocked": false,
+        "phoneCallsAvailable": false,
+        "phoneCallsPrivate": false,
+        "canPinMessage": true,
+        "hasScheduled": false,
+        "videoCallsAvailable": false,
+        "voiceMessagesForbidden": false,
+        "translationsDisabled": false,
+        "storiesPinnedAvailable": false,
+        "blockedMyStoriesFrom": false,
+        "wallpaperOverridden": false,
+        "contactRequirePremium": false,
+        "readDatesPrivate": false,
+        "flags2": 0,
+        "sponsoredEnabled": false,
+        "canViewRevenue": false,
+        "botCanManageEmojiStatus": false,
+        "id": {
+          "value": "1087968824"
+        },
+        "about": "This user is an anonymous admin in this group. Update your app to version 7.1+ to use this feature.",
+        "settings": {
+          "__className": "PeerSettings",
+          "__constructorId": 2899733598,
+          "className": "PeerSettings",
+          "originalArgs": {
+            "flags": 16,
+            "reportSpam": false,
+            "addContact": false,
+            "blockContact": false,
+            "shareContact": false,
+            "needContactsException": true,
+            "reportGeo": false,
+            "autoarchived": false,
+            "inviteMembers": false,
+            "requestChatBroadcast": false,
+            "businessBotPaused": false,
+            "businessBotCanReply": false,
+            "geoDistance": null,
+            "requestChatTitle": null,
+            "requestChatDate": null,
+            "businessBotId": null,
+            "businessBotManageUrl": null
+          },
+          "flags": 16,
+          "reportSpam": false,
+          "addContact": false,
+          "blockContact": false,
+          "shareContact": false,
+          "needContactsException": true,
+          "reportGeo": false,
+          "autoarchived": false,
+          "inviteMembers": false,
+          "requestChatBroadcast": false,
+          "businessBotPaused": false,
+          "businessBotCanReply": false,
+          "geoDistance": null,
+          "requestChatTitle": null,
+          "requestChatDate": null,
+          "businessBotId": null,
+          "businessBotManageUrl": null
+        },
+        "personalPhoto": null,
+        "profilePhoto": {
+          "__className": "Photo",
+          "__constructorId": 4212750949,
+          "className": "Photo",
+          "originalArgs": {
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "5159307831025969322"
+            },
+            "accessHash": {
+              "value": "5159653935462931656"
+            },
+            "fileReference": {
+              "__type": "Buffer",
+              "hex": "0069da23812dd5e01215a32f2175f22918e61997dc"
+            },
+            "date": 1601403027,
+            "sizes": [
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "a",
+                  "w": 160,
+                  "h": 160,
+                  "size": 3682
+                },
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 3682
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "b",
+                  "w": 320,
+                  "h": 320,
+                  "size": 8622
+                },
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 8622
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "c",
+                  "w": 640,
+                  "h": 640,
+                  "size": 20113
+                },
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 20113
+              },
+              {
+                "__className": "PhotoStrippedSize",
+                "__constructorId": 3769678894,
+                "className": "PhotoStrippedSize",
+                "originalArgs": {
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828cca28a92008678fcc384dc0b7d29888e8adbdfa5efdf88f3fee9c7e559138413b88ce533f29f6a008e8a28a002b46d2e258e2cc515bc6bd3739c6e3f5cd675590629a18d2493cb68f233b4904139edde802e7f695df9de4f911f999c6dc1ff001a8eee79648b74b15bc8a38dc87254d47f6e2250b96fb385d98e338c633f5a8c98a186458e43234800fba400339efde802b51451400514514005145140051451401f"
+                  }
+                },
+                "type": "i",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "012828cca28a92008678fcc384dc0b7d29888e8adbdfa5efdf88f3fee9c7e559138413b88ce533f29f6a008e8a28a002b46d2e258e2cc515bc6bd3739c6e3f5cd675590629a18d2493cb68f233b4904139edde802e7f695df9de4f911f999c6dc1ff001a8eee79648b74b15bc8a38dc87254d47f6e2250b96fb385d98e338c633f5a8c98a186458e43234800fba400339efde802b51451400514514005145140051451401f"
+                }
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 1
+          },
+          "flags": 0,
+          "hasStickers": false,
+          "id": {
+            "value": "5159307831025969322"
+          },
+          "accessHash": {
+            "value": "5159653935462931656"
+          },
+          "fileReference": {
+            "__type": "Buffer",
+            "hex": "0069da23812dd5e01215a32f2175f22918e61997dc"
+          },
+          "date": 1601403027,
+          "sizes": [
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 3682
+              },
+              "type": "a",
+              "w": 160,
+              "h": 160,
+              "size": 3682
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 8622
+              },
+              "type": "b",
+              "w": 320,
+              "h": 320,
+              "size": 8622
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 20113
+              },
+              "type": "c",
+              "w": 640,
+              "h": 640,
+              "size": 20113
+            },
+            {
+              "__className": "PhotoStrippedSize",
+              "__constructorId": 3769678894,
+              "className": "PhotoStrippedSize",
+              "originalArgs": {
+                "type": "i",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "012828cca28a92008678fcc384dc0b7d29888e8adbdfa5efdf88f3fee9c7e559138413b88ce533f29f6a008e8a28a002b46d2e258e2cc515bc6bd3739c6e3f5cd675590629a18d2493cb68f233b4904139edde802e7f695df9de4f911f999c6dc1ff001a8eee79648b74b15bc8a38dc87254d47f6e2250b96fb385d98e338c633f5a8c98a186458e43234800fba400339efde802b51451400514514005145140051451401f"
+                }
+              },
+              "type": "i",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "012828cca28a92008678fcc384dc0b7d29888e8adbdfa5efdf88f3fee9c7e559138413b88ce533f29f6a008e8a28a002b46d2e258e2cc515bc6bd3739c6e3f5cd675590629a18d2493cb68f233b4904139edde802e7f695df9de4f911f999c6dc1ff001a8eee79648b74b15bc8a38dc87254d47f6e2250b96fb385d98e338c633f5a8c98a186458e43234800fba400339efde802b51451400514514005145140051451401f"
+              }
+            }
+          ],
+          "videoSizes": null,
+          "dcId": 1
+        },
+        "fallbackPhoto": null,
+        "notifySettings": {
+          "__className": "PeerNotifySettings",
+          "__constructorId": 2573347852,
+          "className": "PeerNotifySettings",
+          "originalArgs": {
+            "flags": 0,
+            "showPreviews": null,
+            "silent": null,
+            "muteUntil": null,
+            "iosSound": null,
+            "androidSound": null,
+            "otherSound": null,
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "flags": 0,
+          "showPreviews": null,
+          "silent": null,
+          "muteUntil": null,
+          "iosSound": null,
+          "androidSound": null,
+          "otherSound": null,
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "botInfo": {
+          "__className": "BotInfo",
+          "__constructorId": 1300890265,
+          "className": "BotInfo",
+          "originalArgs": {
+            "flags": 2,
+            "hasPreviewMedias": false,
+            "userId": null,
+            "description": "This user is an anonymous admin in this group. Update your app to version 7.1+ to use this feature.",
+            "descriptionPhoto": null,
+            "descriptionDocument": null,
+            "commands": null,
+            "menuButton": null,
+            "privacyPolicyUrl": null,
+            "appSettings": null,
+            "verifierSettings": null
+          },
+          "flags": 2,
+          "hasPreviewMedias": false,
+          "userId": null,
+          "description": "This user is an anonymous admin in this group. Update your app to version 7.1+ to use this feature.",
+          "descriptionPhoto": null,
+          "descriptionDocument": null,
+          "commands": null,
+          "menuButton": null,
+          "privacyPolicyUrl": null,
+          "appSettings": null,
+          "verifierSettings": null
+        },
+        "pinnedMsgId": null,
+        "commonChatsCount": 0,
+        "folderId": null,
+        "ttlPeriod": null,
+        "themeEmoticon": null,
+        "privateForwardName": null,
+        "botGroupAdminRights": null,
+        "botBroadcastAdminRights": null,
+        "premiumGifts": null,
+        "wallpaper": null,
+        "stories": null,
+        "businessWorkHours": null,
+        "businessLocation": null,
+        "businessGreetingMessage": null,
+        "businessAwayMessage": null,
+        "businessIntro": null,
+        "birthday": null,
+        "personalChannelId": null,
+        "personalChannelMessage": null,
+        "stargiftsCount": null,
+        "starrefProgram": null,
+        "botVerification": null
+      },
+      "chats": [],
+      "users": [
+        {
+          "__className": "User",
+          "__constructorId": 1262928766,
+          "className": "User",
+          "originalArgs": {
+            "flags": 33636395,
+            "self": false,
+            "contact": false,
+            "mutualContact": false,
+            "deleted": false,
+            "bot": true,
+            "botChatHistory": false,
+            "botNochats": true,
+            "verified": false,
+            "restricted": false,
+            "min": false,
+            "botInlineGeo": false,
+            "support": false,
+            "scam": false,
+            "applyMinPhoto": true,
+            "fake": false,
+            "botAttachMenu": false,
+            "premium": false,
+            "attachMenuEnabled": false,
+            "flags2": 4112,
+            "botCanEdit": false,
+            "closeFriend": false,
+            "storiesHidden": false,
+            "storiesUnavailable": true,
+            "contactRequirePremium": false,
+            "botBusiness": false,
+            "botHasMainApp": false,
+            "id": {
+              "value": "1087968824"
+            },
+            "accessHash": {
+              "value": "6689012025452885356"
+            },
+            "firstName": "Group",
+            "lastName": null,
+            "username": "GroupAnonymousBot",
+            "phone": null,
+            "photo": {
+              "__className": "UserProfilePhoto",
+              "__constructorId": 2194798342,
+              "className": "UserProfilePhoto",
+              "originalArgs": {
+                "flags": 2,
+                "hasVideo": false,
+                "personal": false,
+                "photoId": {
+                  "value": "5159307831025969322"
+                },
+                "strippedThumb": {
+                  "__type": "Buffer",
+                  "hex": "010808a398becf8c7ef339ce7f4a28a2988f"
+                },
+                "dcId": 1
+              },
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "5159307831025969322"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808a398becf8c7ef339ce7f4a28a2988f"
+              },
+              "dcId": 1
+            },
+            "status": null,
+            "botInfoVersion": 3,
+            "restrictionReason": null,
+            "botInlinePlaceholder": null,
+            "langCode": null,
+            "emojiStatus": null,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "botActiveUsers": 12958,
+            "botVerificationIcon": null
+          },
+          "flags": 33636395,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": true,
+          "botChatHistory": false,
+          "botNochats": true,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 4112,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "1087968824"
+          },
+          "accessHash": {
+            "value": "6689012025452885356"
+          },
+          "firstName": "Group",
+          "lastName": null,
+          "username": "GroupAnonymousBot",
+          "phone": null,
+          "photo": {
+            "__className": "UserProfilePhoto",
+            "__constructorId": 2194798342,
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "5159307831025969322"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808a398becf8c7ef339ce7f4a28a2988f"
+              },
+              "dcId": 1
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "5159307831025969322"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808a398becf8c7ef339ce7f4a28a2988f"
+            },
+            "dcId": 1
+          },
+          "status": null,
+          "botInfoVersion": 3,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": 12958,
+          "botVerificationIcon": null
+        }
+      ]
+    },
+    "fullUser": {
+      "__className": "UserFull",
+      "__constructorId": 1301765052,
+      "className": "UserFull",
+      "originalArgs": {
+        "flags": 142,
+        "blocked": false,
+        "phoneCallsAvailable": false,
+        "phoneCallsPrivate": false,
+        "canPinMessage": true,
+        "hasScheduled": false,
+        "videoCallsAvailable": false,
+        "voiceMessagesForbidden": false,
+        "translationsDisabled": false,
+        "storiesPinnedAvailable": false,
+        "blockedMyStoriesFrom": false,
+        "wallpaperOverridden": false,
+        "contactRequirePremium": false,
+        "readDatesPrivate": false,
+        "flags2": 0,
+        "sponsoredEnabled": false,
+        "canViewRevenue": false,
+        "botCanManageEmojiStatus": false,
+        "id": {
+          "value": "1087968824"
+        },
+        "about": "This user is an anonymous admin in this group. Update your app to version 7.1+ to use this feature.",
+        "settings": {
+          "__className": "PeerSettings",
+          "__constructorId": 2899733598,
+          "className": "PeerSettings",
+          "originalArgs": {
+            "flags": 16,
+            "reportSpam": false,
+            "addContact": false,
+            "blockContact": false,
+            "shareContact": false,
+            "needContactsException": true,
+            "reportGeo": false,
+            "autoarchived": false,
+            "inviteMembers": false,
+            "requestChatBroadcast": false,
+            "businessBotPaused": false,
+            "businessBotCanReply": false,
+            "geoDistance": null,
+            "requestChatTitle": null,
+            "requestChatDate": null,
+            "businessBotId": null,
+            "businessBotManageUrl": null
+          },
+          "flags": 16,
+          "reportSpam": false,
+          "addContact": false,
+          "blockContact": false,
+          "shareContact": false,
+          "needContactsException": true,
+          "reportGeo": false,
+          "autoarchived": false,
+          "inviteMembers": false,
+          "requestChatBroadcast": false,
+          "businessBotPaused": false,
+          "businessBotCanReply": false,
+          "geoDistance": null,
+          "requestChatTitle": null,
+          "requestChatDate": null,
+          "businessBotId": null,
+          "businessBotManageUrl": null
+        },
+        "personalPhoto": null,
+        "profilePhoto": {
+          "__className": "Photo",
+          "__constructorId": 4212750949,
+          "className": "Photo",
+          "originalArgs": {
+            "flags": 0,
+            "hasStickers": false,
+            "id": {
+              "value": "5159307831025969322"
+            },
+            "accessHash": {
+              "value": "5159653935462931656"
+            },
+            "fileReference": {
+              "__type": "Buffer",
+              "hex": "0069da23812dd5e01215a32f2175f22918e61997dc"
+            },
+            "date": 1601403027,
+            "sizes": [
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "a",
+                  "w": 160,
+                  "h": 160,
+                  "size": 3682
+                },
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 3682
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "b",
+                  "w": 320,
+                  "h": 320,
+                  "size": 8622
+                },
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 8622
+              },
+              {
+                "__className": "PhotoSize",
+                "__constructorId": 1976012384,
+                "className": "PhotoSize",
+                "originalArgs": {
+                  "type": "c",
+                  "w": 640,
+                  "h": 640,
+                  "size": 20113
+                },
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 20113
+              },
+              {
+                "__className": "PhotoStrippedSize",
+                "__constructorId": 3769678894,
+                "className": "PhotoStrippedSize",
+                "originalArgs": {
+                  "type": "i",
+                  "bytes": {
+                    "__type": "Buffer",
+                    "hex": "012828cca28a92008678fcc384dc0b7d29888e8adbdfa5efdf88f3fee9c7e559138413b88ce533f29f6a008e8a28a002b46d2e258e2cc515bc6bd3739c6e3f5cd675590629a18d2493cb68f233b4904139edde802e7f695df9de4f911f999c6dc1ff001a8eee79648b74b15bc8a38dc87254d47f6e2250b96fb385d98e338c633f5a8c98a186458e43234800fba400339efde802b51451400514514005145140051451401f"
+                  }
+                },
+                "type": "i",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "012828cca28a92008678fcc384dc0b7d29888e8adbdfa5efdf88f3fee9c7e559138413b88ce533f29f6a008e8a28a002b46d2e258e2cc515bc6bd3739c6e3f5cd675590629a18d2493cb68f233b4904139edde802e7f695df9de4f911f999c6dc1ff001a8eee79648b74b15bc8a38dc87254d47f6e2250b96fb385d98e338c633f5a8c98a186458e43234800fba400339efde802b51451400514514005145140051451401f"
+                }
+              }
+            ],
+            "videoSizes": null,
+            "dcId": 1
+          },
+          "flags": 0,
+          "hasStickers": false,
+          "id": {
+            "value": "5159307831025969322"
+          },
+          "accessHash": {
+            "value": "5159653935462931656"
+          },
+          "fileReference": {
+            "__type": "Buffer",
+            "hex": "0069da23812dd5e01215a32f2175f22918e61997dc"
+          },
+          "date": 1601403027,
+          "sizes": [
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 3682
+              },
+              "type": "a",
+              "w": 160,
+              "h": 160,
+              "size": 3682
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 8622
+              },
+              "type": "b",
+              "w": 320,
+              "h": 320,
+              "size": 8622
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 20113
+              },
+              "type": "c",
+              "w": 640,
+              "h": 640,
+              "size": 20113
+            },
+            {
+              "__className": "PhotoStrippedSize",
+              "__constructorId": 3769678894,
+              "className": "PhotoStrippedSize",
+              "originalArgs": {
+                "type": "i",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "012828cca28a92008678fcc384dc0b7d29888e8adbdfa5efdf88f3fee9c7e559138413b88ce533f29f6a008e8a28a002b46d2e258e2cc515bc6bd3739c6e3f5cd675590629a18d2493cb68f233b4904139edde802e7f695df9de4f911f999c6dc1ff001a8eee79648b74b15bc8a38dc87254d47f6e2250b96fb385d98e338c633f5a8c98a186458e43234800fba400339efde802b51451400514514005145140051451401f"
+                }
+              },
+              "type": "i",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "012828cca28a92008678fcc384dc0b7d29888e8adbdfa5efdf88f3fee9c7e559138413b88ce533f29f6a008e8a28a002b46d2e258e2cc515bc6bd3739c6e3f5cd675590629a18d2493cb68f233b4904139edde802e7f695df9de4f911f999c6dc1ff001a8eee79648b74b15bc8a38dc87254d47f6e2250b96fb385d98e338c633f5a8c98a186458e43234800fba400339efde802b51451400514514005145140051451401f"
+              }
+            }
+          ],
+          "videoSizes": null,
+          "dcId": 1
+        },
+        "fallbackPhoto": null,
+        "notifySettings": {
+          "__className": "PeerNotifySettings",
+          "__constructorId": 2573347852,
+          "className": "PeerNotifySettings",
+          "originalArgs": {
+            "flags": 0,
+            "showPreviews": null,
+            "silent": null,
+            "muteUntil": null,
+            "iosSound": null,
+            "androidSound": null,
+            "otherSound": null,
+            "storiesMuted": null,
+            "storiesHideSender": null,
+            "storiesIosSound": null,
+            "storiesAndroidSound": null,
+            "storiesOtherSound": null
+          },
+          "flags": 0,
+          "showPreviews": null,
+          "silent": null,
+          "muteUntil": null,
+          "iosSound": null,
+          "androidSound": null,
+          "otherSound": null,
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "botInfo": {
+          "__className": "BotInfo",
+          "__constructorId": 1300890265,
+          "className": "BotInfo",
+          "originalArgs": {
+            "flags": 2,
+            "hasPreviewMedias": false,
+            "userId": null,
+            "description": "This user is an anonymous admin in this group. Update your app to version 7.1+ to use this feature.",
+            "descriptionPhoto": null,
+            "descriptionDocument": null,
+            "commands": null,
+            "menuButton": null,
+            "privacyPolicyUrl": null,
+            "appSettings": null,
+            "verifierSettings": null
+          },
+          "flags": 2,
+          "hasPreviewMedias": false,
+          "userId": null,
+          "description": "This user is an anonymous admin in this group. Update your app to version 7.1+ to use this feature.",
+          "descriptionPhoto": null,
+          "descriptionDocument": null,
+          "commands": null,
+          "menuButton": null,
+          "privacyPolicyUrl": null,
+          "appSettings": null,
+          "verifierSettings": null
+        },
+        "pinnedMsgId": null,
+        "commonChatsCount": 0,
+        "folderId": null,
+        "ttlPeriod": null,
+        "themeEmoticon": null,
+        "privateForwardName": null,
+        "botGroupAdminRights": null,
+        "botBroadcastAdminRights": null,
+        "premiumGifts": null,
+        "wallpaper": null,
+        "stories": null,
+        "businessWorkHours": null,
+        "businessLocation": null,
+        "businessGreetingMessage": null,
+        "businessAwayMessage": null,
+        "businessIntro": null,
+        "birthday": null,
+        "personalChannelId": null,
+        "personalChannelMessage": null,
+        "stargiftsCount": null,
+        "starrefProgram": null,
+        "botVerification": null
+      },
+      "flags": 142,
+      "blocked": false,
+      "phoneCallsAvailable": false,
+      "phoneCallsPrivate": false,
+      "canPinMessage": true,
+      "hasScheduled": false,
+      "videoCallsAvailable": false,
+      "voiceMessagesForbidden": false,
+      "translationsDisabled": false,
+      "storiesPinnedAvailable": false,
+      "blockedMyStoriesFrom": false,
+      "wallpaperOverridden": false,
+      "contactRequirePremium": false,
+      "readDatesPrivate": false,
+      "flags2": 0,
+      "sponsoredEnabled": false,
+      "canViewRevenue": false,
+      "botCanManageEmojiStatus": false,
+      "id": {
+        "value": "1087968824"
+      },
+      "about": "This user is an anonymous admin in this group. Update your app to version 7.1+ to use this feature.",
+      "settings": {
+        "__className": "PeerSettings",
+        "__constructorId": 2899733598,
+        "className": "PeerSettings",
+        "originalArgs": {
+          "flags": 16,
+          "reportSpam": false,
+          "addContact": false,
+          "blockContact": false,
+          "shareContact": false,
+          "needContactsException": true,
+          "reportGeo": false,
+          "autoarchived": false,
+          "inviteMembers": false,
+          "requestChatBroadcast": false,
+          "businessBotPaused": false,
+          "businessBotCanReply": false,
+          "geoDistance": null,
+          "requestChatTitle": null,
+          "requestChatDate": null,
+          "businessBotId": null,
+          "businessBotManageUrl": null
+        },
+        "flags": 16,
+        "reportSpam": false,
+        "addContact": false,
+        "blockContact": false,
+        "shareContact": false,
+        "needContactsException": true,
+        "reportGeo": false,
+        "autoarchived": false,
+        "inviteMembers": false,
+        "requestChatBroadcast": false,
+        "businessBotPaused": false,
+        "businessBotCanReply": false,
+        "geoDistance": null,
+        "requestChatTitle": null,
+        "requestChatDate": null,
+        "businessBotId": null,
+        "businessBotManageUrl": null
+      },
+      "personalPhoto": null,
+      "profilePhoto": {
+        "__className": "Photo",
+        "__constructorId": 4212750949,
+        "className": "Photo",
+        "originalArgs": {
+          "flags": 0,
+          "hasStickers": false,
+          "id": {
+            "value": "5159307831025969322"
+          },
+          "accessHash": {
+            "value": "5159653935462931656"
+          },
+          "fileReference": {
+            "__type": "Buffer",
+            "hex": "0069da23812dd5e01215a32f2175f22918e61997dc"
+          },
+          "date": 1601403027,
+          "sizes": [
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "a",
+                "w": 160,
+                "h": 160,
+                "size": 3682
+              },
+              "type": "a",
+              "w": 160,
+              "h": 160,
+              "size": 3682
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "b",
+                "w": 320,
+                "h": 320,
+                "size": 8622
+              },
+              "type": "b",
+              "w": 320,
+              "h": 320,
+              "size": 8622
+            },
+            {
+              "__className": "PhotoSize",
+              "__constructorId": 1976012384,
+              "className": "PhotoSize",
+              "originalArgs": {
+                "type": "c",
+                "w": 640,
+                "h": 640,
+                "size": 20113
+              },
+              "type": "c",
+              "w": 640,
+              "h": 640,
+              "size": 20113
+            },
+            {
+              "__className": "PhotoStrippedSize",
+              "__constructorId": 3769678894,
+              "className": "PhotoStrippedSize",
+              "originalArgs": {
+                "type": "i",
+                "bytes": {
+                  "__type": "Buffer",
+                  "hex": "012828cca28a92008678fcc384dc0b7d29888e8adbdfa5efdf88f3fee9c7e559138413b88ce533f29f6a008e8a28a002b46d2e258e2cc515bc6bd3739c6e3f5cd675590629a18d2493cb68f233b4904139edde802e7f695df9de4f911f999c6dc1ff001a8eee79648b74b15bc8a38dc87254d47f6e2250b96fb385d98e338c633f5a8c98a186458e43234800fba400339efde802b51451400514514005145140051451401f"
+                }
+              },
+              "type": "i",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "012828cca28a92008678fcc384dc0b7d29888e8adbdfa5efdf88f3fee9c7e559138413b88ce533f29f6a008e8a28a002b46d2e258e2cc515bc6bd3739c6e3f5cd675590629a18d2493cb68f233b4904139edde802e7f695df9de4f911f999c6dc1ff001a8eee79648b74b15bc8a38dc87254d47f6e2250b96fb385d98e338c633f5a8c98a186458e43234800fba400339efde802b51451400514514005145140051451401f"
+              }
+            }
+          ],
+          "videoSizes": null,
+          "dcId": 1
+        },
+        "flags": 0,
+        "hasStickers": false,
+        "id": {
+          "value": "5159307831025969322"
+        },
+        "accessHash": {
+          "value": "5159653935462931656"
+        },
+        "fileReference": {
+          "__type": "Buffer",
+          "hex": "0069da23812dd5e01215a32f2175f22918e61997dc"
+        },
+        "date": 1601403027,
+        "sizes": [
+          {
+            "__className": "PhotoSize",
+            "__constructorId": 1976012384,
+            "className": "PhotoSize",
+            "originalArgs": {
+              "type": "a",
+              "w": 160,
+              "h": 160,
+              "size": 3682
+            },
+            "type": "a",
+            "w": 160,
+            "h": 160,
+            "size": 3682
+          },
+          {
+            "__className": "PhotoSize",
+            "__constructorId": 1976012384,
+            "className": "PhotoSize",
+            "originalArgs": {
+              "type": "b",
+              "w": 320,
+              "h": 320,
+              "size": 8622
+            },
+            "type": "b",
+            "w": 320,
+            "h": 320,
+            "size": 8622
+          },
+          {
+            "__className": "PhotoSize",
+            "__constructorId": 1976012384,
+            "className": "PhotoSize",
+            "originalArgs": {
+              "type": "c",
+              "w": 640,
+              "h": 640,
+              "size": 20113
+            },
+            "type": "c",
+            "w": 640,
+            "h": 640,
+            "size": 20113
+          },
+          {
+            "__className": "PhotoStrippedSize",
+            "__constructorId": 3769678894,
+            "className": "PhotoStrippedSize",
+            "originalArgs": {
+              "type": "i",
+              "bytes": {
+                "__type": "Buffer",
+                "hex": "012828cca28a92008678fcc384dc0b7d29888e8adbdfa5efdf88f3fee9c7e559138413b88ce533f29f6a008e8a28a002b46d2e258e2cc515bc6bd3739c6e3f5cd675590629a18d2493cb68f233b4904139edde802e7f695df9de4f911f999c6dc1ff001a8eee79648b74b15bc8a38dc87254d47f6e2250b96fb385d98e338c633f5a8c98a186458e43234800fba400339efde802b51451400514514005145140051451401f"
+              }
+            },
+            "type": "i",
+            "bytes": {
+              "__type": "Buffer",
+              "hex": "012828cca28a92008678fcc384dc0b7d29888e8adbdfa5efdf88f3fee9c7e559138413b88ce533f29f6a008e8a28a002b46d2e258e2cc515bc6bd3739c6e3f5cd675590629a18d2493cb68f233b4904139edde802e7f695df9de4f911f999c6dc1ff001a8eee79648b74b15bc8a38dc87254d47f6e2250b96fb385d98e338c633f5a8c98a186458e43234800fba400339efde802b51451400514514005145140051451401f"
+            }
+          }
+        ],
+        "videoSizes": null,
+        "dcId": 1
+      },
+      "fallbackPhoto": null,
+      "notifySettings": {
+        "__className": "PeerNotifySettings",
+        "__constructorId": 2573347852,
+        "className": "PeerNotifySettings",
+        "originalArgs": {
+          "flags": 0,
+          "showPreviews": null,
+          "silent": null,
+          "muteUntil": null,
+          "iosSound": null,
+          "androidSound": null,
+          "otherSound": null,
+          "storiesMuted": null,
+          "storiesHideSender": null,
+          "storiesIosSound": null,
+          "storiesAndroidSound": null,
+          "storiesOtherSound": null
+        },
+        "flags": 0,
+        "showPreviews": null,
+        "silent": null,
+        "muteUntil": null,
+        "iosSound": null,
+        "androidSound": null,
+        "otherSound": null,
+        "storiesMuted": null,
+        "storiesHideSender": null,
+        "storiesIosSound": null,
+        "storiesAndroidSound": null,
+        "storiesOtherSound": null
+      },
+      "botInfo": {
+        "__className": "BotInfo",
+        "__constructorId": 1300890265,
+        "className": "BotInfo",
+        "originalArgs": {
+          "flags": 2,
+          "hasPreviewMedias": false,
+          "userId": null,
+          "description": "This user is an anonymous admin in this group. Update your app to version 7.1+ to use this feature.",
+          "descriptionPhoto": null,
+          "descriptionDocument": null,
+          "commands": null,
+          "menuButton": null,
+          "privacyPolicyUrl": null,
+          "appSettings": null,
+          "verifierSettings": null
+        },
+        "flags": 2,
+        "hasPreviewMedias": false,
+        "userId": null,
+        "description": "This user is an anonymous admin in this group. Update your app to version 7.1+ to use this feature.",
+        "descriptionPhoto": null,
+        "descriptionDocument": null,
+        "commands": null,
+        "menuButton": null,
+        "privacyPolicyUrl": null,
+        "appSettings": null,
+        "verifierSettings": null
+      },
+      "pinnedMsgId": null,
+      "commonChatsCount": 0,
+      "folderId": null,
+      "ttlPeriod": null,
+      "themeEmoticon": null,
+      "privateForwardName": null,
+      "botGroupAdminRights": null,
+      "botBroadcastAdminRights": null,
+      "premiumGifts": null,
+      "wallpaper": null,
+      "stories": null,
+      "businessWorkHours": null,
+      "businessLocation": null,
+      "businessGreetingMessage": null,
+      "businessAwayMessage": null,
+      "businessIntro": null,
+      "birthday": null,
+      "personalChannelId": null,
+      "personalChannelMessage": null,
+      "stargiftsCount": null,
+      "starrefProgram": null,
+      "botVerification": null
+    },
+    "chats": [],
+    "users": [
+      {
+        "__className": "User",
+        "__constructorId": 1262928766,
+        "className": "User",
+        "originalArgs": {
+          "flags": 33636395,
+          "self": false,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": true,
+          "botChatHistory": false,
+          "botNochats": true,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 4112,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "1087968824"
+          },
+          "accessHash": {
+            "value": "6689012025452885356"
+          },
+          "firstName": "Group",
+          "lastName": null,
+          "username": "GroupAnonymousBot",
+          "phone": null,
+          "photo": {
+            "__className": "UserProfilePhoto",
+            "__constructorId": 2194798342,
+            "className": "UserProfilePhoto",
+            "originalArgs": {
+              "flags": 2,
+              "hasVideo": false,
+              "personal": false,
+              "photoId": {
+                "value": "5159307831025969322"
+              },
+              "strippedThumb": {
+                "__type": "Buffer",
+                "hex": "010808a398becf8c7ef339ce7f4a28a2988f"
+              },
+              "dcId": 1
+            },
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "5159307831025969322"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808a398becf8c7ef339ce7f4a28a2988f"
+            },
+            "dcId": 1
+          },
+          "status": null,
+          "botInfoVersion": 3,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": 12958,
+          "botVerificationIcon": null
+        },
+        "flags": 33636395,
+        "self": false,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": true,
+        "botChatHistory": false,
+        "botNochats": true,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 4112,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "1087968824"
+        },
+        "accessHash": {
+          "value": "6689012025452885356"
+        },
+        "firstName": "Group",
+        "lastName": null,
+        "username": "GroupAnonymousBot",
+        "phone": null,
+        "photo": {
+          "__className": "UserProfilePhoto",
+          "__constructorId": 2194798342,
+          "className": "UserProfilePhoto",
+          "originalArgs": {
+            "flags": 2,
+            "hasVideo": false,
+            "personal": false,
+            "photoId": {
+              "value": "5159307831025969322"
+            },
+            "strippedThumb": {
+              "__type": "Buffer",
+              "hex": "010808a398becf8c7ef339ce7f4a28a2988f"
+            },
+            "dcId": 1
+          },
+          "flags": 2,
+          "hasVideo": false,
+          "personal": false,
+          "photoId": {
+            "value": "5159307831025969322"
+          },
+          "strippedThumb": {
+            "__type": "Buffer",
+            "hex": "010808a398becf8c7ef339ce7f4a28a2988f"
+          },
+          "dcId": 1
+        },
+        "status": null,
+        "botInfoVersion": 3,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": 12958,
+        "botVerificationIcon": null
+      }
+    ]
+  }
+}

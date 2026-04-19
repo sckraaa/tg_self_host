@@ -1,0 +1,19 @@
+{
+  "method": "help.getTermsOfServiceUpdate",
+  "capturedAt": "2026-04-10T16:16:10.592Z",
+  "request": {
+    "__className": "help.GetTermsOfServiceUpdate",
+    "__constructorId": 749019089,
+    "className": "help.GetTermsOfServiceUpdate",
+    "originalArgs": {}
+  },
+  "response": {
+    "__className": "help.TermsOfServiceUpdateEmpty",
+    "__constructorId": 3811614591,
+    "className": "help.TermsOfServiceUpdateEmpty",
+    "originalArgs": {
+      "expires": 1775841370
+    },
+    "expires": 1775841370
+  }
+}

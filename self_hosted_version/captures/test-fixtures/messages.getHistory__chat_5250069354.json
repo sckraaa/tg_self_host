@@ -1,0 +1,868 @@
+{
+  "method": "messages.getHistory__chat_5250069354",
+  "capturedAt": "2026-04-10T16:00:05.303Z",
+  "request": {
+    "__className": "messages.GetHistory",
+    "__constructorId": 1143203525,
+    "className": "messages.GetHistory",
+    "originalArgs": {
+      "peer": {
+        "__className": "InputPeerChat",
+        "__constructorId": 900291769,
+        "className": "InputPeerChat",
+        "originalArgs": {
+          "chatId": {
+            "value": "5250069354"
+          }
+        },
+        "chatId": {
+          "value": "5250069354"
+        }
+      },
+      "offsetId": 0,
+      "offsetDate": 0,
+      "addOffset": 0,
+      "limit": 30,
+      "maxId": 0,
+      "minId": 0,
+      "hash": "0"
+    },
+    "peer": {
+      "__className": "InputPeerChat",
+      "__constructorId": 900291769,
+      "className": "InputPeerChat",
+      "originalArgs": {
+        "chatId": {
+          "value": "5250069354"
+        }
+      },
+      "chatId": {
+        "value": "5250069354"
+      }
+    },
+    "offsetId": 0,
+    "offsetDate": 0,
+    "addOffset": 0,
+    "limit": 30,
+    "maxId": 0,
+    "minId": 0,
+    "hash": "0"
+  },
+  "response": {
+    "__className": "messages.Messages",
+    "__constructorId": 2356252295,
+    "className": "messages.Messages",
+    "originalArgs": {
+      "messages": [
+        {
+          "__className": "MessageService",
+          "__constructorId": 3553789248,
+          "className": "MessageService",
+          "originalArgs": {
+            "flags": 258,
+            "out": true,
+            "mentioned": false,
+            "mediaUnread": false,
+            "reactionsArePossible": false,
+            "silent": false,
+            "post": false,
+            "legacy": false,
+            "id": 1436,
+            "fromId": {
+              "__className": "PeerUser",
+              "__constructorId": 1498486562,
+              "className": "PeerUser",
+              "originalArgs": {
+                "userId": {
+                  "value": "6340886702"
+                }
+              },
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "peerId": {
+              "__className": "PeerChat",
+              "__constructorId": 918946202,
+              "className": "PeerChat",
+              "originalArgs": {
+                "chatId": {
+                  "value": "5250069354"
+                }
+              },
+              "chatId": {
+                "value": "5250069354"
+              }
+            },
+            "replyTo": null,
+            "date": 1775832470,
+            "action": {
+              "__className": "MessageActionChatCreate",
+              "__constructorId": 3175599021,
+              "className": "MessageActionChatCreate",
+              "originalArgs": {
+                "title": "_fix_grp_1775832470650",
+                "users": [
+                  {
+                    "value": "6340886702"
+                  }
+                ]
+              },
+              "title": "_fix_grp_1775832470650",
+              "users": [
+                {
+                  "value": "6340886702"
+                }
+              ]
+            },
+            "reactions": null,
+            "ttlPeriod": null
+          },
+          "out": true,
+          "mentioned": false,
+          "mediaUnread": false,
+          "silent": false,
+          "post": false,
+          "legacy": false,
+          "ttlPeriod": null,
+          "id": 1436,
+          "fromId": {
+            "__className": "PeerUser",
+            "__constructorId": 1498486562,
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "peerId": {
+            "__className": "PeerChat",
+            "__constructorId": 918946202,
+            "className": "PeerChat",
+            "originalArgs": {
+              "chatId": {
+                "value": "5250069354"
+              }
+            },
+            "chatId": {
+              "value": "5250069354"
+            }
+          },
+          "replyTo": null,
+          "date": 1775832470,
+          "action": {
+            "__className": "MessageActionChatCreate",
+            "__constructorId": 3175599021,
+            "className": "MessageActionChatCreate",
+            "originalArgs": {
+              "title": "_fix_grp_1775832470650",
+              "users": [
+                {
+                  "value": "6340886702"
+                }
+              ]
+            },
+            "title": "_fix_grp_1775832470650",
+            "users": [
+              {
+                "value": "6340886702"
+              }
+            ]
+          },
+          "reactions": null,
+          "flags": 258,
+          "reactionsArePossible": false
+        }
+      ],
+      "chats": [
+        {
+          "__className": "Chat",
+          "__constructorId": 1103884886,
+          "className": "Chat",
+          "originalArgs": {
+            "flags": 262145,
+            "creator": true,
+            "left": false,
+            "deactivated": false,
+            "callActive": false,
+            "callNotEmpty": false,
+            "noforwards": false,
+            "id": {
+              "value": "5250069354"
+            },
+            "title": "_fix_grp_1775832470650",
+            "photo": {
+              "__className": "ChatPhotoEmpty",
+              "__constructorId": 935395612,
+              "className": "ChatPhotoEmpty",
+              "originalArgs": {}
+            },
+            "participantsCount": 1,
+            "date": 1775832470,
+            "version": 1,
+            "migratedTo": null,
+            "adminRights": null,
+            "defaultBannedRights": {
+              "__className": "ChatBannedRights",
+              "__constructorId": 2668758040,
+              "className": "ChatBannedRights",
+              "originalArgs": {
+                "flags": 0,
+                "viewMessages": false,
+                "sendMessages": false,
+                "sendMedia": false,
+                "sendStickers": false,
+                "sendGifs": false,
+                "sendGames": false,
+                "sendInline": false,
+                "embedLinks": false,
+                "sendPolls": false,
+                "changeInfo": false,
+                "inviteUsers": false,
+                "pinMessages": false,
+                "manageTopics": false,
+                "sendPhotos": false,
+                "sendVideos": false,
+                "sendRoundvideos": false,
+                "sendAudios": false,
+                "sendVoices": false,
+                "sendDocs": false,
+                "sendPlain": false,
+                "untilDate": 2147483647
+              },
+              "flags": 0,
+              "viewMessages": false,
+              "sendMessages": false,
+              "sendMedia": false,
+              "sendStickers": false,
+              "sendGifs": false,
+              "sendGames": false,
+              "sendInline": false,
+              "embedLinks": false,
+              "sendPolls": false,
+              "changeInfo": false,
+              "inviteUsers": false,
+              "pinMessages": false,
+              "manageTopics": false,
+              "sendPhotos": false,
+              "sendVideos": false,
+              "sendRoundvideos": false,
+              "sendAudios": false,
+              "sendVoices": false,
+              "sendDocs": false,
+              "sendPlain": false,
+              "untilDate": 2147483647
+            }
+          },
+          "flags": 262145,
+          "creator": true,
+          "left": false,
+          "deactivated": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "noforwards": false,
+          "id": {
+            "value": "5250069354"
+          },
+          "title": "_fix_grp_1775832470650",
+          "photo": {
+            "__className": "ChatPhotoEmpty",
+            "__constructorId": 935395612,
+            "className": "ChatPhotoEmpty",
+            "originalArgs": {}
+          },
+          "participantsCount": 1,
+          "date": 1775832470,
+          "version": 1,
+          "migratedTo": null,
+          "adminRights": null,
+          "defaultBannedRights": {
+            "__className": "ChatBannedRights",
+            "__constructorId": 2668758040,
+            "className": "ChatBannedRights",
+            "originalArgs": {
+              "flags": 0,
+              "viewMessages": false,
+              "sendMessages": false,
+              "sendMedia": false,
+              "sendStickers": false,
+              "sendGifs": false,
+              "sendGames": false,
+              "sendInline": false,
+              "embedLinks": false,
+              "sendPolls": false,
+              "changeInfo": false,
+              "inviteUsers": false,
+              "pinMessages": false,
+              "manageTopics": false,
+              "sendPhotos": false,
+              "sendVideos": false,
+              "sendRoundvideos": false,
+              "sendAudios": false,
+              "sendVoices": false,
+              "sendDocs": false,
+              "sendPlain": false,
+              "untilDate": 2147483647
+            },
+            "flags": 0,
+            "viewMessages": false,
+            "sendMessages": false,
+            "sendMedia": false,
+            "sendStickers": false,
+            "sendGifs": false,
+            "sendGames": false,
+            "sendInline": false,
+            "embedLinks": false,
+            "sendPolls": false,
+            "changeInfo": false,
+            "inviteUsers": false,
+            "pinMessages": false,
+            "manageTopics": false,
+            "sendPhotos": false,
+            "sendVideos": false,
+            "sendRoundvideos": false,
+            "sendAudios": false,
+            "sendVoices": false,
+            "sendDocs": false,
+            "sendPlain": false,
+            "untilDate": 2147483647
+          }
+        }
+      ],
+      "users": [
+        {
+          "__className": "User",
+          "__constructorId": 1262928766,
+          "className": "User",
+          "originalArgs": {
+            "flags": 33555547,
+            "self": true,
+            "contact": false,
+            "mutualContact": false,
+            "deleted": false,
+            "bot": false,
+            "botChatHistory": false,
+            "botNochats": false,
+            "verified": false,
+            "restricted": false,
+            "min": false,
+            "botInlineGeo": false,
+            "support": false,
+            "scam": false,
+            "applyMinPhoto": true,
+            "fake": false,
+            "botAttachMenu": false,
+            "premium": false,
+            "attachMenuEnabled": false,
+            "flags2": 16,
+            "botCanEdit": false,
+            "closeFriend": false,
+            "storiesHidden": false,
+            "storiesUnavailable": true,
+            "contactRequirePremium": false,
+            "botBusiness": false,
+            "botHasMainApp": false,
+            "id": {
+              "value": "6340886702"
+            },
+            "accessHash": {
+              "value": "-2827396686645499657"
+            },
+            "firstName": "🤷",
+            "lastName": null,
+            "username": "user28738229",
+            "phone": "17799037329",
+            "photo": null,
+            "status": {
+              "__className": "UserStatusOffline",
+              "__constructorId": 9203775,
+              "className": "UserStatusOffline",
+              "originalArgs": {
+                "wasOnline": 1775835740
+              },
+              "wasOnline": 1775835740
+            },
+            "botInfoVersion": null,
+            "restrictionReason": null,
+            "botInlinePlaceholder": null,
+            "langCode": null,
+            "emojiStatus": null,
+            "usernames": null,
+            "storiesMaxId": null,
+            "color": null,
+            "profileColor": null,
+            "botActiveUsers": null,
+            "botVerificationIcon": null
+          },
+          "flags": 33555547,
+          "self": true,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "6340886702"
+          },
+          "accessHash": {
+            "value": "-2827396686645499657"
+          },
+          "firstName": "🤷",
+          "lastName": null,
+          "username": "user28738229",
+          "phone": "17799037329",
+          "photo": null,
+          "status": {
+            "__className": "UserStatusOffline",
+            "__constructorId": 9203775,
+            "className": "UserStatusOffline",
+            "originalArgs": {
+              "wasOnline": 1775835740
+            },
+            "wasOnline": 1775835740
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        }
+      ]
+    },
+    "messages": [
+      {
+        "__className": "MessageService",
+        "__constructorId": 3553789248,
+        "className": "MessageService",
+        "originalArgs": {
+          "flags": 258,
+          "out": true,
+          "mentioned": false,
+          "mediaUnread": false,
+          "reactionsArePossible": false,
+          "silent": false,
+          "post": false,
+          "legacy": false,
+          "id": 1436,
+          "fromId": {
+            "__className": "PeerUser",
+            "__constructorId": 1498486562,
+            "className": "PeerUser",
+            "originalArgs": {
+              "userId": {
+                "value": "6340886702"
+              }
+            },
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "peerId": {
+            "__className": "PeerChat",
+            "__constructorId": 918946202,
+            "className": "PeerChat",
+            "originalArgs": {
+              "chatId": {
+                "value": "5250069354"
+              }
+            },
+            "chatId": {
+              "value": "5250069354"
+            }
+          },
+          "replyTo": null,
+          "date": 1775832470,
+          "action": {
+            "__className": "MessageActionChatCreate",
+            "__constructorId": 3175599021,
+            "className": "MessageActionChatCreate",
+            "originalArgs": {
+              "title": "_fix_grp_1775832470650",
+              "users": [
+                {
+                  "value": "6340886702"
+                }
+              ]
+            },
+            "title": "_fix_grp_1775832470650",
+            "users": [
+              {
+                "value": "6340886702"
+              }
+            ]
+          },
+          "reactions": null,
+          "ttlPeriod": null
+        },
+        "out": true,
+        "mentioned": false,
+        "mediaUnread": false,
+        "silent": false,
+        "post": false,
+        "legacy": false,
+        "ttlPeriod": null,
+        "id": 1436,
+        "fromId": {
+          "__className": "PeerUser",
+          "__constructorId": 1498486562,
+          "className": "PeerUser",
+          "originalArgs": {
+            "userId": {
+              "value": "6340886702"
+            }
+          },
+          "userId": {
+            "value": "6340886702"
+          }
+        },
+        "peerId": {
+          "__className": "PeerChat",
+          "__constructorId": 918946202,
+          "className": "PeerChat",
+          "originalArgs": {
+            "chatId": {
+              "value": "5250069354"
+            }
+          },
+          "chatId": {
+            "value": "5250069354"
+          }
+        },
+        "replyTo": null,
+        "date": 1775832470,
+        "action": {
+          "__className": "MessageActionChatCreate",
+          "__constructorId": 3175599021,
+          "className": "MessageActionChatCreate",
+          "originalArgs": {
+            "title": "_fix_grp_1775832470650",
+            "users": [
+              {
+                "value": "6340886702"
+              }
+            ]
+          },
+          "title": "_fix_grp_1775832470650",
+          "users": [
+            {
+              "value": "6340886702"
+            }
+          ]
+        },
+        "reactions": null,
+        "flags": 258,
+        "reactionsArePossible": false
+      }
+    ],
+    "chats": [
+      {
+        "__className": "Chat",
+        "__constructorId": 1103884886,
+        "className": "Chat",
+        "originalArgs": {
+          "flags": 262145,
+          "creator": true,
+          "left": false,
+          "deactivated": false,
+          "callActive": false,
+          "callNotEmpty": false,
+          "noforwards": false,
+          "id": {
+            "value": "5250069354"
+          },
+          "title": "_fix_grp_1775832470650",
+          "photo": {
+            "__className": "ChatPhotoEmpty",
+            "__constructorId": 935395612,
+            "className": "ChatPhotoEmpty",
+            "originalArgs": {}
+          },
+          "participantsCount": 1,
+          "date": 1775832470,
+          "version": 1,
+          "migratedTo": null,
+          "adminRights": null,
+          "defaultBannedRights": {
+            "__className": "ChatBannedRights",
+            "__constructorId": 2668758040,
+            "className": "ChatBannedRights",
+            "originalArgs": {
+              "flags": 0,
+              "viewMessages": false,
+              "sendMessages": false,
+              "sendMedia": false,
+              "sendStickers": false,
+              "sendGifs": false,
+              "sendGames": false,
+              "sendInline": false,
+              "embedLinks": false,
+              "sendPolls": false,
+              "changeInfo": false,
+              "inviteUsers": false,
+              "pinMessages": false,
+              "manageTopics": false,
+              "sendPhotos": false,
+              "sendVideos": false,
+              "sendRoundvideos": false,
+              "sendAudios": false,
+              "sendVoices": false,
+              "sendDocs": false,
+              "sendPlain": false,
+              "untilDate": 2147483647
+            },
+            "flags": 0,
+            "viewMessages": false,
+            "sendMessages": false,
+            "sendMedia": false,
+            "sendStickers": false,
+            "sendGifs": false,
+            "sendGames": false,
+            "sendInline": false,
+            "embedLinks": false,
+            "sendPolls": false,
+            "changeInfo": false,
+            "inviteUsers": false,
+            "pinMessages": false,
+            "manageTopics": false,
+            "sendPhotos": false,
+            "sendVideos": false,
+            "sendRoundvideos": false,
+            "sendAudios": false,
+            "sendVoices": false,
+            "sendDocs": false,
+            "sendPlain": false,
+            "untilDate": 2147483647
+          }
+        },
+        "flags": 262145,
+        "creator": true,
+        "left": false,
+        "deactivated": false,
+        "callActive": false,
+        "callNotEmpty": false,
+        "noforwards": false,
+        "id": {
+          "value": "5250069354"
+        },
+        "title": "_fix_grp_1775832470650",
+        "photo": {
+          "__className": "ChatPhotoEmpty",
+          "__constructorId": 935395612,
+          "className": "ChatPhotoEmpty",
+          "originalArgs": {}
+        },
+        "participantsCount": 1,
+        "date": 1775832470,
+        "version": 1,
+        "migratedTo": null,
+        "adminRights": null,
+        "defaultBannedRights": {
+          "__className": "ChatBannedRights",
+          "__constructorId": 2668758040,
+          "className": "ChatBannedRights",
+          "originalArgs": {
+            "flags": 0,
+            "viewMessages": false,
+            "sendMessages": false,
+            "sendMedia": false,
+            "sendStickers": false,
+            "sendGifs": false,
+            "sendGames": false,
+            "sendInline": false,
+            "embedLinks": false,
+            "sendPolls": false,
+            "changeInfo": false,
+            "inviteUsers": false,
+            "pinMessages": false,
+            "manageTopics": false,
+            "sendPhotos": false,
+            "sendVideos": false,
+            "sendRoundvideos": false,
+            "sendAudios": false,
+            "sendVoices": false,
+            "sendDocs": false,
+            "sendPlain": false,
+            "untilDate": 2147483647
+          },
+          "flags": 0,
+          "viewMessages": false,
+          "sendMessages": false,
+          "sendMedia": false,
+          "sendStickers": false,
+          "sendGifs": false,
+          "sendGames": false,
+          "sendInline": false,
+          "embedLinks": false,
+          "sendPolls": false,
+          "changeInfo": false,
+          "inviteUsers": false,
+          "pinMessages": false,
+          "manageTopics": false,
+          "sendPhotos": false,
+          "sendVideos": false,
+          "sendRoundvideos": false,
+          "sendAudios": false,
+          "sendVoices": false,
+          "sendDocs": false,
+          "sendPlain": false,
+          "untilDate": 2147483647
+        }
+      }
+    ],
+    "users": [
+      {
+        "__className": "User",
+        "__constructorId": 1262928766,
+        "className": "User",
+        "originalArgs": {
+          "flags": 33555547,
+          "self": true,
+          "contact": false,
+          "mutualContact": false,
+          "deleted": false,
+          "bot": false,
+          "botChatHistory": false,
+          "botNochats": false,
+          "verified": false,
+          "restricted": false,
+          "min": false,
+          "botInlineGeo": false,
+          "support": false,
+          "scam": false,
+          "applyMinPhoto": true,
+          "fake": false,
+          "botAttachMenu": false,
+          "premium": false,
+          "attachMenuEnabled": false,
+          "flags2": 16,
+          "botCanEdit": false,
+          "closeFriend": false,
+          "storiesHidden": false,
+          "storiesUnavailable": true,
+          "contactRequirePremium": false,
+          "botBusiness": false,
+          "botHasMainApp": false,
+          "id": {
+            "value": "6340886702"
+          },
+          "accessHash": {
+            "value": "-2827396686645499657"
+          },
+          "firstName": "🤷",
+          "lastName": null,
+          "username": "user28738229",
+          "phone": "17799037329",
+          "photo": null,
+          "status": {
+            "__className": "UserStatusOffline",
+            "__constructorId": 9203775,
+            "className": "UserStatusOffline",
+            "originalArgs": {
+              "wasOnline": 1775835740
+            },
+            "wasOnline": 1775835740
+          },
+          "botInfoVersion": null,
+          "restrictionReason": null,
+          "botInlinePlaceholder": null,
+          "langCode": null,
+          "emojiStatus": null,
+          "usernames": null,
+          "storiesMaxId": null,
+          "color": null,
+          "profileColor": null,
+          "botActiveUsers": null,
+          "botVerificationIcon": null
+        },
+        "flags": 33555547,
+        "self": true,
+        "contact": false,
+        "mutualContact": false,
+        "deleted": false,
+        "bot": false,
+        "botChatHistory": false,
+        "botNochats": false,
+        "verified": false,
+        "restricted": false,
+        "min": false,
+        "botInlineGeo": false,
+        "support": false,
+        "scam": false,
+        "applyMinPhoto": true,
+        "fake": false,
+        "botAttachMenu": false,
+        "premium": false,
+        "attachMenuEnabled": false,
+        "flags2": 16,
+        "botCanEdit": false,
+        "closeFriend": false,
+        "storiesHidden": false,
+        "storiesUnavailable": true,
+        "contactRequirePremium": false,
+        "botBusiness": false,
+        "botHasMainApp": false,
+        "id": {
+          "value": "6340886702"
+        },
+        "accessHash": {
+          "value": "-2827396686645499657"
+        },
+        "firstName": "🤷",
+        "lastName": null,
+        "username": "user28738229",
+        "phone": "17799037329",
+        "photo": null,
+        "status": {
+          "__className": "UserStatusOffline",
+          "__constructorId": 9203775,
+          "className": "UserStatusOffline",
+          "originalArgs": {
+            "wasOnline": 1775835740
+          },
+          "wasOnline": 1775835740
+        },
+        "botInfoVersion": null,
+        "restrictionReason": null,
+        "botInlinePlaceholder": null,
+        "langCode": null,
+        "emojiStatus": null,
+        "usernames": null,
+        "storiesMaxId": null,
+        "color": null,
+        "profileColor": null,
+        "botActiveUsers": null,
+        "botVerificationIcon": null
+      }
+    ]
+  }
+}

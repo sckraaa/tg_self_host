@@ -1,0 +1,587 @@
+{
+  "_class": "Message",
+  "_cid": "0x96fdbbe9",
+  "className": "Message",
+  "originalArgs": {
+    "flags": 802,
+    "out": true,
+    "mentioned": false,
+    "mediaUnread": true,
+    "silent": false,
+    "post": false,
+    "fromScheduled": false,
+    "legacy": false,
+    "editHide": false,
+    "pinned": false,
+    "noforwards": false,
+    "invertMedia": false,
+    "flags2": 0,
+    "offline": false,
+    "videoProcessingPending": false,
+    "id": 1459,
+    "fromId": {
+      "_class": "PeerUser",
+      "_cid": "0x59511722",
+      "className": "PeerUser",
+      "originalArgs": {
+        "userId": {
+          "value": "BigInt(6340886702)"
+        }
+      },
+      "userId": {
+        "value": "BigInt(6340886702)"
+      }
+    },
+    "fromBoostsApplied": null,
+    "peerId": {
+      "_class": "PeerUser",
+      "_cid": "0x59511722",
+      "className": "PeerUser",
+      "originalArgs": {
+        "userId": {
+          "value": "BigInt(338781882)"
+        }
+      },
+      "userId": {
+        "value": "BigInt(338781882)"
+      }
+    },
+    "savedPeerId": null,
+    "fwdFrom": null,
+    "viaBotId": null,
+    "viaBusinessBotId": null,
+    "replyTo": null,
+    "date": 1775909547,
+    "message": "",
+    "media": {
+      "_class": "MessageMediaDocument",
+      "_cid": "0x52d8ccd9",
+      "className": "MessageMediaDocument",
+      "originalArgs": {
+        "flags": 257,
+        "nopremium": false,
+        "spoiler": false,
+        "video": false,
+        "round": false,
+        "voice": true,
+        "document": {
+          "_class": "Document",
+          "_cid": "0x8fd4c4d8",
+          "className": "Document",
+          "originalArgs": {
+            "flags": 0,
+            "id": {
+              "value": "BigInt(5102838420900677491)"
+            },
+            "accessHash": {
+              "value": "BigInt(1427630435239941647)"
+            },
+            "fileReference": "Buffer(25)[03000005b369da3aabccb8f9f90bf05d26f0616134fac803cb...]",
+            "date": 1775909547,
+            "mimeType": "audio/ogg",
+            "size": {
+              "value": "BigInt(368684)"
+            },
+            "thumbs": null,
+            "videoThumbs": null,
+            "dcId": 1,
+            "attributes": [
+              {
+                "_class": "DocumentAttributeAudio",
+                "_cid": "0x9852f9c6",
+                "className": "DocumentAttributeAudio",
+                "originalArgs": {
+                  "flags": 1024,
+                  "voice": true,
+                  "duration": 0,
+                  "title": null,
+                  "performer": null,
+                  "waveform": null
+                },
+                "flags": 1024,
+                "voice": true,
+                "duration": 0,
+                "title": null,
+                "performer": null,
+                "waveform": null
+              },
+              {
+                "_class": "DocumentAttributeFilename",
+                "_cid": "0x15590068",
+                "className": "DocumentAttributeFilename",
+                "originalArgs": {
+                  "fileName": "wonderful-voice-message.ogg"
+                },
+                "fileName": "wonderful-voice-message.ogg"
+              }
+            ]
+          },
+          "flags": 0,
+          "id": {
+            "value": "BigInt(5102838420900677491)"
+          },
+          "accessHash": {
+            "value": "BigInt(1427630435239941647)"
+          },
+          "fileReference": "Buffer(25)[03000005b369da3aabccb8f9f90bf05d26f0616134fac803cb...]",
+          "date": 1775909547,
+          "mimeType": "audio/ogg",
+          "size": {
+            "value": "BigInt(368684)"
+          },
+          "thumbs": null,
+          "videoThumbs": null,
+          "dcId": 1,
+          "attributes": [
+            {
+              "_class": "DocumentAttributeAudio",
+              "_cid": "0x9852f9c6",
+              "className": "DocumentAttributeAudio",
+              "originalArgs": {
+                "flags": 1024,
+                "voice": true,
+                "duration": 0,
+                "title": null,
+                "performer": null,
+                "waveform": null
+              },
+              "flags": 1024,
+              "voice": true,
+              "duration": 0,
+              "title": null,
+              "performer": null,
+              "waveform": null
+            },
+            {
+              "_class": "DocumentAttributeFilename",
+              "_cid": "0x15590068",
+              "className": "DocumentAttributeFilename",
+              "originalArgs": {
+                "fileName": "wonderful-voice-message.ogg"
+              },
+              "fileName": "wonderful-voice-message.ogg"
+            }
+          ]
+        },
+        "altDocuments": null,
+        "videoCover": null,
+        "videoTimestamp": null,
+        "ttlSeconds": null
+      },
+      "flags": 257,
+      "nopremium": false,
+      "spoiler": false,
+      "video": false,
+      "round": false,
+      "voice": true,
+      "document": {
+        "_class": "Document",
+        "_cid": "0x8fd4c4d8",
+        "className": "Document",
+        "originalArgs": {
+          "flags": 0,
+          "id": {
+            "value": "BigInt(5102838420900677491)"
+          },
+          "accessHash": {
+            "value": "BigInt(1427630435239941647)"
+          },
+          "fileReference": "Buffer(25)[03000005b369da3aabccb8f9f90bf05d26f0616134fac803cb...]",
+          "date": 1775909547,
+          "mimeType": "audio/ogg",
+          "size": {
+            "value": "BigInt(368684)"
+          },
+          "thumbs": null,
+          "videoThumbs": null,
+          "dcId": 1,
+          "attributes": [
+            {
+              "_class": "DocumentAttributeAudio",
+              "_cid": "0x9852f9c6",
+              "className": "DocumentAttributeAudio",
+              "originalArgs": {
+                "flags": 1024,
+                "voice": true,
+                "duration": 0,
+                "title": null,
+                "performer": null,
+                "waveform": null
+              },
+              "flags": 1024,
+              "voice": true,
+              "duration": 0,
+              "title": null,
+              "performer": null,
+              "waveform": null
+            },
+            {
+              "_class": "DocumentAttributeFilename",
+              "_cid": "0x15590068",
+              "className": "DocumentAttributeFilename",
+              "originalArgs": {
+                "fileName": "wonderful-voice-message.ogg"
+              },
+              "fileName": "wonderful-voice-message.ogg"
+            }
+          ]
+        },
+        "flags": 0,
+        "id": {
+          "value": "BigInt(5102838420900677491)"
+        },
+        "accessHash": {
+          "value": "BigInt(1427630435239941647)"
+        },
+        "fileReference": "Buffer(25)[03000005b369da3aabccb8f9f90bf05d26f0616134fac803cb...]",
+        "date": 1775909547,
+        "mimeType": "audio/ogg",
+        "size": {
+          "value": "BigInt(368684)"
+        },
+        "thumbs": null,
+        "videoThumbs": null,
+        "dcId": 1,
+        "attributes": [
+          {
+            "_class": "DocumentAttributeAudio",
+            "_cid": "0x9852f9c6",
+            "className": "DocumentAttributeAudio",
+            "originalArgs": {
+              "flags": 1024,
+              "voice": true,
+              "duration": 0,
+              "title": null,
+              "performer": null,
+              "waveform": null
+            },
+            "flags": 1024,
+            "voice": true,
+            "duration": 0,
+            "title": null,
+            "performer": null,
+            "waveform": null
+          },
+          {
+            "_class": "DocumentAttributeFilename",
+            "_cid": "0x15590068",
+            "className": "DocumentAttributeFilename",
+            "originalArgs": {
+              "fileName": "wonderful-voice-message.ogg"
+            },
+            "fileName": "wonderful-voice-message.ogg"
+          }
+        ]
+      },
+      "altDocuments": null,
+      "videoCover": null,
+      "videoTimestamp": null,
+      "ttlSeconds": null
+    },
+    "replyMarkup": null,
+    "entities": null,
+    "views": null,
+    "forwards": null,
+    "replies": null,
+    "editDate": null,
+    "postAuthor": null,
+    "groupedId": null,
+    "reactions": null,
+    "restrictionReason": null,
+    "ttlPeriod": null,
+    "quickReplyShortcutId": null,
+    "effect": null,
+    "factcheck": null,
+    "reportDeliveryUntilDate": null
+  },
+  "out": true,
+  "mentioned": false,
+  "mediaUnread": true,
+  "silent": false,
+  "post": false,
+  "fromScheduled": false,
+  "legacy": false,
+  "editHide": false,
+  "ttlPeriod": null,
+  "id": 1459,
+  "fromId": {
+    "_class": "PeerUser",
+    "_cid": "0x59511722",
+    "className": "PeerUser",
+    "originalArgs": {
+      "userId": {
+        "value": "BigInt(6340886702)"
+      }
+    },
+    "userId": {
+      "value": "BigInt(6340886702)"
+    }
+  },
+  "peerId": {
+    "_class": "PeerUser",
+    "_cid": "0x59511722",
+    "className": "PeerUser",
+    "originalArgs": {
+      "userId": {
+        "value": "BigInt(338781882)"
+      }
+    },
+    "userId": {
+      "value": "BigInt(338781882)"
+    }
+  },
+  "fwdFrom": null,
+  "viaBotId": null,
+  "replyTo": null,
+  "date": 1775909547,
+  "message": "",
+  "media": {
+    "_class": "MessageMediaDocument",
+    "_cid": "0x52d8ccd9",
+    "className": "MessageMediaDocument",
+    "originalArgs": {
+      "flags": 257,
+      "nopremium": false,
+      "spoiler": false,
+      "video": false,
+      "round": false,
+      "voice": true,
+      "document": {
+        "_class": "Document",
+        "_cid": "0x8fd4c4d8",
+        "className": "Document",
+        "originalArgs": {
+          "flags": 0,
+          "id": {
+            "value": "BigInt(5102838420900677491)"
+          },
+          "accessHash": {
+            "value": "BigInt(1427630435239941647)"
+          },
+          "fileReference": "Buffer(25)[03000005b369da3aabccb8f9f90bf05d26f0616134fac803cb...]",
+          "date": 1775909547,
+          "mimeType": "audio/ogg",
+          "size": {
+            "value": "BigInt(368684)"
+          },
+          "thumbs": null,
+          "videoThumbs": null,
+          "dcId": 1,
+          "attributes": [
+            {
+              "_class": "DocumentAttributeAudio",
+              "_cid": "0x9852f9c6",
+              "className": "DocumentAttributeAudio",
+              "originalArgs": {
+                "flags": 1024,
+                "voice": true,
+                "duration": 0,
+                "title": null,
+                "performer": null,
+                "waveform": null
+              },
+              "flags": 1024,
+              "voice": true,
+              "duration": 0,
+              "title": null,
+              "performer": null,
+              "waveform": null
+            },
+            {
+              "_class": "DocumentAttributeFilename",
+              "_cid": "0x15590068",
+              "className": "DocumentAttributeFilename",
+              "originalArgs": {
+                "fileName": "wonderful-voice-message.ogg"
+              },
+              "fileName": "wonderful-voice-message.ogg"
+            }
+          ]
+        },
+        "flags": 0,
+        "id": {
+          "value": "BigInt(5102838420900677491)"
+        },
+        "accessHash": {
+          "value": "BigInt(1427630435239941647)"
+        },
+        "fileReference": "Buffer(25)[03000005b369da3aabccb8f9f90bf05d26f0616134fac803cb...]",
+        "date": 1775909547,
+        "mimeType": "audio/ogg",
+        "size": {
+          "value": "BigInt(368684)"
+        },
+        "thumbs": null,
+        "videoThumbs": null,
+        "dcId": 1,
+        "attributes": [
+          {
+            "_class": "DocumentAttributeAudio",
+            "_cid": "0x9852f9c6",
+            "className": "DocumentAttributeAudio",
+            "originalArgs": {
+              "flags": 1024,
+              "voice": true,
+              "duration": 0,
+              "title": null,
+              "performer": null,
+              "waveform": null
+            },
+            "flags": 1024,
+            "voice": true,
+            "duration": 0,
+            "title": null,
+            "performer": null,
+            "waveform": null
+          },
+          {
+            "_class": "DocumentAttributeFilename",
+            "_cid": "0x15590068",
+            "className": "DocumentAttributeFilename",
+            "originalArgs": {
+              "fileName": "wonderful-voice-message.ogg"
+            },
+            "fileName": "wonderful-voice-message.ogg"
+          }
+        ]
+      },
+      "altDocuments": null,
+      "videoCover": null,
+      "videoTimestamp": null,
+      "ttlSeconds": null
+    },
+    "flags": 257,
+    "nopremium": false,
+    "spoiler": false,
+    "video": false,
+    "round": false,
+    "voice": true,
+    "document": {
+      "_class": "Document",
+      "_cid": "0x8fd4c4d8",
+      "className": "Document",
+      "originalArgs": {
+        "flags": 0,
+        "id": {
+          "value": "BigInt(5102838420900677491)"
+        },
+        "accessHash": {
+          "value": "BigInt(1427630435239941647)"
+        },
+        "fileReference": "Buffer(25)[03000005b369da3aabccb8f9f90bf05d26f0616134fac803cb...]",
+        "date": 1775909547,
+        "mimeType": "audio/ogg",
+        "size": {
+          "value": "BigInt(368684)"
+        },
+        "thumbs": null,
+        "videoThumbs": null,
+        "dcId": 1,
+        "attributes": [
+          {
+            "_class": "DocumentAttributeAudio",
+            "_cid": "0x9852f9c6",
+            "className": "DocumentAttributeAudio",
+            "originalArgs": {
+              "flags": 1024,
+              "voice": true,
+              "duration": 0,
+              "title": null,
+              "performer": null,
+              "waveform": null
+            },
+            "flags": 1024,
+            "voice": true,
+            "duration": 0,
+            "title": null,
+            "performer": null,
+            "waveform": null
+          },
+          {
+            "_class": "DocumentAttributeFilename",
+            "_cid": "0x15590068",
+            "className": "DocumentAttributeFilename",
+            "originalArgs": {
+              "fileName": "wonderful-voice-message.ogg"
+            },
+            "fileName": "wonderful-voice-message.ogg"
+          }
+        ]
+      },
+      "flags": 0,
+      "id": {
+        "value": "BigInt(5102838420900677491)"
+      },
+      "accessHash": {
+        "value": "BigInt(1427630435239941647)"
+      },
+      "fileReference": "Buffer(25)[03000005b369da3aabccb8f9f90bf05d26f0616134fac803cb...]",
+      "date": 1775909547,
+      "mimeType": "audio/ogg",
+      "size": {
+        "value": "BigInt(368684)"
+      },
+      "thumbs": null,
+      "videoThumbs": null,
+      "dcId": 1,
+      "attributes": [
+        {
+          "_class": "DocumentAttributeAudio",
+          "_cid": "0x9852f9c6",
+          "className": "DocumentAttributeAudio",
+          "originalArgs": {
+            "flags": 1024,
+            "voice": true,
+            "duration": 0,
+            "title": null,
+            "performer": null,
+            "waveform": null
+          },
+          "flags": 1024,
+          "voice": true,
+          "duration": 0,
+          "title": null,
+          "performer": null,
+          "waveform": null
+        },
+        {
+          "_class": "DocumentAttributeFilename",
+          "_cid": "0x15590068",
+          "className": "DocumentAttributeFilename",
+          "originalArgs": {
+            "fileName": "wonderful-voice-message.ogg"
+          },
+          "fileName": "wonderful-voice-message.ogg"
+        }
+      ]
+    },
+    "altDocuments": null,
+    "videoCover": null,
+    "videoTimestamp": null,
+    "ttlSeconds": null
+  },
+  "replyMarkup": null,
+  "entities": null,
+  "views": null,
+  "forwards": null,
+  "replies": null,
+  "editDate": null,
+  "pinned": false,
+  "postAuthor": null,
+  "groupedId": null,
+  "restrictionReason": null,
+  "noforwards": false,
+  "reactions": null,
+  "flags": 802,
+  "invertMedia": false,
+  "flags2": 0,
+  "offline": false,
+  "videoProcessingPending": false,
+  "fromBoostsApplied": null,
+  "savedPeerId": null,
+  "viaBusinessBotId": null,
+  "quickReplyShortcutId": null,
+  "effect": null,
+  "factcheck": null,
+  "reportDeliveryUntilDate": null
+}

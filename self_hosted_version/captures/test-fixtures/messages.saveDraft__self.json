@@ -1,0 +1,26 @@
+{
+  "method": "messages.saveDraft__self",
+  "capturedAt": "2026-04-10T16:16:14.866Z",
+  "request": {
+    "__className": "messages.SaveDraft",
+    "__constructorId": 3547514318,
+    "className": "messages.SaveDraft",
+    "originalArgs": {
+      "peer": {
+        "__className": "InputPeerSelf",
+        "__constructorId": 2107670217,
+        "className": "InputPeerSelf",
+        "originalArgs": {}
+      },
+      "message": "[fixture-draft]"
+    },
+    "peer": {
+      "__className": "InputPeerSelf",
+      "__constructorId": 2107670217,
+      "className": "InputPeerSelf",
+      "originalArgs": {}
+    },
+    "message": "[fixture-draft]"
+  },
+  "response": true
+}

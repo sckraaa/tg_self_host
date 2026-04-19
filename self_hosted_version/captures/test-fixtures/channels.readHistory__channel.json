@@ -1,0 +1,52 @@
+{
+  "method": "channels.readHistory__channel",
+  "capturedAt": "2026-04-10T16:16:22.926Z",
+  "request": {
+    "__className": "channels.ReadHistory",
+    "__constructorId": 3423619383,
+    "className": "channels.ReadHistory",
+    "originalArgs": {
+      "channel": {
+        "__className": "InputChannel",
+        "__constructorId": 4082822184,
+        "className": "InputChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "3959286856"
+          },
+          "accessHash": {
+            "value": "-6399249537774943740"
+          }
+        },
+        "channelId": {
+          "value": "3959286856"
+        },
+        "accessHash": {
+          "value": "-6399249537774943740"
+        }
+      },
+      "maxId": 2
+    },
+    "channel": {
+      "__className": "InputChannel",
+      "__constructorId": 4082822184,
+      "className": "InputChannel",
+      "originalArgs": {
+        "channelId": {
+          "value": "3959286856"
+        },
+        "accessHash": {
+          "value": "-6399249537774943740"
+        }
+      },
+      "channelId": {
+        "value": "3959286856"
+      },
+      "accessHash": {
+        "value": "-6399249537774943740"
+      }
+    },
+    "maxId": 2
+  },
+  "response": false
+}

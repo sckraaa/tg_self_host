@@ -1,0 +1,46 @@
+{
+  "method": "langpack.getLanguage",
+  "capturedAt": "2026-04-10T16:16:19.943Z",
+  "request": {
+    "__className": "langpack.GetLanguage",
+    "__constructorId": 1784243458,
+    "className": "langpack.GetLanguage",
+    "originalArgs": {
+      "langPack": "tdesktop",
+      "langCode": "en"
+    },
+    "langPack": "tdesktop",
+    "langCode": "en"
+  },
+  "response": {
+    "__className": "LangPackLanguage",
+    "__constructorId": 4006239459,
+    "className": "LangPackLanguage",
+    "originalArgs": {
+      "flags": 1,
+      "official": true,
+      "rtl": false,
+      "beta": false,
+      "name": "English",
+      "nativeName": "English",
+      "langCode": "en",
+      "baseLangCode": null,
+      "pluralCode": "en",
+      "stringsCount": 7496,
+      "translatedCount": 7496,
+      "translationsUrl": "https://translations.telegram.org/en/"
+    },
+    "flags": 1,
+    "official": true,
+    "rtl": false,
+    "beta": false,
+    "name": "English",
+    "nativeName": "English",
+    "langCode": "en",
+    "baseLangCode": null,
+    "pluralCode": "en",
+    "stringsCount": 7496,
+    "translatedCount": 7496,
+    "translationsUrl": "https://translations.telegram.org/en/"
+  }
+}

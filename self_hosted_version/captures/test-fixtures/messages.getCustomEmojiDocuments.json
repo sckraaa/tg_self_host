@@ -1,0 +1,36 @@
+{
+  "method": "messages.getCustomEmojiDocuments",
+  "capturedAt": "2026-04-10T16:16:30.553Z",
+  "request": {
+    "__className": "messages.GetCustomEmojiDocuments",
+    "__constructorId": 3651866452,
+    "className": "messages.GetCustomEmojiDocuments",
+    "originalArgs": {
+      "documentId": [
+        {
+          "value": "1258816259753929"
+        }
+      ]
+    },
+    "documentId": [
+      {
+        "value": "1258816259753929"
+      }
+    ]
+  },
+  "response": [
+    {
+      "__className": "DocumentEmpty",
+      "__constructorId": 922273905,
+      "className": "DocumentEmpty",
+      "originalArgs": {
+        "id": {
+          "value": "1258816259753929"
+        }
+      },
+      "id": {
+        "value": "1258816259753929"
+      }
+    }
+  ]
+}

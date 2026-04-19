@@ -1,0 +1,514 @@
+{
+  "method": "updates.getDifference",
+  "capturedAt": "2026-04-10T16:16:08.522Z",
+  "request": {
+    "__className": "updates.GetDifference",
+    "__constructorId": 432207715,
+    "className": "updates.GetDifference",
+    "originalArgs": {
+      "pts": 3542,
+      "date": 1775837708,
+      "qts": 0
+    },
+    "pts": 3542,
+    "date": 1775837708,
+    "qts": 0
+  },
+  "response": {
+    "__className": "updates.Difference",
+    "__constructorId": 16030880,
+    "className": "updates.Difference",
+    "originalArgs": {
+      "newMessages": [],
+      "newEncryptedMessages": [],
+      "otherUpdates": [
+        {
+          "__className": "UpdateDeleteMessages",
+          "__constructorId": 2718806245,
+          "className": "UpdateDeleteMessages",
+          "originalArgs": {
+            "messages": [
+              1456,
+              1455
+            ],
+            "pts": 3547,
+            "ptsCount": 0
+          },
+          "messages": [
+            1456,
+            1455
+          ],
+          "pts": 3547,
+          "ptsCount": 0
+        },
+        {
+          "__className": "UpdateReadHistoryInbox",
+          "__constructorId": 2627162079,
+          "className": "UpdateReadHistoryInbox",
+          "originalArgs": {
+            "flags": 0,
+            "folderId": null,
+            "peer": {
+              "__className": "PeerChat",
+              "__constructorId": 918946202,
+              "className": "PeerChat",
+              "originalArgs": {
+                "chatId": {
+                  "value": "4928829046"
+                }
+              },
+              "chatId": {
+                "value": "4928829046"
+              }
+            },
+            "maxId": 1456,
+            "stillUnreadCount": 0,
+            "pts": 3547,
+            "ptsCount": 0
+          },
+          "flags": 0,
+          "folderId": null,
+          "peer": {
+            "__className": "PeerChat",
+            "__constructorId": 918946202,
+            "className": "PeerChat",
+            "originalArgs": {
+              "chatId": {
+                "value": "4928829046"
+              }
+            },
+            "chatId": {
+              "value": "4928829046"
+            }
+          },
+          "maxId": 1456,
+          "stillUnreadCount": 0,
+          "pts": 3547,
+          "ptsCount": 0
+        },
+        {
+          "__className": "UpdateReadHistoryOutbox",
+          "__constructorId": 791617983,
+          "className": "UpdateReadHistoryOutbox",
+          "originalArgs": {
+            "peer": {
+              "__className": "PeerChat",
+              "__constructorId": 918946202,
+              "className": "PeerChat",
+              "originalArgs": {
+                "chatId": {
+                  "value": "4928829046"
+                }
+              },
+              "chatId": {
+                "value": "4928829046"
+              }
+            },
+            "maxId": 1456,
+            "pts": 3547,
+            "ptsCount": 0
+          },
+          "peer": {
+            "__className": "PeerChat",
+            "__constructorId": 918946202,
+            "className": "PeerChat",
+            "originalArgs": {
+              "chatId": {
+                "value": "4928829046"
+              }
+            },
+            "chatId": {
+              "value": "4928829046"
+            }
+          },
+          "maxId": 1456,
+          "pts": 3547,
+          "ptsCount": 0
+        },
+        {
+          "__className": "UpdateReadChannelInbox",
+          "__constructorId": 2452516368,
+          "className": "UpdateReadChannelInbox",
+          "originalArgs": {
+            "flags": 0,
+            "folderId": null,
+            "channelId": {
+              "value": "3979575518"
+            },
+            "maxId": 2,
+            "stillUnreadCount": 0,
+            "pts": 3
+          },
+          "flags": 0,
+          "folderId": null,
+          "channelId": {
+            "value": "3979575518"
+          },
+          "maxId": 2,
+          "stillUnreadCount": 0,
+          "pts": 3
+        },
+        {
+          "__className": "UpdateChannel",
+          "__constructorId": 1666927625,
+          "className": "UpdateChannel",
+          "originalArgs": {
+            "channelId": {
+              "value": "3979575518"
+            }
+          },
+          "channelId": {
+            "value": "3979575518"
+          }
+        }
+      ],
+      "chats": [
+        {
+          "__className": "Chat",
+          "__constructorId": 1103884886,
+          "className": "Chat",
+          "originalArgs": {
+            "flags": 33,
+            "creator": true,
+            "left": false,
+            "deactivated": true,
+            "callActive": false,
+            "callNotEmpty": false,
+            "noforwards": false,
+            "id": {
+              "value": "4928829046"
+            },
+            "title": "_fix_grp_1775837759910",
+            "photo": {
+              "__className": "ChatPhotoEmpty",
+              "__constructorId": 935395612,
+              "className": "ChatPhotoEmpty",
+              "originalArgs": {}
+            },
+            "participantsCount": 0,
+            "date": 1775837760,
+            "version": 1,
+            "migratedTo": null,
+            "adminRights": null,
+            "defaultBannedRights": null
+          },
+          "flags": 33,
+          "creator": true,
+          "left": false,
+          "deactivated": true,
+          "callActive": false,
+          "callNotEmpty": false,
+          "noforwards": false,
+          "id": {
+            "value": "4928829046"
+          },
+          "title": "_fix_grp_1775837759910",
+          "photo": {
+            "__className": "ChatPhotoEmpty",
+            "__constructorId": 935395612,
+            "className": "ChatPhotoEmpty",
+            "originalArgs": {}
+          },
+          "participantsCount": 0,
+          "date": 1775837760,
+          "version": 1,
+          "migratedTo": null,
+          "adminRights": null,
+          "defaultBannedRights": null
+        },
+        {
+          "__className": "ChannelForbidden",
+          "__constructorId": 399807445,
+          "className": "ChannelForbidden",
+          "originalArgs": {
+            "flags": 256,
+            "broadcast": false,
+            "megagroup": true,
+            "id": {
+              "value": "3979575518"
+            },
+            "accessHash": {
+              "value": "-8800464977273858649"
+            },
+            "title": "_fix_sg_1775837761508",
+            "untilDate": null
+          },
+          "flags": 256,
+          "broadcast": false,
+          "megagroup": true,
+          "id": {
+            "value": "3979575518"
+          },
+          "accessHash": {
+            "value": "-8800464977273858649"
+          },
+          "title": "_fix_sg_1775837761508",
+          "untilDate": null
+        }
+      ],
+      "users": [],
+      "state": {
+        "__className": "updates.State",
+        "__constructorId": 2775329342,
+        "className": "updates.State",
+        "originalArgs": {
+          "pts": 3547,
+          "qts": 0,
+          "date": 1775837768,
+          "seq": 26,
+          "unreadCount": 0
+        },
+        "pts": 3547,
+        "qts": 0,
+        "date": 1775837768,
+        "seq": 26,
+        "unreadCount": 0
+      }
+    },
+    "newMessages": [],
+    "newEncryptedMessages": [],
+    "otherUpdates": [
+      {
+        "__className": "UpdateDeleteMessages",
+        "__constructorId": 2718806245,
+        "className": "UpdateDeleteMessages",
+        "originalArgs": {
+          "messages": [
+            1456,
+            1455
+          ],
+          "pts": 3547,
+          "ptsCount": 0
+        },
+        "messages": [
+          1456,
+          1455
+        ],
+        "pts": 3547,
+        "ptsCount": 0
+      },
+      {
+        "__className": "UpdateReadHistoryInbox",
+        "__constructorId": 2627162079,
+        "className": "UpdateReadHistoryInbox",
+        "originalArgs": {
+          "flags": 0,
+          "folderId": null,
+          "peer": {
+            "__className": "PeerChat",
+            "__constructorId": 918946202,
+            "className": "PeerChat",
+            "originalArgs": {
+              "chatId": {
+                "value": "4928829046"
+              }
+            },
+            "chatId": {
+              "value": "4928829046"
+            }
+          },
+          "maxId": 1456,
+          "stillUnreadCount": 0,
+          "pts": 3547,
+          "ptsCount": 0
+        },
+        "flags": 0,
+        "folderId": null,
+        "peer": {
+          "__className": "PeerChat",
+          "__constructorId": 918946202,
+          "className": "PeerChat",
+          "originalArgs": {
+            "chatId": {
+              "value": "4928829046"
+            }
+          },
+          "chatId": {
+            "value": "4928829046"
+          }
+        },
+        "maxId": 1456,
+        "stillUnreadCount": 0,
+        "pts": 3547,
+        "ptsCount": 0
+      },
+      {
+        "__className": "UpdateReadHistoryOutbox",
+        "__constructorId": 791617983,
+        "className": "UpdateReadHistoryOutbox",
+        "originalArgs": {
+          "peer": {
+            "__className": "PeerChat",
+            "__constructorId": 918946202,
+            "className": "PeerChat",
+            "originalArgs": {
+              "chatId": {
+                "value": "4928829046"
+              }
+            },
+            "chatId": {
+              "value": "4928829046"
+            }
+          },
+          "maxId": 1456,
+          "pts": 3547,
+          "ptsCount": 0
+        },
+        "peer": {
+          "__className": "PeerChat",
+          "__constructorId": 918946202,
+          "className": "PeerChat",
+          "originalArgs": {
+            "chatId": {
+              "value": "4928829046"
+            }
+          },
+          "chatId": {
+            "value": "4928829046"
+          }
+        },
+        "maxId": 1456,
+        "pts": 3547,
+        "ptsCount": 0
+      },
+      {
+        "__className": "UpdateReadChannelInbox",
+        "__constructorId": 2452516368,
+        "className": "UpdateReadChannelInbox",
+        "originalArgs": {
+          "flags": 0,
+          "folderId": null,
+          "channelId": {
+            "value": "3979575518"
+          },
+          "maxId": 2,
+          "stillUnreadCount": 0,
+          "pts": 3
+        },
+        "flags": 0,
+        "folderId": null,
+        "channelId": {
+          "value": "3979575518"
+        },
+        "maxId": 2,
+        "stillUnreadCount": 0,
+        "pts": 3
+      },
+      {
+        "__className": "UpdateChannel",
+        "__constructorId": 1666927625,
+        "className": "UpdateChannel",
+        "originalArgs": {
+          "channelId": {
+            "value": "3979575518"
+          }
+        },
+        "channelId": {
+          "value": "3979575518"
+        }
+      }
+    ],
+    "chats": [
+      {
+        "__className": "Chat",
+        "__constructorId": 1103884886,
+        "className": "Chat",
+        "originalArgs": {
+          "flags": 33,
+          "creator": true,
+          "left": false,
+          "deactivated": true,
+          "callActive": false,
+          "callNotEmpty": false,
+          "noforwards": false,
+          "id": {
+            "value": "4928829046"
+          },
+          "title": "_fix_grp_1775837759910",
+          "photo": {
+            "__className": "ChatPhotoEmpty",
+            "__constructorId": 935395612,
+            "className": "ChatPhotoEmpty",
+            "originalArgs": {}
+          },
+          "participantsCount": 0,
+          "date": 1775837760,
+          "version": 1,
+          "migratedTo": null,
+          "adminRights": null,
+          "defaultBannedRights": null
+        },
+        "flags": 33,
+        "creator": true,
+        "left": false,
+        "deactivated": true,
+        "callActive": false,
+        "callNotEmpty": false,
+        "noforwards": false,
+        "id": {
+          "value": "4928829046"
+        },
+        "title": "_fix_grp_1775837759910",
+        "photo": {
+          "__className": "ChatPhotoEmpty",
+          "__constructorId": 935395612,
+          "className": "ChatPhotoEmpty",
+          "originalArgs": {}
+        },
+        "participantsCount": 0,
+        "date": 1775837760,
+        "version": 1,
+        "migratedTo": null,
+        "adminRights": null,
+        "defaultBannedRights": null
+      },
+      {
+        "__className": "ChannelForbidden",
+        "__constructorId": 399807445,
+        "className": "ChannelForbidden",
+        "originalArgs": {
+          "flags": 256,
+          "broadcast": false,
+          "megagroup": true,
+          "id": {
+            "value": "3979575518"
+          },
+          "accessHash": {
+            "value": "-8800464977273858649"
+          },
+          "title": "_fix_sg_1775837761508",
+          "untilDate": null
+        },
+        "flags": 256,
+        "broadcast": false,
+        "megagroup": true,
+        "id": {
+          "value": "3979575518"
+        },
+        "accessHash": {
+          "value": "-8800464977273858649"
+        },
+        "title": "_fix_sg_1775837761508",
+        "untilDate": null
+      }
+    ],
+    "users": [],
+    "state": {
+      "__className": "updates.State",
+      "__constructorId": 2775329342,
+      "className": "updates.State",
+      "originalArgs": {
+        "pts": 3547,
+        "qts": 0,
+        "date": 1775837768,
+        "seq": 26,
+        "unreadCount": 0
+      },
+      "pts": 3547,
+      "qts": 0,
+      "date": 1775837768,
+      "seq": 26,
+      "unreadCount": 0
+    }
+  }
+}

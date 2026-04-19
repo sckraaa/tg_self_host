@@ -1,0 +1,23 @@
+{
+  "method": "help.getNearestDc",
+  "capturedAt": "2026-04-10T16:16:10.454Z",
+  "request": {
+    "__className": "help.GetNearestDc",
+    "__constructorId": 531836966,
+    "className": "help.GetNearestDc",
+    "originalArgs": {}
+  },
+  "response": {
+    "__className": "NearestDc",
+    "__constructorId": 2384074613,
+    "className": "NearestDc",
+    "originalArgs": {
+      "country": "CZ",
+      "thisDc": 1,
+      "nearestDc": 4
+    },
+    "country": "CZ",
+    "thisDc": 1,
+    "nearestDc": 4
+  }
+}

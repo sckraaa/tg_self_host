@@ -1,0 +1,9 @@
+# Cloudflare Tunnel config for pluma.chat
+# Usage: cloudflared tunnel --config /Users/sckr.a/telegram_reverse/cloudflared-config.yml run pluma-chat
+tunnel: pluma-chat
+credentials-file: ~/.cloudflared/8e45dc62-3db8-46cb-b2d0-99796b43bc76.json
+
+ingress:
+  - hostname: pluma.chat
+    service: http://localhost:1234
+  - service: http_status:404

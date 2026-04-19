@@ -1,0 +1,19 @@
+{
+  "method": "messages.getDefaultHistoryTTL",
+  "capturedAt": "2026-04-10T16:16:13.522Z",
+  "request": {
+    "__className": "messages.GetDefaultHistoryTTL",
+    "__constructorId": 1703637384,
+    "className": "messages.GetDefaultHistoryTTL",
+    "originalArgs": {}
+  },
+  "response": {
+    "__className": "DefaultHistoryTTL",
+    "__constructorId": 1135897376,
+    "className": "DefaultHistoryTTL",
+    "originalArgs": {
+      "period": 0
+    },
+    "period": 0
+  }
+}
