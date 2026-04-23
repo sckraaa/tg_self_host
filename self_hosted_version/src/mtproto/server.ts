@@ -121,31 +121,42 @@ export function startServer(port: number, host: string) {
 
     console.log(`[${new Date().toISOString()}] Client connected: ${clientId}`);
 
-    let receiveBuffer: Buffer = Buffer.alloc(0);
+    // Ciphertext buffered before obfuscation handshake completes (first 64 bytes).
+    // After handshake, everything goes through plainBuffer below.
+    let cipherPrefix: Buffer = Buffer.alloc(0);
+    // Decrypted plaintext waiting to be parsed into frames. Never re-decrypted.
+    let plainBuffer: Buffer = Buffer.alloc(0);
 
     ws.on('message', (data: unknown) => {
-      const buffer = Buffer.isBuffer(data) ? data : Buffer.from(data as Buffer);
+      const chunk = Buffer.isBuffer(data) ? data : Buffer.from(data as Buffer);
       session.lastActivityAt = Date.now();
 
-      receiveBuffer = Buffer.concat([receiveBuffer, buffer]);
-
-      let isPreDecrypted = false;
-
-      while (receiveBuffer.length > 0) {
-        try {
-          const result = processBuffer(receiveBuffer, session, isPreDecrypted);
-          if (!result) break;
-
-          receiveBuffer = result.remaining || Buffer.alloc(0);
-          isPreDecrypted = result.preDecrypted || false;
-          if (result.response && result.response.length > 0) {
-            ws.send(result.response);
+      try {
+        if (!session.obfuscated) {
+          cipherPrefix = Buffer.concat([cipherPrefix, chunk]);
+          if (cipherPrefix.length < 64) return;
+          const header = cipherPrefix.slice(0, 64);
+          setupObfuscation(header, session);
+          if (cipherPrefix.length > 64 && session.decryptor) {
+            plainBuffer = Buffer.concat([plainBuffer, session.decryptor.decrypt(Buffer.from(cipherPrefix.slice(64)))]);
           }
-        } catch (error) {
-          console.error(`[${new Date().toISOString()}] Session ${session.id} processing error:`, (error as Error).message);
-          receiveBuffer = Buffer.alloc(0);
-          break;
+          cipherPrefix = Buffer.alloc(0);
+        } else if (session.decryptor) {
+          plainBuffer = Buffer.concat([plainBuffer, session.decryptor.decrypt(Buffer.from(chunk))]);
         }
+
+        while (plainBuffer.length > 0) {
+          const frame = parseFrame(plainBuffer, session);
+          if (!frame) break;
+          plainBuffer = frame.remaining;
+          if (frame.response && frame.response.length > 0) {
+            ws.send(frame.response);
+          }
+        }
+      } catch (error) {
+        console.error(`[${new Date().toISOString()}] Session ${session.id} processing error:`, (error as Error).message);
+        plainBuffer = Buffer.alloc(0);
+        cipherPrefix = Buffer.alloc(0);
       }
     });
 
@@ -200,97 +211,73 @@ export function startServer(port: number, host: string) {
   return { server, wss, clients };
 }
 
-interface ProcessResult {
-  remaining: Buffer | null;
-  response?: Buffer | null;
-  preDecrypted?: boolean;
+interface FrameResult {
+  remaining: Buffer;
+  response: Buffer | null;
 }
 
-function processBuffer(buffer: Buffer, session: ClientSession, preDecrypted = false): ProcessResult | null {
-  // Step 1: Handle obfuscation header (first 64 bytes from client)
-  if (!session.obfuscated && !session.handshakeComplete) {
-    if (buffer.length < 64) {
-      return null; // wait for more data
-    }
+// Initialize the obfuscated2 CTR ciphers from the client's 64-byte handshake header.
+// See Telegram MTProto docs §"Transport obfuscation".
+// Client:
+//   encryptKey = bytes[8..40]      decryptKey = reversed(bytes[8..56])[0..32]
+//   encryptIv  = bytes[40..56]     decryptIv  = reversed(bytes[8..56])[32..48]
+// Server is the mirror: server.decrypt uses client.encrypt keys and vice versa.
+function setupObfuscation(header: Buffer, session: ClientSession): void {
+  const decryptKey = Buffer.from(header.slice(8, 40));
+  const decryptIv = Buffer.from(header.slice(40, 56));
+  const reversed = Buffer.from(header.slice(8, 56)).reverse();
+  const encryptKey = Buffer.from(reversed.slice(0, 32));
+  const encryptIv = Buffer.from(reversed.slice(32, 48));
 
-    const header = buffer.slice(0, 64);
+  session.decryptor = new CTR(decryptKey, decryptIv);
+  session.encryptor = new CTR(encryptKey, encryptIv);
 
-    // Bytes 0-55 are plaintext, bytes 56-63 are encrypted by the client's encryptor.
-    // Client encryptKey = header[8..40], encryptIv = header[40..56]
-    // Reversed = header[8..56].reverse()
-    // Server encryptKey = reversed[0..32], encryptIv = reversed[32..48]
-    const decryptKey = Buffer.from(header.slice(8, 40));
-    const decryptIv = Buffer.from(header.slice(40, 56));
-
-    const reversed = Buffer.from(header.slice(8, 56)).reverse();
-    const encryptKey = Buffer.from(reversed.slice(0, 32));
-    const encryptIv = Buffer.from(reversed.slice(32, 48));
-
-    // Server decrypts what client encrypts, and vice versa
-    session.decryptor = new CTR(decryptKey, decryptIv);
-    session.encryptor = new CTR(encryptKey, encryptIv);
-
-    // Decrypt the full 64-byte header to advance CTR counter and verify tag
-    const decryptedHeader = session.decryptor.decrypt(Buffer.from(header));
-    const tag = decryptedHeader.slice(56, 60);
-    
-    const expectedTag = Buffer.from('efefefef', 'hex');
-    if (!tag.equals(expectedTag)) {
-      console.log(`[${new Date().toISOString()}] Session ${session.id} obfuscation tag: ${tag.toString('hex')} (expected efefefef)`);
-    }
-
-    session.obfuscated = true;
-    session.handshakeComplete = true;
-
-    return { remaining: buffer.slice(64) as Buffer, response: Buffer.alloc(0) };
+  const decryptedHeader = session.decryptor.decrypt(Buffer.from(header));
+  const tag = decryptedHeader.slice(56, 60);
+  const expectedTag = Buffer.from('efefefef', 'hex');
+  if (!tag.equals(expectedTag)) {
+    console.log(`[${new Date().toISOString()}] Session ${session.id} obfuscation tag: ${tag.toString('hex')} (expected efefefef)`);
   }
 
-  if (!session.decryptor) {
-    console.log(`[${new Date().toISOString()}] Session ${session.id} no decryptor available`);
-    return null;
-  }
+  session.obfuscated = true;
+  session.handshakeComplete = true;
+}
 
-  // Step 2: Decrypt and parse abridged frames
-  if (buffer.length < 1) return null;
-
-  // If data was already decrypted (from previous iteration), use as-is
-  const decrypted = preDecrypted ? buffer : session.decryptor.decrypt(Buffer.from(buffer));
+// Parse a single abridged-transport frame from an already-decrypted plaintext buffer.
+// Returns null if the buffer doesn't yet contain a complete frame (caller should
+// accumulate more plaintext and retry). On success returns the remaining plaintext
+// and the response to send back (may be null if no response is produced).
+function parseFrame(plain: Buffer, session: ClientSession): FrameResult | null {
+  if (plain.length < 1) return null;
 
   let msgLen: number;
   let headerLen: number;
-
-  if (decrypted[0] >= 0x7f) {
-    if (decrypted.length < 4) return null;
-    msgLen = decrypted[1] | (decrypted[2] << 8) | (decrypted[3] << 16);
+  if (plain[0] >= 0x7f) {
+    if (plain.length < 4) return null;
+    msgLen = plain[1] | (plain[2] << 8) | (plain[3] << 16);
     headerLen = 4;
   } else {
-    msgLen = decrypted[0];
+    msgLen = plain[0];
     headerLen = 1;
   }
-
   msgLen = msgLen << 2;
 
-  if (decrypted.length < headerLen + msgLen) {
-    console.log(`[${new Date().toISOString()}] Session ${session.id} incomplete packet: have ${decrypted.length}, need ${headerLen + msgLen}`);
+  if (plain.length < headerLen + msgLen) {
+    // Not enough bytes yet — wait for more data, do NOT advance any state.
     return null;
   }
 
-  const msgData = decrypted.slice(headerLen, headerLen + msgLen);
-  const remaining = Buffer.from(decrypted.slice(headerLen + msgLen));
+  const msgData = plain.slice(headerLen, headerLen + msgLen);
+  const remaining = Buffer.from(plain.slice(headerLen + msgLen));
 
-  // Check auth_key_id: 0 = unencrypted (auth), non-zero = encrypted
   const authKeyId = msgData.readBigInt64LE(0);
-
   if (authKeyId === 0n) {
-    // Unencrypted message: auth_key_id(8) + msg_id(8) + length(4) = 20 bytes
     const innerPayload = msgData.length >= 20 ? msgData.slice(20) : msgData;
     const response = handleUnencryptedAuthPayload(innerPayload, session);
-    return { remaining, response, preDecrypted: true };
+    return { remaining, response };
   }
-
-  // Encrypted message
   const response = handleEncryptedMessage(msgData, session);
-  return { remaining, response, preDecrypted: true };
+  return { remaining, response };
 }
 
 function handleUnencryptedAuthPayload(buffer: Buffer, session: ClientSession): Buffer | null {
@@ -788,28 +775,42 @@ export function startTcpServer(tcpPort: number, host: string): void {
     const remoteAddr = `${socket.remoteAddress}:${socket.remotePort}`;
     console.log(`[${new Date().toISOString()}] [TCP] Client connected: ${clientId} (${remoteAddr})`);
 
-    let receiveBuffer: Buffer = Buffer.alloc(0);
-    let isPreDecrypted = false;
+    // Ciphertext buffered before obfuscation handshake completes.
+    let cipherPrefix: Buffer = Buffer.alloc(0);
+    // Decrypted plaintext waiting to be parsed into frames. Never re-decrypted;
+    // TCP delivers arbitrary byte-stream chunks so we must decrypt incrementally
+    // (CTR state would otherwise desynchronise on partial frames).
+    let plainBuffer: Buffer = Buffer.alloc(0);
 
     socket.on('data', (chunk: Buffer) => {
       session.lastActivityAt = Date.now();
-      receiveBuffer = Buffer.concat([receiveBuffer, chunk]);
 
-      while (receiveBuffer.length > 0) {
-        try {
-          const result = processBuffer(receiveBuffer, session, isPreDecrypted);
-          if (!result) break;
-
-          receiveBuffer = result.remaining || Buffer.alloc(0);
-          isPreDecrypted = result.preDecrypted || false;
-          if (result.response && result.response.length > 0) {
-            if (!socket.destroyed) socket.write(result.response);
+      try {
+        if (!session.obfuscated) {
+          cipherPrefix = Buffer.concat([cipherPrefix, chunk]);
+          if (cipherPrefix.length < 64) return;
+          const header = cipherPrefix.slice(0, 64);
+          setupObfuscation(header, session);
+          if (cipherPrefix.length > 64 && session.decryptor) {
+            plainBuffer = Buffer.concat([plainBuffer, session.decryptor.decrypt(Buffer.from(cipherPrefix.slice(64)))]);
           }
-        } catch (error) {
-          console.error(`[${new Date().toISOString()}] [TCP] Session ${session.id} processing error:`, (error as Error).message);
-          receiveBuffer = Buffer.alloc(0);
-          break;
+          cipherPrefix = Buffer.alloc(0);
+        } else if (session.decryptor) {
+          plainBuffer = Buffer.concat([plainBuffer, session.decryptor.decrypt(Buffer.from(chunk))]);
         }
+
+        while (plainBuffer.length > 0) {
+          const frame = parseFrame(plainBuffer, session);
+          if (!frame) break;
+          plainBuffer = frame.remaining;
+          if (frame.response && frame.response.length > 0 && !socket.destroyed) {
+            socket.write(frame.response);
+          }
+        }
+      } catch (error) {
+        console.error(`[${new Date().toISOString()}] [TCP] Session ${session.id} processing error:`, (error as Error).message);
+        plainBuffer = Buffer.alloc(0);
+        cipherPrefix = Buffer.alloc(0);
       }
     });
 
