@@ -1391,11 +1391,19 @@ export function buildTermsOfServiceUpdateEmpty(): Buffer {
 // ========== Auth builders ==========
 
 export function buildSentCode(phoneCodeHash: string, codeLength: number): Buffer {
+  // auth.sentCode#5e002502 flags:# type:auth.SentCodeType phone_code_hash:string
+  //   next_type:flags.1?auth.CodeType timeout:flags.2?int = auth.SentCode
+  //
+  // Use sentCodeTypeSms so the client shows the manual code-entry screen
+  // immediately. sentCodeTypeApp makes official clients (Android) wait for
+  // another Telegram instance to push the code, which in a self-hosted
+  // setup never happens — so the login screen appears to hang until the
+  // 5-minute timeout.
   const w = new BinaryWriter();
   const flags = (1 << 2);
   w.writeInt(0x5e002502);
   w.writeInt(flags);
-  w.writeInt(0x3dbb5986);
+  w.writeInt(0xc000bba2); // auth.sentCodeTypeSms
   w.writeInt(codeLength);
   writeTlString(w, phoneCodeHash);
   w.writeInt(300);
