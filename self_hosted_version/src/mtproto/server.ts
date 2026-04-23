@@ -241,6 +241,7 @@ function setupObfuscation(header: Buffer, session: ClientSession): void {
 
   session.obfuscated = true;
   session.handshakeComplete = true;
+  console.log(`[${new Date().toISOString()}] [DIAG] Session ${session.id} obfuscation handshake OK (tag=${tag.toString('hex')})`);
 }
 
 // Parse a single abridged-transport frame from an already-decrypted plaintext buffer.
@@ -283,28 +284,35 @@ function parseFrame(plain: Buffer, session: ClientSession): FrameResult | null {
 function handleUnencryptedAuthPayload(buffer: Buffer, session: ClientSession): Buffer | null {
   const reader = new BinaryReader(buffer);
   const constructorId = reader.peekConstructorId();
+  const ts = () => new Date().toISOString();
 
   switch (constructorId) {
     case 0xbe7e8ef1: // req_pq_multi
     case 0x60469778: // req_pq (legacy)
     {
+      console.log(`[${ts()}] [DIAG] Session ${session.id} <- req_pq_multi (ctor=0x${constructorId.toString(16)}, ${buffer.length}B)`);
       const result = authHandler.processReqPqMultiSync(buffer, session.id);
+      console.log(`[${ts()}] [DIAG] Session ${session.id} -> res_pq (${result.length}B)`);
       return createObfuscatedResponse(result, session);
     }
     case 0xd712e4be: { // ReqDHParams
+      console.log(`[${ts()}] [DIAG] Session ${session.id} <- req_DH_params (${buffer.length}B)`);
       const result = authHandler.processReqDHParamsSync(buffer, session.id);
+      console.log(`[${ts()}] [DIAG] Session ${session.id} -> server_DH_params (${result.length}B)`);
       return createObfuscatedResponse(result, session);
     }
     case 0xf5045f1f: { // set_client_DH_params
+      console.log(`[${ts()}] [DIAG] Session ${session.id} <- set_client_DH_params (${buffer.length}B)`);
       const result = authHandler.processSetClientDHParamsSync(buffer, session.id);
       // Persist newly created auth key to SQLite
       for (const entry of authHandler.getAllAuthKeys()) {
         messageStore.saveAuthKey(entry.keyIdHex, entry.authKey);
       }
+      console.log(`[${ts()}] [DIAG] Session ${session.id} -> dh_gen_ok (${result.length}B, auth_key established)`);
       return createObfuscatedResponse(result, session);
     }
     default:
-      console.log(`Unknown auth payload: 0x${constructorId.toString(16)}`);
+      console.log(`[${ts()}] [DIAG] Session ${session.id} UNKNOWN auth payload ctor=0x${constructorId.toString(16)} (${buffer.length}B): ${buffer.slice(0, Math.min(64, buffer.length)).toString('hex')}`);
       return null;
   }
 }
@@ -425,11 +433,9 @@ function handleEncryptedMessage(data: Buffer, session: ClientSession): Buffer | 
     console.log(`[${new Date().toISOString()}] Session ${session.id} sending new_session_created`);
   }
 
-  // (verbose) encrypted msg log suppressed
-
   // Parse TL constructor from inner data
   const constructorId = innerData.readUInt32LE(0);
-  // (verbose) inner constructor log suppressed
+  console.log(`[${new Date().toISOString()}] [DIAG] Session ${session.id} <- encrypted msg ctor=0x${constructorId.toString(16)} (msgDataLen=${msgDataLen}, authKeyId=0x${authKeyId.toString(16)})`);
 
   // Track incoming msg_id for acknowledgement (content-related messages only)
   const clientSeqNo = seqNo;
