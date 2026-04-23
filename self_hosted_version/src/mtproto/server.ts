@@ -311,6 +311,8 @@ function handleUnencryptedAuthPayload(buffer: Buffer, session: ClientSession): B
       console.log(`[${ts()}] [DIAG] Session ${session.id} -> dh_gen_ok (${result.length}B, auth_key established)`);
       return createObfuscatedResponse(result, session);
     }
+    case 0x62d6b459: // msgs_ack — Android acks our handshake responses; no response needed.
+      return null;
     default:
       console.log(`[${ts()}] [DIAG] Session ${session.id} UNKNOWN auth payload ctor=0x${constructorId.toString(16)} (${buffer.length}B): ${buffer.slice(0, Math.min(64, buffer.length)).toString('hex')}`);
       return null;
@@ -450,7 +452,7 @@ function handleEncryptedMessage(data: Buffer, session: ClientSession): Buffer | 
     // so CTR cipher state advances in the same order as the send order.
     if (newSessionMsg) {
       const nsBuf = createEncryptedResponse(newSessionMsg, 0n, session, authKey, false);
-      session.socket?.send(nsBuf);
+      session.sendRaw(nsBuf);
     }
     const containerResp = handleMsgContainer(innerData, messageId, session, authKey);
     // Send pending msgs_ack after container processing
@@ -463,7 +465,7 @@ function handleEncryptedMessage(data: Buffer, session: ClientSession): Buffer | 
     const responseData = handleTlRequest(innerData, session, messageId, getHandlerCtx());
     if (newSessionMsg) {
       const nsBuf = createEncryptedResponse(newSessionMsg, 0n, session, authKey, false);
-      session.socket?.send(nsBuf);
+      session.sendRaw(nsBuf);
     }
     if (!responseData) return null;
     // pong, msgs_ack responses are NOT content-related
@@ -476,7 +478,7 @@ function handleEncryptedMessage(data: Buffer, session: ClientSession): Buffer | 
     const floodError = buildRpcErrorObject(420, 'FLOOD_WAIT_30');
     if (newSessionMsg) {
       const nsBuf = createEncryptedResponse(newSessionMsg, 0n, session, authKey, false);
-      session.socket?.send(nsBuf);
+      session.sendRaw(nsBuf);
     }
     const rpcFlood = new BinaryWriter();
     rpcFlood.writeInt(0xf35c6d01);
@@ -496,7 +498,7 @@ function handleEncryptedMessage(data: Buffer, session: ClientSession): Buffer | 
   }
   if (newSessionMsg) {
     const nsBuf = createEncryptedResponse(newSessionMsg, 0n, session, authKey, false);
-    session.socket?.send(nsBuf);
+    session.sendRaw(nsBuf);
   }
   if (!responseData) return null;
 
