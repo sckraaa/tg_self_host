@@ -93,22 +93,30 @@ export function skipJsonValue(data, offset) {
     const constructor = data.readUInt32LE(offset);
     offset += 4;
     switch (constructor) {
-        case 0xc7345e6a: // jsonObject
+        case 0x99c1d49d: // jsonObject — value:Vector<JSONObjectValue>
             {
+                // Vector prefix
+                const vecConstructor = data.readUInt32LE(offset);
+                offset += 4;
                 const count = data.readInt32LE(offset);
                 offset += 4;
                 for (let i = 0; i < count; i++) {
+                    // jsonObjectValue#c0de1bd9 key:string value:JSONValue
+                    offset += 4; // skip jsonObjectValue constructor
                     offset = skipTlString(data, offset); // key
                     offset = skipJsonValue(data, offset); // value
                 }
                 return offset;
             }
-        case 0xc0de1bd9: // jsonString
+        case 0xb71e767a: // jsonString — value:string
             return skipTlString(data, offset);
-        case 0x2be0dfa4: // jsonNumber
-            return offset + 8; // double
-        case 0xc7345e6a: // jsonArray
+        case 0x2be0dfa4: // jsonNumber — value:double
+            return offset + 8;
+        case 0xf7444763: // jsonArray — value:Vector<JSONValue>
             {
+                // Vector prefix
+                const vecConstructor = data.readUInt32LE(offset);
+                offset += 4;
                 const count = data.readInt32LE(offset);
                 offset += 4;
                 for (let i = 0; i < count; i++) {
@@ -116,11 +124,12 @@ export function skipJsonValue(data, offset) {
                 }
                 return offset;
             }
-        case 0xc3f11eb2: // jsonBool
+        case 0xc7345e6a: // jsonBool — value:Bool
             return offset + 4;
         case 0x3f6d7b68: // jsonNull
             return offset;
         default:
+            console.warn(`[skipJsonValue] Unknown JSON constructor: 0x${constructor.toString(16)}`);
             return offset;
     }
 }

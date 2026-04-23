@@ -125,6 +125,8 @@ export function writeMessageFromFixture(w, message) {
     }
     if (message.reactions && message.reactions.length > 0)
         flags |= (1 << 20);
+    if (message.entities && message.entities.length > 0)
+        flags |= (1 << 7);
     w.writeInt(flags);
     w.writeInt(0); // flags2
     w.writeInt(message.id);
@@ -181,6 +183,10 @@ export function writeMessageFromFixture(w, message) {
     writeTlString(w, message.text);
     if (media) {
         writeMessageMedia(w, media);
+    }
+    if (message.entities && message.entities.length > 0) {
+        // Write the pre-serialized Vector<MessageEntity> blob verbatim (audit #2).
+        w.writeBytes(message.entities);
     }
     if (message.editDate) {
         w.writeInt(message.editDate);
@@ -786,16 +792,19 @@ export function writeChatVector(w, fixture, chatIds) {
     }
 }
 // ========== Misc TL structure writers ==========
-export function writePeerNotifySettingsToWriter(w) {
+export function writePeerNotifySettingsToWriter(w, settings) {
     // peerNotifySettings#99622c0c flags:#
     //   show_previews:flags.0?Bool silent:flags.1?Bool mute_until:flags.2?int
     //   ios_sound:flags.3?NotificationSound android_sound:flags.4?NotificationSound other_sound:flags.5?NotificationSound
     w.writeInt(0x99622c0c);
     const flags = (1 << 0) | (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5); // 63
     w.writeInt(flags);
-    w.writeInt(0x997275b5); // show_previews = boolTrue
-    w.writeInt(0xbc799737); // silent = boolFalse
-    w.writeInt(0); // mute_until = 0
+    const showPreviews = settings?.showPreviews !== false; // default true
+    const silent = !!settings?.silent;
+    const muteUntil = settings?.muteUntil ?? 0;
+    w.writeInt(showPreviews ? 0x997275b5 : 0xbc799737); // show_previews
+    w.writeInt(silent ? 0x997275b5 : 0xbc799737); // silent
+    w.writeInt(muteUntil); // mute_until
     // ios_sound: notificationSoundDefault#97e8bebe
     w.writeInt(0x97e8bebe);
     // android_sound: notificationSoundLocal#830b9ae4 title:"default" data:"default"
@@ -806,6 +815,125 @@ export function writePeerNotifySettingsToWriter(w) {
     w.writeInt(0x830b9ae4);
     writeTlString(w, 'default');
     writeTlString(w, 'default');
+}
+/**
+ * Serialize a parsed MessageEntity list back to a TL `Vector<MessageEntity>` buffer
+ * (audit #2). The returned buffer can be stored in SQLite and later written into
+ * any TL stream verbatim to preserve bold/italic/links/mentions.
+ */
+export function writeMessageEntitiesVector(w, entities) {
+    w.writeInt(0x1cb5c415); // vector
+    w.writeInt(entities.length);
+    for (const e of entities) {
+        switch (e.type) {
+            case 'mention':
+                w.writeInt(0xfa04579d);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                break;
+            case 'hashtag':
+                w.writeInt(0x6f635b0d);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                break;
+            case 'botCommand':
+                w.writeInt(0x6cef8ac7);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                break;
+            case 'url':
+                w.writeInt(0x6ed02538);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                break;
+            case 'email':
+                w.writeInt(0x64e475c2);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                break;
+            case 'bold':
+                w.writeInt(0xbd610bc9);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                break;
+            case 'italic':
+                w.writeInt(0x826f8b60);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                break;
+            case 'code':
+                w.writeInt(0x28a20571);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                break;
+            case 'pre':
+                w.writeInt(0x73924be0);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                writeTlString(w, e.language || '');
+                break;
+            case 'textUrl':
+                w.writeInt(0x76a6d327);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                writeTlString(w, e.url || '');
+                break;
+            case 'mentionName':
+                w.writeInt(0xdc7b1140);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                w.writeLong(BigInt(e.userId || 0));
+                break;
+            case 'phone':
+                w.writeInt(0x9b69e34b);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                break;
+            case 'cashtag':
+                w.writeInt(0x4c4e743f);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                break;
+            case 'underline':
+                w.writeInt(0x9c4e7e8b);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                break;
+            case 'strike':
+                w.writeInt(0xbf0693d4);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                break;
+            case 'blockquote':
+                w.writeInt(0xf1ccaaac);
+                w.writeInt(e.collapsed ? (1 << 0) : 0);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                break;
+            case 'bankCard':
+                w.writeInt(0x761e6af4);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                break;
+            case 'spoiler':
+                w.writeInt(0x32ca960f);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                break;
+            case 'customEmoji':
+                w.writeInt(0xc8cf05f8);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                w.writeLong(BigInt(e.documentId || '0'));
+                break;
+            default:
+                // Unknown — write as plain (offset,length) under messageEntityUnknown#bb92ba95
+                w.writeInt(0xbb92ba95);
+                w.writeInt(e.offset);
+                w.writeInt(e.length);
+                break;
+        }
+    }
 }
 export function writeDraftMessageEmpty(w, date) {
     // draftMessageEmpty#1b0c841a flags:# date:int

@@ -108,6 +108,11 @@ export interface FixtureMessage {
     isVideo?: boolean;
   };
   reactions?: Array<{ emoticon: string; count: number; chosenOrder?: number }>;
+  /**
+   * Serialized `Vector<MessageEntity>` buffer (audit #2). When set, it is written
+   * verbatim into the TL stream with flag 7, preserving bold/italic/links/mentions.
+   */
+  entities?: Buffer;
 }
 
 export interface FixtureHistory {

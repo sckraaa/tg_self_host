@@ -1,6 +1,5 @@
 import { initDatabase } from './database/schema.js';
 import { startServer, startTcpServer } from './mtproto/server.js';
-import { ApiHandler } from './api/handler.js';
 import { config } from 'dotenv';
 import { existsSync, mkdirSync } from 'fs';
 import { resolve, dirname } from 'path';
@@ -32,9 +31,6 @@ console.log('===========================================');
 console.log('Initializing database...');
 const db = initDatabase(absoluteDbPath);
 console.log('Database initialized');
-
-const api = new ApiHandler(db);
-console.log('API handlers initialized');
 
 console.log('Starting MTProto server...');
 startServer(PORT, HOST);

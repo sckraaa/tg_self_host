@@ -1,4 +1,4 @@
-import { readFileSync, existsSync } from 'fs';
+import { readFileSync, existsSync, readdirSync } from 'fs';
 import { resolve as resolvePath, dirname } from 'path';
 import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
@@ -7,7 +7,7 @@ import { BinaryWriter } from './codec.js';
 import { writeTlString, writeTlBytes, writeEmptyVectorToWriter, writeBufferVector, writeEmptyJsonObject } from './tlHelpers.js';
 import { getMessageStore } from '../database/messageStore.js';
 import { generateRandomBytes } from '../crypto/utils.js';
-import { writePeerByKey, writeMessageFromFixture, writeUserFromFixture, writeChatFromDb, writeMessageVector, writeUserVector, writeChatVector, writePeerNotifySettingsToWriter, writePhotoEmpty, writePhotoObject, writeUpdatesStateToWriter, writePeerColorSet, writePeerColorProfileSet, writeDraftMessage, isFieldVisibleByPrivacy, } from './writers.js';
+import { writePeerByKey, writeMessageFromFixture, writeUserFromFixture, writeChatFromDb, writeMessageVector, writeUserVector, writeChatVector, writePeerNotifySettingsToWriter, writePhotoEmpty, writePhotoObject, writeUpdatesStateToWriter, writePeerColorSet, writePeerColorProfileSet, writeDraftMessage, writeDraftMessageEmpty, isFieldVisibleByPrivacy, } from './writers.js';
 import { SEED_USER_ID, getStoredMessageAsFixture, mergeMessagesById, collectChatIdsFromMessages, collectUserIdsFromMessages, collectEntityIdsFromPeerKey, getFixtureUserForId, buildActionForFixture, } from './fixtureHelpers.js';
 import { parseUpdatesDifferenceRequest } from './parsers.js';
 import { getActiveSession } from './parsers.js';
@@ -28,6 +28,8 @@ function isModernLayer() {
     return s.layer < 200;
 }
 // ========== Config builders ==========
+const DC_HOST = process.env.DC_HOST || process.env.DOMAIN || '127.0.0.1';
+const DC_PORT = parseInt(process.env.DC_PORT || process.env.TCP_PORT || '8443');
 export function buildConfig() {
     const w = new BinaryWriter();
     // config#cc1a241e flags:# ... = Config
@@ -39,13 +41,25 @@ export function buildConfig() {
     w.writeInt(2); // this_dc
     // dc_options: Vector<DcOption>
     w.writeInt(0x1cb5c415); // vector constructor
-    w.writeInt(1); // count = 1
-    // dcOption#18b7a10d flags:# id:int ip_address:string port:int
+    w.writeInt(3); // count = 3
+    // DC 1
+    w.writeInt(0x18b7a10d); // dcOption constructor
+    w.writeInt(0); // flags
+    w.writeInt(1); // id = 1
+    writeTlString(w, DC_HOST);
+    w.writeInt(DC_PORT);
+    // DC 2
     w.writeInt(0x18b7a10d);
     w.writeInt(0); // flags
     w.writeInt(2); // id = 2
-    writeTlString(w, '127.0.0.1');
-    w.writeInt(8080); // port
+    writeTlString(w, DC_HOST);
+    w.writeInt(DC_PORT);
+    // DC 3
+    w.writeInt(0x18b7a10d);
+    w.writeInt(0); // flags
+    w.writeInt(3); // id = 3
+    writeTlString(w, DC_HOST);
+    w.writeInt(DC_PORT);
     writeTlString(w, ''); // dc_txt_domain_name
     w.writeInt(200); // chat_size_max
     w.writeInt(200000); // megagroup_size_max
@@ -257,6 +271,7 @@ export function buildUpdatesDifference(data, selfId) {
                     fwdFromName: stored.fwdFromName,
                     fwdDate: stored.fwdDate,
                     action: buildActionForFixture(stored.peerKey, stored.actionType, stored.text, stored.mediaId),
+                    entities: stored.entities,
                 };
                 newMessages.push(message);
                 collectEntityIdsFromPeerKey(message.peerKey, userIds, chatIds);
@@ -279,7 +294,7 @@ export function buildUpdatesDifference(data, selfId) {
                     peerKey: editedMsg.peerKey,
                     date: editedMsg.date,
                     text: editedMsg.text,
-                    className: 'Message',
+                    className: editedMsg.actionType ? 'MessageService' : 'Message',
                     out: isSavedMessages ? false : editedMsg.isOutgoing,
                     post: editedMsg.post,
                     fromPeerKey: isSavedMessages ? undefined : editedMsg.fromPeerKey,
@@ -289,6 +304,15 @@ export function buildUpdatesDifference(data, selfId) {
                     quoteText: editedMsg.quoteText,
                     quoteOffset: editedMsg.quoteOffset,
                     mediaId: editedMsg.mediaId,
+                    fwdFromPeerKey: editedMsg.fwdFromPeerKey,
+                    fwdFromName: editedMsg.fwdFromName,
+                    fwdDate: editedMsg.fwdDate,
+                    action: buildActionForFixture(editedMsg.peerKey, editedMsg.actionType, editedMsg.text, editedMsg.mediaId),
+                    entities: editedMsg.entities,
+                    // Without this, any getDifference replay would strip reactions on the
+                    // edited message — the client spreads `{...cached, ...newMessage}`
+                    // and `newMessage.reactions === undefined` nukes the cached array.
+                    reactions: aggregateStoredReactions(selfId, editedMsg.peerKey, editedMsg.messageId),
                 };
                 otherUpdates.push(buildUpdateEditMessage(editFixture, event.pts, event.ptsCount));
                 if (editFixture.fromPeerKey) {
@@ -417,6 +441,24 @@ export function buildUpdateMessageID(messageId, randomId) {
     w.writeLong(BigInt(randomId));
     return w.getBytes();
 }
+/**
+ * updateDraftMessage#ee2bb969 flags:# peer:Peer top_msg_id:flags.0?int
+ *   saved_peer_id:flags.1?Peer draft:DraftMessage
+ * (audit #8 — live push to other sessions when a draft is saved)
+ */
+export function buildUpdateDraftMessage(peerKey, text, date, replyToMsgId) {
+    const w = new BinaryWriter();
+    w.writeInt(0xee2bb969);
+    w.writeInt(0); // flags
+    writePeerByKey(w, peerKey);
+    if (text.length === 0) {
+        writeDraftMessageEmpty(w, date);
+    }
+    else {
+        writeDraftMessage(w, text, date, replyToMsgId);
+    }
+    return w.getBytes();
+}
 export function buildUpdateUserStatus(userId, isOffline, statusVisible = true) {
     const w = new BinaryWriter();
     // updates#74ae4240
@@ -476,6 +518,18 @@ export function buildUpdateUserTyping(userId, actionConstructor) {
     w.writeInt(Math.floor(Date.now() / 1000));
     w.writeInt(0);
     return w.getBytes();
+}
+/**
+ * Build a live envelope carrying `updateUser#20529438 user_id:long`, which tells
+ * recipient clients to refetch this user (typically used after the user's photo
+ * changes so other users see the new avatar without reloading the page).
+ */
+export function buildLiveUpdateUserEnvelope(userId) {
+    const w = new BinaryWriter();
+    // updateUser#20529438 user_id:long
+    w.writeInt(0x20529438);
+    w.writeLong(BigInt(userId));
+    return buildLiveUpdatesEnvelope([w.getBytes()], [String(userId)], []);
 }
 export function buildUpdateUserNameUpdate(userId, firstName, lastName, username) {
     const w = new BinaryWriter();
@@ -825,6 +879,8 @@ export function buildDialogsFromDb(selfId) {
             fwdFromName: topMessage.fwdFromName,
             fwdDate: topMessage.fwdDate,
             action: buildActionForFixture(topMessage.peerKey, topMessage.actionType, topMessage.text, topMessage.mediaId),
+            entities: topMessage.entities,
+            reactions: aggregateStoredReactions(selfId, topMessage.peerKey, topMessage.messageId),
         };
         writeMessageFromFixture(w, fixtureMsg);
     }
@@ -902,6 +958,11 @@ export function buildPeerDialogsForPeers(peerKeys, selfId) {
                 fwdFromName: lastMsg.fwdFromName,
                 fwdDate: lastMsg.fwdDate,
                 action: buildActionForFixture(lastMsg.peerKey, lastMsg.actionType, lastMsg.text, lastMsg.mediaId),
+                entities: lastMsg.entities,
+                // Without this the dialog-list overwrites the per-peer cache with a
+                // reactions-less copy, so on reload the last message loses its reactions
+                // until it's no longer the top message (then getHistory restores them).
+                reactions: aggregateStoredReactions(selfId, lastMsg.peerKey, lastMsg.messageId),
             });
             if (lastMsg.fromPeerKey?.startsWith('user:'))
                 userIdSet.add(lastMsg.fromPeerKey.replace('user:', ''));
@@ -937,19 +998,9 @@ export function buildPeerDialogsForPeers(peerKeys, selfId) {
     return w.getBytes();
 }
 export function buildPinnedDialogs(selfId) {
-    const w = new BinaryWriter();
-    // messages.peerDialogs#3371c354
-    w.writeInt(0x3371c354);
-    w.writeInt(0x1cb5c415);
-    w.writeInt(0);
-    w.writeInt(0x1cb5c415);
-    w.writeInt(0);
-    w.writeInt(0x1cb5c415);
-    w.writeInt(0);
-    w.writeInt(0x1cb5c415);
-    w.writeInt(0);
-    writeUpdatesStateToWriter(w, selfId);
-    return w.getBytes();
+    const effectiveSelfId = selfId ?? SEED_USER_ID;
+    const pinnedPeerKeys = messageStore.getPinnedDialogs(effectiveSelfId);
+    return buildPeerDialogsForPeers(pinnedPeerKeys, effectiveSelfId);
 }
 // ========== Messages response builders ==========
 export function buildGetMessagesResponse(messages, fixture, selfId) {
@@ -1040,6 +1091,48 @@ export function buildWebPagePreviewEmpty() {
     writeEmptyVectorToWriter(w); // users
     return w.getBytes();
 }
+/**
+ * Build a `messages.WebPagePreview` wrapping a real `webPage#e89c45b2` parsed from
+ * OpenGraph meta tags (audit #3). `photo` is not attached because we don't
+ * download and persist remote images yet — if `imageUrl` is provided the client
+ * can fetch it via the normal img pipeline using the URL in `site_name`/`description`.
+ */
+export function buildWebPagePreviewFromOg(opts) {
+    const w = new BinaryWriter();
+    const modern = isModernLayer();
+    w.writeInt(modern ? 0xb53e8b21 : 0x8c9a88ac);
+    // webPage#e89c45b2 flags:# id:long url:string display_url:string hash:int type:flags.0?string
+    //   site_name:flags.1?string title:flags.2?string description:flags.3?string ...
+    w.writeInt(0xe89c45b2);
+    let flags = 0;
+    if (opts.type)
+        flags |= (1 << 0);
+    if (opts.siteName)
+        flags |= (1 << 1);
+    if (opts.title)
+        flags |= (1 << 2);
+    if (opts.description)
+        flags |= (1 << 3);
+    w.writeInt(flags);
+    // id = deterministic hash of url so repeat previews stay stable
+    const idHash = BigInt.asUintN(63, BigInt(Math.abs([...opts.url].reduce((a, c) => ((a << 5) - a + c.charCodeAt(0)) | 0, 0))));
+    w.writeLong(idHash);
+    writeTlString(w, opts.url);
+    writeTlString(w, opts.url); // display_url
+    w.writeInt(0); // hash
+    if (opts.type)
+        writeTlString(w, opts.type);
+    if (opts.siteName)
+        writeTlString(w, opts.siteName);
+    if (opts.title)
+        writeTlString(w, opts.title);
+    if (opts.description)
+        writeTlString(w, opts.description);
+    if (!modern)
+        writeEmptyVectorToWriter(w); // chats
+    writeEmptyVectorToWriter(w); // users
+    return w.getBytes();
+}
 export function buildRecentStoriesVector(count) {
     const w = new BinaryWriter();
     w.writeInt(0x1cb5c415);
@@ -1101,26 +1194,35 @@ export function buildLoginToken() {
 }
 // ========== Contacts builders ==========
 export function buildContactsFromDb(selfId) {
-    const allUsers = messageStore.getAllUsers(selfId);
+    // Audit #6 — use the real `contacts` table instead of returning every user.
+    const storedContacts = messageStore.listContacts(selfId);
+    const users = storedContacts
+        .map(c => ({
+        stored: c,
+        user: messageStore.getUserById(c.contactUserId),
+    }))
+        .filter((entry) => !!entry.user);
     const w = new BinaryWriter();
+    // contacts.contacts#eae87e42 contacts:Vector<Contact> saved_count:int users:Vector<User>
     w.writeInt(0xeae87e42);
     w.writeInt(0x1cb5c415);
-    w.writeInt(allUsers.length);
-    for (const user of allUsers) {
+    w.writeInt(users.length);
+    for (const { user } of users) {
+        // contact#145ade0b user_id:long mutual:Bool
         w.writeInt(0x145ade0b);
         w.writeLong(BigInt(user.id));
-        w.writeInt(0x997275b5);
+        w.writeInt(0x997275b5); // mutual=true
     }
-    w.writeInt(allUsers.length);
+    w.writeInt(users.length); // saved_count
     w.writeInt(0x1cb5c415);
-    w.writeInt(allUsers.length);
-    for (const user of allUsers) {
+    w.writeInt(users.length);
+    for (const { user, stored } of users) {
         writeUserFromFixture(w, {
             id: String(user.id),
             accessHash: user.accessHash.toString(),
-            firstName: user.firstName,
-            lastName: user.lastName,
-            phone: user.phone,
+            firstName: stored.firstName || user.firstName,
+            lastName: stored.lastName || user.lastName,
+            phone: stored.phone || user.phone,
             contact: true,
         });
     }
@@ -1218,9 +1320,9 @@ export function buildNearestDc() {
     w.writeInt(2);
     return w.getBytes();
 }
-export function buildPeerNotifySettings() {
+export function buildPeerNotifySettings(settings) {
     const w = new BinaryWriter();
-    writePeerNotifySettingsToWriter(w);
+    writePeerNotifySettingsToWriter(w, settings);
     return w.getBytes();
 }
 export function buildPeerColorsEmpty() {
@@ -1432,6 +1534,42 @@ export function buildBlockedEmpty() {
     w.writeInt(0);
     return w.getBytes();
 }
+/** contacts.blocked#ade1591 blocked:Vector<PeerBlocked> chats:Vector<Chat> users:Vector<User> (audit #6) */
+export function buildBlockedFromDb(selfId) {
+    const list = messageStore.listBlockedUsers(selfId);
+    const users = list
+        .map(b => ({ b, user: messageStore.getUserById(b.userId) }))
+        .filter((e) => !!e.user);
+    const w = new BinaryWriter();
+    w.writeInt(0x0ade1591);
+    // blocked
+    w.writeInt(0x1cb5c415);
+    w.writeInt(users.length);
+    for (const { b } of users) {
+        // peerBlocked#e8fd8014 peer_id:Peer date:int
+        w.writeInt(0xe8fd8014);
+        // peerUser#59511722 user_id:long
+        w.writeInt(0x59511722);
+        w.writeLong(BigInt(b.userId));
+        w.writeInt(b.date);
+    }
+    // chats (empty)
+    w.writeInt(0x1cb5c415);
+    w.writeInt(0);
+    // users
+    w.writeInt(0x1cb5c415);
+    w.writeInt(users.length);
+    for (const { user } of users) {
+        writeUserFromFixture(w, {
+            id: String(user.id),
+            accessHash: user.accessHash.toString(),
+            firstName: user.firstName,
+            lastName: user.lastName,
+            phone: user.phone,
+        });
+    }
+    return w.getBytes();
+}
 export function buildAvailableReactionsNotModified() {
     const w = new BinaryWriter();
     w.writeInt(0x9f071957);
@@ -1474,6 +1612,39 @@ export function buildFeaturedEmojiStickers() {
 }
 export function buildStickerSetFromCapture(setId) {
     return loadCapturedBin(`sticker_sets/${setId}.bin`);
+}
+// Lazy-built map: shortName → setId
+let _shortNameMap;
+function getShortNameMap() {
+    if (_shortNameMap)
+        return _shortNameMap;
+    _shortNameMap = new Map();
+    const setsDir = resolvePath(__dirname, '../../data/sticker_sets');
+    if (!existsSync(setsDir))
+        return _shortNameMap;
+    for (const f of readdirSync(setsDir)) {
+        if (!f.endsWith('.json'))
+            continue;
+        try {
+            const d = JSON.parse(readFileSync(resolvePath(setsDir, f), 'utf-8'));
+            const sn = d?.set?.shortName ?? d?.set?.short_name;
+            if (sn)
+                _shortNameMap.set(sn.toLowerCase(), f.replace('.json', ''));
+        }
+        catch { }
+    }
+    console.log(`[STICKERSET] Built shortName map: ${_shortNameMap.size} entries`);
+    return _shortNameMap;
+}
+export function buildStickerSetFromCaptureByShortName(shortName) {
+    const map = getShortNameMap();
+    const setId = map.get(shortName.toLowerCase());
+    if (!setId)
+        return undefined;
+    return loadCapturedBin(`sticker_sets/${setId}.bin`);
+}
+export function buildStickerSetFromCaptureByTypeName(typeName) {
+    return loadCapturedBin(`sticker_sets/${typeName}.bin`);
 }
 export function buildSavedDialogsEmpty() {
     const w = new BinaryWriter();

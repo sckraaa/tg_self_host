@@ -92,6 +92,7 @@ export function listStoredMessagesAsFixture(peerKey: string, selfId: number = SE
     fwdDate: message.fwdDate,
     action: buildActionForFixture(message.peerKey, message.actionType, message.text, message.mediaId),
     reactions: getReactionsForMessage(selfId, peerKey, message.messageId, selfId),
+    entities: message.entities,
   }));
 }
 
@@ -117,7 +118,36 @@ export function listStoredMessagesAsFixtureForUser(peerKey: string, userId: numb
     fwdDate: message.fwdDate,
     action: buildActionForFixture(message.peerKey, message.actionType, message.text, message.mediaId),
     reactions: getReactionsForMessage(userId, peerKey, message.messageId, userId),
+    entities: message.entities,
   }));
+}
+
+/**
+ * Build the FixtureMessage that should be delivered to a **recipient** of a P2P or
+ * group/channel message we just stored on their side.
+ *
+ * Rationale: when we duplicate a message into the recipient's store, the freshly
+ * inserted row is `is_outgoing=1` (see `appendOutgoingMessage`). We then call
+ * `markMessageIncoming` to flip the DB flag, but `getStoredMessageAsFixture`
+ * recomputes `out` from whatever state it re-reads. For broadcast fixtures we
+ * must strictly enforce `out=false` and `fromPeerKey=<sender>`, otherwise the
+ * recipient client will see the incoming message as one of *their own* outgoing
+ * ones (wrong avatar, wrong alignment, no notification).
+ *
+ * This helper consolidates that post-hoc patch so we never forget to apply it
+ * in forwardMessages / group-broadcast paths (see audit item #1).
+ */
+export function prepareRecipientFixture(
+  peerKey: string,
+  messageId: number,
+  recipientUserId: number,
+  senderUserId: number,
+): FixtureMessage | undefined {
+  const fixture = getStoredMessageAsFixture(peerKey, messageId, recipientUserId);
+  if (!fixture) return undefined;
+  fixture.out = false;
+  fixture.fromPeerKey = `user:${senderUserId}`;
+  return fixture;
 }
 
 export function getStoredMessageAsFixture(peerKey: string, messageId: number, selfId?: number): FixtureMessage | undefined {
@@ -148,6 +178,7 @@ export function getStoredMessageAsFixture(peerKey: string, messageId: number, se
     fwdDate: message.fwdDate,
     action: buildActionForFixture(peerKey, message.actionType, message.text, message.mediaId),
     reactions: getReactionsForMessage(effectiveSelfId, peerKey, message.messageId, effectiveSelfId),
+    entities: message.entities,
   };
 }
 

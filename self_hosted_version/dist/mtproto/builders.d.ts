@@ -16,8 +16,20 @@ export declare function buildUpdateNewMessage(message: FixtureMessage, pts: numb
 export declare function buildUpdateEditMessage(message: FixtureMessage, pts: number, ptsCount: number): Buffer;
 export declare function buildUpdateDeleteMessages(messageIds: number[], pts: number, ptsCount: number): Buffer;
 export declare function buildUpdateMessageID(messageId: number, randomId: string): Buffer;
+/**
+ * updateDraftMessage#ee2bb969 flags:# peer:Peer top_msg_id:flags.0?int
+ *   saved_peer_id:flags.1?Peer draft:DraftMessage
+ * (audit #8 — live push to other sessions when a draft is saved)
+ */
+export declare function buildUpdateDraftMessage(peerKey: string, text: string, date: number, replyToMsgId?: number): Buffer;
 export declare function buildUpdateUserStatus(userId: number, isOffline: boolean, statusVisible?: boolean): Buffer;
 export declare function buildUpdateUserTyping(userId: number, actionConstructor: number): Buffer;
+/**
+ * Build a live envelope carrying `updateUser#20529438 user_id:long`, which tells
+ * recipient clients to refetch this user (typically used after the user's photo
+ * changes so other users see the new avatar without reloading the page).
+ */
+export declare function buildLiveUpdateUserEnvelope(userId: number): Buffer;
 export declare function buildUpdateUserNameUpdate(userId: number, firstName: string, lastName: string, username: string | undefined): Buffer;
 export declare function buildLiveUpdatesEnvelope(updateBuffers: Buffer[], userIds: string[], chatIds: string[]): Buffer;
 export declare function buildLiveNewMessageUpdates(peerKey: string, messageId: number, pts: number, ptsCount: number): Buffer | null;
@@ -34,6 +46,19 @@ export declare function buildGetMessagesResponse(messages: FixtureMessage[], fix
 export declare function buildMessagesSliceEmpty(): Buffer;
 export declare function buildMessagesEmpty(): Buffer;
 export declare function buildWebPagePreviewEmpty(): Buffer;
+/**
+ * Build a `messages.WebPagePreview` wrapping a real `webPage#e89c45b2` parsed from
+ * OpenGraph meta tags (audit #3). `photo` is not attached because we don't
+ * download and persist remote images yet — if `imageUrl` is provided the client
+ * can fetch it via the normal img pipeline using the URL in `site_name`/`description`.
+ */
+export declare function buildWebPagePreviewFromOg(opts: {
+    url: string;
+    siteName?: string;
+    title?: string;
+    description?: string;
+    type?: string;
+}): Buffer;
 export declare function buildRecentStoriesVector(count: number): Buffer;
 export declare function buildTermsOfServiceUpdateEmpty(): Buffer;
 export declare function buildSentCode(phoneCodeHash: string, codeLength: number): Buffer;
@@ -48,7 +73,11 @@ export declare function buildChannelFullEmpty(channelId?: string): Buffer;
 export declare function buildBoolTrue(): Buffer;
 export declare function buildBoolFalse(): Buffer;
 export declare function buildNearestDc(): Buffer;
-export declare function buildPeerNotifySettings(): Buffer;
+export declare function buildPeerNotifySettings(settings?: {
+    showPreviews?: boolean;
+    silent?: boolean;
+    muteUntil?: number;
+}): Buffer;
 export declare function buildPeerColorsEmpty(): Buffer;
 export declare function buildPeerProfileColors(): Buffer;
 export declare function buildCountriesListEmpty(): Buffer;
@@ -77,11 +106,15 @@ export declare function buildLiveUpdateMessageReactions(peerKey: string, msgId: 
 export declare function buildUpdatesEmpty(): Buffer;
 export declare function buildTopPeersDisabled(): Buffer;
 export declare function buildBlockedEmpty(): Buffer;
+/** contacts.blocked#ade1591 blocked:Vector<PeerBlocked> chats:Vector<Chat> users:Vector<User> (audit #6) */
+export declare function buildBlockedFromDb(selfId: number): Buffer;
 export declare function buildAvailableReactionsNotModified(): Buffer;
 export declare function buildAvailableReactions(): Buffer;
 export declare function buildEmojiStickers(): Buffer;
 export declare function buildFeaturedEmojiStickers(): Buffer;
 export declare function buildStickerSetFromCapture(setId: string): Buffer | undefined;
+export declare function buildStickerSetFromCaptureByShortName(shortName: string): Buffer | undefined;
+export declare function buildStickerSetFromCaptureByTypeName(typeName: string): Buffer | undefined;
 export declare function buildSavedDialogsEmpty(): Buffer;
 export declare function buildSponsoredMessagesEmpty(): Buffer;
 export declare function buildSponsoredPeersEmpty(): Buffer;

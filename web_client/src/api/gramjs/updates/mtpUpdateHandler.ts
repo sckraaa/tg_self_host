@@ -158,6 +158,17 @@ export function updater(update: Update) {
 
       message = buildApiMessage(mtpMessage)!;
 
+      // [WEBK-DEBUG] 
+      console.warn('[WEBK-DEBUG] updateNewMessage parsed:', {
+        id: message?.id,
+        chatId: message?.chatId,
+        isOutgoing: message?.isOutgoing,
+        isFromNew: true, // will be sent to Redux
+        rawMtpOutFlag: (mtpMessage as any).out,
+        rawMtpPeerId: (mtpMessage as any).peerId,
+        rawMtpFromId: (mtpMessage as any).fromId,
+      });
+
       // [DEBUG] Log service message detection for chatCreate debugging
       if (mtpMessage instanceof GramJs.MessageService) {
         // eslint-disable-next-line no-console

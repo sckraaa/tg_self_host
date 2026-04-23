@@ -20,7 +20,26 @@ export declare function writeDialogVector(w: BinaryWriter, dialogs: FixtureDialo
 export declare function writeMessageVector(w: BinaryWriter, messages: FixtureMessage[]): void;
 export declare function writeUserVector(w: BinaryWriter, fixture: OfficialCaptureFixture, userIds: string[]): void;
 export declare function writeChatVector(w: BinaryWriter, fixture: OfficialCaptureFixture, chatIds: string[]): void;
-export declare function writePeerNotifySettingsToWriter(w: BinaryWriter): void;
+export declare function writePeerNotifySettingsToWriter(w: BinaryWriter, settings?: {
+    showPreviews?: boolean;
+    silent?: boolean;
+    muteUntil?: number;
+}): void;
+/**
+ * Serialize a parsed MessageEntity list back to a TL `Vector<MessageEntity>` buffer
+ * (audit #2). The returned buffer can be stored in SQLite and later written into
+ * any TL stream verbatim to preserve bold/italic/links/mentions.
+ */
+export declare function writeMessageEntitiesVector(w: BinaryWriter, entities: Array<{
+    type: string;
+    offset: number;
+    length: number;
+    url?: string;
+    userId?: number;
+    language?: string;
+    documentId?: string;
+    collapsed?: boolean;
+}>): void;
 export declare function writeDraftMessageEmpty(w: BinaryWriter, date: number): void;
 export declare function writeDraftMessage(w: BinaryWriter, text: string, date: number, replyToMsgId?: number): void;
 export declare function writeChatPhotoEmpty(w: BinaryWriter): void;

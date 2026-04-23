@@ -1,6 +1,6 @@
 import { WebSocketServer, WebSocket } from 'ws';
 import { createServer } from 'http';
-import * as net from 'net';
+import { createServer as createTcpServer } from 'net';
 import { AuthHandler } from './auth.js';
 import { BinaryReader, BinaryWriter } from './codec.js';
 import { sha256Sync, sha1Sync, IGE, CTR, generateRandomBytes } from '../crypto/utils.js';
@@ -9,7 +9,6 @@ import { buildRpcErrorObject, buildUpdateUserStatus } from './builders.js';
 import { isFieldVisibleByPrivacy } from './writers.js';
 import { handleTlRequest } from './handlers.js';
 import { rpcLimiter } from '../utils/rateLimiter.js';
-const SEED_USER_ID = 100000;
 const clients = new Map();
 const authHandler = new AuthHandler();
 const messageStore = getMessageStore();
@@ -35,6 +34,17 @@ function getKeyIdHex(authKey) {
 function generateClientId() {
     return `sess_${Date.now()}_${Math.random().toString(36).substring(2, 12)}`;
 }
+// MTProto seq_no: content-related messages get odd seq_no (2*n+1),
+// non-content messages get even seq_no (2*n).
+function getNextSeqNo(session, contentRelated) {
+    const seqNo = contentRelated
+        ? session.serverSeqNo * 2 + 1
+        : session.serverSeqNo * 2;
+    if (contentRelated) {
+        session.serverSeqNo++;
+    }
+    return seqNo;
+}
 function generateMessageId() {
     const nowMs = BigInt(Date.now());
     const seconds = nowMs / 1000n;
@@ -47,60 +57,6 @@ function generateMessageId() {
     return msgId;
 }
 export function startServer(port, host) {
-    const tcpPort = parseInt(process.env.TCP_PORT || '8443');
-    // Shared cleanup logic for disconnecting sessions
-    function handleDisconnect(session) {
-        console.log(`[${new Date().toISOString()}] Client disconnected: ${session.id}`);
-        const disconnectedUserId = session.userId;
-        session.send = undefined;
-        authHandler.clearAuthState(session.id);
-        clients.delete(session.id);
-        if (disconnectedUserId) {
-            let hasOtherSessions = false;
-            for (const otherSession of clients.values()) {
-                if (otherSession.userId === disconnectedUserId) {
-                    hasOtherSessions = true;
-                    break;
-                }
-            }
-            if (!hasOtherSessions) {
-                messageStore.setUserOffline(disconnectedUserId);
-                for (const otherSession of clients.values()) {
-                    if (otherSession.userId && otherSession.userId !== disconnectedUserId) {
-                        const statusVisible = isFieldVisibleByPrivacy(disconnectedUserId, otherSession.userId, 'statusTimestamp');
-                        const statusUpdate = buildUpdateUserStatus(disconnectedUserId, true, statusVisible);
-                        sendSessionUpdate(otherSession, statusUpdate);
-                    }
-                }
-                console.log(`[${new Date().toISOString()}] User ${disconnectedUserId} is now offline`);
-            }
-        }
-    }
-    // Shared message processing logic
-    function processSessionData(buffer, session) {
-        let isPreDecrypted = false;
-        let receiveBuffer = buffer;
-        while (receiveBuffer.length > 0) {
-            try {
-                const result = processBuffer(receiveBuffer, session, isPreDecrypted);
-                if (!result) {
-                    // Store remaining data back for next time
-                    return receiveBuffer;
-                }
-                receiveBuffer = result.remaining || Buffer.alloc(0);
-                isPreDecrypted = result.preDecrypted || false;
-                if (result.response && result.response.length > 0) {
-                    session.send?.(result.response);
-                }
-            }
-            catch (error) {
-                console.error(`[${new Date().toISOString()}] Session ${session.id} processing error:`, error.message);
-                return Buffer.alloc(0);
-            }
-        }
-        return Buffer.alloc(0);
-    }
-    // --- WebSocket server ---
     const server = createServer((req, res) => {
         if (req.method === 'GET' && req.url === '/health') {
             res.writeHead(200, { 'Content-Type': 'text/plain' });
@@ -116,7 +72,7 @@ export function startServer(port, host) {
         const session = {
             id: clientId,
             socket: ws,
-            send: (data) => {
+            sendRaw: (data) => {
                 if (ws.readyState === WebSocket.OPEN)
                     ws.send(data);
             },
@@ -124,54 +80,69 @@ export function startServer(port, host) {
             userId: undefined,
             connectedAt: Date.now(),
             lastActivityAt: Date.now(),
+            serverSeqNo: 0,
+            pendingAckMsgIds: [],
         };
         clients.set(clientId, session);
-        console.log(`[${new Date().toISOString()}] Client connected (WS): ${clientId}`);
+        console.log(`[${new Date().toISOString()}] Client connected: ${clientId}`);
         let receiveBuffer = Buffer.alloc(0);
         ws.on('message', (data) => {
             const buffer = Buffer.isBuffer(data) ? data : Buffer.from(data);
             session.lastActivityAt = Date.now();
             receiveBuffer = Buffer.concat([receiveBuffer, buffer]);
-            receiveBuffer = processSessionData(receiveBuffer, session);
+            let isPreDecrypted = false;
+            while (receiveBuffer.length > 0) {
+                try {
+                    const result = processBuffer(receiveBuffer, session, isPreDecrypted);
+                    if (!result)
+                        break;
+                    receiveBuffer = result.remaining || Buffer.alloc(0);
+                    isPreDecrypted = result.preDecrypted || false;
+                    if (result.response && result.response.length > 0) {
+                        ws.send(result.response);
+                    }
+                }
+                catch (error) {
+                    console.error(`[${new Date().toISOString()}] Session ${session.id} processing error:`, error.message);
+                    receiveBuffer = Buffer.alloc(0);
+                    break;
+                }
+            }
         });
-        ws.on('close', () => handleDisconnect(session));
+        ws.on('close', () => {
+            console.log(`[${new Date().toISOString()}] Client disconnected: ${clientId}`);
+            const disconnectedUserId = session.userId;
+            authHandler.clearAuthState(clientId);
+            clients.delete(clientId);
+            // Check if this user still has other active sessions; if not, mark offline
+            if (disconnectedUserId) {
+                let hasOtherSessions = false;
+                for (const otherSession of clients.values()) {
+                    if (otherSession.userId === disconnectedUserId) {
+                        hasOtherSessions = true;
+                        break;
+                    }
+                }
+                if (!hasOtherSessions) {
+                    messageStore.setUserOffline(disconnectedUserId);
+                    // Broadcast offline status to all connected users (respecting privacy)
+                    for (const otherSession of clients.values()) {
+                        if (otherSession.userId && otherSession.userId !== disconnectedUserId) {
+                            const statusVisible = isFieldVisibleByPrivacy(disconnectedUserId, otherSession.userId, 'statusTimestamp');
+                            const statusUpdate = buildUpdateUserStatus(disconnectedUserId, true, statusVisible);
+                            sendSessionUpdate(otherSession, statusUpdate);
+                        }
+                    }
+                    console.log(`[${new Date().toISOString()}] User ${disconnectedUserId} is now offline`);
+                }
+            }
+        });
         ws.on('error', (error) => {
-            console.error(`[${new Date().toISOString()}] Client ${clientId} WS error:`, error);
+            console.error(`[${new Date().toISOString()}] Client ${clientId} error:`, error);
         });
     });
     server.listen(port, host, () => {
-        console.log(`[${new Date().toISOString()}] MTProto WebSocket server running on ${host}:${port}`);
-    });
-    // --- TCP server (for native clients like Telegram-iOS) ---
-    const tcpServer = net.createServer((socket) => {
-        const clientId = generateClientId();
-        const session = {
-            id: clientId,
-            tcpSocket: socket,
-            send: (data) => {
-                if (!socket.destroyed)
-                    socket.write(data);
-            },
-            dcId: 2,
-            userId: undefined,
-            connectedAt: Date.now(),
-            lastActivityAt: Date.now(),
-        };
-        clients.set(clientId, session);
-        console.log(`[${new Date().toISOString()}] Client connected (TCP): ${clientId}`);
-        let receiveBuffer = Buffer.alloc(0);
-        socket.on('data', (data) => {
-            session.lastActivityAt = Date.now();
-            receiveBuffer = Buffer.concat([receiveBuffer, data]);
-            receiveBuffer = processSessionData(receiveBuffer, session);
-        });
-        socket.on('close', () => handleDisconnect(session));
-        socket.on('error', (error) => {
-            console.error(`[${new Date().toISOString()}] Client ${clientId} TCP error:`, error);
-        });
-    });
-    tcpServer.listen(tcpPort, host, () => {
-        console.log(`[${new Date().toISOString()}] MTProto TCP server running on ${host}:${tcpPort}`);
+        console.log(`[${new Date().toISOString()}] MTProto server running on ${host}:${port}`);
     });
     // Periodic session cleanup: remove sessions inactive for 30 days
     const SESSION_TTL_SECONDS = 30 * 24 * 60 * 60; // 30 days
@@ -181,7 +152,7 @@ export function startServer(port, host) {
             console.log(`[${new Date().toISOString()}] Cleaned up ${cleaned} expired session(s)`);
         }
     }, 60 * 60 * 1000); // check every hour
-    return { server, wss, tcpServer, clients };
+    return { server, wss, clients };
 }
 function processBuffer(buffer, session, preDecrypted = false) {
     // Step 1: Handle obfuscation header (first 64 bytes from client)
@@ -211,7 +182,6 @@ function processBuffer(buffer, session, preDecrypted = false) {
         }
         session.obfuscated = true;
         session.handshakeComplete = true;
-        // console.log(`[${new Date().toISOString()}] Session ${session.id} obfuscated transport initialized`);
         return { remaining: buffer.slice(64), response: Buffer.alloc(0) };
     }
     if (!session.decryptor) {
@@ -257,7 +227,6 @@ function processBuffer(buffer, session, preDecrypted = false) {
 function handleUnencryptedAuthPayload(buffer, session) {
     const reader = new BinaryReader(buffer);
     const constructorId = reader.peekConstructorId();
-    // console.log(`[${new Date().toISOString()}] Session ${session.id} received: 0x${constructorId.toString(16)}`);
     switch (constructorId) {
         case 0xbe7e8ef1: // req_pq_multi
         case 0x60469778: // req_pq (legacy)
@@ -373,6 +342,8 @@ function handleEncryptedMessage(data, session) {
     let newSessionMsg = null;
     if (!session.sentNewSessionCreated) {
         session.sentNewSessionCreated = true;
+        session.serverSeqNo = 0; // reset seq_no counter for new session
+        session.pendingAckMsgIds = []; // clear pending acks
         const nsW = new BinaryWriter();
         nsW.writeInt(0x9ec20908); // new_session_created
         nsW.writeLong(messageId); // first_msg_id
@@ -385,41 +356,50 @@ function handleEncryptedMessage(data, session) {
     // Parse TL constructor from inner data
     const constructorId = innerData.readUInt32LE(0);
     // (verbose) inner constructor log suppressed
+    // Track incoming msg_id for acknowledgement (content-related messages only)
+    const clientSeqNo = seqNo;
+    if (clientSeqNo % 2 === 1) {
+        // Odd seq_no = content-related → needs ack
+        session.pendingAckMsgIds.push(messageId);
+    }
     // Handle msg_container
     if (constructorId === 0x73f1f8dc) {
         // IMPORTANT: encrypt and send new_session_created BEFORE the container,
         // so CTR cipher state advances in the same order as the send order.
         if (newSessionMsg) {
-            const nsBuf = createEncryptedResponse(newSessionMsg, 0n, session, authKey);
-            session.send?.(nsBuf);
+            const nsBuf = createEncryptedResponse(newSessionMsg, 0n, session, authKey, false);
+            session.socket?.send(nsBuf);
         }
         const containerResp = handleMsgContainer(innerData, messageId, session, authKey);
+        // Send pending msgs_ack after container processing
+        flushPendingAcks(session, authKey);
         return containerResp;
     }
     // Service messages that should NOT be wrapped in rpc_result
     if (isServiceMessage(constructorId)) {
         const responseData = handleTlRequest(innerData, session, messageId, getHandlerCtx());
         if (newSessionMsg) {
-            const nsBuf = createEncryptedResponse(newSessionMsg, 0n, session, authKey);
-            session.send?.(nsBuf);
+            const nsBuf = createEncryptedResponse(newSessionMsg, 0n, session, authKey, false);
+            session.socket?.send(nsBuf);
         }
         if (!responseData)
             return null;
-        return createEncryptedResponse(responseData, messageId, session, authKey);
+        // pong, msgs_ack responses are NOT content-related
+        return createEncryptedResponse(responseData, messageId, session, authKey, false);
     }
     // RPC call: rate limit check
     if (!rpcLimiter.check(session.id)) {
         console.log(`[${new Date().toISOString()}] Session ${session.id} RATE LIMITED`);
         const floodError = buildRpcErrorObject(420, 'FLOOD_WAIT_30');
         if (newSessionMsg) {
-            const nsBuf = createEncryptedResponse(newSessionMsg, 0n, session, authKey);
-            session.send?.(nsBuf);
+            const nsBuf = createEncryptedResponse(newSessionMsg, 0n, session, authKey, false);
+            session.socket?.send(nsBuf);
         }
         const rpcFlood = new BinaryWriter();
         rpcFlood.writeInt(0xf35c6d01);
         rpcFlood.writeLong(messageId);
         rpcFlood.writeBytes(floodError);
-        return createEncryptedResponse(rpcFlood.getBytes(), messageId, session, authKey);
+        return createEncryptedResponse(rpcFlood.getBytes(), messageId, session, authKey, true);
     }
     // RPC call: process and wrap in rpc_result
     let responseData = null;
@@ -432,8 +412,8 @@ function handleEncryptedMessage(data, session) {
         responseData = buildRpcErrorObject(500, 'INTERNAL_ERROR');
     }
     if (newSessionMsg) {
-        const nsBuf = createEncryptedResponse(newSessionMsg, 0n, session, authKey);
-        session.send?.(nsBuf);
+        const nsBuf = createEncryptedResponse(newSessionMsg, 0n, session, authKey, false);
+        session.socket?.send(nsBuf);
     }
     if (!responseData)
         return null;
@@ -441,13 +421,16 @@ function handleEncryptedMessage(data, session) {
     rpcResult.writeInt(0xf35c6d01); // rpc_result constructor
     rpcResult.writeLong(messageId); // req_msg_id
     rpcResult.writeBytes(responseData);
-    return createEncryptedResponse(rpcResult.getBytes(), messageId, session, authKey);
+    // Send pending msgs_ack before rpc_result
+    flushPendingAcks(session, authKey);
+    return createEncryptedResponse(rpcResult.getBytes(), messageId, session, authKey, true);
 }
 function handleMsgContainer(data, containerMsgId, session, authKey) {
     // msg_container#73f1f8dc count:int messages:...
     const count = data.readInt32LE(4);
     let offset = 8; // skip constructor(4) + count(4)
     const responses = [];
+    const responseIsContent = []; // track content-related per response
     for (let i = 0; i < count; i++) {
         if (offset + 16 > data.length)
             break;
@@ -460,7 +443,10 @@ function handleMsgContainer(data, containerMsgId, session, authKey) {
         const body = data.slice(offset, offset + bodyLen);
         offset += bodyLen;
         const innerConstructor = body.readUInt32LE(0);
-        // (verbose) container item log suppressed
+        // Track content-related incoming messages for ack
+        if (seqNo % 2 === 1) {
+            session.pendingAckMsgIds.push(msgId);
+        }
         let responseData = null;
         try {
             responseData = handleTlRequest(body, session, msgId, getHandlerCtx());
@@ -473,6 +459,7 @@ function handleMsgContainer(data, containerMsgId, session, authKey) {
             if (isServiceMessage(innerConstructor)) {
                 // Service messages (ping, msgs_ack) — send response directly, no rpc_result
                 responses.push(responseData);
+                responseIsContent.push(false);
             }
             else {
                 const rpcResult = new BinaryWriter();
@@ -480,8 +467,22 @@ function handleMsgContainer(data, containerMsgId, session, authKey) {
                 rpcResult.writeLong(msgId);
                 rpcResult.writeBytes(responseData);
                 responses.push(rpcResult.getBytes());
+                responseIsContent.push(true);
             }
         }
+    }
+    // Build msgs_ack for all content-related messages in this container
+    if (session.pendingAckMsgIds.length > 0) {
+        const ackW = new BinaryWriter();
+        ackW.writeInt(0x62d6b459); // msgs_ack
+        ackW.writeInt(0x1cb5c415); // vector constructor
+        ackW.writeInt(session.pendingAckMsgIds.length);
+        for (const id of session.pendingAckMsgIds) {
+            ackW.writeLong(id);
+        }
+        session.pendingAckMsgIds = [];
+        responses.push(ackW.getBytes());
+        responseIsContent.push(false);
     }
     if (responses.length === 0)
         return null;
@@ -490,19 +491,61 @@ function handleMsgContainer(data, containerMsgId, session, authKey) {
     containerW.writeInt(0x73f1f8dc); // msg_container
     containerW.writeInt(responses.length);
     let baseMsgId = generateMessageId();
-    for (const resp of responses) {
+    for (let i = 0; i < responses.length; i++) {
         containerW.writeLong(baseMsgId);
         baseMsgId += 4n; // ensure unique message IDs
-        containerW.writeInt(1); // seqNo
-        containerW.writeInt(resp.length);
-        containerW.writeBytes(resp);
+        containerW.writeInt(getNextSeqNo(session, responseIsContent[i]));
+        containerW.writeInt(responses[i].length);
+        containerW.writeBytes(responses[i]);
     }
-    return createEncryptedResponse(containerW.getBytes(), containerMsgId, session, authKey);
+    // msg_container itself is NOT content-related
+    return createEncryptedResponse(containerW.getBytes(), containerMsgId, session, authKey, false);
 }
 function getHandlerCtx() {
-    return { authKeyUserMap, broadcastToUser, broadcastSessionUpdates, removeAuthKey: (key) => authHandler.removeAuthKey(key) };
+    return {
+        authKeyUserMap,
+        broadcastToUser,
+        broadcastSessionUpdates,
+        removeAuthKey: (key) => authHandler.removeAuthKey(key),
+        sendDeferredRpcResult: (session, reqMsgId, payload) => {
+            // Wrap the payload in rpc_result and send it out-of-band. Used by handlers
+            // that return `null` synchronously and complete asynchronously (e.g.
+            // `messages.getWebPagePreview` awaiting an OpenGraph fetch).
+            const authKey = session.authKey;
+            if (!authKey)
+                return;
+            if (!session.socket && !session.tcpSocket)
+                return;
+            const rpcResult = new BinaryWriter();
+            rpcResult.writeInt(0xf35c6d01); // rpc_result
+            rpcResult.writeLong(reqMsgId);
+            rpcResult.writeBytes(payload);
+            try {
+                const encrypted = createEncryptedResponse(rpcResult.getBytes(), reqMsgId, session, authKey, true);
+                session.sendRaw(encrypted);
+            }
+            catch (e) {
+                console.error(`[${new Date().toISOString()}] sendDeferredRpcResult failed:`, e.message);
+            }
+        },
+    };
 }
-function createEncryptedResponse(responseData, reqMsgId, session, authKey) {
+// Send accumulated msgs_ack to the client for all pending content-related messages
+function flushPendingAcks(session, authKey) {
+    if (session.pendingAckMsgIds.length === 0)
+        return;
+    const ackW = new BinaryWriter();
+    ackW.writeInt(0x62d6b459); // msgs_ack
+    ackW.writeInt(0x1cb5c415); // vector constructor
+    ackW.writeInt(session.pendingAckMsgIds.length);
+    for (const id of session.pendingAckMsgIds) {
+        ackW.writeLong(id);
+    }
+    session.pendingAckMsgIds = [];
+    const ackBuf = createEncryptedResponse(ackW.getBytes(), 0n, session, authKey, false);
+    session.sendRaw(ackBuf);
+}
+function createEncryptedResponse(responseData, reqMsgId, session, authKey, contentRelated = true) {
     // Build inner message
     const innerW = new BinaryWriter();
     innerW.writeBytes(session.serverSalt || Buffer.alloc(8)); // server_salt
@@ -510,7 +553,7 @@ function createEncryptedResponse(responseData, reqMsgId, session, authKey) {
     // message_id (server response: must be slightly after request)  
     const respMsgId = generateMessageId();
     innerW.writeLong(respMsgId);
-    innerW.writeInt(1); // seq_no (server, content-related = odd)
+    innerW.writeInt(getNextSeqNo(session, contentRelated)); // seq_no
     innerW.writeInt(responseData.length); // message_data_length
     innerW.writeBytes(responseData);
     // Add padding (12-1024 bytes, total must be divisible by 16)
@@ -554,9 +597,6 @@ function createEncryptedResponse(responseData, reqMsgId, session, authKey) {
     return frame;
 }
 function sendSessionUpdate(session, responseData) {
-    if (!session.send) {
-        return;
-    }
     if (!session.serverSalt || !session.sessionId) {
         return;
     }
@@ -564,13 +604,19 @@ function sendSessionUpdate(session, responseData) {
     if (!authKey) {
         return;
     }
-    session.send(createEncryptedResponse(responseData, 0n, session, authKey));
+    session.sendRaw(createEncryptedResponse(responseData, 0n, session, authKey));
 }
 function broadcastSessionUpdates(sourceSession, responseData) {
     if (!responseData) {
         return;
     }
-    const sourceUserId = sourceSession.userId || SEED_USER_ID;
+    // No userId on the source session means the originator is unauthenticated —
+    // refuse to broadcast anything. Falling back to SEED_USER_ID here would leak
+    // updates to all sessions owned by user 100000.
+    const sourceUserId = sourceSession.userId;
+    if (!sourceUserId) {
+        return;
+    }
     let sentCount = 0;
     for (const targetSession of clients.values()) {
         if (targetSession.id === sourceSession.id) {
@@ -608,5 +654,94 @@ function broadcastToUser(targetUserId, responseData, excludeSessionId) {
     if (sentCount > 0) {
         console.log(`[${new Date().toISOString()}] BroadcastToUser ${targetUserId}: ${responseData.length} bytes to ${sentCount} sessions`);
     }
+}
+// ─── TCP Transport ───────────────────────────────────────────────────────────
+// Raw TCP server for mobile clients (iOS/Android/TDLib).
+// Shares all protocol logic with the WebSocket server — only the transport
+// layer (how bytes arrive/leave) is different.
+export function startTcpServer(tcpPort, host) {
+    const tcpServer = createTcpServer((socket) => {
+        const clientId = generateClientId();
+        const session = {
+            id: clientId,
+            tcpSocket: socket,
+            sendRaw: (data) => {
+                if (!socket.destroyed)
+                    socket.write(data);
+            },
+            dcId: 2,
+            userId: undefined,
+            connectedAt: Date.now(),
+            lastActivityAt: Date.now(),
+            serverSeqNo: 0,
+            pendingAckMsgIds: [],
+        };
+        clients.set(clientId, session);
+        const remoteAddr = `${socket.remoteAddress}:${socket.remotePort}`;
+        console.log(`[${new Date().toISOString()}] [TCP] Client connected: ${clientId} (${remoteAddr})`);
+        let receiveBuffer = Buffer.alloc(0);
+        let isPreDecrypted = false;
+        socket.on('data', (chunk) => {
+            session.lastActivityAt = Date.now();
+            receiveBuffer = Buffer.concat([receiveBuffer, chunk]);
+            while (receiveBuffer.length > 0) {
+                try {
+                    const result = processBuffer(receiveBuffer, session, isPreDecrypted);
+                    if (!result)
+                        break;
+                    receiveBuffer = result.remaining || Buffer.alloc(0);
+                    isPreDecrypted = result.preDecrypted || false;
+                    if (result.response && result.response.length > 0) {
+                        if (!socket.destroyed)
+                            socket.write(result.response);
+                    }
+                }
+                catch (error) {
+                    console.error(`[${new Date().toISOString()}] [TCP] Session ${session.id} processing error:`, error.message);
+                    receiveBuffer = Buffer.alloc(0);
+                    break;
+                }
+            }
+        });
+        socket.on('close', () => {
+            console.log(`[${new Date().toISOString()}] [TCP] Client disconnected: ${clientId}`);
+            const disconnectedUserId = session.userId;
+            authHandler.clearAuthState(clientId);
+            clients.delete(clientId);
+            if (disconnectedUserId) {
+                let hasOtherSessions = false;
+                for (const otherSession of clients.values()) {
+                    if (otherSession.userId === disconnectedUserId) {
+                        hasOtherSessions = true;
+                        break;
+                    }
+                }
+                if (!hasOtherSessions) {
+                    messageStore.setUserOffline(disconnectedUserId);
+                    for (const otherSession of clients.values()) {
+                        if (otherSession.userId && otherSession.userId !== disconnectedUserId) {
+                            const statusVisible = isFieldVisibleByPrivacy(disconnectedUserId, otherSession.userId, 'statusTimestamp');
+                            const statusUpdate = buildUpdateUserStatus(disconnectedUserId, true, statusVisible);
+                            sendSessionUpdate(otherSession, statusUpdate);
+                        }
+                    }
+                    console.log(`[${new Date().toISOString()}] [TCP] User ${disconnectedUserId} is now offline`);
+                }
+            }
+        });
+        socket.on('error', (err) => {
+            // ECONNRESET / EPIPE are normal — mobile clients close connections abruptly
+            if (err.code !== 'ECONNRESET' &&
+                err.code !== 'EPIPE') {
+                console.error(`[${new Date().toISOString()}] [TCP] Client ${clientId} error:`, err.message);
+            }
+        });
+    });
+    tcpServer.on('error', (err) => {
+        console.error(`[${new Date().toISOString()}] [TCP] Server error:`, err);
+    });
+    tcpServer.listen(tcpPort, host, () => {
+        console.log(`[${new Date().toISOString()}] [TCP] MTProto TCP server running on ${host}:${tcpPort}`);
+    });
 }
 //# sourceMappingURL=server.js.map

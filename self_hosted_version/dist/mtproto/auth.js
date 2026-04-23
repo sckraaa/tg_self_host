@@ -191,8 +191,8 @@ export class AuthHandler {
         resPQ.writeBytes(nonce);
         resPQ.writeBytes(state.serverNonce);
         // pq must be a product of two primes that the client can factorize
-        // Using well-known test primes
-        const p = 1229539381n;
+        // Both p and q must be actual primes for MTFactorize (Pollard rho) to work
+        const p = 1229539387n;
         const q = 1402015859n;
         const pqValue = p * q;
         const pBuf = Buffer.alloc(4);

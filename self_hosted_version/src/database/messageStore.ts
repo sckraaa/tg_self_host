@@ -24,6 +24,8 @@ export interface StoredMessage {
   fwdFromName?: string;
   fwdDate?: number;
   actionType?: string;
+  /** Serialized TL `Vector<MessageEntity>` blob (audit #2). */
+  entities?: Buffer;
 }
 
 export interface StoredChat {
@@ -176,7 +178,10 @@ type MessageRow = {
   fwd_from_name: string | null;
   fwd_date: number | null;
   action_type: string | null;
+  entities: Buffer | null;
 };
+
+const MESSAGE_COLUMNS = `peer_key, message_id, client_random_id, date, text, is_outgoing, from_peer_key, post, edit_date, reply_to_msg_id, quote_text, quote_offset, media_id, fwd_from_peer_key, fwd_from_name, fwd_date, action_type, entities`;
 
 type UpdateStateRow = {
   pts: number;
@@ -208,14 +213,14 @@ class MessageStore {
   listMessages(ownerUserId: number, peerKey: string, limit?: number): StoredMessage[] {
     const query = limit
       ? this.db.prepare(`
-          SELECT peer_key, message_id, client_random_id, date, text, is_outgoing, from_peer_key, post, edit_date, reply_to_msg_id, quote_text, quote_offset, media_id, fwd_from_peer_key, fwd_from_name, fwd_date, action_type
+          SELECT peer_key, message_id, client_random_id, date, text, is_outgoing, from_peer_key, post, edit_date, reply_to_msg_id, quote_text, quote_offset, media_id, fwd_from_peer_key, fwd_from_name, fwd_date, action_type, entities
           FROM app_messages
           WHERE owner_user_id = ? AND peer_key = ?
           ORDER BY message_id DESC
           LIMIT ?
         `)
       : this.db.prepare(`
-          SELECT peer_key, message_id, client_random_id, date, text, is_outgoing, from_peer_key, post, edit_date, reply_to_msg_id, quote_text, quote_offset, media_id, fwd_from_peer_key, fwd_from_name, fwd_date, action_type
+          SELECT peer_key, message_id, client_random_id, date, text, is_outgoing, from_peer_key, post, edit_date, reply_to_msg_id, quote_text, quote_offset, media_id, fwd_from_peer_key, fwd_from_name, fwd_date, action_type, entities
           FROM app_messages
           WHERE owner_user_id = ? AND peer_key = ?
           ORDER BY message_id DESC
@@ -230,7 +235,7 @@ class MessageStore {
 
   findByRandomId(ownerUserId: number, peerKey: string, randomId: string) {
     const row = this.db.prepare(`
-      SELECT peer_key, message_id, client_random_id, date, text, is_outgoing, from_peer_key, post, edit_date, reply_to_msg_id, quote_text, quote_offset, media_id, fwd_from_peer_key, fwd_from_name, fwd_date, action_type
+      SELECT peer_key, message_id, client_random_id, date, text, is_outgoing, from_peer_key, post, edit_date, reply_to_msg_id, quote_text, quote_offset, media_id, fwd_from_peer_key, fwd_from_name, fwd_date, action_type, entities
       FROM app_messages
       WHERE owner_user_id = ? AND peer_key = ? AND client_random_id = ?
     `).get(ownerUserId, peerKey, randomId) as MessageRow | undefined;
@@ -247,7 +252,7 @@ class MessageStore {
 
   getMessageForUser(messageId: number, userId: number): StoredMessage | undefined {
     const row = this.db.prepare(`
-      SELECT peer_key, message_id, client_random_id, date, text, is_outgoing, from_peer_key, post, edit_date, reply_to_msg_id, quote_text, quote_offset, media_id, fwd_from_peer_key, fwd_from_name, fwd_date, action_type
+      SELECT peer_key, message_id, client_random_id, date, text, is_outgoing, from_peer_key, post, edit_date, reply_to_msg_id, quote_text, quote_offset, media_id, fwd_from_peer_key, fwd_from_name, fwd_date, action_type, entities
       FROM app_messages
       WHERE owner_user_id = ? AND message_id = ?
       LIMIT 1
@@ -257,7 +262,7 @@ class MessageStore {
 
   getMessage(ownerUserId: number, peerKey: string, messageId: number) {
     const row = this.db.prepare(`
-      SELECT peer_key, message_id, client_random_id, date, text, is_outgoing, from_peer_key, post, edit_date, reply_to_msg_id, quote_text, quote_offset, media_id, fwd_from_peer_key, fwd_from_name, fwd_date, action_type
+      SELECT peer_key, message_id, client_random_id, date, text, is_outgoing, from_peer_key, post, edit_date, reply_to_msg_id, quote_text, quote_offset, media_id, fwd_from_peer_key, fwd_from_name, fwd_date, action_type, entities
       FROM app_messages
       WHERE owner_user_id = ? AND peer_key = ? AND message_id = ?
     `).get(ownerUserId, peerKey, messageId) as MessageRow | undefined;
@@ -352,7 +357,17 @@ class MessageStore {
     const nextReadOutboxMaxId = current?.readOutboxMaxId || 0;
     const didAdvance = nextReadInboxMaxId > (current?.readInboxMaxId || 0);
 
-    this.upsertPeerState(ownerUserId, peerKey, nextReadInboxMaxId, nextReadOutboxMaxId);
+    // Pass a fresh read timestamp only when the inbox pointer actually moves,
+    // so that outbox read receipts for the sender get a real wall-clock time
+    // (and stay fixed on subsequent polls rather than drifting to "now").
+    const nowSec = Math.floor(Date.now() / 1000);
+    this.upsertPeerState(
+      ownerUserId,
+      peerKey,
+      nextReadInboxMaxId,
+      nextReadOutboxMaxId,
+      didAdvance ? nowSec : undefined,
+    );
     const updateInfo = didAdvance
       ? this.appendUpdateEvent(ownerUserId, {
           kind: 'read_history',
@@ -377,7 +392,15 @@ class MessageStore {
   appendUpdateEvent_ReadHistory(ownerUserId: number, peerKey: string, maxId: number): { pts: number; ptsCount: number } {
     const current = this.getPeerState(ownerUserId, peerKey);
     const nextReadInboxMaxId = Math.max(current?.readInboxMaxId || 0, maxId);
-    this.upsertPeerState(ownerUserId, peerKey, nextReadInboxMaxId, current?.readOutboxMaxId || 0);
+    const didAdvance = nextReadInboxMaxId > (current?.readInboxMaxId || 0);
+    const nowSec = Math.floor(Date.now() / 1000);
+    this.upsertPeerState(
+      ownerUserId,
+      peerKey,
+      nextReadInboxMaxId,
+      current?.readOutboxMaxId || 0,
+      didAdvance ? nowSec : undefined,
+    );
     const info = this.appendUpdateEvent(ownerUserId, {
       kind: 'read_history',
       peerKey,
@@ -413,6 +436,8 @@ class MessageStore {
     fwdFromName?: string;
     fwdDate?: number;
     actionType?: string;
+    isIncoming?: boolean;
+    entities?: Buffer;
   }): StoredMessage & { updatePts: number; updatePtsCount: number; updateDate: number } {
     const existing = this.findByRandomId(ownerUserId, input.peerKey, input.clientRandomId);
     if (existing) {
@@ -425,7 +450,7 @@ class MessageStore {
       };
     }
 
-    const nextMessageId = this.reserveMessageId(ownerUserId, input.peerKey, input.seedMaxMessageId + 1);
+    const nextMessageId = this.reserveMessageId(ownerUserId, input.seedMaxMessageId + 1);
     const date = Math.floor(Date.now() / 1000);
 
     this.db.prepare(`
@@ -447,8 +472,9 @@ class MessageStore {
         fwd_from_peer_key,
         fwd_from_name,
         fwd_date,
-        action_type
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        action_type,
+        entities
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `).run(
       ownerUserId,
       input.peerKey,
@@ -456,7 +482,7 @@ class MessageStore {
       input.clientRandomId,
       date,
       input.text,
-      1,
+      input.isIncoming ? 0 : 1,
       input.fromPeerKey || null,
       input.post ? 1 : 0,
       date,
@@ -468,6 +494,7 @@ class MessageStore {
       input.fwdFromName || null,
       input.fwdDate || null,
       input.actionType || null,
+      input.entities || null,
     );
 
     const currentState = this.getPeerState(ownerUserId, input.peerKey);
@@ -475,7 +502,7 @@ class MessageStore {
       ownerUserId,
       input.peerKey,
       currentState?.readInboxMaxId || 0,
-      Math.max(currentState?.readOutboxMaxId || 0, nextMessageId),
+      currentState?.readOutboxMaxId || 0,
     );
     const updateInfo = this.appendUpdateEvent(ownerUserId, {
       kind: 'new_message',
@@ -500,6 +527,7 @@ class MessageStore {
       fwdFromName: input.fwdFromName,
       fwdDate: input.fwdDate,
       actionType: input.actionType,
+      entities: input.entities,
       updatePts: updateInfo.pts,
       updatePtsCount: updateInfo.ptsCount,
       updateDate: updateInfo.date,
@@ -510,11 +538,24 @@ class MessageStore {
     this.db.prepare(`UPDATE app_messages SET is_outgoing = 0 WHERE owner_user_id = ? AND peer_key = ? AND message_id = ?`).run(ownerUserId, peerKey, messageId);
   }
 
-  editMessage(ownerUserId: number, peerKey: string, messageId: number, newText: string): { message: StoredMessage; updatePts: number; updatePtsCount: number } | undefined {
+  editMessage(
+    ownerUserId: number,
+    peerKey: string,
+    messageId: number,
+    newText: string,
+    entities?: Buffer | null,
+  ): { message: StoredMessage; updatePts: number; updatePtsCount: number } | undefined {
     const editDate = Math.floor(Date.now() / 1000);
-    const result = this.db.prepare(`
-      UPDATE app_messages SET text = ?, edit_date = ? WHERE owner_user_id = ? AND peer_key = ? AND message_id = ?
-    `).run(newText, editDate, ownerUserId, peerKey, messageId);
+    // `entities === undefined` → keep the existing BLOB (don't touch formatting).
+    // `entities === null`      → explicitly clear formatting.
+    // `entities` is a Buffer   → overwrite with new formatting.
+    const result = entities === undefined
+      ? this.db.prepare(`
+          UPDATE app_messages SET text = ?, edit_date = ? WHERE owner_user_id = ? AND peer_key = ? AND message_id = ?
+        `).run(newText, editDate, ownerUserId, peerKey, messageId)
+      : this.db.prepare(`
+          UPDATE app_messages SET text = ?, edit_date = ?, entities = ? WHERE owner_user_id = ? AND peer_key = ? AND message_id = ?
+        `).run(newText, editDate, entities, ownerUserId, peerKey, messageId);
     if (result.changes === 0) return undefined;
 
     const message = this.getMessage(ownerUserId, peerKey, messageId);
@@ -540,15 +581,21 @@ class MessageStore {
 
   findMessageInAllPeers(ownerUserId: number, messageId: number): StoredMessage | undefined {
     const row = this.db.prepare(`
-      SELECT peer_key, message_id, client_random_id, date, text, is_outgoing, from_peer_key, post, edit_date, reply_to_msg_id, quote_text, quote_offset, media_id, fwd_from_peer_key, fwd_from_name, fwd_date, action_type
+      SELECT peer_key, message_id, client_random_id, date, text, is_outgoing, from_peer_key, post, edit_date, reply_to_msg_id, quote_text, quote_offset, media_id, fwd_from_peer_key, fwd_from_name, fwd_date, action_type, entities
       FROM app_messages WHERE owner_user_id = ? AND message_id = ? LIMIT 1
     `).get(ownerUserId, messageId) as MessageRow | undefined;
     return row ? mapMessageRow(row) : undefined;
   }
 
   /**
-   * Resolve sender's messageIds to the corresponding messageIds in the recipient's store.
-   * Uses clientRandomId mapping: sender has "X", recipient has "recv_X".
+   * Resolve sender's messageIds to the corresponding messageIds in the recipient's store
+   * for the **P2P** case (both stores share a single `recv_X <-> X` clientRandomId pair).
+   *
+   * Group/channel chats store one message per participant with distinct random ids
+   * (`group_X_<uid>`, `group_fwd_X_<uid>`, …) and cannot be resolved by this simple
+   * prefix trick — for those, look up by `peerKey` directly in each owner's store.
+   * The preconditions below enforce that constraint so a misuse fails loudly instead
+   * of silently returning empty or the wrong ids.
    */
   resolveRecipientMessageIds(
     senderUserId: number,
@@ -557,6 +604,16 @@ class MessageStore {
     recipientPeerKey: string,
     senderMessageIds: number[],
   ): number[] {
+    if (!senderPeerKey.startsWith('user:') || !recipientPeerKey.startsWith('user:')) {
+      throw new Error(
+        `resolveRecipientMessageIds is P2P-only; got sender=${senderPeerKey} recipient=${recipientPeerKey}`,
+      );
+    }
+    if (senderPeerKey === `user:${senderUserId}` || recipientPeerKey === `user:${recipientUserId}`) {
+      // Self-chat (Saved Messages) — no recipient-side counterpart exists.
+      return [];
+    }
+
     const recipientIds: number[] = [];
     for (const msgId of senderMessageIds) {
       const senderMsg = this.getMessage(senderUserId, senderPeerKey, msgId);
@@ -568,6 +625,52 @@ class MessageStore {
       if (recipientMsg) recipientIds.push(recipientMsg.messageId);
     }
     return recipientIds;
+  }
+
+  /**
+   * Map a sender's message id in a group/channel to the recipient's own copy
+   * (which was inserted during group broadcast with a `group_<senderRandom>_<uid>`
+   * clientRandomId). This is the group-chat counterpart of
+   * `resolveRecipientMessageIds` and is the key piece needed for reactions / edits
+   * / deletes to span across participants' parallel copies.
+   *
+   * Falls back to a `(date, text)` lookup if the deterministic key isn't found —
+   * useful during migrations from the old `group_fwd_<ts>_<i>_<uid>` scheme.
+   */
+  resolveGroupRecipientMessageIds(
+    senderUserId: number,
+    peerKey: string,
+    senderMessageIds: number[],
+    recipientUserId: number,
+  ): number[] {
+    if (senderUserId === recipientUserId) return senderMessageIds;
+    if (!peerKey.startsWith('chat:') && !peerKey.startsWith('channel:')) {
+      throw new Error(
+        `resolveGroupRecipientMessageIds is group-only; got ${peerKey}`,
+      );
+    }
+    const out: number[] = [];
+    const fallbackStmt = this.db.prepare(`
+      SELECT message_id FROM app_messages
+      WHERE owner_user_id = ? AND peer_key = ? AND date = ? AND text = ? AND from_peer_key = ?
+      ORDER BY message_id ASC LIMIT 1
+    `);
+    for (const msgId of senderMessageIds) {
+      const senderMsg = this.getMessage(senderUserId, peerKey, msgId);
+      if (!senderMsg?.clientRandomId) continue;
+      const expected = `group_${senderMsg.clientRandomId}_${recipientUserId}`;
+      const recipientMsg = this.findByRandomId(recipientUserId, peerKey, expected);
+      if (recipientMsg) {
+        out.push(recipientMsg.messageId);
+        continue;
+      }
+      // Fallback: match by date+text+sender for legacy rows missing the deterministic key.
+      const row = fallbackStmt.get(
+        recipientUserId, peerKey, senderMsg.date, senderMsg.text, senderMsg.fromPeerKey ?? `user:${senderUserId}`,
+      ) as { message_id: number } | undefined;
+      if (row) out.push(row.message_id);
+    }
+    return out;
   }
 
   saveAuthKey(keyIdHex: string, authKey: Buffer): void {
@@ -768,7 +871,7 @@ class MessageStore {
   /** Get last message for a peer key owned by a user */
   getLastMessage(ownerUserId: number, peerKey: string): StoredMessage | undefined {
     const row = this.db.prepare(`
-      SELECT peer_key, message_id, client_random_id, date, text, is_outgoing, from_peer_key, post, edit_date, reply_to_msg_id, quote_text, quote_offset, media_id, fwd_from_peer_key, fwd_from_name, fwd_date, action_type
+      SELECT peer_key, message_id, client_random_id, date, text, is_outgoing, from_peer_key, post, edit_date, reply_to_msg_id, quote_text, quote_offset, media_id, fwd_from_peer_key, fwd_from_name, fwd_date, action_type, entities
       FROM app_messages WHERE owner_user_id = ? AND peer_key = ? ORDER BY message_id DESC LIMIT 1
     `).get(ownerUserId, peerKey) as MessageRow | undefined;
     return row ? mapMessageRow(row) : undefined;
@@ -818,7 +921,7 @@ class MessageStore {
       sql = `
         SELECT m.peer_key, m.message_id, m.client_random_id, m.date, m.text,
                m.is_outgoing, m.from_peer_key, m.post, m.edit_date,
-               m.reply_to_msg_id, m.quote_text, m.quote_offset, m.media_id, m.fwd_from_peer_key, m.fwd_from_name, m.fwd_date, m.action_type
+               m.reply_to_msg_id, m.quote_text, m.quote_offset, m.media_id, m.fwd_from_peer_key, m.fwd_from_name, m.fwd_date, m.action_type, m.entities
         FROM app_messages m
         JOIN app_messages_fts fts ON fts.rowid = m.rowid
         WHERE m.owner_user_id = ?
@@ -830,7 +933,7 @@ class MessageStore {
       sql = `
         SELECT peer_key, message_id, client_random_id, date, text,
                is_outgoing, from_peer_key, post, edit_date,
-               reply_to_msg_id, quote_text, quote_offset, media_id, fwd_from_peer_key, fwd_from_name, fwd_date, action_type
+               reply_to_msg_id, quote_text, quote_offset, media_id, fwd_from_peer_key, fwd_from_name, fwd_date, action_type, entities
         FROM app_messages m
         WHERE m.owner_user_id = ?
       `;
@@ -1347,6 +1450,221 @@ class MessageStore {
     this.db.prepare(`DELETE FROM drafts WHERE owner_user_id = ? AND peer_key = ?`).run(ownerUserId, peerKey);
   }
 
+  // ========== PINNED DIALOGS (audit #10) ==========
+
+  getPinnedDialogs(ownerUserId: number): string[] {
+    const rows = this.db.prepare(`
+      SELECT peer_key FROM pinned_dialogs
+      WHERE owner_user_id = ?
+      ORDER BY position ASC
+    `).all(ownerUserId) as { peer_key: string }[];
+    return rows.map(r => r.peer_key);
+  }
+
+  isDialogPinned(ownerUserId: number, peerKey: string): boolean {
+    const row = this.db.prepare(`
+      SELECT 1 AS x FROM pinned_dialogs WHERE owner_user_id = ? AND peer_key = ?
+    `).get(ownerUserId, peerKey) as { x: number } | undefined;
+    return !!row;
+  }
+
+  setDialogPinned(ownerUserId: number, peerKey: string, pinned: boolean): void {
+    const now = Math.floor(Date.now() / 1000);
+    if (!pinned) {
+      this.db.prepare(`DELETE FROM pinned_dialogs WHERE owner_user_id = ? AND peer_key = ?`).run(ownerUserId, peerKey);
+      return;
+    }
+    const maxRow = this.db.prepare(`
+      SELECT COALESCE(MAX(position), -1) AS maxp FROM pinned_dialogs WHERE owner_user_id = ?
+    `).get(ownerUserId) as { maxp: number };
+    this.db.prepare(`
+      INSERT INTO pinned_dialogs (owner_user_id, peer_key, position, updated_at)
+      VALUES (?, ?, ?, ?)
+      ON CONFLICT(owner_user_id, peer_key) DO UPDATE SET updated_at = excluded.updated_at
+    `).run(ownerUserId, peerKey, maxRow.maxp + 1, now);
+  }
+
+  reorderPinnedDialogs(ownerUserId: number, peerKeys: string[]): void {
+    const now = Math.floor(Date.now() / 1000);
+    const tx = this.db.transaction((keys: string[]) => {
+      this.db.prepare(`DELETE FROM pinned_dialogs WHERE owner_user_id = ?`).run(ownerUserId);
+      const ins = this.db.prepare(`
+        INSERT INTO pinned_dialogs (owner_user_id, peer_key, position, updated_at)
+        VALUES (?, ?, ?, ?)
+      `);
+      keys.forEach((k, i) => ins.run(ownerUserId, k, i, now));
+    });
+    tx(peerKeys);
+  }
+
+  // ========== NOTIFY SETTINGS (audit #9) ==========
+
+  getNotifySettings(ownerUserId: number, peerKey: string): { muteUntil: number; showPreviews: boolean; silent: boolean } {
+    const row = this.db.prepare(`
+      SELECT mute_until, show_previews, silent
+      FROM notify_settings
+      WHERE owner_user_id = ? AND peer_key = ?
+    `).get(ownerUserId, peerKey) as { mute_until: number; show_previews: number; silent: number } | undefined;
+    if (!row) return { muteUntil: 0, showPreviews: true, silent: false };
+    return {
+      muteUntil: row.mute_until,
+      showPreviews: row.show_previews !== 0,
+      silent: row.silent !== 0,
+    };
+  }
+
+  setNotifySettings(ownerUserId: number, peerKey: string, input: { muteUntil?: number; showPreviews?: boolean; silent?: boolean }): void {
+    const cur = this.getNotifySettings(ownerUserId, peerKey);
+    const now = Math.floor(Date.now() / 1000);
+    const muteUntil = input.muteUntil ?? cur.muteUntil;
+    const showPreviews = input.showPreviews ?? cur.showPreviews;
+    const silent = input.silent ?? cur.silent;
+    this.db.prepare(`
+      INSERT INTO notify_settings (owner_user_id, peer_key, mute_until, show_previews, silent, updated_at)
+      VALUES (?, ?, ?, ?, ?, ?)
+      ON CONFLICT(owner_user_id, peer_key) DO UPDATE SET
+        mute_until = excluded.mute_until,
+        show_previews = excluded.show_previews,
+        silent = excluded.silent,
+        updated_at = excluded.updated_at
+    `).run(ownerUserId, peerKey, muteUntil, showPreviews ? 1 : 0, silent ? 1 : 0, now);
+  }
+
+  // ========== CONTACTS (audit #6) ==========
+
+  addContact(ownerUserId: number, contactUserId: number, firstName?: string, lastName?: string, phone?: string): void {
+    const now = Math.floor(Date.now() / 1000);
+    this.db.prepare(`
+      INSERT INTO contacts (owner_user_id, contact_user_id, first_name, last_name, phone, date)
+      VALUES (?, ?, ?, ?, ?, ?)
+      ON CONFLICT(owner_user_id, contact_user_id) DO UPDATE SET
+        first_name = excluded.first_name,
+        last_name = excluded.last_name,
+        phone = excluded.phone
+    `).run(ownerUserId, contactUserId, firstName || null, lastName || null, phone || null, now);
+  }
+
+  deleteContact(ownerUserId: number, contactUserId: number): void {
+    this.db.prepare(`DELETE FROM contacts WHERE owner_user_id = ? AND contact_user_id = ?`).run(ownerUserId, contactUserId);
+  }
+
+  isContact(ownerUserId: number, contactUserId: number): boolean {
+    const row = this.db.prepare(`
+      SELECT 1 AS x FROM contacts WHERE owner_user_id = ? AND contact_user_id = ?
+    `).get(ownerUserId, contactUserId) as { x: number } | undefined;
+    return !!row;
+  }
+
+  getContact(ownerUserId: number, contactUserId: number): { firstName?: string; lastName?: string; phone?: string } | undefined {
+    const row = this.db.prepare(`
+      SELECT first_name, last_name, phone FROM contacts WHERE owner_user_id = ? AND contact_user_id = ?
+    `).get(ownerUserId, contactUserId) as { first_name: string | null; last_name: string | null; phone: string | null } | undefined;
+    if (!row) return undefined;
+    return {
+      firstName: row.first_name || undefined,
+      lastName: row.last_name || undefined,
+      phone: row.phone || undefined,
+    };
+  }
+
+  listContacts(ownerUserId: number): Array<{ contactUserId: number; firstName?: string; lastName?: string; phone?: string; date: number }> {
+    const rows = this.db.prepare(`
+      SELECT contact_user_id, first_name, last_name, phone, date
+      FROM contacts
+      WHERE owner_user_id = ?
+      ORDER BY date DESC
+    `).all(ownerUserId) as Array<{ contact_user_id: number; first_name: string | null; last_name: string | null; phone: string | null; date: number }>;
+    return rows.map(r => ({
+      contactUserId: r.contact_user_id,
+      firstName: r.first_name || undefined,
+      lastName: r.last_name || undefined,
+      phone: r.phone || undefined,
+      date: r.date,
+    }));
+  }
+
+  // ========== BLOCKED USERS (audit #6) ==========
+
+  blockUser(ownerUserId: number, blockedUserId: number): void {
+    const now = Math.floor(Date.now() / 1000);
+    this.db.prepare(`
+      INSERT INTO blocked_users (owner_user_id, blocked_user_id, date)
+      VALUES (?, ?, ?)
+      ON CONFLICT(owner_user_id, blocked_user_id) DO NOTHING
+    `).run(ownerUserId, blockedUserId, now);
+  }
+
+  unblockUser(ownerUserId: number, blockedUserId: number): void {
+    this.db.prepare(`DELETE FROM blocked_users WHERE owner_user_id = ? AND blocked_user_id = ?`).run(ownerUserId, blockedUserId);
+  }
+
+  isBlocked(ownerUserId: number, blockedUserId: number): boolean {
+    const row = this.db.prepare(`
+      SELECT 1 AS x FROM blocked_users WHERE owner_user_id = ? AND blocked_user_id = ?
+    `).get(ownerUserId, blockedUserId) as { x: number } | undefined;
+    return !!row;
+  }
+
+  listBlockedUsers(ownerUserId: number): Array<{ userId: number; date: number }> {
+    const rows = this.db.prepare(`
+      SELECT blocked_user_id, date
+      FROM blocked_users
+      WHERE owner_user_id = ?
+      ORDER BY date DESC
+    `).all(ownerUserId) as Array<{ blocked_user_id: number; date: number }>;
+    return rows.map(r => ({ userId: r.blocked_user_id, date: r.date }));
+  }
+
+  // ========== CHANNEL ADMIN / BANNED RIGHTS (audit #5) ==========
+
+  setAdminRights(chatId: number, userId: number, flags: number, rank: string | undefined, promotedBy: number): void {
+    const now = Math.floor(Date.now() / 1000);
+    if (flags === 0) {
+      this.db.prepare(`DELETE FROM chat_admin_rights WHERE chat_id = ? AND user_id = ?`).run(chatId, userId);
+      // Demote back to member
+      this.db.prepare(`UPDATE chat_participants SET role = 'member' WHERE chat_id = ? AND user_id = ? AND role != 'creator'`).run(chatId, userId);
+      return;
+    }
+    this.db.prepare(`
+      INSERT INTO chat_admin_rights (chat_id, user_id, flags, rank, promoted_by, date)
+      VALUES (?, ?, ?, ?, ?, ?)
+      ON CONFLICT(chat_id, user_id) DO UPDATE SET
+        flags = excluded.flags,
+        rank = excluded.rank,
+        promoted_by = excluded.promoted_by,
+        date = excluded.date
+    `).run(chatId, userId, flags, rank || null, promotedBy, now);
+    this.db.prepare(`UPDATE chat_participants SET role = 'admin', rank = ? WHERE chat_id = ? AND user_id = ? AND role != 'creator'`).run(rank || null, chatId, userId);
+  }
+
+  setBannedRights(chatId: number, userId: number, flags: number, untilDate: number, kicked: boolean): void {
+    const now = Math.floor(Date.now() / 1000);
+    if (flags === 0 && !kicked) {
+      this.db.prepare(`DELETE FROM chat_banned_rights WHERE chat_id = ? AND user_id = ?`).run(chatId, userId);
+      return;
+    }
+    this.db.prepare(`
+      INSERT INTO chat_banned_rights (chat_id, user_id, flags, until_date, kicked, date)
+      VALUES (?, ?, ?, ?, ?, ?)
+      ON CONFLICT(chat_id, user_id) DO UPDATE SET
+        flags = excluded.flags,
+        until_date = excluded.until_date,
+        kicked = excluded.kicked,
+        date = excluded.date
+    `).run(chatId, userId, flags, untilDate, kicked ? 1 : 0, now);
+    if (kicked) {
+      this.removeChatParticipant(chatId, userId);
+    }
+  }
+
+  updateChatTitle(chatId: number, title: string): void {
+    this.db.prepare(`UPDATE chats SET title = ? WHERE id = ?`).run(title, chatId);
+  }
+
+  updateChatAbout(chatId: number, about: string): void {
+    this.db.prepare(`UPDATE chats SET about = ? WHERE id = ?`).run(about, chatId);
+  }
+
   getAllDrafts(ownerUserId: number): StoredDraft[] {
     const rows = this.db.prepare(`
       SELECT owner_user_id, peer_key, text, date, reply_to_msg_id
@@ -1426,6 +1744,15 @@ class MessageStore {
         next_message_id INTEGER NOT NULL,
         updated_at INTEGER NOT NULL,
         PRIMARY KEY (owner_user_id, peer_key)
+      );
+
+      -- Per-user monotonic message_id counter (Telegram-like: message_id is unique per user,
+      -- not per peer). Replaces app_peer_counters for allocation — the old table is kept for
+      -- backward-compatibility but is no longer read/written.
+      CREATE TABLE IF NOT EXISTS app_user_counters (
+        owner_user_id INTEGER PRIMARY KEY,
+        next_message_id INTEGER NOT NULL,
+        updated_at INTEGER NOT NULL
       );
 
       CREATE TABLE IF NOT EXISTS app_peer_state (
@@ -1879,6 +2206,81 @@ class MessageStore {
         PRIMARY KEY (user_id, setting_key)
       );
     `);
+
+    // Migration: add entities column to app_messages (audit #2)
+    const msgCols = this.db.prepare(`PRAGMA table_info(app_messages)`).all() as Array<{ name: string }>;
+    if (!msgCols.some(c => c.name === 'entities')) {
+      this.db.exec(`ALTER TABLE app_messages ADD COLUMN entities BLOB`);
+    }
+
+    // Pinned dialogs (audit #10)
+    this.db.exec(`
+      CREATE TABLE IF NOT EXISTS pinned_dialogs (
+        owner_user_id INTEGER NOT NULL,
+        peer_key TEXT NOT NULL,
+        position INTEGER NOT NULL,
+        updated_at INTEGER NOT NULL,
+        PRIMARY KEY (owner_user_id, peer_key)
+      );
+    `);
+
+    // Per-peer notify settings (audit #9)
+    this.db.exec(`
+      CREATE TABLE IF NOT EXISTS notify_settings (
+        owner_user_id INTEGER NOT NULL,
+        peer_key TEXT NOT NULL,
+        mute_until INTEGER NOT NULL DEFAULT 0,
+        show_previews INTEGER NOT NULL DEFAULT 1,
+        silent INTEGER NOT NULL DEFAULT 0,
+        updated_at INTEGER NOT NULL,
+        PRIMARY KEY (owner_user_id, peer_key)
+      );
+    `);
+
+    // Contacts list (audit #6). peer_key == "self" marks the list scope owner.
+    this.db.exec(`
+      CREATE TABLE IF NOT EXISTS contacts (
+        owner_user_id INTEGER NOT NULL,
+        contact_user_id INTEGER NOT NULL,
+        first_name TEXT,
+        last_name TEXT,
+        phone TEXT,
+        date INTEGER NOT NULL,
+        PRIMARY KEY (owner_user_id, contact_user_id)
+      );
+    `);
+
+    // Blocked users (audit #6)
+    this.db.exec(`
+      CREATE TABLE IF NOT EXISTS blocked_users (
+        owner_user_id INTEGER NOT NULL,
+        blocked_user_id INTEGER NOT NULL,
+        date INTEGER NOT NULL,
+        PRIMARY KEY (owner_user_id, blocked_user_id)
+      );
+    `);
+
+    // Channel/chat admin rights + banned rights (audit #5)
+    this.db.exec(`
+      CREATE TABLE IF NOT EXISTS chat_admin_rights (
+        chat_id INTEGER NOT NULL,
+        user_id INTEGER NOT NULL,
+        flags INTEGER NOT NULL DEFAULT 0,
+        rank TEXT,
+        promoted_by INTEGER,
+        date INTEGER NOT NULL,
+        PRIMARY KEY (chat_id, user_id)
+      );
+      CREATE TABLE IF NOT EXISTS chat_banned_rights (
+        chat_id INTEGER NOT NULL,
+        user_id INTEGER NOT NULL,
+        flags INTEGER NOT NULL DEFAULT 0,
+        until_date INTEGER NOT NULL DEFAULT 0,
+        kicked INTEGER NOT NULL DEFAULT 0,
+        date INTEGER NOT NULL,
+        PRIMARY KEY (chat_id, user_id)
+      );
+    `);
   }
 
   private reconcileUpdateState() {
@@ -1912,32 +2314,69 @@ class MessageStore {
     }
   }
 
-  private reserveMessageId(ownerUserId: number, peerKey: string, minNextMessageId: number) {
+  /**
+   * Allocate a message_id that is unique within the owner's entire message set,
+   * matching Telegram semantics (message_id is monotonic per user, not per peer).
+   *
+   * Per-peer counters were the source of cross-chat leaks in getDifference/getMessages/
+   * forwardMessages lookups: two different chats of the same user could both contain
+   * e.g. message_id=5, and any lookup that did not also scope by peer would pick the
+   * wrong row.
+   *
+   * On first use for a user, the counter is seeded from MAX(message_id) of their
+   * existing messages so that pre-existing data keeps working without renumbering.
+   */
+  private reserveMessageId(ownerUserId: number, minNextMessageId: number): number {
     const now = Math.floor(Date.now() / 1000);
     const current = this.db.prepare(`
       SELECT next_message_id
-      FROM app_peer_counters
-      WHERE owner_user_id = ? AND peer_key = ?
-    `).get(ownerUserId, peerKey) as { next_message_id: number } | undefined;
+      FROM app_user_counters
+      WHERE owner_user_id = ?
+    `).get(ownerUserId) as { next_message_id: number } | undefined;
 
-    const nextMessageId = current
-      ? Math.max(current.next_message_id, minNextMessageId)
-      : Math.max(1, minNextMessageId);
+    let nextMessageId: number;
+    if (current) {
+      nextMessageId = Math.max(current.next_message_id, minNextMessageId);
+    } else {
+      // Seed from the highest existing message_id for this owner across ALL peers
+      // so that freshly allocated IDs never collide with existing rows.
+      const seedRow = this.db.prepare(`
+        SELECT COALESCE(MAX(message_id), 0) AS max_id
+        FROM app_messages
+        WHERE owner_user_id = ?
+      `).get(ownerUserId) as { max_id: number };
+      nextMessageId = Math.max(seedRow.max_id + 1, minNextMessageId, 1);
+    }
 
     this.db.prepare(`
-      INSERT INTO app_peer_counters (owner_user_id, peer_key, next_message_id, updated_at)
-      VALUES (?, ?, ?, ?)
-      ON CONFLICT(owner_user_id, peer_key) DO UPDATE SET
+      INSERT INTO app_user_counters (owner_user_id, next_message_id, updated_at)
+      VALUES (?, ?, ?)
+      ON CONFLICT(owner_user_id) DO UPDATE SET
         next_message_id = excluded.next_message_id,
         updated_at = excluded.updated_at
-    `).run(ownerUserId, peerKey, nextMessageId + 1, now);
+    `).run(ownerUserId, nextMessageId + 1, now);
 
     return nextMessageId;
   }
 
+  /**
+   * Upsert peer state.
+   *
+   * `inboxTs` MUST only be provided by callers that are actually advancing
+   * `readInboxMaxId` as a result of a real read action. Bookkeeping writes
+   * (e.g. `appendOutgoingMessage`) must leave `inboxTs` undefined so we don't
+   * synthesize a "read at now" timestamp for messages that were never read —
+   * otherwise `getOutboxReadDate` / `getMessageReadParticipants` will report a
+   * fake read time to the sender.
+   */
   private upsertPeerState(ownerUserId: number, peerKey: string, readInboxMaxId: number, readOutboxMaxId: number, inboxTs?: number) {
     const now = Math.floor(Date.now() / 1000);
-    const ts = inboxTs ?? now;
+    // On first insert for this peer we persist either the real read timestamp
+    // (when a read is happening right now) or 0 meaning "never read".
+    const initialTs = inboxTs ?? 0;
+    // On conflict we only bump `read_inbox_ts` when the caller provided one
+    // AND the inbox pointer actually advanced. Otherwise keep whatever was
+    // there before (0 if never read, the real time of the last read otherwise).
     this.db.prepare(`
       INSERT INTO app_peer_state (
         owner_user_id,
@@ -1950,9 +2389,15 @@ class MessageStore {
       ON CONFLICT(owner_user_id, peer_key) DO UPDATE SET
         read_inbox_max_id = excluded.read_inbox_max_id,
         read_outbox_max_id = excluded.read_outbox_max_id,
-        read_inbox_ts = CASE WHEN excluded.read_inbox_max_id > read_inbox_max_id THEN excluded.read_inbox_ts ELSE COALESCE(read_inbox_ts, excluded.read_inbox_ts) END,
+        read_inbox_ts = CASE
+          WHEN ? > 0 AND excluded.read_inbox_max_id > read_inbox_max_id THEN ?
+          ELSE read_inbox_ts
+        END,
         updated_at = excluded.updated_at
-    `).run(ownerUserId, peerKey, readInboxMaxId, readOutboxMaxId, ts, now);
+    `).run(
+      ownerUserId, peerKey, readInboxMaxId, readOutboxMaxId, initialTs, now,
+      inboxTs ?? 0, inboxTs ?? 0,
+    );
   }
 
   private appendUpdateEvent(ownerUserId: number, input: {
@@ -2012,7 +2457,8 @@ let cachedMessageStore: MessageStore | undefined;
 
 export function getMessageStore() {
   if (!cachedMessageStore) {
-    cachedMessageStore = new MessageStore();
+    const dbPath = process.env.DB_PATH || resolve(process.cwd(), 'data', 'self_hosted.sqlite');
+    cachedMessageStore = new MessageStore(dbPath);
   }
 
   return cachedMessageStore;
@@ -2037,6 +2483,7 @@ function mapMessageRow(row: MessageRow): StoredMessage {
     fwdFromName: row.fwd_from_name || undefined,
     fwdDate: row.fwd_date || undefined,
     actionType: row.action_type || undefined,
+    entities: row.entities || undefined,
   };
 }
 

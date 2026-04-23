@@ -644,10 +644,33 @@ addActionHandler('invalidateFullInfo', (global, actions, payload): ActionReturnT
 
 addActionHandler('loadTopChats', (): ActionReturnType => {
   runThrottledForLoadTopChats(() => {
-    loadChats('active', undefined, true);
-    loadChats('archived', undefined, true);
+    loadChatsAndApplyThreads('active');
+    loadChatsAndApplyThreads('archived');
   });
 });
+
+async function loadChatsAndApplyThreads(listType: ChatListType) {
+  const result = await loadChats(listType, undefined, true);
+  if (!result) return;
+
+  let global = getGlobal();
+
+  if (result.threadInfos) {
+    result.threadInfos.forEach((threadInfo) => {
+      global = updateThreadInfo(global, threadInfo);
+    });
+  }
+
+  if (result.threadReadStatesById) {
+    global = updateMainThreadReadStates(global, result.threadReadStatesById);
+  }
+
+  if (result.messages) {
+    global = addMessages(global, result.messages);
+  }
+
+  setGlobal(global);
+}
 
 addActionHandler('requestChatUpdate', (global, actions, payload): ActionReturnType => {
   const { chatId } = payload;

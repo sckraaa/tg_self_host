@@ -16,6 +16,8 @@ export interface StoredMessage {
     fwdFromName?: string;
     fwdDate?: number;
     actionType?: string;
+    /** Serialized TL `Vector<MessageEntity>` blob (audit #2). */
+    entities?: Buffer;
 }
 export interface StoredChat {
     id: number;
@@ -181,13 +183,15 @@ declare class MessageStore {
         fwdFromName?: string;
         fwdDate?: number;
         actionType?: string;
+        isIncoming?: boolean;
+        entities?: Buffer;
     }): StoredMessage & {
         updatePts: number;
         updatePtsCount: number;
         updateDate: number;
     };
     markMessageIncoming(ownerUserId: number, peerKey: string, messageId: number): void;
-    editMessage(ownerUserId: number, peerKey: string, messageId: number, newText: string): {
+    editMessage(ownerUserId: number, peerKey: string, messageId: number, newText: string, entities?: Buffer | null): {
         message: StoredMessage;
         updatePts: number;
         updatePtsCount: number;
@@ -198,10 +202,27 @@ declare class MessageStore {
     } | undefined;
     findMessageInAllPeers(ownerUserId: number, messageId: number): StoredMessage | undefined;
     /**
-     * Resolve sender's messageIds to the corresponding messageIds in the recipient's store.
-     * Uses clientRandomId mapping: sender has "X", recipient has "recv_X".
+     * Resolve sender's messageIds to the corresponding messageIds in the recipient's store
+     * for the **P2P** case (both stores share a single `recv_X <-> X` clientRandomId pair).
+     *
+     * Group/channel chats store one message per participant with distinct random ids
+     * (`group_X_<uid>`, `group_fwd_X_<uid>`, …) and cannot be resolved by this simple
+     * prefix trick — for those, look up by `peerKey` directly in each owner's store.
+     * The preconditions below enforce that constraint so a misuse fails loudly instead
+     * of silently returning empty or the wrong ids.
      */
     resolveRecipientMessageIds(senderUserId: number, senderPeerKey: string, recipientUserId: number, recipientPeerKey: string, senderMessageIds: number[]): number[];
+    /**
+     * Map a sender's message id in a group/channel to the recipient's own copy
+     * (which was inserted during group broadcast with a `group_<senderRandom>_<uid>`
+     * clientRandomId). This is the group-chat counterpart of
+     * `resolveRecipientMessageIds` and is the key piece needed for reactions / edits
+     * / deletes to span across participants' parallel copies.
+     *
+     * Falls back to a `(date, text)` lookup if the deterministic key isn't found —
+     * useful during migrations from the old `group_fwd_<ts>_<i>_<uid>` scheme.
+     */
+    resolveGroupRecipientMessageIds(senderUserId: number, peerKey: string, senderMessageIds: number[], recipientUserId: number): number[];
     saveAuthKey(keyIdHex: string, authKey: Buffer): void;
     loadAllAuthKeys(): Array<{
         keyIdHex: string;
@@ -374,6 +395,41 @@ declare class MessageStore {
     saveDraft(ownerUserId: number, peerKey: string, text: string, replyToMsgId?: number): void;
     getDraft(ownerUserId: number, peerKey: string): StoredDraft | undefined;
     deleteDraft(ownerUserId: number, peerKey: string): void;
+    getPinnedDialogs(ownerUserId: number): string[];
+    isDialogPinned(ownerUserId: number, peerKey: string): boolean;
+    setDialogPinned(ownerUserId: number, peerKey: string, pinned: boolean): void;
+    reorderPinnedDialogs(ownerUserId: number, peerKeys: string[]): void;
+    getNotifySettings(ownerUserId: number, peerKey: string): {
+        muteUntil: number;
+        showPreviews: boolean;
+        silent: boolean;
+    };
+    setNotifySettings(ownerUserId: number, peerKey: string, input: {
+        muteUntil?: number;
+        showPreviews?: boolean;
+        silent?: boolean;
+    }): void;
+    addContact(ownerUserId: number, contactUserId: number, firstName?: string, lastName?: string, phone?: string): void;
+    deleteContact(ownerUserId: number, contactUserId: number): void;
+    isContact(ownerUserId: number, contactUserId: number): boolean;
+    listContacts(ownerUserId: number): Array<{
+        contactUserId: number;
+        firstName?: string;
+        lastName?: string;
+        phone?: string;
+        date: number;
+    }>;
+    blockUser(ownerUserId: number, blockedUserId: number): void;
+    unblockUser(ownerUserId: number, blockedUserId: number): void;
+    isBlocked(ownerUserId: number, blockedUserId: number): boolean;
+    listBlockedUsers(ownerUserId: number): Array<{
+        userId: number;
+        date: number;
+    }>;
+    setAdminRights(chatId: number, userId: number, flags: number, rank: string | undefined, promotedBy: number): void;
+    setBannedRights(chatId: number, userId: number, flags: number, untilDate: number, kicked: boolean): void;
+    updateChatTitle(chatId: number, title: string): void;
+    updateChatAbout(chatId: number, about: string): void;
     getAllDrafts(ownerUserId: number): StoredDraft[];
     setReaction(ownerUserId: number, peerKey: string, messageId: number, userId: number, emoticon: string): void;
     removeReaction(ownerUserId: number, peerKey: string, messageId: number, userId: number): void;
@@ -384,7 +440,29 @@ declare class MessageStore {
     };
     private initSchema;
     private reconcileUpdateState;
+    /**
+     * Allocate a message_id that is unique within the owner's entire message set,
+     * matching Telegram semantics (message_id is monotonic per user, not per peer).
+     *
+     * Per-peer counters were the source of cross-chat leaks in getDifference/getMessages/
+     * forwardMessages lookups: two different chats of the same user could both contain
+     * e.g. message_id=5, and any lookup that did not also scope by peer would pick the
+     * wrong row.
+     *
+     * On first use for a user, the counter is seeded from MAX(message_id) of their
+     * existing messages so that pre-existing data keeps working without renumbering.
+     */
     private reserveMessageId;
+    /**
+     * Upsert peer state.
+     *
+     * `inboxTs` MUST only be provided by callers that are actually advancing
+     * `readInboxMaxId` as a result of a real read action. Bookkeeping writes
+     * (e.g. `appendOutgoingMessage`) must leave `inboxTs` undefined so we don't
+     * synthesize a "read at now" timestamp for messages that were never read —
+     * otherwise `getOutboxReadDate` / `getMessageReadParticipants` will report a
+     * fake read time to the sender.
+     */
     private upsertPeerState;
     private appendUpdateEvent;
 }

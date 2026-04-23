@@ -7,13 +7,15 @@ import { BinaryReader, BinaryWriter } from './codec.js';
 const _dataFilesDir = _resolve(_dirname(_fileURLToPath(import.meta.url)), '../../data/files');
 import { sha1Sync } from '../crypto/utils.js';
 import { getMessageStore } from '../database/messageStore.js';
-import { skipInitConnection, parseInitConnection, writeTlString, writeTlBytes, skipInputPeer, readTlString, skipTlStringByReader, readTlBytesRaw } from './tlHelpers.js';
-import { writeUserFromFixture, writePhotoObject, isFieldVisibleByPrivacy } from './writers.js';
+import { skipInitConnection, parseInitConnection, writeTlString, writeTlBytes, writeEmptyVectorToWriter, skipInputPeer, readTlString, skipTlStringByReader, readTlBytesRaw } from './tlHelpers.js';
+import { writeUserFromFixture, writePhotoObject, writeMessageEntitiesVector, isFieldVisibleByPrivacy } from './writers.js';
 import { authCodeLimiter, authSignInLimiter, messageLimiter } from '../utils/rateLimiter.js';
 import { validatePhone, validateAuthCode, validateMessageText, validateName, validateUsername, validatePeerKey, validateMessageIds } from '../utils/validation.js';
-import { SEED_USER_ID, getStoredMessageAsFixture, listStoredMessagesAsFixtureForUser, collectEntityIdsFromPeerKey, getFixtureUserForId, buildActionForFixture, } from './fixtureHelpers.js';
-import { setActiveSession, readInputPeerKey, parseHistoryRequest, parseGetMessagesRequest, parsePeerDialogsRequest, parseSetTypingRequest, parseEditMessageRequest, parseDeleteMessagesRequest, parseReadHistoryRequest, parseChannelReadHistoryRequest, parseGetFullChannelRequest, parseGetFullUserRequest, parseGetUsersRequest, parsePeerVectorRequest, parseSendMessageRequest, parseSendMediaRequest, parseForwardMessagesRequest, parseSearchRequest, parseSearchGlobalRequest, parseCreateChatRequest, parseCreateChannelRequest, parseSaveDraftRequest, parseSendReactionRequest, parseGetFullChatRequest, parseGetParticipantsRequest, parseGetParticipantRequest, parseInviteToChannelRequest, parseEditPhotoRequest, parseEditChatPhotoRequest, parseUploadProfilePhotoRequest, readInputUserRef, } from './parsers.js';
-import { buildConfig, buildAppConfig, buildUpdatesState, buildLangPackDifference, buildLangPackStringsResponse, buildLangPackLanguage, buildEmptyVector, buildUpdatesDifference, buildUpdateReadHistoryInbox, buildUpdateReadHistoryOutbox, buildUpdateNewMessage, buildUpdateEditMessage, buildUpdateDeleteMessages, buildUpdateMessageID, buildUpdateUserStatus, buildUpdateUserNameUpdate, buildUpdateUserTyping, buildLiveUpdatesEnvelope, buildLiveReadHistoryUpdates, buildUserFullForUser, buildUsersVector, buildUsersVectorForIds, buildDialogFilters, buildDialogsFromDb, buildPeerDialogsForPeers, buildPinnedDialogs, buildGetMessagesResponse, buildMessagesSliceEmpty, buildMessagesEmpty, buildWebPagePreviewEmpty, buildRecentStoriesVector, buildSentCode, buildAuthAuthorization, buildAuthSignUpRequired, buildLoginToken, buildContactsFromDb, buildContactsFound, buildResolvedPeer, buildResolvedPeerForUser, buildChannelFullEmpty, buildBoolTrue, buildBoolFalse, buildNearestDc, buildPeerNotifySettings, buildPeerColorsEmpty, buildPeerProfileColors, buildCountriesListEmpty, buildPromoDataEmpty, buildAuthorizationsEmpty, buildAuthorizations, buildWallPapersNotModified, buildStickerSetNotModified, buildUpdatesEmpty, buildTopPeersDisabled, buildBlockedEmpty, buildAvailableReactions, buildSavedDialogsEmpty, buildSponsoredMessagesEmpty, buildSponsoredPeersEmpty, buildSearchPostsFlood, buildAllStoriesEmpty, buildReactionsEmpty, buildGlobalPrivacySettingsFromDb, buildTimezonesListEmpty, buildPrivacyRules, buildSavedReactionTagsEmpty, buildQuickRepliesEmpty, buildAvailableEffectsEmpty, buildAttachMenuBotsNotModified, buildStarsStatusEmpty, buildEmojiStatusesEmpty, buildStarGiftsEmpty, buildSavedStarGiftsEmpty, buildStarGiftActiveAuctionsEmpty, buildTermsOfServiceUpdateEmpty, buildEmojiKeywordsDifference, buildEmojiURL, buildTopReactions, buildRecentReactions, buildDefaultHistoryTTL, buildContentSettings, buildAccountPassword, buildAllStickersEmpty, buildEmojiStickers, buildFeaturedEmojiStickers, buildStickerSetFromCapture, buildFeaturedStickersNotModified, buildRecentStickersNotModified, buildSavedGifsNotModified, buildFavedStickersNotModified, buildAffectedMessages, buildRpcErrorObject, buildInvitedUsers, buildCreateChannelUpdates, buildChatFull, buildChannelParticipants, buildLiveUpdatesEnvelopeWithChats, buildChannelParticipantSingle, buildUpdateMessageReactions, buildLiveUpdateMessageReactions, } from './builders.js';
+import { extractFirstUrl, getCachedPreview, requestPreviewFetch } from '../utils/webPagePreview.js';
+import { getStoredMessageAsFixture, prepareRecipientFixture, listStoredMessagesAsFixtureForUser, collectEntityIdsFromPeerKey, getFixtureUserForId, buildActionForFixture, } from './fixtureHelpers.js';
+import { setCurrentSession, currentSession } from './requestContext.js';
+import { readInputPeerKey, parseHistoryRequest, parseGetMessagesRequest, parsePeerDialogsRequest, parseSetTypingRequest, parseEditMessageRequest, parseDeleteMessagesRequest, parseReadHistoryRequest, parseChannelReadHistoryRequest, parseGetFullChannelRequest, parseGetFullUserRequest, parseGetUsersRequest, parsePeerVectorRequest, parseSendMessageRequest, parseSendMediaRequest, parseForwardMessagesRequest, parseSearchRequest, parseSearchGlobalRequest, parseCreateChatRequest, parseCreateChannelRequest, parseSaveDraftRequest, parseSendReactionRequest, parseGetFullChatRequest, parseGetParticipantsRequest, parseGetParticipantRequest, parseInviteToChannelRequest, parseEditPhotoRequest, parseEditChatPhotoRequest, parseUploadProfilePhotoRequest, readInputUserRef, autoDetectUrlEntities, } from './parsers.js';
+import { buildConfig, buildAppConfig, buildUpdatesState, buildLangPackDifference, buildLangPackStringsResponse, buildLangPackLanguage, buildEmptyVector, buildUpdatesDifference, buildUpdateReadHistoryInbox, buildUpdateReadHistoryOutbox, buildUpdateNewMessage, buildUpdateEditMessage, buildUpdateDeleteMessages, buildUpdateDraftMessage, buildUpdateMessageID, buildUpdateUserStatus, buildUpdateUserNameUpdate, buildUpdateUserTyping, buildLiveUpdatesEnvelope, buildLiveUpdateUserEnvelope, buildLiveReadHistoryUpdates, buildUserFullForUser, buildUsersVector, buildUsersVectorForIds, buildDialogFilters, buildDialogsFromDb, buildPeerDialogsForPeers, buildPinnedDialogs, buildGetMessagesResponse, buildMessagesSliceEmpty, buildMessagesEmpty, buildWebPagePreviewEmpty, buildWebPagePreviewFromOg, buildRecentStoriesVector, buildSentCode, buildAuthAuthorization, buildAuthSignUpRequired, buildLoginToken, buildContactsFromDb, buildContactsFound, buildResolvedPeer, buildResolvedPeerForUser, buildChannelFullEmpty, buildBoolTrue, buildBoolFalse, buildNearestDc, buildPeerNotifySettings, buildPeerColorsEmpty, buildPeerProfileColors, buildCountriesListEmpty, buildPromoDataEmpty, buildAuthorizationsEmpty, buildAuthorizations, buildWallPapersNotModified, buildUpdatesEmpty, buildTopPeersDisabled, buildBlockedEmpty, buildBlockedFromDb, buildAvailableReactions, buildSavedDialogsEmpty, buildSponsoredMessagesEmpty, buildSponsoredPeersEmpty, buildSearchPostsFlood, buildAllStoriesEmpty, buildReactionsEmpty, buildGlobalPrivacySettingsFromDb, buildTimezonesListEmpty, buildPrivacyRules, buildSavedReactionTagsEmpty, buildQuickRepliesEmpty, buildAvailableEffectsEmpty, buildAttachMenuBotsNotModified, buildStarsStatusEmpty, buildEmojiStatusesEmpty, buildStarGiftsEmpty, buildSavedStarGiftsEmpty, buildStarGiftActiveAuctionsEmpty, buildTermsOfServiceUpdateEmpty, buildEmojiKeywordsDifference, buildEmojiURL, buildTopReactions, buildRecentReactions, buildDefaultHistoryTTL, buildContentSettings, buildAccountPassword, buildAllStickersEmpty, buildEmojiStickers, buildFeaturedEmojiStickers, buildStickerSetFromCapture, buildStickerSetFromCaptureByShortName, buildStickerSetFromCaptureByTypeName, buildFeaturedStickersNotModified, buildRecentStickersNotModified, buildSavedGifsNotModified, buildFavedStickersNotModified, buildAffectedMessages, buildRpcErrorObject, buildInvitedUsers, buildCreateChannelUpdates, buildChatFull, buildChannelParticipants, buildUpdateChannel, buildLiveUpdatesEnvelopeWithChats, buildChannelParticipantSingle, buildUpdateMessageReactions, buildLiveUpdateMessageReactions, } from './builders.js';
 const messageStore = getMessageStore();
 function getKeyIdHex(authKey) {
     return sha1Sync(authKey).slice(12, 20).toString('hex');
@@ -40,6 +42,23 @@ function aggregateReactions(ownerUserId, peerKey, messageId, selfUserId) {
         count,
         chosenOrder: isMine ? chosenIdx++ : undefined,
     }));
+}
+/**
+ * Returns the authenticated user id for the session, or an RPC error buffer if
+ * the session is not bound to a user yet. Any handler that reads or mutates
+ * per-user data MUST go through this helper — otherwise an unauthenticated
+ * client would silently fall back to SEED_USER_ID (100000) and get access to
+ * that user's dialogs, messages and contacts.
+ *
+ * Usage:
+ *   const selfId = requireAuth(session);
+ *   if (typeof selfId !== 'number') return selfId;
+ */
+function requireAuth(session) {
+    if (!session.userId) {
+        return buildRpcErrorObject(401, 'AUTH_KEY_UNREGISTERED');
+    }
+    return session.userId;
 }
 /** Extract width/height from JPEG or PNG file headers */
 function getImageDimensions(data) {
@@ -160,6 +179,7 @@ function parseInputPrivacyRule(reader, cid) {
     }
 }
 const _callsMap = new Map();
+const _exportedAuths = new Map(); // tokenHex → userId (auth.exportAuthorization temp store)
 function _callKey(id) {
     return id.toString();
 }
@@ -335,7 +355,22 @@ function _readInputPhoneCall(r) {
 }
 // ===== END PHONE CALLS INFRASTRUCTURE =====
 export function handleTlRequest(data, session, reqMsgId, ctx) {
-    setActiveSession(session);
+    // Save/restore the ambient session so recursive calls (invokeWithLayer,
+    // initConnection, gzip_packed, invokeAfterMsg, msg_container dispatch) do
+    // not leak an "active" session across unrelated requests after they return.
+    // Nested recursion within the same logical request is safe because the
+    // inner save captures the outer's session, restores it on exit, and the
+    // outer continues with the same context it had before.
+    const prevSession = currentSession();
+    setCurrentSession(session);
+    try {
+        return handleTlRequestImpl(data, session, reqMsgId, ctx);
+    }
+    finally {
+        setCurrentSession(prevSession);
+    }
+}
+function handleTlRequestImpl(data, session, reqMsgId, ctx) {
     const constructorId = data.readUInt32LE(0);
     switch (constructorId) {
         case 0xda9b0d0d: { // invokeWithLayer
@@ -382,17 +417,71 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             return buildPeerProfileColors();
         }
         // ========== AUTH METHODS ==========
-        case 0x518ad0b7: { // auth.initPasskeyLogin
-            console.log(`[${new Date().toISOString()}] Session ${session.id} auth.initPasskeyLogin`);
+        case 0xcdd42a05: { // auth.bindTempAuthKey
+            // Android uses PFS (Perfect Forward Secrecy) with temp auth keys
+            // We just accept and return true since our server uses perm keys directly
+            console.log(`[${new Date().toISOString()}] Session ${session.id} auth.bindTempAuthKey`);
+            return buildBoolTrue();
+        }
+        case 0x518ad0b7: { // account.initPasskeyLogin
+            console.log(`[${new Date().toISOString()}] Session ${session.id} account.initPasskeyLogin`);
+            // Return valid passkeyLoginOptions with empty allowCredentials
+            // so client's CredentialManager fails silently (no passkeys registered)
             const pw = new BinaryWriter();
-            pw.writeInt(0xe2037789); // auth.passkeyLoginOptions
+            pw.writeInt(0xe2037789); // account.passkeyLoginOptions
             pw.writeInt(0x7d748d04); // dataJSON
-            writeTlString(pw, '{}');
+            const webauthnJson = JSON.stringify({
+                publicKey: {
+                    challenge: 'AAAAAAAAAAAAAAAAAAAAAA',
+                    rpId: process.env.DOMAIN || 'pluma.chat',
+                    allowCredentials: [],
+                    timeout: 60000,
+                    userVerification: 'discouraged',
+                },
+            });
+            writeTlString(pw, webauthnJson);
             return pw.getBytes();
         }
         case 0xb7e085fe: { // auth.exportLoginToken
             console.log(`[${new Date().toISOString()}] Session ${session.id} auth.exportLoginToken`);
             return buildLoginToken();
+        }
+        case 0xe5bfffcd: { // auth.exportAuthorization
+            const eaReader = new BinaryReader(data);
+            eaReader.offset = 4;
+            const eaDcId = eaReader.readInt();
+            console.log(`[${new Date().toISOString()}] Session ${session.id} auth.exportAuthorization dc_id=${eaDcId} userId=${session.userId}`);
+            if (!session.userId)
+                return buildRpcErrorObject(401, 'AUTH_KEY_UNREGISTERED');
+            // Single DC — return userId + random bytes as token
+            const exportToken = randomBytes(128);
+            // Store the token temporarily so importAuthorization can validate it
+            _exportedAuths.set(exportToken.toString('hex'), session.userId);
+            setTimeout(() => _exportedAuths.delete(exportToken.toString('hex')), 60000);
+            const eaW = new BinaryWriter();
+            eaW.writeInt(0xb434e2b8); // auth.exportedAuthorization
+            eaW.writeLong(BigInt(session.userId)); // id
+            writeTlBytes(eaW, exportToken); // bytes
+            return eaW.getBytes();
+        }
+        case 0xa57a7dad: { // auth.importAuthorization
+            const iaReader = new BinaryReader(data);
+            iaReader.offset = 4;
+            const iaUserId = Number(iaReader.readLong());
+            const iaBytes = readTlBytesRaw(iaReader);
+            console.log(`[${new Date().toISOString()}] Session ${session.id} auth.importAuthorization userId=${iaUserId}`);
+            const iaTokenHex = Buffer.from(iaBytes).toString('hex');
+            const storedUserId = _exportedAuths.get(iaTokenHex);
+            if (storedUserId && storedUserId === iaUserId) {
+                _exportedAuths.delete(iaTokenHex);
+            }
+            // Accept regardless — single DC, just set the session userId
+            session.userId = iaUserId;
+            const messageStore = getMessageStore();
+            const iaUser = messageStore.getUserById(iaUserId);
+            if (!iaUser)
+                return buildRpcErrorObject(401, 'AUTH_KEY_UNREGISTERED');
+            return buildAuthAuthorization(iaUser);
         }
         case 0xa677244f: { // auth.sendCode
             const reader = new BinaryReader(data);
@@ -533,6 +622,12 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             pongW.writeLong(pingId);
             return pongW.getBytes();
         }
+        case 0x58e4a740: { // rpc_drop_answer
+            // Return rpc_answer_dropped_running — we don't track pending RPCs
+            const rdaW = new BinaryWriter();
+            rdaW.writeInt(0xcd78e586); // rpc_answer_dropped_running
+            return rdaW.getBytes();
+        }
         case 0xf2f2330a: { // langpack.getLangPack
             const lpReader1 = new BinaryReader(data);
             lpReader1.offset = 4;
@@ -568,8 +663,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             // console.log(`[${new Date().toISOString()}] Session ${session.id} langpack.getDifference (pack=${langPackName3})`);
             return buildLangPackDifference(langPackName3);
         }
-        case 0x25d218ec: // updates.getDifference (older)
-        case 0x19c2f763: { // updates.getDifference (newer)
+        case 0x25d218ec: // updates.getDifference (layer <166)
+        case 0x19c2f763: // updates.getDifference (layer 166+)
+        case 0x25939651: { // updates.getDifference (layer 224+)
             console.log(`[${new Date().toISOString()}] Session ${session.id} updates.getDifference (userId=${session.userId})`);
             if (!session.userId)
                 return buildRpcErrorObject(401, 'AUTH_KEY_UNREGISTERED');
@@ -626,7 +722,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         // ========== PRIORITY 1: Main UI API Stubs ==========
         case 0xb60f5918: { // users.getFullUser
             const request = parseGetFullUserRequest(data, session);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             const targetUserId = request?.userId || String(selfId);
             console.log(`[${new Date().toISOString()}] Session ${session.id} users.getFullUser target=${targetUserId} viewer=${selfId}`);
             const result = buildUserFullForUser(session, undefined, targetUserId);
@@ -635,6 +733,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x0d91a548: { // users.getUsers
             // console.log(`[${new Date().toISOString()}] Session ${session.id} users.getUsers`);
+            const usersSelfId = requireAuth(session);
+            if (typeof usersSelfId !== 'number')
+                return usersSelfId;
             const request = parseGetUsersRequest(data, session);
             if (!request || request.length === 0) {
                 return buildUsersVector(session);
@@ -647,15 +748,23 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0xa0f4cb4f: { // messages.getDialogs
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getDialogs`);
-            const dialogsSelfId = session.userId || SEED_USER_ID;
+            const dialogsSelfId = requireAuth(session);
+            if (typeof dialogsSelfId !== 'number')
+                return dialogsSelfId;
             return buildDialogsFromDb(dialogsSelfId);
         }
         case 0x6628562c: { // account.updateStatus
-            const statusSelfId = session.userId || SEED_USER_ID;
+            const statusSelfId = requireAuth(session);
+            if (typeof statusSelfId !== 'number')
+                return statusSelfId;
             const statusReader = new BinaryReader(data);
             statusReader.readInt(); // constructor
             const offlineCtor = statusReader.readInt() >>> 0;
-            const isOffline = offlineCtor === 0xbc799737;
+            // TL: account.updateStatus#6628562c offline:Bool = Bool;
+            // boolTrue#997275b5 = true  → user is going offline
+            // boolFalse#bc799737 = false → user is coming online
+            // (previously this was flipped, causing contacts to see reverse status)
+            const isOffline = offlineCtor === 0x997275b5;
             if (isOffline) {
                 messageStore.setUserOffline(statusSelfId);
             }
@@ -690,15 +799,19 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0xe470bcfd: { // messages.getPeerDialogs
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getPeerDialogs`);
-            const peerDialogsSelfId = session.userId || SEED_USER_ID;
-            const requestedPeerKeys = parsePeerDialogsRequest(data);
+            const peerDialogsSelfId = requireAuth(session);
+            if (typeof peerDialogsSelfId !== 'number')
+                return peerDialogsSelfId;
+            const requestedPeerKeys = parsePeerDialogsRequest(data, session);
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getPeerDialogs peers: ${JSON.stringify(requestedPeerKeys)}`);
             return buildPeerDialogsForPeers(requestedPeerKeys, peerDialogsSelfId);
         }
         case 0x4423e6c5: { // messages.getHistory
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getHistory`);
-            const histSelfId = session.userId || SEED_USER_ID;
-            const request = parseHistoryRequest(data);
+            const histSelfId = requireAuth(session);
+            if (typeof histSelfId !== 'number')
+                return histSelfId;
+            const request = parseHistoryRequest(data, session);
             if (request?.peerKey) {
                 const storedMessages = listStoredMessagesAsFixtureForUser(request.peerKey, histSelfId);
                 if (storedMessages.length > 0) {
@@ -709,7 +822,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x998ab009: { // messages.getSavedHistory
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getSavedHistory`);
-            const savedSelfId = session.userId || SEED_USER_ID;
+            const savedSelfId = requireAuth(session);
+            if (typeof savedSelfId !== 'number')
+                return savedSelfId;
             const savedPeerKey = `user:${savedSelfId}`;
             const storedMessages = listStoredMessagesAsFixtureForUser(savedPeerKey, savedSelfId);
             if (storedMessages.length > 0) {
@@ -719,11 +834,13 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x63c66506: { // messages.getMessages
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getMessages`);
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             const messageIds = parseGetMessagesRequest(data);
             if (!messageIds || messageIds.length === 0) {
                 return buildGetMessagesResponse([]);
             }
-            const selfId = session.userId || SEED_USER_ID;
             const foundMessages = [];
             for (const msgId of messageIds) {
                 const stored = messageStore.getMessageForUser(msgId, selfId);
@@ -749,14 +866,17 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                         fwdDate: stored.fwdDate,
                         action: buildActionForFixture(stored.peerKey, stored.actionType, stored.text, stored.mediaId),
                         reactions: aggregateReactions(selfId, stored.peerKey, stored.messageId, selfId),
+                        entities: stored.entities,
                     });
                 }
             }
             return buildGetMessagesResponse(foundMessages, null, selfId);
         }
         case 0x29ee847a: { // messages.search
-            const searchSelfId = session.userId || SEED_USER_ID;
-            const searchReq = parseSearchRequest(data);
+            const searchSelfId = requireAuth(session);
+            if (typeof searchSelfId !== 'number')
+                return searchSelfId;
+            const searchReq = parseSearchRequest(data, session);
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.search (q="${searchReq?.query}", peer=${searchReq?.peerKey}, filter=${searchReq?.filterType}, limit=${searchReq?.limit})`);
             if (searchReq) {
                 // Unsupported filter types — return empty immediately
@@ -794,6 +914,8 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                         fwdFromName: msg.fwdFromName,
                         fwdDate: msg.fwdDate,
                         action: buildActionForFixture(msg.peerKey, msg.actionType, msg.text, msg.mediaId),
+                        entities: msg.entities,
+                        reactions: aggregateReactions(searchSelfId, msg.peerKey, msg.messageId, searchSelfId),
                     }));
                     return buildGetMessagesResponse(fixtureMessages, null, searchSelfId);
                 }
@@ -809,7 +931,7 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x78499170: { // stories.getPeerMaxIDs
             console.log(`[${new Date().toISOString()}] Session ${session.id} stories.getPeerMaxIDs`);
-            const peers = parsePeerVectorRequest(data) || [];
+            const peers = parsePeerVectorRequest(data, session) || [];
             return buildRecentStoriesVector(peers.length);
         }
         case 0x08736a09: { // channels.getFullChannel
@@ -823,7 +945,7 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x545cd15a: { // messages.sendMessage
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.sendMessage`);
-            const request = parseSendMessageRequest(data);
+            const request = parseSendMessageRequest(data, session);
             if (!request?.peerKey) {
                 return buildRpcErrorObject(400, 'MSG_OPTION_UNSUPPORTED');
             }
@@ -833,7 +955,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             const msgErr = validateMessageText(request.message);
             if (msgErr)
                 return buildRpcErrorObject(400, msgErr);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             if (!messageLimiter.check(String(selfId))) {
                 return buildRpcErrorObject(420, 'FLOOD_WAIT_60');
             }
@@ -843,6 +967,17 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             const senderPeerKey = isGroupChat ? `user:${selfId}` : (request.peerKey.startsWith('channel:') ? undefined : `user:${selfId}`);
             // Delete draft for this peer if exists
             messageStore.deleteDraft(selfId, request.peerKey);
+            // Serialize message entities (audit #2). Stored as a TL Vector<MessageEntity> BLOB
+            // so that writeMessageFromFixture can splice it into the message stream verbatim.
+            // Also auto-linkify plain URLs/emails/mentions/hashtags that the client didn't
+            // mark up explicitly — matches real Telegram server behaviour.
+            const augmentedEntities = autoDetectUrlEntities(request.message, request.entities);
+            let entitiesBlob;
+            if (augmentedEntities && augmentedEntities.length > 0) {
+                const ew = new BinaryWriter();
+                writeMessageEntitiesVector(ew, augmentedEntities);
+                entitiesBlob = ew.getBytes();
+            }
             const storedMessage = messageStore.appendOutgoingMessage(selfId, {
                 peerKey: request.peerKey,
                 text: request.message,
@@ -853,6 +988,7 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                 replyToMsgId: request.replyToMsgId,
                 quoteText: request.quoteText,
                 quoteOffset: request.quoteOffset,
+                entities: entitiesBlob,
             });
             const messageFixture = getStoredMessageAsFixture(request.peerKey, storedMessage.messageId, selfId);
             const userIds = [String(selfId)];
@@ -894,14 +1030,21 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                     replyToMsgId: recipientReplyToMsgId,
                     quoteText: request.quoteText,
                     quoteOffset: request.quoteOffset,
+                    isIncoming: true,
+                    entities: entitiesBlob,
                 });
                 messageStore.markMessageIncoming(recipientId, recipientPeerKey, recipientMessage.messageId);
-                const recipientFixture = getStoredMessageAsFixture(recipientPeerKey, recipientMessage.messageId, recipientId);
+                const recipientFixture = prepareRecipientFixture(recipientPeerKey, recipientMessage.messageId, recipientId, selfId);
                 if (recipientFixture) {
                     const recipientUserIds = [String(selfId), recipientIdStr];
                     const recipientUpdates = [
                         buildUpdateNewMessage(recipientFixture, recipientMessage.updatePts, recipientMessage.updatePtsCount),
                     ];
+                    // Diagnostic: print the broadcast so we can see whether the recipient
+                    // client receives and acts on the first message from a new peer.
+                    console.log(`[P2P] sendMessage: from=${selfId} to=${recipientId} `
+                        + `recipientMsgId=${recipientMessage.messageId} `
+                        + `pts=${recipientMessage.updatePts} ptsCount=${recipientMessage.updatePtsCount}`);
                     ctx.broadcastToUser(recipientId, buildLiveUpdatesEnvelope(recipientUpdates, recipientUserIds, []));
                 }
             }
@@ -923,9 +1066,11 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                         replyToMsgId: request.replyToMsgId,
                         quoteText: request.quoteText,
                         quoteOffset: request.quoteOffset,
+                        isIncoming: true,
+                        entities: entitiesBlob,
                     });
                     messageStore.markMessageIncoming(p.userId, request.peerKey, participantMsg.messageId);
-                    const pFixture = getStoredMessageAsFixture(request.peerKey, participantMsg.messageId, p.userId);
+                    const pFixture = prepareRecipientFixture(request.peerKey, participantMsg.messageId, p.userId, selfId);
                     if (pFixture) {
                         const pUserIds = [String(selfId), String(p.userId)];
                         const pChatIds = [request.peerKey.split(':')[1]];
@@ -941,8 +1086,10 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x51e842e1: { // messages.editMessage
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.editMessage`);
-            const editSelfId = session.userId || SEED_USER_ID;
-            const editReq = parseEditMessageRequest(data);
+            const editSelfId = requireAuth(session);
+            if (typeof editSelfId !== 'number')
+                return editSelfId;
+            const editReq = parseEditMessageRequest(data, session);
             if (!editReq?.peerKey || !editReq.messageId || !editReq.newText) {
                 return buildRpcErrorObject(400, 'MESSAGE_EDIT_INVALID');
             }
@@ -952,7 +1099,18 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             const editTextErr = validateMessageText(editReq.newText);
             if (editTextErr)
                 return buildRpcErrorObject(400, editTextErr);
-            const editResult = messageStore.editMessage(editSelfId, editReq.peerKey, editReq.messageId, editReq.newText);
+            // Serialize entities + autodetect URLs (mirrors sendMessage path). Passing
+            // `null` when the client didn't send entities explicitly clears any
+            // previous formatting — matches the official server behaviour where
+            // editMessage fully replaces the message payload.
+            const editAugmented = autoDetectUrlEntities(editReq.newText, editReq.entities);
+            let editEntitiesBlob = null;
+            if (editAugmented && editAugmented.length > 0) {
+                const ew = new BinaryWriter();
+                writeMessageEntitiesVector(ew, editAugmented);
+                editEntitiesBlob = ew.getBytes();
+            }
+            const editResult = messageStore.editMessage(editSelfId, editReq.peerKey, editReq.messageId, editReq.newText, editEntitiesBlob);
             if (!editResult) {
                 return buildRpcErrorObject(400, 'MESSAGE_ID_INVALID');
             }
@@ -974,7 +1132,7 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                 // Resolve sender's messageId to recipient's messageId via clientRandomId
                 const [recipientMsgId] = messageStore.resolveRecipientMessageIds(editSelfId, editReq.peerKey, recipientId, recipientPeerKey, [editReq.messageId]);
                 const recipientEdit = recipientMsgId
-                    ? messageStore.editMessage(recipientId, recipientPeerKey, recipientMsgId, editReq.newText)
+                    ? messageStore.editMessage(recipientId, recipientPeerKey, recipientMsgId, editReq.newText, editEntitiesBlob)
                     : undefined;
                 if (recipientEdit) {
                     const recipientFixture = getStoredMessageAsFixture(recipientPeerKey, recipientMsgId, recipientId);
@@ -985,11 +1143,35 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                     }
                 }
             }
+            // Group/channel: edit each participant's copy and broadcast to them.
+            // Without this, peers see the stale text until they reload (and even
+            // then, only their local row with the old text and no new entities).
+            const isGroupEdit = editReq.peerKey.startsWith('chat:') || editReq.peerKey.startsWith('channel:');
+            if (isGroupEdit) {
+                const editChatId = Number(editReq.peerKey.split(':')[1]);
+                const editParticipants = messageStore.getChatParticipants(editChatId);
+                for (const p of editParticipants) {
+                    if (p.userId === editSelfId)
+                        continue;
+                    const [pMsgId] = messageStore.resolveGroupRecipientMessageIds(editSelfId, editReq.peerKey, [editReq.messageId], p.userId);
+                    if (!pMsgId)
+                        continue;
+                    const pEdit = messageStore.editMessage(p.userId, editReq.peerKey, pMsgId, editReq.newText, editEntitiesBlob);
+                    if (!pEdit)
+                        continue;
+                    const pFixture = getStoredMessageAsFixture(editReq.peerKey, pMsgId, p.userId);
+                    if (!pFixture)
+                        continue;
+                    ctx.broadcastToUser(p.userId, buildLiveUpdatesEnvelope([buildUpdateEditMessage(pFixture, pEdit.updatePts, pEdit.updatePtsCount)], [String(editSelfId), String(p.userId)], [String(editChatId)]));
+                }
+            }
             return buildLiveUpdatesEnvelope([editUpdate], editUserIds, editChatIds);
         }
         case 0xe58e95d2: { // messages.deleteMessages
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.deleteMessages (userId=${session.userId})`);
-            const delSelfId = session.userId || SEED_USER_ID;
+            const delSelfId = requireAuth(session);
+            if (typeof delSelfId !== 'number')
+                return delSelfId;
             const delReq = parseDeleteMessagesRequest(data);
             console.log(`[DELETE] revoke=${delReq?.revoke}, messageIds=${JSON.stringify(delReq?.messageIds)}`);
             if (!delReq?.messageIds.length) {
@@ -1045,8 +1227,10 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x58943ee2: { // messages.setTyping
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.setTyping`);
-            const typingSelfId = session.userId || SEED_USER_ID;
-            const typingReq = parseSetTypingRequest(data);
+            const typingSelfId = requireAuth(session);
+            if (typeof typingSelfId !== 'number')
+                return typingSelfId;
+            const typingReq = parseSetTypingRequest(data, session);
             if (typingReq?.peerKey) {
                 const isP2PTyping = typingReq.peerKey.startsWith('user:') && typingReq.peerKey !== `user:${typingSelfId}`;
                 if (isP2PTyping) {
@@ -1058,11 +1242,13 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x0e306d3a: { // messages.readHistory
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.readHistory`);
-            const request = parseReadHistoryRequest(data);
+            const request = parseReadHistoryRequest(data, session);
             if (!request) {
                 return buildRpcErrorObject(400, 'MSG_OPTION_UNSUPPORTED');
             }
-            const readSelfId = session.userId || SEED_USER_ID;
+            const readSelfId = requireAuth(session);
+            if (typeof readSelfId !== 'number')
+                return readSelfId;
             const state = messageStore.markHistoryRead(readSelfId, request.peerKey, request.maxId);
             ctx.broadcastSessionUpdates(session, buildLiveReadHistoryUpdates(request.peerKey, request.maxId, state.updatePts, state.updatePtsCount, readSelfId));
             // Notify the other side that their outbox was read
@@ -1092,7 +1278,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             if (!request) {
                 return buildRpcErrorObject(400, 'MSG_OPTION_UNSUPPORTED');
             }
-            const chanReadSelfId = session.userId || SEED_USER_ID;
+            const chanReadSelfId = requireAuth(session);
+            if (typeof chanReadSelfId !== 'number')
+                return chanReadSelfId;
             messageStore.markHistoryRead(chanReadSelfId, request.peerKey, request.maxId);
             return buildBoolTrue();
         }
@@ -1107,7 +1295,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x5dd69e12: { // contacts.getContacts
             console.log(`[${new Date().toISOString()}] Session ${session.id} contacts.getContacts`);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             return buildContactsFromDb(selfId);
         }
         case 0x11f812d8: { // contacts.search
@@ -1115,7 +1305,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             const searchReader = new BinaryReader(data);
             searchReader.offset = 4;
             const query = readTlString(searchReader);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             console.log(`[${new Date().toISOString()}] contacts.search query="${query}" selfId=${selfId}`);
             return buildContactsFound(query, selfId);
         }
@@ -1123,13 +1315,38 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getDialogUnreadMarks`);
             return buildEmptyVector();
         }
-        case 0x12b3ad31: { // account.getNotifySettings
+        case 0x12b3ad31: { // account.getNotifySettings (audit #9)
             console.log(`[${new Date().toISOString()}] Session ${session.id} account.getNotifySettings`);
-            return buildPeerNotifySettings();
+            const nSelfId = requireAuth(session);
+            if (typeof nSelfId !== 'number')
+                return buildPeerNotifySettings();
+            let peerKey;
+            try {
+                const r = new BinaryReader(data);
+                r.offset = 4;
+                const inpCid = r.readInt() >>> 0;
+                if (inpCid === 0xb8bc5b0c)
+                    peerKey = readInputPeerKey(r, session);
+                else if (inpCid === 0x193b4417)
+                    peerKey = 'users';
+                else if (inpCid === 0x4a95e84e)
+                    peerKey = 'chats';
+                else if (inpCid === 0xb1db7c7e)
+                    peerKey = 'broadcasts';
+            }
+            catch {
+                peerKey = undefined;
+            }
+            if (!peerKey)
+                return buildPeerNotifySettings();
+            const s = messageStore.getNotifySettings(nSelfId, peerKey);
+            return buildPeerNotifySettings(s);
         }
         case 0xe320c158: { // account.getAuthorizations
             console.log(`[${new Date().toISOString()}] Session ${session.id} account.getAuthorizations`);
-            const authzUserId = session.userId || SEED_USER_ID;
+            const authzUserId = requireAuth(session);
+            if (typeof authzUserId !== 'number')
+                return authzUserId;
             const sessions = messageStore.getSessionsForUser(authzUserId);
             if (sessions.length === 0) {
                 return buildAuthorizationsEmpty();
@@ -1152,6 +1369,17 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             ssReader.offset = 4; // skip method constructor
             const ssInputConstructor = ssReader.readInt() >>> 0;
             console.log(`[STICKERSET] inputConstructor=0x${ssInputConstructor.toString(16)}`);
+            // Map inputStickerSet constructors to capture file type names
+            const inputStickerSetTypeMap = {
+                0x028703c8: 'AnimatedEmoji',
+                0x0cde3739: 'AnimatedEmojiAnimations',
+                0xc88b3b02: 'PremiumGifts',
+                0x1cf671a0: 'TonGifts',
+                0x04c4d4ce: 'EmojiGenericAnimations',
+                0x29d0f5ee: 'EmojiDefaultStatuses',
+                0x44c1f8e9: 'EmojiDefaultTopicIcons',
+                0x49748553: 'EmojiChannelDefaultStatuses',
+            };
             if (ssInputConstructor === 0x9de7a269) { // inputStickerSetID
                 const ssId = ssReader.readLong(false).toString();
                 const captured = buildStickerSetFromCapture(ssId);
@@ -1160,21 +1388,46 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                     return captured;
                 }
                 console.log(`[STICKERSET] NOT FOUND: ${ssId}`);
+                return buildRpcErrorObject(400, 'STICKERSET_INVALID');
             }
             else if (ssInputConstructor === 0x861cc8a0) { // inputStickerSetShortName
                 const shortName = readTlString(ssReader);
-                console.log(`[STICKERSET] shortName="${shortName}" — not supported yet`);
+                const captured = buildStickerSetFromCaptureByShortName(shortName);
+                if (captured) {
+                    console.log(`[STICKERSET] Serving captured set by shortName="${shortName}" (${captured.length} bytes)`);
+                    return captured;
+                }
+                console.log(`[STICKERSET] shortName="${shortName}" — not found, returning error`);
+                return buildRpcErrorObject(400, 'STICKERSET_INVALID');
             }
-            else if (ssInputConstructor === 0x028703c8) { // inputStickerSetAnimatedEmoji
-                console.log(`[STICKERSET] AnimatedEmoji set requested`);
+            else if (ssInputConstructor === 0xe67f520e || ssInputConstructor === 0x79e21a53) { // inputStickerSetDice
+                const emoticon = readTlString(ssReader);
+                const captured = buildStickerSetFromCaptureByShortName(emoticon);
+                if (captured) {
+                    console.log(`[STICKERSET] Serving dice set "${emoticon}" (${captured.length} bytes)`);
+                    return captured;
+                }
+                console.log(`[STICKERSET] Dice "${emoticon}" — not found, returning error`);
+                return buildRpcErrorObject(400, 'STICKERSET_INVALID');
             }
-            else if (ssInputConstructor === 0xcde3739) { // inputStickerSetAnimatedEmojiAnimations
-                console.log(`[STICKERSET] AnimatedEmojiAnimations set requested`);
+            else if (inputStickerSetTypeMap[ssInputConstructor]) {
+                const typeName = inputStickerSetTypeMap[ssInputConstructor];
+                const captured = buildStickerSetFromCaptureByTypeName(typeName);
+                if (captured) {
+                    console.log(`[STICKERSET] Serving ${typeName} set (${captured.length} bytes)`);
+                    return captured;
+                }
+                console.log(`[STICKERSET] ${typeName} — not captured, returning error`);
+                return buildRpcErrorObject(400, 'STICKERSET_INVALID');
+            }
+            else if (ssInputConstructor === 0xffb62b95) { // inputStickerSetEmpty
+                console.log(`[STICKERSET] Empty set requested`);
+                return buildRpcErrorObject(400, 'STICKERSET_INVALID');
             }
             else {
                 console.log(`[STICKERSET] unknown inputStickerSet constructor 0x${ssInputConstructor.toString(16)}`);
+                return buildRpcErrorObject(400, 'STICKERSET_INVALID');
             }
-            return buildStickerSetNotModified();
         }
         case 0x72d4742c: { // help.getAppChangelog
             console.log(`[${new Date().toISOString()}] Session ${session.id} help.getAppChangelog`);
@@ -1188,9 +1441,155 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             console.log(`[${new Date().toISOString()}] Session ${session.id} contacts.getStatuses`);
             return buildEmptyVector();
         }
-        case 0x9a868f80: { // contacts.getBlocked
+        case 0x9a868f80: { // contacts.getBlocked (audit #6)
             console.log(`[${new Date().toISOString()}] Session ${session.id} contacts.getBlocked`);
-            return buildBlockedEmpty();
+            const bSelfId = requireAuth(session);
+            if (typeof bSelfId !== 'number')
+                return buildBlockedEmpty();
+            return buildBlockedFromDb(bSelfId);
+        }
+        case 0xe8f63c0f: { // contacts.addContact (audit #6)
+            console.log(`[${new Date().toISOString()}] Session ${session.id} contacts.addContact`);
+            const cSelfId = requireAuth(session);
+            if (typeof cSelfId !== 'number')
+                return cSelfId;
+            try {
+                const r = new BinaryReader(data);
+                r.offset = 4;
+                r.readInt(); // flags
+                const u = readInputUserRef(r, session);
+                const firstName = readTlString(r);
+                const lastName = readTlString(r);
+                const phone = readTlString(r);
+                if (u?.userId) {
+                    const uid = Number(u.userId);
+                    messageStore.addContact(cSelfId, uid, firstName, lastName, phone);
+                }
+            }
+            catch (e) {
+                console.log(`[WARN] contacts.addContact: parse error:`, e.message);
+            }
+            return buildUpdatesEmpty();
+        }
+        case 0x096a0e00: { // contacts.deleteContacts (audit #6)
+            console.log(`[${new Date().toISOString()}] Session ${session.id} contacts.deleteContacts`);
+            const cSelfId = requireAuth(session);
+            if (typeof cSelfId !== 'number')
+                return cSelfId;
+            try {
+                const r = new BinaryReader(data);
+                r.offset = 4;
+                r.readInt(); // vector
+                const count = r.readInt();
+                for (let i = 0; i < count; i++) {
+                    const u = readInputUserRef(r, session);
+                    if (u?.userId)
+                        messageStore.deleteContact(cSelfId, Number(u.userId));
+                }
+            }
+            catch (e) {
+                console.log(`[WARN] contacts.deleteContacts: parse error:`, e.message);
+            }
+            return buildUpdatesEmpty();
+        }
+        case 0x2c800be5: { // contacts.importContacts (audit #6)
+            console.log(`[${new Date().toISOString()}] Session ${session.id} contacts.importContacts`);
+            const cSelfId = requireAuth(session);
+            if (typeof cSelfId !== 'number')
+                return cSelfId;
+            const imported = [];
+            try {
+                const r = new BinaryReader(data);
+                r.offset = 4;
+                r.readInt(); // vector
+                const count = r.readInt();
+                for (let i = 0; i < count; i++) {
+                    // inputPhoneContact#f392b7f4 client_id:long phone:string first_name:string last_name:string
+                    r.readInt();
+                    const clientId = r.readLong(false);
+                    const phone = readTlString(r);
+                    const firstName = readTlString(r);
+                    const lastName = readTlString(r);
+                    const user = messageStore.getUserByPhone(phone);
+                    if (user) {
+                        messageStore.addContact(cSelfId, user.id, firstName, lastName, phone);
+                        imported.push({ clientId, userId: user.id });
+                    }
+                }
+            }
+            catch (e) {
+                console.log(`[WARN] contacts.importContacts: parse error:`, e.message);
+            }
+            // contacts.importedContacts#77d01c3b imported:Vector<ImportedContact> popular_invites:Vector<PopularContact>
+            //   retry_contacts:Vector<long> users:Vector<User>
+            const w = new BinaryWriter();
+            w.writeInt(0x77d01c3b);
+            w.writeInt(0x1cb5c415);
+            w.writeInt(imported.length);
+            for (const { clientId, userId } of imported) {
+                // importedContact#c13e3c50 user_id:long client_id:long
+                w.writeInt(0xc13e3c50);
+                w.writeLong(BigInt(userId));
+                w.writeLong(clientId);
+            }
+            w.writeInt(0x1cb5c415);
+            w.writeInt(0); // popular_invites
+            w.writeInt(0x1cb5c415);
+            w.writeInt(0); // retry_contacts
+            w.writeInt(0x1cb5c415);
+            w.writeInt(imported.length);
+            for (const { userId } of imported) {
+                const u = messageStore.getUserById(userId);
+                if (!u)
+                    continue;
+                writeUserFromFixture(w, {
+                    id: String(u.id),
+                    accessHash: u.accessHash.toString(),
+                    firstName: u.firstName,
+                    lastName: u.lastName,
+                    phone: u.phone,
+                    contact: true,
+                });
+            }
+            return w.getBytes();
+        }
+        case 0x2e2e8734: { // contacts.block (audit #6)
+            console.log(`[${new Date().toISOString()}] Session ${session.id} contacts.block`);
+            const bSelfId = requireAuth(session);
+            if (typeof bSelfId !== 'number')
+                return bSelfId;
+            try {
+                const r = new BinaryReader(data);
+                r.offset = 4;
+                r.readInt(); // flags (bit0: my_stories_from)
+                const peerKey = readInputPeerKey(r, session);
+                if (peerKey?.startsWith('user:')) {
+                    messageStore.blockUser(bSelfId, Number(peerKey.split(':')[1]));
+                }
+            }
+            catch (e) {
+                console.log(`[WARN] contacts.block: parse error:`, e.message);
+            }
+            return buildBoolTrue();
+        }
+        case 0xb550d328: { // contacts.unblock (audit #6)
+            console.log(`[${new Date().toISOString()}] Session ${session.id} contacts.unblock`);
+            const bSelfId = requireAuth(session);
+            if (typeof bSelfId !== 'number')
+                return bSelfId;
+            try {
+                const r = new BinaryReader(data);
+                r.offset = 4;
+                r.readInt(); // flags
+                const peerKey = readInputPeerKey(r, session);
+                if (peerKey?.startsWith('user:')) {
+                    messageStore.unblockUser(bSelfId, Number(peerKey.split(':')[1]));
+                }
+            }
+            catch (e) {
+                console.log(`[WARN] contacts.unblock: parse error:`, e.message);
+            }
+            return buildBoolTrue();
         }
         case 0x18dea0ac: { // messages.getAvailableReactions
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getAvailableReactions`);
@@ -1211,7 +1610,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0xeb2b4cf6: { // account.getGlobalPrivacySettings
             console.log(`[${new Date().toISOString()}] Session ${session.id} account.getGlobalPrivacySettings`);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             const settings = messageStore.getAllGlobalPrivacySettings(selfId);
             return buildGlobalPrivacySettingsFromDb(settings);
         }
@@ -1222,7 +1623,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             // settings:GlobalPrivacySettings
             const settingsCid = reader.readInt() >>> 0; // globalPrivacySettings constructor
             const sFlags = reader.readInt() >>> 0;
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             messageStore.setGlobalPrivacySetting(selfId, 'archive_and_mute', (sFlags & (1 << 0)) ? '1' : '0');
             messageStore.setGlobalPrivacySetting(selfId, 'keep_archived_unmuted', (sFlags & (1 << 1)) ? '1' : '0');
             messageStore.setGlobalPrivacySetting(selfId, 'keep_archived_folders', (sFlags & (1 << 2)) ? '1' : '0');
@@ -1281,17 +1684,54 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getPaidReactionPrivacy`);
             return buildUpdatesEmpty();
         }
-        case 0x570d6f6f: { // messages.getWebPagePreview
+        case 0x570d6f6f: { // messages.getWebPagePreview (audit #3)
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getWebPagePreview`);
-            return buildWebPagePreviewEmpty();
+            try {
+                const r = new BinaryReader(data);
+                r.offset = 4;
+                r.readInt(); // flags
+                const msg = readTlString(r);
+                const url = extractFirstUrl(msg);
+                if (!url)
+                    return buildWebPagePreviewEmpty();
+                const cached = getCachedPreview(url);
+                if (cached) {
+                    return buildWebPagePreviewFromOg(cached);
+                }
+                // Kick off (or join) the in-flight fetch and defer the rpc_result until
+                // it resolves. Real Telegram clients block the compose preview UI on
+                // this RPC, so returning a synchronous empty reply prevented the
+                // preview from ever appearing (clients don't re-poll on their own).
+                const capturedSession = session;
+                const capturedReqMsgId = reqMsgId;
+                requestPreviewFetch(url).then((preview) => {
+                    const payload = preview ? buildWebPagePreviewFromOg(preview) : buildWebPagePreviewEmpty();
+                    ctx.sendDeferredRpcResult(capturedSession, capturedReqMsgId, payload);
+                }).catch((e) => {
+                    console.log(`[WARN] messages.getWebPagePreview deferred:`, e?.message);
+                    ctx.sendDeferredRpcResult(capturedSession, capturedReqMsgId, buildWebPagePreviewEmpty());
+                });
+                return null; // response will be sent asynchronously via sendDeferredRpcResult
+            }
+            catch (e) {
+                console.log(`[WARN] messages.getWebPagePreview:`, e.message);
+                return buildWebPagePreviewEmpty();
+            }
         }
         case 0x7ff3b806: // messages.saveDraft (Layer 198)
-        case 0x54ae308e: { // messages.saveDraft (legacy)
+        case 0x54ae308e: { // messages.saveDraft (legacy) — audit #8 live push
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.saveDraft`);
-            const draftSelfId = session.userId || SEED_USER_ID;
-            const draftReq = parseSaveDraftRequest(data);
+            const draftSelfId = requireAuth(session);
+            if (typeof draftSelfId !== 'number')
+                return draftSelfId;
+            const draftReq = parseSaveDraftRequest(data, session);
             if (draftReq?.peerKey) {
                 messageStore.saveDraft(draftSelfId, draftReq.peerKey, draftReq.message, draftReq.replyToMsgId);
+                const draftRow = messageStore.getDraft(draftSelfId, draftReq.peerKey);
+                const draftUpdate = buildUpdateDraftMessage(draftReq.peerKey, draftRow?.text || '', draftRow?.date || Math.floor(Date.now() / 1000), draftRow?.replyToMsgId);
+                const userIds = [String(draftSelfId)];
+                collectEntityIdsFromPeerKey(draftReq.peerKey, userIds, []);
+                ctx.broadcastSessionUpdates(session, buildLiveUpdatesEnvelope([draftUpdate], userIds, []));
             }
             return buildBoolTrue();
         }
@@ -1305,7 +1745,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             const keyConstructor = reader.readInt() >>> 0;
             const privacyKey = inputPrivacyKeyToString(keyConstructor);
             console.log(`[${new Date().toISOString()}] Session ${session.id} account.getPrivacy key=${privacyKey}`);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             const rules = messageStore.getPrivacyRules(selfId, privacyKey);
             if (rules.length === 0) {
                 // Default: allowAll for most keys
@@ -1319,7 +1761,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             const keyConstructor = reader.readInt() >>> 0;
             const privacyKey = inputPrivacyKeyToString(keyConstructor);
             console.log(`[${new Date().toISOString()}] Session ${session.id} account.setPrivacy key=${privacyKey}`);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             // Read rules vector: Vector<InputPrivacyRule>
             const vecCid = reader.readInt() >>> 0; // 0x1cb5c415
             const ruleCount = reader.readInt();
@@ -1467,10 +1911,107 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                 return buildRpcErrorObject(400, 'PHONE_NOT_OCCUPIED');
             return buildResolvedPeerForUser(user);
         }
-        case 0x84be5b93: // account.updateNotifySettings
-        case 0xa731e257: // messages.toggleDialogPin
-        case 0x3b1adf37: { // messages.reorderPinnedDialogs
-            console.log(`[${new Date().toISOString()}] Session ${session.id} updateNotifySettings/toggleDialogPin/reorderPinnedDialogs`);
+        case 0x84be5b93: { // account.updateNotifySettings (audit #9)
+            console.log(`[${new Date().toISOString()}] Session ${session.id} account.updateNotifySettings`);
+            const notifySelfId = requireAuth(session);
+            if (typeof notifySelfId !== 'number')
+                return notifySelfId;
+            try {
+                const r = new BinaryReader(data);
+                r.offset = 4;
+                // InputNotifyPeer variants
+                const inpCid = r.readInt() >>> 0;
+                let peerKey;
+                if (inpCid === 0xb8bc5b0c) {
+                    // inputNotifyPeer#b8bc5b0c peer:InputPeer
+                    peerKey = readInputPeerKey(r, session);
+                }
+                else if (inpCid === 0x193b4417) { // inputNotifyUsers
+                    peerKey = 'users';
+                }
+                else if (inpCid === 0x4a95e84e) { // inputNotifyChats
+                    peerKey = 'chats';
+                }
+                else if (inpCid === 0xb1db7c7e) { // inputNotifyBroadcasts
+                    peerKey = 'broadcasts';
+                }
+                else {
+                    peerKey = `notify:${inpCid.toString(16)}`;
+                }
+                // inputPeerNotifySettings#cacb6ae2 flags:# show_previews:flags.0?Bool silent:flags.1?Bool mute_until:flags.2?int
+                //   sound:flags.3?NotificationSound stories_muted:flags.6?Bool stories_hide_sender:flags.7?Bool stories_sound:flags.8?NotificationSound
+                r.readInt(); // settings constructor
+                const sflags = r.readInt() >>> 0;
+                let showPreviews;
+                let silent;
+                let muteUntil;
+                if (sflags & (1 << 0)) {
+                    const b = r.readInt() >>> 0;
+                    showPreviews = b === 0x997275b5;
+                }
+                if (sflags & (1 << 1)) {
+                    const b = r.readInt() >>> 0;
+                    silent = b === 0x997275b5;
+                }
+                if (sflags & (1 << 2)) {
+                    muteUntil = r.readInt();
+                }
+                if (peerKey) {
+                    messageStore.setNotifySettings(notifySelfId, peerKey, { showPreviews, silent, muteUntil });
+                }
+            }
+            catch (e) {
+                console.log(`[WARN] account.updateNotifySettings: parse error:`, e.message);
+            }
+            return buildBoolTrue();
+        }
+        case 0xa731e257: { // messages.toggleDialogPin (audit #10)
+            console.log(`[${new Date().toISOString()}] Session ${session.id} messages.toggleDialogPin`);
+            const pinSelfId = requireAuth(session);
+            if (typeof pinSelfId !== 'number')
+                return pinSelfId;
+            try {
+                const r = new BinaryReader(data);
+                r.offset = 4;
+                const flags = r.readInt() >>> 0;
+                const pinned = (flags & (1 << 0)) !== 0;
+                // inputDialogPeer#fcaafeb7 peer:InputPeer
+                r.readInt(); // constructor
+                const peerKey = readInputPeerKey(r, session);
+                if (peerKey) {
+                    messageStore.setDialogPinned(pinSelfId, peerKey, pinned);
+                }
+            }
+            catch (e) {
+                console.log(`[WARN] messages.toggleDialogPin: parse error:`, e.message);
+            }
+            return buildBoolTrue();
+        }
+        case 0x3b1adf37: { // messages.reorderPinnedDialogs (audit #10)
+            console.log(`[${new Date().toISOString()}] Session ${session.id} messages.reorderPinnedDialogs`);
+            const reorderSelfId = requireAuth(session);
+            if (typeof reorderSelfId !== 'number')
+                return reorderSelfId;
+            try {
+                const r = new BinaryReader(data);
+                r.offset = 4;
+                r.readInt(); // flags (bit 0 = force)
+                r.readInt(); // folder_id
+                // order: Vector<InputDialogPeer>
+                r.readInt(); // vector constructor
+                const cnt = r.readInt();
+                const peerKeys = [];
+                for (let i = 0; i < cnt; i++) {
+                    r.readInt(); // inputDialogPeer#fcaafeb7
+                    const pk = readInputPeerKey(r, session);
+                    if (pk)
+                        peerKeys.push(pk);
+                }
+                messageStore.reorderPinnedDialogs(reorderSelfId, peerKeys);
+            }
+            catch (e) {
+                console.log(`[WARN] messages.reorderPinnedDialogs: parse error:`, e.message);
+            }
             return buildBoolTrue();
         }
         case 0xb304a621: { // upload.saveFilePart
@@ -1606,7 +2147,7 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x330e77f: { // messages.sendMedia
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.sendMedia`);
-            const mediaReq = parseSendMediaRequest(data);
+            const mediaReq = parseSendMediaRequest(data, session);
             if (!mediaReq?.peerKey) {
                 console.log(`[WARN] sendMedia: parse failed or no peerKey`);
                 return buildRpcErrorObject(400, 'MEDIA_INVALID');
@@ -1615,7 +2156,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             const mediaPeerErr = validatePeerKey(mediaReq.peerKey);
             if (mediaPeerErr)
                 return buildRpcErrorObject(400, mediaPeerErr);
-            const mediaSelfId = session.userId || SEED_USER_ID;
+            const mediaSelfId = requireAuth(session);
+            if (typeof mediaSelfId !== 'number')
+                return mediaSelfId;
             if (!messageLimiter.check(String(mediaSelfId))) {
                 return buildRpcErrorObject(420, 'FLOOD_WAIT_60');
             }
@@ -1679,6 +2222,14 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                 : `user:${mediaSelfId}`);
             // Delete draft for this peer if exists
             messageStore.deleteDraft(mediaSelfId, mediaReq.peerKey);
+            // Serialize caption entities + autodetect URLs (same rules as sendMessage).
+            const mediaAugmentedEntities = autoDetectUrlEntities(mediaReq.message, mediaReq.entities);
+            let mediaEntitiesBlob;
+            if (mediaAugmentedEntities && mediaAugmentedEntities.length > 0) {
+                const ew = new BinaryWriter();
+                writeMessageEntitiesVector(ew, mediaAugmentedEntities);
+                mediaEntitiesBlob = ew.getBytes();
+            }
             const storedMediaMsg = messageStore.appendOutgoingMessage(mediaSelfId, {
                 peerKey: mediaReq.peerKey,
                 text: mediaReq.message,
@@ -1690,6 +2241,7 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                 quoteText: mediaReq.quoteText,
                 quoteOffset: mediaReq.quoteOffset,
                 mediaId: savedMedia.id,
+                entities: mediaEntitiesBlob,
             });
             console.log(`[MEDIA] message stored: msgId=${storedMediaMsg.messageId} mediaId=${storedMediaMsg.mediaId} pts=${storedMediaMsg.updatePts}`);
             const mediaMessageFixture = getStoredMessageAsFixture(mediaReq.peerKey, storedMediaMsg.messageId, mediaSelfId);
@@ -1723,6 +2275,7 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                     quoteText: mediaReq.quoteText,
                     quoteOffset: mediaReq.quoteOffset,
                     mediaId: savedMedia.id, // Same media reference
+                    entities: mediaEntitiesBlob,
                 });
                 messageStore.markMessageIncoming(mediaRecipientId, mediaRecipientPeerKey, recipientMediaMsg.messageId);
                 const recipientMediaFixture = getStoredMessageAsFixture(mediaRecipientPeerKey, recipientMediaMsg.messageId, mediaRecipientId);
@@ -1752,6 +2305,7 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                         quoteText: mediaReq.quoteText,
                         quoteOffset: mediaReq.quoteOffset,
                         mediaId: savedMedia.id,
+                        entities: mediaEntitiesBlob,
                     });
                     messageStore.markMessageIncoming(p.userId, mediaReq.peerKey, participantMediaMsg.messageId);
                     const pMediaFixture = getStoredMessageAsFixture(mediaReq.peerKey, participantMediaMsg.messageId, p.userId);
@@ -1769,7 +2323,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x91cd32a8: { // photos.getUserPhotos
             console.log(`[${new Date().toISOString()}] Session ${session.id} photos.getUserPhotos`);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             const reader = new BinaryReader(data);
             reader.offset = 4; // skip constructor
             const userRef = readInputUserRef(reader, session);
@@ -1800,8 +2356,10 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x388a3b5: { // photos.uploadProfilePhoto
             console.log(`[${new Date().toISOString()}] Session ${session.id} photos.uploadProfilePhoto`);
-            const selfId = session.userId || SEED_USER_ID;
-            const request = parseUploadProfilePhotoRequest(data);
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
+            const request = parseUploadProfilePhotoRequest(data, session);
             const targetUserId = request?.targetUserId || selfId;
             if (!request?.fileId) {
                 return buildRpcErrorObject(400, 'PHOTO_INVALID');
@@ -1816,6 +2374,19 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                 mimeType: 'image/jpeg',
             });
             messageStore.updateUser(targetUserId, { photoId: savedMedia.id });
+            // Notify every other user to refetch this user so the new avatar is
+            // reflected in their chat list / contacts without a page reload.
+            {
+                const envelope = buildLiveUpdateUserEnvelope(targetUserId);
+                const allUsers = messageStore.getAllUsers();
+                for (const other of allUsers) {
+                    if (other.id !== targetUserId) {
+                        ctx.broadcastToUser(other.id, envelope);
+                    }
+                }
+                // Also notify the uploader's other sessions.
+                ctx.broadcastSessionUpdates(session, envelope);
+            }
             const updatedUser = getFixtureUserForId(undefined, String(targetUserId), targetUserId === selfId);
             const w = new BinaryWriter();
             w.writeInt(0x20212ca8); // photos.photo
@@ -1849,9 +2420,22 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                 if (lnErr)
                     return buildRpcErrorObject(400, lnErr);
             }
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             if (newFirstName !== undefined || newLastName !== undefined || newAbout !== undefined) {
                 messageStore.updateUser(selfId, { firstName: newFirstName, lastName: newLastName, about: newAbout ?? undefined });
+                // Push the updated name to every other user so their cached copies refresh.
+                const updatedUser = getFixtureUserForId(undefined, String(selfId), true);
+                const nameUpdate = buildUpdateUserNameUpdate(selfId, updatedUser.firstName || '', updatedUser.lastName || '', updatedUser.username || undefined);
+                const envelope = buildLiveUpdatesEnvelope([nameUpdate], [String(selfId)], []);
+                const allUsers = messageStore.getAllUsers();
+                for (const other of allUsers) {
+                    if (other.id !== selfId) {
+                        ctx.broadcastToUser(other.id, envelope);
+                    }
+                }
+                ctx.broadcastSessionUpdates(session, envelope);
             }
             const updatedUser = getFixtureUserForId(undefined, String(selfId), true);
             const w = new BinaryWriter();
@@ -1863,7 +2447,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             const reader = new BinaryReader(data);
             reader.offset = 4;
             const bdFlags = reader.readInt();
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             if (bdFlags & (1 << 0)) {
                 // birthday#6c8e1e06 flags:# day:int month:int year:flags.0?int
                 const bdCtor = reader.readInt() >>> 0;
@@ -1897,7 +2483,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x3e0bdd7c: { // account.updateUsername
             console.log(`[${new Date().toISOString()}] Session ${session.id} account.updateUsername`);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             const reader = new BinaryReader(data);
             reader.offset = 4;
             const newUsername = readTlString(reader);
@@ -1915,16 +2503,28 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             // Pass newUsername directly — updateUser handles '' → null in DB
             messageStore.updateUser(selfId, { username: newUsername });
             const updatedUser = getFixtureUserForId(undefined, String(selfId), true);
-            // Push UpdateUserName to all connected sessions of this user
+            // Push UpdateUserName to this user's sessions AND all other users, so
+            // username changes are visible live everywhere (not just after reload).
             const unUpdate = buildUpdateUserNameUpdate(selfId, updatedUser.firstName || '', updatedUser.lastName || '', newUsername || undefined);
-            ctx.broadcastToUser(selfId, buildLiveUpdatesEnvelope([unUpdate], [String(selfId)], []));
+            const unEnvelope = buildLiveUpdatesEnvelope([unUpdate], [String(selfId)], []);
+            ctx.broadcastToUser(selfId, unEnvelope);
+            {
+                const allUsers = messageStore.getAllUsers();
+                for (const other of allUsers) {
+                    if (other.id !== selfId) {
+                        ctx.broadcastToUser(other.id, unEnvelope);
+                    }
+                }
+            }
             const w = new BinaryWriter();
             writeUserFromFixture(w, { ...updatedUser, self: true });
             return w.getBytes();
         }
         case 0x13704a7c: { // messages.forwardMessages
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.forwardMessages`);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             const fwdReq = parseForwardMessagesRequest(data, session);
             if (!fwdReq || !fwdReq.toPeerKey) {
                 return buildRpcErrorObject(400, 'PEER_ID_INVALID');
@@ -1935,7 +2535,12 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             const chatIds = [];
             collectEntityIdsFromPeerKey(fwdReq.toPeerKey, userIds, chatIds);
             for (let i = 0; i < fwdReq.messageIds.length; i++) {
-                const origMsg = messageStore.getMessageForUser(fwdReq.messageIds[i], selfId);
+                // Scope by fromPeerKey when available: message_id is not globally unique
+                // per user (counter is per (owner, peer)), so a bare lookup can pick up
+                // a message from a different chat with the same id.
+                const origMsg = fwdReq.fromPeerKey
+                    ? messageStore.getMessage(selfId, fwdReq.fromPeerKey, fwdReq.messageIds[i])
+                    : messageStore.getMessageForUser(fwdReq.messageIds[i], selfId);
                 const text = origMsg?.text || '';
                 // Determine fwd_from metadata
                 let fwdFromPeerKey;
@@ -1968,10 +2573,13 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                     fwdFromName = undefined;
                 }
                 console.log(`[FWD-DEBUG] final: fwdFromPeerKey=${fwdFromPeerKey} fwdFromName=${fwdFromName} dropAuthor=${fwdReq.dropAuthor}`);
+                // Capture a stable per-iteration random id so all participants' copies
+                // share a derivable key (needed by reactions / edit / delete mapping).
+                const senderRandomId = fwdReq.randomIds[i] || `fwd_${Date.now()}_${i}`;
                 const stored = messageStore.appendOutgoingMessage(selfId, {
                     peerKey: fwdReq.toPeerKey,
                     text,
-                    clientRandomId: fwdReq.randomIds[i] || `fwd_${Date.now()}_${i}`,
+                    clientRandomId: senderRandomId,
                     seedMaxMessageId: 0,
                     fromPeerKey: `user:${selfId}`,
                     post: false,
@@ -1979,6 +2587,7 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                     fwdFromName,
                     fwdDate: fwdReq.dropAuthor ? undefined : fwdDate,
                     mediaId: origMsg?.mediaId,
+                    entities: origMsg?.entities, // audit #7: preserve formatting of forwarded message
                 });
                 const fixture = getStoredMessageAsFixture(fwdReq.toPeerKey, stored.messageId, selfId);
                 if (fixture) {
@@ -1999,7 +2608,7 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                     const recipientMsg = messageStore.appendOutgoingMessage(recipientId, {
                         peerKey: recipientPeerKey,
                         text,
-                        clientRandomId: `recv_fwd_${Date.now()}_${i}`,
+                        clientRandomId: `recv_${senderRandomId}`,
                         seedMaxMessageId: 0,
                         fromPeerKey: `user:${selfId}`,
                         post: false,
@@ -2007,9 +2616,10 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                         fwdFromName,
                         fwdDate: fwdReq.dropAuthor ? undefined : fwdDate,
                         mediaId: origMsg?.mediaId,
+                        entities: origMsg?.entities,
                     });
                     messageStore.markMessageIncoming(recipientId, recipientPeerKey, recipientMsg.messageId);
-                    const recipientFixture = getStoredMessageAsFixture(recipientPeerKey, recipientMsg.messageId, recipientId);
+                    const recipientFixture = prepareRecipientFixture(recipientPeerKey, recipientMsg.messageId, recipientId, selfId);
                     if (recipientFixture) {
                         ctx.broadcastToUser(recipientId, buildLiveUpdatesEnvelope([buildUpdateNewMessage(recipientFixture, recipientMsg.updatePts, recipientMsg.updatePtsCount)], [String(selfId), String(recipientId)], []));
                     }
@@ -2025,7 +2635,7 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                         const pMsg = messageStore.appendOutgoingMessage(p.userId, {
                             peerKey: fwdReq.toPeerKey,
                             text,
-                            clientRandomId: `group_fwd_${Date.now()}_${i}_${p.userId}`,
+                            clientRandomId: `group_${senderRandomId}_${p.userId}`,
                             seedMaxMessageId: 0,
                             fromPeerKey: `user:${selfId}`,
                             post: false,
@@ -2033,9 +2643,10 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                             fwdFromName,
                             fwdDate: fwdReq.dropAuthor ? undefined : fwdDate,
                             mediaId: origMsg?.mediaId,
+                            entities: origMsg?.entities,
                         });
                         messageStore.markMessageIncoming(p.userId, fwdReq.toPeerKey, pMsg.messageId);
-                        const pFixture = getStoredMessageAsFixture(fwdReq.toPeerKey, pMsg.messageId, p.userId);
+                        const pFixture = prepareRecipientFixture(fwdReq.toPeerKey, pMsg.messageId, p.userId, selfId);
                         if (pFixture) {
                             ctx.broadcastToUser(p.userId, buildLiveUpdatesEnvelopeWithChats([buildUpdateNewMessage(pFixture, pMsg.updatePts, pMsg.updatePtsCount)], [String(selfId), String(p.userId)], [chatId], p.userId));
                         }
@@ -2047,8 +2658,10 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0xd30d78d4: { // messages.sendReaction
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.sendReaction`);
-            const reactSelfId = session.userId || SEED_USER_ID;
-            const reactReq = parseSendReactionRequest(data);
+            const reactSelfId = requireAuth(session);
+            if (typeof reactSelfId !== 'number')
+                return reactSelfId;
+            const reactReq = parseSendReactionRequest(data, session);
             console.log(`[REACT-DEBUG] parsed: peer=${reactReq?.peerKey} msgId=${reactReq?.msgId} reactions=${JSON.stringify(reactReq?.reactions)}`);
             if (reactReq?.peerKey && reactReq.msgId) {
                 if (reactReq.reactions.length > 0) {
@@ -2079,22 +2692,31 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                         ctx.broadcastToUser(otherUserId, otherLive);
                     }
                 }
-                else if (reactReq.peerKey.startsWith('chat:')) {
-                    // Group chats: store + broadcast to all participants
+                else if (reactReq.peerKey.startsWith('chat:') || reactReq.peerKey.startsWith('channel:')) {
+                    // Group/channel: each participant has their own local message_id for the
+                    // same logical message, so we must resolve per-participant before writing
+                    // the reaction and emitting updateMessageReactions. Using the reactor's
+                    // msgId for every participant (as was done before) wrote reactions into
+                    // non-existent rows and the client-side aggregator silently dropped them.
                     const chatId = Number(reactReq.peerKey.split(':')[1]);
                     const participants = messageStore.getChatParticipants(chatId);
                     for (const p of participants) {
                         if (p.userId === reactSelfId)
                             continue;
+                        const [pMsgId] = messageStore.resolveGroupRecipientMessageIds(reactSelfId, reactReq.peerKey, [reactReq.msgId], p.userId);
+                        if (!pMsgId) {
+                            console.log(`[REACT-DEBUG] could not resolve group msg for user=${p.userId} peer=${reactReq.peerKey} senderMsg=${reactReq.msgId}`);
+                            continue;
+                        }
                         if (reactReq.reactions.length > 0) {
-                            messageStore.setReaction(p.userId, reactReq.peerKey, reactReq.msgId, reactSelfId, reactReq.reactions[0]);
+                            messageStore.setReaction(p.userId, reactReq.peerKey, pMsgId, reactSelfId, reactReq.reactions[0]);
                         }
                         else {
-                            messageStore.removeReaction(p.userId, reactReq.peerKey, reactReq.msgId, reactSelfId);
+                            messageStore.removeReaction(p.userId, reactReq.peerKey, pMsgId, reactSelfId);
                         }
-                        messageStore.appendReactionEvent(p.userId, reactReq.peerKey, reactReq.msgId);
-                        const pReactions = aggregateReactions(p.userId, reactReq.peerKey, reactReq.msgId, p.userId);
-                        ctx.broadcastToUser(p.userId, buildLiveUpdateMessageReactions(reactReq.peerKey, reactReq.msgId, pReactions));
+                        messageStore.appendReactionEvent(p.userId, reactReq.peerKey, pMsgId);
+                        const pReactions = aggregateReactions(p.userId, reactReq.peerKey, pMsgId, p.userId);
+                        ctx.broadcastToUser(p.userId, buildLiveUpdateMessageReactions(reactReq.peerKey, pMsgId, pReactions));
                     }
                 }
                 // Build reaction response for the sender
@@ -2104,8 +2726,78 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             }
             return buildUpdatesEmpty();
         }
+        case 0x461b3f48: { // messages.getMessageReactionsList
+            // Request: flags:# peer:InputPeer id:int reaction:flags.0?Reaction offset:flags.1?string limit:int
+            // Response: messages.messageReactionsList#31bd492d flags:# count:int reactions:Vector<MessagePeerReaction>
+            //           chats:Vector<Chat> users:Vector<User> next_offset:flags.0?string
+            // This powers the "who reacted" panel in the reaction popover.
+            console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getMessageReactionsList`);
+            const listSelfId = requireAuth(session);
+            if (typeof listSelfId !== 'number')
+                return listSelfId;
+            const reader = new BinaryReader(data);
+            reader.offset = 4; // constructor
+            const listFlags = reader.readInt() >>> 0;
+            const listPeerKey = readInputPeerKey(reader, session);
+            if (!listPeerKey)
+                return buildRpcErrorObject(400, 'PEER_ID_INVALID');
+            const listMsgId = reader.readInt();
+            let filterEmoticon;
+            if (listFlags & (1 << 0)) {
+                // Reaction — reactionEmpty#79f5d419 | reactionEmoji#1b2286b8 emoticon:string
+                //         | reactionCustomEmoji#8935fc73 document_id:long | reactionPaid#523da4eb
+                const rCtor = reader.readInt() >>> 0;
+                if (rCtor === 0x1b2286b8)
+                    filterEmoticon = readTlString(reader);
+                else if (rCtor === 0x8935fc73)
+                    reader.readLong();
+                // reactionEmpty / reactionPaid — nothing else to read
+            }
+            if (listFlags & (1 << 1))
+                skipTlStringByReader(reader); // offset cursor — we don't paginate
+            // limit (int) — we ignore, we return everything in one page
+            // reader.readInt();
+            const stored = messageStore.getReactions(listSelfId, listPeerKey, listMsgId);
+            const filtered = filterEmoticon ? stored.filter(r => r.emoticon === filterEmoticon) : stored;
+            const w = new BinaryWriter();
+            w.writeInt(0x31bd492d);
+            w.writeInt(0); // flags — no next_offset (we return all at once)
+            w.writeInt(filtered.length);
+            // reactions: Vector<MessagePeerReaction>
+            w.writeInt(0x1cb5c415);
+            w.writeInt(filtered.length);
+            const userIds = new Set();
+            for (const r of filtered) {
+                userIds.add(r.userId);
+                // messagePeerReaction#8c79b63c flags:# big:flags.0?true unread:flags.1?true my:flags.2?true
+                //   peer_id:Peer date:int reaction:Reaction
+                w.writeInt(0x8c79b63c);
+                let mprFlags = 0;
+                if (r.userId === listSelfId)
+                    mprFlags |= (1 << 2); // my
+                w.writeInt(mprFlags);
+                // peer_id = peerUser(user_id)
+                w.writeInt(0x59511722); // peerUser
+                w.writeLong(BigInt(r.userId));
+                w.writeInt(r.date);
+                // reactionEmoji#1b2286b8 emoticon:string
+                w.writeInt(0x1b2286b8);
+                writeTlString(w, r.emoticon);
+            }
+            // chats: Vector<Chat> — empty (we only surface user reactors)
+            writeEmptyVectorToWriter(w);
+            // users: Vector<User>
+            w.writeInt(0x1cb5c415);
+            w.writeInt(userIds.size);
+            for (const uid of userIds) {
+                writeUserFromFixture(w, getFixtureUserForId(undefined, String(uid), uid === listSelfId), listSelfId);
+            }
+            return w.getBytes();
+        }
         case 0x4bc6589a: { // messages.searchGlobal
-            const sgSelfId = session.userId || SEED_USER_ID;
+            const sgSelfId = requireAuth(session);
+            if (typeof sgSelfId !== 'number')
+                return sgSelfId;
             const sgReq = parseSearchGlobalRequest(data);
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.searchGlobal (q="${sgReq?.query}", filter=${sgReq?.filterType}, users=${sgReq?.usersOnly}, groups=${sgReq?.groupsOnly}, broadcasts=${sgReq?.broadcastsOnly}, limit=${sgReq?.limit})`);
             if (sgReq && sgReq.query.trim()) {
@@ -2146,6 +2838,8 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                         fwdFromName: msg.fwdFromName,
                         fwdDate: msg.fwdDate,
                         action: buildActionForFixture(msg.peerKey, msg.actionType, msg.text, msg.mediaId),
+                        entities: msg.entities,
+                        reactions: aggregateReactions(sgSelfId, msg.peerKey, msg.messageId, sgSelfId),
                     }));
                     return buildGetMessagesResponse(fixtureMessages, null, sgSelfId);
                 }
@@ -2162,7 +2856,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x92ceddd4: { // messages.createChat
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.createChat`);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             const req = parseCreateChatRequest(data);
             if (!req || !req.title) {
                 return buildRpcErrorObject(400, 'CHAT_TITLE_EMPTY');
@@ -2232,7 +2928,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x91006707: { // channels.createChannel
             console.log(`[${new Date().toISOString()}] Session ${session.id} channels.createChannel`);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             const req = parseCreateChannelRequest(data);
             if (!req || !req.title) {
                 return buildRpcErrorObject(400, 'CHAT_TITLE_EMPTY');
@@ -2266,7 +2964,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0xaeb00b34: { // messages.getFullChat
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getFullChat`);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             const req = parseGetFullChatRequest(data);
             if (!req) {
                 return buildRpcErrorObject(400, 'CHAT_ID_INVALID');
@@ -2280,7 +2980,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x77ced9d0: { // channels.getParticipants
             console.log(`[${new Date().toISOString()}] Session ${session.id} channels.getParticipants`);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             const req = parseGetParticipantsRequest(data);
             if (!req || !req.channelId) {
                 return buildRpcErrorObject(400, 'CHANNEL_INVALID');
@@ -2291,8 +2993,10 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0xa0ab6cc6: { // channels.getParticipant (singular)
             console.log(`[${new Date().toISOString()}] Session ${session.id} channels.getParticipant`);
-            const selfId = session.userId || SEED_USER_ID;
-            const req = parseGetParticipantRequest(data);
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
+            const req = parseGetParticipantRequest(data, session);
             if (!req || !req.channelId) {
                 return buildRpcErrorObject(400, 'CHANNEL_INVALID');
             }
@@ -2321,7 +3025,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0xc9e33d54: { // channels.inviteToChannel
             console.log(`[${new Date().toISOString()}] Session ${session.id} channels.inviteToChannel`);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             const req = parseInviteToChannelRequest(data);
             if (!req || !req.channelId) {
                 return buildRpcErrorObject(400, 'CHANNEL_INVALID');
@@ -2342,7 +3048,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0xf12e57c9: { // channels.editPhoto
             console.log(`[${new Date().toISOString()}] Session ${session.id} channels.editPhoto`);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             const req = parseEditPhotoRequest(data);
             if (!req || !req.channelId) {
                 return buildRpcErrorObject(400, 'CHANNEL_INVALID');
@@ -2370,7 +3078,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x35ddd674: { // messages.editChatPhoto
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.editChatPhoto`);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             const req = parseEditChatPhotoRequest(data);
             if (!req || !req.chatId) {
                 return buildRpcErrorObject(400, 'CHAT_ID_INVALID');
@@ -2470,7 +3180,9 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x5bd0ee50: { // messages.deleteChat
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.deleteChat`);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             const reader = new BinaryReader(data);
             reader.offset = 4;
             const chatId = Number(reader.readLong(false));
@@ -2516,9 +3228,240 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
             }
             return buildBoolTrue();
         }
+        // ===== Channel admin / ban / leave / edit (audit #5) =====
+        case 0xd33c8902: { // channels.editAdmin flags:# channel:InputChannel user_id:InputUser admin_rights:ChatAdminRights rank:string
+            console.log(`[${new Date().toISOString()}] Session ${session.id} channels.editAdmin`);
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
+            try {
+                const r = new BinaryReader(data);
+                r.offset = 4;
+                const chCid = r.readInt() >>> 0;
+                if (chCid !== 0xf35aec28)
+                    return buildRpcErrorObject(400, 'CHANNEL_INVALID');
+                const channelId = Number(r.readLong(false));
+                r.readLong(false); // access_hash
+                const u = readInputUserRef(r, session);
+                if (!u?.userId)
+                    return buildRpcErrorObject(400, 'USER_ID_INVALID');
+                const userId = Number(u.userId);
+                // chatAdminRights#5fb224d5 flags:int
+                r.readInt(); // constructor
+                const adminFlags = r.readInt() >>> 0;
+                const rank = readTlString(r);
+                const chat = messageStore.getChatById(channelId);
+                if (!chat)
+                    return buildRpcErrorObject(400, 'CHANNEL_INVALID');
+                if (chat.creatorUserId !== selfId)
+                    return buildRpcErrorObject(403, 'CHAT_ADMIN_REQUIRED');
+                messageStore.setAdminRights(channelId, userId, adminFlags, rank, selfId);
+                const participants = messageStore.getChatParticipants(channelId);
+                const envelope = buildLiveUpdatesEnvelopeWithChats([buildUpdateChannel(channelId)], [String(selfId)], [channelId], selfId);
+                for (const p of participants) {
+                    if (p.userId === selfId)
+                        continue;
+                    ctx.broadcastToUser(p.userId, envelope);
+                }
+                return envelope;
+            }
+            catch (e) {
+                console.log(`[WARN] channels.editAdmin:`, e.message);
+                return buildRpcErrorObject(400, 'BAD_REQUEST');
+            }
+        }
+        case 0x96e6cd81: { // channels.editBanned channel:InputChannel participant:InputPeer banned_rights:ChatBannedRights
+            console.log(`[${new Date().toISOString()}] Session ${session.id} channels.editBanned`);
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
+            try {
+                const r = new BinaryReader(data);
+                r.offset = 4;
+                const chCid = r.readInt() >>> 0;
+                if (chCid !== 0xf35aec28)
+                    return buildRpcErrorObject(400, 'CHANNEL_INVALID');
+                const channelId = Number(r.readLong(false));
+                r.readLong(false); // access_hash
+                const participantPeerKey = readInputPeerKey(r, session);
+                // chatBannedRights#9f120418 flags:int until_date:int
+                r.readInt();
+                const bannedFlags = r.readInt() >>> 0;
+                const untilDate = r.readInt();
+                const chat = messageStore.getChatById(channelId);
+                if (!chat)
+                    return buildRpcErrorObject(400, 'CHANNEL_INVALID');
+                if (chat.creatorUserId !== selfId)
+                    return buildRpcErrorObject(403, 'CHAT_ADMIN_REQUIRED');
+                if (!participantPeerKey?.startsWith('user:'))
+                    return buildRpcErrorObject(400, 'USER_ID_INVALID');
+                const targetId = Number(participantPeerKey.split(':')[1]);
+                // view_messages flag = bit 0 on chatBannedRights → kicked when set
+                const kicked = (bannedFlags & (1 << 0)) !== 0;
+                messageStore.setBannedRights(channelId, targetId, bannedFlags, untilDate, kicked);
+                const envelope = buildLiveUpdatesEnvelopeWithChats([buildUpdateChannel(channelId)], [String(selfId), String(targetId)], [channelId], selfId);
+                ctx.broadcastToUser(targetId, envelope);
+                return envelope;
+            }
+            catch (e) {
+                console.log(`[WARN] channels.editBanned:`, e.message);
+                return buildRpcErrorObject(400, 'BAD_REQUEST');
+            }
+        }
+        case 0xf836aa95: { // channels.leaveChannel channel:InputChannel
+            console.log(`[${new Date().toISOString()}] Session ${session.id} channels.leaveChannel`);
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
+            const r = new BinaryReader(data);
+            r.offset = 4;
+            const chCid = r.readInt() >>> 0;
+            if (chCid !== 0xf35aec28)
+                return buildRpcErrorObject(400, 'CHANNEL_INVALID');
+            const channelId = Number(r.readLong(false));
+            r.readLong(false);
+            messageStore.removeChatParticipant(channelId, selfId);
+            const envelope = buildLiveUpdatesEnvelopeWithChats([buildUpdateChannel(channelId)], [String(selfId)], [channelId], selfId, selfId);
+            ctx.broadcastSessionUpdates(session, envelope);
+            return envelope;
+        }
+        case 0x566decd0: { // channels.editTitle channel:InputChannel title:string
+            console.log(`[${new Date().toISOString()}] Session ${session.id} channels.editTitle`);
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
+            const r = new BinaryReader(data);
+            r.offset = 4;
+            const chCid = r.readInt() >>> 0;
+            if (chCid !== 0xf35aec28)
+                return buildRpcErrorObject(400, 'CHANNEL_INVALID');
+            const channelId = Number(r.readLong(false));
+            r.readLong(false);
+            const title = readTlString(r);
+            messageStore.updateChatTitle(channelId, title);
+            const participants = messageStore.getChatParticipants(channelId);
+            const envelope = buildLiveUpdatesEnvelopeWithChats([buildUpdateChannel(channelId)], [String(selfId)], [channelId], selfId);
+            for (const p of participants) {
+                if (p.userId === selfId)
+                    continue;
+                ctx.broadcastToUser(p.userId, envelope);
+            }
+            return envelope;
+        }
+        case 0x13e27f1e: { // channels.editAbout channel:InputChannel about:string
+            console.log(`[${new Date().toISOString()}] Session ${session.id} channels.editAbout`);
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
+            const r = new BinaryReader(data);
+            r.offset = 4;
+            const chCid = r.readInt() >>> 0;
+            if (chCid !== 0xf35aec28)
+                return buildRpcErrorObject(400, 'CHANNEL_INVALID');
+            const channelId = Number(r.readLong(false));
+            r.readLong(false);
+            const about = readTlString(r);
+            messageStore.updateChatAbout(channelId, about);
+            return buildBoolTrue();
+        }
+        // ===== Legacy basic-group management (audit #5) =====
+        case 0xcbc6d107: { // messages.addChatUser chat_id:long user_id:InputUser fwd_limit:int
+            console.log(`[${new Date().toISOString()}] Session ${session.id} messages.addChatUser`);
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
+            const r = new BinaryReader(data);
+            r.offset = 4;
+            const chatId = Number(r.readLong(false));
+            const u = readInputUserRef(r, session);
+            r.readInt(); // fwd_limit
+            if (!u?.userId)
+                return buildRpcErrorObject(400, 'USER_ID_INVALID');
+            const chat = messageStore.getChatById(chatId);
+            if (!chat)
+                return buildRpcErrorObject(400, 'CHAT_ID_INVALID');
+            const invitedId = Number(u.userId);
+            messageStore.addChatParticipant(chatId, invitedId, 'member', selfId);
+            const allParticipants = messageStore.getChatParticipants(chatId);
+            const updatedChat = messageStore.getChatById(chatId) || chat;
+            return buildInvitedUsers(updatedChat, allParticipants, selfId);
+        }
+        case 0xa2185cab: { // messages.deleteChatUser flags:# revoke_history:flags.0?true chat_id:long user_id:InputUser
+            console.log(`[${new Date().toISOString()}] Session ${session.id} messages.deleteChatUser`);
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
+            const r = new BinaryReader(data);
+            r.offset = 4;
+            r.readInt(); // flags
+            const chatId = Number(r.readLong(false));
+            const u = readInputUserRef(r, session);
+            if (!u?.userId)
+                return buildRpcErrorObject(400, 'USER_ID_INVALID');
+            const targetId = Number(u.userId);
+            messageStore.removeChatParticipant(chatId, targetId);
+            const peerKey = `chat:${chatId}`;
+            const svc = messageStore.appendOutgoingMessage(targetId, {
+                peerKey,
+                text: String(targetId),
+                clientRandomId: `svc_remove_${chatId}_${targetId}_${Date.now()}`,
+                seedMaxMessageId: 0,
+                fromPeerKey: `user:${selfId}`,
+                actionType: 'chat_delete_user',
+            });
+            messageStore.markMessageIncoming(targetId, peerKey, svc.messageId);
+            const svcFixture = {
+                id: svc.messageId,
+                peerKey,
+                date: svc.date,
+                text: String(targetId),
+                className: 'MessageService',
+                fromPeerKey: `user:${selfId}`,
+                action: { type: 'chatDeleteUser', title: '', userId: targetId },
+            };
+            const envelope = buildLiveUpdatesEnvelopeWithChats([buildUpdateNewMessage(svcFixture, svc.updatePts, svc.updatePtsCount)], [String(selfId), String(targetId)], [chatId], selfId, targetId);
+            ctx.broadcastToUser(targetId, envelope);
+            return envelope;
+        }
+        case 0x73783ffd: { // messages.editChatTitle chat_id:long title:string
+            console.log(`[${new Date().toISOString()}] Session ${session.id} messages.editChatTitle`);
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
+            const r = new BinaryReader(data);
+            r.offset = 4;
+            const chatId = Number(r.readLong(false));
+            const title = readTlString(r);
+            messageStore.updateChatTitle(chatId, title);
+            const participants = messageStore.getChatParticipants(chatId);
+            const envelope = buildLiveUpdatesEnvelopeWithChats([buildUpdateChannel(chatId)], [String(selfId)], [chatId], selfId);
+            for (const p of participants) {
+                if (p.userId === selfId)
+                    continue;
+                ctx.broadcastToUser(p.userId, envelope);
+            }
+            return envelope;
+        }
+        case 0xdef60797: { // messages.editChatAbout peer:InputPeer about:string
+            console.log(`[${new Date().toISOString()}] Session ${session.id} messages.editChatAbout`);
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
+            const r = new BinaryReader(data);
+            r.offset = 4;
+            const peerKey = readInputPeerKey(r, session);
+            const about = readTlString(r);
+            if (peerKey?.startsWith('chat:') || peerKey?.startsWith('channel:')) {
+                const chatId = Number(peerKey.split(':')[1]);
+                messageStore.updateChatAbout(chatId, about);
+            }
+            return buildBoolTrue();
+        }
         case 0xc0111fe3: { // channels.deleteChannel
             console.log(`[${new Date().toISOString()}] Session ${session.id} channels.deleteChannel`);
-            const selfId = session.userId || SEED_USER_ID;
+            const selfId = requireAuth(session);
+            if (typeof selfId !== 'number')
+                return selfId;
             const reader = new BinaryReader(data);
             reader.offset = 4;
             const channelCid = reader.readInt() >>> 0;
@@ -2551,24 +3494,30 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x31c1c44f: { // messages.getMessageReadParticipants
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getMessageReadParticipants`);
-            const rpSelfId = session.userId || SEED_USER_ID;
+            const rpSelfId = requireAuth(session);
+            if (typeof rpSelfId !== 'number')
+                return rpSelfId;
             // Parse: peer:InputPeer, msg_id:int
             const rpReader = new BinaryReader(data.subarray(4));
-            const rpPeerKey = readInputPeerKey(rpReader);
+            const rpPeerKey = readInputPeerKey(rpReader, session);
             const rpMsgId = rpReader.readInt();
             const w = new BinaryWriter();
             // Vector<ReadParticipantDate>
             w.writeInt(0x1cb5c415);
+            // Only report a read timestamp when the peer actually advanced
+            // readInboxMaxId past this message AND we have a real timestamp
+            // stored. Never synthesise `Date.now()` — that produced a fake
+            // "read at <now>" that appeared to update in real time.
             if (rpPeerKey?.startsWith('user:')) {
                 const otherUserId = Number(rpPeerKey.replace('user:', ''));
                 const otherPeerKey = `user:${rpSelfId}`;
                 const peerState = messageStore.getPeerState(otherUserId, otherPeerKey);
-                if (peerState && peerState.readInboxMaxId >= rpMsgId) {
+                if (peerState && peerState.readInboxMaxId >= rpMsgId && peerState.readInboxTs > 0) {
                     w.writeInt(1);
                     // readParticipantDate#4a4ff172 user_id:long date:int
                     w.writeInt(0x4a4ff172);
                     w.writeLong(BigInt(otherUserId));
-                    w.writeInt(peerState.readInboxTs > 0 ? peerState.readInboxTs : Math.floor(Date.now() / 1000));
+                    w.writeInt(peerState.readInboxTs);
                 }
                 else {
                     w.writeInt(0);
@@ -2582,8 +3531,8 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                     if (p.userId === rpSelfId)
                         continue;
                     const peerState = messageStore.getPeerState(p.userId, rpPeerKey);
-                    if (peerState && peerState.readInboxMaxId >= rpMsgId) {
-                        readerStates.push({ uid: p.userId, ts: peerState.readInboxTs > 0 ? peerState.readInboxTs : Math.floor(Date.now() / 1000) });
+                    if (peerState && peerState.readInboxMaxId >= rpMsgId && peerState.readInboxTs > 0) {
+                        readerStates.push({ uid: p.userId, ts: peerState.readInboxTs });
                     }
                 }
                 w.writeInt(readerStates.length);
@@ -2600,24 +3549,30 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
         }
         case 0x8c4bfe5d: { // messages.getOutboxReadDate
             console.log(`[${new Date().toISOString()}] Session ${session.id} messages.getOutboxReadDate`);
-            const ordSelfId = session.userId || SEED_USER_ID;
+            const ordSelfId = requireAuth(session);
+            if (typeof ordSelfId !== 'number')
+                return ordSelfId;
             const ordReader = new BinaryReader(data.subarray(4));
-            const ordPeerKey = readInputPeerKey(ordReader);
+            const ordPeerKey = readInputPeerKey(ordReader, session);
             const ordMsgId = ordReader.readInt();
-            // Look up when the recipient first read past this message
-            let ordDate = Math.floor(Date.now() / 1000);
-            if (ordPeerKey?.startsWith('user:')) {
-                const otherUserId = Number(ordPeerKey.replace('user:', ''));
-                const otherPeerKey = `user:${ordSelfId}`;
-                const peerState = messageStore.getPeerState(otherUserId, otherPeerKey);
-                if (peerState && peerState.readInboxMaxId >= ordMsgId && peerState.readInboxTs > 0) {
-                    ordDate = peerState.readInboxTs;
-                }
+            // Look up when the recipient first read past this message. We only
+            // report a date when the peer's readInboxMaxId actually covers this
+            // message; otherwise we must return MESSAGE_NOT_READ_YET. Falling back
+            // to `Date.now()` here caused the sender UI to display a bogus
+            // "read at" timestamp that refreshed on every poll.
+            if (!ordPeerKey?.startsWith('user:')) {
+                return buildRpcErrorObject(400, 'MESSAGE_ID_INVALID');
+            }
+            const otherUserId = Number(ordPeerKey.replace('user:', ''));
+            const otherPeerKey = `user:${ordSelfId}`;
+            const peerState = messageStore.getPeerState(otherUserId, otherPeerKey);
+            if (!peerState || peerState.readInboxMaxId < ordMsgId || peerState.readInboxTs <= 0) {
+                return buildRpcErrorObject(400, 'MESSAGE_NOT_READ_YET');
             }
             // outboxReadDate#3bb842ac date:int
             const w = new BinaryWriter();
             w.writeInt(0x3bb842ac);
-            w.writeInt(ordDate);
+            w.writeInt(peerState.readInboxTs);
             return w.getBytes();
         }
         // ===== messages.getDhConfig#26cf8950 version:int random_length:int =====
@@ -2855,6 +3810,49 @@ export function handleTlRequest(data, session, reqMsgId, ctx) {
                 ctx.broadcastToUser(otherId, envelope, session.id);
             }
             return buildBoolTrue();
+        }
+        case 0x6a3f8d65: { // messages.getAllDrafts (audit #8)
+            const adSelfId = requireAuth(session);
+            if (typeof adSelfId !== 'number')
+                return adSelfId;
+            const drafts = messageStore.getAllDrafts(adSelfId);
+            const draftUpdatesW = new BinaryWriter();
+            draftUpdatesW.writeInt(0x74ae4240); // updates#74ae4240
+            // updates: Vector<Update>
+            draftUpdatesW.writeInt(0x1cb5c415);
+            draftUpdatesW.writeInt(drafts.length);
+            const userIds = new Set([String(adSelfId)]);
+            for (const d of drafts) {
+                draftUpdatesW.writeBytes(buildUpdateDraftMessage(d.peerKey, d.text, d.date, d.replyToMsgId));
+                if (d.peerKey.startsWith('user:'))
+                    userIds.add(d.peerKey.split(':')[1]);
+            }
+            // users
+            draftUpdatesW.writeBytes(buildUsersVectorForIds(session, undefined, Array.from(userIds)));
+            writeEmptyVectorToWriter(draftUpdatesW); // chats
+            draftUpdatesW.writeInt(Math.floor(Date.now() / 1000)); // date
+            draftUpdatesW.writeInt(0); // seq
+            return draftUpdatesW.getBytes();
+        }
+        case 0x8bba90e6: { // messages.getMessagesReactions
+            // Return updates with no reaction changes
+            const reactUpdatesW = new BinaryWriter();
+            reactUpdatesW.writeInt(0x74ae4240); // updates#74ae4240
+            writeEmptyVectorToWriter(reactUpdatesW); // updates
+            writeEmptyVectorToWriter(reactUpdatesW); // users
+            writeEmptyVectorToWriter(reactUpdatesW); // chats
+            reactUpdatesW.writeInt(Math.floor(Date.now() / 1000)); // date
+            reactUpdatesW.writeInt(0); // seq
+            return reactUpdatesW.getBytes();
+        }
+        case 0x1bbcf300: { // messages.getSearchCounters
+            // Parse: flags(4) + peer + saved_peer_id? + top_msg_id? + filters:Vector<MessagesFilter>
+            // Return: Vector<messages.SearchCounter> with zero counts
+            // messages.searchResultsCalendar not supported — return empty vector
+            const scW = new BinaryWriter();
+            scW.writeInt(0x1cb5c415); // vector
+            scW.writeInt(0); // count=0
+            return scW.getBytes();
         }
         default: {
             console.log(`[${new Date().toISOString()}] Session ${session.id} unhandled TL: 0x${constructorId.toString(16)}`);

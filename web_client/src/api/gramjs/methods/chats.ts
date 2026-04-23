@@ -204,6 +204,18 @@ export async function fetchChats({
     const chat = buildApiChatFromDialog(dialog, peerEntity);
     lastMessageByChatId[chat.id] = dialog.topMessage;
 
+    // [WEBK-DEBUG]
+    console.warn('[WEBK-DEBUG] getDialogs processing dialog:', {
+      id: chat.id,
+      chatUnreadCount: (chat as any).unreadCount,
+      dialogUnreadCount: dialog.unreadCount,
+      topMessageId: dialog.topMessage,
+      dialogPts: dialog.pts,
+      rawDialogOutboxMaxId: dialog.readOutboxMaxId,
+      rawDialogInboxMaxId: dialog.readInboxMaxId,
+      rawDialogKeys: Object.keys(dialog),
+    });
+
     if (dialog.pts) {
       updateChannelState(chat.id, dialog.pts);
     }

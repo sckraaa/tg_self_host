@@ -10,8 +10,6 @@ import { isFieldVisibleByPrivacy } from './writers.js';
 import { handleTlRequest, type HandlerCallbacks } from './handlers.js';
 import { rpcLimiter } from '../utils/rateLimiter.js';
 
-const SEED_USER_ID = 100000;
-
 const clients = new Map<string, ClientSession>();
 const authHandler = new AuthHandler();
 const messageStore = getMessageStore();
@@ -57,6 +55,7 @@ export interface ClientSession {
   sessionId?: Buffer;
   sentNewSessionCreated?: boolean;
   layer?: number;
+  langCode?: string;           // client language from initConnection
   serverSeqNo: number;         // monotonic seq_no counter (number of content-related msgs sent * 2)
   pendingAckMsgIds: bigint[];  // incoming msg_ids that need acknowledgement
 }
@@ -599,7 +598,30 @@ function handleMsgContainer(data: Buffer, containerMsgId: bigint, session: Clien
 
 
 function getHandlerCtx(): HandlerCallbacks {
-  return { authKeyUserMap, broadcastToUser, broadcastSessionUpdates, removeAuthKey: (key: Buffer) => authHandler.removeAuthKey(key) };
+  return {
+    authKeyUserMap,
+    broadcastToUser,
+    broadcastSessionUpdates,
+    removeAuthKey: (key: Buffer) => authHandler.removeAuthKey(key),
+    sendDeferredRpcResult: (session: ClientSession, reqMsgId: bigint, payload: Buffer) => {
+      // Wrap the payload in rpc_result and send it out-of-band. Used by handlers
+      // that return `null` synchronously and complete asynchronously (e.g.
+      // `messages.getWebPagePreview` awaiting an OpenGraph fetch).
+      const authKey = session.authKey;
+      if (!authKey) return;
+      if (!session.socket && !session.tcpSocket) return;
+      const rpcResult = new BinaryWriter();
+      rpcResult.writeInt(0xf35c6d01); // rpc_result
+      rpcResult.writeLong(reqMsgId);
+      rpcResult.writeBytes(payload);
+      try {
+        const encrypted = createEncryptedResponse(rpcResult.getBytes(), reqMsgId, session, authKey, true);
+        session.sendRaw(encrypted);
+      } catch (e) {
+        console.error(`[${new Date().toISOString()}] sendDeferredRpcResult failed:`, (e as Error).message);
+      }
+    },
+  };
 }
 
 // Send accumulated msgs_ack to the client for all pending content-related messages
@@ -692,7 +714,14 @@ function broadcastSessionUpdates(sourceSession: ClientSession, responseData: Buf
     return;
   }
 
-  const sourceUserId = sourceSession.userId || SEED_USER_ID;
+  // No userId on the source session means the originator is unauthenticated —
+  // refuse to broadcast anything. Falling back to SEED_USER_ID here would leak
+  // updates to all sessions owned by user 100000.
+  const sourceUserId = sourceSession.userId;
+  if (!sourceUserId) {
+    return;
+  }
+
   let sentCount = 0;
   for (const targetSession of clients.values()) {
     if (targetSession.id === sourceSession.id) {

@@ -311,6 +311,7 @@ export interface InitConnectionInfo {
   deviceModel: string;
   systemVersion: string;
   appVersion: string;
+  langCode: string;
   innerQuery: Buffer;
 }
 
@@ -324,9 +325,9 @@ export function parseInitConnection(data: Buffer): InitConnectionInfo | null {
     const systemVersion = readTlString(reader);
     const appVersion = readTlString(reader);
     // system_lang_code, lang_pack, lang_code
-    readTlString(reader);
-    readTlString(reader);
-    readTlString(reader);
+    readTlString(reader); // system_lang_code
+    readTlString(reader); // lang_pack
+    const langCode = readTlString(reader); // lang_code
     // proxy (flags.0)
     if (flags & 1) {
       reader.readInt(); // constructor
@@ -338,7 +339,7 @@ export function parseInitConnection(data: Buffer): InitConnectionInfo | null {
       const innerOffset = skipJsonValue(data, reader.offset);
       reader.offset = innerOffset;
     }
-    return { deviceModel, systemVersion, appVersion, innerQuery: data.slice(reader.offset) };
+    return { deviceModel, systemVersion, appVersion, langCode, innerQuery: data.slice(reader.offset) };
   } catch {
     return null;
   }

@@ -1,0 +1,68 @@
+# ===========================
+# Build artifacts
+# ===========================
+**/build/
+**/.cxx/
+**/jniLibs/
+**/jniRes/
+**/afat/
+**/obj/
+**/.transforms/
+.gradle/
+local.properties
+**/.gradle/
+**/*.iml
+
+# ===========================
+# Compiled native libraries (Telegram Android)
+# ===========================
+Telegram-Android/**/jni/**/*.a
+Telegram-Android/**/jni/**/*.so
+
+# ===========================
+# Node.js
+# ===========================
+node_modules/
+**/node_modules/
+
+# ===========================
+# Python
+# ===========================
+venv/
+__pycache__/
+*.pyc
+
+# ===========================
+# Web client build output
+# ===========================
+web_client/dist/
+web_client/.cache/
+web_client/public/build-stats.json
+web_client/public/statoscope-report.html
+
+# ===========================
+# Self-hosted runtime data & caches
+# ===========================
+self_hosted_version/data/sticker_sets/
+self_hosted_version/data/files/
+self_hosted_version/data/documents/
+self_hosted_version/captures/
+self_hosted_version/dist/
+
+# ===========================
+# Capture tool output
+# ===========================
+capture_tool/output/
+
+# ===========================
+# Scratch
+# ===========================
+scratch/venv/
+
+# ===========================
+# Misc
+# ===========================
+.DS_Store
+**/.DS_Store
+*.log
+*.tmp

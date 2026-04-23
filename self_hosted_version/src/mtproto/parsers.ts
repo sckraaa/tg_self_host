@@ -1,19 +1,12 @@
 import { BinaryReader } from './codec.js';
 import { readTlString, readTlBytesRaw, skipInputPeer, parseInputReplyTo, skipTlVector, skipTlStringByReader } from './tlHelpers.js';
 import type { ClientSession } from './server.js';
+import { setCurrentSession, currentSession } from './requestContext.js';
 
-// ========== Shared module-level state ==========
-
-// Module-level active session for resolving inputPeerSelf/inputUserSelf in nested parsers
-let _activeSession: ClientSession | undefined;
-
-export function setActiveSession(session: ClientSession | undefined): void {
-  _activeSession = session;
-}
-
-export function getActiveSession(): ClientSession | undefined {
-  return _activeSession;
-}
+// Re-exports so other modules can keep the old import path without churn.
+// These are the ONLY places that should touch the global request context;
+// everywhere else should thread `ClientSession` through as an explicit parameter.
+export { setCurrentSession as setActiveSession, currentSession as getActiveSession };
 
 // SEED_USER_ID re-exported for use in parsers
 export const SEED_USER_ID = 100000;
@@ -33,6 +26,26 @@ export type ParsedSendMessageRequest = {
   replyToMsgId?: number;
   quoteText?: string;
   quoteOffset?: number;
+  entities?: ParsedMessageEntity[];
+};
+
+/**
+ * TL MessageEntity variants stored in a normalized shape (audit #2).
+ * `type` mirrors the TL constructor and serialization is lossy only for the
+ * variants we do not yet implement on the client side.
+ */
+export type ParsedMessageEntity = {
+  type: 'unknown' | 'mention' | 'hashtag' | 'botCommand' | 'url' | 'email'
+    | 'bold' | 'italic' | 'code' | 'pre' | 'textUrl' | 'mentionName'
+    | 'phone' | 'cashtag' | 'underline' | 'strike' | 'blockquote' | 'bankCard'
+    | 'spoiler' | 'customEmoji';
+  offset: number;
+  length: number;
+  url?: string;
+  userId?: number;
+  language?: string;
+  documentId?: string;
+  collapsed?: boolean;
 };
 
 export type ParsedSendMediaRequest = {
@@ -47,6 +60,7 @@ export type ParsedSendMediaRequest = {
   mimeType?: string;
   fileName?: string;
   // For documents: attributes parsed from InputMedia
+  entities?: ParsedMessageEntity[];
   docAttributes?: Array<
     { type: 'imageSize'; w: number; h: number } |
     { type: 'filename'; name: string } |
@@ -84,6 +98,7 @@ export interface ParsedEditMessageRequest {
   peerKey: string;
   messageId: number;
   newText?: string;
+  entities?: ParsedMessageEntity[];
 }
 
 export interface ParsedDeleteMessagesRequest {
@@ -98,7 +113,15 @@ export interface ParsedUploadProfilePhotoRequest {
 
 // ========== InputPeer / InputUser readers ==========
 
-export function readInputPeerKey(reader: BinaryReader): string | undefined {
+/**
+ * Resolve an InputPeer into a `<kind>:<id>` key.
+ *
+ * `session` is required to resolve `inputPeerSelf`. When the session is
+ * unauthenticated (`session.userId` missing), `inputPeerSelf` returns
+ * `undefined` instead of masquerading as the seed user — the caller should
+ * surface that as `PEER_ID_INVALID` / `AUTH_KEY_UNREGISTERED` upstream.
+ */
+export function readInputPeerKey(reader: BinaryReader, session: ClientSession | undefined): string | undefined {
   const constructorId = reader.readInt() >>> 0;
   switch (constructorId) {
     case 0xdde8a54c: { // inputPeerUser
@@ -115,18 +138,19 @@ export function readInputPeerKey(reader: BinaryReader): string | undefined {
       return `channel:${channelId}`;
     }
     case 0x7da07ec9: { // inputPeerSelf
-      return `user:${_activeSession?.userId || SEED_USER_ID}`;
+      const selfId = session?.userId;
+      return selfId ? `user:${selfId}` : undefined;
     }
     default:
       return undefined;
   }
 }
 
-export function readInputDialogPeerKey(reader: BinaryReader): string | undefined {
+export function readInputDialogPeerKey(reader: BinaryReader, session: ClientSession | undefined): string | undefined {
   const constructorId = reader.readInt() >>> 0;
   switch (constructorId) {
     case 0xfcaafeb7: // inputDialogPeer
-      return readInputPeerKey(reader);
+      return readInputPeerKey(reader, session);
     case 0x64600527: // inputDialogPeerFolder
       reader.readInt(); // folder_id
       return undefined;
@@ -135,7 +159,7 @@ export function readInputDialogPeerKey(reader: BinaryReader): string | undefined
   }
 }
 
-export function readInputUserRef(reader: BinaryReader, session?: ClientSession): ParsedUserRef | undefined {
+export function readInputUserRef(reader: BinaryReader, session: ClientSession | undefined): ParsedUserRef | undefined {
   const constructorId = reader.readInt() >>> 0;
   switch (constructorId) {
     case 0xf21158c6: { // inputUser
@@ -144,7 +168,8 @@ export function readInputUserRef(reader: BinaryReader, session?: ClientSession):
       return { userId };
     }
     case 0xf7c1b13f: { // inputUserSelf
-      return { userId: String(session?.userId || SEED_USER_ID) };
+      const selfId = session?.userId;
+      return selfId ? { userId: String(selfId) } : undefined;
     }
     default:
       return undefined;
@@ -153,10 +178,10 @@ export function readInputUserRef(reader: BinaryReader, session?: ClientSession):
 
 // ========== Request parsers ==========
 
-export function parseHistoryRequest(data: Buffer): ParsedHistoryRequest | undefined {
+export function parseHistoryRequest(data: Buffer, session: ClientSession | undefined): ParsedHistoryRequest | undefined {
   const reader = new BinaryReader(data);
   reader.offset = 4; // skip constructor
-  const peerKey = readInputPeerKey(reader);
+  const peerKey = readInputPeerKey(reader, session);
   if (!peerKey) {
     return undefined;
   }
@@ -203,7 +228,7 @@ export function parseGetMessagesRequest(data: Buffer): number[] | undefined {
   return ids;
 }
 
-export function parsePeerDialogsRequest(data: Buffer): string[] {
+export function parsePeerDialogsRequest(data: Buffer, session: ClientSession | undefined): string[] {
   try {
     const reader = new BinaryReader(data);
     reader.readInt(); // constructor id
@@ -214,7 +239,7 @@ export function parsePeerDialogsRequest(data: Buffer): string[] {
     for (let i = 0; i < count; i++) {
       const inputDialogPeerCtor = reader.readInt() >>> 0;
       if (inputDialogPeerCtor === 0xfcaafeb7) { // inputDialogPeer
-        const key = readInputPeerKey(reader);
+        const key = readInputPeerKey(reader, session);
         if (key) peerKeys.push(key);
       } else if (inputDialogPeerCtor === 0x64600527) { // inputDialogPeerFolder
         reader.readInt(); // folder_id
@@ -227,12 +252,12 @@ export function parsePeerDialogsRequest(data: Buffer): string[] {
   }
 }
 
-export function parseSetTypingRequest(data: Buffer): ParsedSetTypingRequest | undefined {
+export function parseSetTypingRequest(data: Buffer, session: ClientSession | undefined): ParsedSetTypingRequest | undefined {
   try {
     const reader = new BinaryReader(data);
     reader.readInt(); // skip constructor
     const flags = reader.readInt();
-    const peerKey = readInputPeerKey(reader);
+    const peerKey = readInputPeerKey(reader, session);
     if (!peerKey) return undefined;
     // top_msg_id is flags.0
     if (flags & 1) reader.readInt();
@@ -243,16 +268,32 @@ export function parseSetTypingRequest(data: Buffer): ParsedSetTypingRequest | un
   }
 }
 
-export function parseEditMessageRequest(data: Buffer): ParsedEditMessageRequest | undefined {
+export function parseEditMessageRequest(data: Buffer, session: ClientSession | undefined): ParsedEditMessageRequest | undefined {
   try {
+    // messages.editMessage#51e842e1 flags:# no_webpage:flags.1?true invert_media:flags.16?true
+    //   peer:InputPeer id:int message:flags.11?string media:flags.14?InputMedia
+    //   reply_markup:flags.2?ReplyMarkup entities:flags.3?Vector<MessageEntity> ...
     const reader = new BinaryReader(data);
     reader.readInt(); // skip constructor
     const flags = reader.readInt();
-    const peerKey = readInputPeerKey(reader);
+    const peerKey = readInputPeerKey(reader, session);
     if (!peerKey) return undefined;
     const messageId = reader.readInt();
     const newText = (flags & (1 << 11)) ? readTlString(reader) : undefined;
-    return { peerKey, messageId, newText };
+    // media flags.14 — we don't support editing media payloads yet; if this
+    // bit ever gets set by the client we'll bail out of the entity parse
+    // rather than read into the wrong slot.
+    if ((flags & (1 << 14)) !== 0) {
+      return { peerKey, messageId, newText };
+    }
+    if ((flags & (1 << 2)) !== 0) {
+      skipReplyMarkup(reader);
+    }
+    let entities: ParsedMessageEntity[] | undefined;
+    if ((flags & (1 << 3)) !== 0) {
+      entities = readMessageEntitiesVector(reader);
+    }
+    return { peerKey, messageId, newText, entities };
   } catch {
     return undefined;
   }
@@ -277,10 +318,10 @@ export function parseDeleteMessagesRequest(data: Buffer): ParsedDeleteMessagesRe
   }
 }
 
-export function parseReadHistoryRequest(data: Buffer): ParsedReadHistoryRequest | undefined {
+export function parseReadHistoryRequest(data: Buffer, session: ClientSession | undefined): ParsedReadHistoryRequest | undefined {
   const reader = new BinaryReader(data);
   reader.offset = 4; // skip constructor
-  const peerKey = readInputPeerKey(reader);
+  const peerKey = readInputPeerKey(reader, session);
   if (!peerKey) {
     return undefined;
   }
@@ -369,7 +410,7 @@ export function parseGetUsersRequest(data: Buffer, session?: ClientSession): Par
   return users;
 }
 
-export function parsePeerVectorRequest(data: Buffer): ParsedPeerRef[] | undefined {
+export function parsePeerVectorRequest(data: Buffer, session: ClientSession | undefined): ParsedPeerRef[] | undefined {
   const reader = new BinaryReader(data);
   reader.offset = 4; // skip constructor
   const vectorConstructor = reader.readInt() >>> 0;
@@ -380,7 +421,7 @@ export function parsePeerVectorRequest(data: Buffer): ParsedPeerRef[] | undefine
   const count = reader.readInt();
   const peers: ParsedPeerRef[] = [];
   for (let index = 0; index < count; index++) {
-    const peerKey = readInputPeerKey(reader);
+    const peerKey = readInputPeerKey(reader, session);
     if (peerKey) {
       peers.push({ peerKey });
     }
@@ -389,13 +430,13 @@ export function parsePeerVectorRequest(data: Buffer): ParsedPeerRef[] | undefine
   return peers;
 }
 
-export function parseSendMessageRequest(data: Buffer): ParsedSendMessageRequest | undefined {
+export function parseSendMessageRequest(data: Buffer, session: ClientSession | undefined): ParsedSendMessageRequest | undefined {
   try {
     const reader = new BinaryReader(data);
     reader.offset = 4; // skip constructor
     const flags = reader.readInt() >>> 0;
 
-    const peerKey = readInputPeerKey(reader);
+    const peerKey = readInputPeerKey(reader, session);
     if (!peerKey) {
       return undefined;
     }
@@ -414,6 +455,18 @@ export function parseSendMessageRequest(data: Buffer): ParsedSendMessageRequest 
     const message = readTlString(reader);
     const randomId = reader.readLong(false).toString();
 
+    // reply_markup flags.2
+    if ((flags & (1 << 2)) !== 0) {
+      // skip ReplyMarkup — any constructor + flags + rows
+      skipReplyMarkup(reader);
+    }
+
+    // entities flags.3? Vector<MessageEntity>
+    let entities: ParsedMessageEntity[] | undefined;
+    if ((flags & (1 << 3)) !== 0) {
+      entities = readMessageEntitiesVector(reader);
+    }
+
     return {
       peerKey,
       message,
@@ -421,10 +474,220 @@ export function parseSendMessageRequest(data: Buffer): ParsedSendMessageRequest 
       replyToMsgId,
       quoteText,
       quoteOffset,
+      entities,
     };
   } catch (e) {
     console.log(`[WARN] parseSendMessageRequest: parse error:`, (e as Error).message);
     return undefined;
+  }
+}
+
+/**
+ * Read a `Vector<MessageEntity>` from the TL stream (audit #2).
+ *
+ * Unknown entity constructors are skipped as best-effort: TL doesn't give us
+ * an object length, so we advance the offset to end of buffer only if we
+ * cannot identify the constructor. This is good enough for the web client which
+ * only sends a small well-known subset.
+ */
+export function readMessageEntitiesVector(reader: BinaryReader): ParsedMessageEntity[] {
+  const vecCid = reader.readInt() >>> 0;
+  if (vecCid !== 0x1cb5c415) return [];
+  const count = reader.readInt();
+  const entities: ParsedMessageEntity[] = [];
+  for (let i = 0; i < count; i++) {
+    const cid = reader.readInt() >>> 0;
+    switch (cid) {
+      case 0xfa04579d: // messageEntityMention
+        entities.push({ type: 'mention', offset: reader.readInt(), length: reader.readInt() }); break;
+      case 0x6f635b0d: // messageEntityHashtag
+        entities.push({ type: 'hashtag', offset: reader.readInt(), length: reader.readInt() }); break;
+      case 0x6cef8ac7: // messageEntityBotCommand
+        entities.push({ type: 'botCommand', offset: reader.readInt(), length: reader.readInt() }); break;
+      case 0x6ed02538: // messageEntityUrl
+        entities.push({ type: 'url', offset: reader.readInt(), length: reader.readInt() }); break;
+      case 0x64e475c2: // messageEntityEmail
+        entities.push({ type: 'email', offset: reader.readInt(), length: reader.readInt() }); break;
+      case 0xbd610bc9: // messageEntityBold
+        entities.push({ type: 'bold', offset: reader.readInt(), length: reader.readInt() }); break;
+      case 0x826f8b60: // messageEntityItalic
+        entities.push({ type: 'italic', offset: reader.readInt(), length: reader.readInt() }); break;
+      case 0x28a20571: // messageEntityCode
+        entities.push({ type: 'code', offset: reader.readInt(), length: reader.readInt() }); break;
+      case 0x73924be0: { // messageEntityPre
+        const offset = reader.readInt();
+        const length = reader.readInt();
+        const language = readTlString(reader);
+        entities.push({ type: 'pre', offset, length, language });
+        break;
+      }
+      case 0x76a6d327: { // messageEntityTextUrl
+        const offset = reader.readInt();
+        const length = reader.readInt();
+        const url = readTlString(reader);
+        entities.push({ type: 'textUrl', offset, length, url });
+        break;
+      }
+      case 0xdc7b1140: { // messageEntityMentionName
+        const offset = reader.readInt();
+        const length = reader.readInt();
+        const userId = Number(reader.readLong(false));
+        entities.push({ type: 'mentionName', offset, length, userId });
+        break;
+      }
+      case 0x208e68c9: { // inputMessageEntityMentionName (incoming only)
+        const offset = reader.readInt();
+        const length = reader.readInt();
+        // InputUser — skip its concrete variant; currently only InputUser#f21158c6 has body
+        const iuCid = reader.readInt() >>> 0;
+        let userId = 0;
+        if (iuCid === 0xf21158c6) {
+          userId = Number(reader.readLong(false));
+          reader.readLong(false); // access_hash
+        }
+        entities.push({ type: 'mentionName', offset, length, userId });
+        break;
+      }
+      case 0x9b69e34b: // messageEntityPhone
+        entities.push({ type: 'phone', offset: reader.readInt(), length: reader.readInt() }); break;
+      case 0x4c4e743f: // messageEntityCashtag
+        entities.push({ type: 'cashtag', offset: reader.readInt(), length: reader.readInt() }); break;
+      case 0x9c4e7e8b: // messageEntityUnderline
+        entities.push({ type: 'underline', offset: reader.readInt(), length: reader.readInt() }); break;
+      case 0xbf0693d4: // messageEntityStrike
+        entities.push({ type: 'strike', offset: reader.readInt(), length: reader.readInt() }); break;
+      case 0xf1ccaaac: { // messageEntityBlockquote flags:# collapsed:flags.0?true offset:int length:int
+        const eflags = reader.readInt() >>> 0;
+        entities.push({
+          type: 'blockquote',
+          offset: reader.readInt(),
+          length: reader.readInt(),
+          collapsed: !!(eflags & (1 << 0)),
+        });
+        break;
+      }
+      case 0x761e6af4: // messageEntityBankCard
+        entities.push({ type: 'bankCard', offset: reader.readInt(), length: reader.readInt() }); break;
+      case 0x32ca960f: // messageEntitySpoiler
+        entities.push({ type: 'spoiler', offset: reader.readInt(), length: reader.readInt() }); break;
+      case 0xc8cf05f8: { // messageEntityCustomEmoji
+        const offset = reader.readInt();
+        const length = reader.readInt();
+        const documentId = reader.readLong(false).toString();
+        entities.push({ type: 'customEmoji', offset, length, documentId });
+        break;
+      }
+      default:
+        // Unknown — skip offset+length as best-effort (most entity variants
+        // begin with offset:int length:int). If this breaks the stream the
+        // caller's try/catch will bail out and we'll return undefined.
+        console.log(`[WARN] readMessageEntitiesVector: unknown constructor 0x${cid.toString(16)}`);
+        reader.readInt();
+        reader.readInt();
+        break;
+    }
+  }
+  return entities;
+}
+
+/**
+ * Augment entities with server-side auto-detected URLs / emails (audit follow-up).
+ *
+ * Real Telegram auto-linkifies plain URLs/emails that don't already have an
+ * entity covering them, so the client can render them as clickable. Without
+ * this, messages like "see https://example.com" arrive as plain text because
+ * the web client only emits `messageEntityTextUrl` for entries it formatted
+ * itself (Ctrl+K), never `messageEntityUrl` for typed URLs.
+ *
+ * Offsets here are in UTF-16 code units to match the TL convention used by
+ * MessageEntity — that matches JavaScript's native string indexing.
+ */
+export function autoDetectUrlEntities(
+  text: string,
+  existing: ParsedMessageEntity[] | undefined,
+): ParsedMessageEntity[] | undefined {
+  if (!text) return existing;
+  const result: ParsedMessageEntity[] = existing ? [...existing] : [];
+
+  const covered = (offset: number, length: number): boolean =>
+    result.some(e => offset < e.offset + e.length && e.offset < offset + length);
+
+  // URL regex: http(s)://host[/path]. Kept intentionally conservative so we
+  // don't grab trailing punctuation like "," or "." into the link.
+  const urlRe = /\bhttps?:\/\/[^\s<>"'`)\]}]+[^\s<>"'`)\]}.,!?;:]/gi;
+  let m: RegExpExecArray | null;
+  while ((m = urlRe.exec(text))) {
+    const offset = m.index;
+    const length = m[0].length;
+    if (!covered(offset, length)) {
+      result.push({ type: 'url', offset, length });
+    }
+  }
+
+  // Emails
+  const emailRe = /\b[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}\b/g;
+  while ((m = emailRe.exec(text))) {
+    const offset = m.index;
+    const length = m[0].length;
+    if (!covered(offset, length)) {
+      result.push({ type: 'email', offset, length });
+    }
+  }
+
+  // Mentions (@username) — only when not already covered by mentionName.
+  const mentionRe = /(^|[^\w])@([a-zA-Z][a-zA-Z0-9_]{3,31})\b/g;
+  while ((m = mentionRe.exec(text))) {
+    const offset = m.index + m[1].length; // skip leading non-word char
+    const length = m[2].length + 1;        // include '@'
+    if (!covered(offset, length)) {
+      result.push({ type: 'mention', offset, length });
+    }
+  }
+
+  // Hashtags (#tag)
+  const hashtagRe = /(^|[^\w])#([\p{L}\p{N}_]{1,64})\b/gu;
+  while ((m = hashtagRe.exec(text))) {
+    const offset = m.index + m[1].length;
+    const length = m[2].length + 1;
+    if (!covered(offset, length)) {
+      result.push({ type: 'hashtag', offset, length });
+    }
+  }
+
+  if (!existing && result.length === 0) return undefined;
+  // Stable-sort by offset so serialized order matches text order (some clients care).
+  result.sort((a, b) => a.offset - b.offset);
+  return result;
+}
+
+function skipReplyMarkup(reader: BinaryReader): void {
+  // ReplyKeyboardHide#a03e5b85 / ForceReply#86b40b08 / ReplyKeyboardMarkup#85dd99d1 /
+  // ReplyInlineMarkup#48a30254 / ReplyKeyboardForceReply/… - all have a small flags prefix
+  // and rows of buttons. Robust skipping is too much work; we read the constructor and
+  // assume the remaining bytes are for the caller's error path.
+  const cid = reader.readInt() >>> 0;
+  // All four variants start with flags:int
+  reader.readInt();
+  if (cid === 0x85dd99d1 || cid === 0x48a30254) {
+    // rows:Vector<KeyboardButtonRow>
+    const vec = reader.readInt() >>> 0;
+    if (vec === 0x1cb5c415) {
+      const rowCount = reader.readInt();
+      for (let i = 0; i < rowCount; i++) {
+        reader.readInt(); // KeyboardButtonRow constructor
+        const btnVec = reader.readInt() >>> 0;
+        if (btnVec !== 0x1cb5c415) return;
+        const btnCount = reader.readInt();
+        for (let j = 0; j < btnCount; j++) {
+          reader.readInt(); // button constructor
+          skipTlStringByReader(reader); // text
+        }
+      }
+    }
+    if (cid === 0x85dd99d1) {
+      // placeholder:flags.3?string
+      // Too ambiguous to skip generically — let the caller ignore trailing bytes.
+    }
   }
 }
 
@@ -445,13 +708,13 @@ function parseInputFile(reader: BinaryReader): { fileId: string; fileName: strin
   return undefined;
 }
 
-export function parseSendMediaRequest(data: Buffer): ParsedSendMediaRequest | undefined {
+export function parseSendMediaRequest(data: Buffer, session: ClientSession | undefined): ParsedSendMediaRequest | undefined {
   try {
     const reader = new BinaryReader(data);
     reader.offset = 4; // skip constructor
     const flags = reader.readInt() >>> 0;
 
-    const peerKey = readInputPeerKey(reader);
+    const peerKey = readInputPeerKey(reader, session);
     if (!peerKey) return undefined;
 
     // reply_to:flags.0?InputReplyTo
@@ -553,6 +816,16 @@ export function parseSendMediaRequest(data: Buffer): ParsedSendMediaRequest | un
     // random_id:long
     const randomId = reader.readLong(false).toString();
 
+    // reply_markup:flags.2?ReplyMarkup
+    if ((flags & (1 << 2)) !== 0) {
+      skipReplyMarkup(reader);
+    }
+    // entities:flags.3?Vector<MessageEntity> — caption formatting
+    let entities: ParsedMessageEntity[] | undefined;
+    if ((flags & (1 << 3)) !== 0) {
+      entities = readMessageEntitiesVector(reader);
+    }
+
     return {
       peerKey,
       message,
@@ -564,6 +837,7 @@ export function parseSendMediaRequest(data: Buffer): ParsedSendMediaRequest | un
       fileId,
       mimeType,
       fileName,
+      entities,
       docAttributes: docAttributes.length > 0 ? docAttributes : undefined,
     };
   } catch (e) {
@@ -582,7 +856,7 @@ export function parseForwardMessagesRequest(data: Buffer, session: ClientSession
     console.log(`[FWD-PARSE] flags=0x${flags.toString(16)} (${flags}) dropAuthor=${dropAuthor} dropMediaCaptions=${dropMediaCaptions}`);
 
     // from_peer: InputPeer
-    const fromPeerKey = readInputPeerKey(reader);
+    const fromPeerKey = readInputPeerKey(reader, session);
 
     // id: Vector<int>
     const vectorCid = reader.readInt() >>> 0;
@@ -601,7 +875,7 @@ export function parseForwardMessagesRequest(data: Buffer, session: ClientSession
     }
 
     // to_peer: InputPeer
-    const toPeerKey = readInputPeerKey(reader);
+    const toPeerKey = readInputPeerKey(reader, session);
 
     return { fromPeerKey, toPeerKey, messageIds, randomIds, dropAuthor, dropMediaCaptions };
   } catch (e) {
@@ -639,7 +913,7 @@ const FILTER_MAP: Record<number, ParsedSearchRequest['filterType']> = {
   0x3a20ecb8: 'chat_photos',
 };
 
-export function parseSearchRequest(data: Buffer): ParsedSearchRequest | undefined {
+export function parseSearchRequest(data: Buffer, session: ClientSession | undefined): ParsedSearchRequest | undefined {
   try {
     const reader = new BinaryReader(data);
     reader.offset = 4; // skip constructor
@@ -647,7 +921,7 @@ export function parseSearchRequest(data: Buffer): ParsedSearchRequest | undefine
     const flags = reader.readInt();
 
     // peer: InputPeer
-    const peerKey = readInputPeerKey(reader);
+    const peerKey = readInputPeerKey(reader, session);
 
     // q: string
     const query = readTlString(reader);
@@ -842,7 +1116,7 @@ export interface ParsedSaveDraftRequest {
   replyToMsgId?: number;
 }
 
-export function parseSaveDraftRequest(data: Buffer): ParsedSaveDraftRequest | undefined {
+export function parseSaveDraftRequest(data: Buffer, session: ClientSession | undefined): ParsedSaveDraftRequest | undefined {
   try {
     const reader = new BinaryReader(data);
     reader.offset = 4; // skip constructor
@@ -880,7 +1154,7 @@ export function parseSaveDraftRequest(data: Buffer): ParsedSaveDraftRequest | un
     }
 
     // peer: InputPeer
-    const peerKey = readInputPeerKey(reader);
+    const peerKey = readInputPeerKey(reader, session);
 
     // message: string
     const message = readTlString(reader);
@@ -900,7 +1174,7 @@ export interface ParsedSendReactionRequest {
   reactions: string[]; // emoticons
 }
 
-export function parseSendReactionRequest(data: Buffer): ParsedSendReactionRequest | undefined {
+export function parseSendReactionRequest(data: Buffer, session: ClientSession | undefined): ParsedSendReactionRequest | undefined {
   try {
     const reader = new BinaryReader(data);
     reader.offset = 4; // skip constructor
@@ -909,7 +1183,7 @@ export function parseSendReactionRequest(data: Buffer): ParsedSendReactionReques
     // add_to_recent: flags.2 (true flag)
 
     // peer: InputPeer
-    const peerKey = readInputPeerKey(reader);
+    const peerKey = readInputPeerKey(reader, session);
 
     // msg_id: int
     const msgId = reader.readInt();
@@ -1010,7 +1284,7 @@ export function parseGetParticipantsRequest(data: Buffer): ParsedGetParticipants
 
 // ========== channels.getParticipant parser ==========
 
-export function parseGetParticipantRequest(data: Buffer): { channelId: number; participantPeerKey: string | undefined } | undefined {
+export function parseGetParticipantRequest(data: Buffer, session: ClientSession | undefined): { channelId: number; participantPeerKey: string | undefined } | undefined {
   try {
     const reader = new BinaryReader(data);
     reader.offset = 4; // skip constructor
@@ -1025,7 +1299,7 @@ export function parseGetParticipantRequest(data: Buffer): { channelId: number; p
     }
 
     // participant: InputPeer
-    const participantPeerKey = readInputPeerKey(reader);
+    const participantPeerKey = readInputPeerKey(reader, session);
 
     return { channelId, participantPeerKey };
   } catch (e) {
@@ -1154,7 +1428,7 @@ export function parseEditChatPhotoRequest(data: Buffer): { chatId: number; fileI
 
 // ========== photos.uploadProfilePhoto parser ==========
 
-export function parseUploadProfilePhotoRequest(data: Buffer): ParsedUploadProfilePhotoRequest | undefined {
+export function parseUploadProfilePhotoRequest(data: Buffer, session: ClientSession | undefined): ParsedUploadProfilePhotoRequest | undefined {
   try {
     const reader = new BinaryReader(data);
     reader.offset = 4; // skip constructor
@@ -1164,7 +1438,7 @@ export function parseUploadProfilePhotoRequest(data: Buffer): ParsedUploadProfil
     let fileId: string | undefined;
 
     if (flags & (1 << 5)) {
-      const user = readInputUserRef(reader, getActiveSession());
+      const user = readInputUserRef(reader, session);
       if (user) {
         targetUserId = Number(user.userId);
       }

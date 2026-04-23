@@ -1,11 +1,11 @@
 import { WebSocket } from 'ws';
-import * as net from 'net';
+import { type Socket } from 'net';
 import { CTR } from '../crypto/utils.js';
 export interface ClientSession {
     id: string;
     socket?: WebSocket;
-    tcpSocket?: net.Socket;
-    send?: (data: Buffer) => void;
+    tcpSocket?: Socket;
+    sendRaw: (data: Buffer) => void;
     authKey?: Buffer;
     keyId?: bigint;
     dcId: number;
@@ -20,11 +20,13 @@ export interface ClientSession {
     sessionId?: Buffer;
     sentNewSessionCreated?: boolean;
     layer?: number;
+    serverSeqNo: number;
+    pendingAckMsgIds: bigint[];
 }
 export declare function startServer(port: number, host: string): {
     server: import("http").Server<typeof import("http").IncomingMessage, typeof import("http").ServerResponse>;
     wss: import("ws").Server<typeof WebSocket, typeof import("http").IncomingMessage>;
-    tcpServer: net.Server;
     clients: Map<string, ClientSession>;
 };
+export declare function startTcpServer(tcpPort: number, host: string): void;
 //# sourceMappingURL=server.d.ts.map

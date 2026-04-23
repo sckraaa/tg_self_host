@@ -2,6 +2,7 @@ import { BinaryWriter } from './codec.js';
 import { writeTlString, writeTlBytes, writeEmptyVectorToWriter, writeIntVector } from './tlHelpers.js';
 import { getMessageStore, type StoredMedia, type StoredChat } from '../database/messageStore.js';
 import { getActiveSession } from './parsers.js';
+import { extractFirstUrl, getCachedPreviewAnyLang, type OgPreview } from '../utils/webPagePreview.js';
 import type {
   FixtureChat,
   FixtureDialog,
@@ -32,11 +33,12 @@ export function isFieldVisibleByPrivacy(targetUserId: number, viewerId: number, 
         baseAllowed = false;
         break;
       case 'allowContacts':
-        // For now treat contacts as allowed (we don't have full contact graph yet)
-        baseAllowed = true;
+        baseAllowed = viewerId !== undefined ? messageStore.isContact(targetUserId, viewerId) : false;
         break;
       case 'disallowContacts':
-        baseAllowed = false;
+        if (viewerId !== undefined && messageStore.isContact(targetUserId, viewerId)) {
+          baseAllowed = false;
+        }
         break;
       case 'allowCloseFriends':
         baseAllowed = false; // viewer is not a close friend by default
@@ -125,12 +127,22 @@ export function writeMessageFromFixture(w: BinaryWriter, message: FixtureMessage
 
   // Lookup media if present
   let media: StoredMedia | undefined;
+  let webPagePreview: OgPreview | undefined;
   if (message.mediaId) {
     media = messageStore.getMedia(message.mediaId);
     if (media) flags |= (1 << 9);
   }
+  // If no attached media, check for URL in text and attach webPage preview
+  if (!media && message.text) {
+    const url = extractFirstUrl(message.text);
+    if (url) {
+      webPagePreview = getCachedPreviewAnyLang(url);
+      if (webPagePreview) flags |= (1 << 9); // media present
+    }
+  }
 
   if (message.reactions && message.reactions.length > 0) flags |= (1 << 20);
+  if (message.entities && message.entities.length > 0) flags |= (1 << 7);
 
   w.writeInt(flags);
   w.writeInt(0); // flags2
@@ -186,6 +198,12 @@ export function writeMessageFromFixture(w: BinaryWriter, message: FixtureMessage
   writeTlString(w, message.text);
   if (media) {
     writeMessageMedia(w, media);
+  } else if (webPagePreview) {
+    writeMessageMediaWebPage(w, webPagePreview);
+  }
+  if (message.entities && message.entities.length > 0) {
+    // Write the pre-serialized Vector<MessageEntity> blob verbatim (audit #2).
+    w.writeBytes(message.entities);
   }
   if (message.editDate) {
     w.writeInt(message.editDate);
@@ -320,6 +338,50 @@ function writeMessageMedia(w: BinaryWriter, media: StoredMedia): void {
   }
 }
 
+/**
+ * Write a messageMediaWebPage#ddf10c3b wrapping webPage#e89c45b2 from a cached
+ * OG preview. This attaches the link preview to sent/received messages so that
+ * previews survive beyond the compose phase.
+ */
+function writeMessageMediaWebPage(w: BinaryWriter, preview: OgPreview): void {
+  // messageMediaWebPage#ddf10c3b flags:# force_large_media:flags.0?true
+  //   force_small_media:flags.1?true manual:flags.3?true safe:flags.4?true webpage:WebPage
+  w.writeInt(0xddf10c3b);
+  w.writeInt(0); // flags — no force_large/small/manual/safe
+
+  // webPage#e89c45b2 flags:# id:long url:string display_url:string hash:int
+  //   type:flags.0?string site_name:flags.1?string title:flags.2?string
+  //   description:flags.3?string photo:flags.4?Photo ...
+  w.writeInt(0xe89c45b2);
+  let flags = 0;
+  if (preview.type) flags |= (1 << 0);
+  if (preview.siteName) flags |= (1 << 1);
+  if (preview.title) flags |= (1 << 2);
+  if (preview.description) flags |= (1 << 3);
+  // Check if we have a downloaded photo
+  let photoMedia: StoredMedia | undefined;
+  if (preview.photoMediaId) {
+    photoMedia = messageStore.getMedia(preview.photoMediaId);
+    if (photoMedia) flags |= (1 << 4); // photo present
+  }
+  w.writeInt(flags);
+  // id = deterministic hash from url
+  const idHash = BigInt.asUintN(63, BigInt(Math.abs(
+    [...preview.url].reduce((a, c) => ((a << 5) - a + c.charCodeAt(0)) | 0, 0),
+  )));
+  w.writeLong(idHash);
+  writeTlString(w, preview.url);
+  writeTlString(w, preview.url); // display_url
+  w.writeInt(0); // hash
+  if (preview.type) writeTlString(w, preview.type);
+  if (preview.siteName) writeTlString(w, preview.siteName);
+  if (preview.title) writeTlString(w, preview.title);
+  if (preview.description) writeTlString(w, preview.description);
+  if (photoMedia) {
+    writePhotoObject(w, photoMedia);
+  }
+}
+
 export function writePhotoObject(w: BinaryWriter, media: StoredMedia): void {
   // Photo#fb197a65 flags:# id:long access_hash:long file_reference:bytes date:int sizes:Vector<PhotoSize> video_sizes:flags.1?Vector<VideoSize> dc_id:int
   w.writeInt(0xfb197a65);
@@ -451,7 +513,29 @@ export function writeUserFromFixture(w: BinaryWriter, user: FixtureUser, viewerI
   if (user.fake) flags |= (1 << 26);        // fake
   if (user.self) flags |= (1 << 10);        // self
   if (user.premium) flags |= (1 << 28);     // premium
-  if (user.contact) flags |= (1 << 11);     // contact
+  // Determine contact status: explicit flag from caller takes priority, otherwise check DB
+  const isContact = user.contact !== undefined
+    ? user.contact
+    : (viewerId !== undefined && !isSelfView ? messageStore.isContact(viewerId, numericUserId) : false);
+  if (isContact) flags |= (1 << 11);     // contact
+
+  const isMutualContact = isContact && (viewerId !== undefined && !isSelfView ? messageStore.isContact(numericUserId, viewerId) : false);
+  if (isMutualContact) flags |= (1 << 12); // mutual_contact
+
+  // If they are a contact, override their first/last name with the ones saved in the contacts table
+  let displayFirstName = user.firstName;
+  let displayLastName = user.lastName;
+  if (isContact && viewerId !== undefined && !isSelfView) {
+    const contactInfo = messageStore.getContact(viewerId, numericUserId);
+    if (contactInfo) {
+      if (contactInfo.firstName) displayFirstName = contactInfo.firstName;
+      if (contactInfo.lastName !== undefined) displayLastName = contactInfo.lastName;
+    }
+  }
+
+  if (displayFirstName) flags |= (1 << 1);    // first_name
+  if (displayLastName) flags |= (1 << 2);     // last_name
+
   if (user.bot && user.botInfoVersion) flags |= (1 << 14); // bot (already set above)
   if (user.botInlinePlaceholder) flags |= (1 << 19); // bot_inline_placeholder
   if (user.langCode) flags |= (1 << 22);    // lang_code
@@ -477,12 +561,12 @@ export function writeUserFromFixture(w: BinaryWriter, user: FixtureUser, viewerI
     w.writeLong(BigInt(user.accessHash));
   }
   // first_name
-  if (user.firstName) {
-    writeTlString(w, user.firstName);
+  if (displayFirstName) {
+    writeTlString(w, displayFirstName);
   }
   // last_name
-  if (user.lastName) {
-    writeTlString(w, user.lastName);
+  if (displayLastName) {
+    writeTlString(w, displayLastName);
   }
   // username
   if (user.username) {
@@ -765,16 +849,22 @@ export function writeChatVector(w: BinaryWriter, fixture: OfficialCaptureFixture
 
 // ========== Misc TL structure writers ==========
 
-export function writePeerNotifySettingsToWriter(w: BinaryWriter): void {
+export function writePeerNotifySettingsToWriter(
+  w: BinaryWriter,
+  settings?: { showPreviews?: boolean; silent?: boolean; muteUntil?: number },
+): void {
   // peerNotifySettings#99622c0c flags:#
   //   show_previews:flags.0?Bool silent:flags.1?Bool mute_until:flags.2?int
   //   ios_sound:flags.3?NotificationSound android_sound:flags.4?NotificationSound other_sound:flags.5?NotificationSound
   w.writeInt(0x99622c0c);
   const flags = (1 << 0) | (1 << 1) | (1 << 2) | (1 << 3) | (1 << 4) | (1 << 5); // 63
   w.writeInt(flags);
-  w.writeInt(0x997275b5); // show_previews = boolTrue
-  w.writeInt(0xbc799737); // silent = boolFalse
-  w.writeInt(0);          // mute_until = 0
+  const showPreviews = settings?.showPreviews !== false; // default true
+  const silent = !!settings?.silent;
+  const muteUntil = settings?.muteUntil ?? 0;
+  w.writeInt(showPreviews ? 0x997275b5 : 0xbc799737); // show_previews
+  w.writeInt(silent ? 0x997275b5 : 0xbc799737);       // silent
+  w.writeInt(muteUntil);                               // mute_until
   // ios_sound: notificationSoundDefault#97e8bebe
   w.writeInt(0x97e8bebe);
   // android_sound: notificationSoundLocal#830b9ae4 title:"default" data:"default"
@@ -785,6 +875,63 @@ export function writePeerNotifySettingsToWriter(w: BinaryWriter): void {
   w.writeInt(0x830b9ae4);
   writeTlString(w, 'default');
   writeTlString(w, 'default');
+}
+
+/**
+ * Serialize a parsed MessageEntity list back to a TL `Vector<MessageEntity>` buffer
+ * (audit #2). The returned buffer can be stored in SQLite and later written into
+ * any TL stream verbatim to preserve bold/italic/links/mentions.
+ */
+export function writeMessageEntitiesVector(
+  w: BinaryWriter,
+  entities: Array<{
+    type: string;
+    offset: number;
+    length: number;
+    url?: string;
+    userId?: number;
+    language?: string;
+    documentId?: string;
+    collapsed?: boolean;
+  }>,
+): void {
+  w.writeInt(0x1cb5c415); // vector
+  w.writeInt(entities.length);
+  for (const e of entities) {
+    switch (e.type) {
+      case 'mention':   w.writeInt(0xfa04579d); w.writeInt(e.offset); w.writeInt(e.length); break;
+      case 'hashtag':   w.writeInt(0x6f635b0d); w.writeInt(e.offset); w.writeInt(e.length); break;
+      case 'botCommand': w.writeInt(0x6cef8ac7); w.writeInt(e.offset); w.writeInt(e.length); break;
+      case 'url':       w.writeInt(0x6ed02538); w.writeInt(e.offset); w.writeInt(e.length); break;
+      case 'email':     w.writeInt(0x64e475c2); w.writeInt(e.offset); w.writeInt(e.length); break;
+      case 'bold':      w.writeInt(0xbd610bc9); w.writeInt(e.offset); w.writeInt(e.length); break;
+      case 'italic':    w.writeInt(0x826f8b60); w.writeInt(e.offset); w.writeInt(e.length); break;
+      case 'code':      w.writeInt(0x28a20571); w.writeInt(e.offset); w.writeInt(e.length); break;
+      case 'pre':
+        w.writeInt(0x73924be0); w.writeInt(e.offset); w.writeInt(e.length); writeTlString(w, e.language || ''); break;
+      case 'textUrl':
+        w.writeInt(0x76a6d327); w.writeInt(e.offset); w.writeInt(e.length); writeTlString(w, e.url || ''); break;
+      case 'mentionName':
+        w.writeInt(0xdc7b1140); w.writeInt(e.offset); w.writeInt(e.length); w.writeLong(BigInt(e.userId || 0)); break;
+      case 'phone':     w.writeInt(0x9b69e34b); w.writeInt(e.offset); w.writeInt(e.length); break;
+      case 'cashtag':   w.writeInt(0x4c4e743f); w.writeInt(e.offset); w.writeInt(e.length); break;
+      case 'underline': w.writeInt(0x9c4e7e8b); w.writeInt(e.offset); w.writeInt(e.length); break;
+      case 'strike':    w.writeInt(0xbf0693d4); w.writeInt(e.offset); w.writeInt(e.length); break;
+      case 'blockquote':
+        w.writeInt(0xf1ccaaac);
+        w.writeInt(e.collapsed ? (1 << 0) : 0);
+        w.writeInt(e.offset);
+        w.writeInt(e.length);
+        break;
+      case 'bankCard':  w.writeInt(0x761e6af4); w.writeInt(e.offset); w.writeInt(e.length); break;
+      case 'spoiler':   w.writeInt(0x32ca960f); w.writeInt(e.offset); w.writeInt(e.length); break;
+      case 'customEmoji':
+        w.writeInt(0xc8cf05f8); w.writeInt(e.offset); w.writeInt(e.length); w.writeLong(BigInt(e.documentId || '0')); break;
+      default:
+        // Unknown — write as plain (offset,length) under messageEntityUnknown#bb92ba95
+        w.writeInt(0xbb92ba95); w.writeInt(e.offset); w.writeInt(e.length); break;
+    }
+  }
 }
 
 export function writeDraftMessageEmpty(w: BinaryWriter, date: number): void {
