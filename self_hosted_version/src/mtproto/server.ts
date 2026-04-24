@@ -574,14 +574,27 @@ function handleMsgContainer(data: Buffer, containerMsgId: bigint, session: Clien
 
   if (responses.length === 0) return null;
 
-  // Wrap all responses in a msg_container
+  // Wrap all responses in a msg_container.
+  //
+  // Each inner message MUST have a unique, monotonically-increasing msg_id
+  // that is also globally unique across all containers and the outer envelope
+  // we will emit for this response. The previous implementation reserved a
+  // single base msg_id via generateMessageId() and then incremented it by
+  // +4n per inner message without updating the global lastGeneratedMessageId
+  // counter. On bursts (multiple RPCs within the same millisecond) the next
+  // generateMessageId() call — in particular the one used for the outer
+  // envelope msg_id in createEncryptedResponse — would collide with one of
+  // the inner msg_ids we already handed out. Official clients (Android's
+  // ConnectionSession::isMessageIdProcessed) silently drop messages whose
+  // msg_id they have already seen, so the client would never process the
+  // rpc_result and would keep retrying its request. Calling generateMessageId()
+  // once per inner message keeps the counter strictly monotonic and
+  // collision-free for both inner and outer ids.
   const containerW = new BinaryWriter();
   containerW.writeInt(0x73f1f8dc); // msg_container
   containerW.writeInt(responses.length);
-  let baseMsgId = generateMessageId();
   for (let i = 0; i < responses.length; i++) {
-    containerW.writeLong(baseMsgId);
-    baseMsgId += 4n; // ensure unique message IDs
+    containerW.writeLong(generateMessageId());
     containerW.writeInt(getNextSeqNo(session, responseIsContent[i]));
     containerW.writeInt(responses[i].length);
     containerW.writeBytes(responses[i]);
