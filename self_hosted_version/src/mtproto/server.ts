@@ -374,7 +374,8 @@ function isServiceMessage(constructorId: number): boolean {
   return (
     constructorId === 0xf3427b8c || // ping_delay_disconnect
     constructorId === 0x7abe77ec || // ping
-    constructorId === 0x62d6b459    // msgs_ack
+    constructorId === 0x62d6b459 || // msgs_ack
+    constructorId === 0xe7512126    // destroy_session — reply is DestroySessionRes, NOT wrapped in rpc_result
   );
 }
 
@@ -550,8 +551,10 @@ function handleEncryptedMessage(data: Buffer, session: ClientSession): Buffer | 
       session.sendRaw(nsBuf);
     }
     if (!responseData) return null;
-    // pong, msgs_ack responses are NOT content-related
-    return createEncryptedResponse(responseData, messageId, session, authKey, false);
+    // pong/msgs_ack responses are NOT content-related; destroy_session_ok IS
+    // (odd seq_no) per MTProto spec.
+    const isContentResponse = constructorId === 0xe7512126;
+    return createEncryptedResponse(responseData, messageId, session, authKey, isContentResponse);
   }
 
   // RPC call: rate limit check
@@ -730,6 +733,8 @@ function flushPendingAcks(session: ClientSession, authKey: Buffer): void {
 }
 
 function createEncryptedResponse(responseData: Buffer, reqMsgId: bigint, session: ClientSession, authKey: Buffer, contentRelated = true): Buffer {
+  const outCtor = responseData.length >= 4 ? responseData.readUInt32LE(0) : 0;
+  console.log(`[${new Date().toISOString()}] [DIAG] Session ${session.id} -> encrypted msg ctor=0x${outCtor.toString(16)} (len=${responseData.length}, content=${contentRelated}, reqMsgId=0x${reqMsgId.toString(16)})`);
   // Build inner message
   const innerW = new BinaryWriter();
   innerW.writeBytes(session.serverSalt || Buffer.alloc(8));  // server_salt

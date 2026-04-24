@@ -927,6 +927,35 @@ function handleTlRequestImpl(
       return buildLangPackDifference(langPackName3, langCode3);
     }
 
+    case 0xe7512126: { // destroy_session#e7512126 session_id:long = DestroySessionRes
+      // Android (ConnectionsManager.cpp :2680) ships destroy_session for every
+      // old session_id it still had cached, including the one it just opened
+      // against a previous server process. It's fire-and-forget on Android's
+      // side (line 2691 erases it from sessionsToDestroy immediately), but
+      // the outgoing request lives in runningRequests until it gets a reply.
+      // Without a reply the connection holds useful-data = false and later
+      // maintenance paths keep it inactive — which is what stalled the
+      // "connecting…" phase for ~1.5 min. Just acknowledge the session id
+      // so Android clears the pending request.
+      const dsReader = new BinaryReader(data);
+      dsReader.offset = 4; // skip constructor
+      const destroyedSessionId = dsReader.readLong();
+      const dsW = new BinaryWriter();
+      dsW.writeInt(0xe22045fc); // destroy_session_ok
+      dsW.writeLong(destroyedSessionId);
+      return dsW.getBytes();
+    }
+
+    case 0xc4a353ee: { // contacts.getStatuses = Vector<ContactStatus>
+      // Android fires this early in its init burst; leaving it unhandled
+      // lets Android's RPC wait 8+ seconds and then open yet another
+      // TCP socket, which amplified the pre-sendMessage stall.
+      const csW = new BinaryWriter();
+      csW.writeInt(0x1cb5c415); // vector
+      csW.writeInt(0);          // empty
+      return csW.getBytes();
+    }
+
     case 0x25d218ec: // updates.getDifference (layer <166)
     case 0x19c2f763: // updates.getDifference (layer 166+)
     case 0x25939651: { // updates.getDifference (layer 224+)
