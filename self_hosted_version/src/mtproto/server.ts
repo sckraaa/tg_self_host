@@ -57,6 +57,10 @@ function sessionAnnounceKey(authKeyId: bigint, sessionId: Buffer): string {
   return `${authKeyId.toString(16)}|${sessionId.toString('hex')}`;
 }
 
+function constructorIdPeek(buf: Buffer): number {
+  return buf.length >= 4 ? buf.readUInt32LE(0) : 0;
+}
+
 export interface ClientSession {
   id: string;
   socket?: WebSocket;           // WebSocket transport (web clients)
@@ -441,12 +445,56 @@ function handleEncryptedMessage(data: Buffer, session: ClientSession): Buffer | 
   session.serverSalt = serverSalt;
   session.sessionId = sessionId;
 
+  // If the outer encrypted message is a msg_container, peek at the inner
+  // messages and take the SMALLEST inner msg_id. This is needed both for
+  // the `first_msg_id` field of `new_session_created` (see below) and so
+  // that we never advertise an id that is greater than any request the
+  // client currently has in flight. Parsing is cheap: we only walk the
+  // header (msg_id + seq_no + bytes) and skip the body.
+  let minInnerMsgId: bigint | null = null;
+  if (constructorIdPeek(innerData) === 0x73f1f8dc) {
+    const countI = innerData.readInt32LE(4);
+    let offI = 8;
+    for (let i = 0; i < countI; i++) {
+      if (offI + 16 > innerData.length) break;
+      const innerMsgId = innerData.readBigInt64LE(offI); offI += 8;
+      offI += 4; // seq_no
+      const bodyLen = innerData.readInt32LE(offI); offI += 4;
+      offI += bodyLen;
+      if (minInnerMsgId === null || innerMsgId < minInnerMsgId) {
+        minInnerMsgId = innerMsgId;
+      }
+    }
+  }
+
   // Emit `new_session_created` at most once per (auth_key_id, session_id)
   // pair across the entire process lifetime. Sending it on every TCP
   // reconnect causes Android's ConnectionsManager to retransmit every
   // already-running request whose msg_id is below `first_msg_id`, which
   // manifested as the client re-uploading its entire init burst ~750ms
   // after the first one on every reconnect.
+  //
+  // For `first_msg_id` we MUST pick the smallest msg_id we are currently
+  // willing to process — NOT the outer envelope's msg_id. Android (see
+  // Telegram-Android/TMessagesProj/jni/tgnet/ConnectionsManager.cpp around
+  // the TL_new_session_created branch) iterates its `runningRequests` and
+  // calls `request->clear(true)` for every request whose
+  // `messageId < first_msg_id`, forcing those requests to be retransmitted
+  // in the "new" session. When a client ships multiple RPCs inside a
+  // msg_container, the container's outer msg_id is strictly greater than
+  // every inner msg_id (MTProto §"Containers"). Advertising the outer id
+  // therefore wipes every inner request out of runningRequests and the
+  // whole burst comes back ~1s later — exactly the behaviour we saw in
+  // production logs.
+  //
+  // Using the smallest inner msg_id (or the single-message msg_id for
+  // non-container payloads) is semantically correct: it is the first
+  // msg_id of the new session that we have observed, matches what the
+  // client will have in its runningRequests for this request, and leaves
+  // earlier server-side state (none for us) still eligible to be
+  // dropped/resent by the client. Web clients don't care either way
+  // because GramJS rarely has in-flight requests when new_session_created
+  // arrives.
   let newSessionMsg: Buffer | null = null;
   const announceKey = sessionAnnounceKey(authKeyId, sessionId);
   if (!session.sentNewSessionCreated && !announcedSessions.has(announceKey)) {
@@ -454,13 +502,14 @@ function handleEncryptedMessage(data: Buffer, session: ClientSession): Buffer | 
     announcedSessions.add(announceKey);
     session.serverSeqNo = 0;         // reset seq_no counter for new session
     session.pendingAckMsgIds = [];   // clear pending acks
+    const firstMsgId = minInnerMsgId !== null ? minInnerMsgId : messageId;
     const nsW = new BinaryWriter();
     nsW.writeInt(0x9ec20908);  // new_session_created
-    nsW.writeLong(messageId);  // first_msg_id
+    nsW.writeLong(firstMsgId); // first_msg_id
     nsW.writeLong(BigInt(Date.now()) * 1000000n); // unique_id
     nsW.writeLong(serverSalt.readBigInt64LE(0));   // server_salt
     newSessionMsg = nsW.getBytes();
-    console.log(`[${new Date().toISOString()}] Session ${session.id} sending new_session_created`);
+    console.log(`[${new Date().toISOString()}] Session ${session.id} sending new_session_created (first_msg_id=0x${firstMsgId.toString(16)})`);
   } else if (!session.sentNewSessionCreated) {
     // Already announced for this (auth_key, session_id) on a previous
     // transport connection — mark the per-connection flag so the rest of
