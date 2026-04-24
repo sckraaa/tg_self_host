@@ -36,6 +36,27 @@ function getKeyIdHex(authKey: Buffer): string {
   return sha1Sync(authKey).slice(12, 20).toString('hex');
 }
 
+// Tracks (auth_key_id, session_id) pairs for which we have already announced
+// a `new_session_created` notification to the client. Per MTProto spec a
+// session is identified by (auth_key_id, session_id) — not by a transport
+// connection — and `new_session_created` must be emitted at most once per
+// session. Official Telegram clients (Android:
+// Telegram-Android/TMessagesProj/jni/tgnet/ConnectionsManager.cpp around
+// TL_new_session_created handling) use it as a signal that the server lost
+// state, and in response they mark every already-pending request whose
+// message_id is lower than `first_msg_id` for retransmission. Re-sending
+// this notification on every TCP reconnect therefore forces the client to
+// retransmit its entire init burst, which is exactly what we observed in
+// production logs for the Android client. Web clients typically don't
+// notice because GramJS rarely has in-flight requests at the moment of
+// reconnect.
+const announcedSessions = new Set<string>();
+
+function sessionAnnounceKey(authKeyId: bigint, sessionId: Buffer): string {
+  // Use an unambiguous separator so key collisions are impossible.
+  return `${authKeyId.toString(16)}|${sessionId.toString('hex')}`;
+}
+
 export interface ClientSession {
   id: string;
   socket?: WebSocket;           // WebSocket transport (web clients)
@@ -420,10 +441,17 @@ function handleEncryptedMessage(data: Buffer, session: ClientSession): Buffer | 
   session.serverSalt = serverSalt;
   session.sessionId = sessionId;
 
-  // Send new_session_created on first encrypted message for this session
+  // Emit `new_session_created` at most once per (auth_key_id, session_id)
+  // pair across the entire process lifetime. Sending it on every TCP
+  // reconnect causes Android's ConnectionsManager to retransmit every
+  // already-running request whose msg_id is below `first_msg_id`, which
+  // manifested as the client re-uploading its entire init burst ~750ms
+  // after the first one on every reconnect.
   let newSessionMsg: Buffer | null = null;
-  if (!session.sentNewSessionCreated) {
+  const announceKey = sessionAnnounceKey(authKeyId, sessionId);
+  if (!session.sentNewSessionCreated && !announcedSessions.has(announceKey)) {
     session.sentNewSessionCreated = true;
+    announcedSessions.add(announceKey);
     session.serverSeqNo = 0;         // reset seq_no counter for new session
     session.pendingAckMsgIds = [];   // clear pending acks
     const nsW = new BinaryWriter();
@@ -433,6 +461,11 @@ function handleEncryptedMessage(data: Buffer, session: ClientSession): Buffer | 
     nsW.writeLong(serverSalt.readBigInt64LE(0));   // server_salt
     newSessionMsg = nsW.getBytes();
     console.log(`[${new Date().toISOString()}] Session ${session.id} sending new_session_created`);
+  } else if (!session.sentNewSessionCreated) {
+    // Already announced for this (auth_key, session_id) on a previous
+    // transport connection — mark the per-connection flag so the rest of
+    // this function's branches don't try to emit a duplicate.
+    session.sentNewSessionCreated = true;
   }
 
   // Parse TL constructor from inner data
